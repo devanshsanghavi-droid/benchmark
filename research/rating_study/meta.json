@@ -1,0 +1,26 @@
+{
+ "briefs": [
+  "/home/user/benchmark/research/briefs/A_capability_benchmarks.md",
+  "/home/user/benchmark/research/briefs/B_ecosystem.md",
+  "/home/user/benchmark/research/briefs/C_failures_attention.md",
+  "/home/user/benchmark/research/briefs/D_theory_prior_art.md"
+ ],
+ "gaps": [
+  {
+   "key": "gap_offg_construct_evidence",
+   "title": "Is learning-from-novel-material (and teaching, calibration, multi-turn communication) actually off the general factor? Quantitative test plus the missing counter-evidence"
+  },
+  {
+   "key": "gap_longcontext_icl_lifecycle",
+   "title": "Lifecycle of synthetic long-context and in-context-learning benchmarks (NIAH, RULER, NoLiMa, HELMET, MRCR, Graphwalks, Michelangelo, LOFT, LongBench v2, Fiction.LiveBench, AA-LCR, LongICLBench, many-shot ICL)"
+  },
+  {
+   "key": "gap_teachback_instrument_validity",
+   "title": "Validity of LLM-simulated students and users as the instrument, and a human-learning external criterion for teaching-gain metrics"
+  },
+  {
+   "key": "gap_uncovered_families_generality",
+   "title": "Do the survey's success and failure factors hold for uncovered families: instruction following, function calling, honesty/safety, domain (medical, legal, finance), multilingual and multimodal?"
+  }
+ ]
+}
