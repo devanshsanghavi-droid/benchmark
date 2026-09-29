@@ -58,7 +58,12 @@ Confidence tags: **[H]** high, **[M]** medium, **[L]** low.
      | MMMU | 12 |
      | BrowseComp | 12 |
 
-   - Akhtar et al. (ICML 2026) found the same long tail independently: 190 benchmarks across 61 developer reports (Jan 2022 to Nov 2025), filtered to those used in at least 5 reports. [P, H]
+   - **Robustness note [corrected by fact-check].** The counts above are exact for this 34-release sample; I reproduced them from the author's `matrix.py`. The sample, however, leaves out at least 7 frontier-lab releases that were reachable:
+     - Claude Fable 5.1 / Mythos 5.1 (1 Sep 2026) and Claude Sonnet 5.5 (28 Sep 2026).
+     - Gemini 3 Flash (Dec 2025), Gemini 3.1 Flash-Lite (Mar 2026) and Gemini 3.5 Flash-Lite (Jul 2026).
+     - GPT-5.2-Codex (18 Dec 2025) and GPT-5.4 mini/nano (17 Mar 2026).
+   - Adding them gives 41 releases, 112 families and 45 single-release families (40%). Only 9 families then reach ≥ 1/3 of releases: MMMU and BrowseComp drop to 12/41. The concentration pattern holds, but cite the exact counts only as sample-specific.
+   - Akhtar et al. (ICML 2026) found the same long tail independently: 190 benchmarks across 61 developer reports (Jan 2022 to Nov 2025). Benchmarks from developer reports were then filtered to those used in at least 5 reports. [P, H]
 2. **The 2025 core set is gone from 2026 headline tables.** [D]
    - Across OpenAI, Anthropic and Google headline tables, the four 2025 staples fell as follows:
 
@@ -69,7 +74,17 @@ Confidence tags: **[H]** high, **[M]** medium, **[L]** low.
      | GPQA Diamond | 14/14 | 6/13 (0 after April 2026) |
      | SWE-bench Verified | 13/14 | 4/13 (0 after April 2026) |
 
-   - **None of the 8 benchmark families in Claude 3.7 Sonnet's table (Feb 2025) remains in any Anthropic headline table from Claude Opus 4.8 (May 2026) onward.**
+   - **[corrected by fact-check] These denominators cover the sampled flagship releases only.** With the 5 extra verified 2026 frontier-lab tables (GPT-5.4 mini/nano, Gemini 3.1 Flash-Lite, Gemini 3.5 Flash-Lite, Fable 5.1, Sonnet 5.5) and the 2 extra 2025 ones (Gemini 3 Flash, GPT-5.2-Codex), the figures are:
+
+     | Benchmark | 2025 | 2026 |
+     |---|---|---|
+     | AIME | 14/16 | 0/18 |
+     | MMMU | 11/16 | 0/18 |
+     | GPQA Diamond | 15/16 | 8/18 (both additions are Mar 2026; still none after April 2026) |
+     | SWE-bench Verified | 14/16 | 4/18 |
+
+     OpenAI launches after GPT-5.5 could not be checked: GPT-5.6 Sol, GPT-6 Astra and GPT-6 Sol, all named in Anthropic's tables. "None after April 2026" is therefore verified only for Anthropic and Google.
+   - **None of the 8 benchmark families in Claude 3.7 Sonnet's table (Feb 2025) remains in any Anthropic headline table from Claude Opus 4.8 (May 2026) onward.** This also holds for Fable 5.1 (1 Sep 2026) and Sonnet 5.5 (28 Sep 2026). [fact-check: confirmed on primary table images]
    - Consecutive-release retention in Anthropic tables fell from 0.75–1.00 (2025) to 0.33–0.42 (mid/late 2026).
 3. **The replacement set is agentic, economic and versioned.** [D]
    - Agentic or interactive benchmarks made up this share of frontier-lab headline rows:
@@ -79,8 +94,12 @@ Confidence tags: **[H]** high, **[M]** medium, **[L]** low.
      | 2025H1 | 23% |
      | 2025H2 | 35% |
      | 2026H1 | 61% |
-     | 2026H2 | 76% (Anthropic only, n = 2 releases) |
+     | 2026H2 | 76% (n = 2 Anthropic releases in the original sample) |
 
+   - **[corrected by fact-check]** 2026H2 did not have to be "Anthropic only, n = 2". Three more tables were reachable: Fable 5.1, Sonnet 5.5 and Google's Gemini 3.5 Flash-Lite.
+     - **Expanded sample:** 23% (2025H1), 36% (2025H2), 56% (2026H1), 77% (2026H2, n = 5).
+     - **Stricter classification:** 23% / 33% / 54% / 74%. This version does not count ScreenSpot-Pro (static GUI grounding), GDP.pdf (labelled "no tools" in the Fable 5 table), OfficeQA or AA-Briefcase as agentic.
+     - The rising trend is robust. The exact percentages depend on the sample and on the classification.
    - The long-lived 2026 entries are **versioned brands**:
      - Terminal-Bench 1.0 → 2.0 → 2.1 → 4.0
      - OSWorld → OSWorld-Verified → 2.0 → 2.1
@@ -91,8 +110,12 @@ Confidence tags: **[H]** high, **[M]** medium, **[L]** low.
      - SWE-bench → Verified → Pro
    - Humanity's Last Exam (HLE) is the only unversioned benchmark present in essentially every 2026 frontier table (12/13). [P/Mi]
 4. **Retirement is now explicit and lab-driven.** [Mi, H]
-   - OpenAI stopped reporting SWE-bench Verified on 23 Feb 2026. It said the benchmark "became a standard metric reported in frontier model releases" but was now contaminated and flawed: 59.4% of 138 audited hard problems were flawed, and "all frontier models we tested" reproduced gold patches.
+   - OpenAI stopped reporting SWE-bench Verified on 23 Feb 2026. It said the benchmark "became a standard metric reported in frontier model releases" but was now contaminated and flawed.
+     - **[corrected by fact-check] Exact wording.** The 138 audited problems were ones o3 did not consistently solve over 64 runs. "59.4% of the 138 problems contained material issues in test design and/or problem description"; elsewhere the post says "at least 59.4% of the audited problems have flawed test cases".
+     - On contamination, "all frontier models we tested" could reproduce "the gold patch, or verbatim problem statement specifics for certain tasks". The post does not say that every model reproduced gold patches.
    - OpenAI recommended SWE-bench Pro instead. SWE-bench Pro went from 1/14 frontier tables in 2025 to 9/11 in 2026H1. [D]
+     - **[corrected by fact-check] The timing does not support a simple "after the recommendation" story.** OpenAI itself had reported SWE-bench Pro since GPT-5.2 (11 Dec 2025) and GPT-5.2-Codex (18 Dec 2025). GPT-5.3-Codex (5 Feb 2026) and Gemini 3.1 Pro (Feb 2026, day unverified) also reported it before the 23 Feb post.
+     - 3 of the 9 2026H1 adopters are OpenAI's own releases. Anthropic's first SWE-bench Pro row came with Opus 4.7 (16 Apr 2026).
    - OpenAI had already frozen its classic `simple-evals` table (MMLU/GPQA/MATH/HumanEval/MGSM/DROP) in July 2025. [P, H]
    - Anthropic's Opus 5.5 post (22 Sep 2026) states that "benchmark margins have become a less reliable guide to real-world differences." [P, H]
 5. **Saturation time has collapsed from decades to months.**
@@ -125,6 +148,7 @@ Confidence tags: **[H]** high, **[M]** medium, **[L]** low.
 8. **Games are absent from headline tables.**
    - In all 34 releases, no conventional board-game or video-game benchmark appears as a headline row.
    - Pokémon play appears only as a qualitative demo (Claude 4 post; Gemini 2.5 report). Google did not put its own Kaggle Game Arena (launched Aug 2025, Sib) in the Gemini 3, 3.1 or 3.5 tables.
+   - [fact-check addition] The Claude Sonnet 5.5 post (28 Sep 2026) says in prose that it is "the first Sonnet model to beat Pokémon Red working only from screenshots". Its table has no game row, so this is again a demo rather than a headline benchmark.
    - The only game-like rows are ARC-AGI-3 (novel, purpose-built interactive environments; in the Opus 5 table) and Vending-Bench 2 (a business simulation; in the Gemini 3 Pro table). [P, H] This supports the user's diagnosis that off-the-shelf game benchmarks lack lab uptake.
 
 **Design takeaway for our non-game benchmark (interpretation):**
@@ -146,7 +170,10 @@ Confidence tags: **[H]** high, **[M]** medium, **[L]** low.
   - "Agentic" means the model acts through tools or an environment: SWE-bench\*, Terminal-Bench\*, τ-bench\*, OSWorld\*, BrowseComp, MCP Atlas, GDPval\*, Finance Agent, Toolathlon, CyberGym, SWE-Lancer, Vending-Bench, and similar.
 - **Scripts.** Computed in the scratchpad (`matrix.py`, `period.py`, `tables.py`). All data are listed in A.2 and A.3, so the analysis can be re-derived.
 - **Caveats.**
-  - The Anthropic sample is denser (14 releases) than Google's (4). The 2026H2 bucket has only Anthropic's Opus 5 and Opus 5.5, because no later OpenAI or Google launch page was reachable.
+  - The Anthropic sample is denser (14 releases) than Google's (4). The 2026H2 bucket has only Anthropic's Opus 5 and Opus 5.5.
+    - [corrected by fact-check] The original reason given, that no later OpenAI or Google launch page was reachable, is only partly true.
+    - Google's Gemini 3.5 Flash-Lite model card (Jul 2026) is reachable on storage.googleapis.com.
+    - Two Anthropic releases were also omitted: Fable 5.1 (1 Sep 2026) and Sonnet 5.5 (28 Sep 2026). See A.5.
   - xAI (Grok 4) and Alibaba (Qwen3) are **not in the matrix**. Their launch pages and model cards were unreachable (see A.5).
   - Open-weight READMEs list more benchmarks per release (median about 20) than frontier launch tables (median about 12). Table-size effects are therefore large, and cross-lab comparisons should use shares.
 
@@ -336,6 +363,23 @@ The half-year columns count only OpenAI, Anthropic and Google (frontier-3) relea
   - The Akhtar dataset lists Qwen3-235B top-5 entries on MCLM (80.8), C-Eval (89.6) and MMLU-Redux (93.8, Thinking-2507). [P]
 - **Zhipu GLM.** The README text for GLM-4.7 names SWE-bench, SWE-bench Multilingual, Terminal Bench 2.0, τ²-Bench, BrowseComp and HLE. The tables are images and were not counted. [P]
   - The GLM-4.5 README says it was evaluated "across 12 industry-standard benchmarks" (arXiv:2508.06471). [P]
+- **[fact-check addition] Reachable frontier-lab releases that the matrix omits.** All were verified on 2026-09-29 and are listed in the refs JSON.
+
+  | Release | Date | Headline rows |
+  |---|---|---|
+  | Claude Fable 5.1 / Mythos 5.1 | 1 Sep 2026 | Terminal-Bench-Science 0.1, Terminal-Bench 4.0, GDPval-AA v2, OSWorld 2.0, HLE, AutomationBench, CursorBench 3.2.0 |
+  | Claude Sonnet 5.5 | 28 Sep 2026 | Terminal-Bench 4.0, FrontierCode 1.1, CursorBench 4.0, GDPval-AA v2.1, AA-Briefcase v1.1, HLE, OSWorld 2.1, Chartography |
+  | Gemini 3 Flash | Dec 2025 | Includes AIME 2025, GPQA and SWE-bench Verified |
+  | Gemini 3.1 Flash-Lite | Mar 2026 | GPQA, MMMLU, SimpleQA Verified, FACTS, LiveCodeBench; no agentic rows |
+  | Gemini 3.5 Flash-Lite | Jul 2026 | SWE-Bench Pro, Terminal-bench 2.1, MLE-Bench, GDPval-AA v2, OSWorld-Verified, CharXiv, MRCR v2 |
+  | GPT-5.2-Codex | 18 Dec 2025 | SWE-Bench Pro, Terminal-Bench |
+  | GPT-5.4 mini/nano | 17 Mar 2026 | SWE-Bench Pro, Terminal-Bench 2.0, Toolathlon, GPQA, OSWorld-Verified, MCP Atlas, τ2-bench, HLE, MMMU-Pro, … |
+
+  - GPT-5.1 (12 Nov 2025) mentions AIME and Codeforces in prose only.
+  - Not reachable:
+    - GPT-5.6 Sol, GPT-6 Astra and GPT-6 Sol, which appear as competitor columns in Anthropic's Jul–Sep 2026 tables.
+    - Claude Mythos Preview (Apr 2026, restricted).
+    - xAI and Alibaba releases.
 
 ---
 
@@ -448,10 +492,10 @@ Pattern [I, M-H]:
 | **Terminal-Bench** | Repo created Jan 2025 [Sib] | **Anthropic headline adoption on day one** (Claude 4, 22 May 2025: 43.2%) [P]. Terminal coding agents (Claude Code, Codex CLI). Lab task contributions and a public harness (Terminus) [Sib] | 11/11 frontier releases in 2026H1 [D]. "used by virtually all frontier labs" (README, self-report) [Sib] |
 | **τ-bench / τ²-bench** | Jun 2024, Sierra (a startup) [Sib] | **Early Anthropic adoption** (Claude 3.5 Sonnet new / 3.7 Sonnet tables) [P/Sib]. The telecom dual-control domain in τ² (Jun 2025) | 19/34 releases across 5 orgs [D]. Died by 2026H2 at 98–99% telecom |
 | **Humanity's Last Exam** | Never obscure: launched 24 Jan 2025 with branding [Sib] | Name ("Last Exam"), launch headroom (<10%), **CAIS + Scale + a Scale leaderboard** that labs cite for competitors [P: Gemini 2.5/3 notes], a Nature paper [Sib] | 22/34 releases; 12/13 frontier tables in 2026 [D] |
-| **GDPval** | OpenAI, Sep–Oct 2025, expert-graded [Sib] | **Artificial Analysis turned it into GDPval-AA**: an automated LLM-judge Elo leaderboard [Sib]. The "economic value" narrative | 0/14 frontier tables in 2025 → 12/13 in 2026 [D] (as GDPval or GDPval-AA v2/v2.1) |
+| **GDPval** | OpenAI, Sep–Oct 2025, expert-graded [Sib] | **Artificial Analysis turned it into GDPval-AA**: an automated LLM-judge Elo leaderboard [Sib]. The "economic value" narrative | 1/14 frontier tables in 2025 (GPT-5.2, Dec 2025) → 12/13 in 2026 [D] (as GDPval or GDPval-AA v2/v2.1) [corrected by fact-check: was "0/14", which contradicted the A.3 table and Claims ledger #14] |
 | **OSWorld** | Apr 2024 (NeurIPS 2024); launch best 12.24% vs human 72.36% [Sib] | Anthropic computer-use products. **OSWorld-Verified (Jul 2025), fixed with participation from Moonshot, OpenAI, Anthropic, ByteDance and others** [Sib] | 0/6 → 3/8 → 10/11 → 2/2 frontier tables by half-year [D]. Re-versioned as 2.0 and 2.1 |
 | **BrowseComp** | OpenAI, Apr 2025 [Sib] | Open-sourced in simple-evals (still maintained after the Jul 2025 freeze) [P]. The rise of deep-research products | Open-weight labs adopted it first (DeepSeek V3.2-Exp, MiniMax-M2, GLM). Anthropic and Google followed in Feb 2026 [P/D] |
-| **SWE-bench Pro** | Scale, 21 Sep 2025 [Sib] | **OpenAI's Feb 2026 recommendation** as the Verified replacement [Mi] | 1/14 → 9/11 frontier tables (2025 → 2026H1) [D] |
+| **SWE-bench Pro** | Scale, 21 Sep 2025 [Sib] | **OpenAI's own adoption (GPT-5.2, Dec 2025) and its Feb 2026 recommendation** as the Verified replacement [Mi] [corrected by fact-check: GPT-5.2, GPT-5.2-Codex, GPT-5.3-Codex and Gemini 3.1 Pro reported it before the 23 Feb 2026 post] | 1/14 → 9/11 frontier tables (2025 → 2026H1) [D] |
 | **AIME** | A long-standing exam | **OpenAI o1 (Sep 2024)** made it the "reasoning-model" headline [Sib] | 13/14 frontier tables in 2025. Dead in 2026 after 100% [D/P] |
 
 **Lag from public release to first headline adoption** [D]:
@@ -518,6 +562,7 @@ Pattern [I, M-H]:
 - **Status:** **contaminated / retired.** OpenAI's audit:
   - "at least 59.4% of the audited problems have flawed test cases".
   - "all frontier models we tested were able to reproduce the original, human-written bug fix".
+    - [corrected by fact-check] The sentence continues "…known as the gold patch, or verbatim problem statement specifics for certain tasks". Quote it in full.
   - "we have stopped reporting SWE-bench Verified scores, and we recommend that other model developers do so too… OpenAI recommends reporting results for SWE-bench Pro." [Mi, H]
   - Anthropic kept it through Opus 4.7, with a memorization screen footnote: "Our memorization screens flag a subset of problems… Excluding any problems that show signs of memorization, Opus 4.7's margin of improvement over Opus 4.6 holds." [P]
 - **Why it succeeded:**
@@ -545,7 +590,7 @@ Pattern [I, M-H]:
 - **Items:** 2,500 public questions. [Sib]
 - **Launch vs. latest:**
   - o1 8.0% at launch [Sib]; 13.4 (o3-mini-high) as SOTA-at-release in the Akhtar data. [P]
-  - Latest, no tools: Claude Mythos 5 / Fable 5 59.0% (Jun 2026). [P]
+  - Latest, no tools: Claude Mythos 5 / Fable 5 59.0% (Jun 2026). [P] [corrected by fact-check] This has been superseded by Claude Fable 5.1 at 60.9% (no tools) and 65.0% (with tools) on 1 Sep 2026. [P: anthropic.com/claude-fable-and-mythos-5-1]
   - Latest, with tools: Claude Opus 5.5 67.7% (Sep 2026). [P]
 - **Adoption:**
   - 22/34 releases. [D]
@@ -620,6 +665,7 @@ Pattern [I, M-H]:
   - TB2.0: Opus 4.5 59.3% (Nov 2025) → GPT-5.5 82.7% (Apr 2026). [P, Mi]
   - TB2.1: Fable 5 88.0% (Jun 2026). [P]
   - TB4.0: Opus 5.5 66.4% (SE ±2.6), GPT-6 Astra 57.9% (Sep 2026). [P]
+    - [fact-check addition] Claude Sonnet 5.5 scores 70.6% on TB4.0 (28 Sep 2026). The Sonnet 5.5 post adds: "Terminal-Bench and OpenAI did not report GPT-6 Sol performance publicly, so we report GPT-5.6 Sol here." [P: anthropic.com/claude-sonnet-5-5]
 - **Adoption:** 21/34 releases, 6 orgs; 11/11 frontier tables in 2026H1. [D]
 - **Status:** **thriving through versioning.**
 - **Why it succeeded:**
@@ -758,6 +804,7 @@ Pattern [I, M-H]:
   - Google Gemini 2.5 and 3 Pro (Verified, "from the official Kaggle leaderboard").
   - DeepSeek, Moonshot, MiniMax.
   - 0 frontier tables in 2026. [D, P]
+    - [corrected by fact-check] This is true of the sampled flagship releases only. Google's Gemini 3.1 Flash-Lite model card (Mar 2026) reports SimpleQA Verified (43.3%).
 - **Scores:** Gemini 3 Pro 72.1% (SimpleQA Verified, Nov 2025). [P] The Akhtar data list 97.1 for DeepSeek-V3.2-Exp, which is likely a tool-augmented variant (unverified). [P data, L]
 - **Status:** niche / tool-contaminated. Search agents trivially retrieve answers. [Sib]
 
@@ -767,7 +814,8 @@ Pattern [I, M-H]:
 - **Adoption:**
   - 8/34 releases, mostly open-weight: DeepSeek, Moonshot, MiniMax, Meta, Gemini 2.5.
   - The frontier labs moved to agentic coding. Google uses LiveCodeBench **Pro** Elo: Gemini 3 Pro 2,439 → 3.1 Pro 2,887. [P]
-- **Status:** active in open-weight reports; absent from 2026 frontier tables. [D]
+- **Status:** active in open-weight reports; absent from 2026 frontier *flagship* tables. [D]
+  - [corrected by fact-check] Google's Gemini 3.1 Flash-Lite card (Mar 2026) still reports LiveCodeBench: 72.0%, with the UI window 1/1/2025–5/1/2025.
   - Akhtar S-index 0.77 ("High"). [P]
 
 ### 18. Aider Polyglot
@@ -825,6 +873,10 @@ Observations:
      - SimpleQA Verified: Kaggle
    - Gemini 2.5 did the same for Aider, SimpleQA and FACTS.
    - Anthropic Opus 5.5 did the same for Terminal-Bench 4.0, AutomationBench and GDPval-AA.
+     - **[corrected by fact-check] Only AutomationBench is explicit third-party competitor sourcing.** The Opus 5.5 post says "Results for Opus 5, GPT-5.6 Sol, and GPT-6 Astra come from Zapier's public leaderboard."
+     - For Terminal-Bench 4.0 and TB-Science, competitor numbers are "as reported by OpenAI". The public leaderboard is cited only to show that Anthropic's own setup reproduces Opus 5's leaderboard score (52.3% vs 51.8%).
+     - Artificial Analysis is named as GDPval-AA's maintainer, with no statement that competitor numbers came from it.
+     - Explicit Artificial Analysis and Surge AI sourcing appears instead in the **Sonnet 5.5** post (28 Sep 2026): "Artificial Analysis ran GDPval-AA and AA-Briefcase on a pre-release deployment of Sonnet 5.5", and "Official AA-Briefcase v1.1 and GDPval-AA v2.1 scores from Artificial Analysis, and Chartography scores from Surge AI". [P]
    - OpenAI GPT-5.5 did the same for MCP Atlas.
    - Benchmarks without such a source have to be re-run by the reporting lab. Google names the ones it ran itself (MMMU-Pro, ScreenSpot-Pro, CharXiv, OmniDocBench, Video-MMMU, MMMLU, Global PIQA), which raises cost and dispute risk.
 2. **Product alignment.** [D, H] The agentic share of frontier headline rows went 23% → 35% → 61% → 76% (2025H1 → 2026H2) as labs sold coding agents, computer use and enterprise work. Benchmarks that measure what is being sold get adopted.
@@ -890,11 +942,11 @@ Observations:
 | # | Claim | Sources | Confidence |
 |---|---|---|---|
 | 1 | Headline tables of 34 releases (Dec 2024–Sep 2026; 7 developers) name 110 benchmark families; 48 (44%) appear in exactly one release; only 11 appear in ≥ 1/3 of releases (GPQA Diamond 27, SWE-bench Verified 23, HLE 22, Terminal-Bench 21, AIME 19, τ-bench 19, OSWorld 15, MMMLU 14, GDPval 13, MMMU 12, BrowseComp 12). | Derived from the release sources in A.2 (Refs 7–20, 22–30, 33–44) | H for the counts, given the A.1 inclusion rule |
-| 2 | Across OpenAI, Anthropic and Google headline tables, AIME appeared in 13/14 releases in 2025 and 0/13 in 2026; MMMU 11/14 → 0/13; GPQA Diamond 14/14 → 6/13 (none after April 2026); SWE-bench Verified 13/14 → 4/13. | Refs 7–20, 22–30, 33–37 | H |
-| 3 | The agentic share of frontier-3 headline rows was 23% (2025H1), 35% (2025H2), 61% (2026H1) and 76% (2026H2, Anthropic only). | Derived; Refs 7–20, 22–30, 33–37 | M-H (the category boundary is a judgment call) |
+| 2 | Across OpenAI, Anthropic and Google headline tables, AIME appeared in 13/14 releases in 2025 and 0/13 in 2026; MMMU 11/14 → 0/13; GPQA Diamond 14/14 → 6/13 (none after April 2026); SWE-bench Verified 13/14 → 4/13. | Refs 7–20, 22–30, 33–37 | H within the sample. [corrected by fact-check] Sample-scoped: the expanded sample (+7 verified releases) gives AIME 14/16 → 0/18, MMMU 11/16 → 0/18, GPQA 15/16 → 8/18 and SWE-V 14/16 → 4/18. OpenAI launches after GPT-5.5 are unverified. |
+| 3 | The agentic share of frontier-3 headline rows was 23% (2025H1), 35% (2025H2), 61% (2026H1) and 76% (2026H2, Anthropic only). [corrected by fact-check] The expanded sample gives 23 / 36 / 56 / 77% (2026H2 n = 5, incl. Google's Gemini 3.5 Flash-Lite). The stricter classification gives 23 / 33 / 54 / 74%. | Derived; Refs 7–20, 22–30, 33–37; fact-check additions in the refs JSON | M (the trend is robust; the exact values depend on the sample and the classification) |
 | 4 | None of the 8 benchmark families in Claude 3.7 Sonnet's table (24 Feb 2025) appears in any Anthropic headline table from Opus 4.8 (28 May 2026) onward. | https://www.anthropic.com/news/claude-3-7-sonnet ; https://www.anthropic.com/news/claude-opus-4-8 ; …/claude-fable-5-mythos-5 ; …/claude-sonnet-5 ; …/claude-opus-5 ; …/claude-opus-5-5 | H |
-| 5 | OpenAI (23 Feb 2026) said SWE-bench Verified "became a standard metric reported in frontier model releases". It found ≥59.4% of 138 audited hard problems had flawed tests and that all frontier models tested could reproduce gold patches. It stopped reporting the benchmark and recommended SWE-bench Pro; SOTA had moved 74.9% → 80.9% in the prior 6 months. | https://raw.githubusercontent.com/visual-snow/seshat/main/web-research/openai/why-we-no-longer-evaluate-swe-bench-verified.md (mirror of https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified) | M-H (mirror) |
-| 6 | Labs source competitor numbers from providers' self-reports and third-party leaderboards: ARC Prize Verified, Scale's HLE leaderboard, Artificial Analysis, matharena.ai, the public LiveCodeBench Pro and Terminal-Bench 2.0 leaderboards, Andon Labs (Vending-Bench 2), Kaggle (SimpleQA Verified). | https://storage.googleapis.com/deepmind-media/gemini/gemini_3_pro_model_evaluation.pdf ; https://storage.googleapis.com/deepmind-media/gemini/gemini_v2_5_report.pdf ; https://www.anthropic.com/news/claude-opus-5-5 | H |
+| 5 | OpenAI (23 Feb 2026) said SWE-bench Verified "became a standard metric reported in frontier model releases". It found ≥59.4% of 138 audited hard problems had flawed tests and that all frontier models tested could reproduce gold patches. It stopped reporting the benchmark and recommended SWE-bench Pro; SOTA had moved 74.9% → 80.9% in the prior 6 months. [corrected by fact-check] The exact wording is "59.4% of the 138 problems contained material issues in test design and/or problem description". The models could reproduce "the gold patch, or verbatim problem statement specifics for certain tasks". | https://raw.githubusercontent.com/visual-snow/seshat/main/web-research/openai/why-we-no-longer-evaluate-swe-bench-verified.md (mirror of https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified) | M-H (mirror) |
+| 6 | Labs source competitor numbers from providers' self-reports and third-party leaderboards: ARC Prize Verified, Scale's HLE leaderboard, Artificial Analysis, matharena.ai, the public LiveCodeBench Pro and Terminal-Bench 2.0 leaderboards, Andon Labs (Vending-Bench 2), Kaggle (SimpleQA Verified). [corrected by fact-check] The Gemini 3 Pro part is confirmed verbatim. In Anthropic's Opus 5.5 post only AutomationBench competitor numbers are explicitly third-party (Zapier). Its Terminal-Bench competitor numbers are OpenAI self-reports; the leaderboard is used as a reproduction check. Explicit Artificial Analysis and Surge AI sourcing is in the Sonnet 5.5 post (https://www.anthropic.com/claude-sonnet-5-5). | https://storage.googleapis.com/deepmind-media/gemini/gemini_3_pro_model_evaluation.pdf ; https://storage.googleapis.com/deepmind-media/gemini/gemini_v2_5_report.pdf ; https://www.anthropic.com/news/claude-opus-5-5 | H |
 | 7 | ARC Prize's 2025 technical report states that four frontier labs (Anthropic, Google DeepMind, OpenAI, xAI) reported ARC-AGI performance in public model cards in 2025, "establishing ARC-AGI as an industry standard benchmark for AI reasoning". | https://raw.githubusercontent.com/UNIR-TUC/arc-agi/48d931918edd904b99ef546a98adc97e19ccf528/src/SuperCompressARC/Docs/2025/2601.10904v1_arc_prize_2025.md (arXiv:2601.10904) | H |
 | 8 | Akhtar et al. (ICML 2026) reviewed 61 developer reports (Jan 2022–Nov 2025) naming 190 benchmarks, and analysed 60. Nearly half are saturated. Frequency of appearance in technical reports is not associated with saturation (ρ = 0.05, p = 0.73). Age and test-set size are the most consistent predictors. | https://raw.githubusercontent.com/mlresearch/v306/main/assets/akhtar26a/akhtar26a.pdf ; https://github.com/evaleval/benchmark-saturation | H |
 | 9 | Kiela et al. (2021) Fig. 1 shows time-to-human-parity shrinking from about 15–20 years (MNIST, Switchboard) to about 1–2 years (SQuAD, GLUE). The year values are approximate readings of the figure. | https://raw.githubusercontent.com/KAUST-Academy/Artificial-Intelligence-Courses/HEAD/LaTeX/sections/llm-evaluation/motivation.tex ; figure at …/LaTeX/images/llm-evaluation/dynabench_fig1_benchmark_saturation.png | M |
@@ -903,7 +955,7 @@ Observations:
 | 12 | GPT-5.2 reported 100.0% on AIME 2025 without tools (11 Dec 2025). Gemini 3 Pro reported 100% with code execution (Nov 2025). No frontier-3 headline table in 2026 reports AIME. | seshat mirror introducing-gpt-5-2.md ; gemini_3_pro_model_evaluation.pdf ; derived | H |
 | 13 | OpenAI froze simple-evals in July 2025 ("will no longer be updated for new models or benchmark results"), keeping only HealthBench, BrowseComp and SimpleQA reference implementations. | https://github.com/openai/simple-evals (README) | H |
 | 14 | GDPval (incl. GDPval-AA) went from 1/14 frontier-3 headline tables in 2025 to 12/13 in 2026. Anthropic's tables cite "Artificial Analysis's GDPval-AA". | Refs 13–20, 27–30, 36–37; https://www.anthropic.com/news/claude-opus-5-5 | H |
-| 15 | SWE-bench Pro went from 1/14 frontier-3 tables in 2025 (GPT-5.2) to 9/11 in 2026H1. | Refs 15–18, 27–30, 36–37 | H |
+| 15 | SWE-bench Pro went from 1/14 frontier-3 tables in 2025 (GPT-5.2) to 9/11 in 2026H1. [corrected by fact-check] Do not frame this as caused by OpenAI's 23 Feb 2026 recommendation. GPT-5.2, GPT-5.2-Codex, GPT-5.3-Codex and Gemini 3.1 Pro reported SWE-bench Pro before that post, and 3 of the 9 2026H1 adopters are OpenAI releases. | Refs 15–18, 27–30, 36–37 | H (counts); M (causal framing) |
 | 16 | Across 39 benchmarks with citation counts in Akhtar's dataset, citations correlate negatively with 2025–26 headline adoption (Spearman ρ = −0.34, permutation p ≈ 0.03). This is exploratory and confounded by age. | Derived from evaleval/benchmark-saturation CSV and the A.2 matrix | L-M |
 | 17 | Zero conventional game benchmarks appear in the 34 headline tables. Pokémon appears only as a demo (Claude 4; Gemini 2.5). ARC-AGI-3 (novel interactive environments) is the lone game-like row (Opus 5). | Refs 8, 19, 33 | H |
 | 18 | Terminal-Bench was in Anthropic's headline table on day one (Claude Opus 4, 22 May 2025: 43.2%) and in 11/11 frontier-3 releases in 2026H1. Versions went 2.0 → 2.1 → 4.0 within about 10 months. | https://www.anthropic.com/news/claude-4 ; Refs 8, 13–20, 28–30, 34–37 | H |
@@ -929,14 +981,16 @@ Full entries with seen-URLs are in `research/refs/model_cards_adoption.json`. [P
 10. Introducing Claude Sonnet 4.5 (29 Sep 2025).
 11. Introducing Claude Haiku 4.5 (15 Oct 2025).
 12. Introducing Claude Opus 4.5 (24 Nov 2025).
-13. Introducing Claude Opus 4.6 (5 Feb 2026).
-14. Introducing Claude Sonnet 4.6 (17 Feb 2026).
+13. Claude Opus 4.6 (5 Feb 2026). [corrected by fact-check: the page title is "Claude Opus 4.6"]
+14. Introducing Sonnet 4.6 (17 Feb 2026). [corrected by fact-check: the page title is "Introducing Sonnet 4.6"]
 15. Introducing Claude Opus 4.7 (16 Apr 2026).
 16. Introducing Claude Opus 4.8 (28 May 2026).
 17. Claude Fable 5 and Claude Mythos 5 (9 Jun 2026).
 18. Introducing Claude Sonnet 5 (30 Jun 2026).
 19. Introducing Claude Opus 5 (24 Jul 2026).
-20. Introducing Claude Opus 5.5 (22 Sep 2026).
+20. Introducing Claude Opus 5.5 (22 Sep 2026). The URL now redirects to https://www.anthropic.com/claude-opus-5-5.
+20a. Introducing Claude Fable 5.1 and Claude Mythos 5.1 (1 Sep 2026). https://www.anthropic.com/claude-fable-and-mythos-5-1 [added by fact-check]
+20b. Introducing Claude Sonnet 5.5 (28 Sep 2026). https://www.anthropic.com/claude-sonnet-5-5 [added by fact-check]
 21. Demystifying evals for AI agents (Anthropic Engineering, 9 Jan 2026).
 
 **OpenAI (launch posts via [Mi] visual-snow/seshat; simple-evals [P])**
@@ -951,6 +1005,7 @@ Full entries with seen-URLs are in `research/refs/model_cards_adoption.json`. [P
 30. Introducing GPT-5.5 (23 Apr 2026).
 31. Why SWE-bench Verified no longer measures frontier coding capabilities (23 Feb 2026).
 32. openai/simple-evals README (deprecation notice, July 2025). [P]
+32a. Introducing GPT-5.2-Codex (18 Dec 2025), Introducing GPT-5.4 mini and nano (17 Mar 2026), and GPT-5.1 (12 Nov 2025), via [Mi] seshat. [added by fact-check]
 
 **Google DeepMind ([P], storage.googleapis.com)**
 33. Gemini Team (2025). *Gemini 2.5: Pushing the Frontier with Advanced Reasoning, Multimodality, Long Context, and Next Generation Agentic Capabilities.* Technical report.
@@ -958,6 +1013,7 @@ Full entries with seen-URLs are in `research/refs/model_cards_adoption.json`. [P
 35. Gemini 3 Pro Model Card (Nov 2025).
 36. Gemini 3.1 Pro Model Card (Feb 2026).
 37. Gemini 3.5 Flash Model Card (May 2026).
+37a. Gemini 3 Flash (Dec 2025), Gemini 3.1 Flash-Lite (Mar 2026) and Gemini 3.5 Flash-Lite (Jul 2026) Model Cards, all on storage.googleapis.com/deepmind-media/Model-Cards/. [added by fact-check]
 
 **Open-weight developers ([P], GitHub)**
 38. Meta. Llama 4 Model Card (Apr 2025).
@@ -972,7 +1028,7 @@ Full entries with seen-URLs are in `research/refs/model_cards_adoption.json`. [P
 **Other**
 46. Chollet, F., Knoop, M., Kamradt, G., Landers, B. (2026). *ARC Prize 2025: Technical Report.* arXiv:2601.10904. [Mi]
 47. arcprize/ARC-AGI-2 changelog. [P]
-48. Kopel, R. *Killed by LLM* (data.ts). [S] https://github.com/R0bk/killedbyllm
+48. Kopel, Rob (GitHub R0bk). *Killed by LLM* (data.ts). [S] [corrected by fact-check: the JSON had "Robert"; the GitHub profile shows "Rob Kopel"] https://github.com/R0bk/killedbyllm
 49. Esposito, M., Zhang, L. (2026). *The Benchmark Ceiling: Human Judgment, Evaluation Scarcity, and the Political Economy of AI Capability Measurement.* arXiv:2607.01254 (working paper). [Mi]
 
 **Sibling dossiers relied on (not re-fetched unless stated):**
@@ -983,3 +1039,70 @@ Full entries with seen-URLs are in `research/refs/model_cards_adoption.json`. [P
 - math.md: AIME contamination, FrontierMath.
 - arenas_preference.md: the Llama 4 Arena episode.
 - contamination_saturation_stats.md: BrowseComp decryption, harness effects.
+
+---
+
+## Verification log
+
+The adversarial fact-check ran on 2026-09-29.
+
+**Constraints.**
+- The session-wide WebSearch budget was already exhausted: the first WebSearch call returned "200 of 200 used". No new web searches were possible.
+- The following were not reachable: arxiv.org, openai.com, hai.stanford.edu, crossref, dblp, semanticscholar, openalex, nature.com and aclanthology.
+- The following were reachable, and I re-fetched primary material directly from them: anthropic.com (HTML, plus table images through anthropic.com's image proxy), storage.googleapis.com (Google DeepMind PDFs; tables extracted as images and read), raw.githubusercontent.com (READMEs and mirrors) and github.com (through WebFetch).
+
+**Independence.** Where only a mirror existed, I looked for a second, independent copy or a cross-lab corroboration. For example, Google's Gemini 3 Flash card lists GPT-5.2 at AIME 2025 100% without tools. I also re-ran the author's `matrix.py` / `period.py`, then re-counted with 7 additional verified releases (`fc_recount.py` in the scratchpad).
+
+| ID | Verdict | Evidence (what I independently checked) | Sources |
+|---|---|---|---|
+| C1 | **Confirmed** (as a statement about the stated 34-release sample); sample-dependence flagged | Arithmetic reproduced exactly: 110 families, 48 singletons (44%), 11 families ≥ 1/3 with the stated counts. Primary tables re-read and matching the A.2 lists: A1, A9, A10, A10b, A10c, A11, A12, G2, G3, G4; the K1 README list also matches. The sample omits 7 reachable frontier-lab releases (A.5 addition). With them: 41 releases, 112 families, 45 singletons (40%), only 9 families ≥ 1/3 (MMMU and BrowseComp at 12/41). | anthropic.com posts (3.7 Sonnet, Opus 4.7, 4.8, Fable 5, Sonnet 5, Opus 5, Opus 5.5); Gemini 3 Pro eval PDF; Gemini 3.1 Pro and 3.5 Flash cards; Kimi-K2 README; https://www.anthropic.com/claude-fable-and-mythos-5-1 ; https://www.anthropic.com/claude-sonnet-5-5 ; Gemini 3 Flash / 3.1 Flash-Lite / 3.5 Flash-Lite cards; seshat GPT-5.2-Codex and GPT-5.4 mini/nano mirrors |
+| C2 | **Confirmed** within the sample; scope qualified inline | GPQA absence re-verified on primary images for Opus 4.8, Fable 5, Sonnet 5, Opus 5, Opus 5.5 and Gemini 3.5 Flash, and additionally for Fable 5.1, Sonnet 5.5 and Gemini 3.5 Flash-Lite. No AIME or MMMU in any of the 18 verified 2026 frontier-lab tables. Expanded counts: AIME 14/16 → 0/18; MMMU 11/16 → 0/18; GPQA 15/16 → 8/18, with the last appearance in April 2026. Unverifiable for GPT-5.6 Sol, GPT-6 Astra and GPT-6 Sol. | https://www.anthropic.com/news/claude-opus-4-8 ; https://www.anthropic.com/news/claude-opus-5 ; https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-5-Flash-Model-Card.pdf ; https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-1-Flash-Lite-Model-Card.pdf ; seshat GPT-5.4 / 5.5 / 5.4-mini mirrors |
+| C3 | **Corrected** | The original values reproduce from the author's data. However, 2026H2 was not "Anthropic only, n = 2": Fable 5.1, Sonnet 5.5 and Gemini 3.5 Flash-Lite were reachable. The 2026H1 value drops to 56% when GPT-5.4 mini/nano and Gemini 3.1 Flash-Lite are included. Some items counted as agentic are debatable: ScreenSpot-Pro, GDP.pdf (labelled "no tools") and OfficeQA. Corrected values are 23 / 36 / 56 / 77% (expanded) and 23 / 33 / 54 / 74% (expanded, stricter). | As C1/C2 |
+| C4 | **Confirmed** (and extended) | 3.7 Sonnet table image: exactly 8 families (GPQA Diamond, SWE-bench Verified, TAU-bench, MMMLU, MMMU, IFEval, MATH 500, AIME 2024). None appears in the Opus 4.8, Fable 5, Sonnet 5 or Opus 5 table images, in the Opus 5.5 HTML table, or in the omitted Fable 5.1 and Sonnet 5.5 tables. | https://www.anthropic.com/news/claude-3-7-sonnet ; …/claude-opus-4-8 ; …/claude-fable-5-mythos-5 ; …/claude-sonnet-5 ; …/claude-opus-5 ; https://www.anthropic.com/claude-opus-5-5 ; https://www.anthropic.com/claude-fable-and-mythos-5-1 ; https://www.anthropic.com/claude-sonnet-5-5 |
+| C5 | **Corrected** (wording) | Mirror re-read. Confirmed: "became a standard metric reported in frontier model releases"; 74.9% → 80.9% "in the last 6 months"; "we have stopped reporting SWE-bench Verified scores"; "OpenAI recommends reporting results for SWE-bench Pro". Corrections: (1) the 138 problems were ones o3 failed to solve consistently over 64 runs, and 59.4% had "material issues in test design and/or problem description"; (2) models reproduced "the gold patch, or verbatim problem statement specifics for certain tasks", not necessarily gold patches. Corroboration: SWE-bench Verified is absent from the GPT-5.3-Codex, 5.4 and 5.5 mirrors, and Anthropic's Opus 4.7 table shows a dash for GPT-5.4 on SWE-bench Verified. openai.com itself was unreachable (mirror only). | https://raw.githubusercontent.com/visual-snow/seshat/main/web-research/openai/why-we-no-longer-evaluate-swe-bench-verified.md ; https://www.anthropic.com/news/claude-opus-4-7 |
+| C6 | **Corrected** (Anthropic half) | Gemini 3 Pro methodology confirmed verbatim: self-reports by default; ScaleAI leaderboard and Artificial Analysis (HLE); ARC Prize Verified; matharena.ai; public LiveCodeBench Pro and Terminal-Bench 2.0 leaderboards; andonlabs.com; Kaggle. In Opus 5.5, only AutomationBench competitor numbers are explicitly third-party (Zapier's public leaderboard). Terminal-Bench competitor numbers are "as reported by OpenAI", and the leaderboard is used only as a reproduction check. Artificial Analysis is named as the GDPval-AA maintainer, not as a source of competitor scores. Explicit Artificial Analysis and Surge AI sourcing is in Sonnet 5.5 (28 Sep 2026). The broader thesis, that labs lean on self-reports plus third-party leaderboards, is supported. | https://storage.googleapis.com/deepmind-media/gemini/gemini_3_pro_model_evaluation.pdf ; https://www.anthropic.com/claude-opus-5-5 ; https://www.anthropic.com/claude-sonnet-5-5 |
+| C7 | **Confirmed** | Quote verbatim in two independent GitHub mirrors. The ATOM00blue copy carries arXiv metadata: 2601.10904; Chollet, Knoop, Kamradt, Landers; published 2026-01-15. The paper text is dated January 19, 2026. | https://raw.githubusercontent.com/UNIR-TUC/arc-agi/48d931918edd904b99ef546a98adc97e19ccf528/src/SuperCompressARC/Docs/2025/2601.10904v1_arc_prize_2025.md ; https://raw.githubusercontent.com/ATOM00blue/machine-learning-library/5e1e934ba4d745962b9012aabb5b62c9bd663895/corpus/papers/2601.10904.md |
+| C8 | **Confirmed** | PMLR PDF re-read. Confirmed: "reviewed 61 documents and identified 190 benchmarks"; Jan 2022–Nov 2025; ≥5-report filter; 60 benchmarks; "nearly half"; "frequency of appearance in technical reports (ρ = 0.05, p = 0.73)"; "benchmark age and test set size show the most consistent effects"; public (N = 56) vs private (N = 4) show no meaningful difference. Nuance: the candidate pool also included highly cited benchmarks from Semantic Scholar. The arXiv ID 2602.16763 is confirmed through the GitHub README. | https://raw.githubusercontent.com/mlresearch/v306/main/assets/akhtar26a/akhtar26a.pdf ; https://github.com/evaleval/benchmark-saturation |
+| C9 | **Confirmed** (approximate) | Caption confirmed in the KAUST .tex. Figure re-read: MNIST crosses 0 at about 2014–15 (from 1998); Switchboard at about 2017 (from 1998); ImageNet at about 2015 (from 2009); SQuAD 1.1 at about 2018 (from 2016); SQuAD 2.0 and GLUE at about 2019 (from 2018). This is consistent with the dossier. | KAUST motivation.tex and dynabench_fig1_benchmark_saturation.png (raw.githubusercontent.com) |
+| C10 | **Confirmed** (secondary scrape) | Both sentences are present verbatim in the r.jina scrape of hai.stanford.edu. The primary site was unreachable. The scrape does not say which leaderboard or metric underlies the 11.9% → 5.4% gap; check the full report before using it as a benchmark-score gap. | https://raw.githubusercontent.com/petroslamb/autonomy-tax-enterprise-agents/HEAD/sources/raw/031_stanford_ai_index_2025_rjina.md |
+| C11 | **Confirmed** (primary) | "Published Jan 09, 2026", with the quote verbatim. The Opus 5.5 page is dated "September 22, 2026", with the quote verbatim. | https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents ; https://www.anthropic.com/claude-opus-5-5 |
+| C12 | **Confirmed** | GPT-5.2 mirror: "AIME 2025 (no tools) 100.0%", 11 Dec 2025. This is corroborated independently by the GPT-5.2 column of Google's Gemini 3 Flash card (100%, no tools). The Gemini 3 Pro PDF image shows AIME 2025 at 100% with code execution. None of the 18 verified 2026 OpenAI, Anthropic and Google tables reports AIME. Unreachable OpenAI launches (GPT-5.6 Sol, GPT-6 Astra, GPT-6 Sol) could not be checked. | seshat introducing-gpt-5-2.md; https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Flash-Model-Card.pdf ; https://storage.googleapis.com/deepmind-media/gemini/gemini_3_pro_model_evaluation.pdf |
+| C13 | **Corrected** (framing and internal inconsistency) | Counts reproduce: GDPval 1/14 → 12/13 (Opus 4.7 is the only 2026 sample table without it, confirmed on the image); SWE-bench Pro 1/14 → 9/11. But "after OpenAI's recommendation" is not supported as causation: GPT-5.2 (Dec 2025), GPT-5.2-Codex (18 Dec 2025), GPT-5.3-Codex (5 Feb 2026) and Gemini 3.1 Pro (Feb 2026) reported it before 23 Feb 2026. §C also said "0/14" for GDPval in 2025; that is now fixed to 1/14. | https://www.anthropic.com/news/claude-opus-4-7 ; seshat introducing-gpt-5-2 / -5-2-codex / -5-3-codex mirrors; Gemini-3-1-Pro-Model-Card.pdf |
+| C14 | **Confirmed** (primary) | README: "**July 2025**: `simple-evals` will no longer be updated for new models or benchmark results. The repo will continue to host reference implementations for **HealthBench**, **BrowseComp**, and **SimpleQA**." Table columns are MMLU, GPQA, MATH (MATH-500 for o1 and later), HumanEval, MGSM, DROP and SimpleQA. | https://raw.githubusercontent.com/openai/simple-evals/main/README.md |
+
+**Other corrections made inline.**
+- §C GDPval row: 0/14 changed to 1/14.
+- HLE "latest no tools" now points to Fable 5.1 at 60.9%.
+- Terminal-Bench 4.0 now includes Sonnet 5.5 at 70.6%.
+- SimpleQA and LiveCodeBench: noted that both still appear in Gemini 3.1 Flash-Lite (Mar 2026).
+- A.1: corrected the claim that no 2026H2 Google page was reachable.
+- A.5: added the omitted releases.
+- Games: added the Sonnet 5.5 Pokémon Red prose mention.
+
+**Spot values re-verified on primary tables (all matched):**
+- Opus 4.8: OSWorld-Verified 83.4%, GDPval-AA 1890, Finance Agent v2 53.9%.
+- Fable 5: SWE-Bench Pro 80.3%, HLE 59.0%, TB2.1 88.0%, GDPval-AA 1932.
+- Opus 5: ARC-AGI-3 30.2% / 7.8% / 1.5%, BrowseComp 90.8% / 90.4%, OSWorld 2.0 70.6%, GDPval-AA v2 1861.
+- Opus 5.5: TB4.0 66.4% (±2.6) vs GPT-6 Astra 57.9%, HLE with tools 67.7%, OSWorld 2.1 81.8%, GDPval-AA v2.1 1846.
+- Opus 4.7: GPQA 94.2%, SWE-V 87.6%, Mythos Preview 93.9% / 94.6%, Finance Agent v1.1 64.4%.
+- Gemini 3.1 Pro: GPQA 94.3%, LiveCodeBench Pro 2887, τ2 telecom 99.3%.
+- Gemini 3.5 Flash: MCP Atlas 83.6%, Finance Agent v2 57.9%.
+- GPT-5.5 (mirror): TB2.0 82.7%, ARC-AGI-2 85.0%, GPQA 93.6%.
+- Kimi K2 README: "Some data points have been omitted due to prohibitively expensive evaluation costs."
+
+**Reference check summary (refs/model_cards_adoption.json).**
+- All 49 original entries were checked; none was skipped.
+- All 49 exist and are marked `verified: true`, each with a `verify_note`.
+- Four had problems:
+  1. `anthropic2026opus46`: the title is "Claude Opus 4.6", not "Introducing Claude Opus 4.6".
+  2. `anthropic2026sonnet46`: the title is "Introducing Sonnet 4.6".
+  3. `kopel2025killedbyllm`: the author is "Rob Kopel", not "Robert Kopel".
+  4. `anthropic2026opus55`: the `used_for` field mischaracterised the third-party sourcing. The URL now redirects to anthropic.com/claude-opus-5-5.
+- No fabricated or garbled references were found. Every arXiv ID in the file matches a link or metadata seen this session:
+  - 2602.16763: evaleval README.
+  - 2104.14337: KAUST caption.
+  - 2412.19437, 2501.12948, 2507.20534, 2506.13585, 2508.06471: developer READMEs.
+  - 2601.10904: two mirrors.
+  - 2607.01254: one mirror only, so lower confidence.
+- Weaker verifications: several are mirror-only (all OpenAI pages; Esposito & Zhang; AI Index 2025 and 2026), and one author attribution ("Maslej et al." for AI Index 2025) is unverified.
+- I added 8 fact-check entries for the omitted releases: Fable 5.1, Sonnet 5.5, Gemini 3 Flash, Gemini 3.1 Flash-Lite, Gemini 3.5 Flash-Lite, GPT-5.4 mini/nano, GPT-5.2-Codex and GPT-5.1.

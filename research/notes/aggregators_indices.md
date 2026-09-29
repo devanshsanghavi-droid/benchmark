@@ -48,7 +48,7 @@ Citation counts could not be retrieved (Semantic Scholar and Google Scholar are 
    - OpenAI's simple-evals labelled DROP and MGSM "saturated" and stopped updating in July 2025 [V].
 
    **(b) Agentic, long-horizon, economically framed tasks replace them.**
-   - AA v4.x weights "Agents" at 30% and uses GDPval-AA, AA-Briefcase, AutomationBench-AA and Terminal-Bench [C].
+   - AA v4.3 weights "Agents" at 30% (AA-Briefcase, GDPval-AA v2, AutomationBench-AA) and "Coding" at 20% (Terminal-Bench v4.0, SciCode) [C]. Terminal-Bench sits in the Coding category, not Agents [corrected by fact-check].
    - The Vals Index weights finance, coding and legal agent tasks by each sector's share of US GDP [C].
 
    **(c) Evaluation moves from public academic benchmarks to aggregator-owned, often private, test sets.**
@@ -90,11 +90,12 @@ Citation counts could not be retrieved (Semantic Scholar and Google Scholar are 
    - **AI Index 2025** [C]:
      - MMMU, GPQA and SWE-bench rose by 18.8, 48.9 and 67.3 pp within a year of introduction.
      - The HLE top score was 8.80%, FrontierMath 2%, and BigCodeBench 35.5% against a human standard of 97%.
-     - The gap between the top and 10th model shrank from 11.9% to 5.4%.
+     - The Chatbot Arena Elo-score gap between the top and 10th-ranked model shrank from 11.9% to 5.4% [corrected by fact-check].
      - Crucially, the Index "operates under the assumption that the scores reported by companies are accurate and factual".
    - **AI Index 2026** [C]:
      - "Evaluations intended to be challenging for years are saturated in months".
-     - Benchmark error rates run "up to 42%", with invalid-question rates from 2% (MMLU Math) to 42% (GSM8K).
+     - Benchmark error rates run "up to 42%", with "invalid question rates ranging from 2% on MMLU Math to 42% on GSM8K" (the AI Index's own wording).
+       - [corrected by fact-check] These figures are precision@50 of the flagging method in Truong et al. (2025), i.e. the share of the 50 most-suspect *flagged* items that experts confirmed invalid (Precision@k = TP(k)/k). They are not benchmark-wide invalid rates. The same authors put GSM8K's error rate at "as high as 5%---a total of 88 questions" (SAIL blog, StanfordVL/sail-blog-new-post). Do not state that 42% of GSM8K is invalid.
      - The top 4 companies sit "within 25 Elo points".
      - Agents "still fail roughly one in three attempts on structured benchmarks".
 6. **Implication for our new (non-game) benchmark [I].** To be picked up by aggregators and to survive, a benchmark should:
@@ -213,8 +214,9 @@ Citation counts could not be retrieved (Semantic Scholar and Google Scholar are 
 - **Release cadence (claimed vs. actual).**
   - The README says "LiveBench releases new questions monthly" [V].
   - The code's `LIVE_BENCH_RELEASES` lists 2024-06-24, 2024-07-26, 2024-08-31, 2024-11-25, 2025-04-02, 2025-04-25, 2025-05-30, 2025-11-25, 2025-12-23, 2026-01-08 and 2026-06-25 [V `livebench/common.py`]. That is 11 releases in ~24 months, including gaps of ~4, ~6 and ~5.5 months.
+  - Fact-check addition: changelog.md's newest entry is 2026-01-08, and there is no changelog entry for the 2026-06-25 release listed in code. Separately, the Inspect Evals LiveBench README states "The dataset completely refreshes every 6 months and the authors delay publicly releasing the questions from the most-recent update". The original arXiv abstract promised questions "added and updated on a monthly basis" [V/C].
 - **Frontier score at launch vs. latest.**
-  - Launch (June 2024): **[U]**, not verified this session.
+  - Launch (June 2024): the original arXiv abstract states "LiveBench is difficult, with top models achieving below 65% accuracy" [C: abstract reproduced in aishwaryanr/awesome-generative-ai-guide] [corrected by fact-check].
   - Latest: top models at ~79%, with the top-5 range compressed to 1.09 points (Akhtar et al., ICML 2026, from leaderboard data) [V].
   - A June 2026 Reddit comment observed "Claude 4.8, Gemini 3.1, GPT-5.4, and GPT-5.5 all within 4 total points out of ~80" [S pickai].
 - **Adoption evidence.**
@@ -266,7 +268,7 @@ Citation counts could not be retrieved (Semantic Scholar and Google Scholar are 
   - Public logs.
   - Willingness to correct errors after outside replication. A statistician found that "24/144 of the sets contain LLMs with different release dates", and "Epoch have confirmed this is a mistake… and they will correct it" [S pickai].
 - **Why it could fail [S/I].**
-  1. **Funding conflicts.** FrontierMath was funded by OpenAI; one audit says this "inflates closed-side scores" [S htihle; S arvindcr4 "Funder / commissioner: OpenAI"]. Sibling dossiers discuss the o3 FrontierMath 25% vs ~10% discrepancy [Sib].
+  1. **Funding conflicts.** FrontierMath was funded by OpenAI. The htihle audit says only, conditionally, that contamination biases such as OpenAI's FrontierMath access "would inflate closed-side scores"; it does not claim this has been shown. That audit is itself LLM-generated ("Independent Opus 4.7 web-research audit") [S htihle; S arvindcr4 "Funder / commissioner: OpenAI"] [corrected by fact-check]. Sibling dossiers discuss the o3 FrontierMath 25% vs ~10% discrepancy [Sib].
   2. **Cost limits coverage.** Only a subset of models and benchmarks is run internally [I].
   3. **Adoption gap versus AA** in developer tooling [S pickai: ECI reference repo has few stars].
 - **Sources.**
@@ -282,6 +284,7 @@ Citation counts could not be retrieved (Semantic Scholar and Google Scholar are 
 - **What it measures.** A single latent "capability" score per model. It fits "performance = sigmoid(discriminability * (capability − difficulty))" across benchmarks, which is an IRT/2PL-style model [V eci-public README].
   - Every benchmark gets a difficulty and a slope; every model gets a capability with bootstrap CIs [V].
   - The scale is anchored at **Claude 3.5 Sonnet = 130 and GPT-5 = 150**. Anchor models are "pinned by definition" [V].
+  - This 130/150 anchoring is the published ECI product's convention (eci-public README). The Rosetta Stone paper resolves identifiability by fixing one benchmark (e.g. WinoGrande, α = 1, D = 0) [S memgrafter digest]. Cite the anchors to the ECI documentation, not the paper [corrected by fact-check].
 - **Release date and venue.** Paper: "A Rosetta Stone for AI Benchmarks", arXiv:2512.00193 (2025) [V eci-public README].
   - Precursor code repo `epoch-research/benchmark-stitching` created 2025-07-01 [V metadata; README describes forecasting, acceleration detection and optimisation-effect analyses].
   - `eci-public` created 2026-02-01 [V metadata].
@@ -318,7 +321,7 @@ Citation counts could not be retrieved (Semantic Scholar and Google Scholar are 
   - "Transparent: We disclose our methodology, including prompt templates…"
   - "a 95% confidence interval for Artificial Analysis Intelligence Index of less than ±1%" (from experiments with >10 repeats)
   - Temperature 0 for non-reasoning models and 0.6 for reasoning models; pass@1.
-- **Version history** (captured AA changelog [C], cross-checked against an independent audit [S MaxiZm/actualanalysis]):
+- **Version history** (captured AA changelog [C], cross-checked against the MaxiZm/actualanalysis audit [S], which is self-described as written by a "Gemini Agent", i.e. AI-generated and not an independent human audit [corrected by fact-check]; a second independent capture of the AA page (dingkwang/agent-eval-course, Aug 2026, v4.1.1 with GPQA Diamond still included) is consistent):
 
 | Version | Dates | Change |
 |---|---|---|
@@ -329,7 +332,7 @@ Citation counts could not be retrieved (Semantic Scholar and Google Scholar are 
 | v3.0 | 2 Sep – Dec 2025 | Added Terminal-Bench Hard and τ²-Bench Telecom; "Included MMLU-Pro and LiveCodeBench in Intelligence Index" [C] |
 | v4.0 | Jan 2026 | Added GDPval-AA, AA-Omniscience and CritPt; "Removed MMLU-Pro, LiveCodeBench, AIME 2025 from Intelligence Index"; "New category-based weighting structure: Agents (25%), Coding (25%), General (25%), Scientific Reasoning (25%)" [C] |
 | v4.0.1–v4.0.4 | Jan – Jun 2026 | Terminal-Bench Hard trimmed to 44 tasks (broken dependencies); GDPval-AA re-anchored; grader-model swaps due to deprecations [C/S] |
-| v4.1 | Jun – Aug 2026 | GDPval-AA v2 (panel of three frontier LLM judges; Elo re-baselined to human experts = 1000); Terminal-Bench Hard → Terminal-Bench v2.1; τ²-Bench Telecom → τ³-Banking; "Removed IFBench from the Intelligence Index (we continue to run it…)" [C] |
+| v4.1 | Jun – Aug 2026 | GDPval-AA v2 (panel of three frontier LLM judges; Elo re-baselined to human experts = 1000); Terminal-Bench Hard → Terminal-Bench v2.1; τ²-Bench Telecom → τ³-Banking; "Removed IFBench from the Intelligence Index (we continue to run it…)"; weights "Agents (34%), Coding (24%), Scientific Reasoning (24%), General (18%)" [C; added by fact-check] |
 | v4.1.1 | Aug – Sep 2026 | Pinned τ³-Banking to upstream; graders for HLE, AA-LCR and AA-Omniscience upgraded to GPT-5.6 Luna [C] |
 | v4.2 | Sep 2026 | "Added GDP.pdf (10%)…"; "Removed GPQA Diamond from the Intelligence Index"; AA-LCR → v1.1; added AA-Briefcase (15%) [C] |
 | v4.3 | current at capture (late Sep 2026) | 10 evals, 30/20/30/20 weights [C] |
@@ -414,7 +417,7 @@ Citation counts could not be retrieved (Semantic Scholar and Google Scholar are 
     - Coding (~5.6%): Terminal-Bench 2.1, Vibe Code Bench, Code Migration
     - Legal (~1.2%): Legal Research Bench, HLAB
   - It aggregates "five private and two public benchmarks".
-  - Accuracy is published with a standard error per model. Finance Agent v2 averages three runs per model.
+  - Accuracy is published with a standard error per model, and Finance Agent v2 averages three runs per model. [corrected by fact-check] Both statements come from the capturing repo's registry notes, not the captured page text; that repo's own verifier flagged them as absent from the excerpt. Independent partial support: maxim-saplin/llm_chess lists an upstream `stderr` for the Vals Index score (earlier version). Treat as [S], not [C].
 - **Release date and creators.** Vals AI. Founding and launch dates **[U]**.
 - **Latest scores** (Sep 2026) [C]: Claude Fable 5.1 68.83%, Claude Opus 5 67.21%, GPT-6 Astra 66.61%.
 - **Adoption evidence.** It is listed alongside AA, Epoch, Scale Labs and LiveBench as a flagship independent evaluator in practitioner tooling [S fstandhartinger]. Model identifiers use provider/model form, giving the best exact-match rate against models.dev [S pickai].
@@ -463,11 +466,12 @@ The full treatment is in sibling `arenas_preference.md`. Aggregator-relevant poi
   - "Evaluations intended to be challenging for years are saturated in months, compressing the window in which benchmarks remain useful for tracking progress."
   - "The benchmarks used to measure AI progress face growing reliability and gaming concerns, with error rates up to 42% on widely used evaluations."
     - Invalid-question rates (precision@50): MMLU Math and OpenBookQA 2%, MMLU Cli/Med 6%, AIR-Bench 9%, MedQA 23%, ThaiExam 26%, MMLU 5Sub 31%, GSM8K 42% [C sermakarevich chunks].
+      - [corrected by fact-check] Precision@50 (Truong et al. 2025, "Fantastic Bugs and Where to Find Them in AI Benchmarks", NeurIPS 2025, arXiv:2511.16842) is the fraction of the top-50 *flagged* items confirmed invalid. It measures the flagging method's hit rate, not the share of each benchmark that is invalid. GSM8K's estimated error rate is ~5% (88 questions) per the same authors.
     - Responses mentioned: Truong et al. (2025), a statistical item-flagging framework with "up to 84% precision", and Cheng et al. (2025), a "certificate-grade", community-governed framework with secure environments, continuously refreshed items and delayed result disclosure [C].
   - "Top model performance is converging, with 4 companies now clustered within 25 Elo points" [C].
   - "AI agents … still fail roughly one in three attempts on structured benchmarks" [C].
   - Frontier systems reached or exceeded human baselines on MMLU, MMMU, GPQA Diamond, AIME, ImageNet and SuperGLUE [C sermakarevich].
-  - HLE: +30 pp in one year [S kzinmr; S markusstrasser].
+  - HLE: "Frontier models gained 30 percentage points in a single year on Humanity's Last Exam" [C: verbatim in AI Index 2026 highlight extractions, malafronte/ai-tools-lab and mineru-lab; upgraded by fact-check].
   - SWE-bench Verified went from ~60% to ~100% of the AI Index human-baseline-normalised score in one year [S FractalK; exact framing U].
   - Jagged intelligence: IMO gold, yet analog clocks are read correctly only 50.6% of the time vs 90.1% for humans (ClockBench) [C].
   - The Foundation Model Transparency Index fell from 58 to 40 [S markusstrasser; U].
@@ -488,9 +492,7 @@ The full treatment is in sibling `arenas_preference.md`. Aggregator-relevant poi
 - **Release and venue.** Development began in 2020 [U]. The citable release is a Zenodo software record, v0.4.3 (July 2024), DOI 10.5281/zenodo.12608602. Authors: Gao, Tow, Abbasi, Biderman, Black, DiPofi, Foster, Golding, Hsu, Le Noac'h, Li, McDonell, Muennighoff, Ociepa, Phang, Reynolds, Schoelkopf, Skowron, Sutawika, Tang, Thite, Wang, Wang, Zou [V BibTeX].
   - The companion paper is "Lessons from the Trenches on Reproducible Evaluation of Language Models" (Biderman, Schoelkopf, Sutawika, Gao, Tow et al.; arXiv:2405.14782, May 2024) [S kzinmr; S emphasis10].
 - **Adoption evidence.**
-  - "serves as the backend for Hugging Face's Open LLM Leaderboard".
-  - "utilized internally by organizations including NVIDIA, Cohere, BigScience, BigCode, Nous Research, and Mosaic ML".
-  - "referenced in hundreds of academic papers" [V README].
+  - Verbatim README sentence [corrected by fact-check]: "The Language Model Evaluation Harness is the backend for 🤗 Hugging Face's popular Open LLM Leaderboard, has been used in hundreds of papers, and is used internally by dozens of organizations including NVIDIA, Cohere, BigScience, BigCode, Nous Research, and Mosaic ML." [V README]
   - New benchmarks ship as lm-eval tasks, e.g., MastermindEval, added 18 Mar 2025 [Sib user_failed_a.md].
 - **Recent activity** [V README news]:
   - 2025/02: SGLang integration.
@@ -504,7 +506,7 @@ The full treatment is in sibling `arenas_preference.md`. Aggregator-relevant poi
   - Became the de facto implementation for base-model evaluation.
   - Low marginal cost.
 - **Limits [V/S].**
-  - Its default implementation choices can shift scores dramatically: MMLU on LLaMA-65B scored 0.488 in the harness vs 0.637 in the original implementation (2023) [V].
+  - Its default implementation choices can shift scores dramatically: MMLU on LLaMA-65B scored 0.488 in the (January 2023) EleutherAI harness vs 0.636 in the original implementation and 0.637 in HELM [V] [corrected by fact-check].
   - Mistral-7B scored 47.1% in cloze format vs 51.5% in MMLU-style format [S kzinmr summary of arXiv:2405.14782]. This makes "cross-paper comparisons 'nonsensical'" [S].
   - It was historically oriented to log-likelihood evaluation of base models rather than agentic tasks [I].
 - **Sources.**
@@ -515,7 +517,7 @@ The full treatment is in sibling `arenas_preference.md`. Aggregator-relevant poi
 ### 12. UK AISI Inspect and Inspect Evals
 
 - **What it is.** "a framework for large language model evaluations" from the UK AI Security Institute. It supports prompt engineering, tool use, multi-turn dialogue, model-graded evaluations and extensions, with "Over 200 pre-built evaluations" [V inspect_ai README]. It was open-sourced in May 2024 [S quantified-uncertainty/longterm-wiki; S hummbl].
-- **Inspect Evals** is "A library of evaluations built using Inspect AI". It "is maintained by Generality Labs, a London-based nonprofit", and was "founded in 2024 with contributions from the UK AI Security Institute, Arcadia Impact, and the Vector Institute" [V inspect_evals README]. Examples include CyBench, SciKnowEval, GDM capabilities evals, and Harbor-framework evals such as Terminal-Bench 2.0 and SWE-Bench Pro [V].
+- **Inspect Evals** is "A library of evaluations built using Inspect AI". It "is maintained by Generality Labs, a London-based nonprofit", and was "founded in 2024 with contributions from the UK AI Security Institute, Arcadia Impact, and the Vector Institute" [V inspect_evals README]. Examples include CyBench, SciKnowEval and GDM capabilities evals [V]. Harbor-framework evals such as Terminal-Bench 2.0 and SWE-Bench Pro are run through the separate Inspect Harbor package (meridianlabs-ai/inspect_harbor), which the README points to; they are not part of Inspect Evals itself [V] [corrected by fact-check].
 - **Adoption evidence.**
   - HELM's maintenance notice recommends "Inspect AI Evals" [V].
   - Epoch runs its evaluations via Inspect [S htihle].
@@ -560,7 +562,7 @@ Evidence from practitioner source audits (pickai, ModelHub, htihle provenance au
    - One secondary critique puts it this way: "A score's trustworthiness is bounded by the discloser's transparency" [S markusstrasser].
 2. **Fixed, disclosed protocol with uncertainty.**
    - Identical prompts, temperatures and scaffolds; published CIs or standard errors: AA "<±1%" [C]; Vals SE per model [C]; Epoch stderr and logs [S].
-   - Why it matters: scaffold choice alone moves SWE-bench Verified "up to an 11% difference for GPT-5 and up to a 15% difference for Kimi K2 Thinking". API providers are the largest source of variance [C Epoch newsletter mirror].
+   - Why it matters: scaffold choice alone moves SWE-bench Verified "up to an 11% difference for GPT-5 and up to a 15% difference for Kimi K2 Thinking". Epoch names scaffolds (agentic evals) and API providers (model access) as "the two most impactful components"; on the provider side, "The selection of an appropriate provider has the biggest impact on model performance" [C Epoch newsletter mirror] [corrected by fact-check].
 3. **Versioning and changelogs** that explain removals (AA [C]; LiveBench [V]). Unannounced or unexplained reweighting destroys trust (AA v4.1.1 accusation [S]).
 4. **Contamination and saturation management.** Private or rotating items (SEAL, Vals, LiveBench), and prompt retirement of saturated components (AA, OLL v2, simple-evals). But private sets alone do not prevent saturation [V Akhtar].
 5. **Open data and licence.** Epoch is CC-BY [S]; LMArena's history dataset is CC-BY-4.0 [S]. AA, Scale and Vals restrict or omit licences, which limits downstream reuse and auditing [S].
@@ -630,9 +632,9 @@ A new benchmark should therefore be designed for **renewal**, not permanence.
 4. **Goodhart and hill-climbing.** The OLL retired to avoid it [S]; layer-duplication "hacks" topped it [S]; Arena private variant testing [S].
 5. **Implementation and scaffold sensitivity.** MMLU 0.637 vs 0.488 [V]; scaffolds move SWE-bench Verified by up to 11–15 points [C]; provider variance [C]. These undermine comparability across aggregators.
 6. **Reliance on self-reported numbers.** The AI Index [C], and most per-benchmark leaderboards [S htihle].
-7. **Item errors.** Invalid-question rates run up to 42% in widely used sets [C AI Index 2026]; the DROP scoring bug [Sib].
+7. **Item errors.** The AI Index 2026 headline says "error rates up to 42%" [C]. The underlying figures are precision@50 of a flagging method, not benchmark-wide invalid rates; GSM8K's estimated error rate is ~5% (Truong et al. 2025) [corrected by fact-check]. The DROP scoring bug is another example [Sib].
 8. **Conflicts of interest and opacity.** Examples: funding (FrontierMath) [S]; ownership (Scale/Meta) [S]; selling services to ranked labs (Arena) [S]; undisclosed reweighting or judge choices (AA) [S]; private sets nobody can audit [I].
-9. **LLM-judge dependence.** Grader models change on deprecation (AA swapped graders four times in 2026 [C]), and judges add bias [S].
+9. **LLM-judge dependence.** Grader models change on deprecation (AA upgraded the HLE, AA-LCR and AA-Omniscience graders to GPT-5.6 Luna in v4.1.1 [C]; the claim of "four" grader swaps in 2026 was not verified by fact-check), and judges add bias [S].
 10. **Licence and data-access fragility.** Missing ToS (Vals), restrictive redistribution (AA), SPA-embedded data (LiveBench, Scale) [S]. These block third-party auditing and aggregation.
 11. **Lab-run aggregators end when the lab's interest ends.** simple-evals was frozen in July 2025 [V].
 
@@ -715,7 +717,7 @@ A new benchmark should therefore be designed for **renewal**, not permanence.
 18. ECI covers ~37 benchmarks and 867 rows (Aug 2026 data).
     - Sources: https://raw.githubusercontent.com/niftymonkey/pickai/main/design/research/benchmark-adoption.md ; Dylancouzon/AIE-talk (code search, says "40+")
     - Confidence: **Low-Medium**
-19. Epoch's newsletter found that switching scaffolds changes SWE-bench Verified by "up to an 11% difference for GPT-5 and up to a 15% difference for Kimi K2 Thinking". GPQA Diamond averages across settings ranged from 74% to 80%, but "these differences were not statistically significant". API providers were the largest source of variance.
+19. Epoch's newsletter found that switching scaffolds changes SWE-bench Verified by "up to an 11% difference for GPT-5 and up to a 15% difference for Kimi K2 Thinking". GPQA Diamond averages across settings (gpt-oss, high reasoning; 198 questions) ranged from 74% to 80%, but "these differences were not statistically significant". Scaffolds and API providers are named as the two most impactful components; "The selection of an appropriate provider has the biggest impact on model performance" [corrected by fact-check]. The post is by Florian Brand and Jean-Stanislas Denain (per secondary), published 23–24 Dec 2025.
     - Source: https://raw.githubusercontent.com/shakir-fattani/ai-updates/HEAD/epochai.substack.com/why-benchmarking-is-hard/content.md
     - Confidence: **Medium-High** (mirror)
 20. AA Intelligence Index changelog:
@@ -725,7 +727,7 @@ A new benchmark should therefore be designed for **renewal**, not permanence.
     - v4.2 (Sep 2026) removed GPQA Diamond;
     - v4.3 has 10 evals weighted Agents 30 / Coding 20 / General 30 / Science 20.
     - Sources: https://raw.githubusercontent.com/fstandhartinger/model-market-comparison/HEAD/ops/rebuild-2026-09/evidence/phase-04/sources/aa-1ea3e75f96c3.txt ; https://raw.githubusercontent.com/MaxiZm/actualanalysis/HEAD/docs/audits/coverage-expansion-2026-09-06/artificial-analysis.md
-    - Confidence: **Medium-High** (captured primary page plus independent audit)
+    - Confidence: **Medium-High** (captured primary page, verbatim via code-search fragments, plus a second independent capture; the MaxiZm "audit" is AI-generated) [corrected by fact-check]
 21. AA states a 95% CI for the Intelligence Index of less than ±1%, evaluates zero-shot under identical conditions, and lists 646 models.
     - Source: same capture, plus `aa-e3caaea65cc5.txt` (code search)
     - Confidence: **Medium-High**
@@ -750,20 +752,20 @@ A new benchmark should therefore be designed for **renewal**, not permanence.
     - Confidence: **Medium-High** (captured page and parsed PDF)
 27. AI Index 2026:
     - "Evaluations intended to be challenging for years are saturated in months";
-    - "error rates up to 42% on widely used evaluations", with invalid-question rates from 2% (MMLU Math) to 42% (GSM8K);
+    - "error rates up to 42% on widely used evaluations", with "invalid question rates ranging from 2% on MMLU Math to 42% on GSM8K" (AI Index wording). These are precision@50 values of a flagging method, not benchmark-wide invalid rates [corrected by fact-check];
     - "4 companies now clustered within 25 Elo points";
     - agents "still fail roughly one in three attempts".
     - Sources: https://raw.githubusercontent.com/malafronte/ai-tools-lab/HEAD/anydoc/output/batch-2026-09-01/02-structured-pdf.md ; sermakarevich/chunker `output/ai_report_2026_pdf/content/L1/ai-index-2026-performance-benchmarking.md` (code search); tanioklyce-dev/robot_research (code search)
     - Confidence: **Medium** (PDF extractions in third-party repos)
 28. AI Index 2026 reports HLE +30 pp in one year.
-    - Sources: kzinmr/ai-topics `wiki/raw/articles/2026-04-14_stanford-ai-index-report-2026-technical-performance.md` (code search); markusstrasser critique
-    - Confidence: **Medium-Low**
+    - Sources: kzinmr/ai-topics `wiki/raw/articles/2026-04-14_stanford-ai-index-report-2026-technical-performance.md` (code search); markusstrasser critique; verbatim "Frontier models gained 30 percentage points in a single year on Humanity's Last Exam" in malafronte/ai-tools-lab and malafronte/mineru-lab PDF extractions
+    - Confidence: **Medium-High** (upgraded by fact-check)
 29. Leaderboard Illusion: Meta privately tested 27 variants before Llama 4; Google received 19.2% and OpenAI 20.4% of Arena data.
     - Sources: https://raw.githubusercontent.com/niftymonkey/pickai/main/design/research/benchmark-adoption.md ; markusstrasser critique; rasynai/MarigoldBench (code search)
     - Confidence: **Medium** (secondary quotes; primary in sibling `arenas_preference.md`)
 30. The htihle provenance audit rates Epoch-run GPQA Diamond, MATH L5 and OTIS Mock AIME as independent (single evaluator, fixed harness). It rates GSM8K, MMLU and MMLU-Pro leaderboard numbers as largely self-reported, and flags FrontierMath's OpenAI funding.
     - Source: https://raw.githubusercontent.com/htihle/open_closed_gap/HEAD/provenance_audit/APPENDIX.md
-    - Confidence: **Medium** (secondary expert audit)
+    - Confidence: **Low-Medium** (secondary; the per-benchmark audit files are self-described as "Independent Opus 4.7 web-research audit, 2026-05-26", i.e. LLM-generated) [corrected by fact-check]
 31. An external replication found an ECI aggregation error ("24/144 of the sets contain LLMs with different release dates"), which Epoch acknowledged.
     - Source: https://raw.githubusercontent.com/niftymonkey/pickai/main/design/research/benchmark-adoption.md
     - Confidence: **Low-Medium**
@@ -784,7 +786,7 @@ The machine-readable version is `research/refs/aggregators_indices.json`. "Seen 
 3. clefourrier, SaylorTwift, slippylolo, thomwolf (HF handles as listed in the post) (2023-06-23). *What's going on with the Open LLM Leaderboard?* Hugging Face blog. https://huggingface.co/blog/open-llm-leaderboard-mmlu
    - Seen at: huggingface/blog raw.
    - Note: the real-name mapping of the handles is **[U]**, except that "clefourrier" is commonly Clémentine Fourrier.
-4. Hugging Face (2024-06-26). *Performances are plateauing, let's make the leaderboard steep again* (Open LLM Leaderboard v2). https://huggingface.co/spaces/open-llm-leaderboard/blog
+4. Hugging Face (2024-06-26). *Open-LLM performances are plateauing, let's make the leaderboard steep again* (Open LLM Leaderboard v2). https://huggingface.co/spaces/open-llm-leaderboard/blog. The exact title (with the "Open-LLM" prefix) comes from the captured Space HTML [corrected by fact-check].
    - Seen at: sasilver75/obsidian notes (secondary).
 5. Fourrier, C. (2025-03-13). *It's been a wild ride, folks :) (end of the Open LLM Leaderboard)*, HF discussion #1135. https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard/discussions/1135
    - Seen at: niftymonkey/pickai notes; aledlie blog (secondary quotes).
@@ -794,23 +796,23 @@ The machine-readable version is `research/refs/aggregators_indices.json`. "Seen 
    - Seen at: raw changelog; code search.
 8. Akhtar, M., Reuel, A., Soni, P., et al. (2026). *When AI Benchmarks Plateau: A Systematic Study of Benchmark Saturation.* ICML 2026, PMLR 306.
    - Seen at: https://raw.githubusercontent.com/mlresearch/v306/main/assets/akhtar26a/akhtar26a.pdf
-   - arXiv ID per sibling: 2602.16763 (not seen by me).
+   - arXiv:2602.16763, corroborated by fact-check (duanyytop/agents-radar HN digests, Aug 2026, link this exact title to arxiv.org/abs/2602.16763).
 9. Ho, A., Denain, J.-S., Atanasov, D., Albanie, S., Shah, R. (2025). *A Rosetta Stone for AI Benchmarks.* arXiv:2512.00193.
    - Seen at: epoch-research/eci-public README.
 10. Epoch AI (2026). *eci-public: Epoch Capabilities Index* (GitHub). https://github.com/epoch-research/eci-public
 11. Epoch AI (2025). *benchmark-stitching* (GitHub). https://github.com/epoch-research/benchmark-stitching
-12. Epoch AI (≥ Nov 2025; exact date **[U]**). *Why benchmarking is hard.* Gradient Updates newsletter.
+12. Brand, F., Denain, J.-S. (Epoch AI) (23–24 Dec 2025). *Why benchmarking is hard.* Gradient Updates newsletter. https://epoch.ai/gradient-updates/why-benchmarking-is-hard. The date comes from the mirror's meta.yaml (substack publish-date 2025-12-24) and kzinmr ("Dec 23, 2025"); the authors are per kzinmr (secondary) [corrected by fact-check].
     - Seen at: mirror in shakir-fattani/ai-updates.
 13. Epoch AI. *AI Benchmarking Hub.* https://epoch.ai/benchmarks
     - Seen at: references in the Epoch newsletter mirror and AINews.
 14. Artificial Analysis (2026). *Intelligence Benchmarking methodology* (Intelligence Index v4.3 and changelog). https://artificialanalysis.ai/methodology/intelligence-benchmarking
     - Seen at: capture in fstandhartinger/model-market-comparison.
-15. MaxiZm/actualanalysis (2026-09-06). *Artificial Analysis coverage/version audit* (GitHub; secondary).
+15. MaxiZm/actualanalysis (2026-09-06). *Artificial Analysis coverage/version audit* (GitHub; secondary; the file names a "Gemini Agent" as auditor, so it is AI-generated) [corrected by fact-check].
 16. Vals AI (2026-09-15). *Vals Index (Version 2).* https://www.vals.ai/benchmarks/vals_index
     - Seen at: capture in fstandhartinger/model-market-comparison.
 17. Scale AI (2024). *SEAL Leaderboards* (now Scale Labs). https://scale.com/leaderboard
     - Seen at: AINews 2024-05-30 (secondary); pickai; ModelHub.
-18. SWE-Bench Pro (2025). arXiv:2509.16941. Scale AI; author list not seen.
+18. Deng, X., Da, J., Pan, E., He, Y. Y., Ide, C., Garg, K., Lauffer, N., et al. (2025). *SWE-Bench Pro: Can AI Agents Solve Long-Horizon Software Engineering Tasks?* arXiv:2509.16941 (Scale AI; published 2025-09-21) [corrected by fact-check].
     - Seen at: razzant/ouroboros METHODOLOGY.md.
 19. Singh, S., et al. (2025). *The Leaderboard Illusion.* arXiv:2504.20879 (NeurIPS 2025 D&B per secondary source).
     - Seen at: pickai; markusstrasser; turbobeest (secondary).
@@ -826,12 +828,101 @@ The machine-readable version is `research/refs/aggregators_indices.json`. "Seen 
 25. Generality Labs, UK AISI, Arcadia Impact, Vector Institute (2024–). *Inspect Evals.* https://github.com/UKGovernmentBEIS/inspect_evals
 26. OpenAI (2024–2025). *simple-evals.* https://github.com/openai/simple-evals
 27. niftymonkey/pickai (2026). *free-benchmark-sources.md* and *benchmark-adoption.md* (practitioner research notes; secondary).
-28. Ihle, H. T. (htihle) (2026). *open_closed_gap: provenance audit appendix* (GitHub; secondary expert audit).
+28. Ihle, H. T. (htihle) (2026). *open_closed_gap: provenance audit appendix* (GitHub; secondary, LLM-generated web-research audit in Ihle's repo) [corrected by fact-check].
 29. DDamianZR/ModelHub (2026). *SOURCES.md* (practitioner source assessment; secondary).
 30. markusstrasser/agent-infra (2026-06-14). *Benchmark & leaderboard methodology critique* (secondary).
 31. aledlie (2026-08-11). *Stale marquee claims* (blog post; secondary).
 32. smol-ai AINews (2024-05-30; 2025-05-07; 2025-05-30). Newsletter archive issues (secondary).
-33. Mozilla (2026-07). *The state of open source AI* v1.0.1.
+33. Mozilla (2026-07). *The State of Open Source AI* v1.0.1. https://stateofopensource.ai
     - Seen at: dgirard/fiches-veille summary (secondary).
+    - Fact-check: the report's existence is confirmed (V1.0 July 2026, CTO letter by Raffi Krikorian; a later v1.1 exists). The AA and ECI figures quoted from it were NOT verified against the report.
 34. linkofrivia (2026). *ECI_Bayesian* (GitHub; secondary re-analysis).
 35. sasilver75 (2024). *Open LLM Leaderboard V2* (Obsidian notes; secondary).
+
+---
+
+## Verification log
+
+Adversarial fact-check run on 2026-09-29 by a separate agent.
+
+**Method and constraints.** The session-wide WebSearch budget was already exhausted (every WebSearch call returned "used its web search budget (200 of 200)"). A broad curl probe of blocked domains was also denied. Independent checking therefore used three channels:
+
+1. **Re-fetching primary files** from raw.githubusercontent.com with WebFetch.
+2. **Local text extraction** of the Akhtar et al. PMLR PDF, using pypdf.
+3. **GitHub code search**, which returns *verbatim* text fragments, to find independent mirrors, captures and citations.
+
+**Warning for downstream agents.** WebFetch's summariser produced a *fabricated* AA changelog when asked to summarise the long capture `aa-1ea3e75f96c3.txt`. It also miscounted the HELM authors as 48; the true count is 50. Numbers in this log were taken only from verbatim fragments, the verbatim BibTeX, or the extracted PDF text.
+
+### Claim verdicts
+
+| ID | Verdict | Evidence (independent where possible) |
+|---|---|---|
+| C1 HELM maintenance mode | **Confirmed** | Re-fetched `docs/maintenance_mode.md` and README: "HELM entered maintenance mode on June 1, 2026"; "no new evaluations will be added to the HELM leaderboards"; the maintainers can no longer actively support research collaborations; external APIs "may change in reverse-incompatible ways". Recommended: Evalchemy, Inspect AI Evals, Lighteval, "LLM Evaluation Harness" (sic), Unitxt. |
+| C2 HELM design numbers | **Confirmed** | The official BibTeX author field counts exactly 50 names; TMLR 2023 with "Featured Certification, Expert Certification". TMLR 2023 is independently listed in the Akhtar et al. bibliography. Abstract numbers (7 metrics; 16 core scenarios, 87.5%; 7 targeted evaluations on 26 targeted scenarios; 30 models on all 42 scenarios; 17.9% → 96.0%) appear verbatim in the skothr/llm-research abstract excerpt and in thorbenlouw notes (arXiv 2211.09110v2). |
+| C3 OLL retirement and v2 | **Confirmed (secondary level; primary HF pages blocked)** | Date 13 Mar 2025 and discussion #1135 corroborated by ≥5 independent repos (tatdt622989 blog, sbluemin/fleet-harness, aledlie, gperdrizet, SalvatMigliaccio). The "hill climb irrelevant directions" quote also appears in scottblydotcom/hermia and rasynai/MarigoldBench. The v2 task list, the June 2024 launch and the saturation/contamination/errors rationale are corroborated independently (scottblydotcom, AutoTrustAI survey, sasilver75). The exact v2 blog title is "Open-LLM performances are plateauing, let's make the leaderboard steep again" (captured Space HTML). |
+| C4 MMLU implementation gap | **Confirmed** | Raw blog: original 0.636, HELM 0.637, "EleutherAI Harness (January 2023)" 0.488; "Evaluations are strongly tied to their implementations"; `_blog.yml` date "June 23, 2023". The dossier body elsewhere mislabelled 0.637 as the "original" value; fixed inline. |
+| C5 simple-evals freeze | **Confirmed** | Re-fetched README: "July 2025: `simple-evals` will no longer be updated for new models or benchmark results"; MGSM/DROP "saturated for our newer models"; it continues to host HealthBench, BrowseComp and SimpleQA; o3-high row values match. |
+| C6 LiveBench cadence | **Confirmed** | README: "releasing new questions monthly", "18 diverse tasks across 6 categories", no LLM judge, ICLR 2025 Spotlight. `common.py` `LIVE_BENCH_RELEASES` has exactly the 11 dates listed, none between 2026-01-08 and 2026-06-25. Added: changelog stops at 2026-01-08; Inspect Evals README says it "completely refreshes every 6 months". |
+| C7 Akhtar et al. saturation | **Confirmed** | Extracted PDF text: "Of the 60 benchmarks analyzed, 29 exhibit high or very high saturation (Sindex≥0.7), out of which 14 fall into the very high category". Table 7: LiveBench n = 1000, range 1.09, SE∆ 0.1028, S_index 0.9888 (~79%); LiveCodeBench 0.7691; HLE 0.2198. Top-k default k = 5. "Public (N=56) and private (N=4) … Hiding test data does not appear to prevent saturation once benchmarks are widely adopted". PMLR 306, ICML 2026 Seoul. arXiv:2602.16763 is independently corroborated. |
+| C8 ECI | **Confirmed, with a nuance** | eci-public README: "performance = sigmoid(discriminability * (capability - difficulty))"; anchors Claude 3.5 Sonnet = 130 and GPT-5 = 150. Paper authors and arXiv:2512.00193 are independently confirmed (memgrafter digest; arXiv daily listing for 2025-12-02). Nuance: the 130/150 anchors are the ECI product's convention, while the paper's identifiability anchor is a fixed benchmark. |
+| C9 AA changelog | **Confirmed (captured copy)** | Verbatim code-search fragments of the capture: v2.1 (5–6 Aug 2025) "Removed MATH-500 / Removed AIME 2024"; v4.0 "January 2026 … Removed MMLU-Pro, LiveCodeBench, AIME 2025 … Agents (25%), Coding (25%), General (25%), Scientific Reasoning (25%)"; v4.1 "June 2026—August 2026 … Removed IFBench"; v4.2 "September 2026 … Removed GPQA Diamond"; v4.3 "incorporates 10 evaluations"; weights 10/15/5/10/10/5/10+5/10/10/10, which sums to 30/20/30/20; "95% confidence interval … of less than ±1%". A second, independent capture (dingkwang, Aug 2026: v4.1.1, 9 evals incl. GPQA, 34/24/24/18) is consistent. |
+| C10 Epoch "Why benchmarking is hard" | **Corrected** | The quotes are right ("up to an 11% difference for GPT-5 and up to a 15% difference for Kimi K2 Thinking"; 74–80%, not significant). Corrections: (a) the GPQA range is for **gpt-oss** (198 questions); (b) Epoch names **scaffolds and API providers as "the two most impactful components"**, and the provider is said to have "the biggest impact on model performance" on the model-access side, so "API providers were the largest source of variance" overstates it; (c) Epoch writes "%" where secondary sources say "points". Date is 23–24 Dec 2025; authors are Florian Brand and Jean-Stanislas Denain (per secondary). Several independent repos cite the same 11/15 figures. |
+| C11 AI Index 2025 | **Confirmed** | Verbatim across ≥5 independent PDF extractions: "scores rose by 18.8, 48.9, and 67.3 percentage points" (SWE-bench 4.4% → 71.7%); HLE 8.80%; FrontierMath 2%; BigCodeBench 35.5% vs human 97%; "operates under the assumption that the scores reported by companies are accurate and factual". Clarified inline that the 11.9% → 5.4% gap is the Chatbot Arena Elo gap between the top and 10th model. |
+| C12 AI Index 2026 | **Corrected (interpretation)** | All four quotes are verbatim in several independent OCR/PDF extractions, including "A review found invalid question rates ranging from 2% on MMLU Math to 42% on GSM8K". However, the underlying source (Truong et al. 2025, *Fantastic Bugs…*, NeurIPS 2025, arXiv:2511.16842) reports **precision@50** = TP(50)/50 among *flagged* items, not benchmark-wide invalid rates; the same authors estimate GSM8K's error rate at ~5% (88 questions). The dossier must not present "42% of GSM8K is invalid" as fact. Also confirmed: "Frontier models gained 30 percentage points in a single year on Humanity's Last Exam", and the March 2026 Arena Elos Anthropic 1,503 / xAI 1,495 / Google 1,494 / OpenAI 1,481. |
+| C13 Harness infrastructure | **Confirmed** | lm-eval README: "Over 60 standard academic benchmarks … hundreds of subtasks and variants"; the BibTeX is Zenodo v0.4.3, month 07, 2024, doi 10.5281/zenodo.12608602. The verbatim usage sentence is "…is the backend for 🤗 Hugging Face's popular Open LLM Leaderboard, has been used in hundreds of papers, and is used internally by dozens of organizations including NVIDIA, Cohere, BigScience, BigCode, Nous Research, and Mosaic ML"; the dossier's paraphrased quote was fixed inline. Inspect: "over 200 pre-built evaluations"; Inspect Evals is "maintained by Generality Labs, a London-based nonprofit". Harbor evals (Terminal-Bench 2.0, SWE-Bench Pro) run via the separate Inspect Harbor package; fixed inline. |
+| C14 Vals Index v2 | **Corrected (provenance)** | Verbatim in captures: "Updated 9/15/2026, Version 2"; "A single measure of AI's potential economic impact…weighted by each sector's share of U.S. GDP"; "aggregates five private and two public benchmarks" (7 components listed). But the "standard error per model" and "three runs" details come from the capturing repo's registry notes, which its own verifier flagged as **absent from the captured page** ("missing_evidence"). Independent partial support comes from maxim-saplin/llm_chess, which lists an upstream `stderr` of the index score for an earlier version. Downgraded to [S]. All captures come from a single repo (fstandhartinger), and no independent capture of the v2 text was found. |
+
+**Counts.** 11 confirmed, 3 corrected, 0 refuted, 0 unverifiable.
+
+### Other corrections made inline (outside C1–C14)
+
+- **htihle provenance audit.** Described as a "secondary expert audit". Its per-benchmark files are self-labelled "Independent Opus 4.7 web-research audit, 2026-05-26", so it is LLM-generated; confidence downgraded. On FrontierMath it states only that OpenAI access "would inflate closed-side scores" (conditional), not that it does.
+- **MaxiZm "independent audit" of AA.** Self-described as written by a "Gemini Agent", i.e. AI-generated.
+- **AA Agents weight.** The summary implied Terminal-Bench counts toward "Agents"; it is in Coding (20%).
+- **AA grader swaps.** "AA swapped graders four times in 2026" was not verified; only the v4.1.1 grader upgrade was confirmed.
+- **LiveBench launch score.** Filled in: the arXiv abstract reports top models below 65% at launch.
+- **HLE +30 pp.** Upgraded to Medium-High, since it is verbatim in the AI Index 2026 highlights.
+- **Reference metadata.** Fixed or filled: OLL v2 blog title; Akhtar arXiv ID; Epoch newsletter date and authors; SWE-Bench Pro title and authors; Mozilla report URL and existence.
+
+### Reference-check summary
+
+- **Checked:** 34 of 34 JSON entries; none skipped.
+- **Existence:** all 34 marked `verified: true`, confirmed at primary level where a primary was reachable, otherwise via independent secondary copies.
+- **Problematic entries (9):**
+  - **Wrong or missing metadata** (fixed in JSON): `hf2024ollv2` (title), `akhtar2026plateau` (ID, now arXiv:2602.16763), `epochWhyBenchHard` (year, authors, venue, URL), `swebenchpro2025` (title, authors).
+  - **Mischaracterised or over-claimed:**
+    - `ihle2026provenance`: LLM-generated audit.
+    - `maxizm2026aaaudit`: AI-generated.
+    - `vals2026index`: SE claim not in the capture.
+    - `hai2026aiindex`: precision@50 misread as an invalid-item rate.
+    - `mozilla2026openai`: quoted scores unverified against the report.
+- **Not re-verified:** the Leaderboard Illusion numbers (27 variants; 19.2%/20.4%; 112%), because code search was rate-limited. They are deferred to the sibling `arenas_preference.md`.
+- **Misattribution found in the wild:** at least one secondary repo attributes "A Rosetta Stone for AI Benchmarks" to "Sevilla et al."; the correct authors are Ho, Denain, Atanasov, Albanie and Shah.
+
+### Key sources used by the fact-check
+
+- **Primary files** (raw.githubusercontent.com):
+  - stanford-crfm/helm `README.md` and `docs/maintenance_mode.md`
+  - openai/simple-evals `README.md`
+  - LiveBench/LiveBench `README.md`, `changelog.md` and `livebench/common.py`
+  - epoch-research/eci-public and benchmark-stitching READMEs
+  - EleutherAI/lm-evaluation-harness `README.md`
+  - UKGovernmentBEIS/inspect_ai and inspect_evals READMEs
+  - huggingface/blog `open-llm-leaderboard-mmlu.md` and `_blog.yml`
+  - mlresearch/v306 `akhtar26a.pdf` (text extracted locally)
+- **Captures and extractions:**
+  - fstandhartinger/model-market-comparison: AA and Vals captures (code-search fragments)
+  - dingkwang/agent-eval-course `docs/aa-intelligence-benchmarking-methodology.md`
+  - malafronte/ai-tools-lab and malafronte/mineru-lab: AI Index 2026 extractions
+  - weaviate-tutorials, Panteve, aichaoukdour and Juanesillo: AI Index 2025 extractions
+  - shakir-fattani/ai-updates Epoch mirror (`content.md`, `meta.yaml`)
+- **Independent corroboration:**
+  - memgrafter/research-digests (2512.00193, 2406.19314)
+  - duanyytop/agents-radar (2602.16763)
+  - ATOM00blue/machine-learning-library (2509.16941)
+  - StanfordVL/sail-blog-new-post (Truong et al., precision@k definition)
+  - aims-foundations/fantastic-bugs (NeurIPS 2025 BibTeX)
+  - htihle/htihle.github.io and htihle/open_closed_gap `provenance_audit/weirdml.md`
+  - maxim-saplin/llm_chess (Vals stderr)
+  - sasilver75/obsidian (SEAL launch 29 May 2024)
+  - kzinmr/ai-topics (Epoch post authors and date)

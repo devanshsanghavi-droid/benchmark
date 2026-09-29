@@ -66,7 +66,7 @@ ARC-AGI-3 is covered here because it is the current flagship. Its *format* is th
 - **How fast each version fell (2025–2026).** After the o3 moment, each version was overtaken quickly:
   - **ARC-AGI-1** is saturated. Claude Opus 5 and GPT-5.6 Sol score 97.5%, against a human panel at 98% [P-c].
   - **ARC-AGI-2** reached **95.0% (GPT-6 Astra, Sep 2026, $1.12/task)** on the semi-private set, above the 85% prize threshold, within about 18 months [S, corroborated by the official `v2.json` maximum of 95 captured today].
-  - **ARC-AGI-3** went from under 1% (Mar 2026) to **62.7% under ARC's standard harness and 99.9% under a provider-designed harness** (GPT-6 Astra, 3 Sep 2026) [P-t].
+  - **ARC-AGI-3** went from under 1% (Mar 2026) to **62.7% under ARC's standard harness (max effort) and 99.9% under a provider-designed harness (high effort)** (GPT-6 Astra, 3 Sep 2026) [P-t]. At the same (max) effort the pair is 62.7% vs 98.6% [corrected by fact-check].
 - **What made ARC durable and culturally influential** [I, grounded in the evidence below]:
   1. a falsifiable philosophy ("easy for humans, hard for AI");
   2. human calibration of every item;
@@ -77,13 +77,14 @@ ARC-AGI-3 is covered here because it is the current flagship. Its *format* is th
   7. a willingness to **version the benchmark roughly every year** once it is beaten.
   - ARC's own 2025 report states the last point directly: "the most valuable and effective benchmarks are created by teams fundamentally committed to driving progress … a year-over-year commitment" [P-c].
 - **Lab adoption.** Four frontier labs reported ARC-AGI in 2025 model cards: Anthropic, Google DeepMind, OpenAI and xAI [P-c]. Anthropic's July 2026 Claude Opus 5 system card has a dedicated ARC-AGI section with ARC-Prize-verified scores [P-c].
+  - *Added by fact-check.* The mirrored **Claude Opus 5.5** system card (dated 22 Sep 2026 per a secondary source) has **no ARC-AGI row or section** in its capability summary table or in §§8.1–8.17 [P-c mirror; Medium confidence, because mirror completeness is not verified]. [I] This is a possible early sign that labs drop a benchmark from headline tables once it saturates.
 - **Main failure modes.** All are documented by ARC itself [P-c/P-t]:
   - a small private set (100 tasks) probed by about 10,000 score reports;
   - 49% of ARC-AGI-1 was brute-forceable;
   - difficulty was inconsistent across splits;
   - accuracy can be "bought" with compute;
   - "knowledge overfitting": frontier models learned ARC's colour encoding, so the benchmark was contaminated without any memorised items;
-  - large harness sensitivity (a 37-point swing for the same model on ARC-AGI-3);
+  - large harness sensitivity on ARC-AGI-3 for the same model: 62.7% → 99.9% best-vs-best (37 points, but across different effort settings), or 62.7% → 98.6% at the same max effort (36 points) [corrected by fact-check];
   - rapid saturation once the format became a lab target.
 - **External critiques add validity questions** [P-c/S]:
   - Accuracy overestimates abstraction in text form: models pass using surface "shortcuts" (Beger, Mitchell et al. 2025).
@@ -148,9 +149,9 @@ ARC-AGI-3 is covered here because it is the current flagship. Its *format* is th
   - *Released o3, Apr 2025* [P-c, leaderboard snapshot mirrored Dec 2025]: 60.8% (high, $0.50/task).
   - *Dec 2025* [P-c snapshot]: GPT-5.2 Pro (X-High) 90.5% at $11.65/task; GPT-5.2 (X-High) 86.2% at $0.96/task.
   - *Jul–Sep 2026*:
-    - 97.5% for Claude Opus 5 (max) and GPT-5.6 Sol (xhigh) (Opus 5 system card, Table 8.1.A) [P-c];
+    - 97.5% for Claude Opus 5 (max) and GPT-5.6 Sol (xhigh) (Opus 5 system card, Table 8.1.A) [P-c]. *Fact-check note:* the Claude Fable 5.1 card's Table 8.1.A lists GPT-5.6 Sol at **96.5%** on ARC-AGI-1, with no effort label. Competitor figures therefore differ across cards by effort setting [corrected by fact-check];
     - 97.5% for Claude Fable 5.1 [P-c];
-    - 98.5% for GPT-6 Astra (xhigh) and Claude Fable 5 (xhigh) [S, Epoch-derived tracker].
+    - 98.5% for GPT-6 Astra (xhigh) and Claude Fable 5 (xhigh) [S, Epoch-derived tracker]. The Fable 5 figure is also in the Fable 5.1 card's Table 8.1.A [P-c, added by fact-check].
   - *Human reference points:*
     - 2025 human panel: 98% on the semi-private set [P-c snapshot];
     - the original private tasks were tested by 2 people who scored 97% and 98% [P-c];
@@ -164,7 +165,7 @@ ARC-AGI-3 is covered here because it is the current flagship. Its *format* is th
     - ARC reported that "at least seven distinct efforts" by companies with more than $1M in funding were working on the benchmark.
   - OpenAI chose ARC-AGI-1 as the headline benchmark in the o3 livestream; ARC co-presented with Sam Altman and Mark Chen [P-c].
   - The `fchollet/ARC-AGI` repo had 4,839 stars and 727 forks on 2026-09-29 [P].
-- **Status.** **Saturated.** The frontier (about 97.5–98.5%) is at the human-panel level (98%). ARC itself describes ARC-AGI-1 as "solved" and treats it as a historical yardstick. The leaderboard is still updated: 20 new rows in `v1.json` today [P-c].
+- **Status.** **Saturated.** The frontier (about 97.5–98.5%) is at the human-panel level (98%). ~~ARC itself describes ARC-AGI-1 as "solved"~~ The captured arc-agi/1 page (2026-09-29) frames ARC-AGI-1 historically ("endured five years of global competitions, a 50,000x scale-up of base LLMs") and points to ARC-AGI-2 as "the next iteration". I found no ARC text calling it "solved"; that label is my interpretation [corrected by fact-check]. The leaderboard is still updated: 20 model rows changed in `v1.json` today [P-c].
 - **Why it succeeded** [I, with the evidence above]:
   1. It resisted the 2020–2024 LLM scale-up. ARC says it survived "a 50,000x scale-up of base LLM pretraining" [P-c]. That made it the single cleanest counter-example to "scale is all you need", which is a strong cultural hook.
   2. It **detected a real regime change**: test-time adaptation and reasoning models in late 2024. It did so before most knowledge benchmarks registered one [P-c].
@@ -256,8 +257,8 @@ The testing report was published by Chollet on 20 Dec 2024. The table below is a
   - *2026*:
     - Gemini 3 Deep Think (2/26): 84.6% at $13.62/task (Feb 2026) [S tracker].
     - Claude Opus 4.7: 75.83% [P-c, Opus 5 card].
-    - Claude Opus 5 (max): **90.42%** [P-c]. GPT-5.6 Sol (max): **92.5%** [P-c, Opus 5 card table]. Claude Fable 5.1: **90%** [P-c].
-    - **GPT-6 Astra (max): 95.0% at $1.12/task (ARC Prize leaderboard, Sep 2026)** [S, from two independent trackers]. This is corroborated by the official `v2.json` captured today, whose highest served score is 95 [P-c summary]. One tracker lists 94.6 as the "independent" value [S].
+    - Claude Opus 5 (max): **90.42%** [P-c]. GPT-5.6 Sol: **92.5%** [P-c, Opus 5 card Table 8.1.A]. *Fact-check note:* the card lists Sol's 92.5 as a competitor figure "drawn from the respective developers' published system cards or benchmark leaderboards", with no effort label. The "(max)" label, $1.44/task and ARC-verified status come from the alloevil tracker, which cites the official leaderboard [S] [corrected by fact-check]. Claude Fable 5.1: **90%** [P-c].
+    - **GPT-6 Astra (max): 95.0% at $1.12/task (ARC Prize leaderboard, Sep 2026)** [S, from three trackers: alloevil, latere-ai and measured (95, no cost)]. This is consistent with the official `v2.json` captured today, whose highest served score is 95 [P-c summary]; the summary does not say which row holds it. ~~One tracker lists 94.6 as the "independent" value [S].~~ Not reproduced by fact-check: no source fetched in this check lists 94.6 for Astra on ARC-AGI-2. Treat it as unverified [corrected by fact-check].
 - **Adoption evidence.**
   - ARC Prize 2025 ran 26 Mar–3 Nov 2025 [P-c]:
     - Prizes: $700K Grand Prize at ≥85% within Kaggle efficiency limits; $125K guaranteed progress prizes; $175K to be announced.
@@ -268,7 +269,7 @@ The testing report was published by Chollet on 20 Dec 2024. The table below is a
     - The top paper award went to TRM (7M parameters; 45% on ARC-AGI-1 and 8% on ARC-AGI-2).
   - "Four frontier AI labs (Anthropic, Google DeepMind, OpenAI, and xAI) reported ARC-AGI performance in public model cards in 2025, establishing ARC-AGI as an industry standard benchmark" [P-c].
   - The 2026 Anthropic system cards (Opus 5, Fable 5.1) report ARC-Prize-*verified* ARC-AGI-1/2/3 scores [P-c].
-- **Status.** **Saturated on the verified semi-private set (95% > 85% target) in about 18 months.** The Kaggle Grand Prize track (open-source, compute-capped) was unclaimed as of the latest report I could read (the 2025 report, Jan 2026). ARC committed to "continue operating the ARC-AGI-2 Grand Prize competition in 2026", and an "ARC-AGI-2 Competition" link is live on arcprize.org today [P-c]. I could not find a 2026 ARC-AGI-2 Kaggle result [U].
+- **Status.** **Saturated on the verified semi-private set (95% > 85% target) in about 18 months.** The 85% line itself was first reached by GPT-5.5 (xhigh), at 85% on 2026-04-23, about 13 months after launch [S, measured tracker; added by fact-check]. The Kaggle Grand Prize track (open-source, compute-capped) was unclaimed as of the latest report I could read (the 2025 report, Jan 2026). ARC committed to "continue operating the ARC-AGI-2 Grand Prize competition in 2026", and an "ARC-AGI-2 Competition" link is live on arcprize.org today [P-c]. I could not find a 2026 ARC-AGI-2 Kaggle result [U].
 - **Why it succeeded:**
   - It kept the familiar format ("ensuring continuity for researchers") [P-c].
   - It fixed v1's measured flaws: larger and calibrated eval sets, removal of brute-forceable tasks, and IID splits [P-c].
@@ -276,7 +277,7 @@ The testing report was published by Chollet on 20 Dec 2024. The table below is a
   - It worked with labs to verify scores [P-c].
   - [I] It became the de facto "reasoning" line item in model cards.
 - **Why it failed or is failing:**
-  1. **Knowledge overfitting** [P-c, 2025 report]. ARC wrote: "even well-designed benchmarks resistant to direct memorization can now be 'overfit' if the public training and private test sets are too similar (e.g., independent and identically distributed) … We assert that this phenomenon is now occurring with ARC-AGI-1 and ARC-AGI-2." The evidence was that Gemini 3 Deep Think used "correct ARC color mappings in its reasoning" although the harness never mentioned ARC. [I] The IID calibration that makes splits comparable also makes the private set learnable from the public distribution. This is a structural tension.
+  1. **Knowledge overfitting** [P-c, 2025 report]. ARC wrote: "even well-designed benchmarks resistant to direct memorization can now be 'overfit' if the public training and private test sets are too similar (e.g., independent and identically distributed) … We assert that this phenomenon is now occurring with ARC-AGI-1 and ARC-AGI-2." The evidence was that Gemini 3 Deep Think used "correct ARC color mappings in its reasoning" although the harness "does not mention ARC-AGI tasks or color formats". *Fact-check nuance:* ARC adds "accidentally or intentionally, although we cannot determine which". The evidence is a single quoted reasoning excerpt, and ARC says it "cannot precisely quantify the magnitude of this effect". Treat it as an anecdotal, self-reported diagnosis rather than a measured contamination rate [added by fact-check]. [I] The IID calibration that makes splits comparable also makes the private set learnable from the public distribution. This is a structural tension.
   2. **The efficiency claim did not hold.** In 2025, ARC wrote that "Log-linear scaling is insufficient to beat ARC-AGI-2" [P-c]. Yet frontier models reached 95% at $1.12/task, below the $17/task human panel [S], within about 18 months. [I] Once cost falls below the human baseline, the efficiency axis no longer separates AI from humans on this format.
   3. **Two worlds.** The Kaggle open-source track (24% in 2025) and the verified frontier API track (54% by end 2025, 95% by Sep 2026) diverged widely [P-c/S]. [I] The prize measures something different from what labs report.
 - **Key sources:**
@@ -304,14 +305,14 @@ The testing report was published by Chollet on 20 Dec 2024. The table below is a
   - 25 are public demo environments. The rest are split into semi-private (55) and fully private (55) sets [S tracker].
   - Actions are discrete (ACTION1–7; ACTION6 takes x,y coordinates). Only environment-affecting actions count; "tool calls, reasoning steps, retries" do not [P].
 - **Human calibration** [P-c, "Measuring Human Performance on ARC-AGI-3", 14 Apr 2026]:
-  - **458 participants** from the general public in a San Francisco testing centre.
+  - **458 participants** from the general public in a San Francisco testing centre. *Fact-check note:* one LLM-assisted secondary digest of the arXiv paper (2603.24621 v1; nick-lang/VNR) reports **486** participants. This is unresolved: it may be a digest error or a counting difference. Cite 458 to the blog post, not to the paper [added by fact-check].
   - 90-minute sessions, with "~$130 base plus $5 for each environment" solved. The Astra post says "$115 per 90-minute session" plus $5 per game, about $12.78 per attempted game [P-t]. These figures disagree slightly.
   - "First-run" conditions, with no mention of ARC or AI. Humans get "the same 'system prompt'" and affordances as AI.
   - Environments too hard for people were excluded or revised. "Every environment is beaten by at least two independent participants", from a panel of about 10 per environment.
   - The public-demo human dataset (342 replays across 25 environments; 145 solves) is open-sourced.
   - Solvability per environment varies: r11l was solved by 10 of 10 players, tr87 by 6 of 12.
 - **Scoring: Relative Human Action Efficiency (RHAE)** [P, docs]:
-  - Per level: `(human_baseline_actions / ai_actions)^2`, capped at 1.15.
+  - Per level: `(human_baseline_actions / ai_actions)^2`, capped at 1.15. The current docs define the baseline as the **"upper median human"** per level; with an even number of finishers, the upper of the two middle entries is used [P, methodology.mdx; precision added by fact-check].
   - Levels are weighted by level index, so a game's maximum score is limited by the levels completed.
   - The total is the mean over games.
   - A per-level cutoff of 5× the human action count is reported in the paper digest [S].
@@ -353,7 +354,7 @@ The testing report was published by Chollet on 20 Dec 2024. The table below is a
   - It came with open replays and datasets [P-c].
   - It had verified results from the first day [P-c].
 - **Why it failed or is failing:**
-  1. **Harness sensitivity.** The same weights scored 62.7% or 99.9%, depending on whether the harness keeps opaque reasoning state between calls [P-t]. ARC's policy now says the two harnesses "answer different evaluation questions" [P-c].
+  1. **Harness sensitivity.** The same model scored 62.7% (Standard, max effort) or 99.9% (Provider Adapter, high effort), depending on whether the harness keeps opaque reasoning state between calls [P-t]. At the same max effort the figures are 62.7% vs 98.6%. ARC's own framing is that the "best observed score rose from 62.7% to 99.9%" [corrected by fact-check]. The harness distinction is independently documented in the official `arcprize/arc-agi-3-benchmarking` README [P, added by fact-check]. ARC's policy now says the two harnesses "answer different evaluation questions" [P-c].
   2. **Closed, deterministic worlds.** ARC itself says ARC-AGI-3's "scope and format are tightly bounded, environment mechanics and goals are deterministic and closed. It does not represent real-world complexity and openness" [P-t].
   3. **Scoring non-stationarity.** The human baseline changed three weeks after launch [P].
   4. **Game-likeness.** This makes it out of scope as a template for our project [I].
@@ -383,7 +384,8 @@ The testing report was published by Chollet on 20 Dec 2024. The table below is a
 - **Publication timing.** Results are published "no later than 30 days after public release", and "Sponsors cannot impose additional embargoes."
 - **Governance.**
   - The steward is a nonprofit with donors publicly disclosed and conflict-of-interest recusal.
-  - An **independent academic panel** reviews the methodology: Todd Gureckis (NYU), **Melanie Mitchell** (SFI; a prominent ARC critic) and Vishal Misra (Columbia). The panel "does not review every individual test result."
+  - An **independent academic panel** reviews the methodology: Todd Gureckis (NYU), **Melanie Mitchell** (Santa Fe Institute) and Vishal Misra (Columbia). The panel "does not review every individual test result." *Fact-check correction:* the earlier label "a prominent ARC critic" was interpretation, not sourced. Accurately, Mitchell's group has published critical analyses of AI abstraction on ARC-style tasks (ConceptARC 2023; Beger et al. 2025), and Gureckis co-authored H-ARC [corrected by fact-check].
+  - *Added by fact-check:* the policy states that the Foundation "is a nonprofit funded by donations from individuals, foundations, and **AI labs**". It also says that sponsor status does not affect verification, scoring, publication timing or data access [P-c]. [I] This matters for the "lab partnership without capture" claim below. Independence rests on stated policy, not on the absence of lab funding.
 - **Two leaderboards.** The **Community Leaderboard** shows methods, not scores. Self-reported scores are "untrustworthy by design", and "only ARC Prize Verified scores" are displayed [P, community leaderboard README]. A verification fund reimburses up to $2,500 per verified reproduction [P-c].
 
 **4b. The cost and efficiency axis** [P-c]:
@@ -430,6 +432,7 @@ The testing report was published by Chollet on 20 Dec 2024. The table below is a
   - 1,729 humans attempted all 800 public ARC-AGI-1 tasks.
   - Average accuracy was 76.2% on training tasks and 64.2% on evaluation tasks.
   - 790 of the 800 tasks were solved by at least one person within 3 attempts.
+  - *Fact-check additions (verbatim abstract):* the estimated ranges are 73.3–77.2% (training) and 55.9–68.9% (evaluation). Participants were crowd-workers recruited online, and H-ARC allowed **3 attempts**, whereas ARC Prize scores pass@2. The 64.2% is therefore not strictly comparable with pass@2 AI scores, even though ARC's own ARC-AGI-2 launch table uses 64.2% as the ARC-AGI-1 "Human panel (average)" [P-c].
   - [I] This shows that ARC's "easy for humans" is a **panel-level** property (someone solves it), not an individual-level one. ARC-AGI-2 kept this panel definition: at least 2 solvers. Our method should state explicitly which kind of human baseline it uses.
 
 ### 6. Critiques (consolidated)
@@ -437,14 +440,14 @@ The testing report was published by Chollet on 20 Dec 2024. The table below is a
 | Critique | Evidence | Tag |
 |---|---|---|
 | Accuracy overstates abstraction (shortcuts) | Beger, Mitchell et al. (arXiv:2510.02125): "the best models' rules are often based on surface-level 'shortcuts' and capture intended abstractions far less often than humans … using accuracy alone … may overestimate abstract-reasoning capabilities in textual modalities and underestimate it in visual modalities" | [P-c abstract] |
-| Perception and format confound | VARC (arXiv:2511.14761): treating ARC as image-to-image translation, a ViT trained from scratch reaches 60.4% on ARC-1, "competitive with those of leading LLMs". Text serialisation of grids is a design choice that shapes results. | [P-c abstract] |
+| Perception and format confound | VARC (arXiv:2511.14761): treating ARC as image-to-image translation, a ViT trained from scratch reaches 60.4% on ARC-1, "competitive with those of leading LLMs". Text serialisation of grids is a design choice that shapes results [I]. *Fact-check caveats:* the abstract does not name the ARC-1 split. The official repo shows both single-model and ensemble variants, and whether 60.4% is the ensemble figure was not verified. Do not compare it directly with verified semi-private scores [added by fact-check]. | [P-c abstract] |
 | Brute force / compute purchasability | 49% of ARC-AGI-1 solvable by 2020 brute-force search; o3 used 172× compute for +11.8 pp | [P-c] |
 | Private-set probing | About 10,000 scores reported against 100 private tasks | [P-c] |
 | Contamination without memorisation ("knowledge overfitting") | Gemini 3 Deep Think used ARC colour mappings unprompted; ARC "cannot precisely quantify the magnitude of this effect" | [P-c] |
 | Training on the public set ("tuned") | o3-preview was trained on 75% of the public training set | [P-c] |
 | Does it measure intelligence? | Chollet's own list: "Test validity is not established"; "Generalization is not quantified". ARC Prize: "not an acid test for AGI". Mitchell's Dec 2024 essay "Did OpenAI Just Solve Abstract Reasoning?" exists; I saw it only as a citation, and its content is **not verified here**. | [P-c]; essay [S citation only] |
 | Human baseline definitions | Panel (≥2 solvers) vs individual average (60–66% on ARC-AGI-2; 64.2% on ARC-AGI-1 eval). ARC-AGI-3 baseline changed from 2nd-best to median. | [P/P-c] |
-| Harness and scaffold dependence | 62.7% vs 99.9% for the same model on ARC-AGI-3 | [P-t] |
+| Harness and scaffold dependence | 62.7% (Standard, max effort) vs 99.9% (Provider Adapter, high effort) for the same model on ARC-AGI-3; 62.7% vs 98.6% at the same max effort [corrected by fact-check] | [P-t] |
 | Rapid saturation despite "hard for AI" design | ARC-AGI-2 went from single digits to 95% in about 18 months; ARC-AGI-3 went from under 1% to 99.9% (provider harness) in about 6 months | [S/P-t] |
 | Narrowness | Grid puzzles; ARC-AGI-3 is closed and deterministic and "does not represent real-world complexity" | [P-c/P-t] |
 
@@ -472,7 +475,7 @@ These are drawn from the ARC case. Each carries a pointer to its evidence; the s
 
    [P-c] This attracted startups (at least 7 with more than $1M in funding) and all major labs.
 9. **Planned obsolescence: roughly annual versioning.** ARC-AGI-1 (2019) → ARC-AGI-2 (2025) → ARC-AGI-3 (2026). The format was preserved where possible (v2 kept v1's format), and design choices were driven by a failure analysis of the previous version [P-c]. ARC calls this "a real world refinement loop … iteratively improving benchmarks in response to AI progress" [P-c].
-10. **Lab partnership without capture.** ARC co-presented o3's result, verifies lab models before release, and is cited in model cards [P-c]. At the same time it refuses sponsor embargoes and privileged data access [P-c].
+10. **Lab partnership without capture.** ARC co-presented o3's result, verifies lab models before release, and is cited in model cards [P-c]. At the same time it refuses sponsor embargoes and privileged data access [P-c]. *Fact-check caveat:* the Foundation's donors include AI labs (policy page) [P-c], so "without capture" rests on written policy and recusal rules, not on financial independence.
 11. **Shareable, human-playable artefacts.** Every task can be played in a browser (arcprize.org/play; the ARC-AGI-3 environments). Failure examples such as "o3 fails this easy task" go viral [P-c; I].
 
 ### Transplantability to a NON-GAME benchmark (the question the project asked)
@@ -501,7 +504,7 @@ These are drawn from the ARC case. Each carries a pointer to its evidence; the s
 2. **Items solvable by brute force carry no signal.** 49% of ARC-AGI-1 [P-c]. *Mitigation:* remove tasks solved by naive search before release (the v2 changelog) [P-c].
 3. **Scores can be bought with compute.** o3 used 172× compute for +11.8 pp [P-c]. *Mitigation:* mandatory cost reporting and a $10k cap [P-c]. The fix is imperfect because prices change [P-c; I].
 4. **Contamination without memorisation.** IID public and private sets plus heavy public training give "knowledge overfitting" [P-c]. [I] A benchmark whose held-out set is drawn from the same generator as its public set will eventually be learned as a *domain*.
-5. **Scaffold and harness dependence breaks comparability.** A 37-point swing for the same model [P-t].
+5. **Scaffold and harness dependence breaks comparability.** A 36-point swing for the same model at the same max effort (62.7% vs 98.6%), or 37 points best-vs-best across effort settings [P-t] [corrected by fact-check].
 6. **Metric instability.** The ARC-AGI-3 baseline was redefined three weeks after launch [P]. Cost figures were re-priced [P-c]. Documentation drifted (2 vs 3 trials; 400 vs 1,000 training tasks) [P; P-c].
 7. **Validity gaps admitted by the creator.** "Test validity is not established" (2019) [P-c]. External work finds shortcut solutions and modality effects [P-c]. [I] High accuracy on an ARC-style task does not by itself show the intended abstraction.
 8. **Fast saturation once the benchmark becomes a lab target.** v2: about 18 months to 95%. v3: about 6 months to 99.9% under the provider harness [S/P-t]. The more successful and adopted the benchmark, the faster it saturates [I]. Plan for succession.
@@ -562,12 +565,12 @@ Confidence is High, Medium or Low. Unless stated otherwise, all URLs were access
 16. **The Poetiq refinement harness on Gemini 3 Pro raised ARC-AGI-2 from 31% ($0.81/task) to 54% ($31/task),** as verified by ARC.
     - Sources: 2025 report text (URL in claim 13); https://raw.githubusercontent.com/ndbroadbent/arc_agi_pareto_frontiers/90d0c6822f82b8ef95423f2a37c74cdb45e7b40f/data/evaluations.json
     - Confidence: **High.**
-17. **ARC-AGI-2 frontier verified scores in 2026:** Claude Opus 5 (max) 90.42%; GPT-5.6 Sol (max) 92.5%; Claude Fable 5.1 90%; Claude Opus 4.7 75.83%.
+17. **ARC-AGI-2 frontier verified scores in 2026:** Claude Opus 5 (max) 90.42%; GPT-5.6 Sol 92.5% (listed in the Opus 5 card's Table 8.1.A as a competitor figure without an effort label; the "(max)", $1.44/task and verified status come from the alloevil tracker [S]) [corrected by fact-check]; Claude Fable 5.1 90%; Claude Opus 4.7 75.83%.
     - Source: https://raw.githubusercontent.com/malob/ai-system-cards/282a67c3c79617b23a1a23ed0869239b6e28d139/cards/anthropic/claude-opus-5/sections/08b-capabilities-2.md ; https://github.com/malob/ai-system-cards/blob/282a67c3c79617b23a1a23ed0869239b6e28d139/cards/anthropic/claude-fable-5-1/sections/08-capabilities.md
     - Confidence: **High** (lab system card quoting ARC-verified numbers, read via a mirror).
 18. **GPT-6 Astra (max) scored 95.0% on ARC-AGI-2 semi-private at $1.12/task (Sep 2026).** This is the highest verified score, above the 85% Grand Prize threshold.
     - Sources: https://raw.githubusercontent.com/alloevil/llm-benchmarks-tracker/8e239c46ead8a4b063cc7d6ada272b53ad99633c/data/results/arc-agi-2.json ; https://github.com/latere-ai/ai-as-an-infrastructure/blob/bf1a025f002170a3a6b28a1168ca64dea4ab5442/en/field/2026-09.qmd ; official v2.json maximum of 95 in the capture at https://raw.githubusercontent.com/fstandhartinger/model-market-comparison/f23453577c817fd6c6c003e0b46a6381c7476c61/data/raw/benchmarks/daily-evidence/2026-09-29T05-49-25-487Z/gauntlet/protocol-arc-agi-2/packet-r1.md
-    - Confidence: **Medium-High** (secondary trackers, plus an official data-scale summary; one tracker lists 94.6).
+    - Confidence: **Medium-High** (three secondary trackers, plus an official data-scale summary whose maximum is 95). The earlier "one tracker lists 94.6" was not reproduced by fact-check [corrected by fact-check].
 19. **ARC-AGI-3 is interactive and game-like:** 135 environments, 25 public. Its human study tested 458 participants in 90-minute first-run sessions, and every environment was beaten by at least 2 participants.
     - Source: capture of arcprize.org/blog/arc-agi-3-human-dataset (14 Apr 2026) at https://raw.githubusercontent.com/fstandhartinger/model-market-comparison/f23453577c817fd6c6c003e0b46a6381c7476c61/data/raw/benchmarks/daily-evidence/2026-09-29T05-49-25-487Z/gauntlet/protocol-arc-agi-3/packet-r1.md ; docs https://raw.githubusercontent.com/arcprize/docs/main/games.mdx
     - Confidence: **High.**
@@ -580,7 +583,7 @@ Confidence is High, Medium or Low. Unless stated otherwise, all URLs were access
 22. **Claude Opus 5 (high) scored 30.16% on ARC-AGI-3 semi-private (ARC-verified), in July 2026.** GPT-5.6 Sol (max) scored 7.78% and Claude Opus 4.8 1.52%.
     - Source: Opus 5 card mirror (URL in claim 17).
     - Confidence: **High.**
-23. **GPT-6 Astra on ARC-AGI-3 semi-private (3 Sep 2026):** Standard harness (max) 62.7% at $26,098; Provider Adapter harness (high) 99.9% at $18,817, and (max) 98.6% at $17,332. Astra (max, Provider Adapter) used fewer actions than the median human on 96.0% of levels.
+23. **GPT-6 Astra on ARC-AGI-3 semi-private (3 Sep 2026):** Standard harness (max) 62.7% at $26,098; Provider Adapter harness (high) 99.9% at $18,817, and (max) 98.6% at $17,332. Headline comparisons must state that 62.7% → 99.9% changes both harness and effort [fact-check note]. Astra (max, Provider Adapter) used fewer actions than the median human on 96.0% of levels.
     - Sources: https://raw.githubusercontent.com/lihenair/techtranslate/821908553b702d9de6565d186fdd2e8661303f6f/archive/2026-09-05/ai/OpenAIs-GPT-6-Astra-on-ARC-AGI-3.md (translation of arcprize.org/blog/astra) ; https://raw.githubusercontent.com/Belkins/ai-dive-deep/ecac08d8d3ffe24d6301579938d9d4e64bd101ff/src/content/chapters/49-gpt-6-astra.mdx ; official v3.json maximum 99.946 in the ARC-AGI-3 capture (URL in claim 19)
     - Confidence: **High.**
 24. **ARC states that ARC-AGI-3 is "tightly bounded … deterministic and closed"** and does not represent real-world complexity. It does not claim that Astra is AGI.
@@ -662,12 +665,12 @@ A machine-readable list is in `research/refs/arc_agi.json`. For each entry below
     - Seen at: 2025 report reference list; arcprize HRM-analysis README.
 22. Li, W.-D. et al. (2024). *Combining Induction and Transduction for Abstract Reasoning.* arXiv:2411.02272.
     - Seen at: 2024 report reference list.
-23. Akyürek et al. (2024). *The Surprising Effectiveness of Test-Time Training for Abstract Reasoning.* arXiv:2411.07279.
-    - Seen at: open-thought/arc-agi-2 research list.
+23. Akyürek, E., Damani, M., Qiu, L., Guo, H., Kim, Y., Andreas, J. (2024). *The Surprising Effectiveness of Test-Time Training for Abstract Reasoning.* arXiv:2411.07279. [author list completed by fact-check]
+    - Seen at: open-thought/arc-agi-2 research list; the full author list is from ARC Prize 2024 report ref 1.
 24. Spelke, E. S., Kinzler, K. D. (2007). *Core knowledge.* Developmental Science, pp. 89–96.
     - Seen at: 2024 report reference list.
 25. Anthropic (2026). *Claude Opus 5 System Card*, §8.14 ARC-AGI.
-    - Seen at: malob/ai-system-cards mirror.
+    - Seen at: malob/ai-system-cards mirror. Canonical PDF (link seen in the Fable 5.1 card): https://www-cdn.anthropic.com/b514064af1408018e64b1ad24e7d5e75850b4ffd/Claude%20Opus%205%20System%20Card.pdf [added by fact-check].
 26. Anthropic (2026). *Claude Fable 5.1 System Card*, ARC-AGI section.
     - Seen at: malob/ai-system-cards mirror.
 27. Lambert, N. (20 Dec 2024). *OpenAI's o3: The grand finale of AI in 2024.* Interconnects.
@@ -678,3 +681,210 @@ A machine-readable list is in `research/refs/arc_agi.json`. For each entry below
 31. latere-ai (2026). *AI as an Infrastructure*, field notes for Sep 2026. GitHub. [Secondary]
 32. Mitchell, M. (2024). *Did OpenAI Just Solve Abstract Reasoning?* AI: A Guide for Thinking Humans (Substack).
     - **Seen only as a citation** in an ICML 2025 position-paper text; content not read.
+33. Anthropic (2026). *Claude Opus 5.5 System Card*, §8 Capabilities. [added by fact-check]
+    - Seen at: malob/ai-system-cards mirror (`claude-opus-5-5/sections/08a-capabilities-1.md`, `08b-capabilities-2.md`). It contains no ARC-AGI row or section.
+34. ARC Prize Foundation (2026). *arc-agi-3-benchmarking* README: Standard and Provider Adapter harnesses. GitHub `arcprize/arc-agi-3-benchmarking`. [added by fact-check]
+
+---
+
+## Verification log
+
+This log was added by the adversarial fact-checker on 2026-09-29.
+
+**Method and constraints.**
+- The shared WebSearch budget was already exhausted (200/200) when this check started, so **no WebSearch queries could be run**.
+- Instead, every load-bearing claim was re-checked in two ways:
+  1. I downloaded the cited primary-text caches myself (raw.githubusercontent.com via curl) and grepped them for the exact wording and numbers, rather than relying on the dossier's summaries.
+  2. I used GitHub code search and direct fetches to find **independent second copies** of the same primary texts, such as other full-text extractions of the ARC Prize reports, arXiv daily listings, official arcprize repos, a second translation of the Astra post, and other system-card sections.
+- arxiv.org, arcprize.org and the GitHub REST API (repo metadata) were unreachable.
+- Verdicts are confirmed / corrected / refuted / unverifiable.
+
+### Claim verdicts
+
+**C1. Chollet 2019 definition, "buy" skill, "Test validity is not established".**
+- **Verdict: CONFIRMED** (High).
+- The abstract wording ("skill-acquisition efficiency and highlighting the concepts of scope, generalization difficulty, priors, and experience"; "unlimited priors or unlimited training data allow experimenters to 'buy' arbitrary levels of skills") appears verbatim in three independent repos (commotum/4D notes, Interconnects homebase, y-arjun-y notebook).
+- The §III.2 weaknesses list, including "Test validity is not established", and the title-page line "arXiv:1911.01547v2 [cs.AI] 25 Nov 2019" appear in the commotum notes.
+- The ARC Prize 2024 report (ref 7) cites the same arXiv ID.
+- Sources:
+  - https://raw.githubusercontent.com/commotum/4D/6dd4d04fd21a681d337e4342beb6ef51e0476a07/Notes/Vision/pdfs-3/2019_MOI.md
+  - https://raw.githubusercontent.com/y-arjun-y/arjunyadav/66bf0ee0a0036f6cd9d1d42b11c46649afb87691/pages-md/ai-safety.md
+  - https://raw.githubusercontent.com/Interconnects-AI/homebase/b2c74a0cb0765f2c65abe8cbc8ba48d5ff877d7a/public/2024/2024-12-20-openaiso3thegrandfinaleofaiin2024.md
+
+**C2. About 10,000 private-set scores; 49% solved by at least one 2020 entry; no deep-learning entry above 1%.**
+- **Verdict: CONFIRMED** (High).
+- Verbatim in two independent full-text copies of arXiv:2412.04604v2: "on the order of 10,000 private evaluation set scores have been reported"; "49% of the private evaluation set was solved by at least one team (all of which were using some variation of brute-force program search)"; "no deep-learning based approach scored above 1%".
+- The same report says the 49% was achievable "by ensembling all 2020 competition entries". The best single Kaggle brute-force submission reached 40% (alijs).
+- Sources:
+  - the UNIR-TUC copy (URL in the claim)
+  - https://raw.githubusercontent.com/atimics/crlplrimes/HEAD/paper/sources/text/chollet2024arcprize.txt
+
+**C3. ARC Prize 2024 facts.**
+- **Verdict: CONFIRMED** (High).
+- Both copies confirm every item: 11 Jun–10 Nov 2024; $600,000 Grand Prize at 85%; 1,430 teams and 17,789 entries; state of the art 33% → 55.5% (MindsAI, did not open-source, ineligible); ARChitects 1st at 53.5%; single P100, under 12 h, no internet; "$10 of compute per entry" vs up to $10,000 in API credits (about 1,000× more compute).
+- Sources: as for C2.
+
+**C4. o3-preview 75.7% / 87.5%, 172×, trained on 75% of public training, efficiency mandatory, $26 vs $200 per task.**
+- **Verdict: CONFIRMED** (High).
+- The cached arcprize.org post (byline "By François Chollet, Published 20 Dec 2024") contains all figures.
+  - Semi-private: 75.7% at $2,680 total, 6 samples, 33.5M tokens, $26/task. The low-efficiency run scored 87.5% with 1,024 samples, 5.7B tokens and $4,560/task.
+  - Quotes: "trained the o3 we tested on 75% of the Public Training set"; "efficiency (e.g., compute cost) is now a required metric".
+  - Re-pricing notes are dated 3/24/2025 (o1-pro pricing) and 12/10/2025 (o3-pro pricing, $80/M tokens).
+- The arithmetic is internally consistent: 33.5M × $80/M = $2,680, about $26.8/task. The $200/task figure in the ARC-AGI-2 launch table (24 Mar 2025, "based on … o1-pro pricing") and in the Dec-2025 leaderboard mirror (`costPerTask: 200`) matches the o1-pro re-basing.
+- *Caveat:* the original Dec-2024 table survives only as an image in the Interconnects post, which says "o3 high-compute costs not available". **The original pre-re-basing cost figure could not be recovered.**
+- Sources:
+  - https://raw.githubusercontent.com/ndbroadbent/arc_agi_pareto_frontiers/90d0c6822f82b8ef95423f2a37c74cdb45e7b40f/sources/o3_announcement.html
+  - https://raw.githubusercontent.com/steel-dev/leaderboard/33aaee5bf46a492e0ff9a84eb7643f8d0def66d6/docs/research/arc-agi-2/paper.md
+  - https://raw.githubusercontent.com/ndbroadbent/arc_agi_pareto_frontiers/90d0c6822f82b8ef95423f2a37c74cdb45e7b40f/data/evaluations.json
+  - Interconnects (URL in C1)
+
+**C5. ARC-AGI-2 launch facts.**
+- **Verdict: CONFIRMED** (High).
+- Launch post: "By Greg Kamradt Published 24 Mar 2025". Changelog: "2025-03-24 1,360 ARC-AGI-2 released" (1,000 / 120 / 120 / 120).
+- Also confirmed in the launch post:
+  - brute-force tasks removed ("all solved tasks from the original 2020 Kaggle contest");
+  - "over 400 humans";
+  - "at least 2 humans in 2 attempts or less";
+  - "Pure LLMs score 0%"; "we estimate that o3-preview-low would score ~4%";
+  - human panel average 60% at $17/task;
+  - README: "Average human performance … 66%".
+- The dossier's flagged discrepancy is real: the 2025 technical report lists "Public training tasks (400, imported from ARC-AGI-1)". The 2025 report adds that each task was attempted by 2–10 humans.
+- Sources:
+  - launch cache (C4)
+  - https://raw.githubusercontent.com/arcprize/ARC-AGI-2/main/readme.md
+  - https://raw.githubusercontent.com/arcprize/ARC-AGI-2/main/changelog.md
+  - https://raw.githubusercontent.com/tiendungchs/PersonalWiki/HEAD/raw/ARC%20Prize%202025%20Technical%20Report.md
+
+**C6. ARC Prize 2025 figures and the "industry standard" quote.**
+- **Verdict: CONFIRMED** (High).
+- Verbatim in three independent full-text copies of arXiv:2601.10904 and in the arXiv daily listing of 2026-01-19, which carries the same four authors.
+- Figures: 1,455 teams and 15,154 entries; "24% at a compute cost of $0.20 per task"; NVARC 24.03%; "90 papers submitted, up from 47"; four labs listed; "establishing ARC-AGI as an industry standard benchmark for AI reasoning".
+- Sources:
+  - https://raw.githubusercontent.com/UNIR-TUC/arc-agi/48d931918edd904b99ef546a98adc97e19ccf528/src/SuperCompressARC/Docs/2025/2601.10904v1_arc_prize_2025.md
+  - https://raw.githubusercontent.com/visual-snow/seshat/HEAD/parsed/deepmind/2601_10904.md
+  - https://raw.githubusercontent.com/2shin0/arxiv-ai-mailing/HEAD/ALL/2026-01-19.md
+
+**C7. "Knowledge overfitting" and the Gemini 3 Deep Think colour-mapping evidence.**
+- **Verdict: CONFIRMED** (High), with nuance added inline.
+- §4.1 of the 2025 report, verbatim in three copies, reads: "We assert that this phenomenon is now occurring with ARC-AGI-1 and ARC-AGI-2 – accidentally or intentionally, although we cannot determine which." The evidence is one quoted Gemini 3 Deep Think excerpt; the harness "does not mention ARC-AGI tasks or color formats". ARC "cannot precisely quantify the magnitude of this effect".
+- This is an anecdotal diagnosis (n = 1 excerpt), not a measured rate.
+- Sources: as for C6.
+
+**C8. ARC-AGI-2 frontier of 95.0% (GPT-6 Astra, $1.12/task); Opus 5 90.42% and GPT-5.6 Sol 92.5% in the Opus 5 card.**
+- **Verdict: CORRECTED** (minor, attribution).
+- The 95.0% at $1.12/task is corroborated by:
+  - alloevil (official-leaderboard source, dated 2026-09-02, accessed 2026-09-04; also notes OpenAI's launch table shows 95.0%);
+  - latere-ai (USD 1.12);
+  - measured (95, 2026-09-03);
+  - the official v2.json capture maximum of 95.
+  - All are secondary except the scale summary, which does not identify the row. Confidence: Medium-High.
+- Opus 5 at 90.42% is explicitly ARC-verified in the Opus 5 card (§8.14.1).
+- **Correction:** the card's 92.5 for GPT-5.6 Sol appears only in Table 8.1.A as a competitor figure "drawn from the respective developers' published system cards or benchmark leaderboards", without an effort label. The "(max)" label and the ARC-verified $1.44/task come from the alloevil tracker [S].
+- The dossier's "one tracker lists 94.6" was **not reproduced**.
+- Added: the measured tracker shows GPT-5.5 (xhigh) at 85% on 2026-04-23, the first time the 85% line was reached (about 13 months after launch).
+- Sources:
+  - https://raw.githubusercontent.com/malob/ai-system-cards/282a67c3c79617b23a1a23ed0869239b6e28d139/cards/anthropic/claude-opus-5/sections/08a-capabilities-1.md
+  - the 08b section (URL in C10)
+  - alloevil and latere (URLs in the claim)
+  - https://raw.githubusercontent.com/rishikeshn-eng/measured/2e30d67d10d6db8b508c8fad39ce136b370a78f4/index.html
+
+**C9. ARC-AGI-3 format, human study and RHAE.**
+- **Verdict: CONFIRMED** (High), with two notes.
+- The capture of arcprize.org/blog/arc-agi-3-human-dataset ("Greg Kamradt, Published 14 Apr 2026") confirms:
+  - "458 participants"; "135 abstract reasoning environments"; 25 public demo environments;
+  - 90-minute sessions under "first-run" conditions;
+  - "Every environment is beaten by at least two independent participants";
+  - the baseline change from 2nd-best to median, and the cap from 100% to 115% (+0.5 pp).
+- docs/changelog.mdx (14 Apr 2026) and methodology.mdx confirm `(human/AI)^2`, the 1.15 cap and level-index weighting.
+- *Notes:*
+  1. The docs now specify the **"upper median"** human.
+  2. One LLM-assisted digest of the arXiv paper (v1) says **486** participants and describes the original rule as `min(1,(h/a)^2)` against the second-best human. The participant count is unresolved; cite 458 to the blog post.
+- Sources:
+  - packet (URL in the claim)
+  - https://raw.githubusercontent.com/arcprize/docs/main/methodology.mdx
+  - https://raw.githubusercontent.com/arcprize/docs/main/changelog.mdx
+  - https://raw.githubusercontent.com/nick-lang/VNR/HEAD/lit/2026-arc-agi-3-report.md
+
+**C10. ARC-AGI-3 progression: under 1% at launch; Opus 5 30.16% vs Sol 7.78%; Astra 62.7% vs 99.9%.**
+- **Verdict: CORRECTED** (effort-level mismatch).
+- Under 1% at launch:
+  - confirmed in the paper digests VNR, graphkasten (submitted 2026-03-24), SihoonSung and memgrafter (Gemini 3.1 Pro 0.37%, GPT-5.4 0.26%, Opus 4.6 0.25%);
+  - latere-ai cites ARC's launch post for 0.51% on 25 Mar.
+- Opus 5 card §8.14.2 verbatim: "verified score of 30.16%, set at high effort … GPT-5.6 Sol reached 7.78% at max effort". Its July 2026 date is secondary (measured: 2026-07-24).
+- **Correction:** 62.7% ($26,098) is **max** effort under the Standard harness, while 99.9% ($18,817) is **high** effort under the Provider Adapter. At the same max effort the Provider Adapter scored 98.6% ($17,332), about 36 pp, not 37.
+- The three sources agree on the per-effort table: the Chinese translation of the ARC post, a second translation of a TheNewStack article, and the Belkins chapter. The Belkins chapter itself notes that "the headline 62.7-to-99.9 comparison changes two variables".
+- Sources:
+  - https://raw.githubusercontent.com/lihenair/techtranslate/821908553b702d9de6565d186fdd2e8661303f6f/archive/2026-09-05/ai/OpenAIs-GPT-6-Astra-on-ARC-AGI-3.md
+  - https://raw.githubusercontent.com/rocksun/mwblog/HEAD/ai/openai-astra-harness-arc-agi-3/openai-astra-harness-arc-agi-3.md
+  - https://raw.githubusercontent.com/Belkins/ai-dive-deep/ecac08d8d3ffe24d6301579938d9d4e64bd101ff/src/content/chapters/49-gpt-6-astra.mdx
+  - https://raw.githubusercontent.com/malob/ai-system-cards/282a67c3c79617b23a1a23ed0869239b6e28d139/cards/anthropic/claude-opus-5/sections/08b-capabilities-2.md
+
+**C11. Testing policy points.**
+- **Verdict: CONFIRMED** (High for content; single-capture provenance).
+- All items are verbatim in the sha256-stamped capture of arcprize.org/policy (retrieved 2026-09-29T05:49:46Z):
+  - "acknowledge the possibility of limited leakage over time";
+  - zero data retention plus "successive ARC-AGI benchmark versions on a roughly annual basis";
+  - ±10 / ±3 / ±15 pp agreement bands;
+  - ">$10M USD gross revenue/mo";
+  - "$10,000 USD per run … A single run is used";
+  - "no later than 30 days after public release, or 30 days after evaluation completion if already public, whichever is earlier. Sponsors cannot impose additional embargoes";
+  - the panel of Gureckis (NYU), Mitchell (Santa Fe Institute) and Misra (Columbia), which "does not review every individual test result".
+- GitHub code search found this text **only** in the same tracker repo (fstandhartinger, including 2026-09-28 packets), so there is no independent copy.
+- The harness split is independently confirmed by the official arcprize/arc-agi-3-benchmarking README.
+- Added: donors include AI labs.
+- Sources:
+  - packet (URL in the claim)
+  - https://raw.githubusercontent.com/arcprize/arc-agi-3-benchmarking/main/README.md
+
+**C12. Beger, Mitchell et al. (arXiv:2510.02125).**
+- **Verdict: CONFIRMED** (High).
+- The verbatim abstract and seven authors appear in the 2025-10-06 arXiv cs.CL listing (marked "replace-cross", i.e. a revised version) under the link abs/2510.02125.
+- Source: https://raw.githubusercontent.com/Luvata/arxive/1620fc6bcd136848375a9c12a057db05dfb0d287/pages/2025-10-06-cs-cl.html
+
+**C13. VARC 60.4% on ARC-1; representation matters.**
+- **Verdict: CONFIRMED** (High for the abstract; the second sentence is interpretation [I]).
+- The verbatim abstract (v1, 2025-11-18) confirms image-to-image translation, a vanilla ViT trained from scratch on ARC data, test-time training and "60.4% accuracy on the ARC-1 benchmark".
+- The eight authors are confirmed by the official BibTeX in lillian039/VARC.
+- The split, and single-model vs ensemble, are not verified.
+- It is listed as a CVPR 2026 poster in a secondary list.
+- Sources:
+  - https://raw.githubusercontent.com/Yasouimo/NetPlagStream/2ef20657d2270987392a0421ce743c2a8ac675bb/data/corpus_initial/2511.14761v1.txt
+  - https://raw.githubusercontent.com/lillian039/VARC/HEAD/README.md
+  - https://raw.githubusercontent.com/SkalskiP/top-cvpr-2026-papers/HEAD/README.md
+
+**C14. H-ARC.**
+- **Verdict: CONFIRMED** (upgrade from Medium to High).
+- Verbatim abstract, with arXiv:2409.01374, four authors and a publication date of 2024-09-02: "1729 humans on the full set of 400 training and 400 evaluation tasks … 76.2% … 64.2% … 790 out of the 800 tasks were solvable by at least one person in three attempts".
+- It is also ARC Prize 2024 report ref 18. The ARC-AGI-2 launch table uses 64.2% as the ARC-AGI-1 average.
+- Caveat added inline: 3 attempts vs pass@2.
+- Source: https://raw.githubusercontent.com/geometor/arcprize/10e87b6e4b2f8df6019f0cdd3fd90a53b19f0961/docsrc/refs/papers/h-arc-a-robust-estimate-of-human-performance-on-the-abstraction-and-reasoning-corpus-benchmark/index.rst
+
+**Tally:** 12 confirmed, 2 corrected (C8, C10), 0 refuted, 0 unverifiable.
+
+### Other corrections made in the dossier body (outside C1–C14)
+
+- "ARC itself describes ARC-AGI-1 as 'solved'" was **not supported** by the captured arc-agi/1 page and has been rewritten.
+- "Melanie Mitchell (… a prominent ARC critic)" was unsourced interpretation and has been rewritten.
+- The Fable 5.1 card lists GPT-5.6 Sol at 96.5% on ARC-AGI-1 (no effort label), whereas the Opus 5 card lists 97.5 (xhigh). This is noted inline.
+- "37-point swing" is qualified in three places.
+- New finding: the mirrored **Claude Opus 5.5 system card (Sep 2026) contains no ARC-AGI section or row**. Medium confidence, because mirror completeness is not verified.
+- New context: the ARC Prize Foundation's donors include AI labs.
+- The Akyürek et al. author list has been completed.
+
+### Reference-check summary (`research/refs/arc_agi.json`)
+
+- **Coverage.** 36 original entries were checked, 36 of 36 (none skipped), and 2 were added (the Opus 5.5 card and the arc-agi-3-benchmarking README), for a total of 38.
+- **Verified: 38 of 38 exist with the stated title, authors, year and ID/URL,** subject to the notes below. **No fabricated or garbled reference was found.**
+- **Fixes applied:**
+  - `akyurek2024ttt`: authors completed (Akyürek, Damani, Qiu, Guo, Kim, Andreas) from ARC Prize 2024 ref 1.
+  - `spelke2007core`: the `url` pointed to the ARC report cache, not the paper; set to null. Volume, issue and DOI were not seen.
+  - `anthropic2026opus5card`: `url` replaced with the CDN PDF link seen in the Fable 5.1 card.
+  - `hu2025varc`: venue annotated (CVPR 2026 per a secondary list).
+- **Residual weak points, flagged in `verify_note`:**
+  - The ARC-AGI-3 paper's individual authors are unverified; only "ARC Prize Foundation" was seen.
+  - The HRM blog title is unverified.
+  - The later co-author (Denton) on Beger et al. is unverified.
+  - The Mitchell Substack post is verified as a citation only; its content was not read.
+  - The policy page has a single third-party capture.
+  - The canonical URLs for the Fable 5.1 and Opus 5.5 cards are not verified.
+  - The stars/forks of `fchollet/ARC-AGI` are unverified (API 403).
