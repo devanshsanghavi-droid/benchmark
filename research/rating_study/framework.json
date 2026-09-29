@@ -1,0 +1,439 @@
+{
+ "factors": [
+  {
+   "id": "F1",
+   "name": "Construct definition and incremental validity",
+   "group": "Measurement validity",
+   "definition": "A written account of what the score measures and what it should and should not correlate with, plus evidence of reliable variance beyond general capability. Strong for scientific value, weak for adoption: most adopted benchmarks correlate 0.95-0.97 with an ECI refit [C:offg].",
+   "anchor_0": "No stated construct, or unrelated constructs (e.g., self-reported affect) mixed into the headline score.",
+   "anchor_1": "Construct named, but no validity evidence.",
+   "anchor_2": "Construct plus at least one validity check (external criterion, controlled manipulation, or measured human-model gap).",
+   "anchor_3": "Construct theory with convergent, discriminant and incremental evidence over a general-capability factor."
+  },
+  {
+   "id": "F2",
+   "name": "Exact, automatic verification",
+   "group": "Measurement validity",
+   "definition": "Every item is scored by a deterministic, specification-traceable procedure, with no LLM judge in the headline score. Judged benchmarks can still be adopted when product-aligned, but are version-fragile.",
+   "anchor_0": "Scoring requires human judgement.",
+   "anchor_1": "LLM judge, rubric or self-report in the headline score.",
+   "anchor_2": "Deterministic automatic scoring, untested for defects.",
+   "anchor_3": "Deterministic, specification-traceable scoring, shipped with an oracle solution and a null/do-nothing baseline."
+  },
+  {
+   "id": "F3",
+   "name": "Statistical resolution",
+   "group": "Measurement validity",
+   "definition": "Enough independent items and trials to separate adjacent frontier models, with uncertainty reported. A 3-point gap needs about 969 items [miller2024errorbars].",
+   "anchor_0": "Under about 100 scored units, or no uncertainty reported.",
+   "anchor_1": "A few hundred units, no confidence intervals.",
+   "anchor_2": "Confidence intervals of about +/-3-5 points reported.",
+   "anchor_3": "Pre-registered power analysis; about 1,000+ independent clusters (or adaptive IRT); paired, clustered SEs."
+  },
+  {
+   "id": "F4",
+   "name": "Shortcut, tool and harness robustness",
+   "group": "Measurement validity",
+   "definition": "The score cannot be reached through format heuristics, lookup, brute-force code, do-nothing actions or harness tricks, and the tool policy is declared.",
+   "anchor_0": "Solvable by a short program, lookup or format heuristic, with no tool policy.",
+   "anchor_1": "No demonstrated shortcut, but no controls reported.",
+   "anchor_2": "Tool policy declared, plus at least one control (blind baseline, ablation, mutation or harness comparison).",
+   "anchor_3": "Full battery: blind, do-nothing and brute-force baselines, a sealed runtime, and harness sensitivity reported."
+  },
+  {
+   "id": "F5",
+   "name": "Launch headroom against a human anchor",
+   "group": "Longevity & integrity",
+   "definition": "The frontier is far below ceiling at launch, against a measured human reference. This opens the window in which labs adopt a benchmark (roughly 10-40%). Not necessary when product alignment is strong.",
+   "anchor_0": "Frontier near ceiling at launch, or task trivially solvable.",
+   "anchor_1": "Headroom claimed, but frontier models untested or no reference.",
+   "anchor_2": "Frontier at or below 50% on current frontier-class models, or a large gap to a measured human baseline.",
+   "anchor_3": "Both: frontier at or below 30% and far below a measured human baseline."
+  },
+  {
+   "id": "F6",
+   "name": "Renewal mechanism and difficulty knob",
+   "group": "Longevity & integrity",
+   "definition": "The item pool can be refreshed and made harder under one stable name, with a frozen split kept for comparability. Every long-lived 2026 headline family except HLE is a versioned brand [D:MCA].",
+   "anchor_0": "Static item pool, no renewal plan.",
+   "anchor_1": "Regenerable, but no versioning plan.",
+   "anchor_2": "Parametric difficulty knob or scheduled fresh items.",
+   "anchor_3": "Knob, plus a published version cadence under a stable name, plus a frozen comparability split."
+  },
+  {
+   "id": "F7",
+   "name": "Contamination resistance (training-time and run-time)",
+   "group": "Longevity & integrity",
+   "definition": "The design prevents scores from reflecting memorised items or answers retrieved during evaluation, and measures what leaks. It protects validity more than longevity.",
+   "anchor_0": "Public, static, web-sourced items.",
+   "anchor_1": "Canary strings or surface renaming only.",
+   "anchor_2": "Procedurally generated, post-cutoff or private-holdout items.",
+   "anchor_3": "Fresh-by-construction live window, run-time leak controls, and a measured contamination gap."
+  },
+  {
+   "id": "F8",
+   "name": "Item-quality assurance",
+   "group": "Longevity & integrity",
+   "definition": "Answer keys are validated redundantly before release, and an audited error rate is published and re-audited. Audits found errors in 42% of FrontierMath problems and flaws in at least 59.4% of audited SWE-bench Verified items.",
+   "anchor_0": "No audit, or unaudited generated keys.",
+   "anchor_1": "Informal checks only.",
+   "anchor_2": "Redundant expert validation, or keys computed by a verified rule engine or generator.",
+   "anchor_3": "Published audited error rate per release, an oracle scoring 100%, and a planned re-audit."
+  },
+  {
+   "id": "F9",
+   "name": "Distribution and friction",
+   "group": "Ecosystem & adoption",
+   "definition": "Text-in/text-out scoring that runs on closed APIs, with one-command install, integration into standard harnesses, and low cost per run. Necessary but not sufficient: BFCL was packaged and still appears in 0/34 frontier tables.",
+   "anchor_0": "No public code or data, or scoring needs model internals (logits).",
+   "anchor_1": "Incomplete release (data only, no evaluator), heavy setup, or restrictive licence.",
+   "anchor_2": "pip-installable or API-only harness with a permissive licence.",
+   "anchor_3": "In a major harness (lm-eval, Inspect) at launch; one-command run; low cost per run."
+  },
+  {
+   "id": "F10",
+   "name": "Maintained, independent, citable leaderboard with governance",
+   "group": "Ecosystem & adoption",
+   "definition": "A runner adds every frontier model within weeks under a written policy (fixed harness, verified entries, disclosed funding), so labs can cite competitor numbers. This is the strongest measured adoption predictor [D:MCA].",
+   "anchor_0": "No leaderboard.",
+   "anchor_1": "Launch-time or personal leaderboard that goes stale.",
+   "anchor_2": "Creator-maintained leaderboard that adds frontier models.",
+   "anchor_3": "Neutral runner covering all frontier models within weeks, with a written testing policy and verified entries."
+  },
+  {
+   "id": "F11",
+   "name": "Product and decision relevance",
+   "group": "Ecosystem & adoption",
+   "definition": "The score informs a decision people actually make, ideally validated against a field outcome. Labs headline what they sell: the agentic share of headline rows went 23% to 76% [D:MCA].",
+   "anchor_0": "No identifiable decision or product the score informs.",
+   "anchor_1": "Plausible but undemonstrated link to a product or decision.",
+   "anchor_2": "Measures a capability labs sell or practitioners recognise as real work.",
+   "anchor_3": "As 2, plus validation against a field outcome (e.g., human learning gain, maintainer mergeability, economic value)."
+  },
+  {
+   "id": "F12",
+   "name": "Differentiation and timing",
+   "group": "Ecosystem & adoption",
+   "definition": "No near-duplicate from a better-resourced group exists or is imminent, prior art has been surveyed, and the name is unique and collision-free.",
+   "anchor_0": "Near-duplicate of an existing or simultaneously launched better-resourced benchmark.",
+   "anchor_1": "Crowded niche with modest differentiation.",
+   "anchor_2": "Differentiated construct, prior art surveyed, unique name.",
+   "anchor_3": "First credible entrant, or an evidenced gap left by incumbents."
+  },
+  {
+   "id": "F13",
+   "name": "Single headline score in a human-legible, comparable unit",
+   "group": "Narrative & legibility",
+   "definition": "One number with a CI, on an absolute or externally anchored scale that extends or links to other benchmarks; sub-scores are diagnostic only.",
+   "anchor_0": "Several unrelated scores, no headline.",
+   "anchor_1": "One score, but pool-relative, opaque, or not framed as the headline.",
+   "anchor_2": "One absolute score with confidence intervals.",
+   "anchor_3": "One score in an externally anchored, extensible, linkable unit (human-minutes, dollars, expert parity, linked IRT scale)."
+  },
+  {
+   "id": "F14",
+   "name": "Thesis, brand and story",
+   "group": "Narrative & legibility",
+   "definition": "A thesis-bearing, collision-free, stable name; a named steward; recurring moments (prizes, launch-day results); and shareable artifacts. This drives attention and legitimacy more than adoption; 'fun' is better stated as 'stakes plus story'.",
+   "anchor_0": "No thesis; generic, colliding or changed name.",
+   "anchor_1": "Generic motivation only.",
+   "anchor_2": "Distinctive thesis and a stable, unique name.",
+   "anchor_3": "Thesis-bearing brand with a named steward and recurring moments or prizes."
+  }
+ ],
+ "benchmarks": [
+  {
+   "name": "MMLU",
+   "year": 2020,
+   "description_at_launch": "Four-option multiple-choice exam covering 57 academic and professional subjects; static public test set; exact-match grading. The best model at release scored 43.9%; an expert-level estimate of 89.8% is given as reference.",
+   "outcome": "adopted",
+   "outcome_evidence": "In Akhtar et al.'s sample, which requires at least 5 developer reports; 6/34 releases in 2025-26 [akhtar2026plateau; D:MCA]. Launch: [hendrycks2021mmlu; gemini2023]."
+  },
+  {
+   "name": "HumanEval",
+   "year": 2021,
+   "description_at_launch": "164 hand-written Python function-synthesis problems with unit tests, released by a lab alongside its code model; scored by executing tests (pass@k). The lab's model solved 28.8%.",
+   "outcome": "adopted",
+   "outcome_evidence": "In Akhtar's reported-benchmark sample [evaleval2026saturationdata]; OpenAI reference table tracked it to 99.3% [openaiSimpleEvals]. Launch: [chen2021codex]."
+  },
+  {
+   "name": "BIG-Bench Hard",
+   "year": 2022,
+   "description_at_launch": "23 tasks selected from a 204-task crowdsourced suite because prior models had not beaten the average human rater; exact-match grading. With chain-of-thought, a large model beat raters on 10 of 23 tasks.",
+   "outcome": "adopted",
+   "outcome_evidence": "One of 6 tasks on the Open LLM Leaderboard v2; in Akhtar's sample [hf2024ollv2; akhtar2026plateau]. Launch: [suzgun2023bbh]."
+  },
+  {
+   "name": "GPQA",
+   "year": 2023,
+   "description_at_launch": "448 expert-written graduate-level science multiple-choice questions (with a 198-item high-agreement subset), validated so that experts agree and skilled non-experts with web access fail. Experts 65%, non-experts 34%, best model 39%.",
+   "outcome": "adopted",
+   "outcome_evidence": "27/34 headline tables, 2025-26 [D:MCA]. Launch: [rein2024gpqa]."
+  },
+  {
+   "name": "SWE-bench",
+   "year": 2023,
+   "description_at_launch": "2,294 real GitHub issues from 12 Python repositories; a model must produce a patch that passes hidden repository tests. Academic release with an evaluation harness; the best model resolved 1.96%.",
+   "outcome": "adopted",
+   "outcome_evidence": "Verified subset in 23/34 headline tables; retired by OpenAI in Feb 2026 [D:MCA; openai2026noVerified]. Launch: [jimenez2024swebench]."
+  },
+  {
+   "name": "Chatbot Arena",
+   "year": 2023,
+   "description_at_launch": "Public website where users chat with two anonymous models and vote for the better answer; votes are aggregated into Elo-style ratings. Run by an academic group; about 4.7K votes in the first week.",
+   "outcome": "adopted",
+   "outcome_evidence": "Maintained leaderboard since 2023 with 3M+ votes and 400+ models by Apr 2025 (sustained third-party use); announced at lab launches but a row in 0/34 headline tables [lmarena2025twoyear; D:MCA]. Launch: [zheng2023arenablog]."
+  },
+  {
+   "name": "MMMU",
+   "year": 2023,
+   "description_at_launch": "11.5K college-level multimodal questions drawn from exams, quizzes and textbooks across 30 subjects and many image types; exact grading. Best model about 56%; human experts 76-89% on a validation sample.",
+   "outcome": "adopted",
+   "outcome_evidence": "12/34 headline tables; MMMU-Pro successor in 10/34 [D:MCA]. Launch: [yue2024mmmu] (human figures M)."
+  },
+  {
+   "name": "IFEval",
+   "year": 2023,
+   "description_at_launch": "541 prompts carrying 25 types of automatically verifiable formatting and content constraints (e.g., word counts), scored by Python verifiers; the best model scored about 77% prompt-strict.",
+   "outcome": "adopted",
+   "outcome_evidence": "5/34 headline tables; Open LLM Leaderboard v2 task; in Akhtar's sample [D:MCA; hf2024ollv2; evaleval2026saturationdata]. Launch: [zhou2023ifeval]."
+  },
+  {
+   "name": "Needle-in-a-Haystack",
+   "year": 2023,
+   "description_at_launch": "An individual's open-source test that inserts one fact into long essay filler at a grid of context lengths and depths and asks for it back; graded by an LLM. A 128K-context model failed beyond about 73K tokens at mid-document depths.",
+   "outcome": "adopted",
+   "outcome_evidence": "Shown in launch materials of Gemini 1.5, Claude 3, DeepSeek-V3 and GPT-4.1 (as figures, not table rows) [gemini2024gemini15; anthropic2024claude3; deepseek2024v3; openai2025gpt41]. Launch: [kamradt2023niah]."
+  },
+  {
+   "name": "ARC (Abstraction and Reasoning Corpus)",
+   "year": 2019,
+   "description_at_launch": "One researcher's 1,000 hand-authored grid-transformation puzzles (400 training, 600 evaluation) with exact-match outputs, released with a paper defining intelligence as skill-acquisition efficiency and listing the benchmark's own limitations.",
+   "outcome": "adopted",
+   "outcome_evidence": "ARC-AGI family in 10/34 headline tables; 4 labs reported it in 2025 model cards [D:MCA; chollet2026arcprize2025]. Launch: [chollet2019measure]."
+  },
+  {
+   "name": "tau-bench",
+   "year": 2024,
+   "description_at_launch": "Startup-built simulated customer-service tasks (retail, airline): an agent uses tools under written domain policies while an LLM plays the user; success is a database-state check; reports a pass^k reliability metric.",
+   "outcome": "adopted",
+   "outcome_evidence": "tau/tau2-bench family in 19/34 headline tables across 5 organisations [D:MCA]. Launch: [yao2024tau]."
+  },
+  {
+   "name": "OSWorld",
+   "year": 2024,
+   "description_at_launch": "369 computer-use tasks executed in real desktop operating-system environments with execution-based checkers. Humans complete 72.36%; the best model 12.24%.",
+   "outcome": "adopted",
+   "outcome_evidence": "OSWorld family in 15/34 headline tables [D:MCA]. Launch: [xie2024osworld]."
+  },
+  {
+   "name": "LiveCodeBench",
+   "year": 2024,
+   "description_at_launch": "Competitive-programming problems collected continuously from three contest sites and filtered by release date to avoid contamination; solutions executed against tests; 400 problems in the first release.",
+   "outcome": "adopted",
+   "outcome_evidence": "8/34 headline tables across 5 organisations [D:MCA]. Launch: [jain2024livecodebench]."
+  },
+  {
+   "name": "FrontierMath",
+   "year": 2024,
+   "description_at_launch": "Unpublished research-level mathematics problems with automatically checkable answers, written with 60+ mathematicians by a non-profit; mostly kept private; models solved under 2%.",
+   "outcome": "adopted",
+   "outcome_evidence": "4/34 headline tables (all from one lab) plus non-profit-hosted runs 2024-2026 [D:MCA; epoch2026frontiermathv2]. Launch: [epoch2024frontiermath]."
+  },
+  {
+   "name": "BFCL (Berkeley Function Calling Leaderboard)",
+   "year": 2024,
+   "description_at_launch": "Academic live leaderboard of function-calling accuracy: 2,000 question-function-answer pairs across Python, Java, JavaScript, REST and SQL, graded by abstract-syntax-tree matching and execution.",
+   "outcome": "adopted",
+   "outcome_evidence": "Headlined in Llama 3.1 and 3.3 cards and the Qwen3 report; leaderboard maintained Feb 2024-Dec 2025; 0/34 frontier-lab tables [meta2024llama31card; meta2024llama33card; qwen2025qwen3; bfclLeaderboardData]. Launch: [patil2025bfcl; gorillaBfclRepo]."
+  },
+  {
+   "name": "ForecastBench",
+   "year": 2024,
+   "description_at_launch": "Automatically refreshed forecasting questions that resolve after models are evaluated, scored with Brier-type proper scores against superforecaster and general-public comparison groups; datasets and leaderboard updated automatically.",
+   "outcome": "adopted",
+   "outcome_evidence": "Nightly-updated leaderboard through Sep 2026; ingested by Epoch (sustained third-party use); 0/34 headline tables [fri2026forecastbenchdata; eciBayesian2026; D:MCA]. Launch: [karger2025forecastbench]."
+  },
+  {
+   "name": "Humanity's Last Exam",
+   "year": 2025,
+   "description_at_launch": "About 3,000 expert-written closed-ended questions across academic fields, kept only if frontier models failed them; a $500K prize pool and co-authorship for question writers; launch model scores 3-9%.",
+   "outcome": "adopted",
+   "outcome_evidence": "22/34 headline tables; 12/13 frontier tables in 2026 [D:MCA]. Launch: [phan2025hle]."
+  },
+  {
+   "name": "Terminal-Bench",
+   "year": 2025,
+   "description_at_launch": "About 100 hand-written tasks an agent must complete in a sandboxed command-line environment, each checked by test scripts; released in beta with an open harness.",
+   "outcome": "adopted",
+   "outcome_evidence": "Terminal-Bench family in 21/34 headline tables; 11/11 frontier releases in 2026H1 [D:MCA]. Launch: [tbench2025; merrill2026terminalbench]."
+  },
+  {
+   "name": "MathArena",
+   "year": 2025,
+   "description_at_launch": "Academic platform that scores models only on mathematics competitions held after the models' release, runs 4 samples per problem and publishes all outputs.",
+   "outcome": "adopted",
+   "outcome_evidence": "Platform maintained Feb 2025-Sep 2026 (19 months); Gemini 3 Pro evaluation sources competitor numbers from matharena.ai [dekoninck2026beyond; google2025gemini3eval]. Launch: [balunovic2025matharena]."
+  },
+  {
+   "name": "GDPval",
+   "year": 2025,
+   "description_at_launch": "Lab-built set of real work deliverables from 44 occupations weighted by GDP contribution, graded by blinded expert pairwise comparison against human professionals; a 220-task public subset; the best model reached 47.6% wins-plus-ties.",
+   "outcome": "adopted",
+   "outcome_evidence": "GDPval/GDPval-AA in 13/34 headline tables (1/14 in 2025 to 12/13 in 2026 after a third-party runner) [D:MCA; aaGdpvalAA2025]. Launch: [openai2025gdpval]."
+  },
+  {
+   "name": "MastermindEval",
+   "year": 2025,
+   "description_at_launch": "Workshop benchmark of procedurally generated code-breaking in three paradigms (interactive play, deduction from a pre-played state, likelihood-based multiple choice); difficulty set by code length, number of colours and allowed guesses; solve-rate metric.",
+   "outcome": "partial",
+   "outcome_evidence": "Six tasks merged into EleutherAI lm-evaluation-harness (Mar 2025); repo still maintained in Aug 2026; no leaderboard [lmevalMastermind; mastermindRepo]. Launch: [golde2025mastermindeval]."
+  },
+  {
+   "name": "Codenames ad-hoc concept forming",
+   "year": 2025,
+   "description_at_launch": "Workshop benchmark in which models give and guess clues in a word-association board game against a programmed opponent, with controlled manipulation of word concreteness, ambiguity, frequency and opponent speed; from a group that maintains a dialogue-game suite.",
+   "outcome": "partial",
+   "outcome_evidence": "Game included in the maintained clembench v2.0/v3.0 ladder [clembenchRepo]. Launch: [hakimov2025codenames]."
+  },
+  {
+   "name": "LLM Chess",
+   "year": 2025,
+   "description_at_launch": "Community leaderboard in which models play multi-turn chess against a random opponent, scoring wins plus instruction-following durability (illegal moves, format errors).",
+   "outcome": "partial",
+   "outcome_evidence": "Community-maintained (1,430 commits, 52 since Jun 2026) but absent from all 34 headline tables [llmChessRepo; D:MCA]. Launch: [saplin2025llmchess]."
+  },
+  {
+   "name": "Kaggle Game Arena",
+   "year": 2025,
+   "description_at_launch": "Public arena hosted by a major lab and a data-science competition platform in which frontier models play strategy games, opening with an 8-model chess exhibition with expert commentary; open-source harness on a games library; all-play-all ratings.",
+   "outcome": "partial",
+   "outcome_evidence": "Maintained (poker and Werewolf added Feb 2026; technical report Sep 2026) but in 0/34 headline tables, including the host lab's own [kelly2026gamearena; gamearena2026report; D:MCA]. Launch: [google2025gamearena; siliconangle2025kaggle]."
+  },
+  {
+   "name": "MTOB (Machine Translation from One Book)",
+   "year": 2023,
+   "description_at_launch": "Learn to translate a language with under 200 speakers from one field grammar book, a wordlist and parallel sentences supplied in context; chrF scoring; a human learner using the same materials outperformed the model baseline.",
+   "outcome": "partial",
+   "outcome_evidence": "Reported in 2 model releases only (Gemini 1.5 report; Llama 4 card) [gemini2024gemini15; meta2025llama4card]. Launch: [tanzer2023mtob]."
+  },
+  {
+   "name": "MathTutorBench",
+   "year": 2025,
+   "description_at_launch": "Academic tutoring benchmark covering problem solving, student-error diagnosis and pedagogy; pedagogical quality scored by a trained reward model against human teacher turns; public leaderboard.",
+   "outcome": "partial",
+   "outcome_evidence": "Maintained public leaderboard with 17 models; no frontier-lab headline use found [macina2025mathtutorbench]."
+  },
+  {
+   "name": "IFBench",
+   "year": 2025,
+   "description_at_launch": "58 new manually written verifiable output constraints, held out from training taxonomies and attached to real user prompts; code-verified; most frontier models scored under 50%; released together with a training-constraint set.",
+   "outcome": "partial",
+   "outcome_evidence": "In the Artificial Analysis Intelligence Index Aug 2025-Jun 2026 (absorbed into an index); 1/34 headline tables [aa2026method; D:MCA]. Launch: [pyatkin2025ifbench]."
+  },
+  {
+   "name": "ConceptARC",
+   "year": 2023,
+   "description_at_launch": "Academic set of 160 grid puzzles in an existing puzzle format, organised as 16 concept groups of 10 tasks, designed to test systematic understanding of each concept.",
+   "outcome": "partial",
+   "outcome_evidence": "Continued research use (2025 multimodal study; used in a steward's model analysis); no leaderboard, prize or versioning [beger2025modalities; moskvichev2023conceptarc]."
+  },
+  {
+   "name": "Qi Town (Who is a Better Player: LLM against LLM)",
+   "year": 2025,
+   "description_at_launch": "Round-robin tournaments among 20 LLMs in five board games (including a mode where two models negotiate new rules), reporting Elo, a win/loss cycle graph and a self-reported positive-sentiment score.",
+   "outcome": "not_adopted",
+   "outcome_evidence": "No public code, leaderboard or third-party uptake found; GitHub search returned 0 repositories [zhou2025qitown]."
+  },
+  {
+   "name": "Game Reasoning Arena",
+   "year": 2025,
+   "description_at_launch": "Python framework wrapping a games library (Tic-Tac-Toe, Connect Four, Kuhn poker, matrix games, hex, chess) in which LLM agents play random, RL, human or LLM opponents, emphasising categorisation of reasoning traces; installation via conda, a native library build and several provider keys.",
+   "outcome": "not_adopted",
+   "outcome_evidence": "Last main-branch commit 11 Sep 2025, about five weeks after release; 9 stars; personal HF Space only [graRepo2025]. Launch: [cipolinakun2025gra]."
+  },
+  {
+   "name": "Concept (Do You Get the Hint?)",
+   "year": 2025,
+   "description_at_launch": "Abductive-reasoning benchmark built from human play logs of a word-guessing board game in four languages; a guesser infers a target from sequential hints. Humans succeed over 90%; no evaluated model exceeded 40%.",
+   "outcome": "not_adopted",
+   "outcome_evidence": "Right-censored (about 11.5 months old at cutoff); no repository, harness or leaderboard found [gevers2026concept]."
+  },
+  {
+   "name": "Boardwalk",
+   "year": 2025,
+   "description_at_launch": "Three LLMs write playable Python implementations of 12 popular and obscure board games from anonymised rules, free-form and within a proposed game API; the best model produced 55.6% of games without errors.",
+   "outcome": "not_adopted",
+   "outcome_evidence": "Repo holds the API only (2 stars), with no evaluator or outputs; no lab or leaderboard use [labcraig2025boardwalkrepo]. Launch: [becker2025boardwalk]."
+  },
+  {
+   "name": "Grid-based game competitions",
+   "year": 2024,
+   "description_at_launch": "LLM-versus-LLM Tic-Tac-Toe, Connect Four and Gomoku with list, illustration and image board prompts; 2,310 matches among 7 LLMs and a random player; win, disqualification and invalid-move rates on a web leaderboard open to submissions.",
+   "outcome": "not_adopted",
+   "outcome_evidence": "Last model added 19 Jul 2024; no external submissions; last commit Dec 2024 [researchoutcome2024llmgamebenchmark]. Launch: [topsakal2024grid]."
+  },
+  {
+   "name": "TopoBench",
+   "year": 2026,
+   "description_at_launch": "900 topology puzzle instances from six families in three difficulty tiers, with per-family verifiers and no tool use; frontier models averaged 0.58 on easy and 0.15 on hard; includes a causal error analysis.",
+   "outcome": "not_adopted",
+   "outcome_evidence": "Right-censored (about 6.5 months old); advertised code/data repository is empty [mayug2026topobenchrepo]. Launch: [topobench2026projectpage; maniparambil2026topobench]."
+  },
+  {
+   "name": "From Raw Corpora to Domain Benchmarks",
+   "year": 2025,
+   "description_at_launch": "Deterministic, LLM-free pipeline turning domain corpora into cloze prompts whose targets are TF-IDF domain terms; scores the rank of the target token in the model's next-token distribution; validated against an expert benchmark on six base models.",
+   "outcome": "not_adopted",
+   "outcome_evidence": "No public code found; only open-weight models of 8B or fewer evaluated; one practitioner-guide citation [sharma2025rawcorpora; aialliance2025apptesting]."
+  },
+  {
+   "name": "BloomQA (Bloom's-taxonomy guideline benchmarks)",
+   "year": 2026,
+   "description_at_launch": "LLM-assisted pipeline converting expert-authored practice guidelines (teaching, dietetics, caregiving) into violation scenarios, then auto-graded multiple-choice items and dialogues at four Bloom's-taxonomy levels.",
+   "outcome": "not_adopted",
+   "outcome_evidence": "Right-censored (about 8 months old); no code or data release found [chen2026bloomqa]."
+  },
+  {
+   "name": "GTBench",
+   "year": 2024,
+   "description_at_launch": "Academic benchmark of 10 game-theoretic tasks on a games library (e.g., Tic-Tac-Toe, Connect-4, Kuhn poker, Nim, negotiation), organised by a game-theoretic taxonomy, with LLM-vs-LLM competitions; a public submission leaderboard announced.",
+   "outcome": "not_adopted",
+   "outcome_evidence": "Submission leaderboard still 'Will be ready soon'; last commit 6 Sep 2024 [duan2024gtbench]. Launch: [gtbench2024]."
+  },
+  {
+   "name": "lmgame-Bench",
+   "year": 2025,
+   "description_at_launch": "Academic benchmark in which models play video and puzzle games (Sokoban, Tetris, 2048, platformers, adventure games) through a gaming-agent harness, with a hosted leaderboard.",
+   "outcome": "not_adopted",
+   "outcome_evidence": "No commits since 12 Sep 2025 despite 983 stars; not in any headline table [hu2025lmgame; D:MCA]."
+  },
+  {
+   "name": "EducationQ",
+   "year": 2025,
+   "description_at_launch": "A teacher model tutors a fixed student model in multi-turn dialogue on graduate science and professional exam questions; the score is the student's post-test minus pre-test accuracy; 14 teacher models, 1,498 questions.",
+   "outcome": "not_adopted",
+   "outcome_evidence": "No leaderboard, harness integration or model-report use found in the prior-art and teach-back dossiers [educationq2025]."
+  }
+ ],
+ "requirements": [
+  "R1 Single headline score in a human-legible unit (F13): one number with a 95% CI on the leaderboard; the unit stated in one sentence (e.g., 'share of a never-seen system mastered'); sub-scores diagnostic only. Test: lay comprehension check passes [metr2025horizon; zhou2025qitown].",
+  "R2 Linked, extensible scale (F13, F6): scores placed on an IRT scale with fixed anchor items and anchor models so new tiers extend rather than reset it. Test: linking error of 2 points or less on held-out anchors [ho2025rosetta; habba2026growingpains].",
+  "R3 Exact automatic grading (F2): no LLM judge in the headline; a reference oracle scores 100% on every generated item; empty and do-nothing baselines score at the published chance floor. Test: automated checks on every release [scale2026sweproV2; zhu2025abc].",
+  "R4 Contamination resistance without LLM-generated items (F7): items come from a symbolic generator or human experts, never an evaluated model family; LLMs are subjects only. Test: generator-provenance log; parallel-form score gap below 2 points [bai2023lmexaminer; selfevolving2025; zhang2024gsm1k].",
+  "R5 Fresh private windows and a curriculum stress test (F7, F6): private live-window seeds and item families rotated on a published schedule. Test: fine-tune a model on the public generator and report its transfer to private families as a contamination index [pyatkin2025ifbench; primeintellect2026longcontext].",
+  "R6 Difficulty knob and version cadence (F6): separate complexity and length knobs, pre-declared harder tiers, a frozen canonical split, and a new version every 4-6 months under one unchanged name. Test: v1 ships with at least two untouched harder tiers [vodrahalli2024michelangelo; D:MCA].",
+  "R7 Launch headroom (F5): best frontier model scores 10-40% on the v1 headline and under 10% on the hardest tier. Test: pre-launch run on all current frontier models [D:MCA].",
+  "R8 Measured human baseline (F5): report both the panel criterion (each item solved by at least 2 people) and the individual average, with paid human cost per item; definition frozen before launch. Test: human study report [kamradt2025arcagi2launch; legris2024harc; wei2025humanbaselines].",
+  "R9 Power analysis (F3): resolve 3-point gaps among the top 10 models, which needs roughly 1,000+ independent clusters, K of at least 4 samples per item, and paired, clustered SEs with rank bands. Test: pre-registered power report [miller2024errorbars; hochlehnert2025sober; kotawala2026resolution].",
+  "R10 Incremental validity over a general factor (F1): at least 60 models (target 100) from at least 10 families; pre-registered falsifier that a disattenuated leave-one-out ECI correlation of 0.9 or more means the benchmark collapses into g; the construct claim also needs split-half residual reliability of at least 0.5; yardsticks (GPQA, ARC-AGI-2) re-scored on the same sample. Test: validity report [C:offg; campbell1959convergent; sechrest1963incremental].",
+  "R11 Shortcut controls in every release (F4): question-blind, material-removed, literal-overlap-twin and similar-exemplar-ablation baselines, plus composition items unsolvable by nearest-example copying. Test: each gap reported on the leaderboard [modarressi2025nolima; aycock2024grammarbook; zou2025manyiclbench].",
+  "R12 Resistance to tool brute force and evaluation-time search (F4): sealed offline sandbox; answers not findable on the web; separate tool track; a published capped brute-force baseline; score reported against a token and dollar budget at pinned prices, one capped run per model. Test: automated trajectory audit for retrieval and brute force [anthropic2026browsecomp; jain2026cursorRewardHacking; chollet2024o3blog; arcprize2026policy].",
+  "R13 Black-box, API-only, one-command install (F9): text in, text out; no logits and no native builds; runs on closed frontier APIs; pip install plus one command; Inspect and lm-eval tasks at launch; declared cost per model run. Test: clean-machine install and first run in 10 minutes or less [sharma2025rawcorpora; graRepo2025; lmevalMastermind].",
+  "R14 Maintained, independent leaderboard with governance (F10): every frontier model added within 14 days of API availability; named steward, disclosed funding, written testing policy; scored model equals shipped model; no private variants or retractions; pre-declared retirement triggers. Test: policy published before launch [arcprize2026policy; singh2025leaderboardillusion; akhtar2026plateau].",
+  "R15 Real product relevance with field validation (F11): map the construct to a named product capability (e.g., onboarding to a new API or specification from its documentation) and pre-register a correlation with an external criterion; for any teaching arm, a human-learner falsification study of about 8-10 arms with about 150 learners each. Test: criterion study report [metr2026mergeability; northcutt2026studentbench].",
+  "R16 Item audit (F8): an expert-audited random sample per release with a published error rate of 2% or less, and redundant solving of any human-authored items. Test: audit report per version [rein2024gpqa; epoch2026frontiermathv2].",
+  "R17 Differentiation and naming (F12, F14): survey incumbents on GitHub, arXiv and Hugging Face before launch, check the name for collisions, and never retitle after release. Test: prior-art and name-collision memo [google2025gamearena; topobenchTDL2024].",
+  "R18 Openness (F9, F14): permissive, unambiguous licence; CC-BY data for retired windows; all model outputs published; public changelog. Test: licence file and output archive present at launch [graRepo2025; lmarena2025twoyear]."
+ ]
+}
