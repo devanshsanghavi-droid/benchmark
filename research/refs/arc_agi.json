@@ -8,7 +8,9 @@
   "id": "arXiv:1911.01547",
   "url": "https://arxiv.org/abs/1911.01547",
   "seen_url": "https://raw.githubusercontent.com/commotum/4D/6dd4d04fd21a681d337e4342beb6ef51e0476a07/Notes/Vision/pdfs-3/2019_MOI.md",
-  "used_for": "Skill-acquisition efficiency definition; original ARC design (400/600 tasks); self-declared weaknesses (test validity not established); abstract also seen quoted in the Interconnects cache and at github.com/y-arjun-y/arjunyadav"
+  "used_for": "Skill-acquisition efficiency definition; original ARC design (400/600 tasks); self-declared weaknesses (test validity not established); abstract also seen quoted in the Interconnects cache and at github.com/y-arjun-y/arjunyadav",
+  "verified": true,
+  "verify_note": "Fact-check 2026-09-29: title, sole author, arXiv:1911.01547 (v2 25 Nov 2019, cs.AI) and abstract wording ('skill-acquisition efficiency ... scope, generalization difficulty, priors, and experience'; 'buy' arbitrary skill) confirmed in three independent repos (commotum/4D notes, Interconnects post, y-arjun-y notebook); ARC Prize 2024 report ref 7 also cites it."
  },
  {
   "key": "chollet2019arcrepo",
@@ -19,7 +21,9 @@
   "id": null,
   "url": "https://github.com/fchollet/ARC-AGI",
   "seen_url": "https://raw.githubusercontent.com/fchollet/ARC-AGI/master/README.md",
-  "used_for": "ARC-AGI-1 task format, 400/400 public split, original 3-trial rule; repo created 2019-11-05, 4,839 stars and 727 forks on 2026-09-29"
+  "used_for": "ARC-AGI-1 task format, 400/400 public split, original 3-trial rule; repo created 2019-11-05, 4,839 stars and 727 forks on 2026-09-29",
+  "verified": true,
+  "verify_note": "README fetched from raw.githubusercontent.com (3-trials rule confirmed); also cited as ref 6 in the ARC Prize 2024 report. Star/fork counts and 2019-11-05 creation date NOT re-verified (GitHub API returned 403 in fact-check)."
  },
  {
   "key": "arcprize2025arcagi2repo",
@@ -30,7 +34,9 @@
   "id": null,
   "url": "https://github.com/arcprize/ARC-AGI-2",
   "seen_url": "https://raw.githubusercontent.com/arcprize/ARC-AGI-2/main/readme.md",
-  "used_for": "1,000 train/120 public eval tasks; semi-private and private sets; 66% average human; pass@2; changelog showing 1,360 tasks released 2025-03-24 (https://raw.githubusercontent.com/arcprize/ARC-AGI-2/main/changelog.md)"
+  "used_for": "1,000 train/120 public eval tasks; semi-private and private sets; 66% average human; pass@2; changelog showing 1,360 tasks released 2025-03-24 (https://raw.githubusercontent.com/arcprize/ARC-AGI-2/main/changelog.md)",
+  "verified": true,
+  "verify_note": "readme.md (1,000 train / 120 eval; 66% average human; README says both 2 and 3 trials) and changelog.md (2025-03-24: 1,360 tasks = 1000/120/120/120) fetched and confirmed."
  },
  {
   "key": "chollet2024arcprize",
@@ -41,7 +47,9 @@
   "id": "arXiv:2412.04604",
   "url": "https://arxiv.org/abs/2412.04604",
   "seen_url": "https://raw.githubusercontent.com/UNIR-TUC/arc-agi/48d931918edd904b99ef546a98adc97e19ccf528/src/SuperCompressARC/Docs/2024/2412.04604v2_arc_prize_2024.md",
-  "used_for": "2024 competition facts (1,430 teams, 17,789 entries, 55.5%/53.5%, $600K grand prize, P100/12h/no-internet); ARC-AGI-1 flaws (10k scores, 49% brute-forceable, inconsistent splits); approach taxonomy"
+  "used_for": "2024 competition facts (1,430 teams, 17,789 entries, 55.5%/53.5%, $600K grand prize, P100/12h/no-internet); ARC-AGI-1 flaws (10k scores, 49% brute-forceable, inconsistent splits); approach taxonomy",
+  "verified": true,
+  "verify_note": "Confirmed via two independent full-text copies (UNIR-TUC/arc-agi; atimics/crlplrimes) and dbrowneup/Linus notes giving 'arXiv 2412.04604v2 [cs.AI]', v2 dated 2025-01-09; four authors confirmed on title page."
  },
  {
   "key": "chollet2025arcagi2",
@@ -52,7 +60,9 @@
   "id": "arXiv:2505.11831",
   "url": "https://arxiv.org/abs/2505.11831",
   "seen_url": "https://raw.githubusercontent.com/ATOM00blue/machine-learning-library/5e1e934ba4d745962b9012aabb5b62c9bd663895/corpus/papers/2505.11831.md",
-  "used_for": "ARC-AGI-2 paper abstract and author list (BibTeX also seen at github.com/zli12321/LHTB harbor/adapters/arc_agi_2/README.md)"
+  "used_for": "ARC-AGI-2 paper abstract and author list (BibTeX also seen at github.com/zli12321/LHTB harbor/adapters/arc_agi_2/README.md)",
+  "verified": true,
+  "verify_note": "arXiv:2505.11831, published 2025-05-17, five authors incl. Henry Pinkard: ATOM00blue metadata; ~178 GitHub code hits pair the ID with Pinkard (e.g., zli12321/LHTB adapter README cites the arXiv link)."
  },
  {
   "key": "chollet2026arcprize2025",
@@ -63,7 +73,9 @@
   "id": "arXiv:2601.10904",
   "url": "https://arxiv.org/abs/2601.10904",
   "seen_url": "https://raw.githubusercontent.com/UNIR-TUC/arc-agi/48d931918edd904b99ef546a98adc97e19ccf528/src/SuperCompressARC/Docs/2025/2601.10904v1_arc_prize_2025.md",
-  "used_for": "1,455 teams/15,154 entries; NVARC 24.03% at $0.20/task; 90 papers; refinement loops; 4 labs in model cards; knowledge overfitting; Poetiq 31%->54%; ARC-AGI-3 preview (abstract also at ATOM00blue corpus/papers/2601.10904.md)"
+  "used_for": "1,455 teams/15,154 entries; NVARC 24.03% at $0.20/task; 90 papers; refinement loops; 4 labs in model cards; knowledge overfitting; Poetiq 31%->54%; ARC-AGI-3 preview (abstract also at ATOM00blue corpus/papers/2601.10904.md)",
+  "verified": true,
+  "verify_note": "arXiv:2601.10904 with the same four authors listed in the 2026-01-19 arXiv daily digest (2shin0/arxiv-ai-mailing); full text in three independent copies (UNIR-TUC, visual-snow/seshat, tiendungchs/PersonalWiki); report dated January 19, 2026."
  },
  {
   "key": "arcprize2026arcagi3",
@@ -74,7 +86,9 @@
   "id": "arXiv:2603.24621",
   "url": "https://arxiv.org/abs/2603.24621",
   "seen_url": "https://raw.githubusercontent.com/memgrafter/research-digests/491d1e597ee1384396057fbe72e2bdec9f11c2c6/ml_research_analysis_2026/2603.24621_arc-agi-3-a-new-challenge-for-frontier-agentic-intelligence_20260331_185732.md",
-  "used_for": "ARC-AGI-3 design, original RHAE (2nd-best human, cap 1.0), <1% frontier at launch (LLM-generated digest; title also in Eurekaleo/awesome-ai-for-games BibTeX)"
+  "used_for": "ARC-AGI-3 design, original RHAE (2nd-best human, cap 1.0), <1% frontier at launch (LLM-generated digest; title also in Eurekaleo/awesome-ai-for-games BibTeX)",
+  "verified": true,
+  "verify_note": "Title and arXiv:2603.24621 confirmed in several independent listings (nick-lang/VNR, jakub-zovi/graphkasten [submitted 2026-03-24], SihoonSung/Daily-Paper-Summary, memgrafter digest). Author given as 'ARC Prize Foundation' in two listings; individual author list still not verified. NOTE: one secondary digest (VNR) reports 486 human participants in the paper vs 458 in the 14 Apr 2026 blog post - unresolved."
  },
  {
   "key": "chollet2024o3blog",
@@ -85,7 +99,9 @@
   "id": null,
   "url": "https://arcprize.org/blog/oai-o3-pub-breakthrough",
   "seen_url": "https://raw.githubusercontent.com/ndbroadbent/arc_agi_pareto_frontiers/90d0c6822f82b8ef95423f2a37c74cdb45e7b40f/sources/o3_announcement.html",
-  "used_for": "o3-preview 75.7%/87.5% (semi-private), 82.8%/91.5% (public), 172x compute, tokens, cost/task and two price re-basings, 'tuned' on 75% of the public training set, efficiency made mandatory, 'not an acid test for AGI'"
+  "used_for": "o3-preview 75.7%/87.5% (semi-private), 82.8%/91.5% (public), 172x compute, tokens, cost/task and two price re-basings, 'tuned' on 75% of the public training set, efficiency made mandatory, 'not an acid test for AGI'",
+  "verified": true,
+  "verify_note": "Cached page byline 'By François Chollet, Published 20 Dec 2024' and title confirmed; page has since been updated (notes dated 3/24/2025 and 12/10/2025; 'OpenAI has released a new version of o3' banner). Original Dec-2024 table was an image; original cost figures not recoverable in this check."
  },
  {
   "key": "kamradt2025arcagi2launch",
@@ -96,7 +112,9 @@
   "id": null,
   "url": "https://arcprize.org/arc-agi-2",
   "seen_url": "https://raw.githubusercontent.com/steel-dev/leaderboard/33aaee5bf46a492e0ff9a84eb7643f8d0def66d6/docs/research/arc-agi-2/paper.md",
-  "used_for": "ARC-AGI-2 launch (24 Mar 2025): dataset tiers, 400+ humans, launch scores table, $17/task human cost, efficiency reporting, 2025 prize structure and Kaggle ~$50 compute (URL is the one the cache records)"
+  "used_for": "ARC-AGI-2 launch (24 Mar 2025): dataset tiers, 400+ humans, launch scores table, $17/task human cost, efficiency reporting, 2025 prize structure and Kaggle ~$50 compute (URL is the one the cache records)",
+  "verified": true,
+  "verify_note": "Cache shows byline 'By Greg Kamradt Published 24 Mar 2025' and title. The cache records https://arcprize.org/arc-agi-2 as its source; the canonical /blog/ URL was not verified."
  },
  {
   "key": "kamradt2026humandata",
@@ -107,7 +125,9 @@
   "id": null,
   "url": "https://arcprize.org/blog/arc-agi-3-human-dataset",
   "seen_url": "https://raw.githubusercontent.com/fstandhartinger/model-market-comparison/f23453577c817fd6c6c003e0b46a6381c7476c61/data/raw/benchmarks/daily-evidence/2026-09-29T05-49-25-487Z/gauntlet/protocol-arc-agi-3/packet-r1.md",
-  "used_for": "458 participants, 135 environments, 25 public, 342 replays, first-run protocol, >=2 solvers per env, scoring change to median baseline and 1.15 cap"
+  "used_for": "458 participants, 135 environments, 25 public, 342 replays, first-run protocol, >=2 solvers per env, scoring change to median baseline and 1.15 cap",
+  "verified": true,
+  "verify_note": "Capture of arcprize.org/blog/arc-agi-3-human-dataset (sha256-stamped, retrieved 2026-09-29) shows title, byline Greg Kamradt, 'Published 14 Apr 2026'; 458 participants, 135 environments confirmed in text."
  },
  {
   "key": "kamradt2026astra",
@@ -118,7 +138,9 @@
   "id": null,
   "url": "https://arcprize.org/blog/astra",
   "seen_url": "https://raw.githubusercontent.com/lihenair/techtranslate/821908553b702d9de6565d186fdd2e8661303f6f/archive/2026-09-05/ai/OpenAIs-GPT-6-Astra-on-ARC-AGI-3.md",
-  "used_for": "Standard 62.7% vs Provider Adapter 99.9% (same model); per-effort table; 96% of levels below the human action baseline; human cost per game; ARC-AGI-3 is 'tightly bounded ... deterministic and closed' (read in Chinese translation)"
+  "used_for": "Standard 62.7% vs Provider Adapter 99.9% (same model); per-effort table; 96% of levels below the human action baseline; human cost per game; ARC-AGI-3 is 'tightly bounded ... deterministic and closed' (read in Chinese translation)",
+  "verified": true,
+  "verify_note": "Translation front-matter gives author Greg Kamradt, published 2026-09-03, source arcprize.org/blog/astra; per-effort table independently corroborated by a second translation of a TheNewStack article (rocksun/mwblog) and the Belkins/ai-dive-deep chapter. NB: 62.7% is max effort (Standard) while 99.9% is high effort (Provider Adapter); max-to-max is 62.7% vs 98.6%."
  },
  {
   "key": "arcprize2026policy",
@@ -129,7 +151,9 @@
   "id": null,
   "url": "https://arcprize.org/policy",
   "seen_url": "https://raw.githubusercontent.com/fstandhartinger/model-market-comparison/f23453577c817fd6c6c003e0b46a6381c7476c61/data/raw/benchmarks/daily-evidence/2026-09-29T05-49-25-487Z/gauntlet/protocol-arc-agi-2/packet-r1.md",
-  "used_for": "Data tiers and leakage defences, ZDR, agreement bands (+-10/3/15 pp), >$10M/mo API criterion, $10k cap, 30-day publication rule, academic panel (Gureckis, Mitchell, Misra), harness labelling, verification fund"
+  "used_for": "Data tiers and leakage defences, ZDR, agreement bands (+-10/3/15 pp), >$10M/mo API criterion, $10k cap, 30-day publication rule, academic panel (Gureckis, Mitchell, Misra), harness labelling, verification fund",
+  "verified": true,
+  "verify_note": "Single third-party capture (fstandhartinger/model-market-comparison, sha256-stamped, retrieved 2026-09-29T05:49:46Z; same text also in the 2026-09-28 packets of the same repo). No independent copy found via GitHub code search. Harness distinction independently confirmed by the official arcprize/arc-agi-3-benchmarking README. Policy also states donors include AI labs."
  },
  {
   "key": "arcprize2026pages",
@@ -140,7 +164,9 @@
   "id": null,
   "url": "https://arcprize.org/leaderboard",
   "seen_url": "https://raw.githubusercontent.com/fstandhartinger/model-market-comparison/f23453577c817fd6c6c003e0b46a6381c7476c61/data/raw/benchmarks/daily-evidence/2026-09-29T05-49-25-487Z/gauntlet/protocol-arc-agi-1/packet-r1.md",
-  "used_for": "ARC-AGI-1 split history, 50,000x scale-up claim, ARC-AGI-2 calibration (<1pp, San Diego 400+), 'Log-linear scaling is insufficient'; official v1/v2/v3.json score-scale summaries (v2 max 95; v3 max 99.946)"
+  "used_for": "ARC-AGI-1 split history, 50,000x scale-up claim, ARC-AGI-2 calibration (<1pp, San Diego 400+), 'Log-linear scaling is insufficient'; official v1/v2/v3.json score-scale summaries (v2 max 95; v3 max 99.946)",
+  "verified": true,
+  "verify_note": "Captures confirmed (arc-agi/1 page: '50,000x scale-up'; v1.json 20 rows changed; v2.json 245 score values, max 95; v3.json 69 values, max 99.9457). The max values are machine summaries and do not identify which row/dataset holds them."
  },
  {
   "key": "arcprize2026docs",
@@ -151,7 +177,9 @@
   "id": null,
   "url": "https://docs.arcprize.org/methodology",
   "seen_url": "https://raw.githubusercontent.com/arcprize/docs/main/methodology.mdx",
-  "used_for": "RHAE formula, action definition, 14 Apr 2026 scoring change (changelog.mdx), game-environment framing (games.mdx, vocabulary.mdx), Kaggle 2026 accelerators and no internet (arc-prize-2026.mdx)"
+  "used_for": "RHAE formula, action definition, 14 Apr 2026 scoring change (changelog.mdx), game-environment framing (games.mdx, vocabulary.mdx), Kaggle 2026 accelerators and no internet (arc-prize-2026.mdx)",
+  "verified": true,
+  "verify_note": "methodology.mdx (RHAE; baseline is the 'upper median human'; cap 1.15x; level-index weighting), changelog.mdx (14 Apr 2026 scoring change; 29 Jan 2026 toolkit v0.9.1), games.mdx and arc-prize-2026.mdx fetched and confirmed."
  },
  {
   "key": "arcprize2026kagglestarter",
@@ -162,7 +190,9 @@
   "id": null,
   "url": "https://github.com/arcprize/ARC-AGI-3-Kaggle-Starter",
   "seen_url": "https://raw.githubusercontent.com/arcprize/ARC-AGI-3-Kaggle-Starter/main/README.md",
-  "used_for": "ARC Prize 2026 Kaggle code-competition compute envelope (T4x2/P100/RTX 6000, internet disabled)"
+  "used_for": "ARC Prize 2026 Kaggle code-competition compute envelope (T4x2/P100/RTX 6000, internet disabled)",
+  "verified": true,
+  "verify_note": "README fetched: T4x2 default, P100, RTX 6000 'ARC-AGI-3 exclusive', internet disabled - confirmed."
  },
  {
   "key": "arcprize2025agents",
@@ -173,7 +203,9 @@
   "id": null,
   "url": "https://github.com/arcprize/ARC-AGI-3-Agents",
   "seen_url": "https://raw.githubusercontent.com/arcprize/ARC-AGI-3-Agents/main/README.md",
-  "used_for": "ARC-AGI-3 preview SDK initial release 2025-07-18; local toolkit 2026-01-29"
+  "used_for": "ARC-AGI-3 preview SDK initial release 2025-07-18; local toolkit 2026-01-29",
+  "verified": true,
+  "verify_note": "README changelog fetched: [0.9.1] 2025-07-18, [0.9.2] 2025-08-19, [0.9.3] 2026-01-29 - confirmed."
  },
  {
   "key": "arcprize2026community",
@@ -184,7 +216,9 @@
   "id": null,
   "url": "https://github.com/arcprize/ARC-AGI-Community-Leaderboard",
   "seen_url": "https://raw.githubusercontent.com/arcprize/ARC-AGI-Community-Leaderboard/main/README.md",
-  "used_for": "Self-reported scores 'untrustworthy by design'; only verified scores displayed"
+  "used_for": "Self-reported scores 'untrustworthy by design'; only verified scores displayed",
+  "verified": true,
+  "verify_note": "README fetched: self-reported scores 'untrustworthy by design' - confirmed. Year field (2026) not independently verified."
  },
  {
   "key": "arcprize2024benchmarking",
@@ -195,7 +229,9 @@
   "id": null,
   "url": "https://github.com/arcprize/arc-agi-benchmarking",
   "seen_url": "https://raw.githubusercontent.com/arcprize/arc-agi-benchmarking/main/README.md",
-  "used_for": "Open-source evaluation harness with per-config pricing (date-stamped); public and semi-private runs for v1/v2"
+  "used_for": "Open-source evaluation harness with per-config pricing (date-stamped); public and semi-private runs for v1/v2",
+  "verified": true,
+  "verify_note": "README exists and describes the multi-provider testing harness. The year (2024) was not verified."
  },
  {
   "key": "arcprize2025hrm",
@@ -206,7 +242,9 @@
   "id": null,
   "url": "https://github.com/arcprize/hierarchical-reasoning-model-analysis",
   "seen_url": "https://raw.githubusercontent.com/arcprize/hierarchical-reasoning-model-analysis/main/README.md",
-  "used_for": "ARC as auditor of claimed breakthroughs; findings (32%/2% verified, outer loop drives performance) seen only in secondary summaries, e.g. github.com/UOR-Foundation/uor-r4 (blob 7cc5954) docs/integration/review-2026-09-16/05-literature-brief.md"
+  "used_for": "ARC as auditor of claimed breakthroughs; findings (32%/2% verified, outer loop drives performance) seen only in secondary summaries, e.g. github.com/UOR-Foundation/uor-r4 (blob 7cc5954) docs/integration/review-2026-09-16/05-literature-brief.md",
+  "verified": true,
+  "verify_note": "README fetched: replicates/analyses HRM (arXiv:2506.21734) and links the blog at arcprize.org/blog/hrm-analysis. The blog title 'The Hidden Drivers of HRM's Performance on ARC-AGI' was NOT verified in this check. The 32% (v1 semi-private) / 2% (v2) figures are confirmed as 'hrm-2-2508' rows in the ndbroadbent mirror of the official leaderboard JSON."
  },
  {
   "key": "legris2024harc",
@@ -217,7 +255,9 @@
   "id": "arXiv:2409.01374",
   "url": "https://arxiv.org/abs/2409.01374",
   "seen_url": "https://github.com/geometor/arcprize/blob/10e87b6e4b2f8df6019f0cdd3fd90a53b19f0961/docsrc/refs/papers/h-arc-a-robust-estimate-of-human-performance-on-the-abstraction-and-reasoning-corpus-benchmark/index.rst",
-  "used_for": "1,729 humans; 76.2% train / 64.2% eval average; 790/800 tasks solved by >=1 person (also cited in the 2024 ARC Prize report)"
+  "used_for": "1,729 humans; 76.2% train / 64.2% eval average; 790/800 tasks solved by >=1 person (also cited in the 2024 ARC Prize report)",
+  "verified": true,
+  "verify_note": "arXiv:2409.01374, four authors, published 2024-09-02, verbatim abstract (1,729 humans; 76.2% train [73.3-77.2%], 64.2% eval [55.9-68.9%]; 790/800 solvable within three attempts) via geometor/arcprize index.rst; also ref 18 in the ARC Prize 2024 report."
  },
  {
   "key": "moskvichev2023conceptarc",
@@ -228,7 +268,9 @@
   "id": "arXiv:2305.07141",
   "url": "https://arxiv.org/abs/2305.07141",
   "seen_url": "https://github.com/victorvikram/ConceptARC",
-  "used_for": "Derivative ARC-format benchmark (16 concept groups x 10 tasks) as contrast case without a prize or steward"
+  "used_for": "Derivative ARC-format benchmark (16 concept groups x 10 tasks) as contrast case without a prize or steward",
+  "verified": true,
+  "verify_note": "Official victorvikram/ConceptARC README gives the authors, title, 2023 and the arXiv:2305.07141 link; 16 concept groups x 10 tasks confirmed."
  },
  {
   "key": "beger2025modalities",
@@ -239,18 +281,22 @@
   "id": "arXiv:2510.02125",
   "url": "https://arxiv.org/abs/2510.02125",
   "seen_url": "https://github.com/Luvata/arxive/blob/1620fc6bcd136848375a9c12a057db05dfb0d287/pages/2025-10-06-cs-cl.html",
-  "used_for": "Critique: accuracy overestimates abstraction in text (shortcuts) and underestimates it in the visual modality (a later version lists Kaleda Denton as an additional author)"
+  "used_for": "Critique: accuracy overestimates abstraction in text (shortcuts) and underestimates it in the visual modality (a later version lists Kaleda Denton as an additional author)",
+  "verified": true,
+  "verify_note": "Title, seven authors and verbatim abstract confirmed in the arXiv cs.CL listing for 2025-10-06 (entry marked 'replace-cross', i.e., a revised version) at abs/2510.02125. The later addition of Kaleda Denton was NOT verified in this check."
  },
  {
   "key": "hu2025varc",
   "title": "ARC Is a Vision Problem!",
   "authors": "Keya Hu, Ali Cy, Linlu Qiu, Xiaoman Delores Ding, Runqian Wang, Yeyin Eva Zhu, Jacob Andreas, Kaiming He",
   "year": 2025,
-  "venue": "arXiv",
+  "venue": "arXiv (listed as CVPR 2026 poster in a secondary list; not verified at primary)",
   "id": "arXiv:2511.14761",
   "url": "https://arxiv.org/abs/2511.14761",
   "seen_url": "https://raw.githubusercontent.com/Yasouimo/NetPlagStream/2ef20657d2270987392a0421ce743c2a8ac675bb/data/corpus_initial/2511.14761v1.txt",
-  "used_for": "Representation/format critique: from-scratch ViT reaches 60.4% on ARC-1 (authors from github.com/TTXS123OK/CVPapers cs.CV/2025/11/20251118.md)"
+  "used_for": "Representation/format critique: from-scratch ViT reaches 60.4% on ARC-1 (authors from github.com/TTXS123OK/CVPapers cs.CV/2025/11/20251118.md)",
+  "verified": true,
+  "verify_note": "Official repo lillian039/VARC README BibTeX lists the same eight authors and links arXiv:2511.14761 (v1 published 2025-11-18). Listed as a CVPR 2026 poster in SkalskiP/top-cvpr-2026-papers (secondary; venue not verified at the primary source). The README shows single-model and ensemble variants; whether 60.4% is the ensemble figure was not verified."
  },
  {
   "key": "jolicoeur2025trm",
@@ -261,7 +307,9 @@
   "id": "arXiv:2510.04871",
   "url": "https://arxiv.org/abs/2510.04871",
   "seen_url": "https://raw.githubusercontent.com/UNIR-TUC/arc-agi/48d931918edd904b99ef546a98adc97e19ccf528/src/SuperCompressARC/Docs/2025/2601.10904v1_arc_prize_2025.md",
-  "used_for": "TRM, a 7M-parameter model (45% ARC-AGI-1, 8% ARC-AGI-2); 2025 Paper Award 1st place"
+  "used_for": "TRM, a 7M-parameter model (45% ARC-AGI-1, 8% ARC-AGI-2); 2025 Paper Award 1st place",
+  "verified": true,
+  "verify_note": "ARC Prize 2025 report ref 15: 'Alexia Jolicoeur-Martineau. Less is More: Recursive Reasoning with Tiny Networks. arxiv.org/abs/2510.04871, 2025' - confirmed; Paper Award 1st place and 45%/8% confirmed in report text."
  },
  {
   "key": "wang2025hrm",
@@ -272,7 +320,9 @@
   "id": "arXiv:2506.21734",
   "url": "https://arxiv.org/abs/2506.21734",
   "seen_url": "https://raw.githubusercontent.com/arcprize/hierarchical-reasoning-model-analysis/main/README.md",
-  "used_for": "HRM claim later audited by ARC Prize (also listed in the 2025 report references)"
+  "used_for": "HRM claim later audited by ARC Prize (also listed in the 2025 report references)",
+  "verified": true,
+  "verify_note": "ARC Prize 2025 report ref 28 ('Guan Wang et al. Hierarchical reasoning model. arXiv:2506.21734, 2025') and the arcprize HRM-analysis README link to arXiv 2506.21734 - confirmed."
  },
  {
   "key": "li2024inductiontransduction",
@@ -283,18 +333,22 @@
   "id": "arXiv:2411.02272",
   "url": "https://arxiv.org/abs/2411.02272",
   "seen_url": "https://raw.githubusercontent.com/UNIR-TUC/arc-agi/48d931918edd904b99ef546a98adc97e19ccf528/src/SuperCompressARC/Docs/2024/2412.04604v2_arc_prize_2024.md",
-  "used_for": "Induction and transduction solve different task subsets; ensembles needed (2024 approaches)"
+  "used_for": "Induction and transduction solve different task subsets; ensembles needed (2024 approaches)",
+  "verified": true,
+  "verify_note": "ARC Prize 2024 report ref 19 gives the identical 14-author list, title and arXiv:2411.02272 (2024) - confirmed."
  },
  {
   "key": "akyurek2024ttt",
   "title": "The Surprising Effectiveness of Test-Time Training for Abstract Reasoning",
-  "authors": "Akyürek et al. [full author list not verified]",
+  "authors": "Ekin Akyürek, Mehul Damani, Linlu Qiu, Han Guo, Yoon Kim, Jacob Andreas",
   "year": 2024,
   "venue": "arXiv",
   "id": "arXiv:2411.07279",
   "url": "https://arxiv.org/abs/2411.07279",
-  "seen_url": "https://github.com/open-thought/arc-agi-2/blob/2d4e09315a57735a594933aa0a5548e968379f72/docs/research.md",
-  "used_for": "Test-time training for ARC (47.5% semi-private in the 2024 ARC-AGI-Pub table)"
+  "seen_url": "https://github.com/open-thought/arc-agi-2/blob/2d4e09315a57735a594933aa0a5548e968379f72/docs/research.md ; author list from https://raw.githubusercontent.com/UNIR-TUC/arc-agi/48d931918edd904b99ef546a98adc97e19ccf528/src/SuperCompressARC/Docs/2024/2412.04604v2_arc_prize_2024.md (ref 1)",
+  "used_for": "Test-time training for ARC (47.5% semi-private in the 2024 ARC-AGI-Pub table)",
+  "verified": true,
+  "verify_note": "CORRECTED author list from ARC Prize 2024 report ref 1: Ekin Akyürek, Mehul Damani, Linlu Qiu, Han Guo, Yoon Kim, Jacob Andreas; arXiv:2411.07279 confirmed there."
  },
  {
   "key": "spelke2007core",
@@ -303,9 +357,11 @@
   "year": 2007,
   "venue": "Developmental Science",
   "id": null,
-  "url": "https://raw.githubusercontent.com/UNIR-TUC/arc-agi/48d931918edd904b99ef546a98adc97e19ccf528/src/SuperCompressARC/Docs/2024/2412.04604v2_arc_prize_2024.md",
+  "url": null,
   "seen_url": "https://raw.githubusercontent.com/UNIR-TUC/arc-agi/48d931918edd904b99ef546a98adc97e19ccf528/src/SuperCompressARC/Docs/2024/2412.04604v2_arc_prize_2024.md",
-  "used_for": "Core Knowledge priors underlying ARC (seen only as a reference entry in the ARC Prize 2024 report: Developmental Science, pp. 89-96, 2007; DOI not seen in this session)"
+  "used_for": "Core Knowledge priors underlying ARC (seen only as a reference entry in the ARC Prize 2024 report: Developmental Science, pp. 89-96, 2007; DOI not seen in this session)",
+  "verified": true,
+  "verify_note": "Seen only as ARC Prize 2024 report ref 23 (Developmental Science, pp. 89-96, 2007). Volume/issue/DOI not seen in this session. The 'url' field previously pointed to the report cache, not the paper; set to null."
  },
  {
   "key": "anthropic2026opus5card",
@@ -314,9 +370,11 @@
   "year": 2026,
   "venue": "Model system card",
   "id": null,
-  "url": "https://www.anthropic.com/claude-opus-5-system-card",
+  "url": "https://www-cdn.anthropic.com/b514064af1408018e64b1ad24e7d5e75850b4ffd/Claude%20Opus%205%20System%20Card.pdf",
   "seen_url": "https://raw.githubusercontent.com/malob/ai-system-cards/282a67c3c79617b23a1a23ed0869239b6e28d139/cards/anthropic/claude-opus-5/sections/08b-capabilities-2.md",
-  "used_for": "ARC-verified ARC-AGI-1 97.50%, ARC-AGI-2 90.42%, ARC-AGI-3 30.16% (Opus 5); GPT-5.6 Sol 7.78%, Opus 4.8 1.52%, Opus 4.7 75.83% on v2; lab adoption evidence (canonical URL from punitarani/modelbeats data)"
+  "used_for": "ARC-verified ARC-AGI-1 97.50%, ARC-AGI-2 90.42%, ARC-AGI-3 30.16% (Opus 5); GPT-5.6 Sol 7.78%, Opus 4.8 1.52%, Opus 4.7 75.83% on v2; lab adoption evidence (canonical URL from punitarani/modelbeats data)",
+  "verified": true,
+  "verify_note": "Mirror sections 08a (Table 8.1.A) and 08b (8.14 ARC-AGI) fetched: Opus 5 97.50/90.42/30.16 (v1/v2/v3, ARC-verified); GPT-5.6 Sol 97.5 (xhigh)/92.5/7.8 appear in Table 8.1.A as competitor figures 'drawn from the respective developers' published system cards or benchmark leaderboards'. Canonical URL replaced with the CDN PDF link seen in the Fable 5.1 card mirror. Release date ~2026-07-24 per the measured tracker (secondary)."
  },
  {
   "key": "anthropic2026fable51card",
@@ -327,7 +385,9 @@
   "id": null,
   "url": "https://github.com/malob/ai-system-cards/blob/282a67c3c79617b23a1a23ed0869239b6e28d139/cards/anthropic/claude-fable-5-1/sections/08-capabilities.md",
   "seen_url": "https://github.com/malob/ai-system-cards/blob/282a67c3c79617b23a1a23ed0869239b6e28d139/cards/anthropic/claude-fable-5-1/sections/08-capabilities.md",
-  "used_for": "ARC-verified Fable 5.1: 97.5% ARC-AGI-1, 90% ARC-AGI-2; ARC-AGI-3 not available at release (mirror; canonical URL not verified)"
+  "used_for": "ARC-verified Fable 5.1: 97.5% ARC-AGI-1, 90% ARC-AGI-2; ARC-AGI-3 not available at release (mirror; canonical URL not verified)",
+  "verified": true,
+  "verify_note": "Mirror section 08 fetched: Fable 5.1 97.5% (v1), 90% (v2) ARC-verified at max effort; Table 8.1.A also lists GPT-5.6 Sol at 96.5% on ARC-AGI-1 (effort unlabelled; the Opus 5 card gives 97.5 at xhigh). Canonical URL not verified."
  },
  {
   "key": "lambert2024o3",
@@ -338,7 +398,9 @@
   "id": null,
   "url": "https://github.com/Interconnects-AI/homebase/blob/b2c74a0cb0765f2c65abe8cbc8ba48d5ff877d7a/public/2024/2024-12-20-openaiso3thegrandfinaleofaiin2024.md",
   "seen_url": "https://raw.githubusercontent.com/Interconnects-AI/homebase/b2c74a0cb0765f2c65abe8cbc8ba48d5ff877d7a/public/2024/2024-12-20-openaiso3thegrandfinaleofaiin2024.md",
-  "used_for": "Secondary: Knoop's GPT-2..o3 progression, 1M-prize framing, prize not claimed (cost/open-source), token-count analysis (likely canonical interconnects.ai URL not verified)"
+  "used_for": "Secondary: Knoop's GPT-2..o3 progression, 1M-prize framing, prize not claimed (cost/open-source), token-count analysis (likely canonical interconnects.ai URL not verified)",
+  "verified": true,
+  "verify_note": "Interconnects homebase file fetched (title, date 2024-12-20 in path, Knoop progression, 'prize is not claimed because it was above a cost threshold and not open-sourced'). It shows the original o3 table only as an image with 'o3 high-compute costs not available'."
  },
  {
   "key": "broadbent2025pareto",
@@ -349,7 +411,9 @@
   "id": null,
   "url": "https://github.com/ndbroadbent/arc_agi_pareto_frontiers",
   "seen_url": "https://raw.githubusercontent.com/ndbroadbent/arc_agi_pareto_frontiers/90d0c6822f82b8ef95423f2a37c74cdb45e7b40f/data/evaluations.json",
-  "used_for": "Dec-2025 mirror of the official leaderboard JSON (scores and cost/task per dataset); critique that cost-per-task snapshots hide frontier cost declines"
+  "used_for": "Dec-2025 mirror of the official leaderboard JSON (scores and cost/task per dataset); critique that cost-per-task snapshots hide frontier cost declines",
+  "verified": true,
+  "verify_note": "Repo files fetched (sources/o3_announcement.html; data/evaluations.json with o3-preview-low $200/task rows and HRM rows). Author full name not verified."
  },
  {
   "key": "measured2026",
@@ -360,7 +424,9 @@
   "id": null,
   "url": "https://github.com/rishikeshn-eng/measured",
   "seen_url": "https://raw.githubusercontent.com/rishikeshn-eng/measured/2e30d67d10d6db8b508c8fad39ce136b370a78f4/index.html",
-  "used_for": "Secondary: ARC-AGI-1 and ARC-AGI-2 frontier-over-time series (e.g., v2 6.5% Apr 2025 -> 95% Sep 2026)"
+  "used_for": "Secondary: ARC-AGI-1 and ARC-AGI-2 frontier-over-time series (e.g., v2 6.5% Apr 2025 -> 95% Sep 2026)",
+  "verified": true,
+  "verify_note": "index.html fetched: ARC-AGI-2 frontier series (6.5% o3-high Apr 2025 ... 85% GPT-5.5 xhigh 2026-04-23 ... 95% GPT-6 Astra max 2026-09-03); ARC-AGI-1 top 98.5% (Fable 5 xhigh; GPT-6 Astra xhigh). Secondary (Epoch-derived)."
  },
  {
   "key": "alloevil2026tracker",
@@ -371,7 +437,9 @@
   "id": null,
   "url": "https://github.com/alloevil/llm-benchmarks-tracker",
   "seen_url": "https://raw.githubusercontent.com/alloevil/llm-benchmarks-tracker/8e239c46ead8a4b063cc7d6ada272b53ad99633c/data/results/arc-agi-2.json",
-  "used_for": "Secondary: GPT-6 Astra 95.0% at $1.12/task, GPT-5.6 Sol 92.5%, Gemini 3 Deep Think 84.6% (ARC-AGI-2); ARC-AGI-3 split sizes 25/55/55"
+  "used_for": "Secondary: GPT-6 Astra 95.0% at $1.12/task, GPT-5.6 Sol 92.5%, Gemini 3 Deep Think 84.6% (ARC-AGI-2); ARC-AGI-3 split sizes 25/55/55",
+  "verified": true,
+  "verify_note": "data/results/arc-agi-2.json fetched: GPT-6 Astra (Max) 95.0% at $1.12/task (2026-09-02, official leaderboard, accessed 2026-09-04); GPT-5.6 Sol (Max) 92.5% at $1.44/task. Secondary."
  },
  {
   "key": "latere2026field",
@@ -382,7 +450,9 @@
   "id": null,
   "url": "https://github.com/latere-ai/ai-as-an-infrastructure",
   "seen_url": "https://github.com/latere-ai/ai-as-an-infrastructure/blob/bf1a025f002170a3a6b28a1168ca64dea4ab5442/en/field/2026-09.qmd",
-  "used_for": "Secondary corroboration: Astra 95.0% ARC-AGI-2 at $1.12/task; ARC-AGI-3 launch 25 Mar with frontier 0.51%"
+  "used_for": "Secondary corroboration: Astra 95.0% ARC-AGI-2 at $1.12/task; ARC-AGI-3 launch 25 Mar with frontier 0.51%",
+  "verified": true,
+  "verify_note": "2026-09.qmd fetched: Astra 95.0% ARC-AGI-2 at USD 1.12/task; ARC-AGI-3 launch 25 March with frontier 0.51%; Astra 62.7% standard vs 98.6% provider adapter (max effort). Also notes the Claude Opus 5.5 system card dated 22 September 2026. Secondary."
  },
  {
   "key": "mitchell2024o3",
@@ -393,6 +463,34 @@
   "id": null,
   "url": "https://aiguide.substack.com/p/did-openai-just-solve-abstract-reasoning",
   "seen_url": "https://github.com/weathon/split_review_2/blob/f6069056e9dc83f5aca4542420d4f8d260f53891/datasets/icml2025_position/papers/GCqffUAyiu.txt",
-  "used_for": "Existence of a prominent critique of the o3/ARC claim; seen ONLY as a citation (substack blocked) - content not verified"
+  "used_for": "Existence of a prominent critique of the o3/ARC claim; seen ONLY as a citation (substack blocked) - content not verified",
+  "verified": true,
+  "verify_note": "Existence verified only as a bibliographic citation (Mitchell, M., 'Did openai just solve abstract reasoning?', 2024, aiguide.substack.com/p/did-openai-just-solve-abstract-reasoning) in an ICML 2025 position-paper text; content NOT read (substack blocked). Do not attribute specific arguments to it."
+ },
+ {
+  "key": "anthropic2026opus55card",
+  "title": "Claude Opus 5.5 System Card (Section 8 Capabilities)",
+  "authors": "Anthropic",
+  "year": 2026,
+  "venue": "Model system card",
+  "id": null,
+  "url": null,
+  "seen_url": "https://raw.githubusercontent.com/malob/ai-system-cards/HEAD/cards/anthropic/claude-opus-5-5/sections/08a-capabilities-1.md",
+  "used_for": "Adoption signal: the capability summary table (Opus 5.5 / Opus 5 / Fable 5.1 / GPT-6 Astra) and sections 8.1-8.17 of the mirrored card contain no ARC-AGI row or section, unlike the Opus 5 card (8.14 ARC-AGI).",
+  "verified": true,
+  "verify_note": "Added by fact-check 2026-09-29. Mirror files 08a-capabilities-1.md, 08b-capabilities-2.md and 01-introduction.md fetched; 0 occurrences of 'ARC-AGI'. Card date 22 September 2026 per latere-ai field notes (secondary). Mirror completeness not verified, so 'no ARC-AGI anywhere in the card' is Medium confidence; canonical URL not verified."
+ },
+ {
+  "key": "arcprize2026arcagi3benchmarking",
+  "title": "arc-agi-3-benchmarking (README: Standard and Provider Adapter harnesses)",
+  "authors": "ARC Prize Foundation",
+  "year": 2026,
+  "venue": "GitHub",
+  "id": null,
+  "url": "https://github.com/arcprize/arc-agi-3-benchmarking",
+  "seen_url": "https://raw.githubusercontent.com/arcprize/arc-agi-3-benchmarking/main/README.md",
+  "used_for": "Primary confirmation that ARC-AGI-3 runs use a provider-neutral Standard harness or a Provider Adapter harness (native conversation/reasoning state and compaction), with per-provider profiles",
+  "verified": true,
+  "verify_note": "Added by fact-check 2026-09-29; README fetched (section 'Standard and Provider Adapter harnesses')."
  }
 ]

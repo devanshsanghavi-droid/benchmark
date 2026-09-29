@@ -8,7 +8,9 @@
     "id": "arXiv:2211.09110",
     "url": "https://openreview.net/forum?id=iO4LZibEqW",
     "seen_url": "https://raw.githubusercontent.com/stanford-crfm/helm/HEAD/README.md",
-    "used_for": "HELM design (7 metrics, 42 scenarios, 30 models, coverage 17.9%->96.0%), venue and BibTeX"
+    "used_for": "HELM design (7 metrics, 42 scenarios, 30 models, coverage 17.9%->96.0%), venue and BibTeX",
+    "verified": true,
+    "verify_note": "Fact-check 2026-09-29: title, TMLR 2023, 'Featured Certification, Expert Certification' and the 50-author list confirmed from the official BibTeX in the stanford-crfm/helm README (author field counted = 50). TMLR 2023 is independently confirmed in the Akhtar et al. (ICML 2026) bibliography. arXiv 2211.09110 is corroborated by thorbenlouw/the-story-of-llms-in-50-papers ('2211.09110v2') and chiphuyen/aie-book. Abstract numbers (7 metrics, 16 core scenarios, 87.5%, 26 targeted scenarios, 30 models, 42 scenarios, 17.9% -> 96.0%) confirmed in two independent abstract mirrors (skothr/llm-research, thorbenlouw)."
   },
   {
     "key": "crfm2026helmmaint",
@@ -19,7 +21,9 @@
     "id": null,
     "url": "https://crfm-helm.readthedocs.io/en/latest/maintenance_mode/",
     "seen_url": "https://raw.githubusercontent.com/stanford-crfm/helm/HEAD/docs/maintenance_mode.md",
-    "used_for": "HELM maintenance mode from 1 June 2026; no new evaluations; recommended alternative harnesses"
+    "used_for": "HELM maintenance mode from 1 June 2026; no new evaluations; recommended alternative harnesses",
+    "verified": true,
+    "verify_note": "Primary doc re-fetched 2026-09-29: 'HELM entered maintenance mode on June 1, 2026'; 'no new evaluations will be added to the HELM leaderboards'; the maintainers can no longer actively support research collaborations; recommended alternatives are Evalchemy, Inspect AI Evals, Lighteval, 'LLM Evaluation Harness' (sic) and Unitxt. The readthedocs URL form was not itself fetched; cite the GitHub doc (seen_url) if in doubt."
   },
   {
     "key": "hf2023ollmmlu",
@@ -30,18 +34,22 @@
     "id": null,
     "url": "https://huggingface.co/blog/open-llm-leaderboard-mmlu",
     "seen_url": "https://raw.githubusercontent.com/huggingface/blog/main/open-llm-leaderboard-mmlu.md",
-    "used_for": "MMLU implementation sensitivity (LLaMA-65B 0.637 HELM vs 0.488 harness); reproducibility lesson"
+    "used_for": "MMLU implementation sensitivity (LLaMA-65B 0.637 HELM vs 0.488 harness); reproducibility lesson",
+    "verified": true,
+    "verify_note": "Re-fetched raw blog 2026-09-29: front-matter authors clefourrier, SaylorTwift, slippylolo, thomwolf; date 'June 23, 2023' confirmed in huggingface/blog _blog.yml (code search). LLaMA-65B MMLU: original implementation 0.636, HELM 0.637, 'EleutherAI Harness (January 2023)' 0.488."
   },
   {
     "key": "hf2024ollv2",
-    "title": "Performances are plateauing, let's make the leaderboard steep again (Open LLM Leaderboard v2)",
-    "authors": "Hugging Face (Fourrier et al.)",
+    "title": "Open-LLM performances are plateauing, let's make the leaderboard steep again (Open LLM Leaderboard v2)",
+    "authors": "Hugging Face Open LLM Leaderboard team (individual authors not verified)",
     "year": 2024,
     "venue": "Hugging Face Space blog (2024-06-26)",
     "id": null,
     "url": "https://huggingface.co/spaces/open-llm-leaderboard/blog",
     "seen_url": "https://raw.githubusercontent.com/sasilver75/obsidian/HEAD/Open%20LLM%20Leaderboard%20V2.md",
-    "used_for": "OLL v2 rationale (saturation, contamination, errors), six new tasks, score normalisation [secondary summary]"
+    "used_for": "OLL v2 rationale (saturation, contamination, errors), six new tasks, score normalisation [secondary summary]",
+    "verified": true,
+    "verify_note": "Title corrected to the exact Space title 'Open-LLM performances are plateauing, let's make the leaderboard steep again', seen in a captured HF Space HTML (Aisha-AI-Dev/LLM, og:title), chiphuyen/aie-book and swyxio/ai-notes. The Space was created 2024-06-23 per the captured HTML; the 26 June 2024 announcement date comes from sasilver75 notes (secondary). Individual authors were not verified. The six v2 tasks and the saturation/contamination/errors rationale are corroborated by independent secondary notes (scottblydotcom/hermia, AutoTrustAI survey, donaldmorry roadmap)."
   },
   {
     "key": "fourrier2025ollretire",
@@ -52,7 +60,9 @@
     "id": null,
     "url": "https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard/discussions/1135",
     "seen_url": "https://raw.githubusercontent.com/niftymonkey/pickai/main/design/research/free-benchmark-sources.md",
-    "used_for": "OLL retirement date and stated reasons (obsolete; hill-climbing irrelevant directions) [quoted in secondary notes]"
+    "used_for": "OLL retirement date and stated reasons (obsolete; hill-climbing irrelevant directions) [quoted in secondary notes]",
+    "verified": true,
+    "verify_note": "Primary HF page blocked. Title, Fourrier authorship and the 13 March 2025 date are corroborated by 5+ independent secondary sources (niftymonkey/pickai, aledlie blog, rasynai/MarigoldBench, sbluemin/fleet-harness '2025-03-13 official retirement', tatdt622989 blog 'officially retired the leaderboard on March 13, 2025', gperdrizet slides 'archived Mar 2025'). The 'hill climb irrelevant directions' quote also appears in scottblydotcom/hermia and rasynai/MarigoldBench. Verified at secondary level only."
   },
   {
     "key": "white2025livebench",
@@ -63,7 +73,9 @@
     "id": "arXiv:2406.19314",
     "url": "https://arxiv.org/abs/2406.19314",
     "seen_url": "https://raw.githubusercontent.com/LiveBench/LiveBench/main/README.md",
-    "used_for": "LiveBench design: 18 tasks/6 categories, objective scoring, monthly-refresh claim, venue"
+    "used_for": "LiveBench design: 18 tasks/6 categories, objective scoring, monthly-refresh claim, venue",
+    "verified": true,
+    "verify_note": "BibTeX in the LiveBench README uses the title '...Contamination-Free LLM Benchmark' (ICLR 2025). The ICLR proceedings version, as cited by Akhtar et al., is titled 'LiveBench: A Challenging, Contamination-Limited LLM Benchmark' (ICLR 2025, vol. 2025, pp. 91595-91631); cite the proceedings title in the paper. arXiv:2406.19314 corroborated by the UKGovernmentBEIS/inspect_evals LiveBench README, the mlfoundations/evalchemy BibTeX and the memgrafter digest (whose file name uses 'contamination-limited'). The original abstract (reproduced in aishwaryanr/awesome-generative-ai-guide) says top models scored below 65% at launch and that questions 'will be added and updated on a monthly basis'."
   },
   {
     "key": "livebench2026repo",
@@ -74,18 +86,22 @@
     "id": null,
     "url": "https://github.com/LiveBench/LiveBench",
     "seen_url": "https://raw.githubusercontent.com/LiveBench/LiveBench/main/changelog.md",
-    "used_for": "Actual release dates (11 releases 2024-06 to 2026-06), 1000 questions, agentic coding addition, retired tasks"
+    "used_for": "Actual release dates (11 releases 2024-06 to 2026-06), 1000 questions, agentic coding addition, retired tasks",
+    "verified": true,
+    "verify_note": "Re-fetched 2026-09-29. common.py LIVE_BENCH_RELEASES = {2024-06-24, 2024-07-26, 2024-08-31, 2024-11-25, 2025-04-02, 2025-04-25, 2025-05-30, 2025-11-25, 2025-12-23, 2026-01-08, 2026-06-25} (11 dates). changelog.md's newest entry is 2026-01-08 (there is no changelog entry for 2026-06-25). The 2024-07-26 entry: 'This brought the total number of questions to 1000'. The Inspect Evals LiveBench README says the dataset 'completely refreshes every 6 months'."
   },
   {
     "key": "akhtar2026plateau",
     "title": "When AI Benchmarks Plateau: A Systematic Study of Benchmark Saturation",
-    "authors": "Mubashara Akhtar, Anka Reuel, Prajna Soni, et al. (37 authors; advisors incl. Stella Biderman, Zeerak Talat, Avijit Ghosh, Irene Solaiman)",
+    "authors": "Mubashara Akhtar, Anka Reuel, Prajna Soni, Sanchit Ahuja, Pawan Sasanka Ammanamanchi, Ruchit Rawal, Vilém Zouhar, et al. (37 authors; advisors incl. Mykel J. Kochenderfer, Sanmi Koyejo, Mrinmaya Sachan, Stella Biderman, Zeerak Talat, Avijit Ghosh, Irene Solaiman)",
     "year": 2026,
     "venue": "ICML 2026 (PMLR 306)",
-    "id": null,
+    "id": "arXiv:2602.16763",
     "url": "https://raw.githubusercontent.com/mlresearch/v306/main/assets/akhtar26a/akhtar26a.pdf",
     "seen_url": "https://raw.githubusercontent.com/mlresearch/v306/main/assets/akhtar26a/akhtar26a.pdf",
-    "used_for": "S_index saturation: 29/60 highly saturated; LiveBench 0.99 at ~79%; LiveCodeBench 0.77; HLE 0.22; private test sets do not prevent saturation; leaderboard-data inconsistency"
+    "used_for": "S_index saturation: 29/60 highly saturated; LiveBench 0.99 at ~79%; LiveCodeBench 0.77; HLE 0.22; private test sets do not prevent saturation; leaderboard-data inconsistency",
+    "verified": true,
+    "verify_note": "PDF text extracted and checked 2026-09-29. The title matches; 37 authors counted (lead: Akhtar, Reuel; advisors incl. Kochenderfer, Koyejo, Sachan, Biderman, Talat, Ghosh, Solaiman). 'Proceedings of the 43rd International Conference on Machine Learning, Seoul, South Korea. PMLR 306, 2026.' arXiv:2602.16763 corroborated by duanyytop/agents-radar HN digests (Aug 2026) linking arxiv.org/abs/2602.16763 with this exact title."
   },
   {
     "key": "ho2025rosetta",
@@ -96,7 +112,9 @@
     "id": "arXiv:2512.00193",
     "url": "https://arxiv.org/abs/2512.00193",
     "seen_url": "https://raw.githubusercontent.com/epoch-research/eci-public/main/README.md",
-    "used_for": "Epoch Capabilities Index method (sigmoid IRT stitching; anchors Claude 3.5 Sonnet=130, GPT-5=150)"
+    "used_for": "Epoch Capabilities Index method (sigmoid IRT stitching; anchors Claude 3.5 Sonnet=130, GPT-5=150)",
+    "verified": true,
+    "verify_note": "Authors, title and arXiv ID confirmed from the eci-public BibTeX and independently from the memgrafter/research-digests front matter and an arXiv daily listing for 2025-12-02 (Mikedownload1). Some secondary repos misattribute it to 'Sevilla et al.' (XinmingTu/benchmark-first-hit); that attribution is wrong. The paper's identifiability anchor fixes one benchmark (e.g. WinoGrande, alpha=1, D=0, per the memgrafter digest), whereas 'Claude 3.5 Sonnet = 130, GPT-5 = 150' is the published ECI product's scale convention (eci-public README)."
   },
   {
     "key": "epoch2026ecipublic",
@@ -107,7 +125,9 @@
     "id": null,
     "url": "https://github.com/epoch-research/eci-public",
     "seen_url": "https://raw.githubusercontent.com/epoch-research/eci-public/main/README.md",
-    "used_for": "ECI implementation details, anchoring, data source (benchmark_data.zip)"
+    "used_for": "ECI implementation details, anchoring, data source (benchmark_data.zip)",
+    "verified": true,
+    "verify_note": "README re-fetched 2026-09-29: equation 'performance = sigmoid(discriminability * (capability - difficulty))' and anchors Claude 3.5 Sonnet = 130 / GPT-5 = 150 confirmed. Repo creation date (2026-02-01) not re-verified."
   },
   {
     "key": "epoch2025stitching",
@@ -118,18 +138,22 @@
     "id": null,
     "url": "https://github.com/epoch-research/benchmark-stitching",
     "seen_url": "https://raw.githubusercontent.com/epoch-research/benchmark-stitching/main/README.md",
-    "used_for": "Precursor code for the Rosetta Stone paper (forecasting, acceleration detection, optimisation effects)"
+    "used_for": "Precursor code for the Rosetta Stone paper (forecasting, acceleration detection, optimisation effects)",
+    "verified": true,
+    "verify_note": "README fetched 2026-09-29: the repo holds code for the 'A Rosetta Stone for AI Benchmarks' analysis. Creation date 2025-07-01 not re-verified."
   },
   {
     "key": "epochWhyBenchHard",
     "title": "Why benchmarking is hard",
-    "authors": "Epoch AI (Gradient Updates newsletter; individual authors not shown in mirror)",
-    "year": null,
-    "venue": "Newsletter (published no earlier than Nov 2025; exact date unverified)",
+    "authors": "Florian Brand, Jean-Stanislas Denain (per secondary kzinmr/ai-topics; the mirror shows no byline)",
+    "year": 2025,
+    "venue": "Epoch AI Gradient Updates newsletter (23-24 Dec 2025)",
     "id": null,
-    "url": null,
+    "url": "https://epoch.ai/gradient-updates/why-benchmarking-is-hard",
     "seen_url": "https://raw.githubusercontent.com/shakir-fattani/ai-updates/HEAD/epochai.substack.com/why-benchmarking-is-hard/content.md",
-    "used_for": "Variance from scaffolds (SWE-bench Verified up to 11-15 pts), prompts/settings (GPQA 74-80%, n.s.), API providers; Hub error policy."
+    "used_for": "Variance from scaffolds (SWE-bench Verified up to 11-15 pts), prompts/settings (GPQA 74-80%, n.s.), API providers; Hub error policy.",
+    "verified": true,
+    "verify_note": "Mirror re-checked 2026-09-29. Its meta.yaml gives publish-date '2025-12-24' and source-url https://epochai.substack.com/p/why-benchmarking-is-hard; kzinmr/ai-topics (secondary) gives authors Florian Brand and Jean-Stanislas Denain and 'Dec 23, 2025' on epoch.ai. The canonical URL https://epoch.ai/gradient-updates/why-benchmarking-is-hard is cited in several independent repos (Miosa-osa/OSA, arbazkhan971/harness-engineering, SammyTourani/road-to-52). Verbatim: 'up to an 11% difference for GPT-5 and up to a 15% difference for Kimi K2 Thinking' (SWE-bench Verified, scaffold switch); GPQA-Diamond 74-80% across settings was for gpt-oss and 'not statistically significant'; 'The selection of an appropriate provider has the biggest impact on model performance.' The piece names scaffolds and API providers as the two most impactful components."
   },
   {
     "key": "epochHub",
@@ -140,7 +164,9 @@
     "id": null,
     "url": "https://epoch.ai/benchmarks",
     "seen_url": "https://raw.githubusercontent.com/shakir-fattani/ai-updates/HEAD/epochai.substack.com/why-benchmarking-is-hard/content.md",
-    "used_for": "Independent evaluation hub; benchmark_data.zip (CC-BY) feeding ECI"
+    "used_for": "Independent evaluation hub; benchmark_data.zip (CC-BY) feeding ECI",
+    "verified": true,
+    "verify_note": "Existence confirmed: the newsletter mirror links https://epoch.ai/benchmarks, and AINews (smol-ai 25-05-30) describes 'Epoch AI Research ... AI Benchmarking Hub'. Launch date still unverified."
   },
   {
     "key": "aa2026method",
@@ -151,7 +177,9 @@
     "id": null,
     "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
     "seen_url": "https://raw.githubusercontent.com/fstandhartinger/model-market-comparison/HEAD/ops/rebuild-2026-09/evidence/phase-04/sources/aa-1ea3e75f96c3.txt",
-    "used_for": "AA index composition, weights, principles (zero-shot, identical conditions, CI <±1%), and removals of MATH-500/AIME/MMLU-Pro/LiveCodeBench/IFBench/GPQA Diamond"
+    "used_for": "AA index composition, weights, principles (zero-shot, identical conditions, CI <±1%), and removals of MATH-500/AIME/MMLU-Pro/LiveCodeBench/IFBench/GPQA Diamond",
+    "verified": true,
+    "verify_note": "Verified as a captured copy (primary site blocked). The changelog lines were confirmed verbatim via GitHub code-search fragments of capture aa-1ea3e75f96c3.txt: v2.1 '5 August 2025-6 August 2025 ... Removed MATH-500 / Removed AIME 2024'; v4.0 'January 2026 ... Removed MMLU-Pro, LiveCodeBench, AIME 2025 from Intelligence Index ... Agents (25%), Coding (25%), General (25%), Scientific Reasoning (25%)'; v4.1 'June 2026-August 2026 ... Removed IFBench ... Agents (34%), Coding (24%), Scientific Reasoning (24%), General (18%)'; v4.2 'September 2026 ... Removed GPQA Diamond'; v4.3 'replaces tau3-Banking with AutomationBench-AA, and upgrades Terminal-Bench to v4.0'. A second, independent capture (dingkwang/agent-eval-course, Aug 2026) shows v4.1.1 with 9 evals incl. GPQA Diamond, which is consistent. WARNING: WebFetch summaries of this capture produced a fabricated changelog, so rely only on verbatim fragments."
   },
   {
     "key": "maxizm2026aaaudit",
@@ -162,7 +190,9 @@
     "id": null,
     "url": "https://github.com/MaxiZm/actualanalysis",
     "seen_url": "https://raw.githubusercontent.com/MaxiZm/actualanalysis/HEAD/docs/audits/coverage-expansion-2026-09-06/artificial-analysis.md",
-    "used_for": "Cross-check of AA version chronology v1.0 through v4.2"
+    "used_for": "Cross-check of AA version chronology v1.0 through v4.2",
+    "verified": true,
+    "verify_note": "Exists; its chronology matches the capture. Caveat: the file names its auditor as 'Gemini Agent (Artificial Analysis Adoption & Investigation Owner)', i.e. it is AI-generated, so treat it as low-weight corroboration and not an independent human audit."
   },
   {
     "key": "vals2026index",
@@ -173,29 +203,35 @@
     "id": null,
     "url": "https://www.vals.ai/benchmarks/vals_index",
     "seen_url": "https://raw.githubusercontent.com/fstandhartinger/model-market-comparison/HEAD/data/raw/benchmarks/daily-evidence/2026-09-18T12-58-20-378Z/gauntlet/protocol-vals-index-finance-agent-2/packet-r1.md",
-    "used_for": "GDP-weighted agentic index; five private + two public benchmarks; SE per model; top scores Sep 2026"
+    "used_for": "GDP-weighted agentic index; five private + two public benchmarks; SE per model; top scores Sep 2026",
+    "verified": true,
+    "verify_note": "Verified as a captured copy (vals.ai blocked). Verbatim, repeated across many captures (all in fstandhartinger/model-market-comparison): 'Updated 9/15/2026, Version 2'; 'The Vals Index aggregates five private and two public benchmarks'; sectors Finance ~8.0%, Coding ~5.6%, Legal ~1.2% of U.S. GDP; 7 component benchmarks. CAVEAT: 'publishes accuracy with a standard error per model' and 'averaging three runs per model' come from the capturing repo's registry notes, and that repo's own verifier flagged them as absent from the captured excerpt ('missing_evidence'). Independent partial support: maxim-saplin/llm_chess data/cross-ref/evals/vals-index/SOURCE.md lists an upstream 'stderr' of the index score (for an earlier index version)."
   },
   {
     "key": "scale2024seal",
-    "title": "SEAL Leaderboards (now Scale Labs)",
+    "title": "SEAL Leaderboards (launch post: 'Scale's SEAL Research Lab Launches Expert-Evaluated LLM Leaderboards'; now Scale Labs)",
     "authors": "Scale AI",
     "year": 2024,
     "venue": "Website",
     "id": null,
     "url": "https://scale.com/leaderboard",
     "seen_url": "https://api.github.com/repositories/971669456/contents/buttondown-emails/24-05-30-ainews-contextual-position-encoding-cope.md?ref=b9dec2fba8e126a69fca1f796712fe5a069441a9",
-    "used_for": "SEAL launch (~May 2024) with private datasets and paid expert annotators [secondary newsletter]"
+    "used_for": "SEAL launch (~May 2024) with private datasets and paid expert annotators [secondary newsletter]",
+    "verified": true,
+    "verify_note": "Launch corroborated by sasilver75/obsidian ('May 29, 2024'; launch post 'Scale's SEAL Research Lab Launches Expert-Evaluated LLM Leaderboards', https://scale.com/blog/leaderboard) and AINews 2024-05-30. Secondary sources only."
   },
   {
     "key": "swebenchpro2025",
-    "title": "SWE-Bench Pro",
-    "authors": "Scale AI et al. (author list not seen)",
+    "title": "SWE-Bench Pro: Can AI Agents Solve Long-Horizon Software Engineering Tasks?",
+    "authors": "Xiang Deng, Jeff Da, Edwin Pan, Yannis Yiming He, Charles Ide, Kanak Garg, Niklas Lauffer, et al. (Scale AI; 22 authors in arXiv metadata mirror)",
     "year": 2025,
     "venue": "arXiv",
     "id": "arXiv:2509.16941",
     "url": "https://arxiv.org/abs/2509.16941",
     "seen_url": "https://api.github.com/repositories/1155766506/contents/devtools/benchmarks/swe_bench_pro/METHODOLOGY.md?ref=1c8bb2170c2e1fc6c2ab75f7a23db16de9a35f6e",
-    "used_for": "Example of a SEAL-hosted contamination-resistant agentic benchmark with public leaderboard"
+    "used_for": "Example of a SEAL-hosted contamination-resistant agentic benchmark with public leaderboard",
+    "verified": true,
+    "verify_note": "arXiv:2509.16941 confirmed by several independent repos (ATOM00blue/machine-learning-library front matter, MuhammadSaqlainAslam/my-llm-wiki, BobYeger/state-of-agents, rohitg00). Full title and first authors added; published 2025-09-21; 1,865 problems across 41 repos."
   },
   {
     "key": "singh2025illusion",
@@ -206,7 +242,9 @@
     "id": "arXiv:2504.20879",
     "url": "https://arxiv.org/abs/2504.20879",
     "seen_url": "https://raw.githubusercontent.com/niftymonkey/pickai/main/design/research/benchmark-adoption.md",
-    "used_for": "Arena private-variant testing (27 Meta variants), data-access asymmetry (Google 19.2%, OpenAI 20.4%) [secondary quotes]"
+    "used_for": "Arena private-variant testing (27 Meta variants), data-access asymmetry (Google 19.2%, OpenAI 20.4%) [secondary quotes]",
+    "verified": true,
+    "verify_note": "Title and arXiv:2504.20879 corroborated by SammyTourani/road-to-52 and turbobeest/modelspec (which also gives 'NeurIPS 2025 Datasets and Benchmarks', secondary). The specific numbers (27 Meta variants; 19.2%/20.4% data shares; up to 112%) were NOT re-verified in this fact-check (rate-limited); defer to sibling arenas_preference.md."
   },
   {
     "key": "hai2025aiindex",
@@ -217,7 +255,9 @@
     "id": null,
     "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report",
     "seen_url": "https://raw.githubusercontent.com/weaviate-tutorials/workshop-pdf-driven-rag/HEAD/data/parsed/hai_ai_index_report_2025_chapter_2-parsed-text.md",
-    "used_for": "Benchmark gains (MMMU/GPQA/SWE-bench +18.8/48.9/67.3 pp), HLE 8.80%, FrontierMath 2%, convergence 11.9%->5.4%, reliance on company-reported scores"
+    "used_for": "Benchmark gains (MMMU/GPQA/SWE-bench +18.8/48.9/67.3 pp), HLE 8.80%, FrontierMath 2%, convergence 11.9%->5.4%, reliance on company-reported scores",
+    "verified": true,
+    "verify_note": "Confirmed in multiple independent PDF extractions (weaviate-tutorials parsed ch.2; Panteve/Polaris; aichaoukdour; Juanesillo; sermakarevich/chunker): '...scores reported by companies are accurate and factual' (scores current as of mid-February 2025); HLE top 8.80%; FrontierMath 2%; BigCodeBench 35.5% vs human 97%; MMMU +18.8 pp and GPQA +48.9 pp; SWE-bench 4.4% (2023) -> 71.7% (2024) = +67.3 pp; Chatbot Arena Elo gap between top and 10th model 11.9% -> 5.4%."
   },
   {
     "key": "hai2026aiindex",
@@ -228,7 +268,9 @@
     "id": null,
     "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report",
     "seen_url": "https://raw.githubusercontent.com/malafronte/ai-tools-lab/HEAD/anydoc/output/batch-2026-09-01/02-structured-pdf.md",
-    "used_for": "Saturation 'in months'; error rates up to 42% (invalid questions 2-42%); top 4 within 25 Elo; agents fail ~1 in 3"
+    "used_for": "Saturation 'in months'; error rates up to 42% (invalid questions 2-42%); top 4 within 25 Elo; agents fail ~1 in 3",
+    "verified": true,
+    "verify_note": "Chapter-2 highlights confirmed verbatim in several independent OCR/PDF extractions (malafronte/ai-tools-lab with markitdown, glm-ocr and paddle-ocr outputs; malafronte/mineru-lab; sermakarevich/chunker). Includes 'A review found invalid question rates ranging from 2% on MMLU Math to 42% on GSM8K', and 'Frontier models gained 30 percentage points in a single year on Humanity's Last Exam'. CAVEAT: per the underlying Truong et al. (2025, 'Fantastic Bugs and Where to Find Them in AI Benchmarks', NeurIPS 2025, arXiv:2511.16842), these figures are precision@50 of a flagging method (Precision@k = TP(k)/k among the top-k flagged items), not benchmark-wide invalid-item rates. The same authors put GSM8K's error rate at 'as high as 5%---a total of 88 questions'."
   },
   {
     "key": "gao2024harness",
@@ -239,7 +281,9 @@
     "id": "doi:10.5281/zenodo.12608602",
     "url": "https://github.com/EleutherAI/lm-evaluation-harness",
     "seen_url": "https://raw.githubusercontent.com/EleutherAI/lm-evaluation-harness/main/README.md",
-    "used_for": "Harness scope (60+ benchmarks), OLL backend, industrial users, 2025-2026 development news"
+    "used_for": "Harness scope (60+ benchmarks), OLL backend, industrial users, 2025-2026 development news",
+    "verified": true,
+    "verify_note": "BibTeX re-fetched 2026-09-29: @misc eval-harness, 'The Language Model Evaluation Harness', month 07, year 2024, Zenodo, v0.4.3, doi 10.5281/zenodo.12608602; 24 authors as listed. README says it is 'used internally by dozens of organizations including NVIDIA, Cohere, BigScience, BigCode, Nous Research, and Mosaic ML'."
   },
   {
     "key": "biderman2024lessons",
@@ -250,7 +294,9 @@
     "id": "arXiv:2405.14782",
     "url": "https://arxiv.org/abs/2405.14782",
     "seen_url": "https://raw.githubusercontent.com/kzinmr/ai-topics/HEAD/wiki/raw/papers/2024-05-23_2405.14782_lessons-from-the-trenches.md",
-    "used_for": "Evaluation reproducibility problems; prompt-format sensitivity (Mistral-7B 47.1% cloze vs 51.5% MMLU-style) [secondary summary]"
+    "used_for": "Evaluation reproducibility problems; prompt-format sensitivity (Mistral-7B 47.1% cloze vs 51.5% MMLU-style) [secondary summary]",
+    "verified": true,
+    "verify_note": "Title and arXiv:2405.14782 corroborated by huggingface/evaluation-guidebook, emphasis10/AI-paper-digest, the AutoTrustAI survey reference list and the Kimi-linear paper's reference list ('Stella Biderman et al.'). The '30 authors' count and the Mistral-7B 47.1% vs 51.5% figures are from the kzinmr secondary summary only and were not re-verified."
   },
   {
     "key": "aisi2024inspect",
@@ -261,7 +307,9 @@
     "id": null,
     "url": "https://github.com/UKGovernmentBEIS/inspect_ai",
     "seen_url": "https://raw.githubusercontent.com/UKGovernmentBEIS/inspect_ai/main/README.md",
-    "used_for": "Inspect features; 200+ pre-built evaluations"
+    "used_for": "Inspect features; 200+ pre-built evaluations",
+    "verified": true,
+    "verify_note": "README re-fetched: 'a framework for large language model evaluations created by the UK AI Security Institute'; 'Inspect also includes a collection of over 200 pre-built evaluations ready to run on any model.' The 2024 open-sourcing date is secondary only."
   },
   {
     "key": "inspectevals",
@@ -272,7 +320,9 @@
     "id": null,
     "url": "https://github.com/UKGovernmentBEIS/inspect_evals",
     "seen_url": "https://raw.githubusercontent.com/UKGovernmentBEIS/inspect_evals/main/README.md",
-    "used_for": "Governance/maintenance of shared eval library; example evals"
+    "used_for": "Governance/maintenance of shared eval library; example evals",
+    "verified": true,
+    "verify_note": "README re-fetched: 'maintained by Generality Labs, a London-based nonprofit'; 'founded in 2024, with contributions from the UK AI Security Institute, Arcadia Impact, and the Vector Institute'. Note: Harbor-framework evals (Terminal-Bench 2.0, SWE-Bench Pro) run via the separate Inspect Harbor package (meridianlabs-ai/inspect_harbor), not inside Inspect Evals itself."
   },
   {
     "key": "openai2025simpleevals",
@@ -283,7 +333,9 @@
     "id": null,
     "url": "https://github.com/openai/simple-evals",
     "seen_url": "https://raw.githubusercontent.com/openai/simple-evals/main/README.md",
-    "used_for": "July 2025 freeze; DROP/MGSM saturated; zero-shot CoT rationale; o3-high results row"
+    "used_for": "July 2025 freeze; DROP/MGSM saturated; zero-shot CoT rationale; o3-high results row",
+    "verified": true,
+    "verify_note": "README re-fetched 2026-09-29: 'July 2025: simple-evals will no longer be updated for new models or benchmark results'; it continues to host HealthBench, BrowseComp and SimpleQA implementations; MGSM/DROP 'saturated for our newer models'; o3-high row MMLU 93.3, GPQA 83.4, MATH 98.1, HumanEval 88.4, MGSM 92.0, DROP 89.8, SimpleQA 48.6."
   },
   {
     "key": "pickai2026notes",
@@ -294,18 +346,22 @@
     "id": null,
     "url": "https://github.com/niftymonkey/pickai",
     "seen_url": "https://raw.githubusercontent.com/niftymonkey/pickai/main/design/research/benchmark-adoption.md",
-    "used_for": "Aggregator licensing/access/trust assessments; AA v4.1.1 composition and bias allegation; ECI replication error; LMArena funding; HELM staleness"
+    "used_for": "Aggregator licensing/access/trust assessments; AA v4.1.1 composition and bias allegation; ECI replication error; LMArena funding; HELM staleness",
+    "verified": true,
+    "verify_note": "Exists (fragments seen via code search). Secondary practitioner notes; authorship and method unknown (possibly agent-generated). Low evidentiary weight."
   },
   {
     "key": "ihle2026provenance",
     "title": "open_closed_gap: provenance audit appendix",
     "authors": "Håvard Tveit Ihle (htihle)",
     "year": 2026,
-    "venue": "GitHub (secondary expert audit)",
+    "venue": "GitHub (secondary; LLM-generated web-research audit in a human-maintained repo)",
     "id": null,
     "url": "https://github.com/htihle/open_closed_gap",
     "seen_url": "https://raw.githubusercontent.com/htihle/open_closed_gap/HEAD/provenance_audit/APPENDIX.md",
-    "used_for": "Which leaderboard numbers are independently run vs self-reported; FrontierMath funding caveat"
+    "used_for": "Which leaderboard numbers are independently run vs self-reported; FrontierMath funding caveat",
+    "verified": true,
+    "verify_note": "Existence and author identity verified: htihle is Håvard Tveit Ihle (htihle/htihle.github.io; the open_closed_gap README credits 'WeirdML (Håvard Tveit Ihle)'). CAVEAT: per-benchmark audit files state '*Independent Opus 4.7 web-research audit, 2026-05-26*', and APPENDIX.md describes 'one independent web-research pass per benchmark', so the audit content is LLM-generated, not a human expert audit. On FrontierMath it says only that contamination biases such as OpenAI's access 'would inflate closed-side scores' (conditional)."
   },
   {
     "key": "modelhub2026sources",
@@ -316,7 +372,9 @@
     "id": null,
     "url": "https://github.com/DDamianZR/ModelHub",
     "seen_url": "https://raw.githubusercontent.com/DDamianZR/ModelHub/HEAD/SOURCES.md",
-    "used_for": "Practitioner trust criteria: licensing, independence, anti-contamination value of LiveBench, Epoch, Scale, LMArena"
+    "used_for": "Practitioner trust criteria: licensing, independence, anti-contamination value of LiveBench, Epoch, Scale, LMArena",
+    "verified": true,
+    "verify_note": "Exists; file titled 'Data Sources', verification date 2026-07-27. Quotes re-confirmed: LiveBench 'backbone, contamination-resistant'; Scale Labs anti-contamination value 'the highest of any source here'; Epoch 'stderr and public eval logs per row', CC-BY-4.0. Secondary."
   },
   {
     "key": "strasser2026critique",
@@ -327,7 +385,9 @@
     "id": null,
     "url": "https://github.com/markusstrasser/agent-infra",
     "seen_url": "https://raw.githubusercontent.com/markusstrasser/agent-infra/HEAD/research/2026-06-14-benchmark-leaderboard-methodology-critique.md",
-    "used_for": "Trust principles (independent scorer, verification, contamination design); AA LLM-judge share; AI Index 2026 summary"
+    "used_for": "Trust principles (independent scorer, verification, contamination design); AA LLM-judge share; AI Index 2026 summary",
+    "verified": true,
+    "verify_note": "Exists; quotes re-confirmed ('A score's trustworthiness is bounded by the discloser's transparency'; AA '~33% of index weight flows through LLM judges'; FMTI 58->40). Secondary opinion memo; the claims inside are not independently verified."
   },
   {
     "key": "aledlie2026stale",
@@ -338,7 +398,9 @@
     "id": null,
     "url": null,
     "seen_url": "https://api.github.com/repositories/91262591/contents/_posts/2026-08-11-stale-marquee-claims.md?ref=a9c0a7156eaa582908fa1997c67f159194437fb2",
-    "used_for": "Date of OLL retirement post (13 Mar 2025) and 'over 200 community-led leaderboards' quote"
+    "used_for": "Date of OLL retirement post (13 Mar 2025) and 'over 200 community-led leaderboards' quote",
+    "verified": true,
+    "verify_note": "Exists (code search, 2026-08-11 post); dates Fourrier's announcement 'March 13, 2025' and quotes 'over 200 community-led leaderboards'. Secondary."
   },
   {
     "key": "ainews2025epoch",
@@ -349,18 +411,22 @@
     "id": null,
     "url": "https://github.com/smol-ai/ainews-web-2025",
     "seen_url": "https://api.github.com/repositories/971669456/contents/src/content/frozen-issues/25-05-30-mary-meeker.md?ref=b9dec2fba8e126a69fca1f796712fe5a069441a9",
-    "used_for": "Epoch Hub additions (Aider Polyglot, WeirdML, Balrog, FLE, VPCT, Fiction-liveBench, GeoBench, SimpleBench)"
+    "used_for": "Epoch Hub additions (Aider Polyglot, WeirdML, Balrog, FLE, VPCT, Fiction-liveBench, GeoBench, SimpleBench)",
+    "verified": true,
+    "verify_note": "Exists; the 25-05-30 issue (raw file re-fetched) mentions Epoch AI's AI Benchmarking Hub adding 'VPCT, Fiction-liveBench, GeoBench, and SimpleBench'. The 25-05-07 additions were not re-checked. Secondary."
   },
   {
     "key": "mozilla2026openai",
-    "title": "The state of open source AI (v1.0.1)",
+    "title": "The State of Open Source AI (v1.0.1)",
     "authors": "Mozilla",
     "year": 2026,
     "venue": "Report (July 2026; seen via secondary summary)",
     "id": null,
-    "url": null,
+    "url": "https://stateofopensource.ai",
     "seen_url": "https://api.github.com/repositories/1074140347/contents/fiches/2026-07/mozilla-state-of-open-source-ai-2026-07.md?ref=b099986bf59d8684d4453c76592f87bcb7f2a6a6",
-    "used_for": "Latest AA v4.1 (61 closed vs 57 open) and ECI (162 vs 156) figures used in a major external report"
+    "used_for": "Latest AA v4.1 (61 closed vs 57 open) and ECI (162 vs 156) figures used in a major external report",
+    "verified": true,
+    "verify_note": "Report existence verified via several independent repos: 'The State of Open Source AI', Mozilla, V1.0 July 2026 (CTO letter by Raffi Krikorian), site https://stateofopensource.ai, announcement https://blog.mozilla.org/en/mozilla/mozilla-state-of-open-source-ai-report/; v1.0.1 per dgirard; a later v1.1 PDF exists. The specific figures used (AA v4.1: 61 closed vs 57 open; ECI 162 vs 156) were seen only in the dgirard summary and were NOT verified against the report."
   },
   {
     "key": "eciBayesian2026",
@@ -371,6 +437,8 @@
     "id": null,
     "url": "https://github.com/linkofrivia/ECI_Bayesian",
     "seen_url": "https://raw.githubusercontent.com/linkofrivia/ECI_Bayesian/HEAD/README.md",
-    "used_for": "Critique/extension of ECI unidimensionality (K=4 Beta-MIRT); thin-panel benchmarks unidentifiable"
+    "used_for": "Critique/extension of ECI unidimensionality (K=4 Beta-MIRT); thin-panel benchmarks unidentifiable",
+    "verified": true,
+    "verify_note": "README fetched 2026-09-29: 'K-axis compensatory 2PL Beta-MIRT'; K=4 on 96 benchmarks, K=1 on 88; 'MindCube's 5-taker panel cannot identify a loading row'. A near-identical README exists at General-Purpose-AI-Policy-Lab/Multiaxis_ECI (possible fork or rename). Secondary."
   }
 ]

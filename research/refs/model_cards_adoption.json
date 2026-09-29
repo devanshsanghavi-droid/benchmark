@@ -8,7 +8,9 @@
   "id": "arXiv:2602.16763",
   "url": "https://raw.githubusercontent.com/mlresearch/v306/main/assets/akhtar26a/akhtar26a.pdf",
   "seen_url": "https://raw.githubusercontent.com/mlresearch/v306/main/assets/akhtar26a/akhtar26a.pdf",
-  "used_for": "61 developer reports / 190 benchmarks; report frequency not associated with saturation (rho=0.05,p=0.73); age and test-set size predict saturation"
+  "used_for": "61 developer reports / 190 benchmarks; report frequency not associated with saturation (rho=0.05,p=0.73); age and test-set size predict saturation",
+  "verified": true,
+  "verify_note": "Fact-check 2026-09-29: PMLR PDF re-downloaded and read. Title, 37-author list (Akhtar & Reuel lead; EvalEval Coalition), 'Proceedings of the 43rd ICML, Seoul, PMLR 306, 2026' confirmed. '61 documents ... 190 benchmarks', Jan 2022-Nov 2025, >=5-report filter, rho=0.05/p=0.73, age + test-set size, private test sets (N=4) no effect all confirmed. arXiv:2602.16763 confirmed via the evaleval/benchmark-saturation GitHub README (arxiv.org itself unreachable)."
  },
  {
   "key": "evaleval2026saturationdata",
@@ -19,7 +21,9 @@
   "id": null,
   "url": "https://github.com/evaleval/benchmark-saturation",
   "seen_url": "https://github.com/evaleval/benchmark-saturation (git clone; data/manual_annotation_data.csv)",
-  "used_for": "Per-benchmark release date, SOTA at release, top-5 late-2025 scores, citation counts, saturation index"
+  "used_for": "Per-benchmark release date, SOTA at release, top-5 late-2025 scores, citation counts, saturation index",
+  "verified": true,
+  "verify_note": "Fact-check: GitHub README (WebFetch) names the paper 'When AI Benchmarks Plateau...' and arXiv 2602.16763. CSV values not re-audited."
  },
  {
   "key": "kiela2021dynabench",
@@ -30,7 +34,9 @@
   "id": "arXiv:2104.14337",
   "url": "https://arxiv.org/abs/2104.14337",
   "seen_url": "https://raw.githubusercontent.com/KAUST-Academy/Artificial-Intelligence-Courses/HEAD/LaTeX/sections/llm-evaluation/motivation.tex (caption) and .../LaTeX/images/llm-evaluation/dynabench_fig1_benchmark_saturation.png (figure)",
-  "used_for": "Figure 1: shrinking time from benchmark release to human-normalized parity (MNIST, Switchboard, ImageNet, SQuAD, GLUE)"
+  "used_for": "Figure 1: shrinking time from benchmark release to human-normalized parity (MNIST, Switchboard, ImageNet, SQuAD, GLUE)",
+  "verified": true,
+  "verify_note": "Fact-check: title, NAACL 2021, arXiv:2104.14337 and the Figure 1 caption confirmed via the KAUST course-repo LaTeX caption (secondary); figure image re-read and the approximate parity years in the dossier are consistent with it. arxiv.org/aclanthology unreachable."
  },
  {
   "key": "ott2022mapping",
@@ -41,7 +47,10 @@
   "id": "doi:10.1038/s41467-022-34591-0",
   "url": "https://doi.org/10.1038/s41467-022-34591-0",
   "seen_url": "https://raw.githubusercontent.com/TTXS123OK/CVPapers/HEAD/cs.CV/2022/03/20220309.md",
-  "used_for": "3,765 benchmarks; many fail to find widespread utilization; popularity attributes (versatility, breadth, real-world utility)"
+  "used_for": "3,765 benchmarks; many fail to find widespread utilization; popularity attributes (versatility, breadth, real-world utility)",
+  "arxiv_id": "arXiv:2203.04592",
+  "verified": true,
+  "verify_note": "Fact-check: confirmed via Akhtar et al. reference list (Ott, Barbosa-Silva, Blagec, Brauner, Samwald; Nature Communications 13(1):6793, Nov 2022; doi:10.1038/s41467-022-34591-0) and the CVPapers arXiv mirror (arXiv:2203.04592)."
  },
  {
   "key": "hai2025aiindex",
@@ -52,7 +61,9 @@
   "id": null,
   "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report",
   "seen_url": "https://raw.githubusercontent.com/petroslamb/autonomy-tax-enterprise-agents/HEAD/sources/raw/031_stanford_ai_index_2025_rjina.md",
-  "used_for": "MMMU/GPQA/SWE-bench +18.8/+48.9/+67.3 pp within a year; top-vs-10th gap 11.9% -> 5.4%"
+  "used_for": "MMMU/GPQA/SWE-bench +18.8/+48.9/+67.3 pp within a year; top-vs-10th gap 11.9% -> 5.4%",
+  "verified": true,
+  "verify_note": "Fact-check: r.jina scrape of hai.stanford.edu re-fetched; both quoted sentences (18.8/48.9/67.3 pp; 11.9% -> 5.4%, top two 0.7%) present verbatim. The scrape does not say which leaderboard/metric underlies the top-vs-10th gap; check the full report before citing that number as a benchmark-score gap. Author attribution 'Maslej et al.' not verified this session."
  },
  {
   "key": "hai2026aiindex",
@@ -63,7 +74,9 @@
   "id": null,
   "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report/technical-performance",
   "seen_url": "https://raw.githubusercontent.com/kzinmr/ai-topics/HEAD/wiki/raw/articles/2026-04-14_stanford-ai-index-report-2026-technical-performance.md ; https://raw.githubusercontent.com/sermakarevich/chunker/HEAD/output/ai_report_2026_pdf/content/L1/ai-index-2026-performance-benchmarking.md",
-  "used_for": "HLE +30 pp in a year; OSWorld 12% -> 66.3%; MMLU-Pro top-15 within ~4 pp; developer-reported vs third-party discrepancies (secondary)"
+  "used_for": "HLE +30 pp in a year; OSWorld 12% -> 66.3%; MMLU-Pro top-15 within ~4 pp; developer-reported vs third-party discrepancies (secondary)",
+  "verified": true,
+  "verify_note": "Fact-check: secondary only. Both GitHub summaries re-fetched; they contain 'HLE ... 30 percentage points', 'OSWorld 12% to 66.3%' and the MMLU-Pro top-15 >87% / ~4 pp spread. Primary report not accessed."
  },
  {
   "key": "anthropic2025claude37",
@@ -74,7 +87,9 @@
   "id": null,
   "url": "https://www.anthropic.com/news/claude-3-7-sonnet",
   "seen_url": "https://www.anthropic.com/news/claude-3-7-sonnet",
-  "used_for": "Headline table: GPQA, SWE-bench Verified, TAU-bench, MMMLU, MMMU, IFEval, MATH 500, AIME 2024"
+  "used_for": "Headline table: GPQA, SWE-bench Verified, TAU-bench, MMMLU, MMMU, IFEval, MATH 500, AIME 2024",
+  "verified": true,
+  "verify_note": "Fact-check: page fetched; title 'Claude 3.7 Sonnet and Claude Code', dated Feb 24, 2025. Table image re-read: exactly 8 benchmark rows (GPQA Diamond, SWE-bench Verified, TAU-bench, MMMLU, MMMU (validation), IFEval, MATH 500, AIME 2024); Grok 3 Beta column has GPQA, MMMU, AIME 2024."
  },
  {
   "key": "anthropic2025claude4",
@@ -85,7 +100,9 @@
   "id": null,
   "url": "https://www.anthropic.com/news/claude-4",
   "seen_url": "https://www.anthropic.com/news/claude-4",
-  "used_for": "SWE-bench 72.5%/72.7%, Terminal-bench 43.2%; benchmark list in footnotes; OpenAI scores on 477-task subset; Pokemon only as demo"
+  "used_for": "SWE-bench 72.5%/72.7%, Terminal-bench 43.2%; benchmark list in footnotes; OpenAI scores on 477-task subset; Pokemon only as demo",
+  "verified": true,
+  "verify_note": "Fact-check: title 'Introducing Claude 4', May 22, 2025 confirmed. Table contents not re-read."
  },
  {
   "key": "anthropic2025opus41",
@@ -96,7 +113,9 @@
   "id": null,
   "url": "https://www.anthropic.com/news/claude-opus-4-1",
   "seen_url": "https://www.anthropic.com/news/claude-opus-4-1",
-  "used_for": "Headline table (SWE-bench Verified, Terminal-Bench, GPQA, TAU-bench, MMMLU, MMMU, AIME 2025) with o3 and Gemini 2.5 Pro columns"
+  "used_for": "Headline table (SWE-bench Verified, Terminal-Bench, GPQA, TAU-bench, MMMLU, MMMU, AIME 2025) with o3 and Gemini 2.5 Pro columns",
+  "verified": true,
+  "verify_note": "Fact-check: title 'Claude Opus 4.1', Aug 5, 2025 confirmed. Table not re-read."
  },
  {
   "key": "anthropic2025sonnet45",
@@ -107,7 +126,9 @@
   "id": null,
   "url": "https://www.anthropic.com/news/claude-sonnet-4-5",
   "seen_url": "https://www.anthropic.com/news/claude-sonnet-4-5",
-  "used_for": "Headline table incl. tau2-bench, OSWorld, Finance Agent; GPT-5 column values"
+  "used_for": "Headline table incl. tau2-bench, OSWorld, Finance Agent; GPT-5 column values",
+  "verified": true,
+  "verify_note": "Fact-check: title 'Introducing Claude Sonnet 4.5', Sep 29, 2025 confirmed. Table not re-read."
  },
  {
   "key": "anthropic2025haiku45",
@@ -118,7 +139,9 @@
   "id": null,
   "url": "https://www.anthropic.com/news/claude-haiku-4-5",
   "seen_url": "https://www.anthropic.com/news/claude-haiku-4-5",
-  "used_for": "Headline table (8 benchmarks)"
+  "used_for": "Headline table (8 benchmarks)",
+  "verified": true,
+  "verify_note": "Fact-check: title 'Introducing Claude Haiku 4.5', Oct 15, 2025 confirmed. Table not re-read."
  },
  {
   "key": "anthropic2025opus45",
@@ -129,29 +152,35 @@
   "id": null,
   "url": "https://www.anthropic.com/news/claude-opus-4-5",
   "seen_url": "https://www.anthropic.com/news/claude-opus-4-5",
-  "used_for": "Headline table adds MCP Atlas and ARC-AGI-2 (Verified); drops AIME"
+  "used_for": "Headline table adds MCP Atlas and ARC-AGI-2 (Verified); drops AIME",
+  "verified": true,
+  "verify_note": "Fact-check: title 'Introducing Claude Opus 4.5', Nov 24, 2025 confirmed. Table not re-read."
  },
  {
   "key": "anthropic2026opus46",
-  "title": "Introducing Claude Opus 4.6",
+  "title": "Claude Opus 4.6",
   "authors": "Anthropic",
   "year": 2026,
   "venue": "Anthropic blog (5 Feb 2026)",
   "id": null,
   "url": "https://www.anthropic.com/news/claude-opus-4-6",
   "seen_url": "https://www.anthropic.com/news/claude-opus-4-6",
-  "used_for": "Headline table adds BrowseComp, HLE, GDPval-AA; HLE decontamination blocklist note"
+  "used_for": "Headline table adds BrowseComp, HLE, GDPval-AA; HLE decontamination blocklist note",
+  "verified": true,
+  "verify_note": "Fact-check: date Feb 5, 2026 confirmed. CORRECTED title: the page title is 'Claude Opus 4.6' (not 'Introducing Claude Opus 4.6'). Table not re-read."
  },
  {
   "key": "anthropic2026sonnet46",
-  "title": "Introducing Claude Sonnet 4.6",
+  "title": "Introducing Sonnet 4.6",
   "authors": "Anthropic",
   "year": 2026,
   "venue": "Anthropic blog (17 Feb 2026)",
   "id": null,
   "url": "https://www.anthropic.com/news/claude-sonnet-4-6",
   "seen_url": "https://www.anthropic.com/news/claude-sonnet-4-6",
-  "used_for": "Headline table (13 benchmarks; OSWorld-Verified, Finance Agent v1.1)"
+  "used_for": "Headline table (13 benchmarks; OSWorld-Verified, Finance Agent v1.1)",
+  "verified": true,
+  "verify_note": "Fact-check: date Feb 17, 2026 confirmed. CORRECTED title: the page title is 'Introducing Sonnet 4.6' (not 'Introducing Claude Sonnet 4.6'). Table not re-read."
  },
  {
   "key": "anthropic2026opus47",
@@ -162,7 +191,9 @@
   "id": null,
   "url": "https://www.anthropic.com/news/claude-opus-4-7",
   "seen_url": "https://www.anthropic.com/news/claude-opus-4-7",
-  "used_for": "Last Anthropic table with SWE-bench Verified and GPQA; memorization-screen footnote; GPT-5.4 column shows no SWE-bench Verified"
+  "used_for": "Last Anthropic table with SWE-bench Verified and GPQA; memorization-screen footnote; GPT-5.4 column shows no SWE-bench Verified",
+  "verified": true,
+  "verify_note": "Fact-check: title and Apr 16, 2026 confirmed; table image re-read: 12 rows as listed in dossier A9 (SWE-bench Pro, SWE-bench Verified 87.6%, Terminal-Bench 2.0, HLE, BrowseComp, MCP-Atlas, OSWorld-Verified, Finance Agent v1.1, CyberGym, GPQA Diamond 94.2%, CharXiv Reasoning, MMMLU); no GDPval-AA; GPT-5.4 SWE-bench Verified cell is a dash; Mythos Preview 93.9% / 94.6%."
  },
  {
   "key": "anthropic2026opus48",
@@ -173,7 +204,9 @@
   "id": null,
   "url": "https://www.anthropic.com/news/claude-opus-4-8",
   "seen_url": "https://www.anthropic.com/news/claude-opus-4-8",
-  "used_for": "Six-row table (SWE-Bench Pro, Terminal-Bench 2.1, HLE, OSWorld-Verified, GDPval-AA, Finance Agent v2); zero overlap with 3.7 Sonnet families"
+  "used_for": "Six-row table (SWE-Bench Pro, Terminal-Bench 2.1, HLE, OSWorld-Verified, GDPval-AA, Finance Agent v2); zero overlap with 3.7 Sonnet families",
+  "verified": true,
+  "verify_note": "Fact-check: title and May 28, 2026 confirmed; table image re-read: exactly 6 rows (SWE-Bench Pro 69.2%, Terminal-Bench 2.1, HLE, OSWorld-Verified 83.4%, GDPval-AA 1890, Finance Agent v2 53.9%)."
  },
  {
   "key": "anthropic2026fable5",
@@ -184,7 +217,9 @@
   "id": null,
   "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
   "seen_url": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
-  "used_for": "Headline table with vendor/domain benchmarks (AutomationBench, Legal Agent Benchmark, HealthBench Professional, ExploitBench)"
+  "used_for": "Headline table with vendor/domain benchmarks (AutomationBench, Legal Agent Benchmark, HealthBench Professional, ExploitBench)",
+  "verified": true,
+  "verify_note": "Fact-check: title 'Claude Fable 5 and Claude Mythos 5', Jun 9, 2026 confirmed; table image re-read: 13 rows exactly as in dossier A10b (SWE-Bench Pro 80.3%, HLE 59.0% no tools, Terminal-Bench 2.1 88.0%, GDPval-AA 1932, etc.)."
  },
  {
   "key": "anthropic2026sonnet5",
@@ -195,7 +230,9 @@
   "id": null,
   "url": "https://www.anthropic.com/news/claude-sonnet-5",
   "seen_url": "https://www.anthropic.com/news/claude-sonnet-5",
-  "used_for": "Five-row table incl. GDPval-AA v2"
+  "used_for": "Five-row table incl. GDPval-AA v2",
+  "verified": true,
+  "verify_note": "Fact-check: title and Jun 30, 2026 confirmed; table image re-read: 5 rows (SWE-bench Pro, Terminal-Bench 2.1, HLE, OSWorld-Verified, GDPval-AA v2)."
  },
  {
   "key": "anthropic2026opus5",
@@ -206,7 +243,9 @@
   "id": null,
   "url": "https://www.anthropic.com/news/claude-opus-5",
   "seen_url": "https://www.anthropic.com/news/claude-opus-5",
-  "used_for": "Headline table: ARC-AGI-3, OSWorld 2.0, GDPval-AA v2, FrontierCode, AutomationBench; no GPQA/SWE-bench Verified/AIME"
+  "used_for": "Headline table: ARC-AGI-3, OSWorld 2.0, GDPval-AA v2, FrontierCode, AutomationBench; no GPQA/SWE-bench Verified/AIME",
+  "verified": true,
+  "verify_note": "Fact-check: title and Jul 24, 2026 confirmed; table image re-read: 12 rows as in dossier A11 (ARC-AGI-3 30.2% / GPT-5.6 Sol 7.8% / Opus 4.8 1.5%; BrowseComp 90.8%; OSWorld 2.0 70.6%; GDPval-AA v2 1861)."
  },
  {
   "key": "anthropic2026opus55",
@@ -215,9 +254,11 @@
   "year": 2026,
   "venue": "Anthropic blog (22 Sep 2026)",
   "id": null,
-  "url": "https://www.anthropic.com/news/claude-opus-5-5",
+  "url": "https://www.anthropic.com/claude-opus-5-5",
   "seen_url": "https://www.anthropic.com/news/claude-opus-5-5",
-  "used_for": "Terminal-Bench 4.0 with standard errors; third-party sourcing (Zapier, Artificial Analysis, public leaderboard); 'benchmark margins ... less reliable guide'"
+  "used_for": "9-row HTML headline table (Terminal-Bench 4.0 with standard errors, FrontierCode v1.1, CursorBench 4.0, GDPval-AA v2.1, AutomationBench, HLE, Terminal-Bench-Science 0.1, OSWorld 2.1, Chartography); competitor AutomationBench numbers from Zapier's public leaderboard; TB competitor numbers 'as reported by OpenAI'; 'benchmark margins have become a less reliable guide to real-world differences'",
+  "verified": true,
+  "verify_note": "Fact-check: title 'Introducing Claude Opus 5.5', September 22, 2026 confirmed; URL now 307-redirects to https://www.anthropic.com/claude-opus-5-5. HTML table (9 rows) and the 'benchmark margins ... less reliable guide' quote confirmed. CORRECTED used_for: only AutomationBench competitor numbers are explicitly taken from a third party (Zapier's public leaderboard). Terminal-Bench 4.0 / TB-Science competitor numbers are 'as reported by OpenAI'; the public Terminal-Bench leaderboard is cited only as a reproduction check for Anthropic's own Opus 5 score; Artificial Analysis is named as the maintainer of GDPval-AA v2.1, with no statement that competitor scores came from it."
  },
  {
   "key": "anthropic2026demystifying",
@@ -228,7 +269,9 @@
   "id": null,
   "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
   "seen_url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
-  "used_for": "SWE-bench Verified 40% -> >80% in one year; nearing saturation"
+  "used_for": "SWE-bench Verified 40% -> >80% in one year; nearing saturation",
+  "verified": true,
+  "verify_note": "Fact-check: page fetched; 'Published Jan 09, 2026'; both sentences ('40% to >80% ... in just one year' and 'started at 30% this year ... >80%') present verbatim."
  },
  {
   "key": "openai2025gpt45",
@@ -239,7 +282,9 @@
   "id": null,
   "url": "https://openai.com/index/introducing-gpt-4-5",
   "seen_url": "https://raw.githubusercontent.com/visual-snow/seshat/main/web-research/openai/introducing-gpt-4-5.md",
-  "used_for": "Appendix eval table (GPQA, AIME '24, MMMLU, MMMU, SWE-Lancer, SWE-bench Verified; SimpleQA)"
+  "used_for": "Appendix eval table (GPQA, AIME '24, MMMLU, MMMU, SWE-Lancer, SWE-bench Verified; SimpleQA)",
+  "verified": true,
+  "verify_note": "Fact-check: mirror front-matter title 'Introducing GPT-4.5', date February 27, 2025, source_url matches. openai.com itself unreachable."
  },
  {
   "key": "openai2025gpt41",
@@ -250,7 +295,9 @@
   "id": null,
   "url": "https://openai.com/index/gpt-4-1",
   "seen_url": "https://raw.githubusercontent.com/visual-snow/seshat/main/web-research/openai/gpt-4-1.md",
-  "used_for": "Appendix eval list incl. MMLU, IFEval, OpenAI-MRCR, Graphwalks, Taubench"
+  "used_for": "Appendix eval list incl. MMLU, IFEval, OpenAI-MRCR, Graphwalks, Taubench",
+  "verified": true,
+  "verify_note": "Fact-check: mirror front-matter title 'Introducing GPT-4.1 in the API', April 14, 2025, source_url matches."
  },
  {
   "key": "openai2025o3",
@@ -261,7 +308,9 @@
   "id": null,
   "url": "https://openai.com/index/introducing-o3-and-o4-mini",
   "seen_url": "https://raw.githubusercontent.com/visual-snow/seshat/main/web-research/openai/introducing-o3-and-o4-mini.md",
-  "used_for": "Charts: AIME 2024/2025, Codeforces, GPQA, HLE, MMMU, SWE-bench Verified (n=477), BrowseComp, Tau-bench"
+  "used_for": "Charts: AIME 2024/2025, Codeforces, GPQA, HLE, MMMU, SWE-bench Verified (n=477), BrowseComp, Tau-bench",
+  "verified": true,
+  "verify_note": "Fact-check: mirror front-matter title 'Introducing OpenAI o3 and o4-mini', April 16, 2025, source_url matches."
  },
  {
   "key": "openai2025gptoss",
@@ -272,7 +321,9 @@
   "id": null,
   "url": "https://openai.com/index/introducing-gpt-oss",
   "seen_url": "https://raw.githubusercontent.com/visual-snow/seshat/main/web-research/openai/introducing-gpt-oss.md",
-  "used_for": "Eval charts incl. MMLU, HealthBench, AIME, GPQA, Tau-Bench Retail"
+  "used_for": "Eval charts incl. MMLU, HealthBench, AIME, GPQA, Tau-Bench Retail",
+  "verified": true,
+  "verify_note": "Fact-check: mirror front-matter title 'Introducing gpt-oss', August 5, 2025; HealthBench, MMLU present."
  },
  {
   "key": "openai2025gpt5",
@@ -283,7 +334,9 @@
   "id": null,
   "url": "https://openai.com/index/introducing-gpt-5",
   "seen_url": "https://raw.githubusercontent.com/visual-snow/seshat/main/web-research/openai/introducing-gpt-5.md",
-  "used_for": "Benchmark charts (AIME 2025 94.6%, SWE-bench Verified 74.9% n=477, HealthBench, FrontierMath, etc.)"
+  "used_for": "Benchmark charts (AIME 2025 94.6%, SWE-bench Verified 74.9% n=477, HealthBench, FrontierMath, etc.)",
+  "verified": true,
+  "verify_note": "Fact-check: mirror front-matter 'Introducing GPT-5', August 7, 2025; text states 94.6% AIME 2025 without tools and 74.9% SWE-bench Verified."
  },
  {
   "key": "openai2025gpt52",
@@ -294,7 +347,9 @@
   "id": null,
   "url": "https://openai.com/index/introducing-gpt-5-2",
   "seen_url": "https://raw.githubusercontent.com/visual-snow/seshat/main/web-research/openai/introducing-gpt-5-2.md",
-  "used_for": "GDPval, SWE-Bench Pro, AIME 2025 100%, ARC-AGI-1/2 Verified; appendix tables"
+  "used_for": "GDPval, SWE-Bench Pro, AIME 2025 100%, ARC-AGI-1/2 Verified; appendix tables",
+  "verified": true,
+  "verify_note": "Fact-check: mirror front-matter 'Introducing GPT-5.2', December 11, 2025; 'AIME 2025 (no tools) 100.0%' and 'SWE-Bench Pro (public) 55.6%' present. GPT-5.2's AIME 100% no-tools figure is independently corroborated by Google's Gemini 3 Flash model card (Dec 2025) competitor column."
  },
  {
   "key": "openai2026gpt53codex",
@@ -305,7 +360,9 @@
   "id": null,
   "url": "https://openai.com/index/introducing-gpt-5-3-codex",
   "seen_url": "https://raw.githubusercontent.com/visual-snow/seshat/main/web-research/openai/introducing-gpt-5-3-codex.md",
-  "used_for": "All-agentic appendix (SWE-Bench Pro, Terminal-Bench 2.0, OSWorld-Verified, GDPval); SWE-bench Pro 'more contamination-resistant'"
+  "used_for": "All-agentic appendix (SWE-Bench Pro, Terminal-Bench 2.0, OSWorld-Verified, GDPval); SWE-bench Pro 'more contamination-resistant'",
+  "verified": true,
+  "verify_note": "Fact-check: mirror front-matter 'Introducing GPT-5.3-Codex', February 5, 2026; GDPval row present; no AIME or SWE-bench Verified mentions."
  },
  {
   "key": "openai2026gpt54",
@@ -316,7 +373,9 @@
   "id": null,
   "url": "https://openai.com/index/introducing-gpt-5-4",
   "seen_url": "https://raw.githubusercontent.com/visual-snow/seshat/main/web-research/openai/introducing-gpt-5-4.md",
-  "used_for": "Evaluation tables (GDPval, OSWorld-Verified, Toolathlon, BrowseComp with blocklist note, HLE, ARC-AGI)"
+  "used_for": "Evaluation tables (GDPval, OSWorld-Verified, Toolathlon, BrowseComp with blocklist note, HLE, ARC-AGI)",
+  "verified": true,
+  "verify_note": "Fact-check: mirror front-matter 'Introducing GPT-5.4', March 5, 2026; GDPval 83.0%, GPQA row present; no AIME or SWE-bench Verified mentions."
  },
  {
   "key": "openai2026gpt55",
@@ -327,7 +386,9 @@
   "id": null,
   "url": "https://openai.com/index/introducing-gpt-5-5",
   "seen_url": "https://raw.githubusercontent.com/visual-snow/seshat/main/web-research/openai/introducing-gpt-5-5.md",
-  "used_for": "Evaluation tables incl. Claude Opus 4.7 and Gemini 3.1 Pro columns; MCP Atlas results from Scale AI"
+  "used_for": "Evaluation tables incl. Claude Opus 4.7 and Gemini 3.1 Pro columns; MCP Atlas results from Scale AI",
+  "verified": true,
+  "verify_note": "Fact-check: mirror front-matter 'Introducing GPT-5.5', April 23, 2026; Terminal-Bench 2.0 82.7%, GPQA 93.6%, ARC-AGI-2 (Verified) 85.0%; no AIME or SWE-bench Verified mentions."
  },
  {
   "key": "openai2026swebvretire",
@@ -338,7 +399,9 @@
   "id": null,
   "url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified",
   "seen_url": "https://raw.githubusercontent.com/visual-snow/seshat/main/web-research/openai/why-we-no-longer-evaluate-swe-bench-verified.md",
-  "used_for": "Standard metric in frontier releases; 59.4% flawed audited tasks; contamination; stopped reporting; recommends SWE-bench Pro"
+  "used_for": "Standard metric in frontier releases; 59.4% flawed audited tasks; contamination; stopped reporting; recommends SWE-bench Pro",
+  "verified": true,
+  "verify_note": "Fact-check: mirror front-matter title/date (February 23, 2026) and source_url confirmed; quotes checked. Precise wording: 'at least 59.4% of the audited problems have flawed test cases' and '59.4% of the 138 problems contained material issues in test design and/or problem description'; models reproduced 'the gold patch, or verbatim problem statement specifics for certain tasks'. openai.com unreachable; WebSearch budget exhausted, so no independent second copy."
  },
  {
   "key": "openai2025simpleevals",
@@ -349,7 +412,9 @@
   "id": null,
   "url": "https://github.com/openai/simple-evals",
   "seen_url": "https://raw.githubusercontent.com/openai/simple-evals/main/README.md",
-  "used_for": "Classic MMLU/GPQA/MATH/HumanEval/MGSM/DROP/SimpleQA table frozen July 2025"
+  "used_for": "Classic MMLU/GPQA/MATH/HumanEval/MGSM/DROP/SimpleQA table frozen July 2025",
+  "verified": true,
+  "verify_note": "Fact-check: README re-fetched; '**July 2025**: simple-evals will no longer be updated for new models or benchmark results. The repo will continue to host reference implementations for HealthBench, BrowseComp, and SimpleQA.' Table columns MMLU, GPQA, MATH (MATH-500 for o1 and later), HumanEval, MGSM, DROP, SimpleQA confirmed."
  },
  {
   "key": "gemini2025gemini25",
@@ -360,7 +425,9 @@
   "id": null,
   "url": "https://storage.googleapis.com/deepmind-media/gemini/gemini_v2_5_report.pdf",
   "seen_url": "https://storage.googleapis.com/deepmind-media/gemini/gemini_v2_5_report.pdf",
-  "used_for": "Tables 3-4 benchmark set; competitor numbers sourced from Scale HLE leaderboard, Aider leaderboard, Kaggle FACTS; HiddenMath non-public eval"
+  "used_for": "Tables 3-4 benchmark set; competitor numbers sourced from Scale HLE leaderboard, Aider leaderboard, Kaggle FACTS; HiddenMath non-public eval",
+  "verified": true,
+  "verify_note": "Fact-check: PDF re-downloaded; page-1 title 'Gemini 2.5: Pushing the Frontier with Advanced Reasoning, Multimodality, Long Context, and Next Generation Agentic Capabilities.' by 'Gemini Team, Google' (73 pages). Tables 3-4 not re-read."
  },
  {
   "key": "google2025gemini3eval",
@@ -371,7 +438,9 @@
   "id": null,
   "url": "https://storage.googleapis.com/deepmind-media/gemini/gemini_3_pro_model_evaluation.pdf",
   "seen_url": "https://storage.googleapis.com/deepmind-media/gemini/gemini_3_pro_model_evaluation.pdf",
-  "used_for": "20-benchmark results table; explicit sourcing of competitor numbers from ARC Prize, Scale, Artificial Analysis, matharena.ai, Kaggle, Andon Labs"
+  "used_for": "20-benchmark results table; explicit sourcing of competitor numbers from ARC Prize, Scale, Artificial Analysis, matharena.ai, Kaggle, Andon Labs",
+  "verified": true,
+  "verify_note": "Fact-check: PDF re-downloaded; methodology text quoted in the dossier confirmed verbatim (self-reports by default; HLE from ScaleAI leaderboard and Artificial Analysis; ARC Prize Verified; matharena.ai; LiveCodeBench Pro and Terminal-Bench 2.0 public leaderboards; andonlabs.com; Kaggle). Results image re-read: 20 rows; AIME 2025 95.0% no tools / 100% with code execution."
  },
  {
   "key": "google2025gemini3card",
@@ -382,7 +451,9 @@
   "id": null,
   "url": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Pro-Model-Card.pdf",
   "seen_url": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Pro-Model-Card.pdf",
-  "used_for": "Model card structure; points to evals-methodology page"
+  "used_for": "Model card structure; points to evals-methodology page",
+  "verified": true,
+  "verify_note": "Fact-check: PDF fetched; 'Results as of November, 2025'."
  },
  {
   "key": "google2026gemini31card",
@@ -393,7 +464,9 @@
   "id": null,
   "url": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-1-Pro-Model-Card.pdf",
   "seen_url": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-1-Pro-Model-Card.pdf",
-  "used_for": "16-benchmark results table with Sonnet 4.6, Opus 4.6, GPT-5.2, GPT-5.3-Codex columns"
+  "used_for": "16-benchmark results table with Sonnet 4.6, Opus 4.6, GPT-5.2, GPT-5.3-Codex columns",
+  "verified": true,
+  "verify_note": "Fact-check: PDF fetched; 'Published: February 2026'; results image re-read: 16 rows as in dossier G3 (includes GPQA Diamond 94.3%, SWE-Bench Verified, SWE-Bench Pro (Public), GDPval-AA). Exact February day not stated in the card."
  },
  {
   "key": "google2026gemini35flashcard",
@@ -404,7 +477,9 @@
   "id": null,
   "url": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-5-Flash-Model-Card.pdf",
   "seen_url": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-5-Flash-Model-Card.pdf",
-  "used_for": "13-benchmark table without GPQA, SWE-bench Verified, MMMLU"
+  "used_for": "13-benchmark table without GPQA, SWE-bench Verified, MMMLU",
+  "verified": true,
+  "verify_note": "Fact-check: PDF fetched; 'Published: May 2026'; results image re-read: 13 rows as in dossier G4; no GPQA, SWE-bench Verified, MMMLU or AIME."
  },
  {
   "key": "meta2025llama4card",
@@ -415,7 +490,9 @@
   "id": null,
   "url": "https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md",
   "seen_url": "https://raw.githubusercontent.com/meta-llama/llama-models/main/models/llama4/MODEL_CARD.md",
-  "used_for": "Pre-trained and instruct benchmark tables (MMLU, MMLU-Pro, GPQA, LiveCodeBench, MMMU, MTOB...)"
+  "used_for": "Pre-trained and instruct benchmark tables (MMLU, MMLU-Pro, GPQA, LiveCodeBench, MMMU, MTOB...)",
+  "verified": true,
+  "verify_note": "Fact-check: raw MODEL_CARD.md fetched (model developer: Meta). Table contents not re-audited."
  },
  {
   "key": "deepseek2024v3",
@@ -426,7 +503,9 @@
   "id": "arXiv:2412.19437",
   "url": "https://github.com/deepseek-ai/DeepSeek-V3",
   "seen_url": "https://raw.githubusercontent.com/deepseek-ai/DeepSeek-V3/main/README.md",
-  "used_for": "Chat-model benchmark table (22 benchmarks incl. Arena-Hard, AlpacaEval 2.0)"
+  "used_for": "Chat-model benchmark table (22 benchmarks incl. Arena-Hard, AlpacaEval 2.0)",
+  "verified": true,
+  "verify_note": "Fact-check: README fetched; links arXiv 2412.19437."
  },
  {
   "key": "deepseek2025r1",
@@ -437,7 +516,9 @@
   "id": "arXiv:2501.12948",
   "url": "https://github.com/deepseek-ai/DeepSeek-R1",
   "seen_url": "https://raw.githubusercontent.com/deepseek-ai/DeepSeek-R1/main/README.md",
-  "used_for": "Benchmark table (MMLU family, GPQA, AIME 2024, MATH-500, LiveCodeBench, Codeforces, SWE Verified)"
+  "used_for": "Benchmark table (MMLU family, GPQA, AIME 2024, MATH-500, LiveCodeBench, Codeforces, SWE Verified)",
+  "verified": true,
+  "verify_note": "Fact-check: README fetched; links arXiv 2501.12948."
  },
  {
   "key": "deepseek2025v32exp",
@@ -448,7 +529,9 @@
   "id": null,
   "url": "https://github.com/deepseek-ai/DeepSeek-V3.2-Exp",
   "seen_url": "https://raw.githubusercontent.com/deepseek-ai/DeepSeek-V3.2-Exp/main/README.md",
-  "used_for": "Benchmark table incl. HLE, BrowseComp, SWE-bench Multilingual, Terminal-bench"
+  "used_for": "Benchmark table incl. HLE, BrowseComp, SWE-bench Multilingual, Terminal-bench",
+  "verified": true,
+  "verify_note": "Fact-check: README fetched; BrowseComp, BrowseComp-zh, Terminal-bench rows present. Release month (Sep 2025) still unverified."
  },
  {
   "key": "moonshot2025kimik2",
@@ -459,7 +542,9 @@
   "id": "arXiv:2507.20534",
   "url": "https://github.com/MoonshotAI/Kimi-K2",
   "seen_url": "https://raw.githubusercontent.com/MoonshotAI/Kimi-K2/main/README.md",
-  "used_for": "27-benchmark instruct table (Tau2, SWE-bench Verified/Multilingual, TerminalBench, HLE, SimpleQA...)"
+  "used_for": "27-benchmark instruct table (Tau2, SWE-bench Verified/Multilingual, TerminalBench, HLE, SimpleQA...)",
+  "verified": true,
+  "verify_note": "Fact-check: README fetched; links arXiv 2507.20534; instruct table benchmark names match dossier K1; 'Some data points have been omitted due to prohibitively expensive evaluation costs.' present verbatim."
  },
  {
   "key": "minimax2025m1",
@@ -470,7 +555,9 @@
   "id": "arXiv:2506.13585",
   "url": "https://github.com/MiniMax-AI/MiniMax-M1",
   "seen_url": "https://raw.githubusercontent.com/MiniMax-AI/MiniMax-M1/main/README.md",
-  "used_for": "Benchmark table (15 benchmarks incl. OpenAI-MRCR, TAU-bench)"
+  "used_for": "Benchmark table (15 benchmarks incl. OpenAI-MRCR, TAU-bench)",
+  "verified": true,
+  "verify_note": "Fact-check: README fetched; links arXiv 2506.13585."
  },
  {
   "key": "minimax2025m2",
@@ -481,7 +568,9 @@
   "id": null,
   "url": "https://github.com/MiniMax-AI/MiniMax-M2",
   "seen_url": "https://raw.githubusercontent.com/MiniMax-AI/MiniMax-M2/main/README.md",
-  "used_for": "Agentic benchmark table plus Artificial Analysis Intelligence Index component block"
+  "used_for": "Agentic benchmark table plus Artificial Analysis Intelligence Index component block",
+  "verified": true,
+  "verify_note": "Fact-check: README fetched; agentic table (Terminal-Bench, BrowseComp, ...) and an Artificial Analysis 'Intelligence Benchmarks' section present."
  },
  {
   "key": "zai2025glm",
@@ -492,7 +581,9 @@
   "id": "arXiv:2508.06471",
   "url": "https://github.com/zai-org/GLM-4.5",
   "seen_url": "https://raw.githubusercontent.com/zai-org/GLM-4.5/main/README.md",
-  "used_for": "Benchmarks named in text (SWE-bench, Terminal Bench 2.0, tau^2-Bench, BrowseComp, HLE); '12 industry-standard benchmarks'"
+  "used_for": "Benchmarks named in text (SWE-bench, Terminal Bench 2.0, tau^2-Bench, BrowseComp, HLE); '12 industry-standard benchmarks'",
+  "verified": true,
+  "verify_note": "Fact-check: README fetched (title 'GLM-4.7 & GLM-4.6 & GLM-4.5'); links arXiv 2508.06471 as the GLM-4.5 technical report; '12 industry-standard benchmarks' present."
  },
  {
   "key": "chollet2026arcprize2025",
@@ -502,8 +593,10 @@
   "venue": "arXiv",
   "id": "arXiv:2601.10904",
   "url": "https://arxiv.org/abs/2601.10904",
-  "seen_url": "https://raw.githubusercontent.com/UNIR-TUC/arc-agi/48d931918edd904b99ef546a98adc97e19ccf528/src/SuperCompressARC/Docs/2025/2601.10904v1_arc_prize_2025.md",
-  "used_for": "Four frontier labs reported ARC-AGI in 2025 model cards; 'industry standard benchmark'"
+  "seen_url": "https://raw.githubusercontent.com/UNIR-TUC/arc-agi/48d931918edd904b99ef546a98adc97e19ccf528/src/SuperCompressARC/Docs/2025/2601.10904v1_arc_prize_2025.md ; https://raw.githubusercontent.com/ATOM00blue/machine-learning-library/5e1e934ba4d745962b9012aabb5b62c9bd663895/corpus/papers/2601.10904.md",
+  "used_for": "Four frontier labs reported ARC-AGI in 2025 model cards; 'industry standard benchmark'",
+  "verified": true,
+  "verify_note": "Fact-check: quote confirmed verbatim in two independent GitHub mirrors (UNIR-TUC and ATOM00blue). The ATOM00blue copy carries arXiv metadata (arxiv_id 2601.10904; authors Chollet, Knoop, Kamradt, Landers; published 2026-01-15); the PDF text itself is dated January 19, 2026."
  },
  {
   "key": "arcprize2025arcagi2changelog",
@@ -514,18 +607,22 @@
   "id": null,
   "url": "https://github.com/arcprize/ARC-AGI-2",
   "seen_url": "https://raw.githubusercontent.com/arcprize/ARC-AGI-2/main/changelog.md",
-  "used_for": "ARC-AGI-2 dataset versioning (release and updates)"
+  "used_for": "ARC-AGI-2 dataset versioning (release and updates)",
+  "verified": true,
+  "verify_note": "Fact-check: changelog fetched; '2025-03-24: 1,360 ARC-AGI-2 released'; later updates 2025-04-14 and 2025-04-17."
  },
  {
   "key": "kopel2025killedbyllm",
   "title": "Killed by LLM (benchmark data.ts)",
-  "authors": "Robert Kopel",
+  "authors": "Rob Kopel (GitHub: R0bk)",
   "year": 2025,
   "venue": "GitHub (community dataset)",
   "id": null,
   "url": "https://github.com/R0bk/killedbyllm",
   "seen_url": "https://raw.githubusercontent.com/R0bk/killedbyllm/main/src/data.ts",
-  "used_for": "Community creation/'defeat' dates for classic benchmarks (secondary; inconsistent criteria)"
+  "used_for": "Community creation/'defeat' dates for classic benchmarks (secondary; inconsistent criteria)",
+  "verified": true,
+  "verify_note": "Fact-check: data.ts and README fetched. CORRECTED author: the GitHub profile R0bk displays the name 'Rob Kopel' (not 'Robert Kopel'). README itself warns that 'there may be some errors'."
  },
  {
   "key": "esposito2026ceiling",
@@ -536,6 +633,120 @@
   "id": "arXiv:2607.01254",
   "url": "https://arxiv.org/abs/2607.01254",
   "seen_url": "https://raw.githubusercontent.com/kzinmr/ai-topics/HEAD/wiki/raw/articles/arxiv-2607-01254-benchmark-ceiling.txt",
-  "used_for": "Signal depreciation model; claim that SuperGLUE reached superhuman within 18 months (conflicting definitions)"
+  "used_for": "Signal depreciation model; claim that SuperGLUE reached superhuman within 18 months (conflicting definitions)",
+  "verified": true,
+  "verify_note": "Fact-check: mirror re-fetched; front-matter source_url https://arxiv.org/abs/2607.01254; authors Mark Esposito, Liu Zhang; labelled 'Working Paper | May 2026'; SuperGLUE 'eighteen months' sentence (citing Srivastava et al. 2023) present. Only one secondary copy seen; arxiv.org unreachable."
+ },
+ {
+  "key": "anthropic2026fable51",
+  "title": "Introducing Claude Fable 5.1 and Claude Mythos 5.1",
+  "authors": "Anthropic",
+  "year": 2026,
+  "venue": "Anthropic blog (1 Sep 2026)",
+  "id": null,
+  "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+  "seen_url": "https://www.anthropic.com/claude-fable-and-mythos-5-1 (linked from https://www.anthropic.com/news; date 'Sep 1, 2026' from the news listing)",
+  "used_for": "Added by fact-check: Anthropic release omitted from the dossier matrix. HTML table rows: Terminal-Bench-Science 0.1, Terminal-Bench 4.0, GDPval-AA v2, OSWorld 2.0 (partial/strict), HLE (60.9% no tools, 65.0% with tools), AutomationBench, CursorBench 3.2.0. No GPQA/AIME/MMMU/SWE-bench Verified.",
+  "verified": true,
+  "verify_note": "Fetched directly 2026-09-29.",
+  "added_by": "fact-check"
+ },
+ {
+  "key": "anthropic2026sonnet55",
+  "title": "Introducing Claude Sonnet 5.5",
+  "authors": "Anthropic",
+  "year": 2026,
+  "venue": "Anthropic blog (28 Sep 2026)",
+  "id": null,
+  "url": "https://www.anthropic.com/claude-sonnet-5-5",
+  "seen_url": "https://www.anthropic.com/claude-sonnet-5-5",
+  "used_for": "Added by fact-check: HTML table rows: Terminal-Bench 4.0 (70.6%), FrontierCode 1.1, CursorBench 4.0, GDPval-AA v2.1, AA-Briefcase v1.1, HLE, OSWorld 2.1, Chartography. Footnotes explicitly source scores from Artificial Analysis (GDPval-AA, AA-Briefcase) and Surge AI (Chartography); 'Terminal-Bench and OpenAI did not report GPT-6 Sol performance publicly, so we report GPT-5.6 Sol here.' Pokemon Red mentioned only in prose.",
+  "verified": true,
+  "verify_note": "Fetched directly 2026-09-29 (page dated September 28, 2026).",
+  "added_by": "fact-check"
+ },
+ {
+  "key": "google2025gemini3flashcard",
+  "title": "Gemini 3 Flash Model Card",
+  "authors": "Google DeepMind",
+  "year": 2025,
+  "venue": "Model card (Dec 2025)",
+  "id": null,
+  "url": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Flash-Model-Card.pdf",
+  "seen_url": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Flash-Model-Card.pdf",
+  "used_for": "Added by fact-check: 'Published: December 2025'; results table incl. AIME 2025 (95.2% no tools / 99.7% with code), GPQA Diamond, MMMU-Pro, SWE-bench Verified, tau2-bench, Toolathlon, MCP Atlas, Vending-Bench 2; GPT-5.2 column shows AIME 2025 100% (no tools).",
+  "verified": true,
+  "verify_note": "Fetched directly; table image extracted and read.",
+  "added_by": "fact-check"
+ },
+ {
+  "key": "google2026gemini31flashlitecard",
+  "title": "Gemini 3.1 Flash-Lite Model Card",
+  "authors": "Google DeepMind",
+  "year": 2026,
+  "venue": "Model card (results as of March 2026)",
+  "id": null,
+  "url": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-1-Flash-Lite-Model-Card.pdf",
+  "seen_url": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-1-Flash-Lite-Model-Card.pdf",
+  "used_for": "Added by fact-check: a 2026 frontier-lab table that still reports GPQA Diamond, MMMLU, SimpleQA Verified, FACTS and LiveCodeBench (no agentic rows); competitor columns include GPT-5 mini, Claude 4.5 Haiku and Grok 4.1 Fast.",
+  "verified": true,
+  "verify_note": "Fetched directly; 'Results as of March, 2026'; table image extracted and read.",
+  "added_by": "fact-check"
+ },
+ {
+  "key": "google2026gemini35flashlitecard",
+  "title": "Gemini 3.5 Flash-Lite Model Card",
+  "authors": "Google DeepMind",
+  "year": 2026,
+  "venue": "Model card (Jul 2026)",
+  "id": null,
+  "url": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-5-Flash-Lite-Model-Card.pdf",
+  "seen_url": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-5-Flash-Lite-Model-Card.pdf",
+  "used_for": "Added by fact-check: 'Published: July 2026'; a reachable 2026H2 Google table: SWE-Bench Pro, Terminal-bench 2.1, MLE-Bench, GDPval-AA v2, OSWorld-Verified, CharXiv Reasoning, GDM-MRCR v2; no GPQA/AIME/MMMU.",
+  "verified": true,
+  "verify_note": "Fetched directly; table image extracted and read.",
+  "added_by": "fact-check"
+ },
+ {
+  "key": "openai2026gpt54mininano",
+  "title": "Introducing GPT-5.4 mini and nano",
+  "authors": "OpenAI",
+  "year": 2026,
+  "venue": "OpenAI blog (17 Mar 2026)",
+  "id": null,
+  "url": "https://openai.com/index/introducing-gpt-5-4-mini-and-nano",
+  "seen_url": "https://raw.githubusercontent.com/visual-snow/seshat/main/web-research/openai/introducing-gpt-5-4-mini-and-nano.md",
+  "used_for": "Added by fact-check: tables with SWE-Bench Pro, Terminal-Bench 2.0, Toolathlon, GPQA Diamond, OSWorld-Verified, MCP Atlas, tau2-bench (telecom), HLE, MMMU-Pro, OmniDocBench, OpenAI MRCR v2, Graphwalks; no AIME.",
+  "verified": true,
+  "verify_note": "Mirror (openai.com unreachable).",
+  "added_by": "fact-check"
+ },
+ {
+  "key": "openai2025gpt52codex",
+  "title": "Introducing GPT-5.2-Codex",
+  "authors": "OpenAI",
+  "year": 2025,
+  "venue": "OpenAI blog (18 Dec 2025)",
+  "id": null,
+  "url": "https://openai.com/index/introducing-gpt-5-2-codex",
+  "seen_url": "https://raw.githubusercontent.com/visual-snow/seshat/main/web-research/openai/introducing-gpt-5-2-codex.md",
+  "used_for": "Added by fact-check: reports SWE-Bench Pro and Terminal-Bench (pre-dates OpenAI's 23 Feb 2026 SWE-bench Pro recommendation).",
+  "verified": true,
+  "verify_note": "Mirror (openai.com unreachable).",
+  "added_by": "fact-check"
+ },
+ {
+  "key": "openai2025gpt51",
+  "title": "GPT-5.1: A smarter, more conversational ChatGPT",
+  "authors": "OpenAI",
+  "year": 2025,
+  "venue": "OpenAI blog (12 Nov 2025)",
+  "id": null,
+  "url": "https://openai.com/index/gpt-5-1",
+  "seen_url": "https://raw.githubusercontent.com/visual-snow/seshat/main/web-research/openai/gpt-5-1.md",
+  "used_for": "Added by fact-check: mentions AIME 2025 and Codeforces in prose only (no headline table in the mirror); release omitted from the dossier matrix.",
+  "verified": true,
+  "verify_note": "Mirror (openai.com unreachable).",
+  "added_by": "fact-check"
  }
 ]
