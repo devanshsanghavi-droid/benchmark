@@ -139,13 +139,7 @@ Vending-Bench is the semantic alternative (about 20%). SimpleBench and StudentEv
 ## 3. Per-benchmark entries
 
 ### 3.1 StudentBench
-Covered in §2.
-
-Additional reliability notes:
-- ≈80–97 learners per arm per section.
-- A prompt-variant contrast (expanded vs minimal prompt) is non-significant: Opus 5 +3.61 pp [−1.66, 8.89]; Gemini 3.6 Flash +4.62 [−0.17, 9.42].
-- Expert-review rankings survive excluding repeat participants ([paper_results_expected.json](https://github.com/Handshake-AI-Research/studentbench/blob/main/verification/paper_results_expected.json), H).
-- No evidence of gaming; the test items were newly authored and counterbalanced (H, README/summary).
+See §2. Reliability: about 80–97 learners per arm per section; prompt-variant contrasts are non-significant (Opus 5 +3.61 pp [−1.66, 8.89]); expert rankings survive excluding repeat participants (H).
 
 ### 3.2 Vending-Bench 1, Vending-Bench 2, Vending-Bench Arena (Andon Labs)
 
@@ -437,13 +431,9 @@ SimpleQA mostly measures parametric knowledge, which scales with model size. Her
 - Pass-rate agent suites show inversions mostly through submission selection: open-weight labs self-submit, and many newest flagships are absent from τ². Treat those inversions as weak evidence.
 
 ### 3.12 Fiction.LiveBench / long context
-
-#### Cited Findings
-- The benchmark uses private user stories, cut to lengths from 0 to 192k tokens; its premise is "long context comprehension is still broken". Results are published as images only ([fiction.live capture](https://github.com/fstandhartinger/model-market-comparison/blob/main/ops/rebuild-2026-09/evidence/phase-04/sources/supp-3a88d188d87f.txt), M).
-- Epoch's mirror: 36 questions across 30 stories; o3 (medium) 100% at 120k ([compiled note](https://github.com/LeeHengYu/mediator-coevo/blob/main/related-literature/llm-longcontext-degradation/results/D11_FictionliveBench_Long-Context_Deep_Comprehension.json), L).
-
-#### Gaps
-- No 2026 numbers; tiny N makes rank differences unreliable.
+- Private user stories cut to lengths from 0 to 192k tokens; results published only as images ([fiction.live capture](https://github.com/fstandhartinger/model-market-comparison/blob/main/ops/rebuild-2026-09/evidence/phase-04/sources/supp-3a88d188d87f.txt), M).
+- Epoch's mirror: 36 questions across 30 stories, so N is tiny ([note](https://github.com/LeeHengYu/mediator-coevo/blob/main/related-literature/llm-longcontext-degradation/results/D11_FictionliveBench_Long-Context_Deep_Comprehension.json), L).
+- Gap: no 2026 numbers.
 
 ### 3.13 Other 2026 leads
 - CEO Arena (arXiv 2609.34821), CoffeeBench (2606.16613), YC-Bench (2604.01212), LemonadeBench (2602.13209): long-horizon/multi-agent economic benchmarks seen in search results; unread (L, titles only).
