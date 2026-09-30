@@ -1,0 +1,7 @@
+Probe P2 (C42 text/JSON track), reviewer model reasoning without code; oracle answers in order.
+Given: POSITIVE [blue cyl 3 @1, blue cube 2 @2, yellow pyr 2 @4, blue cyl 3 @5]; NEGATIVE [yellow cube 3 @0, blue pyr 2 @1, green pyr 1 @6]
+q1 [blue cyl 3 @0] YES | q2 [red cube 1 @0] YES  -> rules out exists/at-least/leftmost/count-comparison templates
+q3 [green pyr 1] YES | q4 [yellow cube 3] NO | q5 [blue pyr 2] YES | q6 [yellow pyr 1] NO | q7 [red cube 3] YES | q8 [yellow cyl 2] NO -> trigger is color=yellow; forall-template eliminated via positive example
+q9 [yellow pyr 1 @3, red cube 2 @4] NO -> not "touches something taller"
+q10 [yellow pyr 1 @3, red cyl 1 @4] NO -> consequent is size 3, not cylinder
+q11 [yellow cube 3 @2, green pyr 3 @3] YES | q12 [yellow cube 1 @2, green pyr 3 @4] NO | q13 [yellow cube1 @2, green pyr3 @3, yellow cyl2 @7] NO -> confirms "every yellow touches a size-3 block"
