@@ -1,0 +1,298 @@
+{
+ "solver": "opus",
+ "patches": {
+  "ledger/P1": {
+   "verdict": "compliant",
+   "p_violates": 0.05,
+   "witness": null,
+   "note": "Reordered checks only change which exception is raised when src==dst and another condition also holds; L3 allows any listed one (all are LedgerError subclasses)."
+  },
+  "ledger/P2": {
+   "verdict": "violates",
+   "p_violates": 0.98,
+   "witness": {
+    "ops": [
+     [
+      "open",
+      "a",
+      5
+     ],
+     [
+      "open",
+      "b",
+      0
+     ],
+     [
+      "split_fee",
+      [
+       "a",
+       "b"
+      ],
+      2
+     ],
+     [
+      "balance",
+      "a"
+     ],
+     [
+      "balance",
+      "b"
+     ],
+     [
+      "balance",
+      "__house__"
+     ],
+     [
+      "total"
+     ],
+     [
+      "history"
+     ]
+    ]
+   },
+   "rule": "L7",
+   "note": "Merged loop debits 'a' before discovering 'b' cannot pay; split_fee raises InsufficientFunds but balance(a)=4, house=1."
+  },
+  "ledger/P3": {
+   "verdict": "violates",
+   "p_violates": 0.98,
+   "witness": {
+    "ops": [
+     [
+      "fee_shares",
+      [
+       "a",
+       "b"
+      ],
+      1
+     ],
+     [
+      "open",
+      "a",
+      5
+     ],
+     [
+      "open",
+      "b",
+      5
+     ],
+     [
+      "split_fee",
+      [
+       "a",
+       "b"
+      ],
+      1
+     ],
+     [
+      "balance",
+      "a"
+     ],
+     [
+      "balance",
+      "b"
+     ],
+     [
+      "balance",
+      "__house__"
+     ]
+    ]
+   },
+   "rule": "L5",
+   "note": "Prefix-difference formula gives the +1 cents to the LAST names in sorted order instead of the first: fee_shares([a,b],1) -> {a:0,b:1}."
+  },
+  "ledger/P4": {
+   "verdict": "compliant",
+   "p_violates": 0.02,
+   "witness": null,
+   "note": "divmod rewrite is behaviourally identical (bool adds as int)."
+  },
+  "ratelimit/P1": {
+   "verdict": "violates",
+   "p_violates": 0.98,
+   "witness": {
+    "ops": [
+     [
+      "init",
+      1,
+      10
+     ],
+     [
+      "allow",
+      "k",
+      0
+     ],
+     [
+      "remaining",
+      "k",
+      10
+     ],
+     [
+      "retry_after",
+      "k",
+      10
+     ],
+     [
+      "allow",
+      "k",
+      10
+     ]
+    ]
+   },
+   "rule": "R3",
+   "note": "bisect_left keeps a request at exactly t-window as live; allow('k',10) returns False and remaining returns 0."
+  },
+  "ratelimit/P2": {
+   "verdict": "compliant",
+   "p_violates": 0.02,
+   "witness": null,
+   "note": "keys() order is unspecified by R7."
+  },
+  "ratelimit/P3": {
+   "verdict": "compliant",
+   "p_violates": 0.03,
+   "witness": null,
+   "note": "Queues are always sorted (clock monotone), so counting expired entries equals the prefix length."
+  },
+  "ratelimit/P4": {
+   "verdict": "compliant",
+   "p_violates": 0.03,
+   "witness": null,
+   "note": "remaining() performs the same tick+prune; <=0 equivalent to len>=capacity."
+  },
+  "intervals/P1": {
+   "verdict": "compliant",
+   "p_violates": 0.03,
+   "witness": null,
+   "note": "bisect_right with [x, inf] finds last interval with start<=x; equivalent."
+  },
+  "intervals/P2": {
+   "verdict": "compliant",
+   "p_violates": 0.02,
+   "witness": null,
+   "note": "Pure refactor of the merge condition."
+  },
+  "intervals/P3": {
+   "verdict": "compliant",
+   "p_violates": 0.05,
+   "witness": null,
+   "note": "Partition into left/touching/right is correct for sorted disjoint intervals; fuzzing found no differences."
+  },
+  "intervals/P4": {
+   "verdict": "violates",
+   "p_violates": 0.98,
+   "witness": {
+    "ops": [
+     [
+      "add",
+      0,
+      10
+     ],
+     [
+      "remove",
+      0,
+      5
+     ],
+     [
+      "intervals"
+     ],
+     [
+      "measure"
+     ]
+    ]
+   },
+   "rule": "I4",
+   "note": "lo<=hi keeps empty remainders; intervals() returns [(0,0),(5,10)], an empty pair in the canonical form."
+  },
+  "pricing/P1": {
+   "verdict": "violates",
+   "p_violates": 0.98,
+   "witness": {
+    "ops": [
+     [
+      "line_total",
+      1,
+      11
+     ],
+     [
+      "checkout",
+      [
+       [
+        "x",
+        1,
+        11
+       ]
+      ],
+      null
+     ]
+    ]
+   },
+   "rule": "P3",
+   "note": "gross*90//100 floors the total rather than the discount: line_total(1,11)=9 instead of 11-floor(1.1)=10; checkout discount 2 instead of 1."
+  },
+  "pricing/P2": {
+   "verdict": "compliant",
+   "p_violates": 0.04,
+   "witness": null,
+   "note": "UnknownCoupon subclasses PricingError; clamp was redundant since amount < minimum <= after_bulk."
+  },
+  "pricing/P3": {
+   "verdict": "compliant",
+   "p_violates": 0.04,
+   "witness": null,
+   "note": "Greedy floor division yields non-decreasing parts differing by <=1 summing to total; reversed is non-increasing."
+  },
+  "pricing/P4": {
+   "verdict": "compliant",
+   "p_violates": 0.02,
+   "witness": null,
+   "note": "q + (r >= 5000) equals floor((x+5000)/10000)."
+  },
+  "depgraph/P1": {
+   "verdict": "compliant",
+   "p_violates": 0.03,
+   "witness": null,
+   "note": "D1 names GraphError for self-dependency; CycleError was merely a subclass."
+  },
+  "depgraph/P2": {
+   "verdict": "violates",
+   "p_violates": 0.98,
+   "witness": {
+    "ops": [
+     [
+      "add",
+      "a"
+     ],
+     [
+      "add",
+      "c"
+     ],
+     [
+      "add",
+      "b",
+      [
+       "a"
+      ]
+     ],
+     [
+      "order"
+     ]
+    ]
+   },
+   "rule": "D5",
+   "note": "FIFO queue is not greedy-smallest: order() gives [a,c,b] instead of [a,b,c]."
+  },
+  "depgraph/P3": {
+   "verdict": "compliant",
+   "p_violates": 0.02,
+   "witness": null,
+   "note": "Same layers computed from depths; empty graph gives []."
+  },
+  "depgraph/P4": {
+   "verdict": "compliant",
+   "p_violates": 0.02,
+   "witness": null,
+   "note": "min() over a ready set equals heap pop."
+  }
+ }
+}
