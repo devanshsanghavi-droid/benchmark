@@ -1149,13 +1149,15 @@ Answer with a whole number of crates; or CONTRADICTORY if statements in the log 
 
 ## Q53 · family: logic-grid
 
-3 people live in a row of 3 houses, numbered 1 to 3 from left to right. Each person has a different name and a different instrument. The possible values are: names: Ada, Esme, Ivo; instruments: cello, harp, violin. "Directly to the left of" means in the house numbered one lower; "next to" means in an adjacent house.
+3 people live in a row of 3 houses, numbered 1 to 3 from left to right. Each person has a different name and a different instrument. The possible values are: names: Ada, Gus, Hana; instruments: cello, oboe, violin. "Directly to the left of" means in the house numbered one lower; "next to" means in an adjacent house.
 
 Clues:
-1. Esme lives directly to the left of the harpist.
-2. Esme does not play the violin.
-3. The harpist is Ivo.
-4. The harpist lives directly to the left of Ada.
+1. The cellist lives next to Gus.
+2. Ada lives in house 2.
+3. Gus lives directly to the left of Ada.
+4. The cellist is not Gus.
+5. Gus lives next to Ada.
+6. Hana plays the oboe.
 
 Question: list the instruments in house order, from house 1 to house 3.
 
