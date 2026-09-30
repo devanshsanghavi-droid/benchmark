@@ -1,0 +1,288 @@
+{
+ "solver": "sonnet",
+ "patches": {
+  "depgraph/P1": {
+   "verdict": "compliant",
+   "p_violates": 0.04,
+   "witness": null,
+   "note": "GraphError is exactly what D1 names."
+  },
+  "depgraph/P2": {
+   "verdict": "violates",
+   "p_violates": 0.98,
+   "witness": {
+    "ops": [
+     [
+      "add",
+      "z"
+     ],
+     [
+      "add",
+      "b",
+      [
+       "a"
+      ]
+     ],
+     [
+      "order"
+     ],
+     [
+      "layers"
+     ],
+     [
+      "affected",
+      "a"
+     ]
+    ]
+   },
+   "rule": "D5",
+   "note": "FIFO queue instead of smallest-ready-first: order gives a,z,b rather than a,b,z."
+  },
+  "depgraph/P3": {
+   "verdict": "compliant",
+   "p_violates": 0.03,
+   "witness": null,
+   "note": "Layers from depths equivalent; fuzz identical."
+  },
+  "depgraph/P4": {
+   "verdict": "compliant",
+   "p_violates": 0.03,
+   "witness": null,
+   "note": "min over ready set equals heap pop; fuzz identical."
+  },
+  "intervals/P1": {
+   "verdict": "compliant",
+   "p_violates": 0.03,
+   "witness": null,
+   "note": "bisect contains correct; fuzz identical."
+  },
+  "intervals/P2": {
+   "verdict": "compliant",
+   "p_violates": 0.02,
+   "witness": null,
+   "note": "Merge tidy is equivalent."
+  },
+  "intervals/P3": {
+   "verdict": "compliant",
+   "p_violates": 0.04,
+   "witness": null,
+   "note": "Neighbour-merge add equivalent; fuzz identical."
+  },
+  "intervals/P4": {
+   "verdict": "violates",
+   "p_violates": 0.98,
+   "witness": {
+    "ops": [
+     [
+      "add",
+      0,
+      10
+     ],
+     [
+      "remove",
+      0,
+      5
+     ],
+     [
+      "intervals"
+     ],
+     [
+      "measure"
+     ]
+    ]
+   },
+   "rule": "I4",
+   "note": "remove now emits empty pairs like [0,0] (lo<=hi instead of lo<hi)."
+  },
+  "ledger/P1": {
+   "verdict": "compliant",
+   "p_violates": 0.04,
+   "witness": null,
+   "note": "Only reorders checks; differences only when src==dst (several conditions hold, any exception allowed)."
+  },
+  "ledger/P2": {
+   "verdict": "violates",
+   "p_violates": 0.97,
+   "witness": {
+    "ops": [
+     [
+      "open",
+      "a",
+      10
+     ],
+     [
+      "open",
+      "b",
+      0
+     ],
+     [
+      "split_fee",
+      [
+       "a",
+       "b"
+      ],
+      4
+     ],
+     [
+      "balance",
+      "a"
+     ],
+     [
+      "balance",
+      "__house__"
+     ],
+     [
+      "total"
+     ],
+     [
+      "history"
+     ]
+    ]
+   },
+   "rule": "L7",
+   "note": "Debit loop merged with validation: a is debited before b fails InsufficientFunds, so balances change on a raised call."
+  },
+  "ledger/P3": {
+   "verdict": "violates",
+   "p_violates": 0.98,
+   "witness": {
+    "ops": [
+     [
+      "open",
+      "a",
+      5
+     ],
+     [
+      "open",
+      "b",
+      5
+     ],
+     [
+      "fee_shares",
+      [
+       "a",
+       "b"
+      ],
+      1
+     ],
+     [
+      "split_fee",
+      [
+       "a",
+       "b"
+      ],
+      1
+     ],
+     [
+      "balance",
+      "a"
+     ],
+     [
+      "balance",
+      "b"
+     ]
+    ]
+   },
+   "rule": "L5",
+   "note": "Remainder goes to the last names instead of the first r in sorted order."
+  },
+  "ledger/P4": {
+   "verdict": "compliant",
+   "p_violates": 0.02,
+   "witness": null,
+   "note": "divmod equivalent; fuzz identical."
+  },
+  "pricing/P1": {
+   "verdict": "violates",
+   "p_violates": 0.98,
+   "witness": {
+    "ops": [
+     [
+      "line_total",
+      1,
+      11
+     ],
+     [
+      "checkout",
+      [
+       [
+        "a",
+        1,
+        11
+       ]
+      ],
+      null
+     ]
+    ]
+   },
+   "rule": "P3",
+   "note": "gross*90//100 is floor of 90%, not gross minus floor of 10%: 9 instead of 10."
+  },
+  "pricing/P2": {
+   "verdict": "compliant",
+   "p_violates": 0.04,
+   "witness": null,
+   "note": "Coupon clamp is redundant (minimum>=amount); UnknownCoupon is a PricingError subclass."
+  },
+  "pricing/P3": {
+   "verdict": "compliant",
+   "p_violates": 0.03,
+   "witness": null,
+   "note": "Incremental split equals base; verified on large ranges."
+  },
+  "pricing/P4": {
+   "verdict": "compliant",
+   "p_violates": 0.02,
+   "witness": null,
+   "note": "Explicit rounding identical to floor((x+5000)/10000)."
+  },
+  "ratelimit/P1": {
+   "verdict": "violates",
+   "p_violates": 0.97,
+   "witness": {
+    "ops": [
+     [
+      "init",
+      1,
+      5
+     ],
+     [
+      "allow",
+      "k",
+      0
+     ],
+     [
+      "allow",
+      "k",
+      5
+     ],
+     [
+      "remaining",
+      "k",
+      5
+     ]
+    ]
+   },
+   "rule": "R3",
+   "note": "bisect_left keeps a request at exactly t-window live (should be expired)."
+  },
+  "ratelimit/P2": {
+   "verdict": "compliant",
+   "p_violates": 0.03,
+   "witness": null,
+   "note": "Sorted keys; order unspecified."
+  },
+  "ratelimit/P3": {
+   "verdict": "compliant",
+   "p_violates": 0.03,
+   "witness": null,
+   "note": "Comprehension prune equals sequential prune since q is sorted; fuzz identical."
+  },
+  "ratelimit/P4": {
+   "verdict": "compliant",
+   "p_violates": 0.03,
+   "witness": null,
+   "note": "allow via remaining is equivalent; fuzz identical."
+  }
+ }
+}
