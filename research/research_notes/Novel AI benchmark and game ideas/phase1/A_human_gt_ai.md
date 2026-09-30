@@ -147,11 +147,7 @@ ARC-AGI-3 is the only ARC version built on *action efficiency* against humans. I
   - ARC expected that action efficiency "would remain the dividing line". It found instead a "binary pattern": "once it 'understands' the mechanics, execution usually falls within the human efficiency range". Brute-force paths remain inefficient.
   - Astra wrote compact symbolic world models and built custom tools. ARC notes that humans had no code interpreter [P-m translation](https://raw.githubusercontent.com/lihenair/techtranslate/821908553b702d9de6565d186fdd2e8661303f6f/archive/2026-09-05/ai/OpenAIs-GPT-6-Astra-on-ARC-AGI-3.md).
   - OpenAI separately reported that "enabling two settings tripled" its ARC-AGI-3 scores [S](https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores/).
-- **ARC Prize 2026 (Kaggle, internet off).**
-  - There is an ARC-AGI-3 track and an ARC-AGI-2 track.
-  - Two milestone prizes: 30 Jun and 30 Sep 2026 [S](https://arcprize.org/blog/arc-prize-2026-milestone-1).
-  - Milestone 1 was won by Tufa Labs' "The Duck". It is a REPL- and tool-using harness that evicts old context ("infinite play") [S](https://arcprize.org/blog/arc-prize-2026-milestone-1); [P](https://raw.githubusercontent.com/Tufalabs/duck-harness/main/README.md).
-- **Scale of play.** "Nearly one million scorecards" had been submitted on public environments by April [P-m].
+- **ARC Prize 2026** (Kaggle, internet off) has ARC-AGI-3 and ARC-AGI-2 tracks, with milestone prizes on 30 Jun and 30 Sep 2026. Milestone 1 went to Tufa Labs' "The Duck", a REPL- and tool-using harness that evicts old context [S](https://arcprize.org/blog/arc-prize-2026-milestone-1); [P](https://raw.githubusercontent.com/Tufalabs/duck-harness/main/README.md). "Nearly one million scorecards" had been submitted on public environments by April [P-m].
 
 #### Inferences
 - Given persistent state, frontier models can form, test and compress hypotheses into a world model inside a text or code loop. The 36-point harness gap shows that state and memory plumbing was the bottleneck.
@@ -456,13 +452,7 @@ Pokémon became an informal human-over-AI showcase. Claude needed about 140 hour
 
 #### Cited Findings
 - **OSWorld launch.** "Humans can accomplish over 72.36% of the tasks" [P](https://raw.githubusercontent.com/os-world/os-world.github.io/main/index.html).
-- **Official OSWorld-Verified results** (my parse of the xlsx; 144 scored entries) [P](https://raw.githubusercontent.com/os-world/os-world.github.io/main/static/data/osworld_verified_results.xlsx):
-  - First above human: Agent S3 w/ Opus 4.5 + GPT-5 bBoN (N=10) at 72.58% (2025-12-11).
-  - First single-rollout entry above human: HIPPO Agent w/ Opus 4.5 at 74.48% (2026-02-25).
-  - Best: Intelligence-Indeed Agent at 90.19% (325.59/361, 2026-07-25).
-  - Claude Fable 5 scores 85.96%.
-  - 16 entries are at or above 72.36%.
-  - Step budget: Sonnet 4.5 scores 42.88%, 58.08% and 62.88% at 15, 50 and 100 steps.
+- **Official OSWorld-Verified results** (my parse of the xlsx; 144 scored entries) [P](https://raw.githubusercontent.com/os-world/os-world.github.io/main/static/data/osworld_verified_results.xlsx): first above human was Agent S3 w/ Opus 4.5 + GPT-5 bBoN (N=10) at 72.58% (2025-12-11); first single-rollout was HIPPO Agent w/ Opus 4.5 at 74.48% (2026-02-25); best is Intelligence-Indeed Agent at 90.19% (2026-07-25). Claude Fable 5 scores 85.96%; 16 entries are at or above 72.36%. Step budget: Sonnet 4.5 scores 42.88%, 58.08% and 62.88% at 15, 50 and 100 steps.
 - **OSWorld 2.0.** 108 long-horizon tasks; the median task takes a skilled human about 1.6 hours of active operation.
   - GPT-6 Astra scores 72.6% and Opus 5 70.6% [S](https://snorkel.ai/leaderboard/os-world-2-0/).
   - Opus 5 scores 70.57% (500 steps, 5-run average) [P-m](https://raw.githubusercontent.com/malob/ai-system-cards/282a67c3c79617b23a1a23ed0869239b6e28d139/cards/anthropic/claude-opus-5/sections/08b-capabilities-2.md).
@@ -472,8 +462,7 @@ Pokémon became an informal human-over-AI showcase. Claude needed about 140 hour
   - Agents-A1-4B at 95.1% (10 Sep 2026) [S](https://benchlm.ai/benchmarks/gaia).
 
 #### Inferences
-- The computer-use gap closed through scaffolds (step budgets, best-of-N, hybrid planners), not through a single model crossing a threshold. The step-budget effect alone is 20 pp.
-- The human anchors, measured in 2023–24 by non-specialist annotators, are now stale [I].
+- The computer-use gap closed mainly through scaffolds (step budgets, best-of-N, hybrid planners); the step-budget effect alone is 20 pp. The 2023–24 human anchors are now stale [I].
 
 #### Gaps
 - There is no human success-rate baseline for OSWorld 2.0.
@@ -523,43 +512,15 @@ These are leads only, found by search:
 ## 4. Design lessons (with evidence tags)
 
 1. **Pre-register the harness, or run two labelled tracks** (as ARC now does with Standard and Provider Adapter [P-m]). Otherwise the score measures the harness. Evidence: ARC-AGI-3 62.7% → 98.6% at the same model and effort [P-m]; a 20 pp step-budget effect on OSWorld [P]; NetHack 13% under protocol vs a win with a self-built harness [P/S].
-2. **Human anchors must be measured, sizeable and reported as distributions.** Report the median person, the top quartile and the panel, not "≥2 solvers". Evidence:
-   - The average-vs-panel gaps: 64.2 vs 98 (ARC-AGI-1) and 60 vs 100 (ARC-AGI-2) [P-m].
-   - The ARC-AGI-3 baseline was rewritten three weeks after launch [P].
-   - BlindTest's human figure was not measured [P]; SimpleBench used N=9, ClockBench N=5, VPCT N=3 [S].
-3. **Efficiency matters as much as accuracy, but it is not a moat.**
-   - ARC-AGI-3's action-efficiency metric was supposed to be the "dividing line". It fell once models "understood" the mechanics [P-m].
-   - Cost per task collapsed too: $1.12/task on ARC-AGI-2 vs a $17 human [S/P-m].
-   - Treat efficiency as a *measured axis*, not as the source of durability [I].
-4. **Durable gaps sit where information must survive a perception-to-reasoning bottleneck.** Examples:
-   - encoder-to-LLM spatial loss (BlindTest linear probes [S]);
-   - video object permanence (IntPhys 2 near chance [S]);
-   - allocentric maps (MindCube [P]);
-   - multi-video spatial integration (MMSI-Video [S]).
-
-   Text-renderable states (ARC grids, web DOM, terminal NetHack) were closed by reasoning plus tools [P/P-m].
-5. **Use ablations to prove the mechanism, and ship them with the benchmark.** Good examples:
-   - Mystery vs plain Blocksworld, with a classical-planner control [P];
-   - transcribed vs raw PDF in EnigmaEval [S];
-   - spaced vs crowded shapes in BlindTest [S];
-   - real-time vs paused in VideoGameBench [S];
-   - the scaffold ablation in MindCube [P].
-
-   These separate "hard for AI" from "hard in general".
-6. **Expect "knowledge overfitting" without item leakage.**
-   - ARC found models using ARC's colour encoding unprompted [P-m].
-   - Private sets are necessary but not sufficient. The *format family* also needs periodic replacement, as ARC does roughly every year [P-m].
-7. **Keep a fully private, rotating split and do not publish the full data.** ClockBench publishes 10 of 180 clocks [P]; IntPhys 2 withholds held-out metadata [P]; ARC uses private splits [P-m]. Durable sets rely on this, though it did not prevent ARC's fall [I].
-8. **Real-time, irreversible, long-horizon settings are the least-closed agentic gaps.**
-   - VideoGameBench was at 0.48% [S].
-   - NetHack protocol progression is about 13% [S].
-   - [Speculation] A game with enforced wall-clock limits, no web access and in-episode learning would keep headroom longer than turn-based puzzles.
-9. **Beware stale anchors, and use ratio-to-human instead.** OSWorld's 72.36% now sits below 16 agent entries [P]. Report AI relative to a contemporaneous human re-baseline [I].
-10. **Watch closure speed as the key durability metric.**
-    - ARC-AGI-1 took 5 years, ARC-AGI-2 about 15 months and ARC-AGI-3 6 months (under the provider harness).
-    - ClockBench went from 13 to 67 in about 12 months [P-m/S].
-
-    Any new "human > AI" benchmark should expect targeted post-training within 6–12 months of attention [I].
+2. **Measure human anchors properly and report distributions** (median person, top quartile, panel), not "≥2 solvers". Evidence: average vs panel is 64.2 vs 98 (ARC-AGI-1) and 60 vs 100 (ARC-AGI-2) [P-m]; the ARC-AGI-3 baseline was rewritten three weeks after launch [P]; BlindTest's human figure was never measured [P]; SimpleBench N=9, ClockBench N=5, VPCT N=3 [S].
+3. **Efficiency is a measured axis, not a moat.** ARC-AGI-3's action efficiency was meant to be the "dividing line" but fell once models "understood" the mechanics [P-m]. Cost per task collapsed as well ($1.12 AI vs $17 human on ARC-AGI-2) [S/P-m].
+4. **Durable gaps sit where information must survive a perception-to-reasoning bottleneck:** encoder-to-LLM spatial loss (BlindTest probes [S]), video object permanence (IntPhys 2 near chance [S]), allocentric maps (MindCube [P]), multi-video integration (MMSI-Video [S]). Text-renderable states (ARC grids, web DOM, terminal NetHack) were closed by reasoning plus tools [P/P-m].
+5. **Ship mechanism ablations with the benchmark,** to separate "hard for AI" from "hard in general". Models to copy: Mystery vs plain Blocksworld with a classical-planner control [P]; transcribed vs raw PDF (EnigmaEval) [S]; spaced vs crowded shapes (BlindTest) [S]; real-time vs paused (VideoGameBench) [S]; the MindCube scaffold ablation [P].
+6. **Expect "knowledge overfitting" without item leakage.** ARC found models using its colour encoding unprompted [P-m]. Private sets are necessary but not sufficient; the format family also needs replacing about yearly, as ARC does [P-m].
+7. **Keep the full data private.** ClockBench publishes 10 of 180 clocks [P]; IntPhys 2 withholds held-out metadata [P]; ARC keeps private splits [P-m]. This did not stop ARC falling [I].
+8. **Real-time, irreversible, long-horizon settings are the least-closed agentic gaps:** VideoGameBench 0.48% [S]; NetHack protocol progression about 13% [S]. [Speculation] A game with wall-clock limits, no web access and required in-episode learning would keep headroom longer than turn-based puzzles.
+9. **Anchors go stale; report ratio to a contemporaneous human re-baseline.** OSWorld's 72.36% now sits below 16 agent entries [P].
+10. **Track closure speed as the durability metric.** ARC-AGI-1 took 5 years, ARC-AGI-2 about 15 months, ARC-AGI-3 6 months (provider harness); ClockBench went from 13 to 67 in about 12 months [P-m/S]. A new "human > AI" benchmark should expect targeted post-training within 6–12 months of attention [I].
 
 ---
 
