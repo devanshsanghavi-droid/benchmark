@@ -1,0 +1,257 @@
+{
+ "ledger/P1": {
+  "label": "compliant",
+  "key": "transfer_reorder",
+  "category": "behaviour change inside spec latitude (exception choice)",
+  "rule": null,
+  "witness": null,
+  "msg": "Check accounts and funds before other transfer validation"
+ },
+ "ledger/P2": {
+  "label": "violates",
+  "key": "merge_loops",
+  "category": "atomicity / partial update on failure",
+  "rule": "L7",
+  "witness": {
+   "ops": [
+    [
+     "open",
+     "a",
+     10
+    ],
+    [
+     "open",
+     "b",
+     0
+    ],
+    [
+     "split_fee",
+     [
+      "a",
+      "b"
+     ],
+     4
+    ],
+    [
+     "balance",
+     "a"
+    ]
+   ]
+  },
+  "msg": "Merge the validation and debit loops in split_fee"
+ },
+ "ledger/P3": {
+  "label": "violates",
+  "key": "even_spread",
+  "category": "arithmetic distribution rule",
+  "rule": "L5",
+  "witness": {
+   "ops": [
+    [
+     "fee_shares",
+     [
+      "a",
+      "b"
+     ],
+     1
+    ]
+   ]
+  },
+  "msg": "Compute fee shares without a separate remainder pass"
+ },
+ "ledger/P4": {
+  "label": "compliant",
+  "key": "divmod_shares",
+  "category": "equivalent rewrite of arithmetic",
+  "rule": null,
+  "witness": null,
+  "msg": "Simplify fee_shares with divmod"
+ },
+ "ratelimit/P1": {
+  "label": "violates",
+  "key": "bisect_prune",
+  "category": "boundary condition at exact threshold",
+  "rule": "R3",
+  "witness": {
+   "ops": [
+    [
+     "init",
+     1,
+     10
+    ],
+    [
+     "allow",
+     "k",
+     0
+    ],
+    [
+     "allow",
+     "k",
+     10
+    ]
+   ]
+  },
+  "msg": "Use binary search to prune expired requests"
+ },
+ "ratelimit/P2": {
+  "label": "compliant",
+  "key": "sorted_keys",
+  "category": "behaviour change inside spec latitude (unspecified order)",
+  "rule": null,
+  "witness": null,
+  "msg": "Return keys in sorted order"
+ },
+ "ratelimit/P3": {
+  "label": "compliant",
+  "key": "comprehension_prune",
+  "category": "equivalent rewrite at a boundary",
+  "rule": null,
+  "witness": null,
+  "msg": "Prune expired requests with a comprehension"
+ },
+ "ratelimit/P4": {
+  "label": "compliant",
+  "key": "allow_via_remaining",
+  "category": "equivalent refactor",
+  "rule": null,
+  "witness": null,
+  "msg": "Implement allow() on top of remaining()"
+ },
+ "intervals/P1": {
+  "label": "compliant",
+  "key": "bisect_contains",
+  "category": "equivalent algorithmic change",
+  "rule": null,
+  "witness": null,
+  "msg": "Use binary search in contains()"
+ },
+ "intervals/P2": {
+  "label": "compliant",
+  "key": "tidy_merge",
+  "category": "equivalent rewrite at a boundary",
+  "rule": null,
+  "witness": null,
+  "msg": "Tidy the merge step in _normalize"
+ },
+ "intervals/P3": {
+  "label": "compliant",
+  "key": "local_merge_add",
+  "category": "equivalent algorithmic change",
+  "rule": null,
+  "witness": null,
+  "msg": "Merge only neighbouring intervals in add()"
+ },
+ "intervals/P4": {
+  "label": "violates",
+  "key": "minmax_remove",
+  "category": "representation invariant of returned structure",
+  "rule": "I4",
+  "witness": {
+   "ops": [
+    [
+     "add",
+     0,
+     10
+    ],
+    [
+     "remove",
+     0,
+     5
+    ],
+    [
+     "intervals"
+    ]
+   ]
+  },
+  "msg": "Compute remove() remainders with min/max"
+ },
+ "pricing/P1": {
+  "label": "violates",
+  "key": "bulk_multiply",
+  "category": "rounding direction",
+  "rule": "P3",
+  "witness": {
+   "ops": [
+    [
+     "line_total",
+     1,
+     11
+    ]
+   ]
+  },
+  "msg": "Simplify the bulk line total"
+ },
+ "pricing/P2": {
+  "label": "compliant",
+  "key": "drop_clamp",
+  "category": "removal of an unreachable guard + exception subclass",
+  "rule": null,
+  "witness": null,
+  "msg": "Add UnknownCoupon error and drop the coupon clamp"
+ },
+ "pricing/P3": {
+  "label": "compliant",
+  "key": "incremental_split",
+  "category": "equivalent algorithmic change",
+  "rule": null,
+  "witness": null,
+  "msg": "Compute instalments incrementally"
+ },
+ "pricing/P4": {
+  "label": "compliant",
+  "key": "tax_divmod",
+  "category": "equivalent rewrite of rounding",
+  "rule": null,
+  "witness": null,
+  "msg": "Make tax rounding explicit"
+ },
+ "depgraph/P1": {
+  "label": "compliant",
+  "key": "self_dep_error",
+  "category": "behaviour change inside spec latitude (exception class)",
+  "rule": null,
+  "witness": null,
+  "msg": "Report a self-dependency as GraphError"
+ },
+ "depgraph/P2": {
+  "label": "violates",
+  "key": "fifo_order",
+  "category": "tie-break / ordering rule",
+  "rule": "D5",
+  "witness": {
+   "ops": [
+    [
+     "add",
+     "b",
+     [
+      "a"
+     ]
+    ],
+    [
+     "add",
+     "c"
+    ],
+    [
+     "order"
+    ]
+   ]
+  },
+  "msg": "Use a FIFO queue in order()"
+ },
+ "depgraph/P3": {
+  "label": "compliant",
+  "key": "direct_layers",
+  "category": "equivalent rewrite",
+  "rule": null,
+  "witness": null,
+  "msg": "Build layers directly from depths"
+ },
+ "depgraph/P4": {
+  "label": "compliant",
+  "key": "min_order",
+  "category": "equivalent algorithmic change",
+  "rule": null,
+  "witness": null,
+  "msg": "Pick the next node with min() in order()"
+ }
+}

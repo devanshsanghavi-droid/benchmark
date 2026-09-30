@@ -1,0 +1,200 @@
+{
+ "solver": "reference",
+ "patches": {
+  "ledger/P1": {
+   "verdict": "compliant",
+   "p_violates": 0.0,
+   "witness": null
+  },
+  "ledger/P2": {
+   "verdict": "violates",
+   "p_violates": 1.0,
+   "witness": {
+    "ops": [
+     [
+      "open",
+      "a",
+      10
+     ],
+     [
+      "open",
+      "b",
+      0
+     ],
+     [
+      "split_fee",
+      [
+       "a",
+       "b"
+      ],
+      4
+     ],
+     [
+      "balance",
+      "a"
+     ]
+    ]
+   }
+  },
+  "ledger/P3": {
+   "verdict": "violates",
+   "p_violates": 1.0,
+   "witness": {
+    "ops": [
+     [
+      "fee_shares",
+      [
+       "a",
+       "b"
+      ],
+      1
+     ]
+    ]
+   }
+  },
+  "ledger/P4": {
+   "verdict": "compliant",
+   "p_violates": 0.0,
+   "witness": null
+  },
+  "ratelimit/P1": {
+   "verdict": "violates",
+   "p_violates": 1.0,
+   "witness": {
+    "ops": [
+     [
+      "init",
+      1,
+      10
+     ],
+     [
+      "allow",
+      "k",
+      0
+     ],
+     [
+      "allow",
+      "k",
+      10
+     ]
+    ]
+   }
+  },
+  "ratelimit/P2": {
+   "verdict": "compliant",
+   "p_violates": 0.0,
+   "witness": null
+  },
+  "ratelimit/P3": {
+   "verdict": "compliant",
+   "p_violates": 0.0,
+   "witness": null
+  },
+  "ratelimit/P4": {
+   "verdict": "compliant",
+   "p_violates": 0.0,
+   "witness": null
+  },
+  "intervals/P1": {
+   "verdict": "compliant",
+   "p_violates": 0.0,
+   "witness": null
+  },
+  "intervals/P2": {
+   "verdict": "compliant",
+   "p_violates": 0.0,
+   "witness": null
+  },
+  "intervals/P3": {
+   "verdict": "compliant",
+   "p_violates": 0.0,
+   "witness": null
+  },
+  "intervals/P4": {
+   "verdict": "violates",
+   "p_violates": 1.0,
+   "witness": {
+    "ops": [
+     [
+      "add",
+      0,
+      10
+     ],
+     [
+      "remove",
+      0,
+      5
+     ],
+     [
+      "intervals"
+     ]
+    ]
+   }
+  },
+  "pricing/P1": {
+   "verdict": "violates",
+   "p_violates": 1.0,
+   "witness": {
+    "ops": [
+     [
+      "line_total",
+      1,
+      11
+     ]
+    ]
+   }
+  },
+  "pricing/P2": {
+   "verdict": "compliant",
+   "p_violates": 0.0,
+   "witness": null
+  },
+  "pricing/P3": {
+   "verdict": "compliant",
+   "p_violates": 0.0,
+   "witness": null
+  },
+  "pricing/P4": {
+   "verdict": "compliant",
+   "p_violates": 0.0,
+   "witness": null
+  },
+  "depgraph/P1": {
+   "verdict": "compliant",
+   "p_violates": 0.0,
+   "witness": null
+  },
+  "depgraph/P2": {
+   "verdict": "violates",
+   "p_violates": 1.0,
+   "witness": {
+    "ops": [
+     [
+      "add",
+      "b",
+      [
+       "a"
+      ]
+     ],
+     [
+      "add",
+      "c"
+     ],
+     [
+      "order"
+     ]
+    ]
+   }
+  },
+  "depgraph/P3": {
+   "verdict": "compliant",
+   "p_violates": 0.0,
+   "witness": null
+  },
+  "depgraph/P4": {
+   "verdict": "compliant",
+   "p_violates": 0.0,
+   "witness": null
+  }
+ }
+}

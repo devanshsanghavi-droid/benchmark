@@ -1,0 +1,82 @@
+{
+ "visible_tests": {
+  "ledger/base": true,
+  "ledger/P1": true,
+  "ledger/P2": true,
+  "ledger/P3": true,
+  "ledger/P4": true,
+  "ratelimit/base": true,
+  "ratelimit/P1": true,
+  "ratelimit/P2": true,
+  "ratelimit/P3": true,
+  "ratelimit/P4": true,
+  "intervals/base": true,
+  "intervals/P1": true,
+  "intervals/P2": true,
+  "intervals/P3": true,
+  "intervals/P4": true,
+  "pricing/base": true,
+  "pricing/P1": true,
+  "pricing/P2": true,
+  "pricing/P3": true,
+  "pricing/P4": true,
+  "depgraph/base": true,
+  "depgraph/P1": true,
+  "depgraph/P2": true,
+  "depgraph/P3": true,
+  "depgraph/P4": true
+ },
+ "fuzz": {
+  "ledger/base": 0,
+  "ledger/P1": 0,
+  "ledger/P2": 504,
+  "ledger/P3": 1330,
+  "ledger/P4": 0,
+  "ratelimit/base": 0,
+  "ratelimit/P1": 1349,
+  "ratelimit/P2": 0,
+  "ratelimit/P3": 0,
+  "ratelimit/P4": 0,
+  "intervals/base": 0,
+  "intervals/P1": 0,
+  "intervals/P2": 0,
+  "intervals/P3": 0,
+  "intervals/P4": 335,
+  "pricing/base": 0,
+  "pricing/P1": 1945,
+  "pricing/P2": 0,
+  "pricing/P3": 0,
+  "pricing/P4": 0,
+  "depgraph/base": 0,
+  "depgraph/P1": 0,
+  "depgraph/P2": 729,
+  "depgraph/P3": 0,
+  "depgraph/P4": 0
+ },
+ "reference_witness": {
+  "ledger/P2": [
+   true,
+   "op 3 balance: expected 10, got 8"
+  ],
+  "ledger/P3": [
+   true,
+   "op 0 fee_shares: expected {'a': 1, 'b': 0}, got {'a': 0, 'b': 1}"
+  ],
+  "ratelimit/P1": [
+   true,
+   "op 2 allow: expected True, got False"
+  ],
+  "intervals/P4": [
+   true,
+   "op 2 intervals: expected [[5, 10]], got [[0, 0], [5, 10]]"
+  ],
+  "pricing/P1": [
+   true,
+   "op 0 line_total: expected 10, got 9"
+  ],
+  "depgraph/P2": [
+   true,
+   "op 2 order: expected ['a', 'b', 'c'], got ['a', 'c', 'b']"
+  ]
+ }
+}
