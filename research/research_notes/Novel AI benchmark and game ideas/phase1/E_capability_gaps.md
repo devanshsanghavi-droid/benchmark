@@ -17,55 +17,52 @@
 
 ## Summary
 
-1. **The robust human advantages as of Sep 2026 are perceptual and interactive, not verbal-abstract.**
-   - Core visual perception (BabyVision, Jan 2026): the best model scores 49.7% against 94.1% for adults. Only the best model beats 3-year-olds, and it still trails 6-year-olds by about 20 points.
-   - Intuitive physics from video (IntPhys 2, Jun 2025): models are near chance (≤55.6%) against 96.4% for humans.
-   - Mental spatial transformation: GPT-5 was still short of humans on mental reconstruction, deformation and assembly (Aug 2025).
-   - Reward-free world-model learning through exploration (AutumnBench, Oct 2025): 517 humans beat o3, Gemini 2.5 Pro and Claude.
-   - Caveat: the physics and exploration results predate 2026 models.
-2. **Static "few-shot abstraction" is no longer a human moat on accuracy.**
-   - ARC-AGI-2 went from 54.2% (GPT-5.2 Pro, start of 2026) to 95–98% with harnesses and program search by early/mid 2026.
-   - On ConceptARC's text format, o3 matches the human 73%.
-   - Two gaps remain: about 28% of o3's correct answers rest on unintended or wrong rules, and accuracy drops sharply when the same tasks are shown visually.
-3. **Interactive skill acquisition is closing fast, and its measured size depends on the harness.**
-   - ARC-AGI-3 launched on 25 Mar 2026 with every frontier model below 1% and humans solving 100% of environments.
-   - By 3 Sep 2026 GPT-6 Astra scored 62.7% on the standard harness and 99.9% on a provider harness that keeps its reasoning state between calls.
+1. **The robust human advantages are perceptual and interactive, not verbal-abstract.**
+   - Core vision (BabyVision, Jan 2026): the best model scores 49.7% against 94.1% for adults.
+   - Intuitive physics (IntPhys 2, Jun 2025): models are near chance (≤55.6%) against 96.4% for humans.
+   - Mental spatial transformation: GPT-5 was still short in Aug 2025.
+   - Reward-free world-model learning (AutumnBench, Oct 2025): 517 humans beat o3, Gemini 2.5 Pro and Claude.
+   - The physics and exploration results predate 2026 models.
+2. **Static few-shot abstraction is no longer a human moat on accuracy.**
+   - ARC-AGI-2 rose from 54.2% (early 2026) to 95%+ with harnesses.
+   - o3 matches humans (73%) on text ConceptARC.
+   - The gaps that remain: about 28% of o3's correct answers use unintended or wrong rules, and accuracy drops sharply on visual inputs.
+3. **Interactive skill acquisition is fragile as a human advantage.**
+   - ARC-AGI-3 launched on 25 Mar 2026 with every frontier model below 1% against 100% for humans.
+   - By 3 Sep 2026, GPT-6 Astra scored 62.7% on the standard harness and 99.9% on a state-preserving harness.
    - It reportedly used fewer actions than the median human on 96% of levels.
-   - This is "fragile, not robust".
-4. **Classic "reasoning or reciting" deficits shrink with reasoning models, but no 2026 data exist.** This covers counterfactual variants, embers of autoregression, GSM-NoOp distractors, MATH-P-Hard and Mystery Blocksworld.
-   - Every quantified result is from o1, o1-mini, R1 or Gemini-2.0-thinking (late 2024 to early 2025).
-   - GSM-NoOp: drops of −17.5% (o1-preview) against up to −65.7% for the worst model.
-   - Mystery Blocksworld: 52.8% (o1-preview) and 43.3% (R1). Randomized Mystery: 37.3% and 25.8%.
-   - Treat these as older-model evidence.
-5. **Theory-of-mind perturbation fragility (Ullman 2023) is largely a GPT-3.5-era finding.** A 2026 paper reports that reasoning models are consistently more robust to ToM perturbations.
-6. **Long-horizon reliability is a robust, structural gap.**
-   - My refit of METR's public TH1.1 data [C] gives an 80%-success horizon 4–10× shorter than the 50% horizon for every model.
-   - Claude Opus 4.6 has the widest gap: p50 ≈ 12.0 h against p80 ≈ 70 min.
-   - Claude Mythos Preview: p50 ≥ 16 h (CI 8.5–55 h) and p80 about 3 h 06 min.
-   - METR's suite is running out of long tasks: only 5 of 228 are ≥ 16 h.
-7. **Learning from experience and from novel context is weak, and this has been measured in 2026 frontier models.**
-   - CL-bench (Feb 2026): ten frontier models average 17.2%; the best, GPT-5.1, reaches 23.7%.
-   - Continual Learning Bench (Jun 2026): agents overfit to recent observations and fail to reuse knowledge across episodes, and memory systems do not beat naive in-context learning.
-   - No human baselines exist for either benchmark.
-8. **Metacognition and abstention show the largest, most lab-specific divergence.**
-   - Reasoning fine-tuning cuts abstention by about 24% (AbstentionBench, 2025).
+4. **Classic "reasoning vs reciting" deficits shrink with reasoning models, and the evidence is stale.** This covers counterfactual tasks, embers of autoregression, GSM-NoOp, MATH-P-Hard and Mystery Blocksworld.
+   - The newest models tested are o1, o1-mini, R1 and Gemini-2.0-thinking (≤ early 2025).
+   - GSM-NoOp: −17.5% for o1-preview against up to −65.7% for the worst model.
+   - Mystery Blocksworld: 52.8% for o1-preview and 43.3% for R1.
+   - ToM perturbation fragility is GPT-3.5-era; a 2026 paper finds reasoning models robust.
+5. **Long-horizon reliability is a robust structural gap.**
+   - In METR's public data [C], the 80% horizon is 4–10× shorter than the 50% horizon for every model; for Opus 4.6 it is 12.0 h against 70 min.
+   - Mythos Preview: p50 ≥ 16 h and p80 about 3.1 h.
+   - METR's suite is running out of long tasks.
+6. **Learning from new context or from experience is weak in 2026 frontier models.**
+   - CL-bench: the best model reaches 23.7% and the average is 17.2%.
+   - Continual Learning Bench: agents don't reuse knowledge across episodes, and memory systems don't beat naive in-context learning.
+   - Neither benchmark has a human baseline.
+7. **Metacognition and abstention are robust deficits and diverge strongly by lab.**
+   - Reasoning fine-tuning cuts abstention by about 24%.
    - AA-Omniscience hallucination rates: 88% for Gemini 3 Pro against 48% for Claude 4.5 Sonnet.
-   - In the Anthropic–OpenAI pilot, Claude refused up to 70% of hallucination-eval items, while o3 answered more and hallucinated more.
-9. **The general factor dominates but is not total.**
-   - PC1 explains about 79% of variance across 421 Artificial Analysis model configurations [H data]. Epoch finds cross-domain r = 0.68 against within-domain r = 0.79.
-   - A replicated second axis separates **agentic** strength from **math and vision**. Epoch calls it "Claudiness", and the Aug 2026 AA-data factor analysis separates Terminal-Bench, GDPval and τ² from GPQA, IFBench and AA-LCR.
-   - Vision shows the largest reordering. On BabyVision the spread is 3.5×: Gemini 3 Pro 49.7%, GPT-5.2 34.4%, Claude 4.5 Opus 14.2%.
-10. **The general factor is partly a release-date trend.** It tracks release date with R² ≈ 0.48–0.51. Its dominance fell (92% → 64% on one small battery) when reasoning models arrived.
-11. **Headline benchmark margins no longer predict real-world differences.**
-    - Anthropic's Opus 5.5 launch post (22 Sep 2026) says as much.
-    - Vendor grids reorder frontier models by benchmark. Opus 5.5 leads Terminal-Bench 4.0 (66.4 vs 57.9) and GDPval-AA (1846 vs 1542), while GPT-6 Astra leads Terminal-Bench-Science (64.6 vs 58.7).
-    - METR's RCT found a 19% slowdown with early-2025 tools. Its 2026 follow-up was confounded by developers refusing to work without AI.
-12. **The best under-measured targets combine a documented deficit, measured lab spread, and cheap procedural generation.** In order:
-    - (i) calibrated abstention on generated unanswerable or underspecified variants;
-    - (ii) cross-episode learning on procedurally generated latent rule systems;
-    - (iii) exploration efficiency (actions and experiments per bit learned) in novel interactive worlds;
-    - (iv) procedurally generated core-vision and intuitive-physics items;
-    - (v) high-reliability (p80/p95) long-chain execution.
+   - Claude refused up to 70% of hallucination-eval items in the Anthropic–OpenAI pilot.
+8. **The general factor dominates but is not total.**
+   - PC1 explains about 79% of variance across 421 AA model configurations [H data]; Epoch finds cross-domain r = 0.68 against within-domain r = 0.79.
+   - A replicated second axis separates **agentic** strength from **math and vision** (Epoch's "Claudiness"; the Aug 2026 AA factor analysis).
+9. **Vision is the largest lab reordering found.** BabyVision scores: Gemini 3 Pro 49.7, GPT-5.2 34.4, Claude 4.5 Opus 14.2.
+10. **The general factor is partly a release-date trend** (R² ≈ 0.48–0.51). Its share fell from 92% to 64% on one small battery when reasoning models arrived.
+11. **Headline margins no longer track real-world differences.**
+    - Anthropic's Opus 5.5 post (22 Sep 2026) says so.
+    - Vendor grids reorder Opus 5.5 and GPT-6 Astra by benchmark.
+    - METR's RCT found a 19% slowdown with early-2025 tools, and its 2026 follow-up was confounded by selection.
+12. **Best under-measured targets, each with a documented deficit and cheap procedural generation:**
+    - (i) calibrated abstention;
+    - (ii) cross-episode learning on generated latent rule systems;
+    - (iii) exploration efficiency;
+    - (iv) procedurally generated core vision and intuitive physics;
+    - (v) p80/p95 long-chain execution.
 
 ---
 
@@ -231,7 +228,6 @@ Output diversity is where models are most *alike*: the "Artificial Hivemind" eff
   - PC1 captures about half the variance of Epoch's 39-benchmark dataset.
   - Source: [Epoch, "Benchmark Scores = General Capability + Claudiness"](https://epoch.ai/gradient-updates/benchmark-scores-general-capability-claudiness) (M; Nov 2025).
 - Benchmark scores are "nearly as correlated across domains (0.68) as within them (0.79)" — [Epoch data insight](https://epoch.ai/data-insights/benchmark-correlations) (M; date not verified, c. early 2026).
-- The ECI fits many benchmarks with a single dimension (a sigmoid IRT with a capability per model and a difficulty and slope per benchmark) — [Ho et al., "A Rosetta Stone for AI Benchmarks", arXiv 2512.00193](https://arxiv.org/abs/2512.00193) (M).
 - Zhu, "One Capability or Many?" (arXiv 2608.29420, Aug 2026): 421 model configurations, 12 benchmarks (4 economic). "A single factor explains 74.5% of common variance and tracks model release date (R² = 0.505)." Economic benchmarks form no distinct factor but "add incremental predictive information" — [arXiv 2608.29420](https://arxiv.org/abs/2608.29420) (M).
   - The repository's result file gives PC1 share 0.794, factor-1 communal share 0.745, parallel-analysis k = 1, dominant-factor date R² = 0.477 (the abstract says 0.505, perhaps a different specification), and mean off-diagonal Spearman 0.79 — [task1_structure_results.json](https://raw.githubusercontent.com/louisyzhu/frontier-ai-economic-validity/main/data/processed/task1_structure_results.json) (H).
   - Three-factor oblique loadings (raw) — [loadings_raw.csv](https://raw.githubusercontent.com/louisyzhu/frontier-ai-economic-validity/main/data/processed/loadings_raw.csv) (H):
@@ -247,9 +243,7 @@ Output diversity is where models are most *alike*: the "Artificial Hivemind" eff
   - On a 4-benchmark battery it peaks at 92% in 2023–24 and falls to 64% with reasoning models, "coincident with a rotation in the G-factor".
   - Source: [arXiv 2604.09911](https://arxiv.org/abs/2604.09911) (M).
 - Maimon et al. (TACL 2026): 60 LLMs × 44 benchmarks give an "intrinsically low-rank" structure with eight skills. Some skills, such as "Precision & Fidelity" and "Ethical Judgment", are defined by a few highly discriminative tasks — [ACL Anthology](https://aclanthology.org/2026.tacl-1.75/); [arXiv 2507.20208](https://arxiv.org/abs/2507.20208) (M).
-- Earlier structure studies:
-  - Burnell et al. (2023): 3 factors (comprehension, language modelling, reasoning) on HELM — [arXiv 2306.10062](https://arxiv.org/abs/2306.10062) (M; not re-read this session).
-  - Ruan et al. (NeurIPS 2024): PC1 nearly 80%, top-3 PCs about 97% — [arXiv 2405.10938](https://arxiv.org/abs/2405.10938) (M; not re-read this session).
+- Earlier structure studies, not re-read this session (M): Burnell et al. 2023 found 3 factors on HELM ([arXiv 2306.10062](https://arxiv.org/abs/2306.10062)). Ruan et al. 2024 found PC1 ≈ 80% ([arXiv 2405.10938](https://arxiv.org/abs/2405.10938)).
 - "Growing Pains" (May 2026): 34 models, 10 labs. Capabilities cooperate (r = +0.72), with lab-specific trajectories: "DeepSeek reversed from reasoning-rich to coding-first; Google maintains consistent reasoning emphasis; Anthropic oscillates". Coupling slopes vary 5× — [arXiv 2605.18840](https://arxiv.org/abs/2605.18840) (M).
 - AA-Omniscience:
   - 6,000 questions, 42 topics, 6 domains. Hallucination rate is incorrect / (incorrect + abstentions); the Omniscience Index gives +1 correct, −1 incorrect, 0 abstain — [arXiv 2511.13029](https://arxiv.org/abs/2511.13029); [AA page](https://artificialanalysis.ai/evaluations/omniscience) (M).
@@ -270,7 +264,6 @@ Output diversity is where models are most *alike*: the "Artificial Hivemind" eff
 | Terminal-Bench-Science 0.1 | 58.7 | 52.6 | 29.0 | 64.6 | 22.4 |
 
 - Artificial Hivemind (NeurIPS 2025 D&B, Best Paper award): Infinity-Chat has 26K open-ended queries. More than 70 models show "pronounced intra- and inter-model homogenization" — [NeurIPS proceedings](https://proceedings.neurips.cc/paper_files/paper/2025/hash/754d5a526a5ee5a47220664a0eb92751-Abstract-Datasets_and_Benchmarks_Track.html); [NeurIPS blog](https://blog.neurips.cc/2025/11/26/announcing-the-neurips-2025-best-paper-awards/) (M).
-- BabyVision per-lab spread (see Q1) — [README](https://raw.githubusercontent.com/UniPat-AI/BabyVision/main/README.md) (H).
 
 ### Inferences
 - **Most reliable reordering axes:**
@@ -312,11 +305,11 @@ The ranking weighs A, B and C jointly:
 
 | Rank | Ability | Evidence strength | Why it matters (evidence) | Testability with novel generated instances |
 |---|---|---|---|---|
-| 1 | **Calibrated abstention / knowing when one does not know** | Strong. AbstentionBench: −24% from reasoning fine-tuning, scale has no effect. AA-Omniscience spread 36–88%. Clinical overconfidence across 48 LLMs | Hallucination is a major deployment failure, and labs differ by policy (Claude refuses up to 70%) | **High.** Generate unanswerable, underspecified or stale-premise variants of solvable items, and score with an abstention-aware proper rule |
-| 2 | **Learning from experience across episodes** | Strong for the deficit (CL-bench best 23.7%; Continual Learning Bench shows no reuse, and memory systems do not help). No human baseline | Real work needs improvement on the job. Harness effects on ARC-AGI-3 (62.7 vs 99.9) show state carry-over is decisive | **High.** Procedurally generated latent rule systems or environments shared across episodes; measure the learning-curve slope, not final accuracy |
-| 3 | **Exploration and experimentation efficiency** | Moderate to strong. AutumnBench: humans beat 2025 models. Blicket: LLMs explore less efficiently. ARC-AGI-3 was closed in accuracy within 6 months | Scientific and agentic settings; humans' advantage is attributed to experiment design and belief updating | **High.** Generated grid worlds and causal machines; score information gain per action against a Bayesian-optimal and a human baseline |
-| 4 | **Core visual perception and intuitive physics** | Strong human gap (BabyVision 49.7 vs 94.1; IntPhys 2 near chance) and a 3.5× lab spread | Computer use, embodied agents, and chart and diagram work (vendors now report "Chartography" with tools) | **High.** Synthetic images and videos from procedural generators; possible-vs-impossible pairs |
-| 5 | **High-reliability long-chain execution (p80/p95)** | Strong. p80 is 4–10× below p50 [C]; self-conditioning on own errors | Deployment needs reliability, not 50% success; METR's suite is saturating (5 of 228 tasks ≥ 16 h) | **High.** Long synthetic execution chains (key–value updates, state tracking) with exact verification; report pass^k and p80 |
+| 1 | **Calibrated abstention** | Strong: −24% from reasoning fine-tuning; AA-Omniscience spread 36–88%; 48 LLMs overconfident | Hallucination in deployment; labs differ by policy | **High**: unanswerable, underspecified or stale-premise variants of solvable items, scored with an abstention-aware rule |
+| 2 | **Learning from experience across episodes** | Strong deficit (CL-bench best 23.7%; no reuse across episodes); no human baseline | On-the-job improvement; ARC-AGI-3 harness gap (62.7 vs 99.9) shows state carry-over is decisive | **High**: generated latent rule systems shared across episodes; score the learning-curve slope |
+| 3 | **Exploration and experimentation efficiency** | Moderate–strong: AutumnBench humans > 2025 models; blicket LLMs less efficient; ARC-AGI-3 accuracy closed in 6 months | Science and agents; human edge attributed to experiment design | **High**: generated grid worlds and causal machines; information gain per action vs Bayesian-optimal and human baselines |
+| 4 | **Core visual perception and intuitive physics** | Strong human gap (49.7 vs 94.1; physics near chance) and 3.5× lab spread | Computer use, embodied agents, charts | **High**: procedural images and videos; possible-vs-impossible pairs |
+| 5 | **High-reliability long-chain execution (p80/p95)** | Strong: p80 4–10× below p50 [C]; self-conditioning | Deployment needs reliability; METR suite saturating | **High**: long synthetic state-tracking chains with exact checks; report pass^k and p80 |
 | 6 | **Rule fidelity (right answer for the right reason)** | Moderate. About 28% of o3's correct ConceptARC answers use unintended or incorrect rules | Accuracy overstates generalization | **Medium–high.** Generate items where the intended and shortcut rules diverge on held-out probes |
 | 7 | **Robustness to counterfactual and irrelevant perturbation** | Moderate but stale (≤ early 2025) | Detects memorization; o1-mini errors ~40% misapplied originals | **High.** Template-based (GSM-Symbolic style); best as a *control* condition, not a headline |
 | 8 | **Output diversity / novelty** | Moderate (Hivemind, 70+ models) | Homogenization across labs; creative and brainstorming use | **Medium.** Generated open prompts, but diversity scoring needs embeddings or judges |
@@ -432,81 +425,92 @@ Each suggests a measurable target: calibrated self-knowledge of the frontier, re
 
 ## Sources
 
-**Primary sources read directly this session (H)**
+**H: read directly this session**
+
 - BabyVision README — https://raw.githubusercontent.com/UniPat-AI/BabyVision/main/README.md
-- PlanBench / LLMs-Planning README — https://raw.githubusercontent.com/karthikv792/LLMs-Planning/main/README.md
+- PlanBench README — https://raw.githubusercontent.com/karthikv792/LLMs-Planning/main/README.md
 - AbstentionBench README — https://raw.githubusercontent.com/facebookresearch/AbstentionBench/main/README.md
 - CL-bench README — https://raw.githubusercontent.com/Tencent-Hunyuan/CL-bench/main/README.md
 - Continual Learning Bench README — https://raw.githubusercontent.com/pgasawa/continual-learning-bench/main/README.md
 - GSM-Symbolic README — https://raw.githubusercontent.com/apple/ml-gsm-symbolic/main/README.md
-- Wu et al., counterfactual-evaluation README — https://raw.githubusercontent.com/ZhaofengWu/counterfactual-evaluation/master/README.md
-- METR eval-analysis-public README and TH1.1 runs — https://raw.githubusercontent.com/METR/eval-analysis-public/main/README.md ; https://raw.githubusercontent.com/METR/eval-analysis-public/main/reports/time-horizon-1-1/data/raw/runs.jsonl
-- Zhu, economic-validity repo (README, task1_structure_results.json, loadings_raw.csv, loadings_residualised.csv, benchmark_taxonomy.csv) — https://raw.githubusercontent.com/louisyzhu/frontier-ai-economic-validity/main/README.md
-- Anthropic, "Introducing Claude Opus 5.5" (22 Sep 2026) — https://www.anthropic.com/news/claude-opus-5-5
+- Wu et al. README — https://raw.githubusercontent.com/ZhaofengWu/counterfactual-evaluation/master/README.md
+- METR TH1.1 run data — https://raw.githubusercontent.com/METR/eval-analysis-public/main/reports/time-horizon-1-1/data/raw/runs.jsonl
+- Zhu 2026 repository and data — https://raw.githubusercontent.com/louisyzhu/frontier-ai-economic-validity/main/README.md
+- Anthropic, "Introducing Claude Opus 5.5" — https://www.anthropic.com/news/claude-opus-5-5
 
-**Primary sources seen via URL plus search summary (M)**
+**M: primary URL, content seen via search summary**
+
 - Perception and physics:
-  - BabyVision paper — https://arxiv.org/abs/2601.06521 ; https://icml.cc/virtual/2026/poster/63195
-  - IntPhys 2 — https://arxiv.org/abs/2506.09849
-  - Cai et al., GPT-5 spatial intelligence — https://arxiv.org/pdf/2508.13142
-  - Spatial4D-Bench — https://arxiv.org/pdf/2601.00092
+  - https://arxiv.org/abs/2601.06521
+  - https://arxiv.org/abs/2506.09849
+  - https://arxiv.org/pdf/2508.13142
+  - https://arxiv.org/pdf/2601.00092
 - Exploration and interactive learning:
-  - AutumnBench / WorldTest — https://arxiv.org/abs/2510.19788
-  - ARC-AGI-3 — https://arcprize.org/blog/arc-agi-3-launch ; https://arxiv.org/abs/2603.24621 ; https://arcprize.org/blog/astra ; https://arcprize.org/results/openai-gpt-6-astra
-  - Imbue ARC-AGI-2 — https://imbue.com/blog/2026-02-27-arc-agi-2-evolution
-  - Human Adults and LLMs as Scientists — https://arxiv.org/abs/2606.06464
+  - https://arxiv.org/abs/2510.19788
+  - https://arcprize.org/blog/arc-agi-3-launch
+  - https://arxiv.org/abs/2603.24621
+  - https://arcprize.org/blog/astra
+  - https://imbue.com/blog/2026-02-27-arc-agi-2-evolution
+  - https://arxiv.org/abs/2606.06464
 - Abstraction, analogy and ToM:
-  - ConceptARC multimodal — https://arxiv.org/abs/2510.02125
-  - Webb et al. counterfactual analogies — https://arxiv.org/abs/2404.13070
-  - Lewis & Mitchell (CogSci) — https://escholarship.org/uc/item/58d9s666
-  - ToM in reasoning models — https://arxiv.org/html/2608.04646
+  - https://arxiv.org/abs/2510.02125
+  - https://arxiv.org/abs/2404.13070
+  - https://escholarship.org/uc/item/58d9s666
+  - https://arxiv.org/html/2608.04646
 - Perturbation, planning and world models:
-  - GSM-Symbolic — https://arxiv.org/abs/2410.05229
-  - MATH-Perturb — https://proceedings.mlr.press/v267/huang25k.html
-  - Embers o1 — https://arxiv.org/abs/2410.01792 ; Embers PNAS — https://cocosci.princeton.edu/papers/mccoy2024embers.pdf
-  - Illusion of Thinking — https://arxiv.org/abs/2506.06941 ; rebuttal https://arxiv.org/abs/2506.09250 ; replication https://arxiv.org/abs/2507.01231
-  - Vafa et al. 2025 — https://proceedings.mlr.press/v267/vafa25a.html
+  - https://arxiv.org/abs/2410.05229
+  - https://proceedings.mlr.press/v267/huang25k.html
+  - https://arxiv.org/abs/2410.01792
+  - https://cocosci.princeton.edu/papers/mccoy2024embers.pdf
+  - https://arxiv.org/abs/2506.06941
+  - https://arxiv.org/abs/2506.09250
+  - https://arxiv.org/abs/2507.01231
+  - https://proceedings.mlr.press/v267/vafa25a.html
 - Long horizons and learning:
-  - METR frontier risk report — https://metr.org/blog/2026-05-19-frontier-risk-report/
-  - METR time horizons — https://metr.org/time-horizons/
-  - METR limitations note — https://metr.org/notes/2026-01-22-time-horizon-limitations/
-  - METR Mythos post — https://x.com/METR_Evals/status/2052896621760004602
-  - Sinha et al., long-horizon execution — https://arxiv.org/abs/2509.09677
-  - CL-bench — https://arxiv.org/abs/2602.03587
-  - Continual Learning Bench — https://arxiv.org/abs/2606.05661
+  - https://metr.org/blog/2026-05-19-frontier-risk-report/
+  - https://metr.org/time-horizons/
+  - https://metr.org/notes/2026-01-22-time-horizon-limitations/
+  - https://x.com/METR_Evals/status/2052896621760004602
+  - https://arxiv.org/abs/2509.09677
+  - https://arxiv.org/abs/2602.03587
+  - https://arxiv.org/abs/2606.05661
 - Abstention and calibration:
-  - AbstentionBench — https://arxiv.org/abs/2506.09038
-  - LLM clinical confidence — https://www.nature.com/articles/s44355-026-00053-3
-  - AA-Omniscience — https://arxiv.org/abs/2511.13029 ; https://artificialanalysis.ai/evaluations/omniscience
-  - Anthropic–OpenAI pilot — https://openai.com/index/openai-anthropic-safety-evaluation/
-- Capability structure and divergence:
-  - Epoch Claudiness — https://epoch.ai/gradient-updates/benchmark-scores-general-capability-claudiness
-  - Epoch benchmark correlations — https://epoch.ai/data-insights/benchmark-correlations
-  - ECI / Rosetta Stone — https://arxiv.org/abs/2512.00193
-  - Zhu 2026 — https://arxiv.org/abs/2608.29420
-  - Krakauer 2026 — https://arxiv.org/abs/2604.09911
-  - Maimon et al. — https://aclanthology.org/2026.tacl-1.75/
-  - Growing Pains — https://arxiv.org/abs/2605.18840
-  - Artificial Hivemind — https://proceedings.neurips.cc/paper_files/paper/2025/hash/754d5a526a5ee5a47220664a0eb92751-Abstract-Datasets_and_Benchmarks_Track.html
+  - https://arxiv.org/abs/2506.09038
+  - https://www.nature.com/articles/s44355-026-00053-3
+  - https://arxiv.org/abs/2511.13029
+  - https://openai.com/index/openai-anthropic-safety-evaluation/
+- Capability structure:
+  - https://epoch.ai/gradient-updates/benchmark-scores-general-capability-claudiness
+  - https://epoch.ai/data-insights/benchmark-correlations
+  - https://arxiv.org/abs/2512.00193
+  - https://arxiv.org/abs/2608.29420
+  - https://arxiv.org/abs/2604.09911
+  - https://aclanthology.org/2026.tacl-1.75/
+  - https://arxiv.org/abs/2605.18840
+  - https://proceedings.neurips.cc/paper_files/paper/2025/hash/754d5a526a5ee5a47220664a0eb92751-Abstract-Datasets_and_Benchmarks_Track.html
 - Field evidence:
-  - METR RCT — https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/ ; update https://metr.org/blog/2026-02-24-uplift-update/
-  - Dell'Acqua et al. — https://pubsonline.informs.org/doi/full/10.1287/orsc.2025.21838
+  - https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/
+  - https://metr.org/blog/2026-02-24-uplift-update/
+  - https://pubsonline.informs.org/doi/full/10.1287/orsc.2025.21838
+- Cited but not re-read:
+  - https://arxiv.org/abs/2306.10062
+  - https://arxiv.org/abs/2405.10938
+  - https://arxiv.org/abs/2511.04703
+  - https://arxiv.org/abs/2307.02477
 
-**Cited but not re-read this session (bibliographic; M)**
-- Burnell et al. 2023 — https://arxiv.org/abs/2306.10062
-- Ruan et al. 2024 — https://arxiv.org/abs/2405.10938
-- Bean et al. 2025 — https://arxiv.org/abs/2511.04703
-- Wu et al. — https://arxiv.org/abs/2307.02477
+**L: aggregators and secondary coverage**
 
-**Secondary / aggregator (L)**
-- SimpleBench aggregators — https://benchmarklist.com/benchmarks/simplebench/ ; https://www.datalearner.com/en/leaderboards ; https://itdoeswhatnow.com/benchmarks/simplebench/
-- AA-Omniscience aggregator — https://suprmind.ai/hub/ai-hallucination-rates-and-benchmarks/
-- ARC-AGI-3 coverage — https://officechai.com/ai/arc-agi-3/ ; https://thenewstack.io/astra-arc-agi-benchmark/
-- Mythos coverage — https://officechai.com/ai/claude-mythos-shows-50-time-horizon-of-16-hours-on-metr-benchmark/
-- ARC-AGI-2 forecasting question — https://www.metaculus.com/questions/41131/top-arc-agi-2-score-in-2026/
+- https://benchmarklist.com/benchmarks/simplebench/
+- https://itdoeswhatnow.com/benchmarks/simplebench/
+- https://www.datalearner.com/en/leaderboards
+- https://suprmind.ai/hub/ai-hallucination-rates-and-benchmarks/
+- https://officechai.com/ai/arc-agi-3/
+- https://thenewstack.io/astra-arc-agi-benchmark/
+- https://officechai.com/ai/claude-mythos-shows-50-time-horizon-of-16-hours-on-metr-benchmark/
+- https://www.metaculus.com/questions/41131/top-arc-agi-2-score-in-2026/
 
-**Could not verify (blocked or not found)**
-- Full texts on arxiv.org, metr.org, epoch.ai, arcprize.org, openreview.net and huggingface.co (egress blocked).
-- simple-bench.com (blocked).
-- Any 2026-model re-test of GSM-NoOp, Mystery Blocksworld, IntPhys 2, AutumnBench, Lewis–Mitchell or Wu et al. (not found).
-- Cross-lab sycophancy or persuasion rates (not found).
+**Not verifiable this session**
+
+- Full texts on arxiv.org, metr.org, epoch.ai, arcprize.org, openreview.net, huggingface.co and simple-bench.com (all egress-blocked).
+- 2026-model re-tests of GSM-NoOp, Mystery Blocksworld, IntPhys 2, AutumnBench, Lewis–Mitchell and Wu et al. (none found).
+- Cross-lab sycophancy and persuasion rates (none found).
