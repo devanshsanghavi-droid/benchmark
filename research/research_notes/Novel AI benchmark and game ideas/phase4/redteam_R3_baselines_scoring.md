@@ -20,11 +20,11 @@ Image tokens are estimated at w·h/750 (about 87 tokens for a 256 px frame and 3
 
 **Key external evidence (web, this review).**
 - **Crowdworkers use LLMs.** 33–46% of MTurk workers used LLMs on a summarisation task ([Veselovsky et al. 2023](https://arxiv.org/abs/2306.07899)). The follow-up found about 30% prevalence. Asking workers not to, and blocking copy-paste, cut use from 27.6% to 15.9%, not to zero ([arXiv 2310.15683](https://arxiv.org/abs/2310.15683)).
-- **Frontier latency.** Time to first token is about 0.7–1.4 s for non-reasoning modes and 28–67 s P50 for reasoning modes ([secondary survey](https://www.digitalapplied.com/blog/ai-model-latency-benchmarks-2026-ttft-throughput), L–M). A DOOM-control study reports that reasoning models exceed a real-time budget ([arXiv 2604.07385](https://arxiv.org/pdf/2604.07385), [S]).
+- **Frontier latency.** Time to first token is about 0.7–1.4 s for non-reasoning modes and 28–67 s P50 for reasoning modes ([secondary survey](https://www.digitalapplied.com/blog/ai-model-latency-benchmarks-2026-ttft-throughput), L–M). A DOOM-control study reports that reasoning models exceed a real-time budget ([arXiv 2604.07385](https://arxiv.org/pdf/2604.07385), [S]). [fact-check P4: the TTFT figures match a search extract of the survey, but they are for older models: Opus 4.7 standard 0.85 s and GPT-5.5 1.1 s; reasoning P50 of 28 s for Opus 4.7 with extended thinking and 67 s for GPT-5.5 Pro at high effort. The DOOM paper's abstract says a 1.3M-parameter model at 31 ms per decision beat LLMs up to 92,000× larger in real time. Uncertain: the "reasoning models exceed a real-time budget" wording.]
 - **Human–AI Hanabi.** With learned vs rule-based agents there was no significant score difference, but human preferences differed strongly ([Siu et al., NeurIPS 2021](https://arxiv.org/abs/2107.07630)).
 - **The Convention Gap.** Humans rely on implicit conventions that AI pairs don't use: +26.2 pp in human pairs, −0.7 pp in AI pairs, +16.4 pp in human–AI pairs ([arXiv 2609.11489](https://arxiv.org/abs/2609.11489), Sep 2026).
 - **Reference games.** Multimodal LLMs do not compress their descriptions over rounds without heavy prompting ([ICCA, arXiv 2408.01417](https://arxiv.org/abs/2408.01417)). Agents stay "verbose from round one" ([arXiv 2606.08081](https://arxiv.org/abs/2606.08081)).
-- **Cicero.** It played 82 anonymous people on webDiplomacy.net under IRB approval, paying over $70 per 3-hour game, and "passed as human" ([arXiv 2406.04643](https://arxiv.org/pdf/2406.04643)).
+- **Cicero.** It played 82 anonymous people on webDiplomacy.net under IRB approval, paying over $70 per 3-hour game, and "passed as human" ([arXiv 2406.04643](https://arxiv.org/pdf/2406.04643)). [corrected by fact-check P4: this conflates two studies. The anonymous webDiplomacy.net play with 82 players comes from Meta's original Cicero paper (Science 2022) [background]. The cited arXiv 2406.04643 (Wongkamjan et al. 2024) ran about two dozen recruited games, over 200 player-hours, and found that players could reliably identify Cicero as an AI (abstract and digest via GitHub). Uncertain: the "$70 per 3-hour game" and IRB details.]
 - **ForecastBench.** The public baseline was 500 people plus 39 superforecasters ([arXiv 2409.19839](https://arxiv.org/abs/2409.19839)).
 - **Debate.** Human judges reached 88% with debate vs 60% naive on QuALITY ([arXiv 2402.06782](https://arxiv.org/abs/2402.06782)).
 
@@ -34,7 +34,7 @@ Image tokens are estimated at w·h/750 (about 87 tokens for a 256 px frame and 3
 - Resolving 3 pp takes about 969 items; clustered SEs run up to 3.05× naive ones (G §3).
 - Swapping the judge moved one model from 3rd to 9th (G §4).
 - 205 of 243 Arena models were silently deprecated (P2 §3 row 10).
-- Vending-Bench 2 runs use 60–100M output tokens; one API provider gave 2× another's score (B §3.2, P2 P12).
+- Vending-Bench 2 runs use 60–100M output tokens; one API provider gave 2× another's score (B §3.2, P2 P12). [corrected by fact-check P4: the 2× provider effect is on Vending-Bench 1 (Kimi K2 Thinking, mean net worth $1,296 vs $649), and the order flips on the board's minimum-net-worth metric (B §3.2; P2 log)]
 - VideoGameBench scores 0.48% in real time vs 1.6% paused (A §2.17).
 
 ---
@@ -213,7 +213,7 @@ Image tokens are estimated at w·h/750 (about 87 tokens for a 256 px frame and 3
 - **Q5 is strong.** The Cross-Play Score against 8 held-out scripted bots with undisclosed conventions is exact, cheap, reproducible and duplicate-dealt.
 - **But bot cross-play may not transfer to humans.** The Convention Gap paper shows humans rely on implicit conventions AI pairs lack: +26.2 pp in human pairs, −0.7 pp in AI pairs, +16.4 pp in human–AI pairs (Sep 2026).
 - **The human component is noisy.** Siu et al. found no significant score difference between learned and rule-based Hanabi partners, while subjective ratings split sharply. The Human-Team Ratio therefore needs large n, and 200 people × 10 games per model recurs for every model.
-- **Ethics.** Blind-partner identity is deception and needs IRB consent and a debrief. Cicero is the precedent: IRB-approved, with anonymous opponents and more than $70 per 3-hour game.
+- **Ethics.** Blind-partner identity is deception and needs IRB consent and a debrief. Cicero is the precedent: IRB-approved, with anonymous opponents and more than $70 per 3-hour game. [corrected by fact-check P4: see Key external evidence. The anonymous-opponent precedent is Meta's 2022 study; the pay figure is uncertain.]
 - **Fix.**
   - Fit or validate the bot panel against human–human logs.
   - Keep the human ratio seasonal, with a concurrent human–human control.
@@ -322,3 +322,48 @@ Near misses: C44 (headline the bots), C16, C34, C37 and C20.
     - Selection-biased switch cells (C16).
     - Ratios whose denominators approach zero (C10, C27, C38).
     - Stated-rule scoring that needs a judge (C03, C42).
+
+---
+
+## Fact-check log (Phase 4)
+
+Independent check, 30 Sep 2026. Dossier values (with their corrections and [uncertain] labels) first, then primary text via GitHub mirrors (arxiv.org, Semantic Scholar and digitalapplied.com were blocked; one web search was used for the latency survey). Prices were checked against the Claude API reference's model table (cached 25 Sep 2026). "[background]" = checker's knowledge of a widely cited result, not re-fetched.
+
+| Claim | Candidate | Verdict | Source | Note |
+|---|---|---|---|---|
+| Opus 5.5 $4/$20 (cache $0.20); fast mode $8/$40 at up to 2.5× speed; Fable 5.1 $10/$50; Sonnet 5.5 $2/$10 | cost basis, C09 | verified | Claude API model table, cached 25 Sep 2026 | — |
+| Opus 5.5 thinking cannot be disabled | C17 | verified | same | — |
+| Image tokens ≈ w·h/750 | cost basis | verified | Anthropic vision docs [background] | Label kept |
+| Prolific minimum $8/h, recommended ≥$12/h | human cost | verified | Prolific help page [background] | Fee size still unverified |
+| ARC-AGI-2: 407 people, $115–150 per session + $5 per task | human cost | verified | G §5 | — |
+| ARC-AGI-3: 458 people, ~$130 per session + $5 per solve | human cost | verified | D, F (ARC blog capture) | ARC's Astra post says $115 |
+| ARC-AGI-3 costs $17–50k per configuration | Q5 anchor | verified | D (corrected value) | — |
+| 33–46% of MTurk workers used LLMs | key evidence, flaw 3 | verified | arXiv 2306.07899 abstract via GitHub digests | One summarisation task |
+| Follow-up: ~30% prevalence; deterrents cut use from 27.6% to 15.9% | key evidence, C45, flaw 3 | verified | arXiv 2310.15683 abstract (qhduan/cn-chat-arxiv) and digest quoting the section (memgrafter) | Run on Prolific; the authors say "almost halved" |
+| TTFT 0.7–1.4 s non-reasoning; 28–67 s P50 reasoning | C09, flaw 1 | verified | search extract of the digitalapplied survey | Older models (Opus 4.7, GPT-5.5); note added |
+| DOOM study: reasoning models exceed a real-time budget | key evidence | uncertain | arXiv 2604.07385 abstract (GitHub digest) | Paper shows a 31 ms small model beating LLMs; exact wording not seen |
+| Siu et al.: no significant score difference; preferences differ | C44 | verified | arXiv 2107.07630 [background] | — |
+| Convention Gap: +26.2 / −0.7 / +16.4 pp | C44 | verified | arXiv 2609.11489 abstract (GitHub mirror) | — |
+| ICCA: models compress only with heavy prompting; 2606.08081 "verbose from round one" | C08 | verified | arXiv 2408.01417 [background]; 2606.08081 author page | — |
+| Cicero: 82 anonymous players, IRB, >$70 per 3 h game, "passed as human" (arXiv 2406.04643) | key evidence, C44 | corrected | 2406.04643 abstract and digest (GitHub) | Conflates Meta 2022 with Wongkamjan 2024, which found players identify Cicero; pay and IRB uncertain |
+| ForecastBench baseline: 500 public + 39 superforecasters | key evidence | verified | GitHub (benchmarkg/benchmarks; ai-forecasting-atlas) | Surveyed once, Jul 2024 |
+| Debate: human judges 88% vs 60% naive (QuALITY) | key evidence | verified | arXiv 2402.06782 abstract [background] | — |
+| Median baseline n = 8; 2% power analysis; 14% ethics review | dossier evidence, flaw 2 | verified | G §5 (Wei et al.) | — |
+| METR's pay scheme pushed baseliners to quit early | dossier evidence | verified | G §5 (corrected wording) | — |
+| 969 items for 3 pp; clustered SEs up to 3.05× | dossier evidence | verified | G §3 | — |
+| Judge swap: 3rd → 9th | C31 | verified | G §4 | — |
+| 205 of 243 Arena models silently deprecated | flaw 9, C05 | verified | G; P2 §3 | — |
+| Vending-Bench 2: 60–100M tokens; 2× provider effect | dossier evidence | corrected | B §3.2; P2 log | The 2× is Vending-Bench 1, mean metric only |
+| VideoGameBench 0.48% vs 1.6% | C09 | verified | A §2.17 | — |
+| AutumnBench 517, ARC-AGI-3 458, ZendoWorld 19 | C42 | verified | E Q1; A §2.3; F §2 | — |
+| FrontierMath 42%; HLE 18–29% | C14 | verified | P2 §2/§3 | [uncertain] label kept |
+| BALROG NetHack underpowered at 4–5 episodes | C13 | verified | D; P2 §3 | — |
+| ARC-AGI-3 62.7% vs 98.6% under two harnesses | C13 | verified | A §2.3 | — |
+| "Picking" and "coordinating" give different distributions (Mehta, Starmer & Sugden 1994) | C45 | verified | AER 1994 [background] | — |
+| ~240 wpm typical reading speed; 200k tokens in 3 h ≈ 830 wpm | C18 | verified | Brysbaert 2019 [background]; arithmetic | — |
+| 3-of-5 gate pass rates 32/50/68/94%; posterior mean ~71%; 4/5 re-gate 3.5% | C05 | verified | recomputed | — |
+| Cost arithmetic: C09 $2.4k/$6k; C17 $0.9–3k and $2.3–7.5k; C13 0.5–1B tokens; C45 ~$16k; C39 ~$4 per item | several | verified | recomputed from list prices | Inputs are [spec.] |
+
+**Tally (32 claims):** 29 verified · 2 corrected · 1 uncertain · 0 removed.
+**Verdict or top-10 changes:** none. The tally (3 kill / 20 revise / 24 keep) and the top 10 stand. The Cicero fix affects only the ethics precedent cited for C44.
+**Cost claims:** the C17 figure (~$0.9–3k per model, versus the ideator's $20–100) follows from the stated token assumptions and current prices.
