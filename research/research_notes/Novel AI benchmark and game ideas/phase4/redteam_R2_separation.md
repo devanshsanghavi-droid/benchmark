@@ -83,6 +83,21 @@ As of 30 Sep 2026. Reviewer: independent red team R2 (Claude Opus 5.5). **Lens:*
 | P4 | C15/C14 | 12 random exact-answer tasks (up to 5×5-digit products, 4×4 determinant, 7×7 lattice paths with forbidden cells) | No | 12/12 correct. Mean forecast 0.84 (underconfident). Brier 0.033; log score −0.178 |
 | P5 | stats | Power and L95-precision simulations (assumed SDs, stated) | n/a | See C07, C13, C17, C40, C41 |
 
+[fact-check P4, probe audit.] Every reported number reproduces from the files in `probes/`:
+- **P1:** the answers match the hidden keys, and re-simulation gives 5/5.
+- **P2:** the oracle state records 13 queries, the score is 20/20, and all 13 logged oracle answers are consistent with the hidden rule "size ≥ 3".
+- **P3:** re-running `p3_exploitability.py` gives 0.15 / 0.16 / 1.0 / 0.00315.
+- **P4:** the 12 answers are independently correct. Mean forecast 0.842, Brier 0.033, mean log score −0.178.
+- **P5:** the outputs match the script.
+
+The write-up omits these limits:
+- **Blindness is self-reported.** Solver and grader are the same model in the same session. The answer keys (`.p1_hidden.json`, `.p4_hidden.json`, `.p2_state.pkl`) sat readable in `probes/` while solving; file ctimes show they were renamed `*_revealed` only after each answer file was written. Peeking cannot be ruled out or audited. Answers came 15–42 s after each task was printed.
+- **The P2 query log is a reconstruction.** It was written about 9 minutes after scoring (08:36 vs 08:27), and the oracle itself logs only a query count.
+- **Samples are tiny:** n = 1 instance for P2 and P3, 2 for P1, and 12 items for P4.
+- **P3's metric is NashConv,** the sum of both players' best-response gains, which is twice the "exploitability" used by some authors.
+
+Treat the probes as existence demonstrations, not measurements.
+
 ### 2.1 C17 Reliability Horizon (keep)
 
 **Q2.** The construct is sound, but the ceiling is close.
@@ -234,7 +249,7 @@ As of 30 Sep 2026. Reviewer: independent red team R2 (Claude Opus 5.5). **Lens:*
 **Q2 attack: plumbing.** "Single frames are noise" at 30–60 fps makes the input channel the bottleneck.
 - Hosted video endpoints commonly subsample frames. From memory, about 1 fps by default for at least one major API; I did not verify this here.
 - A frozen harness that passes 60 frames as an image list, or a provider that raises its sampling rate, could remove much of the gap overnight.
-- This is ARC-AGI-3's harness lesson (62.7% vs 98.6%; A §2.3) and ClockBench's targeted-training lesson (13% → 67% in 12 months; A §2.9). The original IntPhys was saturated by V-JEPA at 98.3% (A §2.15).
+- This is ARC-AGI-3's harness lesson (62.7% vs 98.6%; A §2.3) and ClockBench's targeted-training lesson (13% → 67% in 12 months; A §2.9) [corrected by fact-check P4: was "targeted-training lesson". The rise is documented but its cause is not, and humans remain at 89.1%]. The original IntPhys was saturated by V-JEPA at 98.3% (A §2.15).
 - In the tools-on track, frame differencing plus clustering segments a motion-defined letter in a few lines of NumPy. That makes it a fine control but proves the headline rests on a no-code rule.
 
 **Fix.**
@@ -274,7 +289,7 @@ As of 30 Sep 2026. Reviewer: independent red team R2 (Claude Opus 5.5). **Lens:*
 
 **Q2 attack.**
 - The efficiency term (round-6 words ÷ round-1 words) is a style knob.
-- Per a search extract of arXiv 2508.06482, convention formation "can be elicited" when training rewards both success and message cost. One post-training cycle, or even the instruction "shorten references once your partner succeeds", could close most of it.
+- Per a search extract of arXiv 2508.06482, convention formation "can be elicited" when training rewards both success and message cost [corrected by fact-check P4: was "training rewards both success and message cost". The paper fine-tunes with preference optimisation on convention-formation demonstrations taken from human conversations, plus planning tokens, and gets up to 26% shorter messages at the same accuracy (abstract and digest via GitHub)]. One post-training cycle, or even the instruction "shorten references once your partner succeeds", could close most of it.
 - Partner-specificity (the round-7 reset) is harder to fake. Make it the headline.
 
 **Power.**
@@ -340,7 +355,7 @@ Just outside: C06 Alien Physics (3/4, stale physics evidence) and C05 Stump Aren
 ### The 10 most fatal flaws across the set
 
 1. **Latency and plumbing presented as cognition** (C01, C02, C04 (d), C09 real-time, C10, C47 live). A harness or API change can erase the gap, as it did on ARC-AGI-3 (62.7% → 98.6%, same model). C10's BYOH gives AI zero dual-task cost by construction.
-2. **A1 evidence is stale.** IntPhys 2 (Jun 2025), MUSE (Oct 2025), ActPLD (Sep 2025), VideoGameBench (May 2025) and AutumnBench (Oct 2025) predate Opus 5.5 and GPT-6 Astra. Targeted training closed ClockBench in about 12 months and the original IntPhys entirely. Re-baseline before building.
+2. **A1 evidence is stale.** IntPhys 2 (Jun 2025), MUSE (Oct 2025), ActPLD (Sep 2025), VideoGameBench (May 2025) and AutumnBench (Oct 2025) predate Opus 5.5 and GPT-6 Astra. Targeted training closed ClockBench in about 12 months and the original IntPhys entirely [corrected by fact-check P4: was "closed ClockBench". It rose from 13.3% to 66.7% in about 12 months against 89.1% for humans, a gap still about 22 pp, with no documented cause (A §2.9). V-JEPA's 98.3% on the original IntPhys is secondary (A §2.15)]. Re-baseline before building.
 3. **Closed worlds rendered as text are solved on sight or with RL** (C29, C32, C40, the C42/C43 text track, C47 paused, the C17 code track). Probe P2 solved the C42 text track 20/20 in 13 experiments. Logic-RL reached 0.99 and Bulls-and-Cows fell in 9.5 weeks.
 4. **Selection-manufactured gaps** (C05, C39). Pass@3-failure acceptance produces regression to the mean: under a uniform prior, about 20% of stumpers are solvable by the same panel at pass@1. A 3/5 human gate passes items whose true human solve rate is 0.5 half the time.
 5. **Difference scores and ratios as headlines** (C13 slope, C41 gain, C44 adaptation, C38 generational gain, C10 dual-task cost, the C08 efficiency ratio). Their reliability collapses. C41's gain has a 95% CI of about ±125 Elo on a single game per season.
