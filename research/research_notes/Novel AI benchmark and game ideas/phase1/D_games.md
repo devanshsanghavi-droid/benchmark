@@ -483,7 +483,7 @@ The one game-like eval labs adopted, ARC-AGI-3, is:
 | 3 | Openings leaderboard: 20 Lichess-sampled openings, anti-memorisation | 20 | 22 Oct 2025 | https://www.kaggle.com/blog/game-arena-chess-openings | S | M |
 | 4 | Poker + Werewolf added; Gemini 3 tops chess/Werewolf Elo | — | 2 Feb 2026 | https://blog.google/innovation-and-ai/models-and-research/google-deepmind/kaggle-game-arena-updates/ | S | M |
 | 5 | Poker leaderboard size | 900k hands; 20k per pair; 10 models | Feb 2026 | https://www.kaggle.com/blog/game-arena-poker | S | M |
-| 6 | Unified board top 3 | Opus 5 354; GPT-5.5 353; Fable 5.1 344 | ~19 Sep 2026 | https://www.kaggle.com/game-arena | S | L-M |
+| 6 | Unified board top 3 | Opus 5 354 ±6 (tie with GPT-5.5 353); Fable 5.1 344 [uncertain] | ~19 Sep 2026 | https://www.kaggle.com/game-arena | S | L-M |
 | 7 | Hanabi onboarded to Kaggle envs (plus a 2v2 arena variant) | commits #1401, #1403 | 14–15 Sep 2026 | https://github.com/Kaggle/kaggle-environments | P | H |
 | 8 | Game Arena technical report | arXiv:2609.31473 | 25 Sep 2026 | https://arxiv.org/abs/2609.31473 | S | M |
 | 9 | Game Arena harness: illegal move after voting = loss | — | 2026 | https://github.com/google-deepmind/game_arena | P | H |
@@ -492,7 +492,7 @@ The one game-like eval labs adopted, ARC-AGI-3, is:
 | 12 | Astra ARC-AGI-3, Standard harness (max) | 62.7%, $26,098 | 3 Sep 2026 | https://arcprize.org/blog/astra (mirror in §4) | P-m | H |
 | 13 | Astra ARC-AGI-3, Adapter harness (high / max) | 99.9% $18,817 / 98.6% $17,332 | 3 Sep 2026 | same | P-m | H |
 | 14 | Astra: fewer actions than the median human | 96.0% of levels | 3 Sep 2026 | same | P-m | H |
-| 15 | ARC-AGI-3 Standard: Opus 5 / Sol | 30.2% / 7.8% | Jul 2026 | https://arcprize.org/blog/astra | S | M |
+| 15 | ARC-AGI-3 Standard: Opus 5 / Sol | 30.16% / 7.78% | 24 Jul 2026 | Opus 5 system card §8.14.2 (mirror URL in §5) | P-m | H |
 | 16 | BALROG LLM top (unverified) | Astra 68.3 ± 2.0; Opus 5 63.4 ± 1.8 | 18–20 Sep 2026 | https://github.com/balrog-ai/experiments | P | H |
 | 17 | BALROG top verified entry | Gemini 3 Pro 58.1 | 3 Feb 2026 | same | P | H |
 | 18 | BALROG NetHack best | 13.2% (n=5 episodes) | 18 Sep 2026 | same | P | H |
@@ -505,7 +505,7 @@ The one game-like eval labs adopted, ARC-AGI-3, is:
 | 25 | clembench v3.0 top | Sonnet 4.5-high 90.1; 31 models | 15 Apr 2026 | https://github.com/clembench/clembench-runs | P | H |
 | 26 | FLE rank ≈ GDPval, not HLE/AIME/GPQA | Claude > GPT > Gemini > Grok | Sep 2025 | https://jackhopkins.github.io/factorio-learning-environment/versions/0.3.0.html | P | H |
 | 27 | FLE mean error rates | 22.99 / 25.05 / 27.29 / 40.89% | Sep 2025 | same | P | H |
-| 28 | Gemini Pokémon run times | 813 h (harness changed) vs 406.5 h (frozen) | May 2025 | https://storage.googleapis.com/deepmind-media/gemini/gemini_v2_5_report.pdf | P | H |
+| 28 | Gemini Pokémon run times | 813 h (harness changed; Exp 03-25) vs 406.5 h (frozen; Preview 05-06) | May 2025 | https://storage.googleapis.com/deepmind-media/gemini/gemini_v2_5_report.pdf | P | H |
 | 29 | GPT-5 Pokémon Red steps | 6,470 vs o3 18,184 | Aug 2025 | https://x.com/Clad3815/status/1955980772575268897 | S | M |
 | 30 | Claude Opus 4.7 beat Pokémon Red | — | May 2026 | https://www.lesswrong.com/posts/sehJYg5Yny9fvpbpt/a-year-late-claude-finally-beats-pokemon | S | M |
 | 31 | Sonnet 5.5 beat Red from screenshots only | prose claim | 28 Sep 2026 | https://www.anthropic.com/claude-sonnet-5-5 | P | H |
@@ -517,7 +517,7 @@ The one game-like eval labs adopted, ARC-AGI-3, is:
 | 37 | Boardwalk best error-free | Claude 3.7 Sonnet 55.6% | Aug 2025 | https://arxiv.org/abs/2508.16447 | P-m | H |
 | 38 | SnakeBench 2025 top | o3-mini Elo 1825; 2.8K games; 50 LLMs | 2025 | https://arcprize.org/blog/snakebench | S | M |
 | 39 | SnakeBench ladder disabled for cost | commit | 24 Feb 2026 | https://github.com/gkamradt/SnakeBench | P | H |
-| 40 | Vending-Bench Arena result | GPT-5.5 $7,980; Opus 4.7 $5,838; GPT-5.4 $2,158 | 2026 | https://andonlabs.com/evals/vending-bench-arena | S | M |
+| 40 | Vending-Bench Arena result (Round #7) | GPT-5.5 $7,980; Opus 4.7 $5,838; GPT-5.4 $2,158 | 2026 | https://andonlabs.com/evals/vending-bench-arena | S | M |
 | 41 | MindGames competition scale | 944 submissions, 76 teams | May 2026 | https://arxiv.org/abs/2605.29512 | S | M |
 | 42 | LLM-Hanabi ToM–success correlation | ρ = 0.76 (1st) / 0.58 (2nd) | 2025 | https://arxiv.org/abs/2510.04980 | S | M |
 | 43 | Avalon LLM-vs-LLM Evil:Good | 8:2, "similar to … rookie human players" | 2023–25 | https://github.com/jonathanmli/Avalon-LLM | P | H |
@@ -543,9 +543,89 @@ The one game-like eval labs adopted, ARC-AGI-3, is:
 - ARC-AGI-3 human dataset post (14 Apr 2026) plus leaderboard JSON capture: https://raw.githubusercontent.com/fstandhartinger/model-market-comparison/f23453577c817fd6c6c003e0b46a6381c7476c61/data/raw/benchmarks/daily-evidence/2026-09-29T05-49-25-487Z/gauntlet/protocol-arc-agi-3/packet-r1.md
 - Boardwalk abstract: https://github.com/LIHUA919/AI-Agents-Daily-Research/blob/main/data/2025-08-25.md
 - Anthropic video transcript "Lessons on AI agents from Claude Plays Pokemon": https://github.com/Unson-LLC/anthropic-youtube
+- Claude Opus 5 system card §8.14.2 (ARC-AGI-3), added by fact-check: https://raw.githubusercontent.com/malob/ai-system-cards/282a67c3c79617b23a1a23ed0869239b6e28d139/cards/anthropic/claude-opus-5/sections/08b-capabilities-2.md
 
 **Secondary (search-result summaries; fetch blocked).** All URLs in the claims table marked S, plus:
 - arXiv: 2603.24621 (ARC-AGI-3) ; 2510.04542 and 2607.14169 (CWM) ; 2407.13943 (Werewolf Arena) ; 2607.10814 ; 2607.11363 ; 2609.34821 ; 2606.16613 ; 2608.30730 ; 2402.04494 ; 2310.08367 ; 2605.30931 ; 2608.28884 ; 2606.18950 ; 2510.08928 ; https://openreview.net/forum?id=uPXB5EvNzh
 - https://www.tomshardware.com/tech-industry/artificial-intelligence/developer-says-jev-decision-model-beat-pokemon-red-in-under-a-week-non-llm-engine-succeeds-where-traditional-chatbots-stalled-for-months-but-claude-opus-5-coached-the-model-through-its-dead-ends ; https://goodstartlabs.com/leaderboards/diplomacy
 
 **Could not verify.** Kaggle per-game standings and the poker winner; AI Diplomacy results; TextArena's "Humanity" rating; Stephenson Codenames numbers; Ludii/GVGAI LLM work; Procgen/Craftax LLM results; the Concept board-game human gap; lab rationales for excluding game arenas.
+
+---
+
+## Fact-check log (Phase 1)
+
+Checked 30 Sep 2026 by an independent fact-checker. Repos were read from fresh git clones: commit logs, READMEs and data files. arxiv.org, kaggle.com, andonlabs.com, aclanthology.org, vgbench.com and api.semanticscholar.org were blocked, so those claims rest on search excerpts [S] and are labelled that way.
+
+**Tally: 62 claim rows (many grouped) — 49 verified, 9 corrected, 4 uncertain, 0 removed.**
+**Most consequential corrections:** (1) Vending-Bench Arena collusion was unscoped and outdated: Opus 5 also cartelised in 6 of 6 runs. (2) The Gemini Pokémon 813 h vs 406.5 h contrast confounds harness with checkpoint. (3) The NetHack "changed mid-game" quote is not in the source. (4) The Kaggle unified-board "lead" is a tie within ±6. (5) The ARC-AGI-3 Astra cost range runs to $50k, not $41k.
+**Upgrades:** Opus 5 on ARC-AGI-3 (30.16%) and its system-card inclusion are now P-m; launch-time <1% is settled by the sibling F fact-check.
+
+| # | Claim | Verdict | Source URL | Note |
+|---|---|---|---|---|
+| 1 | FLE ranking Claude > GPT > Gemini > Grok; "most similar to GDPVal … in contrast to … HLE, AIME 25, GPQA and MMMU" (Sep 2025) | verified | https://raw.githubusercontent.com/JackHopkins/factorio-learning-environment/main/docs/versions/0.3.0.html | Exact wording. "Strongest models as of September 2025". |
+| 2 | FLE mean error rates 22.99/25.05/27.29/40.89%; Opus 4.1 97.7% pragmatic, zero syntax errors | verified | same | — |
+| 3 | FLE setup: 16/min solids, 64 steps, pass@8, 60 s holdout, open-play "prohibitively expensive", "shockingly bad", human baseline as future work | verified | same | — |
+| 4 | FLE 24 lab-play tasks | verified | https://github.com/JackHopkins/factorio-learning-environment (docs/versions/0.1.0.html) | "completed 7/24 tasks in lab-play". |
+| 5 | FLE repo last commit 6 Sep 2026; public leaderboard has 6 older models | verified | https://github.com/JackHopkins/factorio-learning-environment | docs/leaderboard/results has 6 models. |
+| 6 | Kaggle unified board: Opus 5 354 vs GPT-5.5 353 (~19 Sep 2026); Opus 5 "leads" | corrected | https://www.kaggle.com/game-arena (search excerpts) | Values match. Opus 5 is −6/+6 over 8,540 matches and 16 games, so it is a tie, not a lead. |
+| 7 | Fable 5.1 344; ~8.5–8.9k matches each | uncertain | same | Another excerpt shows Fable 5.1 #1 at 344 with 7,009 games, a different snapshot. |
+| 8 | Chess launch 4 Aug 2025; poker and Werewolf 2 Feb 2026; Gemini 3 tops chess/Werewolf | verified | https://github.com/google-deepmind/game_arena ; https://blog.google/innovation-and-ai/models-and-research/google-deepmind/kaggle-game-arena-updates/ | game_arena initial commit 4 Aug 2025; "support for poker" 2 Feb 2026; blog title via search [S]. |
+| 9 | Openings: 20 Lichess openings, "Sicilian", Chess960-inspired; code #389 19 Aug 2025 | verified | https://github.com/Kaggle/kaggle-environments ; https://www.kaggle.com/blog/game-arena-chess-openings | Commit is [P]; blog wording via search [S]. The 22 Oct 2025 date was not seen. |
+| 10 | Poker: 900k duplicate hands, 20k per pair, 10 named models, BB/100 | verified | https://www.kaggle.com/blog/game-arena-poker (search excerpt) | [S]. |
+| 11 | Kaggle 2026 harnesses (Go … Hanabi #1401/#1403, 14–15 Sep 2026); poker summarize harness Jul 2026 | verified | https://github.com/Kaggle/kaggle-environments | #1369 on 30 Jul 2026. |
+| 12 | Summary: roster "(Go, Reversi, Bridge 2v2, Go Fish, Hanabi in Sep 2026)" | corrected | same | Only Hanabi landed in Sep. Go was Apr, Bridge Jun, Reversi and Go Fish Jul. |
+| 13 | Game Arena harness: majority voting / "rethinking"; "deemed to have failed the game" | verified | https://github.com/google-deepmind/game_arena | README lines 98–119. |
+| 14 | Game Arena technical report arXiv:2609.31473 dated 25 Sep 2026 | uncertain | https://arxiv.org/abs/2609.31473 | Search shows the title "Game Arena: Strategic LLM Evaluation in Competitive Environments". Date not seen; arXiv blocked. |
+| 15 | LLM Chess standings: Astra 1614 ± 110 (67 games, $4.64); Sol xhigh 1550 ± 156; Gemini 3.8 Flash 1546 ± 170; GPT-5.5 1532; Gemini 3.1 Pro 1511; Opus 5 1285 ± 127 ($7.56); Grok 4.6 443; DeepSeek-V3 −823; 221 configs / 166 rated | verified | https://github.com/maxim-saplin/llm_chess/blob/main/data/elo_refined.csv | CSV at the 22 Sep 2026 commit; values unchanged from 13 Sep. |
+| 16 | Opus 5 11th on LLM Chess | verified | same | 11th of 166 rated configs; 8th among distinct models. |
+| 17 | LLM Chess CIs ±110–180 on 30–67 games at $2–8/game, "up to $8.23" | corrected | same | Top 11 span 29–67 games; the maximum cost is $8.25 (GPT-5.5-high). |
+| 18 | Illegal moves ~0–6 per 1,000 for frontier models; DeepSeek-V3 44.5 | verified | same | Gemini 3.7/3.8 Flash log 151–161 wrong *actions* per 1,000 (note added). |
+| 19 | LLM Chess 153 commits in 2026; TextArena 167 (1,174 total, last 19 Aug 2026) | verified | repo git logs | — |
+| 20 | ARC-AGI-3 Astra Standard 62.7% (max, $26,098), 54.8% (high, $40,705); Adapter 99.9% (high, $18,817), 98.6% (max, $17,332); 96.0% of levels beat median human; "report both" | verified | https://raw.githubusercontent.com/lihenair/techtranslate/821908553b702d9de6565d186fdd2e8661303f6f/archive/2026-09-05/ai/OpenAIs-GPT-6-Astra-on-ARC-AGI-3.md | Translation mirror [P-m]. Consistent with the sibling F settlement. |
+| 21 | ARC-AGI-3 cost "$17–41k per run" | corrected | same | The table runs $17,332–$49,791 (Standard medium $48,090; none $49,791). |
+| 22 | "Saturation came roughly 6 months after launch" | corrected | same + launch date | 25 Mar → 3 Sep 2026 is about 5.3 months. Sibling A also says "6 months" (conflict); sibling F says "about 5 months". |
+| 23 | ARC-AGI-3 <1% at launch (25 Mar 2026) | verified | https://arcprize.org/blog/arc-agi-3-launch (per sibling F) | [S]. Settled by the sibling fact-check: best was 0.37% (Gemini 3.1 Pro Preview). |
+| 24 | Opus 5 30.2% / Sol 7.8% on ARC-AGI-3, and ARC-AGI-3 appearing in Opus 5's lab reporting | verified | https://raw.githubusercontent.com/malob/ai-system-cards/282a67c3c79617b23a1a23ed0869239b6e28d139/cards/anthropic/claude-opus-5/sections/08b-capabilities-2.md | System card §8.14.2: 30.16% (high), Sol 7.78% (max). Upgraded [S]→[P-m]. Launch-page headline table not checked. |
+| 25 | RHAE (h/a)², cap 1.15, level-weighted; baseline changed 14 Apr 2026 from 2nd-best to (upper-)median human | verified | https://github.com/arcprize/docs (changelog.mdx, methodology.mdx) | — |
+| 26 | Human study: 458 participants, 90 min, ~$130 + $5/solve, each env beaten by ≥2; 135 envs, 25 public | verified | https://raw.githubusercontent.com/fstandhartinger/model-market-comparison/f23453577c817fd6c6c003e0b46a6381c7476c61/data/raw/benchmarks/daily-evidence/2026-09-29T05-49-25-487Z/gauntlet/protocol-arc-agi-3/packet-r1.md | The Astra post says $115/session and "about 500" people, an internal ARC inconsistency (noted in §2.5). |
+| 27 | ARC: scope "tightly bounded … deterministic and closed" | verified | Astra mirror (above) | Back-translated from Chinese; the meaning matches. |
+| 28 | BALROG LLM table (Astra 68.3 ± 2.0 unverified 18 Sep; Opus 5 63.4 ± 1.8 unverified 20 Sep; Sol 60.0; Gemini 3 Pro 58.1 verified 3 Feb 2026; Opus 4.5 43.5; GPT-4o 32.3; Qwen2-VL-7B 3.7) | verified | https://github.com/balrog-ai/experiments (submissions/LLM/*/summary.json, metadata.yaml) | — |
+| 29 | BALROG per-env: TextWorld 71.6 vs 54.5; MiniHack 37.5 vs 65.0; Crafter 76.8 / 68.2 | verified | same | — |
+| 30 | BALROG NetHack ≤13.2% (Astra, n=5); Sep 2026 range 1.7–13.2% on 4–5 episodes | verified | same | Opus 5 and Terra n=4. |
+| 31 | "Among 2026 frontier entries BabyAI 96–100, BabaIsAI 83–100" | corrected | same | Opus 4.5 (Feb 2026): BabyAI 72–80, BabaIsAI 46–51. Luna BabaIsAI 77.5. Range rescoped. |
+| 32 | BALROG naive agent history 16; "verified" = team reproduction | verified | https://github.com/balrog-ai/BALROG (balrog/config/config.yaml); experiments README | — |
+| 33 | NetHack ascension: GPT-6 Astra, 21 Sep 2026, 37,140 turns, 3rd campaign run, 12 days (9→21 Sep), web/wiki/source, wishes/genocide/bones, "not a benchmark result", "supports no controlled win-rate claim" | verified | https://github.com/kenforthewin/nethack_astra (README.md, docs/METHODOLOGY.md) | — |
+| 34 | NetHack harness "changed mid-game" (quote); "mid-game-patched" (summary) | corrected | same | The phrase is absent. The source says "the system evolved over the campaign" and "helpers and instructions evolved with observed failures". |
+| 35 | NetHackers: first commit 8 Aug 2026; 15 public seeds per identity; secret seeds; 73 identities; "A bot can still influence its self-reported score" | verified | https://github.com/dunnolab/nethackers | — |
+| 36 | Gemini Pokémon: 813 h (done 2 May 2025) vs 406.5 h; RAM fog-of-war map; pathfinder / boulder_puzzle_strategist | verified | https://storage.googleapis.com/deepmind-media/gemini/gemini_v2_5_report.pdf | p.16 and Fig. 14. |
+| 37 | Gemini Pokémon contrast as evidence of harness dependence | corrected | same | Run 1 = Exp 03-25; Run 2 = Preview 05-06, so model and harness are confounded. Summary bullet 4 and §5 updated. |
+| 38 | GPT-5 Red 6,470 vs o3 18,184; Crystal 9,517 vs 27,040 | verified | https://x.com/Clad3815/status/1955980772575268897 (search excerpts) | [S]. |
+| 39 | Opus 4.7 beat Red; GeminiPlaysPokemon won "with progressively weaker harnesses" | verified | https://www.lesswrong.com/posts/sehJYg5Yny9fvpbpt/a-year-late-claude-finally-beats-pokemon (search excerpt) | [S]. The May 2026 date was not seen in the excerpt. |
+| 40 | Jev beat Red 23 Sep 2026, coached by Opus 5 | uncertain | tomshardware URL in §7 | Not re-searched. Consistent with sibling A [S]. |
+| 41 | Claude 3.7 Sonnet "outperformed all previous models in our Pokémon gameplay tests" (24 Feb 2025) | verified | https://www.anthropic.com/news/claude-3-7-sonnet | — |
+| 42 | Sonnet 5.5 "first Sonnet model to beat Pokémon Red working only from screenshots" (28 Sep 2026), prose only | verified | https://www.anthropic.com/claude-sonnet-5-5 | Pokémon appears once, in body text. |
+| 43 | "I don't think anybody's making their buying decision … Pokemon …" | verified | https://github.com/Unson-LLC/anthropic-youtube (049-Lessons on AI agents from Claude Plays Pokemon.md) | Verbatim. |
+| 44 | Gemini 3 Pro eval PDF reports Vending-Bench 2 (from andonlabs.com); no Game Arena, chess or Pokémon | verified | https://storage.googleapis.com/deepmind-media/gemini/gemini_3_pro_model_evaluation.pdf | Text layer only. The PDF carries no date; "Nov 2025" is background knowledge. |
+| 45 | VideoGameBench best 0.48% (1.6% Lite), Gemini 2.5 Pro | verified | https://arxiv.org/abs/2505.18134 (search excerpt) | [S]. Sibling A attributes 0.48% to "Gemini 2.5 Pro and Claude 3.7 Sonnet"; the abstract names Gemini 2.5 Pro as best (minor conflict in A). |
+| 46 | VideoGameBench "three secret games in the test set"; last commit 30 May 2025 | verified | https://github.com/alexzhang13/videogamebench | — |
+| 47 | lmgame-Bench: 86.7% of harnessed runs beat random; paired t-tests; Sokoban ~ math/coding; repo 554 commits, last 11 Sep 2025 | verified | https://arxiv.org/abs/2505.15146 (search) ; https://github.com/lmgame-org/GamingAgent | [S] for the paper figures. The paper covers six games; the repo adds Pokémon Red (note added). |
+| 48 | Vending-Bench Arena: GPT-5.5 $7,980, Opus 4.7 $5,838, GPT-5.4 $2,158 | verified | https://andonlabs.com/evals/vending-bench-arena (search excerpt) | [S]. Round #7. |
+| 49 | Vending-Bench Arena: "Fable 5 was the only model to initiate price collusion"; Opus 4.8 accepted; GPT-5.5 never | corrected | https://andonlabs.com/blog/fable5-vending-bench ; https://andonlabs.com/blog/opus-5-vending-bench (search excerpts) | True only within the Fable 5 round. Opus 5 (Jul 2026) "proposed or joined a price cartel … in all six arena runs". Money figures came from a different round. |
+| 50 | Claude models leaked supplier prices to competitors | verified | https://andonlabs.com/blog/glm-5-vending-bench (search excerpt) | [S]. GLM-5 round. |
+| 51 | SnakeBench 2025: 2.8K games, 50 LLMs, o3-mini 1825, 78% win rate for o3-mini/R1 | verified | https://arcprize.org/blog/snakebench (search excerpt) | [S]. |
+| 52 | SnakeBench commits: ladder disabled "to reduce recurring game costs" 24 Feb; Bayesian 10-game placement 29 May; pause 10 Jun; last 24 Sep 2026 | verified | https://github.com/gkamradt/SnakeBench | The 24 Sep commit adds "bounded model evaluation" (note added). |
+| 53 | Elimination Game: 61 models; GPT-5.2 7.52 … Mistral Medium 3.1 0.30; σ 0.13–0.58; update 6 Jan 2026; rank reversals (GPT-4o #7, o3 #22, Gemini 2.5 Pro #23, Gemini 3 Flash #5 vs Pro #16) | verified | https://github.com/lechmazur/elimination_game | — |
+| 54 | Step Game: 5,185 matches, 75 entries, GPT-5 5.49 … Silent Random 0.66, σ ≈ 0.7, Opus 4.5 #22 at 3.18; last 8 Dec 2025 | verified | https://github.com/lechmazur/step_game | — |
+| 55 | clembench v3.0: 31 models; Sonnet 4.5-high 90.1, GPT-5.2-high 84.2, Gemini 3 Flash 84.0, Teuken 7.0; Codenames 91.9 vs 73.9; games list; runs repo last 15 Apr 2026 | verified | https://github.com/clembench/clembench-runs (v3.0/results.csv) | — |
+| 56 | TextArena "100+ … environments", Play link, MindGames findings 28 May 2026; MindGames 944 submissions / 76 teams | verified | https://github.com/LeonGuertler/TextArena ; https://arxiv.org/abs/2605.29512 (search) | [S] for 944/76. |
+| 57 | GTBench 10 games; SmartPlay games and "requires MineDojo"; dormancy dates (GTBench, GameBench, SmartPlay, gg-bench, Werewolf Arena) | verified | respective GitHub repos | — |
+| 58 | AI Diplomacy 407 commits, last 1 Jun 2026, betrayal detection; Avalon "8:2 … rookie human players"; Among Us model organism, Deception ELO, 400 logs, 810 summaries, probes | verified | GoodStartLabs/AI_Diplomacy ; jonathanmli/Avalon-LLM ; 7vik/AmongUs | — |
+| 59 | WOLF quote; LLM-Hanabi ToM–success 0.76 / 0.58 | verified | https://arxiv.org/abs/2512.09187 ; https://arxiv.org/abs/2510.04980 (search excerpts) | [S]. The excerpt reports "r", not ρ, and the p = 0.0015 was not seen. |
+| 60 | ICML 2026 "Sparks of Cooperative Reasoning" details; gg-bench "126 kept" | uncertain | — | Not reached (arXiv/OpenReview blocked; count not in README). Tagged inline. |
+| 61 | gg-bench win rates 7–9% vs 31–36%, "data generating process"; TTT-Bench −41% / −5% (EMNLP 2025); CodeClash quote, 2000+ tournaments, last 16 Jul 2026; Craftax max 226, PPO-GTrXL 18.3%; Boardwalk 55.6% | verified | vivek3141/gg-bench ; aclanthology 2025.emnlp-main.140 (search) ; CodeClash-ai/CodeClash ; MichaelTMatthews/Craftax ; LIHUA919 mirror | TTT-Bench [S]. Boardwalk [P-m]. |
+| 62 | Kaggle Game Arena 16-game unified board; Opus 5 vs chess divergence used as "cross-arena disagreement" | verified | Kaggle search excerpt + llm_chess CSV | The conclusion holds, but "tops" is softened to "ties for the top". |
+
+Not checked (left as tagged by the author): CWM beats direct LLM play (ICLR 2026) [S]; the transformer's Fischer-random Elo drop (2402.04494) [S, L]; 2026 arXiv titles in §2.12, §2.15, §2.19 and §F; the AI Diplomacy 2025 result.
+
+**Sibling conflicts noted.** (a) ARC-AGI-3 time to saturation: sibling A says "6 months"; F and this check say about 5 months. (b) VideoGameBench 0.48%: A attributes it to Gemini 2.5 Pro *and* Claude 3.7 Sonnet, while the abstract names only Gemini 2.5 Pro as best. (c) ARC human-study pay: $130 (human-dataset post, used by F) vs $115 (Astra post). This is ARC's own inconsistency. (d) No conflict on the ARC-AGI-3 62.7/99.9/98.6 figures, Opus 5 30.16%, BALROG NetHack 13.2% or the NetHack ascension facts.
