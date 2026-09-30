@@ -430,11 +430,11 @@ The one game-like eval labs adopted, ARC-AGI-3, is:
   - Opus 5's ARC-AGI-3 score (30.16%, high effort) appears in the Claude Opus 5 system card (§8.14.2, with a figure) as reported by the ARC Prize Foundation — [system card mirror](https://raw.githubusercontent.com/malob/ai-system-cards/282a67c3c79617b23a1a23ed0869239b6e28d139/cards/anthropic/claude-opus-5/sections/08b-capabilities-2.md) [P-m, H] [updated by fact-check: was "not re-verified"; whether it is also in the launch-page headline table is still unchecked].
 - **Harness dependence.**
   - ARC-AGI-3 Standard 62.7% vs Adapter 99.9% for the same model. ARC will "report both" — [mirror](https://raw.githubusercontent.com/lihenair/techtranslate/821908553b702d9de6565d186fdd2e8661303f6f/archive/2026-09-05/ai/OpenAIs-GPT-6-Astra-on-ARC-AGI-3.md) [P-m, H]
-  - The Gemini Pokémon run was 813 h with a harness changed mid-run vs 406.5 h with a frozen one — [Gemini 2.5 report](https://storage.googleapis.com/deepmind-media/gemini/gemini_v2_5_report.pdf) [P, H]
+  - The Gemini Pokémon run was 813 h with a harness changed mid-run vs 406.5 h with a frozen one, though Run 2 also used a newer checkpoint, so this is not a clean harness ablation — [Gemini 2.5 report](https://storage.googleapis.com/deepmind-media/gemini/gemini_v2_5_report.pdf) [P, H]
   - lmgame-Bench: harnessed runs score significantly higher — [lmgame-Bench](https://arxiv.org/abs/2505.15146) [S, M]
 - **Cost and variance.**
-  - ARC-AGI-3: $17k–$41k per Astra configuration [P-m].
-  - LLM Chess: 30–67 games per model at up to $8.23 per game still give ±110–180 Elo [P].
+  - ARC-AGI-3: $17k–$50k per Astra configuration [P-m] [corrected by fact-check: was "$17k–$41k"; the Standard-harness medium and none runs cost $48,090 and $49,791].
+  - LLM Chess: 29–67 games per model at up to $8.25 per game still give ±110–180 Elo [P] [corrected by fact-check: was "30–67 games … up to $8.23"; GPT-5.5-high has 29 games at $8.25/game].
   - SnakeBench disabled ladder matchmaking "to reduce recurring game costs" — [SnakeBench commits](https://github.com/gkamradt/SnakeBench) [P, H]
   - FLE: open-play is "prohibitively expensive" [P, H].
 - **Contamination and tool-solvability.**
@@ -465,7 +465,7 @@ The one game-like eval labs adopted, ARC-AGI-3, is:
 5. **Statistical budget.** Set a CI target (e.g. ≤ ±3 points), with cost caps and cost-per-score reporting.
 6. **Decision relevance.** Show predictive validity for valued work: the FLE/GDPval rank match is the template. Surface deception and collusion metrics as safety signals.
 7. **Neutral steward and sustained refresh.** A named maintainer and third-party verification, following ARC Prize and the BALROG "verified" flag.
-8. **A headroom window.** Launch where frontier models score non-trivially but are improving. ARC-AGI-3 entered lab tables at about 30% [S]. [speculation: the adoption threshold]
+8. **A headroom window.** Launch where frontier models score non-trivially but are improving. ARC-AGI-3 entered a lab system card at about 30% (Opus 5, Jul 2026), after launching at <1% [P-m]. [speculation: the adoption threshold]
 
 ### Gaps
 
