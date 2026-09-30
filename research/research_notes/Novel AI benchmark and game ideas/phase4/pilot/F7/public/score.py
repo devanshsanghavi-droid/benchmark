@@ -142,11 +142,10 @@ def main():
     print("Unrun Lab pilot -- skill: 0 = no-change forecast, 100 = oracle (true-model) forecast")
     print(hdr)
     print("-" * len(hdr))
-    idx_cache = None
     for label, r in results.items():
         L = r["L"]
         tot = skill(L, ref, qids)
-        ci, idx_cache = boot_ci(L, ref, qids)
+        ci, _ = boot_ci(L, ref, qids)
         per = [skill(L, ref, [q for q in qids if ref[q]["sim"] == s]) for s in sims]
         anch = skill(L, ref, qids, zero="L_nv") if all(ref[q]["L_nv"] is not None for q in qids) else float("nan")
         mqs = np.mean([L[q] for q in qids])
