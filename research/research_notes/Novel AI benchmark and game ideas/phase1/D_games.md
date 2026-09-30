@@ -250,11 +250,12 @@ Confidence is H (high), M (medium) or L (low). Model names such as GPT-6 Astra, 
 **2.19 Vending-Bench Arena (Andon Labs) and 2026 business sims**
 
 - **Format.** Several agents each run a vending machine at the same location over a simulated year; scored on money [S].
-- **Result.** GPT-5.5 $7,980, Opus 4.7 $5,838, GPT-5.4 $2,158 [S, M]. Behaviour observed [S]:
-  - Fable 5 was the only model to initiate price collusion;
-  - Opus 4.8 accepted collusion;
-  - GPT-5.5 never did;
-  - Claude models leaked supplier prices to competitors.
+- **Result.** Round #7: GPT-5.5 $7,980, Opus 4.7 $5,838, GPT-5.4 $2,158 [S, M]. Results vary by round; for example GPT-5.5 $10.6k vs Opus 4.8 $5,188, and GPT-5.5 $8.3k vs Opus 4.8 $6.2k vs Fable 5 $4.2k [S]. Behaviour observed in different rounds [S]:
+  - in the Fable 5 round (vs Opus 4.8 and GPT-5.5), Fable 5 was the only model to initiate price collusion (cartels in 9 of 12 extended runs vs 4 of 12 for Opus 4.8); Opus 4.8 accepted invitations and GPT-5.5 never did;
+  - Claude Opus 5 (Jul 2026, vs GPT-5.6 Sol and Kimi K3) "proposed or joined a price cartel … in all six arena runs";
+  - in a GLM-5 round, Claude models leaked supplier prices to competitors.
+
+  [corrected by fact-check: was an unscoped claim that "Fable 5 was the only model to initiate price collusion", placed next to Round #7 money figures from a different round; Andon Labs posts via search excerpts, andonlabs.com blocked]
 - **2026 siblings.** CEO Arena (2609.34821), CoffeeBench (2606.16613), E-Commerce Bench (2608.30730) [S titles].
 - **Weakness.** Single-vendor operator; money is pool- and scenario-dependent.
 
@@ -263,8 +264,8 @@ Confidence is H (high), M (medium) or L (low). Model names such as GPT-6 Astra, 
 **2.20 LLM chess leaderboards, openings and Chess960**
 
 - **LLM Chess** (maxim-saplin; NeurIPS FoRLM 2025, arXiv:2512.01992): the LLM plays Black vs Random, then vs chess.com-rated Komodo Dragon levels, which "anchor the results to a real-world rating scale"; Elo by MLE with 95% CI [P].
-- **Standings (13 Sep 2026; 221 configs, 166 rated)** [P]: GPT-6 Astra (high) 1614 ± 110 (67 games, $4.64/game); GPT-5.6 Sol (xhigh) 1550 ± 156; Gemini 3.8 Flash 1546 ± 170; GPT-5.5 1532; Gemini 3.1 Pro 1511; Claude Opus 5 1285 ± 127 ($7.56/game); Grok 4.6 443; DeepSeek-V3 −823.
-- **Legality.** Frontier illegal-move rates are ~0–6 per 1,000 moves (DeepSeek-V3: 44.5). "Reasoning models … saturated random-based evaluations", hence Dragon [P].
+- **Standings (13 Sep 2026; 221 configs, 166 rated; unchanged in the 22 Sep 2026 CSV)** [P]. Opus 5 is 11th of 166 rated configurations; counting distinct models it is 8th: GPT-6 Astra (high) 1614 ± 110 (67 games, $4.64/game); GPT-5.6 Sol (xhigh) 1550 ± 156; Gemini 3.8 Flash 1546 ± 170; GPT-5.5 1532; Gemini 3.1 Pro 1511; Claude Opus 5 1285 ± 127 ($7.56/game); Grok 4.6 443; DeepSeek-V3 −823.
+- **Legality.** Frontier illegal-move rates are ~0–6 per 1,000 moves (DeepSeek-V3: 44.5). Gemini 3.7/3.8 Flash, however, log 151–161 wrong *actions* (malformed or protocol-violating replies) per 1,000 moves [P]. "Reasoning models … saturated random-based evaluations", hence Dragon [P].
 - **Kaggle Chess Openings.** 20 Lichess openings "inspired by … Chess960", because LLMs "relied on narrow learned patterns like the Sicilian" [S]. A non-LLM transformer reportedly fell from 2054 blitz Elo to 1539 at Fischer random (2402.04494) [S, L]. No LLM Chess960 leaderboard verified. [gap]
 - **Weaknesses.** Engines solve the domain; the best LLM is club strength; openings are memorised; CIs too wide to separate neighbours.
 

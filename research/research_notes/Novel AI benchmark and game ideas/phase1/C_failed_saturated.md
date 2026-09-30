@@ -554,7 +554,7 @@ Novel instances close path 0 (contamination). Novel skills close paths 0 and 1 o
 
 ## Fact-check log (Phase 1)
 
-**Tally (57 claims checked):** verified 35 · corrected 13 · uncertain 9 · removed 0.
+**Tally (65 logged claims):** verified 46 (some with caveats) · corrected 11 (including 2 verdict-recoding rows covering 9 table rows) · uncertain 8 · removed 0.
 **Hypothesis table:** Supports / Contradicts / Neutral changed from 7 / 17 / 12 to **5 / 10 / 21**. Nine rows were recoded to apply the dossier's own "orthogonal = Neutral" rule consistently. The headline verdict ("refuted as a single common factor; partly confirmed for static public items") stands, but it is coding-sensitive (§4 Gaps).
 **DC Bench:** two exact-name 2026 LLM-agent benchmarks were found: DCBench (Data Cognition; best fit) and Brief's dcbench (Decision Compliance). DCA-Bench is demoted to a near-name match. The referent is still unconfirmed.
 
