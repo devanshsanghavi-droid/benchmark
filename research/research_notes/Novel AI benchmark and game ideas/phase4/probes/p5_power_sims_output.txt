@@ -1,0 +1,12 @@
+Dyad success MDE (pp), SD 0.25/0.30, n=100/150 per arm:
+  sd=0.25 n=100: 9.9 pp
+  sd=0.25 n=150: 8.1 pp
+  sd=0.3 n=100: 11.9 pp
+  sd=0.3 n=150: 9.7 pp
+Learning-slope MDE, 8 campaigns/model, SD of per-campaign slope 0.10/0.15: [0.14, 0.21]
+Elo SE for 8 games at 50%: 123 (95% CI +/-241); diff of two: 95% +/-340
+Elo SE for 60 games at 50%: 45 (95% CI +/-88); diff of two: 95% +/-124
+Elo SE for 480 games at 50%: 16 (95% CI +/-31); diff of two: 95% +/-44
+point: log2 L50=8.98, log2 L95=6.36
+cluster-bootstrap 95% CI log2 L50: [8.76,9.17] (width x1.33)
+cluster-bootstrap 95% CI log2 L95: [6.07,6.67] (width x1.52)
