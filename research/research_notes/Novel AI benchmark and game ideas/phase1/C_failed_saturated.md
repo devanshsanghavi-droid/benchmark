@@ -141,12 +141,13 @@ Two of the three names resolve cleanly: Zapier's AutomationBench and OfficeBench
 | "DCBench" as LLM4Decompile's short name for Decompile-Bench | A binary-decompilation dataset — [LLM4Decompile](https://github.com/albertan017/LLM4Decompile) (M) [added by fact-check] | Unlikely |
 
 - **DCA-Bench lesson** (if it is the referent): a realistic professional task with an LLM-judge grader and 221 items, and no leaderboard. It was adopted about as widely as OfficeBench.
+- **DCBench (Data Cognition) lesson** (if it is the referent) [fact-check addition]: the same pattern. It has 1,025 expert items, an LLM-judge rubric, no paper, no leaderboard and 0 stars five months after release. The two leading "DC Bench" candidates therefore both illustrate adoption failure, not novelty failure, so the §4 verdict for the third "boring" benchmark stays Neutral whichever referent is meant.
 
 ### Inferences
 - What unites the "boring professional" trio is not novelty. AutomationBench succeeded where OfficeBench and DCA-Bench did not through **distribution plus a trusted, deterministic, private-split grader plus a sponsor with a reason to keep it running.**
 
 ### Gaps
-- AutomationBench's public/private scoring conflict (50.3% vs 26.9% for Opus 5) is unresolved.
+- AutomationBench's public/private scoring conflict (50.3% vs 26.9% for Opus 5) is unresolved. [corrected by fact-check: resolved. 50.3% is on the 600-task public set in the README; 26.9% is on Zapier's harder, held-out official leaderboard. What remains open is which private-set version each figure used.]
 - OfficeBench's venue was not verified.
 - The user should confirm the "DC Bench" referent. [speculation] They may be misremembering DSBench, DA-Code or GDPval.
 
@@ -171,40 +172,40 @@ Failure modes cluster into five types: contamination, saturation, validity colla
   - With "Lorem ipsum dolor..." in place of the question, "more than 65% of model predictions remain the same, and this cannot be attributed merely to contamination" [Chizhov et al. abstract mirror](https://github.com/Luvata/arxive/blob/main/pages/2025-04-11-cs-cl.html) (H).
   - Launch: BERT 47.3% vs humans 95.6%. GPT-4 95.3% (Mar 2023), about 4 years later (not re-verified; M).
 - **BIG-bench and BBH.** Failure modes: adoption (BIG-bench) and saturation (BBH).
-  - The BIG-bench repo (>200 tasks) was archived on 17 Apr 2026 [GitHub](https://github.com/google/BIG-bench) (H).
+  - The BIG-bench repo (>200 tasks) was archived on 17 Apr 2026 [GitHub](https://github.com/google/BIG-bench) (H). [uncertain: the GitHub API confirms `archived: true` (last push 19 Jul 2024), but the 17 Apr 2026 archive date could not be verified]
   - BBH was deemed saturated, "with models scoring over 90%", which motivated BBEH. On BBEH, o3-mini-high scores 44.8% (harmonic mean) [BBEH](https://arxiv.org/abs/2502.19187) (M).
   - **Conflict:** Akhtar et al. classed BBH as unsaturated by their separability index (not re-verified). Their metric (top-5 separability on leaderboard data) differs from "near ceiling".
 - **GPQA Diamond (Nov 2023).** Failure mode: saturation by capability.
   - Experts score about 65% on full GPQA; skilled non-experts with web access about 34% (GPQA paper; not re-verified; M).
-  - Top scores rose from GPT-4's about 39% to 94.3% (Gemini 3.1 Pro).
-  - Epoch fits a logistic with an asymptote of about 92%, meaning it is "approaching saturation" [Epoch search summary](https://epoch.ai/gradient-updates/gpqa-diamond-whats-left) (M).
+  - Top scores rose from GPT-4's about 39% to 94.3% (Gemini 3.1 Pro, Feb 2026 model card; secondary reports, M).
+  - Epoch fits a logistic with an asymptote of about 92%, meaning it is "approaching saturation" [Epoch search summary](https://epoch.ai/gradient-updates/gpqa-diamond-whats-left) (M). [uncertain: not verified. A search summary of Epoch's "GPQA Diamond: What's left?" gives a different estimate, about 8% of questions invalid (at least 90% valid). A 92% asymptote would also conflict with the 94.3% score above.]
   - 198 items limit resolution (prior note; not re-verified).
   - Useful for about 2 years despite static items.
 - **Humanity's Last Exam (Jan 2025).** Failure modes: validity (label errors). **Not saturated.**
   - "29 ± 3.7% (95% CI)" of text-only chemistry and biology answers conflict with peer-reviewed evidence (FutureHouse). An HLE-team follow-up found about 18% problematic in a subset [FutureHouse](https://www.futurehouse.org/research/hle-exam); [search summary](https://the-decoder.com/nearly-29-percent-of-humanitys-last-exam-questions-are-wrong-or-misleading/) (M-H).
   - Responses: HLE-Rolling and HLE-Verified [HLE-Verified](https://arxiv.org/abs/2602.13964) (M).
-  - Progress: under 10% at launch, then +30 points in one year [AI Index 2026](https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_2_technical.pdf). Public-leaderboard top was 46.44% on 16 Aug 2026 (search summary; M).
+  - Progress: under 10% at launch, then +30 points in one year [AI Index 2026](https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_2_technical.pdf). Public-leaderboard top was 46.44% on 16 Aug 2026 (search summary; M). [fact-check addition: with tools, Anthropic reports Claude Opus 5.5 at 67.7% and GPT-6 Astra at 57.2% (22 Sep 2026) [Anthropic](https://www.anthropic.com/news/claude-opus-5-5) (H). HLE is not saturated, but it is climbing fast when tools are allowed.]
 
 #### 3.2 Math and code
 - **GSM8K (2021) and GSM1k.** Failure modes: saturation, plus contamination for some families.
-  - GSM1k found drops of up to 13% (Phi, Mistral). There is a positive relation between the probability of generating GSM8K items and the gap (r² = 0.36, NeurIPS version).
+  - GSM1k found drops of up to 8% (final/NeurIPS version, r² = 0.36). arXiv v1 reported up to 13%, named Phi and Mistral, and gave r² = 0.32. There is a positive relation between the probability of generating GSM8K items and the gap. [corrected by fact-check: was "up to 13% … r² = 0.36, NeurIPS version", which mixed two paper versions; sources: current arXiv text mirror and v1 abstract mirror]
   - Frontier models showed "minimal overfitting" [GSM1k](https://arxiv.org/abs/2405.00332); [Scale](https://labs.scale.com/papers/llm-performance-grade-school-arithmetic) (H).
 - **MATH (2021).** Failure mode: saturation (with some memorised technique).
   - Launch: 3.0–6.9%, with the authors extrapolating that scaling alone would be "impractical" [MATH search summary](https://arxiv.org/abs/2103.03874) (M).
   - o1: 94.8% (Sep 2024; likely MATH-500), about 3.5 years later (not re-verified; M).
 - **HumanEval and MBPP (2021).** Failure modes: saturation, contamination, weak tests.
   - Codex 28.8% at launch; o4-mini-high 99.3% by Apr 2025 (not re-verified; M).
-  - EvoEval: 19.6–47.7-point drops on transformed tasks, with "drastic ranking changes" [EvoEval](https://arxiv.org/abs/2403.19114) (M).
+  - EvoEval: drops of 19.6–47.7% (average 39.4%, 51 models) on transformed tasks, with "drastic ranking changes" [EvoEval](https://arxiv.org/abs/2403.19114) (M). [corrected by fact-check: was "19.6–47.7-point drops"; the abstract gives percentages and does not say "points"]
   - LiveCodeBench: some models do well on HumanEval but not on fresh problems [LiveCodeBench](https://arxiv.org/abs/2403.07974) (M).
 - **AIME (yearly).**
-  - AIME 2024 is contaminated: models score 10–20% above expectations derived from AIME 2025, and QwQ-Preview about 60% above [MathArena](https://arxiv.org/abs/2505.23281) (H-M).
-  - The *novel* AIME 2025 and HMMT sets saturated too. MathArena: final-answer benchmarks "saturated in just one year", so it moved to proofs, Apex and research questions [MathArena platform](https://arxiv.org/abs/2605.00674); [Farewell post](https://matharena.ai/no_final_answer/) (M-H).
+  - AIME 2024 is contaminated: models score 10–20% above expectations derived from AIME 2025, and QwQ-Preview about 60% above [MathArena](https://arxiv.org/abs/2505.23281) (H-M). [fact-check: the abstract verifies "strong signs of contamination in AIME 2024". The 10–20% and ~60% figures come from the paper body and are uncertain (not re-verified).]
+  - The *novel* AIME 2025 and HMMT sets saturated too. MathArena: final-answer benchmarks "saturated in just one year", so it moved to proofs, Apex and research questions [MathArena platform](https://arxiv.org/abs/2605.00674); [Farewell post](https://matharena.ai/no_final_answer/) (M-H). [uncertain: the quoted phrase was not found. The substance is supported: GPT-5.5 reaches 97% on both AIME and HMMT, and Gemini 3.1 Pro solved 162 of 176 new final-answer problems in all four attempts.]
 - **FrontierMath (Nov 2024).** Failure modes: saturation (Tier 4), validity, conflict of interest.
-  - Tier 4 went from 5% (11 Jul 2025) to 98% (GPT-6 Astra, Sep 2026), "less than 14 months", and is saturated [Epoch X](https://x.com/EpochAIResearch/status/2098103831502708864) (M; the X post was seen via search).
-  - Errors: an AI-assisted audit "flagged fatal errors in about a third of problems" [Epoch X](https://x.com/EpochAIResearch/status/2053995435870892048) (M). v2 (12 Jun 2026) addressed errors in 42% of problems (123 + 12 corrected; 5 + 7 removed; 338 remain), and models scored about 12 points higher on the corrected set [Epoch](https://epoch.ai/benchmarks/frontiermath-tier-4-v2); [Digital Applied](https://www.digitalapplied.com/blog/epoch-frontiermath-v2-error-corrected-ai-benchmark-analysis) (M).
+  - Tier 4 went from 5% (11 Jul 2025) to 98% (GPT-6 Astra, Sep 2026), "less than 14 months", and is saturated [Epoch X](https://x.com/EpochAIResearch/status/2098103831502708864) (M; the X post was seen via search). [fact-check note: the 98% is on Tier 4 v2, which has 43 problems after 12 were corrected and 7 removed. Epoch's post also says mathematicians "often commented that AI found unintended shortcuts" on their Tier 4 problems.]
+  - Errors: an AI-assisted audit "flagged fatal errors in about a third of problems" [Epoch X](https://x.com/EpochAIResearch/status/2053995435870892048) (M). v2 (12 Jun 2026) addressed errors in 42% of problems (123 corrected in Tiers 1–3 and 12 in Tier 4; 5 and 7 removed; 338 remain, 295 in Tiers 1–3 and 43 in Tier 4), and models scored about 12 points higher on the corrected set [uncertain: the "~12 points" figure was not verified. Secondary reports say "scores increased across the board" and that GPT-5.5 (xhigh) went from 35% to 73% on Tier 4 after the fixes. If so, much of the Tier 4 rise came from corrected items.] [Epoch](https://epoch.ai/benchmarks/frontiermath-tier-4-v2); [Digital Applied](https://www.digitalapplied.com/blog/epoch-frontiermath-v2-error-corrected-ai-benchmark-analysis) (M).
   - Funding and access: OpenAI commissioned the problems and has access except for a holdout. This was disclosed around o3's launch (Dec 2024). o3's claimed 25% compares with about 10% in Epoch's independent run (Apr 2025) (not re-verified; M) [Epoch](https://epoch.ai/latest/openai-and-frontiermath).
 - **SWE-bench Verified (Aug 2024).** Failure modes: contamination, validity collapse, gaming.
-  - OpenAI (23 Feb 2026): "at least 59.4% of the audited problems have flawed test cases that reject functionally correct submissions" (a 27.6% subset that models often failed).
+  - OpenAI (23 Feb 2026; date verified by search summary): "at least 59.4% of the audited problems have flawed test cases that reject functionally correct submissions" (a 27.6% subset that models often failed).
   - Also: "all frontier models we tested were able to reproduce the original, human-written bug fix … or verbatim problem statement specifics."
   - "We have stopped reporting SWE-bench Verified scores" [OpenAI via verbatim mirror](https://github.com/BobYeger/state-of-agents/blob/main/raw/articles/openai-retires-swe-bench-verified.md) (H).
   - SWE-Bench Illusion: buggy-file identification from the issue text alone reached "up to 76%" on SWE-bench Verified, against "up to 53%" outside it [abstract mirror](https://github.com/ATOM00blue/machine-learning-library/blob/main/corpus/papers/2506.12286.md) (H).
@@ -221,9 +222,9 @@ Identity and abstracts were re-verified through mirrors; repos were checked on 2
   - No public code was found (prior dossier; not re-verified).
   - Launched the day after Kaggle Game Arena (4 Aug 2025; not re-verified; M).
 - **Game Reasoning Arena** (arXiv 2508.03368). Failure mode: adoption/maintenance. The last commit was 11 Sep 2025, about 5 weeks after launch [GitHub commits](https://github.com/SLAMPAI/game_reasoning_arena/commits/main) (H). Pre-empted by Kaggle Game Arena on the same OpenSpiel engine (M).
-- **MastermindEval** (arXiv 2503.05891). Failure modes: shortcut (brute force) and narrow construct. **Survived as a component.**
+- **MastermindEval** (arXiv 2503.05891). Failure modes: shortcut (brute force) and narrow construct. **Survived as a component.** [fact-check: no source shows that models saturated it or brute-forced it. "Brute-forceable" is a theoretical vulnerability, not an observed failure, so §4 recodes it Neutral.]
   - The lm-eval harness has 6 tasks: code length and colours of 2/4, 3/5 and 4/6. Games are "pre-played … using Knuth's algorithm", and the hard variant uses distractors one symbol away [lm-eval](https://github.com/EleutherAI/lm-evaluation-harness/tree/main/lm_eval/tasks/mastermind) (H).
-  - Hypothesis spaces are at most 6⁴ = 1,296 codes (arithmetic), so a short program enumerates them.
+  - Hypothesis spaces are at most 6⁴ = 1,296 codes (arithmetic), so a short program enumerates them. [fact-check: this holds for the released lm-eval and prompt splits (largest 4 pegs × 6 colours; `create_eval_harness_splits.py` builds the product space). The agentic mode in [flairNLP/mastermind](https://github.com/flairNLP/mastermind) takes any `code_length` and `num_colors`, so larger spaces are possible.]
 - **Concept** (Findings of ACL 2026). **Not failed; too young.** "Easily solved by humans (with a success rate of over 90%) … no model exceeds 40%" [ACL abstract mirror](https://github.com/smallflyingpig/ai-conference-overview) (H). The roster was mid-2025 models (prior dossier; L).
 - **Codenames ad-hoc concept forming** (GEM² at ACL 2025). **Survived inside clembench.** It varies frequency, ambiguity, concreteness, assassins and opponent difficulty [clembench/codenames](https://github.com/clp-research/clembench/tree/main/codenames) (H). It was pre-empted by Stephenson et al. (Dec 2024; M).
 - **Boardwalk** (arXiv 2508.16447). A framework, not a benchmark; small N.
@@ -242,7 +243,7 @@ Identity and abstracts were re-verified through mirrors; repos were checked on 2
 - **BloomQA** (arXiv 2601.20253). Failure modes: validity risk and no release.
   - Generated MCQs and dialogues from expert guidelines. "LLMs sometimes perform relatively better on higher-order reasoning (Analyze) but fail more frequently on lower-level items (Remember)" [abstract mirror](https://github.com/advanced-cs/arXiv_daily/blob/main/daily_papers/20260129_Thu/text.md) (H).
   - The inversion may be an artifact of generated difficulty labels (prior dossier's interpretation; [speculation]).
-- **Bulls-and-Cows** (added as a counterexample). Procedurally novel codes. Created 26 Nov 2024; last commit 31 Jan 2025: "o3-mini saturated the benchmark...." [commits](https://github.com/stalkermustang/llm-bulls-and-cows-benchmark/commits/main) (H). That is about 9.5 weeks to saturation.
+- **Bulls-and-Cows** (added as a counterexample). Procedurally novel codes. Created 26 Nov 2024; last commit 31 Jan 2025: "o3-mini saturated the benchmark...." [commits](https://github.com/stalkermustang/llm-bulls-and-cows-benchmark/commits/main) (H). That is about 9.5 weeks to saturation. [fact-check: verified from the git log. The commit is stamped 1 Feb 2025 00:19 +04:00, which is 31 Jan UTC. The committed run log shows o3-mini won 50 of 50 four-digit games (100%, average 6.06 turns); o1-mini had scored 60%. Caveat: Bulls-and-Cows is a classic game with published optimal strategies, so only the secret codes are novel.]
 
 #### 3.4 Agentic, arena and multimodal
 - **τ-bench.** Failure mode: validity collapse. "A trivial do-nothing agent scores 38% pass@k and pass^k"; "a spamming agent that dumps database content scores 40%" [ABC repo](https://github.com/uiuc-kang-lab/agentic-benchmarks) (H).
@@ -250,30 +251,30 @@ Identity and abstracts were re-verified through mirrors; repos were checked on 2
   - WebArena has outcome-validity flaws (string matching and a naive LLM judge; 1.6–5.2% absolute misestimation, search summary).
   - KernelBench overestimates capability by 31%.
   - SWE-Lancer tests can be bypassed through password-protected zips.
-  - The Agentic Benchmark Checklist (ABC) reports "up to 100% in relative terms" misestimation and a 33% reduction on CVE-Bench [ABC repo](https://github.com/uiuc-kang-lab/agentic-benchmarks) (H); [ABC paper](https://arxiv.org/abs/2507.02825) (M for the 100% and 33% figures, via secondary mirror).
+  - The Agentic Benchmark Checklist (ABC) reports "up to 100% in relative terms" misestimation and a 33% reduction on CVE-Bench [ABC repo](https://github.com/uiuc-kang-lab/agentic-benchmarks) (H); [ABC paper](https://arxiv.org/abs/2507.02825) (H: fact-check found both figures verbatim in abstract mirrors). The ABC repo also notes a τ-bench patch that stops the do-nothing agent from reaching 38%.
   - WebArena progress: 14.41% (GPT-4 agent) vs 78.24% human in 2023, to about 71–74% on a 2026 third-party leaderboard [WebArena](https://arxiv.org/abs/2307.13854) (H); [Steel leaderboard](https://leaderboard.steel.dev/leaderboards/webarena/) (L).
 - **LMArena.** Failure mode: gaming.
   - "27 private LLM variants tested by Meta in the lead-up to the Llama-4 release".
   - Google and OpenAI received about 19.2% and 20.4% of all Arena data.
   - Arena data yields "relative performance gains of up to 112%" on the Arena distribution [abstract mirror](https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/research_updates/2025_papers/april_list.md) (H).
-  - Meta's "Llama-4-Maverick-03-26-Experimental" topped the board. LMArena: "Meta's interpretation of our policy did not match what we expect from model providers" [The Register](https://www.theregister.com/2025/04/08/meta_llama4_cheating/); [Willison](https://simonwillison.net/2025/Apr/8/lmaren/) (M-H).
+  - Meta's "Llama-4-Maverick-03-26-Experimental" ranked #2 (Elo 1417), just behind Gemini 2.5 Pro. The unmodified release model later ranked 32nd. [corrected by fact-check: was "topped the board"; source: [The Register](https://www.theregister.com/2025/04/08/meta_llama4_cheating/); Meta's launch post cited "ELO of 1417"] LMArena: "Meta's interpretation of our policy did not match what we expect from model providers" [The Register](https://www.theregister.com/2025/04/08/meta_llama4_cheating/); [Willison](https://simonwillison.net/2025/Apr/8/lmaren/) (M-H).
 - **MMMU (Nov 2023).** Failure modes: validity (text-only solvability) and saturation.
-  - MMMU-Pro filtered out "questions answerable by text-only models", and performance fell by 16.8–26.9% [MMMU README](https://github.com/MMMU-Benchmark/MMMU) (H).
+  - MMMU-Pro filtered out "questions answerable by text-only models", and performance fell by 16.8–26.9% [MMMU README](https://github.com/MMMU-Benchmark/MMMU) (H). [fact-check: the README words this loosely as "accuracies ranging from 16.8% to 26.9%". Read as a drop it is consistent with the paper, since GPT-4o scored about 52% on MMMU-Pro.]
   - +18.8 points within a year [AI Index 2025 via IBM](https://www.ibm.com/think/news/stanford-hai-2025-ai-index-report) (M).
   - 2026 frontier is about 80% vs an 88.6% expert ceiling [aggregator](https://benchmarkingagents.com/mmmu-benchmark/) (L).
 - **ARC-AGI-1 (2019).** Failure modes: shortcut (search), test-time training, compute.
   - "ARC-AGI-1 took 4 years to go from 0% with GPT-3 in 2020 to 5% in 2024 with GPT-4o" [ARC Prize, quoted in AINews mirror](https://github.com/smol-ai/ainews-web-2025) (H).
-  - In 2020 the top single entry scored 20%, but an ensemble of all 2020 Kaggle entries solved 49% of the private set, mostly by brute-force program search [ARC Prize 2024 report](https://arxiv.org/abs/2412.04604) (M-H).
-  - In 2024 test-time training won: ARChitects 53.5% and MindsAI 55.5% (ineligible) [ARC Prize 2024 report](https://arxiv.org/abs/2412.04604) (M-H).
-  - o3-preview: 75.7% within the $10k limit and 87.5% at about 172× compute (20 Dec 2024). It was trained on 75% of the public training set [ARC Prize blog](https://arcprize.org/blog/oai-o3-pub-breakthrough) (M; mirrored quote).
-- **ARC-AGI-3 (Mar 2026).** Failure mode: harness saturation. GPT-6 Astra scored 62.7% ($26K) with the standard harness and 99.9% ($19K) with a provider adapter that keeps reasoning state and builds per-game tools such as a board parser (about 3 Sep 2026) [ARC Prize](https://arcprize.org/blog/astra); [Techmeme](https://www.techmeme.com/260903/p40) (M).
+  - In 2020 the top single entry scored 20%, but an ensemble of all 2020 Kaggle entries solved 49% of the private set, mostly by brute-force program search [ARC Prize 2024 report](https://arxiv.org/abs/2412.04604) (H: fact-check verified against the report text mirror [UNIR-TUC/arc-agi](https://github.com/UNIR-TUC/arc-agi) and the ARC-AGI-2 paper, which says "49% of the Private Evaluation set was successfully solved by at least one team").
+  - In 2024 test-time training won: ARChitects 53.5% and MindsAI 55.5% (ineligible) [ARC Prize 2024 report](https://arxiv.org/abs/2412.04604) (H: verified against the same report mirror).
+  - o3-preview: 75.7% within the $10k limit and 87.5% at about 172× compute (20 Dec 2024). It was trained on 75% of the public training set [ARC Prize blog](https://arcprize.org/blog/oai-o3-pub-breakthrough) (H: fact-check verified against a saved copy of the post in [ndbroadbent/arc_agi_pareto_frontiers](https://github.com/ndbroadbent/arc_agi_pareto_frontiers). Both scores are on the 100-task *Semi-Private* set.)
+- **ARC-AGI-3 (Mar 2026).** Failure mode: harness saturation. GPT-6 Astra scored 62.7% (max effort, $26,098) with the standard harness and 99.9% (high effort, $18,817) with a Provider Adapter harness on the Semi-Private set (3 Sep 2026) [ARC Prize](https://arcprize.org/blog/astra); [Techmeme](https://www.techmeme.com/260903/p40). The Provider Adapter harness "preserves opaque reasoning state between requests and uses compaction for longer conversations". [corrected by fact-check: was "a provider adapter that keeps reasoning state and builds per-game tools such as a board parser". Board parsers and per-game solvers were observed in a *separate* sandboxed-code harness (PRO-LONG), not in the Provider Adapter. Source: full translation of the ARC Prize post, [lihenair/techtranslate](https://github.com/lihenair/techtranslate/blob/master/archive/2026-09-05/ai/OpenAIs-GPT-6-Astra-on-ARC-AGI-3.md) (H-M).] ARC Prize calls the result a "meaningful" step toward generalisation, not AGI, and will report both harnesses.
 - **Infrastructure deaths.** HELM entered maintenance mode on 1 Jun 2026, with no new evaluations [HELM](https://github.com/stanford-crfm/helm/blob/main/docs/maintenance_mode.md) (H). The Open LLM Leaderboard was retired in Mar 2025 (prior dossier; M).
 
 #### 3.5 Shrinking lifetimes (statistics)
 - AI Index 2025: within a year of introduction, MMMU, GPQA and SWE-bench rose by 18.8, 48.9 and 67.3 points respectively [IBM summary](https://www.ibm.com/think/news/stanford-hai-2025-ai-index-report) (M).
-- AI Index 2026: evaluations "intended to be challenging for years are saturated in months"; "nearly half of the 60 most-cited benchmarks are now saturated" [AI Index 2026](https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_2_technical.pdf) (M).
+- AI Index 2026: evaluations "intended to be challenging for years are saturated in months"; "nearly half of the 60 most-cited benchmarks are now saturated" [AI Index 2026](https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_2_technical.pdf) (M). [uncertain: the first quote was verified by search summary. The second could not be found verbatim. The 60-benchmark figure comes from Akhtar et al., whose 60 benchmarks were drawn from developers' technical reports, not a "most-cited" list; 29 of the 60 are highly saturated.]
 - Akhtar et al. (ICML 2026):
-  - 60 benchmarks; "nearly half" saturated (29 highly saturated; count not re-verified).
+  - 60 benchmarks; "nearly half" saturated (29 of 60 high or very high, 14 very high). Only 8 of the 60 have private test sets. [fact-check: counts verified via a paper-notes mirror ([zhaoyang97/Paper-Notes-en](https://github.com/zhaoyang97/Paper-Notes-en)); abstract v1 says hiding test data "shows no protective effect"]
   - "Benchmark age and scale are strong predictors, while … private test sets or closed-ended formats show limited effects."
   - "Expert-curated benchmarks resist saturation better than crowdsourced ones."
   - Sources: [arXiv](https://arxiv.org/abs/2602.16763); [ICML](https://icml.cc/virtual/2026/poster/63311) (H for the qualitative claims via search summary).
@@ -307,10 +308,12 @@ Identity and abstracts were re-verified through mirrors; repos were checked on 2
 ## 4. Hypothesis test table
 
 ### Takeaway
-Of 36 cases:
-- **Supports (7):** AIME 2024, SWE-bench Verified, HumanEval/MBPP, MATH, GSM8K (non-frontier only), and weakly Boardwalk and Codenames. All but Codenames are contamination or structural-familiarity failures; Codenames rests on a skill LLMs are natively trained for.
-- **Contradicts (17):** these either had novelty and failed or saturated, or lacked novelty and stayed useful (GPQA, AutomationBench).
-- **Neutral (12):** failures that are orthogonal to novelty (validity or adoption).
+Of 36 cases [corrected by fact-check: was Supports 7 / Contradicts 17 / Neutral 12]:
+- **Supports (5):** AIME 2024, SWE-bench Verified, HumanEval/MBPP, MATH and GSM8K (non-frontier only). All are contamination or structural-familiarity failures.
+- **Contradicts (10):** GPQA, AIME 2025/final-answer, FrontierMath, LMArena, ARC-AGI-1, ARC-AGI-3, LiveBench, Bulls-and-Cows, Logic-RL K&K and AutomationBench. Each either had novelty and still stopped discriminating by a route other than validity or adoption (capability, brute force, harness, trained task family, selective submission), or lacked novelty and stayed useful (GPQA, AutomationBench).
+- **Neutral (21):** failures that are orthogonal to novelty (validity or adoption), or benchmarks too young to judge.
+
+[fact-check recoding note: the original table applied its own definitions inconsistently. Novel-item benchmarks that failed on adoption or validity were coded C in the user's list (Qi Town, Game Reasoning Arena, Grid games, TopoBench, Raw corpora, BloomQA) but N elsewhere (OfficeBench, DCA-Bench, τ-bench, HLE, WebArena). This takeaway defines N as "orthogonal (validity or adoption)", and the §1 verdict lists "most of the user's list" under failures unrelated to training exposure. The six rows are therefore recoded N. MastermindEval is recoded N because no evidence shows it saturated or was brute-forced. Codenames and Boardwalk are recoded N because their stated failure modes are crowding/pre-emption and framework/small N, not training exposure. Under a literal reading, where any novel benchmark that failed for any reason is C, those rows plus OfficeBench, DCA-Bench and τ-bench would be C. C would exceed S under either coding.]
 
 ### Cited Findings (evidence per row is in §3 and §6)
 
@@ -318,40 +321,40 @@ Of 36 cases:
 |---|---|---|---|---|---|
 | MMLU | No | No | Saturation, validity (6.49% errors), some contamination | N | Died of ceiling plus label noise. Still discriminated for ~3 yr without novelty |
 | MMLU-Pro | No | No | Saturation | N | Harder items bought time; novelty irrelevant |
-| GSM8K / GSM1k | No / yes | No | Contamination (Phi, Mistral); frontier capability caught up | S (non-frontier) / C (frontier) | Frontier models did as well on novel GSM1k; saturation was real capability |
-| HumanEval / MBPP | No | No | Contamination, saturation, weak tests | S | EvoEval drops of 19.6–47.7 pp show memorisation |
+| GSM8K / GSM1k | No / yes | No | Contamination (Phi, Mistral; drops up to 13% in v1, 8% in final version); frontier capability caught up | S (non-frontier) / C (frontier) | Frontier models did as well on novel GSM1k; saturation was real capability |
+| HumanEval / MBPP | No | No | Contamination, saturation, weak tests | S | EvoEval drops of 19.6–47.7% (avg 39.4%) show memorisation [corrected by fact-check: was "pp"] |
 | HellaSwag | No | No | Validity (answer-only shortcut), contamination | N | >65% of predictions unchanged with Lorem ipsum: a shortcut, not memorised items |
 | BIG-bench | Partly | Partly | Adoption (archived) | N | 200+ tasks, many novel; breadth without a ladder |
 | BBH | No | No | Saturation (>90% per BBEH) | N | BBEH, with *novel* replacement tasks, restored headroom: novelty as renewal (see §5) |
 | MATH | No | No | Saturation; some memorised technique | S (partial) | Long life (~3.5 yr) despite public items |
 | GPQA Diamond | No (static) | No | Saturation by capability | C | Non-novel yet discriminative ~2 yr |
-| AIME 2024 | No (leaked) | No | Contamination | S | 10–20 pts above AIME-2025 expectation |
+| AIME 2024 | No (leaked) | No | Contamination | S | MathArena abstract: "strong signs of contamination" (the 10–20-point size is uncertain; not re-verified) |
 | AIME 2025 / final-answer contests | **Yes** | No | Saturation within ~1 yr | C | Fresh, uncontaminated, still saturated |
-| FrontierMath T1–3 / T4 | **Yes** (unpublished) | No | Saturation (T4, 14 mo), 42% item errors, funder access | C | Novel instances did not prevent a 5→98% run |
+| FrontierMath T1–3 / T4 | **Yes** (unpublished) | No | Saturation (T4, 14 mo), 42% item errors, funder access | C | Novel instances did not prevent a 5→98% run. [fact-check: part of the run reflects v2 error fixes, and Epoch reports AI "unintended shortcuts"; still C] |
 | HLE | **Yes** | No | Validity (29% bio/chem) | N | Not saturated; problem is label quality |
 | SWE-bench Verified | No (public GitHub) | No | Contamination, 59.4% flawed tests | S (C for longevity) | Leakage helped kill it, but it discriminated for 18+ mo despite contamination |
 | WebArena | Yes (self-hosted sites) | Partly | Validity (grader flaws); climbing | N | Grader, not novelty |
 | τ-bench | Yes | No | Validity (do-nothing 38%) | N | Broken success criterion |
-| LMArena | **Yes** (live prompts) | No | Gaming (27 variants; Llama 4) | C | Continuous novelty did not stop selective submission |
+| LMArena | **Yes** (live prompts) | No | Gaming (27 variants; Llama 4 experimental variant ranked #2) | C | Continuous novelty did not stop selective submission. [fact-check: kept C, but weak. The prompts are novel, the thinking they demand is not, and "up to 112%" gains from training on Arena data is a familiarity route.] |
 | MMMU | No | No | Validity (text-only answerable), saturation | N | Shortcut, not leakage |
-| ARC-AGI-1 | **Yes** (private) | **Yes** | Brute force (49% ensemble), TTT, compute | C | Flagship "novel skill" benchmark; fell anyway |
-| ARC-AGI-3 | **Yes** | **Yes** | Harness saturation (62.7% → 99.9%) | C | Novel interactive games, ~6 mo |
+| ARC-AGI-1 | **Yes** (private) | **Yes** | Brute force (49% solved by at least one 2020 entry), TTT, compute | C | Flagship "novel skill" benchmark; fell anyway (o3 was also trained on 75% of the public training set) |
+| ARC-AGI-3 | **Yes** | **Yes** | Harness saturation (62.7% standard → 99.9% with a Provider Adapter that keeps reasoning state and compacts context) | C | Novel interactive games, ~6 mo; the strongest counterexample |
 | LiveBench | **Yes** (rolling) | No | Saturation by separability (S = 0.99; not re-verified) | C | Refresh alone did not keep separation |
 | Bulls-and-Cows | **Yes** (procedural) | No | Saturation in ~9.5 wk | C | Procedural novelty; o3-mini saturated it |
-| Logic-RL K&K (as eval) | **Yes** (procedural) | No | Trained to 0.99–0.89 with <5k samples | C | Verifiable generators become RL curricula |
-| Qi Town | Yes (fresh games) | No | Adoption, pre-emption, mixed metrics | C | Explicitly built to escape "data dependency"; failed anyway |
-| Game Reasoning Arena | Yes | No | Adoption, friction, pre-emption | C | Novel play did not help |
-| MastermindEval | **Yes** (procedural) | No | Brute-forceable (≤1,296 codes), narrow; survived in lm-eval | C | Memorisation was never the threat |
+| Logic-RL K&K (as eval) | **Yes** (procedural) | No | Trained to 0.99 (3-person) → 0.80 (7-person) with about 5k samples [corrected by fact-check: was "0.99–0.89 with <5k"] | C | Verifiable generators become RL curricula (interpretation-sensitive: the model *was* trained on the task family) |
+| Qi Town | Yes (fresh games) | No | Adoption, pre-emption, mixed metrics | N [corrected by fact-check: was C] | Explicitly built to escape "data dependency"; failed on adoption, which is orthogonal. Its 5 games are "widely played", so the thinking is not novel. |
+| Game Reasoning Arena | Yes | No | Adoption, friction, pre-emption | N [corrected by fact-check: was C] | Adoption failure (last commit 11 Sep 2025); classic OpenSpiel games |
+| MastermindEval | **Yes** (procedural) | No | Brute-forceable in principle (≤1,296 codes in released splits), narrow; survived in lm-eval | N [corrected by fact-check: was C] | No evidence it saturated or was brute-forced; still in use |
 | Concept | Partly (human logs) | Partly (abduction) | Too young; no leaderboard | N | Headroom high; outcome pending |
-| Codenames (Hakimov) | Yes (sampled boards) | No | Pre-emption, crowding; survived in clembench | S (weak) | Skill (association) is native to LLMs, but it failed on crowding |
-| Boardwalk | Attempted (renamed) | No | Framework not benchmark; small N; partial artifacts | S (weak) | Renaming hides surface, not structure |
-| Grid games | Yes (matches) | No (solved games) | Abandonment | C | Not saturated; died of maintenance |
-| TopoBench | **Yes** (generated) | No | Empty repo, name collision | C | Hard (<25%) yet unused |
-| Raw corpora → domain | **Yes** (fresh corpora) | No | White-box metric; construct | C | Contamination-free by design; unusable on closed models |
-| BloomQA | **Yes** (generated) | No | Validity risk; no release | C | Novel items; weak labels |
+| Codenames (Hakimov) | Yes (sampled boards) | No | Pre-emption, crowding; survived in clembench | N [corrected by fact-check: was S (weak)] | Failed on crowding (adoption); no evidence of saturation from training exposure |
+| Boardwalk | Attempted (renamed) | No | Framework not benchmark; small N; partial artifacts | N [corrected by fact-check: was S (weak)] | A code-generation framework study; the "renaming hides surface" rationale is an untested inference |
+| Grid games | Yes (matches) | No (solved games) | Abandonment | N [corrected by fact-check: was C] | Not saturated; died of maintenance (adoption) |
+| TopoBench | **Yes** (generated) | No | Empty repo, name collision | N [corrected by fact-check: was C] | Hard (<25%) yet unused: an artifact/adoption failure |
+| Raw corpora → domain | **Yes** (fresh corpora) | No | White-box metric; construct | N [corrected by fact-check: was C] | Contamination-free by design; unusable on closed models (construct/adoption) |
+| BloomQA | **Yes** (generated) | No | Validity risk; no release | N [corrected by fact-check: was C] | Novel items; weak labels (validity/adoption) |
 | OfficeBench | Yes | No | Adoption (no ladder); absorbed by OdysseyBench | N | Headroom (47% vs 93%) not enough |
-| DCA-Bench (if referent) | Yes (real cases) | No | Adoption; LLM-judge grading | N | Realistic, unmaintained |
-| AutomationBench | Yes (private split) | **No** | Not failed; rising fast (<10% → ~41%) | C | "Boring" and non-novel, yet adopted into launch tables |
+| DCA-Bench / DCBench (Data Cognition) (whichever is the referent) | Yes (real cases / expert items) | No | Adoption; LLM-judge grading | N | Realistic, unmaintained; the same verdict for either candidate [fact-check: referent updated] |
+| AutomationBench | Yes (private split) | **No** | Not failed; rising fast (<10% → ~41%, though the private set is re-hardened between versions) | C | "Boring" and non-novel, yet adopted into launch tables (contradicts only the converse claim) |
 
 ### Inferences
 - **Novel instances** (items not in training) predict immunity to *contamination* only. They are uncorrelated with lifetime in this sample: the novel-instance benchmarks FrontierMath T4, AIME 2025 and Bulls-and-Cows all saturated in 14 months or less.
@@ -363,6 +366,11 @@ Of 36 cases:
 ### Gaps
 - The sample is not random; it is weighted towards notable failures.
 - No systematic dataset links "novelty" labels to lifetime. Akhtar et al. coded 14 properties, but "novel skill" was not among them (inference from their abstract).
+- **Coding sensitivity (fact-check addition).** The tally depends on how "novel critical thinking the model can't have been trained on" is read:
+  - Reading it as unseen *items* gives this table's 5 S / 10 C / 21 N.
+  - Reading it as an unseen *skill or task family* moves AIME 2025, Bulls-and-Cows, Logic-RL K&K and LiveBench toward S. Those are familiar skills, and in Logic-RL's case the model was explicitly trained on the family. That gives about 9 S / 6 C / 21 N.
+  - GPQA and AutomationBench contradict only the converse ("lacking novelty leads to failure"), not the hypothesis as stated.
+  - Under every reading, ARC-AGI-3 (harness saturation), FrontierMath Tier 4 and ARC-AGI-1 (49% by brute force) remain counterexamples. The final report should present the verdict as "refuted as a sole-cause claim; skill-level novelty delays but does not prevent saturation", not rely on the raw counts.
 
 ---
 
@@ -381,12 +389,12 @@ Novel instances close path 0 (contamination). Novel skills close paths 0 and 1 o
 ### Cited Findings
 - **Path 1 (trainable family):**
   - Reasoning Gym provides 100+ generators "for reinforcement learning with verifiable rewards" [Reasoning Gym](https://arxiv.org/abs/2505.24760) (M).
-  - Logic-RL reached 0.99–0.89 on 3–7-person Knights and Knaves from fewer than 5,000 samples and generalised to 8-person puzzles [Logic-RL](https://arxiv.org/abs/2502.14768) (M).
-  - Bulls-and-Cows was saturated in about 9.5 weeks [commits](https://github.com/stalkermustang/llm-bulls-and-cows-benchmark/commits/main) (H).
+  - Logic-RL's 7B model, trained on about 5,000 ("just 5K") synthetic puzzles, scored 0.99 (3-person) to 0.80 (7-person) on Knights and Knaves and 0.67 on out-of-distribution 8-person puzzles [Logic-RL](https://arxiv.org/abs/2502.14768) (H: paper Table 2 and repo README). [corrected by fact-check: was "0.99–0.89 … from fewer than 5,000 samples and generalised to 8-person puzzles"; 0.89 is the 2–8-person average]
+  - Bulls-and-Cows was saturated in about 9.5 weeks (o3-mini won 50 of 50 games) [commits](https://github.com/stalkermustang/llm-bulls-and-cows-benchmark/commits/main) (H).
 - **Path 2 (search, tools, harness):**
-  - A 2020 brute-force ensemble solved 49% of ARC-AGI-1 [ARC Prize 2024](https://arxiv.org/abs/2412.04604) (M-H).
-  - Mastermind's hypothesis spaces are at most 1,296 codes [lm-eval](https://github.com/EleutherAI/lm-evaluation-harness/tree/main/lm_eval/tasks/mastermind) (H).
-  - ARC-AGI-3 moved from 62.7% to 99.9% through the harness alone [ARC Prize](https://arcprize.org/blog/astra) (M).
+  - A 2020 brute-force ensemble solved 49% of ARC-AGI-1 [ARC Prize 2024](https://arxiv.org/abs/2412.04604) (H via report mirror).
+  - Mastermind's hypothesis spaces are at most 1,296 codes in the released splits [lm-eval](https://github.com/EleutherAI/lm-evaluation-harness/tree/main/lm_eval/tasks/mastermind) (H). This is a vulnerability in principle; no observed brute-force saturation was found (fact-check).
+  - ARC-AGI-3 moved from 62.7% to 99.9% through the harness alone: the Provider Adapter keeps opaque reasoning state and compacts context [ARC Prize](https://arcprize.org/blog/astra) (M-H via full translation).
   - LLM Chess: reasoning models "saturated random-based evaluations", so the maintainers added the Komodo Dragon engine [LLM Chess](https://github.com/maxim-saplin/llm_chess) (H).
 - **Path 3 (artifacts and graders):** HellaSwag (>65% of predictions unchanged); τ-bench (38%); SWE-bench Verified (59.4%); FrontierMath (42%); HLE (29%). See §3.
 - **Path 4 (selection):** 27 Llama 4 variants on Arena, and gains of up to 112% from Arena data [Leaderboard Illusion](https://arxiv.org/abs/2504.20879) (H).
@@ -425,39 +433,39 @@ Novel instances close path 0 (contamination). Novel skills close paths 0 and 1 o
 | 1 | AutomationBench best frontier score at launch | <10% | Apr 2026 | https://github.com/CMander02/DailyAgentPapers/blob/main/data/2026/04/21/automationbench.md (abstract of arXiv 2604.18934) | Primary (mirror) | H |
 | 2 | AutomationBench public set | 600 tasks (6×100), 47 simulated tools, private harder leaderboard split | 2026 | https://github.com/zapier/AutomationBench | Primary | H |
 | 3 | AutomationBench Zapier-run scores | GPT-6 Astra 41.4; Opus 5.5 40.0; Fable 5.1 31.4; GPT-5.6 Sol 28.8; Opus 5 26.9 | 22 Sep 2026 | https://www.anthropic.com/news/claude-opus-5-5 | Primary | H |
-| 4 | AutomationBench README leaderboard (conflicts with #3) | Opus 5 50.3; Kimi K3 46.67; Fable 5 46.17 | Sep 2026 | https://github.com/zapier/AutomationBench | Primary | M (conflict) |
+| 4 | AutomationBench README leaderboard (600-task public set, not the official private set used in #3) | Opus 5 50.3; Kimi K3 46.67; Fable 5 46.17 | Sep 2026 | https://github.com/zapier/AutomationBench | Primary | H [corrected by fact-check: was "M (conflict)"; no conflict, different task sets] |
 | 5 | AutomationBench-AA split | 657 private tasks, v1.0.6 | Sep 2026 | https://github.com/fstandhartinger/model-market-comparison (AA page capture) | Secondary | M |
 | 6 | OfficeBench results | GPT-4o 47.00%; Llama 3 70B 27.33%; 300 tasks (93/95/112) | Jul 2024 | https://github.com/zlwang-cs/OfficeBench | Primary | H |
 | 7 | OfficeBench human | 93.33% | Jul 2024 | https://arxiv.org/abs/2407.19056 | Primary (search summary) | M |
-| 8 | DCA-Bench | 221 cases, 8 platforms; ~30% issues found without hints | 2024–25 | https://arxiv.org/abs/2406.07275 ; https://github.com/TRAIS-Lab/dca-bench | Primary | M-H |
+| 8 | DCA-Bench (now a near-name candidate; see also DCBench (Data Cognition) and dcbench (Decision Compliance) in §2C) | 221 cases, 8 platforms (H); ~30% issues found without hints (uncertain) | 2024–25 | https://arxiv.org/abs/2406.07275 ; https://github.com/TRAIS-Lab/dca-bench | Primary | M-H |
 | 9 | SWE-bench Verified audit | ≥59.4% of audited (27.6% subset) flawed; all tested frontier models reproduced gold patches or problem specifics | 23 Feb 2026 | https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/ (mirror: github.com/BobYeger/state-of-agents) | Primary (mirror) | H |
 | 10 | SWE-Bench Illusion | File-path ID up to 76% vs up to 53% | Jun 2025 | https://arxiv.org/abs/2506.12286 | Primary (mirror) | H |
 | 11 | τ-bench do-nothing agent | 38%; spamming agent 40% | 2025 | https://github.com/uiuc-kang-lab/agentic-benchmarks | Primary | H |
 | 12 | ABC misestimation | Up to 100% relative; CVE-Bench −33% | 2025 | https://arxiv.org/abs/2507.02825 | Secondary quote | M |
-| 13 | AIME 2024 contamination | +10–20 pts vs AIME-2025 expectation; QwQ ~60 | May 2025 | https://arxiv.org/abs/2505.23281 | Primary (search summary) | M-H |
-| 14 | Final-answer contests saturated | "in just one year" | 2026 | https://arxiv.org/abs/2605.00674 ; https://matharena.ai/no_final_answer/ | Primary (search summary) | M |
+| 13 | AIME 2024 contamination | "strong signs of contamination" (H); +10–20 pts and QwQ ~60 (uncertain) | May 2025 | https://arxiv.org/abs/2505.23281 | Primary (abstract mirror) | H / uncertain |
+| 14 | Final-answer contests saturated | substance verified (GPT-5.5 at 97% on AIME/HMMT; 162 of 176 new problems solved 4/4); "in just one year" wording uncertain | 2026 | https://arxiv.org/abs/2605.00674 ; https://matharena.ai/no_final_answer/ | Primary (search summary) | M |
 | 15 | FrontierMath T4 | 5% → 98% in <14 months; saturated | Jul 2025 → Sep 2026 | https://x.com/EpochAIResearch/status/2098103831502708864 | Primary (via search) | M |
-| 16 | FrontierMath v2 | Errors in 42% of problems; ~+12 pts on corrected set; 338 problems | 12 Jun 2026 | https://epoch.ai/benchmarks/frontiermath-tier-4-v2 | Primary (search summary) | M |
-| 17 | GSM1k | Drops up to 13% (Phi, Mistral); r² = 0.36 | May 2024 | https://arxiv.org/abs/2405.00332 | Primary (search summary) | H |
+| 16 | FrontierMath v2 | Errors in 42% of problems; 338 problems (295 in T1–3, 43 in T4); ~+12 pts on corrected set (uncertain; secondary reports GPT-5.5 T4 went 35%→73%) | 12 Jun 2026 | https://epoch.ai/benchmarks/frontiermath-tier-4-v2 | Primary (search summary) | M |
+| 17 | GSM1k | Final version: drops up to 8%, r² = 0.36. v1: up to 13% (Phi, Mistral), r² = 0.32 [corrected by fact-check] | May 2024 | https://arxiv.org/abs/2405.00332 | Primary (text mirror) | H |
 | 18 | HLE bio/chem errors | 29 ± 3.7%; HLE team ~18% on subset | Jul 2025 | https://www.futurehouse.org/research/hle-exam | Primary (search summary) | M-H |
 | 19 | HLE progress | +30 pts in one year; 46.44% top (16 Aug 2026) | 2026 | https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_2_technical.pdf | Primary (search summary) | M |
 | 20 | MMLU errors | 6.49%; Virology 57% | 2024 | https://arxiv.org/abs/2406.04127 | Primary (search summary) | H |
 | 21 | HellaSwag shortcut | >65% of predictions unchanged with Lorem ipsum | Apr 2025 | https://arxiv.org/abs/2504.07825 | Primary (mirror) | H |
 | 22 | BBH saturated; BBEH top | >90% on BBH; o3-mini-high 44.8% on BBEH | Feb 2025 | https://arxiv.org/abs/2502.19187 | Primary (search summary) | M |
 | 23 | MMMU-Pro drop | −16.8% to −26.9% vs MMMU | 2024 | https://github.com/MMMU-Benchmark/MMMU | Primary | H |
-| 24 | GPQA Diamond | ~39% → 94.3%; logistic asymptote ~92% | 2023 → 2026 | https://epoch.ai/gradient-updates/gpqa-diamond-whats-left | Secondary (search summary) | M |
+| 24 | GPQA Diamond | ~39% → 94.3% (M); logistic asymptote ~92% (uncertain; conflicts with 94.3%) | 2023 → 2026 | https://epoch.ai/gradient-updates/gpqa-diamond-whats-left | Secondary (search summary) | M |
 | 25 | ARC-AGI-1 early progress | 0% (GPT-3, 2020) → 5% (GPT-4o, 2024) | Dec 2024 | https://arcprize.org/blog/oai-o3-pub-breakthrough (quoted in github.com/smol-ai/ainews-web-2025) | Primary (quoted) | H |
 | 26 | ARC-AGI-1 brute-force ensemble | 49% of private set (2020 entries); top single 20% | Dec 2024 | https://arxiv.org/abs/2412.04604 | Primary (search summary) | M-H |
 | 27 | ARC Prize 2024 TTT | ARChitects 53.5%; MindsAI 55.5% | Dec 2024 | https://arxiv.org/abs/2412.04604 | Primary (search summary) | M-H |
-| 28 | o3-preview ARC-AGI-1 | 75.7% ($10k limit); 87.5% (~172×) | 20 Dec 2024 | https://arcprize.org/blog/oai-o3-pub-breakthrough | Primary (not re-fetched) | M |
-| 29 | ARC-AGI-3 harness gap | 62.7% standard vs 99.9% provider adapter (GPT-6 Astra) | ~3 Sep 2026 | https://arcprize.org/blog/astra ; https://www.techmeme.com/260903/p40 | Primary (search summary) | M |
+| 28 | o3-preview ARC-AGI-1 | 75.7% ($10k limit); 87.5% (~172×); Semi-Private set; trained on 75% of public training set | 20 Dec 2024 | https://arcprize.org/blog/oai-o3-pub-breakthrough | Primary (saved copy on GitHub) | H |
+| 29 | ARC-AGI-3 harness gap | 62.7% standard ($26,098) vs 99.9% Provider Adapter ($18,817) (GPT-6 Astra); the adapter keeps reasoning state and compacts context. Per-game tools were a separate PRO-LONG harness [corrected by fact-check] | 3 Sep 2026 | https://arcprize.org/blog/astra ; https://www.techmeme.com/260903/p40 | Primary (full translation mirror) | M-H |
 | 30 | Leaderboard Illusion | 27 Meta variants; 19.2% / 20.4% data share; up to 112% gain | Apr 2025 | https://arxiv.org/abs/2504.20879 | Primary (mirror) | H |
 | 31 | LMArena on Meta | "interpretation of our policy did not match…" | 7 Apr 2025 | https://simonwillison.net/2025/Apr/8/lmaren/ | Secondary quoting primary | M-H |
 | 32 | Saturation study | 60 benchmarks; ~half saturated; age and scale predict; private sets no protective effect | 2026 (ICML) | https://arxiv.org/abs/2602.16763 | Primary (search summary) | H |
 | 33 | AI Index 2025 one-year gains | MMMU +18.8, GPQA +48.9, SWE-bench +67.3 pts | Apr 2025 | https://www.ibm.com/think/news/stanford-hai-2025-ai-index-report | Secondary | M |
 | 34 | AI Index 2026 | "saturated in months"; ~half of 60 most-cited saturated | Apr 2026 | https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_2_technical.pdf | Primary (search summary) | M |
 | 35 | Bulls-and-Cows saturation | Commit "o3-mini saturated the benchmark...." | 31 Jan 2025 | https://github.com/stalkermustang/llm-bulls-and-cows-benchmark/commits/main | Primary | H |
-| 36 | Logic-RL | 0.99 → 0.89 accuracy (3–7 persons), <5k synthetic samples | Feb 2025 | https://arxiv.org/abs/2502.14768 | Primary (search summary) | M |
+| 36 | Logic-RL | 0.99 (3-person) → 0.80 (7-person); 0.67 at 8-person; 0.89 average; about 5K synthetic samples [corrected by fact-check] | Feb 2025 | https://arxiv.org/abs/2502.14768 | Primary (paper text + README) | H |
 | 37 | TTT-Bench | Reasoning models 41% below MATH-500; 5% below AIME 2024 | 2025 | https://arxiv.org/abs/2506.10209 | Primary (search summary) | M-H |
 | 38 | LLM Chess | Random-opponent tier saturated in 2025; Dragon engine added | 2025–26 | https://github.com/maxim-saplin/llm_chess | Primary | H |
 | 39 | Qi Town motivation | Built to compensate for "data dependency" of Q&A benchmarks | Aug 2025 | https://arxiv.org/abs/2508.04720 (mirror: CSQianDong/Awesome-arXiv-Daily-Reporter) | Primary (mirror) | H |
@@ -469,7 +477,7 @@ Novel instances close path 0 (contamination). Novel skills close paths 0 and 1 o
 | 45 | TopoBench | <25% of hard solved; code repo empty | Mar 2026 / Sep 2026 | https://arxiv.org/abs/2603.12133 ; https://github.com/mayug/topobench-benchmark | Primary | H |
 | 46 | Raw-corpora pipeline | "avoids benchmark contamination" | 2025–26 | https://arxiv.org/abs/2506.07658 | Primary (mirror) | H |
 | 47 | BloomQA | Analyze > Remember inversion | Jan 2026 | https://arxiv.org/abs/2601.20253 | Primary (mirror) | H |
-| 48 | BIG-bench archived | 17 Apr 2026; >200 tasks | 2026 | https://github.com/google/BIG-bench | Primary | H |
+| 48 | BIG-bench archived | Archived (H); 17 Apr 2026 date uncertain; >200 tasks | 2026 | https://github.com/google/BIG-bench | Primary | H / uncertain |
 | 49 | HELM maintenance mode | From 1 Jun 2026; no new evaluations | 2026 | https://github.com/stanford-crfm/helm/blob/main/docs/maintenance_mode.md | Primary | H |
 | 50 | WebArena launch gap | GPT-4 agent 14.41% vs human 78.24% | 2023 | https://arxiv.org/abs/2307.13854 | Primary (search summary) | H |
 | 51 | OdysseyBench+ reuses OfficeBench | 300 tasks turned into multi-day dialogues | Aug 2025 | https://arxiv.org/abs/2508.09124 | Primary (search summary) | M |
@@ -485,6 +493,7 @@ Novel instances close path 0 (contamination). Novel skills close paths 0 and 1 o
 - OdysseyBench: https://arxiv.org/abs/2508.09124
 - DCA-Bench: https://arxiv.org/abs/2406.07275 ; https://github.com/TRAIS-Lab/dca-bench ; https://dl.acm.org/doi/10.1145/3711896.3737422
 - DC-BENCH: https://proceedings.neurips.cc/paper_files/paper/2022/file/052e22cfdd344c79634f7ec76fa03e22-Paper-Datasets_and_Benchmarks.pdf
+- Added by fact-check: DCBench (Data Cognition): https://github.com/YH-CN/DCBench ; dcbench (Decision Compliance): https://github.com/brief-hq/dcbench , https://arxiv.org/abs/2605.08112 ; dcbench (data-centric AI, DEEM 2022): https://github.com/data-centric-ai/dcbench
 
 **Contamination, validity and gaming**
 - OpenAI, "Why we no longer evaluate SWE-bench Verified": https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/ (verbatim mirror: https://github.com/BobYeger/state-of-agents/blob/main/raw/articles/openai-retires-swe-bench-verified.md)
