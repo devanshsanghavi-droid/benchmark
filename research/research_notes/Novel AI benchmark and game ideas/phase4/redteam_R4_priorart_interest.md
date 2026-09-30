@@ -267,7 +267,7 @@ GPTNT (arXiv 2606.28514, Jun 2026) builds on Keep Talking and Nobody Explodes, w
 9. **Self-Knowledge Exam (C14 + C15 + C26 merged).** A live finding (MarketBench) and a natural AA index entry. Separately each is pre-empted.
 10. **C29 Whodunit Engine.** Cheap ($20–100), deterministic, and legible ("AI detective vs puzzle fans"). Must be renamed.
 
-Next in line: C38 Relay (as an AI-only handoff benchmark), C36 Season Forge (A2 only), C40 Rules Gauntlet (rulebook track only).
+Next in line: C38 (AI-only handoff), C36 (A2 only), C40 (rulebook track only).
 
 ---
 
@@ -290,54 +290,54 @@ Next in line: C38 Relay (as an AI-only handoff benchmark), C36 Season Forge (A2 
 
 ## 5. References
 
-Tags as in the header. arXiv links are canonical IDs, taken from search results; the PDFs were not opened.
+Tags as in the header; arXiv PDFs were not opened.
 
 - **R1.** SpookyBench / "Time Blindness" (CVPR 2026) [V]; https://arxiv.org/abs/2505.24867; https://github.com/TimeBlindness/time-blindness
 - **R2.** ActPLD, point-light biological motion in MLLMs [V]. https://arxiv.org/abs/2509.23517
 - **R3.** Kinetics dataset (DeepMind, 2017) [B]. https://arxiv.org/abs/1705.06950
 - **R4.** Butter-Bench (40% vs 95% humans) [V]. https://arxiv.org/abs/2510.21860
 - **R5.** CyberRunner, labyrinth [B]. https://arxiv.org/abs/2312.09906
-- **R6.** Audio benchmarks; MMAU-Pro [V]: https://arxiv.org/abs/2508.13992; MUSE [V]: https://arxiv.org/abs/2510.19055
-- **R7.** HLE; Nature paper [V]: https://www.nature.com/articles/s41586-025-09962-4; Scale results [V]: https://scale.com/blog/humanitys-last-exam-results
+- **R6.** Audio benchmarks: MMAU-Pro [V]: https://arxiv.org/abs/2508.13992; MUSE [V]: https://arxiv.org/abs/2510.19055
+- **R7.** HLE: Nature paper [V]: https://www.nature.com/articles/s41586-025-09962-4; Scale results [V]: https://scale.com/blog/humanitys-last-exam-results
 - **R8.** Blind-Spots-Bench (Jul 2026) [V]. https://arxiv.org/abs/2607.08317
-- **R9.** Adversarial human-in-the-loop data collection; Dynabench [B]: https://arxiv.org/abs/2104.14337; Beat the AI [B]: https://arxiv.org/abs/2002.00293
-- **R10.** Physics; NewtonBench [D-F]: https://raw.githubusercontent.com/HKUST-KnowComp/NewtonBench/main/README.md; CRONOS [V]: https://arxiv.org/abs/2605.23699; QuantiPhy [V]: https://arxiv.org/abs/2512.19526
+- **R9.** Adversarial human-in-the-loop data collection: Dynabench [B]: https://arxiv.org/abs/2104.14337; Beat the AI [B]: https://arxiv.org/abs/2002.00293
+- **R10.** Physics: NewtonBench [D-F]: https://raw.githubusercontent.com/HKUST-KnowComp/NewtonBench/main/README.md; CRONOS [V]: https://arxiv.org/abs/2605.23699; QuantiPhy [V]: https://arxiv.org/abs/2512.19526
 - **R11.** Tacit Communication Game [V]. https://www.researchgate.net/publication/271824613_Higher-order_theory_of_mind_in_the_Tacit_Communication_Game
-- **R12.** Reference games and conventions; ICCA, "Talk Less, Interact Better" [V]: https://arxiv.org/abs/2408.01417; "Aligned but Not Partner-Specific" (Jun 2026) [V]: https://arxiv.org/abs/2606.08081; Convention-formation post-training [V]: https://arxiv.org/abs/2508.06482
-- **R13.** ARC; ARC-AGI-3 [D-D]: https://arcprize.org/arc-agi/3; ARC-AGI-4 "open innovation" announcement [V2; uncertain]: https://www.kucoin.com/news/flash/arc-prize-announces-next-ai-benchmark-focused-on-open-innovation
-- **R14.** Video-game benchmarks; OmniGameArena [V]: https://arxiv.org/abs/2606.09826; V-ICAL Bench [V]: https://arxiv.org/abs/2609.15683; VideoGameBench [D-D]: https://arxiv.org/abs/2505.18134
+- **R12.** Reference games and conventions: ICCA, "Talk Less, Interact Better" [V]: https://arxiv.org/abs/2408.01417; "Aligned but Not Partner-Specific" (Jun 2026) [V]: https://arxiv.org/abs/2606.08081; Convention-formation post-training [V]: https://arxiv.org/abs/2508.06482
+- **R13.** ARC: ARC-AGI-3 [D-D]: https://arcprize.org/arc-agi/3; ARC-AGI-4 "open innovation" announcement [V2; uncertain]: https://www.kucoin.com/news/flash/arc-prize-announces-next-ai-benchmark-focused-on-open-innovation
+- **R14.** Video-game benchmarks: OmniGameArena [V]: https://arxiv.org/abs/2606.09826; V-ICAL Bench [V]: https://arxiv.org/abs/2609.15683; VideoGameBench [D-D]: https://arxiv.org/abs/2505.18134
 - **R15.** Real-Time Reasoning Gym / AgileThinker (ICLR 2026) [V]. https://arxiv.org/abs/2511.04898
 - **R16.** 360CityArena [V]. https://pith.science/paper/2608.08814 (MindTopo, MindCube, VSI-Bench: [D-A])
 - **R17.** Talk the Walk [V]; https://arxiv.org/abs/1807.03367; https://github.com/facebookresearch/talkthewalk
-- **R18.** Learning from experience; Continual Learning Bench [V]: https://arxiv.org/abs/2606.05661; NetHack ascension [V]: https://kenforthewin.github.io/blog/posts/llm-nethack-ascension/; BALROG [D-D]
-- **R19.** Calibration and betting; AA-Omniscience [D-B]: https://arxiv.org/abs/2511.13029; KellyBench [V]: https://arxiv.org/abs/2604.27865; LLM wagering, "Going All-In on LLM Accuracy" [V]: https://arxiv.org/abs/2512.05998
-- **R20.** Self-knowledge and introspection; Looking Inward [V]: https://arxiv.org/abs/2410.13787; Masked by Consensus (ACL 2026) [V]: https://aclanthology.org/2026.acl-long.483/; Beyond Confidence [V]: https://arxiv.org/abs/2605.07806; Kadavath et al. [B]: https://arxiv.org/abs/2207.05221
+- **R18.** Learning from experience: Continual Learning Bench [V]: https://arxiv.org/abs/2606.05661; NetHack ascension [V]: https://kenforthewin.github.io/blog/posts/llm-nethack-ascension/; BALROG [D-D]
+- **R19.** Calibration and betting: AA-Omniscience [D-B]: https://arxiv.org/abs/2511.13029; KellyBench [V]: https://arxiv.org/abs/2604.27865; LLM wagering, "Going All-In on LLM Accuracy" [V]: https://arxiv.org/abs/2512.05998
+- **R20.** Self-knowledge and introspection: Looking Inward [V]: https://arxiv.org/abs/2410.13787; Masked by Consensus (ACL 2026) [V]: https://aclanthology.org/2026.acl-long.483/; Beyond Confidence [V]: https://arxiv.org/abs/2605.07806; Kadavath et al. [B]: https://arxiv.org/abs/2207.05221
 - **R21.** MarketBench (Apr 2026) [V]. https://arxiv.org/abs/2604.23897
-- **R22.** Sycophancy; lechmazur sycophancy board [D-B]: https://github.com/lechmazur/sycophancy; Sustained pressure [V]: https://arxiv.org/abs/2609.09090; "It's Not Always Sycophancy" [V]: https://arxiv.org/abs/2605.27288; FlipFlop [B]: https://arxiv.org/abs/2311.08596; SycEval [B]: https://arxiv.org/abs/2502.08177
-- **R23.** Long-chain execution; Illusion of Diminishing Returns [V]: https://arxiv.org/abs/2509.09677; TMBench [V]: https://github.com/HaitaoWuTJU/Turing-Machine-Bench; METR [D-E]
-- **R24.** Memory and compaction; The Compaction Cliff [V]: https://arxiv.org/abs/2608.22752; Memory-benchmark overview (vendor-authored) [V]: https://mem0.ai/blog/ai-memory-benchmarks-in-2026
-- **R25.** Teaching weaker models; Teach2Eval [V]: https://arxiv.org/abs/2505.12259; Saha et al. [V]: https://arxiv.org/abs/2306.09299; StudentBench [D-B]
-- **R26.** Auditing planted behaviours; AuditBench [V]: https://arxiv.org/abs/2602.22755; Auditing for hidden objectives [V]: https://arxiv.org/abs/2503.10965
+- **R22.** Sycophancy: lechmazur sycophancy board [D-B]: https://github.com/lechmazur/sycophancy; Sustained pressure [V]: https://arxiv.org/abs/2609.09090; "It's Not Always Sycophancy" [V]: https://arxiv.org/abs/2605.27288; FlipFlop [B]: https://arxiv.org/abs/2311.08596; SycEval [B]: https://arxiv.org/abs/2502.08177
+- **R23.** Long-chain execution: Illusion of Diminishing Returns [V]: https://arxiv.org/abs/2509.09677; TMBench [V]: https://github.com/HaitaoWuTJU/Turing-Machine-Bench; METR [D-E]
+- **R24.** Memory and compaction: The Compaction Cliff [V]: https://arxiv.org/abs/2608.22752; Memory-benchmark overview (vendor-authored) [V]: https://mem0.ai/blog/ai-memory-benchmarks-in-2026
+- **R25.** Teaching weaker models: Teach2Eval [V]: https://arxiv.org/abs/2505.12259; Saha et al. [V]: https://arxiv.org/abs/2306.09299; StudentBench [D-B]
+- **R26.** Auditing planted behaviours: AuditBench [V]: https://arxiv.org/abs/2602.22755; Auditing for hidden objectives [V]: https://arxiv.org/abs/2503.10965
 - **R27.** BoxingGym, DiscoveryWorld, AutumnBench [D-F].
-- **R28.** Forecasting; ForecastBench [V]: https://arxiv.org/abs/2409.19839 and https://epoch.ai/benchmarks/forecastbench; QuantSightBench [V]: https://arxiv.org/abs/2604.15859; Context is Key [B]: https://arxiv.org/abs/2410.18959
-- **R29.** Predicting research outcomes; Wen et al. [V]: https://arxiv.org/abs/2506.00794; Forecasting research success [V]: https://arxiv.org/abs/2605.21491; BrainBench [B]: https://www.nature.com/articles/s41562-024-02046-9
+- **R28.** Forecasting: ForecastBench [V]: https://arxiv.org/abs/2409.19839 and https://epoch.ai/benchmarks/forecastbench; QuantSightBench [V]: https://arxiv.org/abs/2604.15859; Context is Key [B]: https://arxiv.org/abs/2410.18959
+- **R29.** Predicting research outcomes: Wen et al. [V]: https://arxiv.org/abs/2506.00794; Forecasting research success [V]: https://arxiv.org/abs/2605.21491; BrainBench [B]: https://www.nature.com/articles/s41562-024-02046-9
 - **R30.** KoLMogorov-Test [V]. https://arxiv.org/abs/2503.13992
-- **R31.** Markets and collusion; LLM collusion in double auctions [V]: https://arxiv.org/abs/2507.01413; Institutional AI [V]: https://arxiv.org/abs/2601.11369
+- **R31.** Markets and collusion: LLM collusion in double auctions [V]: https://arxiv.org/abs/2507.01413; Institutional AI [V]: https://arxiv.org/abs/2601.11369
 - **R32.** Alpha Arena [V2]. https://www.iweaver.ai/blog/alpha-arena-ai-trading-season-1-results/
 - **R33.** Vending-Bench 2 / Arena and FLE [D-B, D-D].
-- **R34.** Detective benchmarks; WhodunitBench [V]: https://openreview.net/forum?id=qmvtDIfbmS; TurnaboutLLM [V]: https://chatpaper.com/paper/139362; MuSR [B]: https://arxiv.org/abs/2310.16049; Murder-mystery environment [V]: https://arxiv.org/abs/2602.12342
-- **R35.** Social deduction; MafiaScope [V]: https://arxiv.org/abs/2607.10645; Clocktower Radio [V]: https://clocktower-radio.com/how-it-works
-- **R36.** Debate; Khan et al. [V]: https://arxiv.org/abs/2402.06782; Kenton et al. [V]: https://arxiv.org/abs/2407.04622; May 2026 follow-up [V]: https://arxiv.org/abs/2605.27483
-- **R37.** Nomic; NomicLaw [V]: https://arxiv.org/abs/2508.05344; Self-amendment game [V]: https://dl.acm.org/doi/10.1145/3712255.3734367
+- **R34.** Detective benchmarks: WhodunitBench [V]: https://openreview.net/forum?id=qmvtDIfbmS; TurnaboutLLM [V]: https://chatpaper.com/paper/139362; MuSR [B]: https://arxiv.org/abs/2310.16049; Murder-mystery environment [V]: https://arxiv.org/abs/2602.12342
+- **R35.** Social deduction: MafiaScope [V]: https://arxiv.org/abs/2607.10645; Clocktower Radio [V]: https://clocktower-radio.com/how-it-works
+- **R36.** Debate: Khan et al. [V]: https://arxiv.org/abs/2402.06782; Kenton et al. [V]: https://arxiv.org/abs/2407.04622; May 2026 follow-up [V]: https://arxiv.org/abs/2605.27483
+- **R37.** Nomic: NomicLaw [V]: https://arxiv.org/abs/2508.05344; Self-amendment game [V]: https://dl.acm.org/doi/10.1145/3712255.3734367
 - **R38.** GENSTRAT [V; site blocked, search summary only]. https://arxiv.org/abs/2605.23238 and https://genstrat.org/
-- **R39.** Puzzle generation; SATBench [V]: https://arxiv.org/abs/2505.14615; Absolute Zero [B]: https://arxiv.org/abs/2505.03335
-- **R40.** Game generation; GAVEL [V]: https://arxiv.org/abs/2407.09388; Mage [V]: https://arxiv.org/abs/2605.07342; gg-bench [D-D]
-- **R41.** Competitive programming and bot contests; AtCoder WTF 2026 Heuristic [V2]: https://the-decoder.com/openais-ai-beats-every-human-at-atcoder-a-top-competitive-programming-contest/ and https://atcoder.jp/contests/awtf2026heuristic; ALE-Bench [V]: https://github.com/SakanaAI/ALE-Bench; CodeClash [V/V2]: https://arxiv.org/abs/2511.00839 and https://codeclash.ai/insights/20251105_human_ai/
-- **R42.** Sabotage and control; ControlArena [V]: https://github.com/UKGovernmentBEIS/control-arena; SHADE-Arena [V]: https://www.anthropic.com/research/shade-arena-sabotage-monitoring; AI Control [B]: https://arxiv.org/abs/2312.06942
-- **R43.** Transmission chains; Telephone game [V]: https://arxiv.org/abs/2407.04503; GlossoGen [V]: https://arxiv.org/abs/2609.01491
-- **R44.** Rules and games; LudoBench [V2]: https://en.papernotes.org/ICLR2026/vlm_reasoning/llms_as_rules_oracles_exploring_real-world_multimodal_reasoning_in_tabletop_stra/; GVGAI-LLM [V]: https://arxiv.org/abs/2508.08501; CWM [D-D]
-- **R45.** Hidden-rule learning; ZendoWorld [D-F]: https://arxiv.org/abs/2607.08233; FalsifyBench [D-F]: https://arxiv.org/abs/2606.04751; WILT [D-F]: https://raw.githubusercontent.com/RiotGames/WILT/main/README.md; WitnessBench [D-F]: arXiv 2609.32208 (via dossier F search excerpts); Eleusis cogame [D-F]: https://raw.githubusercontent.com/Metta-AI/cogame-eleusis/main/README.md
-- **R46.** Cooperation and conventions; AH2AC2 [V]: https://openreview.net/forum?id=Kioojohsuy; The Convention Gap [V]: https://arxiv.org/abs/2609.11489; Interchangeability [V]: https://arxiv.org/abs/2609.05279
-- **R47.** Predicting and coordinating with humans; Strategic Algorithmic Monoculture [V]: https://arxiv.org/abs/2604.09502; Divergent Minds, Convergent Baselines [V]: https://arxiv.org/abs/2605.26437; Subversion via Focal Points [V]: https://arxiv.org/abs/2507.03010; Centaur [B]: https://www.nature.com/articles/s41586-025-09215-4
-- **R48.** Manipulation evaluations; MakeMePay [V]: https://github.com/openai/evals/tree/main/evals/elsuite/make_me_pay; o1 system card [V]: https://openai.com/index/openai-o1-system-card/
+- **R39.** Puzzle generation: SATBench [V]: https://arxiv.org/abs/2505.14615; Absolute Zero [B]: https://arxiv.org/abs/2505.03335
+- **R40.** Game generation: GAVEL [V]: https://arxiv.org/abs/2407.09388; Mage [V]: https://arxiv.org/abs/2605.07342; gg-bench [D-D]
+- **R41.** Competitive programming and bot contests: AtCoder WTF 2026 Heuristic [V2]: https://the-decoder.com/openais-ai-beats-every-human-at-atcoder-a-top-competitive-programming-contest/ and https://atcoder.jp/contests/awtf2026heuristic; ALE-Bench [V]: https://github.com/SakanaAI/ALE-Bench; CodeClash [V/V2]: https://arxiv.org/abs/2511.00839 and https://codeclash.ai/insights/20251105_human_ai/
+- **R42.** Sabotage and control: ControlArena [V]: https://github.com/UKGovernmentBEIS/control-arena; SHADE-Arena [V]: https://www.anthropic.com/research/shade-arena-sabotage-monitoring; AI Control [B]: https://arxiv.org/abs/2312.06942
+- **R43.** Transmission chains: Telephone game [V]: https://arxiv.org/abs/2407.04503; GlossoGen [V]: https://arxiv.org/abs/2609.01491
+- **R44.** Rules and games: LudoBench [V2]: https://en.papernotes.org/ICLR2026/vlm_reasoning/llms_as_rules_oracles_exploring_real-world_multimodal_reasoning_in_tabletop_stra/; GVGAI-LLM [V]: https://arxiv.org/abs/2508.08501; CWM [D-D]
+- **R45.** Hidden-rule learning: ZendoWorld [D-F]: https://arxiv.org/abs/2607.08233; FalsifyBench [D-F]: https://arxiv.org/abs/2606.04751; WILT [D-F]: https://raw.githubusercontent.com/RiotGames/WILT/main/README.md; WitnessBench [D-F]: arXiv 2609.32208 (via dossier F search excerpts); Eleusis cogame [D-F]: https://raw.githubusercontent.com/Metta-AI/cogame-eleusis/main/README.md
+- **R46.** Cooperation and conventions: AH2AC2 [V]: https://openreview.net/forum?id=Kioojohsuy; The Convention Gap [V]: https://arxiv.org/abs/2609.11489; Interchangeability [V]: https://arxiv.org/abs/2609.05279
+- **R47.** Predicting and coordinating with humans: Strategic Algorithmic Monoculture [V]: https://arxiv.org/abs/2604.09502; Divergent Minds, Convergent Baselines [V]: https://arxiv.org/abs/2605.26437; Subversion via Focal Points [V]: https://arxiv.org/abs/2507.03010; Centaur [B]: https://www.nature.com/articles/s41586-025-09215-4
+- **R48.** Manipulation evaluations: MakeMePay [V]: https://github.com/openai/evals/tree/main/evals/elsuite/make_me_pay; o1 system card [V]: https://openai.com/index/openai-o1-system-card/
 - **R49.** GPTNT (Jun 2026) [V]. https://arxiv.org/abs/2606.28514
