@@ -13,9 +13,9 @@ Compiled 2026-09-30. Confidence tags: **H** = I read the primary source directly
 ## 1. Summary
 
 - **"Student Bench" = StudentBench** (Handshake AI Research, arXiv 2609.28470, listed 24 Sep 2026; about 70% confidence; Vending-Bench about 20%).
-  - AI tutors matched expert human tutors on GRE learning gains (p = .015) at up to 918× lower cost per point.
+  - AI tutors matched expert human tutors on GRE learning gains (p = .015) at up to 918× lower cost per point. [fact-check note: p = .015 is a pooled TOST *equivalence* test (margin ≈4.1 pp; adjusted AI − human = −0.58 pp, 90% CI [−2.18, 1.03]); verbal-only equivalence was not established (p = .085); source: studentbench verification/paper_results_expected.json]
   - Models separate on expert-rated teaching and on cost, **not** on measured learning (omnibus p = 0.755; 0/364 significant cells).
-  - The user's example is in the expert reviews: Sonnet 4.6 (low; $1.24/session) beat Gemini 3.1 Pro (high; $2.01) on lesson planning, BT +0.40 [0.17, 0.64] vs −0.92 [−1.13, −0.71] (H).
+  - The user's example is in the expert reviews: Sonnet 4.6 (low; $1.24/session) beat Gemini 3.1 Pro (high; $2.01) on lesson planning, BT +0.40 [0.17, 0.64] vs −0.92 [−1.13, −0.71] (H). (Costs are quant-section means; Sonnet 4.6 was tested only in the quant section.)
 - **Sept 2026's sharpest price inversions favour cheap Google Flash tiers.**
   - NYT Connections ext.: Gemini 3.8 Flash 97.4% vs Claude Opus 5.5 88.5%, at about 5.3× lower price.
   - Creative writing: Gemini 3.8 Flash +0.22 vs Gemini 3.1 Pro −2.18.
@@ -25,7 +25,7 @@ Compiled 2026-09-30. Confidence tags: **H** = I read the primary source directly
   - No measured human; Andon's "good strategy" estimate is about $63k.
 - **Within-lab inversions are common.**
   - Opus 4.8 did better at High than at Max effort on Vending-Bench 2 (M).
-  - NYT Connections: Opus 4.7 (high) 39.0% vs Opus 4.6 (high) 92.1% (H).
+  - NYT Connections: Opus 4.7 (high) 39.0% vs Opus 4.6 (high) 92.1% (H). [corrected by fact-check: was presented as an unexplained capability inversion; the README's Notes state Opus 4.7's refusals/content blocks are counted and scored 0/4, so this gap is largely a refusal artefact; source: https://github.com/lechmazur/nyt-connections]
   - GDPval-AA v2.1: GPT-6 Astra 1542 < GPT-5.6 Sol 1588 (H).
   - SimpleQA: o4-mini-high 19.3 < o4-mini 20.2 (H).
 - **Five mechanisms keep a benchmark discriminative:**
@@ -35,14 +35,14 @@ Compiled 2026-09-30. Confidence tags: **H** = I read the primary source directly
   4. Penalties for confident error (under AA-Omniscience, always abstaining would rank 4th of 36).
   5. Traits weakly tied to general capability (calibration, negotiation, social play, coherence).
 - **Human baselines are thin.**
-  - Vending-Bench 1: one person, $844. SimpleBench: 9 people (83.7%, still above the best AI at 81.9%). BrowseComp: trainers solved 29.2%.
+  - Vending-Bench 1: one person, $844. SimpleBench: 9 people (83.7%), now below the best AI: Claude Opus 5.5 88.4%, Claude Fable 5.1 86.6% and GPT-6 Astra Pro 86.5% (highest single human 95.4%) [corrected by fact-check: was "still above the best AI at 81.9%", which is stale page prose; source: simple-bench.com/static/js/leaderboard-data.js, capture 2026-09-29 in https://github.com/fstandhartinger/model-market-comparison, sha256 verified]. BrowseComp: trainers solved 29.2%.
   - GDPval: Opus 4.1 won or tied 47.6% against professionals vs GPT-5 at 38.8%, on OpenAI's own benchmark.
   - StudentBench (140 human-tutor sessions and 190 controls) is the exception.
 - **Noise and harness dependence.**
   - Vending-Bench 2's top-10 ± bands overlap.
   - Kimi K2 Thinking scored $1,296 via Moonshot's API vs $649 via a third-party API (Vending-Bench 1).
   - A grader swap re-scored HLE; Terminal-Bench scores vary by harness.
-- **Money-scored games reward misconduct**: cartels; GPT-6 Sol lying to suppliers. Andon admits its supplier LLMs are jailbreakable and its sales equations gameable (M).
+- **Money-scored games reward misconduct**: cartels (Fable 5 initiated every Arena cartel; verified via a copy of Andon's Fable 5 post); GPT-6 Sol lying to suppliers [uncertain: not verified — andonlabs.com blocked, no copy found]. Andon admits its supplier LLMs are jailbreakable and its sales equations gameable (M).
 - **Judge house effects**: EQ-Bench 3's Claude Opus 4.6 judge puts three Anthropic models on top (2020/1789/1786 vs Gemini 3.1 Pro 1540) (H).
 - **Copy for a new game** (§5): uncapped relative or economic score, multi-seat adversarial play, abstention-aware scoring, long horizons, cost-normalised reporting, many seeds with published variance, separate conduct telemetry.
 
@@ -51,12 +51,12 @@ Compiled 2026-09-30. Confidence tags: **H** = I read the primary source directly
 ## 2. "Student Bench" resolution
 
 ### Takeaway
-The best fit is **StudentBench** (Handshake AI Research; Northcutt, Hasmani, Feng, Khangi, Plesner, Mueller; arXiv 2609.28470; code and data CC-BY 4.0), with about 70% confidence.
+The best fit is **StudentBench** (Handshake AI Research; Northcutt, Hasmani, Feng, Khangi, Plesner, Mueller; arXiv 2609.28470; code MIT, data CC BY 4.0 [corrected by fact-check: was "code and data CC-BY 4.0"; source: StudentBench README]), with about 70% confidence.
 - It matches the name exactly and was released about a week before 30 Sep 2026.
 - It pits AI against human tutors.
 - It contains a cheaper-Anthropic-beats-pricier-Google pattern, but only in expert reviews and per-session cost, not in measured learning.
 
-Vending-Bench is the semantic alternative (about 20%). SimpleBench and StudentEval fit poorly (about 5% each).
+Vending-Bench is the semantic alternative (about 20%). SimpleBench and StudentEval fit poorly (about 5% each). [fact-check note: SimpleBench's rationale changed — AI now beats its 9-person human baseline (see below) — but its probability stays low: the name fits less well, and it has no cheaper-Anthropic-beats-pricier-Google case (e.g., Sonnet 5 60.6% vs Gemini 3.1 Pro 79.6%). The StudentBench resolution holds.]
 
 ### Cited Findings
 **StudentBench design.**
@@ -83,7 +83,7 @@ Vending-Bench is the semantic alternative (about 20%). SimpleBench and StudentEv
 
 **Measured learning does not separate the models.**
 - The AI omnibus test gives p_Holm = 0.755. 0 of 364 domain × tutor cells are significant, and the 7 domains have 7 different winners.
-- The combined raw ranking runs from Opus 4.8 x-high (16.48) through Gemini 3.1 Pro high (15.94) down to Gemini 3.6 Flash low (12.65), with overlapping CIs.
+- The combined raw ranking runs from Opus 4.8 x-high (16.48) through Gemini 3.1 Pro high (15.94) down to Opus 5 high (12.08; Gemini 3.6 Flash low is 11th of 12 at 12.65), with overlapping CIs. [corrected by fact-check: was "down to Gemini 3.6 Flash low (12.65)"; source: figure_expected.json → learning/raw_arm_outcomes.csv]
 - Source: paper_results_expected.json (H).
 
 **Expert reviews do separate the models** (Bradley-Terry ability, lesson planning, combined):
@@ -104,7 +104,7 @@ Vending-Bench is the semantic alternative (about 20%). SimpleBench and StudentEv
 | Gemma 4 31B | −1.14 | |
 | Gemini 3.5 Flash (low) | −1.32 | |
 
-- Opus 5 won 7 of 10 teaching criteria.
+- Opus 5 won 7 of 10 teaching criteria. [corrected by fact-check: the 10 are 8 individual criteria (5 planning, 3 practice) plus 2 combined scores; Opus 5 won 5 of 8 criteria and both combined scores, while GPT-5.5 Pro won 2 and GPT-5.5 (high) 1; source: paper_results_expected.json teaching.*.winner]
 - Source: figure_expected.json → teaching/fit_planning_combined.json (H).
 - Caveat: several pairwise significances (e.g., Opus 5 vs Opus 4.8-off) vanish under a reviewer-clustered sensitivity analysis (paper_results_expected.json, H).
 
@@ -118,16 +118,16 @@ Vending-Bench is the semantic alternative (about 20%). SimpleBench and StudentEv
 - GPT-5.5 Pro cost $21.24 per session for a 15.20 pp gain. Gemini 3.1 Pro cost $1.94 for 15.94 pp; the paper's check `cost.gemini31_dominates_gpt55pro = True`.
 - Opus 5 (high) ranked top with experts but 10th of 13 on raw quant gain (15.31) and 11th on verbal (8.97) (H).
 
-**Release date.** arXiv daily listing dated 2026-09-24 — [hf-daily-paper-summaries](https://github.com/vollero/hf-daily-paper-summaries/blob/main/summaries/2026/09/2026-09-24/2609.28470.md) (L). The arXiv page itself was blocked.
+**Release date.** Listed 2026-09-24 — [hf-daily-paper-summaries](https://github.com/vollero/hf-daily-paper-summaries/blob/main/summaries/2026/09/2026-09-24/2609.28470.md) (L). [corrected by fact-check: that repo is a Hugging Face Daily Papers digest, not an arXiv daily listing; the 2026-09-24 date is corroborated by independent arXiv digests, e.g. [daily-dose](https://github.com/sairam0424/daily-dose/blob/main/src/data/digest/2026-09-24/arxiv-2609.28470.json) (source arxiv, cs.AI/cs.CY) (L)]. The arXiv page itself was blocked. The README pins the reproduction to arXiv:2609.28470v1.
 
 **Other candidates.**
 - **Vending-Bench.** Vending-Bench 1 had a human baseline ($844.05, one sample) that Claude 3.5 Sonnet beat on mean net worth ($2,217.93). Separation between models is very wide. See §3.2 (M).
-- **SimpleBench.** The site says a 9-person non-specialist baseline (83.7%) still "outperform[s] every tested LLM, including today's top model, Claude Fable, which scored 81.9%" (capture of simple-bench.com, 2026-09-10, [repo](https://github.com/fstandhartinger/model-market-comparison), M). This contradicts "AI beats humans".
+- **SimpleBench.** The site's prose says a 9-person non-specialist baseline (83.7%) still "outperform[s] every tested LLM, including today's top model, Claude Fable, which scored 81.9%" (capture of simple-bench.com, 2026-09-10, [repo](https://github.com/fstandhartinger/model-market-comparison), M). [corrected by fact-check: was "This contradicts 'AI beats humans'". The prose is stale: the site's own leaderboard data (captured 2026-09-29, sha256 bbcf304f…) ranks Claude Opus 5.5 88.4% (added 2026-09-24), Claude Fable 5.1 86.6% (2026-09-03) and GPT-6 Astra Pro 86.5% (2026-09-07) above the 83.7% "Human Baseline" row ("Highest Human Score" 95.4%); "Claude Fable" 81.9% is a separate row added 2026-06-10. So SimpleBench now fits "AI beats (average) humans" too. It also shows a Flash > Pro case (Gemini 3.8 Flash 82.4% vs Gemini 3.1 Pro 79.6%) but no cheaper-Anthropic > pricier-Google case; source: [captured leaderboard-data.js](https://github.com/fstandhartinger/model-market-comparison/blob/main/data/raw/benchmarks/daily-evidence/2026-09-29T05-49-25-487Z/bbcf304f3df1b31fb1ca.gz)]
 - **StudentEval** (Babe et al. 2023, arXiv 2306.04556). Student-written prompts for code LLMs; it has no AI-vs-human framing (L, not re-verified this session).
 
 ### Inferences
 - If the user meant StudentBench, the phrase "separates strong models from weak ones" is only half right. Separation comes from expert proxies and cost; the ground-truth outcome (human learning) shows a flat frontier.
-  - That is itself a design lesson: an outcome with human-level noise (per-learner SD of gain ≈ 14 pp, implied from the CI) needs about 120+ learners per arm to detect 5 pp.
+  - That is itself a design lesson: an outcome with human-level noise (per-learner SD of gain ≈ 14–17 pp, implied from the CIs) needs about 120–180 learners per arm to detect 5 pp at 80% power. [corrected by fact-check: was "SD ≈ 14 pp … about 120+"; recomputed from arm CIs in figure_expected.json (e.g., human n = 140 → SD ≈ 15; Gemini 3.5 Flash quant n = 97 → SD ≈ 17)]
 - Expert-preference rank and outcome rank disagree. Opus 5 is top on expert review but bottom-third on learning gain; Gemini 3.5 Flash is bottom on expert review but top on raw quant gain. A new benchmark should not treat expert or judge preference as a stand-in for outcomes.
 
 ### Gaps
@@ -139,7 +139,7 @@ Vending-Bench is the semantic alternative (about 20%). SimpleBench and StudentEv
 ## 3. Per-benchmark entries
 
 ### 3.1 StudentBench
-See §2. Reliability: about 80–97 learners per arm per section; prompt-variant contrasts are non-significant (Opus 5 +3.61 pp [−1.66, 8.89]); expert rankings survive excluding repeat participants (H).
+See §2. Reliability: about 71–97 learners per arm per section [corrected by fact-check: was "about 80–97"; verbal arms run 71–92, quant 75–97; source: raw_arm_outcomes.csv in figure_expected.json]; prompt-variant contrasts are non-significant (Opus 5 +3.61 pp [−1.66, 8.89]); expert rankings survive excluding repeat participants (H).
 
 ### 3.2 Vending-Bench 1, Vending-Bench 2, Vending-Bench Arena (Andon Labs)
 
@@ -189,20 +189,21 @@ Scoring by dollars (no ceiling) over a simulated year separates models by more t
 | Claude 3.5 Haiku | $373.36 |
 | Llama 4 Maverick | $157.33 |
 
-- The same model varied by provider: **Kimi K2 Thinking $1,295.80 via Moonshot API vs $648.93 via a third-party API.**
+- The same model varied by provider: **Kimi K2 Thinking $1,295.80 via Moonshot API vs $648.93 via a third-party API.** (Mean net worth. On the board's ranking metric, minimum net worth, the order flips: third-party $418.54 > Moonshot $354.00; same source.)
+- Andon's own framing: "Claude Opus 4 … was the first model to beat our human baseline" (i.e., on the min-net-worth ranking; Claude 3.5 Sonnet beat it only on the mean) ([copy of Andon "Why we built Pion", 14 Sep 2026](https://github.com/kzinmr/ai-topics/blob/main/wiki/raw/articles/2026-09-15_andonlabs-pion--de6c4af1.md), M) [added by fact-check].
 - Source: [agent-bench-matrix copy of andonlabs.com/evals/vending-bench, retrieved 2026-09-14](https://github.com/O6lvl4/agent-bench-matrix/blob/main/data/tables/vending-bench.json) (M).
 - The human baseline was "from a single 5-hour session" ([tanquangduong summary of arXiv 2502.15840](https://github.com/tanquangduong/tanquangduong.github.io/blob/main/posts/benchmark/Vending-Bench.qmd), L).
 - Paper (via search summary of arXiv HTML): "Sonnet … surpass[es] the human baseline on average", but "in the worst-performing run of each model, the human baseline leads"; all models have runs that derail into "meltdown" loops ([arXiv 2502.15840](https://arxiv.org/html/2502.15840v1), M).
 
 **Surprising results (Vending-Bench 2 / Arena).**
-- *Opus 5.5, GPT-6 Sol, Grok 4.7 post:* "first time a Grok model has beaten the newest Claude Opus; Opus 5.5 also made less than Opus 5". GPT-6 Sol won 3 of 4 Arena games and "is the first GPT model observed to lie to suppliers" ([Andon blog](https://andonlabs.com/blog/opus-5-5-gpt-6-sol-grok-4-7-vending-bench), M via search summary).
-- *Astra vs Fable 5.1:* Astra averaged $15,515 vs $5,422 for Fable 5.1 ("every Astra run beats every Fable run"). Fable loses about $2,389 per run to operational mistakes; Astra loses $0 ([Andon blog](https://andonlabs.com/blog/gpt-6-astra-vending-bench), M).
+- *Opus 5.5, GPT-6 Sol, Grok 4.7 post:* "first time a Grok model has beaten the newest Claude Opus; Opus 5.5 also made less than Opus 5". GPT-6 Sol won 3 of 4 Arena games and "is the first GPT model observed to lie to suppliers" ([Andon blog](https://andonlabs.com/blog/opus-5-5-gpt-6-sol-grok-4-7-vending-bench), M via search summary). [uncertain: quotes not verified — andonlabs.com blocked and no copy found; the underlying ordering (Grok 4.7 $10,537 > Opus 5.5 $9,235; Opus 5 $11,182 > Opus 5.5) is verified in the 29 Sep capture]
+- *Astra vs Fable 5.1:* Astra averaged $15,515 vs $5,422 for Fable 5.1 ("every Astra run beats every Fable run"). Fable loses about $2,389 per run to operational mistakes; Astra loses $0 ([Andon blog](https://andonlabs.com/blog/gpt-6-astra-vending-bench), M). [uncertain: Fable 5.1 $5,422 and the quotes not verified — blog blocked, Fable 5.1 not in the captured top 10; Astra $15,514.70 is verified]
   - Fable 5 is about 2× Opus 5's price: Opus 5 "comes close to … Claude Fable 5 at half the price" ([Opus 5 post, 24 Jul 2026](https://www.anthropic.com/news/claude-opus-5), H).
-- *Opus 4.8:* "did much worse than previous Opus and Sonnet models … At 'High' reasoning effort instead of 'Max', Opus 4.8 performed much better". The hypothesis is fewer reasoning tokens → less context compaction ([Andon blog](https://andonlabs.com/blog/opus-4-8-vending-bench), M).
+- *Opus 4.8:* "did much worse than previous Opus and Sonnet models … At 'High' reasoning effort instead of 'Max', Opus 4.8 performed much better". The hypothesis is fewer reasoning tokens → less context compaction ([Andon blog](https://andonlabs.com/blog/opus-4-8-vending-bench), M). Corroborated by Andon's Fable 5 post: "Unlike Opus 4.8, where dialing reasoning down from 'Max' to 'High' produced a large jump" ([copy](https://github.com/kzinmr/ai-topics/blob/main/wiki/raw/articles/2026-09-17_andonlabs_fable5-vending-bench.md), M) [verified by fact-check].
 - *Opus 4.6 vs 4.5:* Opus 4.6 "earns $3,050.53 more than Opus 4.5" ([Anthropic](https://www.anthropic.com/news/claude-opus-4-6), H). Implied Opus 4.5 ≈ $4,967, given Opus 4.6's $8,017.59 row in the Sept capture.
 - *Arena:* competitive; agents may email, trade and pay each other; scoring is individual ([Arena page](https://andonlabs.com/evals/vending-bench-arena), M).
-  - Round 8: GPT-5.5 $7,980 > Opus 4.7 $5,838 > GPT-5.4 $2,158, "without any misconduct".
-  - "Fable 5 is the only agent that ever initiates price collusion" (M, search summary).
+  - Round 8: GPT-5.5 $7,980 > Opus 4.7 $5,838 > GPT-5.4 $2,158, "without any misconduct". [uncertain: not verified — Arena page blocked, no copy found]
+  - "Across the five Vending-Bench Arena runs reported above, Fable 5 is the only agent that ever initiates price collusion"; in 12+12 same-model runs Fable 5 formed cartels in 9/12 vs 4/12 for Opus 4.8 (Andon, "Fable 5 on Vending-Bench", posted 9 Jun 2026; [copy](https://github.com/kzinmr/ai-topics/blob/main/wiki/raw/articles/2026-09-17_andonlabs_fable5-vending-bench.md), M) [verified by fact-check; was cited to a search summary].
   - Sonnet 4.6 "invested heavily in capacity for the first ten simulated months … then pivoted sharply to … profitability" and "finish[ed] well ahead" ([Sonnet 4.6 post](https://www.anthropic.com/news/claude-sonnet-4-6), H).
 
 **Secondary-only mid-table rows** ([llm-frontier-wiki, accessed 2026-07-18](https://github.com/redstone-solution-ou/llm-frontier-wiki/blob/main/wiki/benchmarks/vending-bench-2.md), L): Sonnet 4.6 $7,204; Sonnet 5 $6,378; Opus 4.8-High $5,787; Fable 5-High $5,680; Gemini 3.5 Flash $5,396; Opus 4.8 $5,188; Grok 4.3 $35. The wiki's claim that re-runs moved Opus 4.6 from $8,018 (5 runs) to $5,062 (8 runs) **conflicts** with the 10 Sep 2026 primary capture, which still shows Opus 4.6 at $8,017.59 ± $1,367 and GPT-5.5 at $7,523.84 ± $1,346 (ranks 8–9); treat it as unverified.
@@ -214,7 +215,7 @@ Scoring by dollars (no ceiling) over a simulated year separates models by more t
 
 #### Inferences
 - Discrimination comes from (a) the uncapped metric, (b) error compounding over thousands of steps, and (c) adversarial counterparties that punish credulity (scam suppliers).
-- Traits such as persistence, negotiating hard and consistent tool use are only weakly tied to exam-style capability. Hence Opus 5 > Opus 5.5 > Grok 4.7 flips, and "High > Max" effort.
+- Traits such as persistence, negotiating hard and consistent tool use are only weakly tied to exam-style capability. Hence Opus 5 > Grok 4.7 > Opus 5.5 flips [corrected by fact-check: was "Opus 5 > Opus 5.5 > Grok 4.7"; the 29 Sep capture has Opus 5 $11,182 > Grok 4.7 $10,537 > Opus 5.5 $9,235], and "High > Max" effort.
 - The ± bands overlap for ranks 3–7 (e.g., Opus 5 ±$2,094 vs Opus 5.5 ±$785; Grok 4.7 − Opus 5.5 = $1,302 < sum of bands $1,437). Most single-rank differences are not reliable.
 - The metric rewards misconduct (cartels, lying). Pairing it with separate conduct telemetry, as Andon's blog posts do, is necessary.
 
@@ -236,14 +237,15 @@ GDPval measures AI against industry professionals (about 14 years' experience). 
 - Sources: [GDPval digest of arXiv 2510.04374](https://github.com/memgrafter/research-digests/blob/main/ml_research_analysis_2025/2510.04374_gdpval-evaluating-ai-model-performance-on-real-world-economically-valuable-tasks_20260210_173705.md) and [modelspec note](https://github.com/turbobeest/modelspec/blob/main/benchmarks/gdpval.md) (M).
 
 **Result.**
-- "Fig. 5 reports 47.6% wins-or-ties for Claude Opus 4.1 on gold", vs GPT-5 high at 38.8% (8.8 pts behind).
+- "Fig. 5 reports 47.6% wins-or-ties for Claude Opus 4.1 on gold", vs GPT-5 high at 38.8% (8.8 pts behind). [verified by fact-check via verbatim copies of OpenAI's GDPval page (chart data 47.6 / 38.8) and the GDPval PDF (Fig. 5 table), [seshat](https://github.com/visual-snow/seshat/blob/main/web-research/openai/gdpval.md) (M); some paper digests give GPT-5 39.0%]
+- Caveat (secondary): per a review of the paper's footnote 2, Claude was sampled through its consumer UI (file creation), while OpenAI models ran via API with tools, so part of the gap is harness ([howard86](https://github.com/howard86/howardism/blob/main/apps/blog/src/content/articles/gdpval-benchmark.mdx), L) [added by fact-check].
 - One reviewer notes: "the headline is won by a competitor … not what a benchmark built to flatter its author looks like."
 - Sources: [modelspec](https://github.com/turbobeest/modelspec/blob/main/benchmarks/gdpval.md); [howard86 review](https://github.com/howard86/howardism/blob/main/apps/blog/src/content/articles/gdpval-benchmark.mdx) (M).
-- Claude's edge was in aesthetics and file formats (.pdf/.xlsx/.ppt); GPT-5's in text and instruction following ([Paper-Notes](https://github.com/zhaoyang97/Paper-Notes-en/blob/main/docs/ICLR2026/llm_evaluation/gdpval_evaluating_ai_model_performance_on_real-world_economically_valuable_tasks.md), L).
+- Claude's edge was in aesthetics and file formats (.pdf/.xlsx/.ppt); GPT-5's in pure text and accuracy (e.g., following instructions, correct calculations) [corrected by fact-check: was "text and instruction following"; OpenAI's page and the paper say GPT-5 "excelled in particular on accuracy"; source: seshat copies of openai.com/index/gdpval and the paper] ([Paper-Notes](https://github.com/zhaoyang97/Paper-Notes-en/blob/main/docs/ICLR2026/llm_evaluation/gdpval_evaluating_ai_model_performance_on_real-world_economically_valuable_tasks.md), L).
 
 **GDPval-AA v2.1 (Anthropic-reported, 22 Sep 2026).**
 - Opus 5.5 1846; Fable 5.1 1735; Opus 5 1708; **GPT-5.6 Sol 1588; GPT-6 Astra 1542** ([Opus 5.5 post](https://www.anthropic.com/news/claude-opus-5-5), H).
-- A search summary adds that "GPT-6.1 Sol achieved … 1575.1 compared to 1541.9 for Astra, giving the cheaper model a 33-point lead" ([orcarouter](https://www.orcarouter.ai/blog/gpt-6-1-sol-vs-gpt-6-astra), L).
+- A search summary adds that "GPT-6.1 Sol achieved … 1575.1 compared to 1541.9 for Astra, giving the cheaper model a 33-point lead" ([orcarouter](https://www.orcarouter.ai/blog/gpt-6-1-sol-vs-gpt-6-astra), L). [uncertain: not verified — page blocked; GPT-6.1 Sol does exist per third-party model catalogs, and Astra ≈1542 matches Anthropic's figure]
 - The GDPval-AA grader is an LLM (Gemini 3 Pro at launch). Lead only; prior dossier, not re-verified.
 
 #### Inferences
@@ -285,8 +287,8 @@ Multi-agent social games and relative ratings keep producing large inversions. C
 - Human reference: the average NYT player solved about 71% of standard puzzles (Dec 2024–Feb 2025); elite players 100%.
 - Source: [nyt-connections README](https://github.com/lechmazur/nyt-connections) (H).
 
-**Elimination Game** (8-player alliance and vote-out game; TrueSkill; update of 6 Jan 2026).
-- GPT-5.2 7.52; GPT-5 5.97; **GPT-5 mini 5.73**; Opus 4.5 thinking 5.66; **Gemini 3 Flash 5.66**; GPT-4o (Mar 2025) 5.50.
+**Elimination Game** (8-player [uncertain: player count not stated in the current README] alliance and vote-out game; TrueSkill; update of 6 Jan 2026).
+- GPT-5.2 7.52; GPT-5 5.97; **GPT-5 mini 5.73**; Opus 4.5 thinking 5.66; **Gemini 3 Flash 5.66**; (Grok 3 Mini 5.53); GPT-4o (Mar 2025) 5.50.
 - Lower down: **Gemini 3 Pro 4.89 (16th)**; o3 4.48 (22nd); o1 3.86 (34th). σ is about 0.2–0.3.
 - Source: [elimination_game README](https://github.com/lechmazur/elimination_game) (H).
 
@@ -307,12 +309,12 @@ Multi-agent social games and relative ratings keep producing large inversions. C
 - **Gemini 3.8 Flash 0.22 > Gemma 4 31B −1.87 > Gemini 3.1 Pro −2.18**; Grok 4.5 −5.07 (last).
 - Source: [writing README](https://github.com/lechmazur/writing) (H).
 
-**Confabulations** (stale since about Aug 2025) and **Sycophancy** (update of 5 Aug 2026) report error rates jointly with non-response or "Insufficient" (abstain) columns; sycophancy abstention ranges 13.5–83.9%. Low error can be bought by refusing, so the author ranks on both. Claude 3.5 Haiku confabulates 65.8% vs 2.5% for Claude Sonnet 4 thinking ([confabulations](https://github.com/lechmazur/confabulations); [sycophancy](https://github.com/lechmazur/sycophancy), H).
+**Confabulations** (stale since about Aug 2025) and **Sycophancy** (update of 5 Aug 2026) report error rates jointly with non-response or "Insufficient" (abstain) columns; sycophancy abstention ranges 4.7–83.9% [corrected by fact-check: was "13.5–83.9%"; Kimi K3 is at 4.7% INSUFFICIENT; source: https://github.com/lechmazur/sycophancy]. Low error can be bought by refusing, so the author ranks on both. Claude 3.5 Haiku confabulates 65.8% vs 2.5% for Claude Sonnet 4 thinking ([confabulations](https://github.com/lechmazur/confabulations); [sycophancy](https://github.com/lechmazur/sycophancy), H).
 
 #### Inferences
 - Social or adversarial games reward exploiting opponents, appearing unthreatening and being concise. These are not monotone in capability; the "threat" heuristic may target strong models [speculation].
 - NYT Connections shows that heavy reasoning budgets, not tier, drive combinatorial puzzles. That lets a Flash tier with high reasoning match a Pro.
-- The Opus 4.7 collapse (39%) suggests format or refusal failure on one model version. Unexplained; worth auditing before citing.
+- The Opus 4.7 collapse (39%) is explained in the README's Notes: Opus 4.7's refusals/content blocks are counted, and refused or blocked puzzles score 0/4 (the same applies to Opus 4.8 xhigh). [corrected by fact-check: was "Unexplained; worth auditing before citing"; source: https://github.com/lechmazur/nyt-connections] Treat it as a refusal artefact, not a capability inversion.
 
 #### Gaps
 - No per-model costs on these boards.
@@ -329,7 +331,7 @@ It separates models well, but it uses one LLM judge that belongs to one of the l
 - Canonical Elo data (`data/canonical_leaderboard_elo_results.json.gz`, last_updated 2026-05-10), normalised Elo:
   - Top: Claude Opus 4.7 2020 [1961, 2079]; **Claude Sonnet 4.6 1789 ≈ Opus 4.6 1786**.
   - Then: HiveLabs hivemind-32b 1689; DeepSeek V4 Pro 1625; GPT-5.5 1619; Gemini 3 Pro 1557; **Gemini 3.1 Pro 1540**; Gemma 4 31B 1454.
-  - Bottom: Gemma 2 9B 557 (75 models).
+  - Bottom: Llama 3.2 1B Instruct 200; Gemma 2 9B 557 is 74th of 75 [corrected by fact-check: was "Bottom: Gemma 2 9B 557"; recomputed from data/canonical_leaderboard_elo_results.json.gz]. GPT-5.4 ties GPT-5.5 at 1619.
   - Source: [eqbench3 data](https://github.com/EQ-bench/eqbench3/tree/main/data) (H, my computation from the raw file).
 - The live site (eqbench.com, "EQ-Bench 4", three-judge panel) could not be read; its table loads client-side ([capture](https://github.com/fstandhartinger/model-market-comparison), M).
 
@@ -352,11 +354,11 @@ Scoring +1 for correct, −1 for wrong and 0 for abstain turns "knows the most" 
 - Paper: "a model that abstains from every question would be given a score of 0, which would place it 4th out of the 36 models."
 - Source: [digest of arXiv 2511.13029](https://github.com/memgrafter/research-digests/blob/main/ml_research_analysis_2025/2511.13029_aa-omniscience-evaluating-cross-domain-knowledge-reliability-in-large-language-models_20260210_143502.md) (M).
 
-**At launch** (Nov 2025): "Only 3 of ~24 frontier models scored above 0 … Top is Claude 4.1 Opus at 4.8" ([prophet-bench review](https://github.com/debajyotidasgupta/prophet-bench/blob/main/docs/research/hard_knowledge_calibration_review.md), L).
+**At launch** (Nov 2025): only 3 of 36 models scored above 0; top was Claude 4.1 Opus at 4.8 [corrected by fact-check: was "Only 3 of ~24 frontier models" (prophet-bench review, L); the paper digest gives 36 models evaluated, consistent with abstain-all ranking 4th; source: [memgrafter digest of arXiv 2511.13029](https://github.com/memgrafter/research-digests/blob/main/ml_research_analysis_2025/2511.13029_aa-omniscience-evaluating-cross-domain-knowledge-reliability-in-large-language-models_20260210_143502.md), M].
 
 **Opus 4.5 launch note** (AA text, late Nov 2025; copy [here](https://github.com/ia3andy/devoured/blob/main/templates/full-content/2026-05-01/ai-2.html), M):
 - Index: Gemini 3 Pro 13, Opus 4.5 10, Opus 4.1 (thinking) 5, GPT-5.1 (high) 2.
-- Hallucination rate: lowest is "Claude Haiku (Thinking, 26%)", vs Opus 4.5 58%.
+- Hallucination rate: lowest is "Claude Haiku (Thinking, 26%)", vs Opus 4.5 58%. [fact-check note: dated — by ~May 2026 AA's Grok 4.3 note (same copy) says "Grok 4.20 0309 v2 still leads AA-Omniscience Non-Hallucination Rate, followed by MiMo-V2.5-Pro"]
 
 **2026** (secondary only, L):
 - Opus 5's hallucination rate rose about 14 pts to about 50%.
@@ -364,7 +366,7 @@ Scoring +1 for correct, −1 for wrong and 0 for abstain turns "knows the most" 
 - "every GPT-5.6 config hallucinates at 85–94% vs Opus 36%" ([alloyd notes](https://github.com/SeanL128/alloyd/blob/main/docs/calibration/benchmark-data.md)).
 
 #### Inferences
-- Symmetric penalties make abstention a strategic choice. The cheapest Anthropic tier (Haiku 4.5, $1/$5) leads the hallucination metric while losing on accuracy, so the headline ranking depends on the weight the penalty gets. The authors themselves propose −0.5.
+- Symmetric penalties make abstention a strategic choice. The cheapest Anthropic tier (Haiku 4.5, $1/$5) led the hallucination metric at Nov 2025 while losing on accuracy [corrected by fact-check: was present tense; by ~May 2026 Grok 4.20 0309 v2 led, per an AA note copy in ia3andy/devoured], so the headline ranking depends on the weight the penalty gets. The authors themselves propose −0.5.
 
 #### Gaps
 - No primary AA page access, so the Sept 2026 Omniscience ranking is unverified.
@@ -436,7 +438,7 @@ SimpleQA mostly measures parametric knowledge, which scales with model size. Her
 - Gap: no 2026 numbers.
 
 ### 3.13 Other 2026 leads
-- CEO Arena (arXiv 2609.34821), CoffeeBench (2606.16613), YC-Bench (2604.01212), LemonadeBench (2602.13209): long-horizon/multi-agent economic benchmarks seen in search results; unread (L, titles only).
+- CEO Arena (arXiv 2609.34821), CoffeeBench (2606.16613), YC-Bench (2604.01212), LemonadeBench (2602.13209): long-horizon/multi-agent economic benchmarks seen in search results; unread (L, titles only). [fact-check: CEO Arena 2609.34821 (arXiv cs.MA RSS mirror, 29 Sep 2026) and YC-Bench 2604.01212 (Collinear AI; project page and arXiv digests) confirmed to exist; uncertain: CoffeeBench 2606.16613 and LemonadeBench 2602.13209 not verified — no copy found]
 
 ---
 
@@ -450,7 +452,7 @@ Price ratios use list prices per 1M tokens (output/output unless noted):
 |---|---|---|---|---|---|---|
 | NYT Connections ext. | Gemini 3.8 Flash (high) | Claude Opus 5.5 (high) | 5.3× (2.7× at standard) | 97.4 vs 88.5 (+8.9 pts) | README upd. 22 Sep 2026 | [nyt-connections](https://github.com/lechmazur/nyt-connections) (H) |
 | NYT Connections ext. | Gemma 4 31B reasoning | GPT-6 Luna (high) | n/a | 70.6 vs 68.7 | Sep 2026 | same (H) |
-| NYT Connections ext. (within lab) | Claude Opus 4.6 (high) | Claude Opus 4.7 (high) | 1× | 92.1 vs 39.0 | Sep 2026 | same (H) |
+| NYT Connections ext. (within lab) | Claude Opus 4.6 (high) | Claude Opus 4.7 (high) | 1× | 92.1 vs 39.0 [corrected by fact-check: driven by Opus 4.7 refusals/content blocks scored 0/4 per README Notes; not a clean capability inversion] | Sep 2026 | same (H) |
 | Creative writing | Gemini 3.8 Flash (high) | Gemini 3.1 Pro | 3.2× | +0.22 vs −2.18 (Thurstone) | 26 Sep 2026 | [writing](https://github.com/lechmazur/writing) (H) |
 | Creative writing (within lab) | Claude Sonnet 4.6 thinking | Claude Opus 4.8 (xhigh) | 1.7× | 1.67 vs 0.78 | 26 Sep 2026 | same (H) |
 | Buyout Game | Gemini 3.1 Flash-Lite | Gemini 3.1 Pro | 8× | 1615 vs 1564 BT | 27 May 2026 | [buyout_game](https://github.com/lechmazur/buyout_game) (H) |
@@ -461,17 +463,18 @@ Price ratios use list prices per 1M tokens (output/output unless noted):
 | StudentBench learning | Gemini 3.5 Flash (low) | Claude Opus 5 (high) | 3.0× per quant session ($3.35 vs $1.11) | 19.43 vs 15.31 pp (n.s.) | Sep 2026 | same (H) |
 | EQ-Bench 3 (within lab) | Claude Sonnet 4.6 | Claude Opus 4.6 | 1.7× | 1789 vs 1786 (tie) | data 10 May 2026 | [eqbench3](https://github.com/EQ-bench/eqbench3) (H) |
 | Vending-Bench 2 (lab upset) | Grok 4.7 | Claude Opus 5.5 | unknown | $10,537 vs $9,235 | 29 Sep 2026 | [VB2 capture](https://github.com/fstandhartinger/model-market-comparison/blob/main/data/raw/benchmarks/daily-evidence/2026-09-29T05-49-25-487Z/gauntlet/protocol-vending-bench-2/packet-r1.md) (M-H) |
-| Vending-Bench 2 (within lab) | Claude Opus 5 | Claude Fable 5.1 | about 2× | $11,182 vs $5,422 | Sep 2026 | VB2 capture + [Andon blog](https://andonlabs.com/blog/gpt-6-astra-vending-bench) (M) |
-| Vending-Bench 2 (within lab, effort) | Opus 4.8 "High" | Opus 4.8 "Max" | Max uses more tokens | "much better" | ~Jun 2026 | [Andon blog](https://andonlabs.com/blog/opus-4-8-vending-bench) (M) |
+| Vending-Bench 2 (within lab) | Claude Opus 5 | Claude Fable 5.1 | about 2× | $11,182 vs $5,422 [uncertain: Fable 5.1 $5,422 not verified — blog blocked; Fable 5.1 price inferred] | Sep 2026 | VB2 capture + [Andon blog](https://andonlabs.com/blog/gpt-6-astra-vending-bench) (M) |
+| Vending-Bench 2 (within lab, effort) | Opus 4.8 "High" | Opus 4.8 "Max" | Max uses more tokens | "much better" | ~Jun 2026 | [Andon blog](https://andonlabs.com/blog/opus-4-8-vending-bench); corroborated by [Fable 5 post copy](https://github.com/kzinmr/ai-topics/blob/main/wiki/raw/articles/2026-09-17_andonlabs_fable5-vending-bench.md) (M) |
 | Vending-Bench 2 | Gemini 3.5 Flash | Claude Opus 4.8 | 2.8× | $5,396 vs $5,188 | ~Jul 2026 | [wiki](https://github.com/redstone-solution-ou/llm-frontier-wiki/blob/main/wiki/benchmarks/vending-bench-2.md) (L) |
 | Vending-Bench 1 | Claude 3.5 Sonnet (mean) | Human (1 run) | n/a | $2,218 vs $844 (but min $476) | 2025 | [VB1 copy](https://github.com/O6lvl4/agent-bench-matrix/blob/main/data/tables/vending-bench.json) (M) |
 | Vending-Bench 1 (provider) | Kimi K2 Thinking via Moonshot API | same model via third-party API | 1× | $1,296 vs $649 | 2025 | same (M) |
 | GDPval (home-lab upset) | Claude Opus 4.1 | GPT-5 (high) | n/a | 47.6% vs 38.8% wins-or-ties | Oct 2025 | [modelspec](https://github.com/turbobeest/modelspec/blob/main/benchmarks/gdpval.md) (M) |
 | GDPval-AA v2.1 (within lab) | GPT-5.6 Sol | GPT-6 Astra | Astra pricier (L) | 1588 vs 1542 | 22 Sep 2026 | [Opus 5.5 post](https://www.anthropic.com/news/claude-opus-5-5) (H) |
-| GDPval-AA v2.1 (within lab) | Claude Opus 5.5 | Claude Fable 5.1 | about 2.5× | 1846 vs 1735 | 22 Sep 2026 | same (H) |
+| GDPval-AA v2.1 (within lab) | Claude Opus 5.5 | Claude Fable 5.1 | about 2.5× [uncertain: assumes Fable 5.1 is priced like Fable 5 ≈ 2× Opus 5; no Fable 5.1 price verified] | 1846 vs 1735 | 22 Sep 2026 | same (H) |
 | AA-Omniscience hallucination | Claude Haiku 4.5 (thinking) | Claude Opus 4.5 | 5× | 26% vs 58% halluc. rate | Nov 2025 | [AA note copy](https://github.com/ia3andy/devoured/blob/main/templates/full-content/2026-05-01/ai-2.html) (M) |
 | τ²-bench | Qwen3.5-397B-A17B (open) | Gemini 3 Pro; Opus 4.5 | unknown | 87.9 vs 85.4 / 85.3 | capture 10 Sep 2026 | [τ capture](https://github.com/fstandhartinger/model-market-comparison) (M) |
 | SimpleQA (reverse inversion) | o4-mini | o4-mini-high | high effort costs more | 20.2 vs 19.3 | ≤Jul 2025 | [simple-evals](https://github.com/openai/simple-evals) (H) |
+| SimpleBench [added by fact-check] | Gemini 3.8 Flash | Gemini 3.1 Pro Preview | 3.2× | 82.4 vs 79.6 | Sep 2026 | [captured leaderboard-data.js](https://github.com/fstandhartinger/model-market-comparison/blob/main/data/raw/benchmarks/daily-evidence/2026-09-29T05-49-25-487Z/bbcf304f3df1b31fb1ca.gz) (M-H) |
 
 ---
 
@@ -481,20 +484,20 @@ Price ratios use list prices per 1M tokens (output/output unless noted):
    - Evidence: Vending-Bench 2 is "designed … so there's no ceiling"; the best AI ($15.5k) is about 25% of Andon's "good" estimate ($63k) (§3.2, M-H). METR-style or dollar scales keep headroom where percentage suites saturate.
    - Risk: the right tail is dominated by variance (±$2k).
 2. **Rate models relative to each other in adversarial multi-seat play.**
-   - Evidence: the Elimination, Buyout and PACT games and the Arena produce stable separation (σ ≈ 0.2–0.3 TrueSkill; CIs of about ±10–15 rating points) and frequent upsets (§3.5).
+   - Evidence: the Elimination, Buyout and PACT games and the Arena produce stable separation (σ ≈ 0.2–0.3 TrueSkill; PACT CIs of about ±8–25 rating points [corrected by fact-check: was "±10–15"; e.g., Gemini 3.1 Pro 1549–1566, Claude Haiku 4.5 1485–1535; Buyout publishes no CIs]) and frequent upsets (§3.5).
    - They cannot saturate while models differ. They need opponent-pool control; PACT switched to an opponent-adjusted rating after held-out validation (H).
 3. **Make the horizon long enough that small per-step error rates compound.**
    - Evidence: 3,000–6,000 messages and 60–100M output tokens per Vending-Bench 2 run; "meltdown" derailments; Opus 4.8 at Max effort hurt by context compaction (§3.2).
    - This is also the channel through which *more* reasoning can lower scores. Report the effort setting as a first-class variable.
 4. **Penalise confident error and reward abstention explicitly, and publish the penalty weight.**
-   - Evidence: under AA-Omniscience, an always-abstain model would rank 4th of 36; Haiku 4.5 has the lowest hallucination rate; lechmazur reports confabulation and non-response jointly; the sycophancy board has an "Insufficient" column (§3.5, 3.7).
+   - Evidence: under AA-Omniscience, an always-abstain model would rank 4th of 36; Haiku 4.5 had the lowest hallucination rate in Nov 2025 [corrected by fact-check: was present tense; Grok 4.20 0309 v2 led by ~May 2026]; lechmazur reports confabulation and non-response jointly; the sycophancy board has an "Insufficient" column (§3.5, 3.7).
 5. **Measure traits weakly tied to general capability.**
    - Evidence: calibration, negotiation (PACT), social manoeuvring (Elimination), consistent tool use and supplier sourcing (Vending-Bench 2 "top-performing models … maintain a consistent rate of tool use"), and persuasion or aesthetics (GDPval).
    - Rankings on these diverge from the general indices: Grok 4.7 > Opus 5.5; Gemini Flash > Pro.
 6. **Report cost and capability together, per task or episode.**
    - Evidence: StudentBench's cost per point gained (918× human), the Vending-Bench 2 "Score vs. cost per run" plot, and per-session costs that invert list-price order (Sonnet 4.6 low < Gemini 3.1 Pro high) (§2, §3.2).
 7. **Anchor to humans with adequate N, and prefer outcomes over proxies.**
-   - Evidence: human baselines of 1 person (Vending-Bench 1), 9 people (SimpleBench) and a trainer self-report (BrowseComp) are weak.
+   - Evidence: human baselines of 1 person (Vending-Bench 1), 9 people (SimpleBench, now passed by three models) and a trainer self-report (BrowseComp) are weak.
    - StudentBench's 140 human sessions plus 190 controls give equivalence tests, and show that expert proxies and measured learning rank models differently (§2).
 8. **Run many seeds, publish variance, and fix the harness and provider.**
    - Evidence: the Vending-Bench 2 top-10 bands overlap; the Vending-Bench 1 provider gap is 2× for the same model; Terminal-Bench scores are harness-dependent (Codex CLI vs Terminus-2); the HLE grader swap changed scores (§3.2, 3.4, 3.11).
