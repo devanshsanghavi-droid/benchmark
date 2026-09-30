@@ -1,0 +1,13 @@
+{
+  "solver_label": "haiku",
+  "problems": {
+    "P1": {"labels": ["N", "Y", "N", "Y", "Y", "Y", "Y", "Y"], "rule": "A scene fits if it does not contain a large circle or large triangle resting on top of a square."},
+    "P2": {"labels": ["N", "Y", "Y", "N", "Y", "N", "Y", "Y"], "rule": "A scene fits if no color-shape combination appears more than once."},
+    "P3": {"labels": ["Y", "Y", "Y", "Y", "N", "Y", "Y", "Y"], "rule": "A scene fits if no color-shape combination appears more than once."},
+    "P4": {"labels": ["Y", "Y", "Y", "Y", "Y", "N", "Y", "Y"], "rule": "A scene fits if no color-shape combination appears more than once."},
+    "P5": {"labels": ["Y", "Y", "Y", "Y", "Y", "Y", "Y", "N"], "rule": "A scene fits if no color-shape combination appears more than once."},
+    "P6": {"labels": ["Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y"], "rule": "A scene fits if no color-shape combination appears more than once."},
+    "P7": {"labels": ["Y", "Y", "N", "Y", "Y", "Y", "N", "Y"], "rule": "A scene fits if no color-shape combination appears more than once."},
+    "P8": {"labels": ["Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y"], "rule": "A scene fits if no color-shape combination appears more than once."}
+  }
+}
