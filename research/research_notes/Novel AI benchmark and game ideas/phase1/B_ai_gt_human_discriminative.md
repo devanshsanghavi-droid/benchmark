@@ -524,7 +524,7 @@ Price ratios use list prices per 1M tokens (output/output unless noted):
 | 7 | Vending-Bench 2 top 10 | Astra $15,514.70 … Opus 5.5 $9,235.25 … GLM-5.3 $8,163.61 | 29 Sep 2026 | andonlabs.com/evals/vending-bench-2 via https://github.com/fstandhartinger/model-market-comparison | Primary (capture) | M-H |
 | 8 | Vending-Bench 2 "good" strategy | ≈$63k/yr ($206/day × 302) | 29 Sep 2026 | same | Primary (capture) | M-H |
 | 9 | Vending-Bench 2 run size | 3,000–6,000 messages; 60–100M output tokens | 29 Sep 2026 | same | Primary (capture) | M-H |
-| 10 | Grok 4.7 > Opus 5.5 (first Grok win over newest Opus) | $10,537 vs $9,235 | Sep 2026 | https://andonlabs.com/blog/opus-5-5-gpt-6-sol-grok-4-7-vending-bench | Primary (search summary) | M |
+| 10 | Grok 4.7 > Opus 5.5 (first Grok win over newest Opus) | $10,537 vs $9,235 (values verified in 29 Sep capture; "first Grok win" quote [uncertain: blog blocked]) | Sep 2026 | https://andonlabs.com/blog/opus-5-5-gpt-6-sol-grok-4-7-vending-bench | Primary (search summary) | M |
 | 13 | Vending-Bench 1 human baseline | $844.05, 1 sample, single 5-hour session | 2025 | https://github.com/O6lvl4/agent-bench-matrix/blob/main/data/tables/vending-bench.json | Secondary copy of primary | M |
 | 15 | Opus 4.6 vs Opus 4.5 on Vending-Bench 2 | +$3,050.53 | Feb 2026 | https://www.anthropic.com/news/claude-opus-4-6 | Primary | H |
 | 16 | NYT ext.: Gemini 3.8 Flash high vs Opus 5.5 high | 97.4 vs 88.5 | 22 Sep 2026 | https://github.com/lechmazur/nyt-connections | Primary | H |
@@ -533,7 +533,7 @@ Price ratios use list prices per 1M tokens (output/output unless noted):
 | 25 | GDPval: Opus 4.1 wins-or-ties | 47.6% (GPT-5 high 38.8%) | Oct 2025 | https://github.com/turbobeest/modelspec/blob/main/benchmarks/gdpval.md | Secondary | M |
 | 26 | GDPval-AA v2.1 | Opus 5.5 1846; Fable 5.1 1735; Opus 5 1708; GPT-5.6 Sol 1588; GPT-6 Astra 1542 | 22 Sep 2026 | https://www.anthropic.com/news/claude-opus-5-5 | Primary (lab-reported) | H |
 | 27 | HLE grader change moved Sonnet 4.6 | 34.6% no tools / 46.8% with tools | 2026 | https://www.anthropic.com/news/claude-sonnet-5 | Primary | H |
-| 28 | SimpleBench human > AI | 83.7% (n=9) vs Claude Fable 81.9% | capture 10 Sep 2026 | simple-bench.com via https://github.com/fstandhartinger/model-market-comparison | Primary (capture) | M |
+| 28 | SimpleBench human baseline vs AI | 83.7% (n=9) < Claude Opus 5.5 88.4%, Fable 5.1 86.6%, GPT-6 Astra Pro 86.5% ("Claude Fable" 81.9% is a June row) [corrected by fact-check: was "human > AI, 83.7% vs Claude Fable 81.9%"] | capture 29 Sep 2026 | simple-bench.com/static/js/leaderboard-data.js via https://github.com/fstandhartinger/model-market-comparison | Primary (capture, sha256 checked) | M-H |
 | 29 | BrowseComp human trainers | 29.2% solved; 86.4% of those correct | Apr 2025 | https://github.com/visual-snow/seshat/blob/main/web-research/openai/browsecomp.md | Secondary copy | M |
 | 31 | Terminal-Bench harness gap | GPT-5.5 83.4% with Codex CLI (vs Terminus-2 figures) | May 2026 | https://www.anthropic.com/news/claude-opus-4-8 | Primary | H |
 | 32 | SimpleQA: o4-mini-high < o4-mini; GPT-4.5 > o3 | 19.3 < 20.2; 62.5 > 49.4 | ≤Jul 2025 | https://github.com/openai/simple-evals | Primary | H |
