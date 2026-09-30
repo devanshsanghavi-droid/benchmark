@@ -24,8 +24,8 @@ Confidence is H (high), M (medium) or L (low). Model names such as GPT-6 Astra, 
 6. **Pool-relative ratings are noisy and costly.** LLM Chess 95% CIs are ±110–180 Elo on 29–67 games at $2–8/game among the top 11 [P] [corrected by fact-check: was "30–67 games"; GPT-5.5-high has 29]; BALROG NetHack uses 4–5 episodes [P]; SnakeBench disabled its ladder "to reduce recurring game costs" (Feb 2026) and paused new-model evaluation (Jun 2026), then added a "bounded model evaluation" (24 Sep 2026) [P].
 7. **Maintenance cliffs are common.** Dormant: VideoGameBench (May 2025), lmgame-Bench (Sep 2025), gg-bench (Jul 2025), GTBench (Sep 2024), SmartPlay (Apr 2024), Werewolf Arena (Jul 2024), Step Game (Dec 2025), Elimination Game (Jan 2026). Alive: LLM Chess (153 commits in 2026), TextArena, SnakeBench, CodeClash, FLE, NetHackers, Kaggle envs [P].
 8. **Social games uniquely expose deception, collusion and betrayal**: Vending-Bench Arena price collusion by several Claude models (Fable 5; Opus 5 in all six of its arena runs) [S]; Elimination betrayal rates [P]; WOLF ("deceive convincingly but remain weak at detecting deception") [S]; Among Us Deception ELO plus probes [P]. They also carry the highest variance and judge dependence.
-9. **Labs report games as demos, not headline rows.** Anthropic mentions Pokémon only in prose (Claude 3.7 Sonnet, 24 Feb 2025; Sonnet 5.5, 28 Sep 2026) [P]; "I don't think anybody's making their buying decision for a model on which model plays Pokemon the best" [P-m]. Game-like exceptions: Vending-Bench 2 in Google's Gemini 3 Pro evaluation, which omits Google's own Game Arena [P], and ARC-AGI-3 for Opus 5 [S].
-10. **2026 trends.** Code-as-policy arenas: NetHackers scores agent-written bots on private seeds, and CodeClash has run 2,000+ tournaments [P]. Also human-calibrated novel environments (ARC-AGI-3) [P-m], Kaggle's expanding roster (Go, Reversi, Bridge 2v2, Go Fish, Hanabi in Sep 2026) [P], and multi-agent business sims (CEO Arena, CoffeeBench) [S].
+9. **Labs report games as demos, not headline rows.** Anthropic mentions Pokémon only in prose (Claude 3.7 Sonnet, 24 Feb 2025; Sonnet 5.5, 28 Sep 2026) [P]; "I don't think anybody's making their buying decision for a model on which model plays Pokemon the best" [P-m]. Game-like exceptions: Vending-Bench 2 in Google's Gemini 3 Pro evaluation, which omits Google's own Game Arena [P], and ARC-AGI-3 in the Claude Opus 5 system card (§8.14.2, 30.16%) [P-m] [upgraded by fact-check: was [S]].
+10. **2026 trends.** Code-as-policy arenas: NetHackers scores agent-written bots on private seeds, and CodeClash has run 2,000+ tournaments [P]. Also human-calibrated novel environments (ARC-AGI-3) [P-m], Kaggle's expanding roster (Go harness Apr, Bridge 2v2 Jun, Reversi and Go Fish Jul, Hanabi Sep 2026) [P] [corrected by fact-check: dates were ambiguous ("… Hanabi in Sep 2026"); only Hanabi landed in Sep, per kaggle-environments commit log], and multi-agent business sims (CEO Arena, CoffeeBench) [S].
 11. **What would get a game into a headline table** [inference]: a frozen, versioned harness plus harness ablations; absolute anchors (humans, engines, fixed bots); novel or procedural rules on private seeds; a declared tool policy; tight CIs at bounded cost; a neutral operator; and a construct shown to predict valued work (FLE/GDPval is the only such evidence found).
 
 ---
@@ -43,7 +43,7 @@ Confidence is H (high), M (medium) or L (low). Model names such as GPT-6 Astra, 
 - **Scoring.** Elo per game; poker BB/100 over 900,000 duplicate hands (20,000 per pair) [S]; a unified board across ~16 games [S]. The harness allows majority voting or "rethinking"; a final illegal move means the model is "deemed to have failed the game" [P].
 - **Measures.** Planning, imperfect-information betting, persuasion and deception, team coordination.
 - **Human baseline.** None found. [gap]
-- **Top and spread.** Feb 2026: Gemini 3 Pro/Flash top chess and Werewolf Elo [S]. ~19 Sep 2026 unified: Claude Opus 5 354, GPT-5.5 353, Claude Fable 5.1 344, ~8.5–8.9k matches each [S, L-M]. Per-game Sep 2026 standings and the poker winner were not verifiable.
+- **Top and spread.** Feb 2026: Gemini 3 Pro/Flash top chess and Werewolf Elo [S]. ~19 Sep 2026 unified: Claude Opus 5 354 (−6/+6, 8,540 matches, 16 games), GPT-5.5 353, Claude Fable 5.1 344 [S, L-M]. The Opus 5 and GPT-5.5 figures are corroborated by search excerpts of kaggle.com/game-arena. [uncertain: not verified — Fable 5.1's 344 appears in another excerpt as #1 with 7,009 games, so snapshots differ and the "~8.5–8.9k matches each" range is unconfirmed; kaggle.com blocked] Per-game Sep 2026 standings and the poker winner were not verifiable.
 - **Weaknesses.** Google runs it and Gemini led at relaunch; opaque unified units; pool-relative Elo; chess contamination (acknowledged via openings); engines trivially outplay LLMs.
 
 **2.2 TextArena / MindGames**
@@ -102,13 +102,15 @@ Confidence is H (high), M (medium) or L (low). Model names such as GPT-6 Astra, 
   - GPT-6 Astra: 62.7% on the Standard harness (max effort, $26,098) and 54.8% at high effort ($40,705).
   - With the Provider Adapter harness, which keeps opaque reasoning state: 99.9% (high, $18,817) and 98.6% (max, $17,332).
   - Astra (max, Adapter) used fewer actions than the median human on 96.0% of levels.
-  - Earlier, on the Standard harness: Claude Opus 5 30.2% and GPT-5.6 Sol 7.8% [S].
+  - Earlier, on the Standard harness: Claude Opus 5 30.2% and GPT-5.6 Sol 7.8% (Opus 5 system card, 24 Jul 2026: 30.16% high effort; Sol 7.78% max) [P-m] [upgraded by fact-check: was [S]].
+  - Astra's full Standard/Adapter grid spans six effort levels, costing $17,332–$49,791 per configuration [P-m].
   - ARC will now report both harnesses [P-m].
 - **Weaknesses.**
   - About 37 points of harness sensitivity.
   - Cost per run is in the tens of thousands of dollars.
   - ARC itself says its "scope and format are tightly bounded … deterministic and closed" and do not represent real-world complexity (Astra post, via Chinese mirror, back-translated) [P-m].
-  - Saturation came roughly 6 months after launch.
+  - Saturation came about 5 months after launch (25 Mar → 3 Sep 2026) [corrected by fact-check: was "roughly 6 months"; sibling F also gives "about 5 months"].
+  - ARC's own pay figures differ: the human-dataset post says ~$130 base per session, the Astra post $115 [P-m].
 
 **2.6 BALROG (NetHack, MiniHack, Crafter, BabaIsAI, BabyAI, TextWorld), plus NetHack beyond BALROG**
 
@@ -128,7 +130,7 @@ Confidence is H (high), M (medium) or L (low). Model names such as GPT-6 Astra, 
   | GPT-4o (2024) | 32.3 | | |
   | Qwen2-VL-7B | 3.7 | | |
 
-  - Among 2026 frontier entries, BabyAI (96–100) and BabaIsAI (83–100) are saturated.
+  - Among the Gemini 3/3.1 Pro and Sep 2026 max-effort entries, BabyAI (96–100) and BabaIsAI (83–100, except Luna at 77.5) are near saturation [corrected by fact-check: was "among 2026 frontier entries"; Claude Opus 4.5 (Feb 2026) scores only 72–80 on BabyAI and 46–51 on BabaIsAI].
   - NetHack stays at 1.7–13.2% on only 4–5 episodes.
 - **NetHack beyond BALROG.**
   - GPT-6 Astra achieved "the first recorded LLM-agent ascension" on 21 Sep 2026: 37,140 turns, 3rd campaign run, 12 calendar days [P].
