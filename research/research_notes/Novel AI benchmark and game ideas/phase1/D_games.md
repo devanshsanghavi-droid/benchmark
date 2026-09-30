@@ -2,13 +2,7 @@
 
 Researcher notes, compiled 2026-09-30.
 
-**Method and access.** The session-wide web-search budget ran out after 26 searches, all run in this session. arxiv.org, kaggle.com, arcprize.org, balrogai.com, lesswrong.com, andonlabs.com, huggingface.co and most news sites were blocked for direct fetch. Primary evidence therefore comes from:
-- git clones and raw files on GitHub: leaderboard data files, submission summaries, READMEs and commit logs;
-- anthropic.com pages;
-- the Gemini 2.5 technical report PDF on storage.googleapis.com;
-- GitHub mirrors of arcprize.org pages.
-
-Search-result summaries are marked [S] and carry lower confidence.
+**Method and access.** The shared web-search budget ran out after 26 searches. arxiv.org, kaggle.com, arcprize.org, balrogai.com, lesswrong.com, andonlabs.com and huggingface.co were blocked for direct fetch. Primary evidence comes from GitHub (git clones of leaderboard data, submissions, READMEs and commit logs), anthropic.com, the Gemini 2.5 report PDF, and GitHub mirrors of arcprize.org pages.
 
 Tags:
 - [P] primary source read directly.
@@ -22,56 +16,17 @@ Confidence is H (high), M (medium) or L (low). Model names such as GPT-6 Astra, 
 
 ## 1. Summary
 
-1. **Games give the widest current rank spreads between frontier models, and the rankings differ from exam-style benchmarks.**
-   - FLE's authors state that the Factorio ranking (Claude > GPT > Gemini > Grok) "is most similar to GDPVal … in contrast to … HLE, AIME 25, GPQA and MMMU where weaker models in FLE achieve higher performance" (Sep 2025) [P].
-   - TTT-Bench reports that reasoning models score on average 41% lower on simple novel tic-tac-toe variants than on MATH 500 [S].
-2. **No single "game ability" exists.** Rankings disagree across game arenas and even within one benchmark.
-   - Claude Opus 5 leads Kaggle's unified Game Arena board (354 vs GPT-5.5 at 353, about 19 Sep 2026) [S, L-M].
-   - The same model is 11th on LLM Chess (Elo 1285 vs GPT-6 Astra at 1614) [P].
-   - On BALROG, Opus 5 beats Astra on TextWorld (71.6 vs 54.5) but loses on MiniHack (37.5 vs 65.0) [P].
-3. **Genuine human-AI gaps remain only in open-ended, long-horizon, novel-rule settings, and they are closing fast.**
-   - NetHack progression on BALROG is at most 13.2% (Astra, n=5 episodes, Sep 2026) [P].
-   - VideoGameBench's best score was 0.48% (Gemini 2.5 Pro, 2025) [S].
-   - Frontier models are "shockingly bad at playing Factorio" in human terms (FLE, Sep 2025) [P].
-   - ARC-AGI-3 went from under 1% at launch (Mar 2026) to 62.7% on the standard harness and 99.9% on a provider harness (GPT-6 Astra, 3 Sep 2026) [P-m].
-4. **Harness dependence is the dominant validity threat.**
-   - ARC-AGI-3: the same model scored 62.7% or 99.9% depending on the harness [P-m].
-   - The Gemini Pokémon run's time was cut in half once the harness was frozen: 813 h vs 406.5 h [P].
-   - The first LLM NetHack ascension (GPT-6 Astra, 21 Sep 2026) used an agent-built, mid-game-patched, open-book, human-supervised harness. Its authors say it is "not a benchmark result" [P].
-5. **Classic games are contaminated or tool-solvable.**
-   - Kaggle added 20 Lichess-sampled openings because LLMs "relied on narrow learned patterns like the Sicilian" [S].
-   - Engines, MCTS and LLM-written code world models beat direct LLM play (DeepMind CWM, ICLR 2026) [S].
-6. **Pool-relative ratings are noisy and costly.**
-   - LLM Chess reports 95% Elo CIs of ±110 to ±180 on 30–67 games per model, at $2–8 per game for frontier models [P].
-   - BALROG NetHack uses 4–5 episodes per model [P].
-   - SnakeBench disabled ladder matchmaking "to reduce recurring game costs" (Feb 2026) and paused automated new-model evaluation (Jun 2026) [P].
-7. **Maintenance cliffs are common.**
-   - Dormant: VideoGameBench (last commit May 2025), lmgame-Bench (Sep 2025), gg-bench (Jul 2025), GTBench (Sep 2024), SmartPlay (Apr 2024), Werewolf Arena (Jul 2024), Step Game (Dec 2025), Elimination Game (Jan 2026) [P].
-   - Alive: LLM Chess (153 commits in 2026), TextArena, SnakeBench, CodeClash, FLE, NetHackers and Kaggle's environment repo [P].
-8. **Social-deduction and negotiation games uniquely expose deception, collusion and betrayal.** Examples:
-   - Vending-Bench Arena price collusion [S];
-   - Elimination Game betrayal rates [P];
-   - WOLF: models "deceive convincingly but remain weak at detecting deception" [S];
-   - Among Us "Deception ELO" plus linear probes [P].
-
-   The same games also carry the highest variance and the most judge dependence.
-9. **Labs report games as demos, not headline rows.**
-   - Anthropic mentions Pokémon only in prose: Claude 3.7 Sonnet (24 Feb 2025) and Sonnet 5.5 ("first Sonnet model to beat Pokémon Red working only from screenshots", 28 Sep 2026) [P].
-   - An Anthropic engineer: "I don't think anybody's making their buying decision for a model on which model plays Pokemon the best" [P-m].
-   - The game-like exceptions are ARC-AGI-3 (Opus 5 table) and Vending-Bench 2 (Gemini 3 Pro table) [S].
-10. **2026 trends.**
-    - Code-as-policy arenas: NetHackers (Aug 2026) scores agent-written bots on private seeds; CodeClash ran 2,000+ tournaments [P].
-    - Human-calibrated novel environments: ARC-AGI-3 (458-person study) [P-m].
-    - Institutional multi-game platforms: Kaggle added Go, Reversi, Nine Men's Morris, Bridge (2v2), Go Fish and Hanabi (Sep 2026) [P].
-    - Multi-agent business sims: CEO Arena, CoffeeBench, E-Commerce Bench [S titles].
-11. **What would get a game into a headline table** [inference]:
-    - a frozen, versioned harness with harness ablations;
-    - absolute anchors (humans, engines, fixed bots) rather than pool-relative Elo;
-    - procedurally generated or novel rules with private seeds;
-    - a declared tool/code policy;
-    - under 5% CI half-widths at bounded cost;
-    - a neutral operator;
-    - a construct demonstrably predictive of valued work (the FLE/GDPval alignment is the only such evidence found).
+1. **Games re-rank models relative to exam benchmarks.** FLE's Factorio ranking (Claude > GPT > Gemini > Grok) "is most similar to GDPVal … in contrast to … HLE, AIME 25, GPQA and MMMU" (Sep 2025) [P]. Reasoning models score 41% lower on novel tic-tac-toe variants (TTT-Bench) than on MATH 500 [S].
+2. **No single "game ability" exists.** Claude Opus 5 leads Kaggle's unified board (354 vs GPT-5.5 353, ~19 Sep 2026) [S, L-M] but is 11th on LLM Chess (Elo 1285 vs GPT-6 Astra 1614) [P]. On BALROG, Opus 5 beats Astra on TextWorld (71.6 vs 54.5) and loses on MiniHack (37.5 vs 65.0) [P].
+3. **Human-AI gaps survive only in open-ended, long-horizon, novel-rule settings, and are closing fast.** BALROG NetHack ≤13.2% (Astra, n=5, Sep 2026) [P]; VideoGameBench best 0.48% (2025) [S]; FLE: models "shockingly bad at playing Factorio" (Sep 2025) [P]; ARC-AGI-3 went from <1% at launch (Mar 2026; launch figure not re-verified here, L) to 62.7% standard / 99.9% provider harness (Astra, 3 Sep 2026) [P-m].
+4. **Harness dependence is the dominant validity threat.** ARC-AGI-3: 62.7% vs 99.9% for the same model [P-m]. Gemini Pokémon: 813 h with a changing harness vs 406.5 h frozen [P]. The first LLM NetHack ascension (Astra, 21 Sep 2026) used an agent-built, mid-game-patched, open-book, supervised harness and is explicitly "not a benchmark result" [P].
+5. **Classic games are contaminated or tool-solvable.** Kaggle added 20 Lichess openings because LLMs "relied on narrow learned patterns like the Sicilian" [S]. LLM-written code world models + MCTS beat direct LLM play (DeepMind CWM, ICLR 2026) [S].
+6. **Pool-relative ratings are noisy and costly.** LLM Chess 95% CIs are ±110–180 Elo on 30–67 games at $2–8/game [P]; BALROG NetHack uses 4–5 episodes [P]; SnakeBench disabled its ladder "to reduce recurring game costs" (Feb 2026) and paused new-model evaluation (Jun 2026) [P].
+7. **Maintenance cliffs are common.** Dormant: VideoGameBench (May 2025), lmgame-Bench (Sep 2025), gg-bench (Jul 2025), GTBench (Sep 2024), SmartPlay (Apr 2024), Werewolf Arena (Jul 2024), Step Game (Dec 2025), Elimination Game (Jan 2026). Alive: LLM Chess (153 commits in 2026), TextArena, SnakeBench, CodeClash, FLE, NetHackers, Kaggle envs [P].
+8. **Social games uniquely expose deception, collusion and betrayal**: Vending-Bench Arena price collusion [S]; Elimination betrayal rates [P]; WOLF ("deceive convincingly but remain weak at detecting deception") [S]; Among Us Deception ELO plus probes [P]. They also carry the highest variance and judge dependence.
+9. **Labs report games as demos, not headline rows.** Anthropic mentions Pokémon only in prose (Claude 3.7 Sonnet, 24 Feb 2025; Sonnet 5.5, 28 Sep 2026) [P]; "I don't think anybody's making their buying decision for a model on which model plays Pokemon the best" [P-m]. Game-like exceptions: Vending-Bench 2 in Google's Gemini 3 Pro evaluation, which omits Google's own Game Arena [P], and ARC-AGI-3 for Opus 5 [S].
+10. **2026 trends.** Code-as-policy arenas: NetHackers scores agent-written bots on private seeds, and CodeClash has run 2,000+ tournaments [P]. Also human-calibrated novel environments (ARC-AGI-3) [P-m], Kaggle's expanding roster (Go, Reversi, Bridge 2v2, Go Fish, Hanabi in Sep 2026) [P], and multi-agent business sims (CEO Arena, CoffeeBench) [S].
+11. **What would get a game into a headline table** [inference]: a frozen, versioned harness plus harness ablations; absolute anchors (humans, engines, fixed bots); novel or procedural rules on private seeds; a declared tool policy; tight CIs at bounded cost; a neutral operator; and a construct shown to predict valued work (FLE/GDPval is the only such evidence found).
 
 ---
 
@@ -81,28 +36,15 @@ Confidence is H (high), M (medium) or L (low). Model names such as GPT-6 Astra, 
 
 **2.1 Kaggle Game Arena (Google DeepMind + Kaggle)**
 
-- **Format.**
-  - Head-to-head, adversarial and multi-agent LLM play on OpenSpiel.
-  - Chess launched 4 Aug 2025 [S].
-  - Chess Openings (20 Lichess-sampled starts) followed on 22 Oct 2025 [S]. The code landed 19 Aug 2025 [P].
-  - Heads-up no-limit poker and Werewolf (team, natural language) were added 2 Feb 2026 [S].
-  - During 2026 Kaggle's env repo gained harnesses for Go, Reversi, Nine Men's Morris, Clobber, Dots and Boxes, Coin Game, Lines of Action, Bridge (2v2 team), Go Fish and Hanabi (onboarded 14 Sep 2026, 2v2 variant 15 Sep 2026) [P].
-  - Technical report: arXiv:2609.31473 (25 Sep 2026), covering chess, poker and Werewolf [S].
-- **Scoring.**
-  - Elo per game; poker scored as BB/100 over 900,000 duplicate hands (20,000 per pair) [S].
-  - A "Unified Game Arena Leaderboard" covers about 16 games [S].
-  - Harness rules: majority voting, or "rethinking" after an illegal move. An illegal final move means the model is "deemed to have failed the game" [P].
-- **Measures.** Planning; imperfect-information betting (poker); persuasion and deception (Werewolf); team coordination (Bridge, Hanabi).
-- **Human baseline.** None found in any results. [gap]
-- **Top and spread.**
-  - Feb 2026: Gemini 3 Pro and Flash top the chess and Werewolf Elo [S].
-  - About 19 Sep 2026, unified board: Claude Opus 5 354, GPT-5.5 353, Claude Fable 5.1 344; about 8.5–8.9k matches each [S, L-M].
-  - No per-game Sep 2026 standings or poker winner could be verified.
-- **Weaknesses.**
-  - Google operates the board and Gemini led at the Feb 2026 relaunch (perceived conflict of interest).
-  - Opaque unified units and pool-relative Elo.
-  - Chess contamination, which Kaggle itself acknowledged by adding openings.
-  - Engines trivially outplay LLMs.
+- **Format.** Head-to-head and team LLM play on OpenSpiel.
+  - Chess launched 4 Aug 2025 [S]; Chess Openings (20 Lichess-sampled starts) on 22 Oct 2025 [S] (code 19 Aug 2025 [P]); heads-up NLHE poker and Werewolf on 2 Feb 2026 [S].
+  - 2026 harnesses in Kaggle's env repo: Go, Reversi, Nine Men's Morris, Clobber, Dots and Boxes, Coin Game, Lines of Action, Bridge (2v2), Go Fish, Hanabi (14–15 Sep 2026) [P].
+  - Technical report arXiv:2609.31473 (25 Sep 2026; chess, poker, Werewolf) [S].
+- **Scoring.** Elo per game; poker BB/100 over 900,000 duplicate hands (20,000 per pair) [S]; a unified board across ~16 games [S]. The harness allows majority voting or "rethinking"; a final illegal move means the model is "deemed to have failed the game" [P].
+- **Measures.** Planning, imperfect-information betting, persuasion and deception, team coordination.
+- **Human baseline.** None found. [gap]
+- **Top and spread.** Feb 2026: Gemini 3 Pro/Flash top chess and Werewolf Elo [S]. ~19 Sep 2026 unified: Claude Opus 5 354, GPT-5.5 353, Claude Fable 5.1 344, ~8.5–8.9k matches each [S, L-M]. Per-game Sep 2026 standings and the poker winner were not verifiable.
+- **Weaknesses.** Google runs it and Gemini led at relaunch; opaque unified units; pool-relative Elo; chess contamination (acknowledged via openings); engines trivially outplay LLMs.
 
 **2.2 TextArena / MindGames**
 
@@ -139,10 +81,7 @@ Confidence is H (high), M (medium) or L (low). Model names such as GPT-6 Astra, 
 
 - **GTBench.** 10 OpenSpiel games: tic-tac-toe, Connect-4, Breakthrough, Nim, blind auction, Kuhn poker, Liar's Dice, negotiation, Pig, IPD. Play is LLM vs MCTS or vs LLM [P].
 - **SmartPlay.** Rock-paper-scissors, bandit, Hanoi, Messenger, Crafter and MineDojo. It "requires MineDojo" [P].
-- **Last commits** [P]:
-  - GTBench: 6 Sep 2024.
-  - GameBench: 27 Jun 2024.
-  - SmartPlay: 10 Apr 2024.
+- **Last commits** [P]: GTBench 6 Sep 2024; GameBench 27 Jun 2024; SmartPlay 10 Apr 2024.
 - **Lesson.** Paper-cycle benchmarks die without a maintainer.
 
 ### B. Single-agent interactive, long-horizon and novel environments
@@ -168,7 +107,7 @@ Confidence is H (high), M (medium) or L (low). Model names such as GPT-6 Astra, 
 - **Weaknesses.**
   - About 37 points of harness sensitivity.
   - Cost per run is in the tens of thousands of dollars.
-  - ARC itself says the benchmark is "tightly bounded … deterministic and closed" [lead; see the ARC dossier].
+  - ARC itself says its "scope and format are tightly bounded … deterministic and closed" and do not represent real-world complexity (Astra post, via Chinese mirror, back-translated) [P-m].
   - Saturation came roughly 6 months after launch.
 
 **2.6 BALROG (NetHack, MiniHack, Crafter, BabaIsAI, BabyAI, TextWorld), plus NetHack beyond BALROG**
@@ -189,8 +128,8 @@ Confidence is H (high), M (medium) or L (low). Model names such as GPT-6 Astra, 
   | GPT-4o (2024) | 32.3 | | |
   | Qwen2-VL-7B | 3.7 | | |
 
-  - BabyAI (96–100) and BabaIsAI (84–100) are saturated at the top.
-  - NetHack remains at 2.6–13.2% on only 4–5 episodes.
+  - Among 2026 frontier entries, BabyAI (96–100) and BabaIsAI (83–100) are saturated.
+  - NetHack stays at 1.7–13.2% on only 4–5 episodes.
 - **NetHack beyond BALROG.**
   - GPT-6 Astra achieved "the first recorded LLM-agent ascension" on 21 Sep 2026: 37,140 turns, 3rd campaign run, 12 calendar days [P].
   - Caveats stated by the authors [P]:
@@ -227,26 +166,15 @@ Confidence is H (high), M (medium) or L (low). Model names such as GPT-6 Astra, 
   - Sokoban tracks math and coding;
   - Ace Attorney tracks language;
   - Tetris and 2048 track pattern recognition.
-- **Status.** 983 stars in the prior count, but the repo has been inactive since 11 Sep 2025 [P].
+- **Status.** Repo inactive since 11 Sep 2025 (554 commits) [P].
 
 **2.10 "Plays Pokémon" runs (Claude, Gemini, GPT)**
 
-- **Format.** Single agent over a full RPG playthrough of hundreds of hours. The metric is milestones (badges) per step or hour.
-- **Harness caveats (primary)** [P]:
-  - The Gemini run added a RAM-derived fog-of-war map plus "pathfinder" and "boulder_puzzle_strategist" tools, which are themselves Gemini 2.5 Pro instances.
-  - Run 1, with harness "modifications … as difficulties arose", took 813 h (finished 2 May 2025).
-  - The "fully autonomous" Run 2 with a frozen harness took 406.5 h.
-- **Other results.**
-  - GPT-5: Red in 6,470 steps vs o3's 18,184; Crystal in 9,517 vs 27,040 (Aug 2025) [S].
-  - Claude Opus 4.7 beat Red in May 2026; GeminiPlaysPokemon later won "with progressively weaker harnesses" [S].
-  - Claude Sonnet 5.5 is the "first Sonnet model to beat Pokémon Red working only from screenshots" (28 Sep 2026) [P].
-  - A non-LLM "Jev" decision model beat Red on 23 Sep 2026, "coached" by Claude Opus 5 [S].
-- **Human baseline.** Informal only: a children's game.
-- **Weaknesses.**
-  - Every lab and streamer uses a different harness.
-  - The playthrough and its guides are all over the web.
-  - n = 1 run.
-  - Anthropic calls it "for our own understanding" [P-m].
+- **Format.** One agent, a full RPG playthrough of hundreds of hours; milestones per step or hour.
+- **Harness caveats** [P]: the Gemini run added a RAM-derived fog-of-war map plus "pathfinder" and "boulder_puzzle_strategist" tools (themselves Gemini 2.5 Pro instances). Run 1, with "modifications … as difficulties arose", took 813 h (done 2 May 2025); the "fully autonomous" Run 2 with a frozen harness took 406.5 h.
+- **Results.** GPT-5: Red in 6,470 steps vs o3 18,184; Crystal 9,517 vs 27,040 (Aug 2025) [S]. Claude Opus 4.7 beat Red in May 2026, and GeminiPlaysPokemon later won "with progressively weaker harnesses" [S]. Sonnet 5.5 is the "first Sonnet model to beat Pokémon Red working only from screenshots" (28 Sep 2026) [P]. A non-LLM "Jev" model beat Red on 23 Sep 2026, "coached" by Claude Opus 5 [S].
+- **Human baseline.** Informal only (a children's game).
+- **Weaknesses.** A different harness per lab; walkthroughs all over the web; n = 1; Anthropic calls it "for our own understanding" [P-m].
 
 **2.11 Factorio Learning Environment (FLE)**
 
@@ -279,37 +207,19 @@ Confidence is H (high), M (medium) or L (low). Model names such as GPT-6 Astra, 
 
 **2.14 lechmazur Elimination Game and Step Game**
 
-- **Elimination Game.**
-  - 8 players, public and private chats, votes, a jury.
-  - TrueSkill over 61 models; last update 6 Jan 2026 [P].
-  - Standings: GPT-5.2 7.52; GPT-5 5.97; Claude Opus 4.5 Thinking 5.66; Gemini 3 Flash 5.66; Gemini 3 Pro 4.89 (#16); o3 4.48 (#22); lowest Mistral Medium 3.1 at 0.30.
-  - σ ≈ 0.13–0.58 [P].
-- **Step Game.**
-  - 3 players, talk, then secret moves of 1/3/5; collisions block movement.
-  - 5,185 matches; 75 entries including silent baselines [P].
-  - Standings: GPT-5 5.49; o3 5.32; Gemini 3 Pro 5.03; Claude Opus 4.5 (no reasoning) 3.18 (#22); Silent Random 0.66.
-  - σ ≈ 0.7 for every entry, so the top 4 overlap [P].
-- **Measures.** Alliance formation, betrayal (buddy-betrayal rates), jury persuasion, bluffing.
-- **Weaknesses.**
-  - Pool-relative.
-  - Wide σ.
-  - Maintenance paused since Dec 2025 / Jan 2026.
-  - No human baseline.
+- **Elimination Game** (8 players; public/private chat, votes, jury; TrueSkill; 61 models; last update 6 Jan 2026) [P]: GPT-5.2 7.52; GPT-5 5.97; Claude Opus 4.5 Thinking 5.66; Gemini 3 Flash 5.66; Gemini 3 Pro 4.89 (#16); o3 4.48 (#22); last, Mistral Medium 3.1, 0.30; σ ≈ 0.13–0.58.
+- **Step Game** (3 players talk, then secretly move 1/3/5; collisions block; 5,185 matches; 75 entries; last update 8 Dec 2025) [P]: GPT-5 5.49; o3 5.32; Gemini 3 Pro 5.03; Claude Opus 4.5 (no reasoning) 3.18 (#22); Silent Random 0.66. σ ≈ 0.7 for every entry, so the top 4 overlap.
+- **Measures.** Alliances, betrayal (buddy-betrayal rates), jury persuasion, bluffing.
+- **Weaknesses.** Pool-relative; wide σ; maintenance paused; no human baseline.
 
 **2.15 Social deduction: Werewolf, Avalon, Among Us, Mafia**
 
-- **Werewolf Arena** (Google, arXiv:2407.13943): bidding-based turn-taking; Gemini 1.5 and GPT-4-era models [S]. Repo last commit 22 Jul 2024 [P].
-- **Kaggle Werewolf (Feb 2026).** Gemini 3 led Elo [S].
+- **Werewolf Arena** (Google, arXiv:2407.13943): bidding-based turn-taking, GPT-4/Gemini 1.5-era models [S]; repo last commit 22 Jul 2024 [P]. **Kaggle Werewolf** (Feb 2026): Gemini 3 led Elo [S].
 - **WOLF** (arXiv:2512.09187): LLMs "deceive convincingly but remain weak at detecting deception in peers" [S].
-- **AvalonBench.** In LLM-vs-LLM play, "Evil has an 8:2 advantage over Good, which is similar to the stats of rookie human players" [P].
-- **Among Us** (arXiv:2504.04072): a "model organism" for agentic deception. It reports a "Deception ELO", ships 400 full logs and 810 summaries, and trains linear probes to detect lying [P].
-- **Mafia.** Covered as Secret Mafia in MindGames [S].
-- **2026.** "Auditing Belief-Conditioned LLM Agents in Hidden-Information Social Deduction Games" (arXiv:2607.10814) [S title].
-- **Weaknesses.**
-  - Role and seat variance.
-  - LLM-judge labelling of "lies".
-  - Pool-relative ratings.
-  - Most repos are dormant.
+- **AvalonBench**: in LLM-vs-LLM play, "Evil has an 8:2 advantage over Good, which is similar to the stats of rookie human players" [P].
+- **Among Us** (arXiv:2504.04072): a "model organism" for agentic deception with a "Deception ELO", 400 full logs, 810 summaries and linear lie-detection probes [P].
+- **Mafia**: Secret Mafia in MindGames [S]. 2026: arXiv:2607.10814 (auditing belief-conditioned agents in hidden-information social deduction) [S title].
+- **Weaknesses.** Role and seat variance; LLM-judge labelling of lies; pool-relative ratings; most repos dormant.
 
 **2.16 Hanabi (cooperation / theory of mind)**
 
@@ -350,26 +260,11 @@ Confidence is H (high), M (medium) or L (low). Model names such as GPT-6 Astra, 
 
 **2.20 LLM chess leaderboards, openings and Chess960**
 
-- **LLM Chess (maxim-saplin; NeurIPS FoRLM 2025, arXiv:2512.01992).**
-  - LLM plays Black vs Random, then vs Komodo Dragon levels. Dragon is chess.com-rated, which "anchor[s] the results to a real-world rating scale". Elo is solved by MLE with 95% CI [P].
-  - 221 configurations, 166 with an Elo, as of 13 Sep 2026 [P]:
-    - GPT-6 Astra (high) 1614 ± 110 (67 games, $4.64/game);
-    - GPT-5.6 Sol (xhigh) 1550 ± 156;
-    - Gemini 3.8 Flash 1546 ± 170;
-    - GPT-5.5 1532;
-    - Gemini 3.1 Pro 1511;
-    - Claude Opus 5 1285 ± 127 ($7.56/game);
-    - Grok 4.6 443;
-    - DeepSeek-V3 −823.
-  - Illegal-move rates for frontier models are now around 0–6 per 1,000 moves. DeepSeek-V3 had 44.5 [P].
-  - The site notes that "reasoning models … saturated random-based evaluations", hence the switch to Dragon [P].
-- **Kaggle Chess Openings.** 20 openings from Lichess, "inspired by … Chess960", because LLMs "relied on narrow learned patterns like the Sicilian" [S].
-- **Chess960 evidence.** A non-LLM transformer reportedly dropped from 2054 blitz Elo to 1539 at Fischer random (2402.04494) [S, L]. No LLM Chess960 leaderboard was verified. [gap]
-- **Weaknesses.**
-  - Engines solve the domain.
-  - The best LLM is club strength on the chess.com scale.
-  - Openings are memorised.
-  - CIs are too wide to separate adjacent models.
+- **LLM Chess** (maxim-saplin; NeurIPS FoRLM 2025, arXiv:2512.01992): the LLM plays Black vs Random, then vs chess.com-rated Komodo Dragon levels, which "anchor the results to a real-world rating scale"; Elo by MLE with 95% CI [P].
+- **Standings (13 Sep 2026; 221 configs, 166 rated)** [P]: GPT-6 Astra (high) 1614 ± 110 (67 games, $4.64/game); GPT-5.6 Sol (xhigh) 1550 ± 156; Gemini 3.8 Flash 1546 ± 170; GPT-5.5 1532; Gemini 3.1 Pro 1511; Claude Opus 5 1285 ± 127 ($7.56/game); Grok 4.6 443; DeepSeek-V3 −823.
+- **Legality.** Frontier illegal-move rates are ~0–6 per 1,000 moves (DeepSeek-V3: 44.5). "Reasoning models … saturated random-based evaluations", hence Dragon [P].
+- **Kaggle Chess Openings.** 20 Lichess openings "inspired by … Chess960", because LLMs "relied on narrow learned patterns like the Sicilian" [S]. A non-LLM transformer reportedly fell from 2054 blitz Elo to 1539 at Fischer random (2402.04494) [S, L]. No LLM Chess960 leaderboard verified. [gap]
+- **Weaknesses.** Engines solve the domain; the best LLM is club strength; openings are memorised; CIs too wide to separate neighbours.
 
 **2.21 SnakeBench (Greg Kamradt / ARC Prize side quest)**
 
@@ -411,15 +306,9 @@ Confidence is H (high), M (medium) or L (low). Model names such as GPT-6 Astra, 
 - **Ludii / GVGAI / GGP.** No 2025–26 LLM leaderboard verified. [gap]
 - **Lesson.** Once rules are given, "play the game" reduces to "write a simulator and plug it into search", a tool-solvability route that must be allowed or banned explicitly.
 
-### F. Other 2026 game or game-adjacent proposals found (titles only unless stated)
+### F. Other 2026 proposals found (titles only unless stated)
 
-- NetHackers (Aug 2026) [P].
-- ARC-AGI-3 (Mar 2026) [P].
-- MindGames (May 2026) [S].
-- RTSGameBench (2606.18950) [S].
-- LM Fight Arena (2510.08928) [S].
-- "Beyond Sally-Anne: Evaluating ToM using Epistemic Schelling Points" (2607.11363) [S].
-- PRO-LONG harness for ARC-AGI-3 (2607.20064) [P-m mention].
+NetHackers (Aug 2026) [P]; ARC-AGI-3 (Mar 2026) [P]; MindGames (May 2026) [S]; RTSGameBench (2606.18950), LM Fight Arena (2510.08928), "Beyond Sally-Anne: … Epistemic Schelling Points" (2607.11363) [S]; PRO-LONG ARC-AGI-3 harness (2607.20064) [P-m mention].
 
 ### Section 2: Gaps
 
@@ -485,7 +374,7 @@ Primary evidence shows game rankings diverging from exam rankings (FLE, TTT-Benc
 - **Within-benchmark reversals.** On BALROG, Opus 5 beats Astra on TextWorld (71.6 vs 54.5) and loses on MiniHack (37.5 vs 65.0) — [BALROG experiments](https://github.com/balrog-ai/experiments) [P, H]
 - **Partial redundancy.** lmgame-Bench finds that Sokoban correlates with math and coding benchmarks and Ace Attorney with language benchmarks — [lmgame-Bench](https://arxiv.org/abs/2505.15146) [S, M]
 - **Long-horizon coherence.** Gemini 2.5 Pro needed 406.5 h with a frozen harness to finish Pokémon Blue — [Gemini 2.5 report](https://storage.googleapis.com/deepmind-media/gemini/gemini_v2_5_report.pdf) [P, H]. NetHack's ascension took 37,140 turns over 12 days — [nethack_astra](https://github.com/kenforthewin/nethack_astra) [P, H]
-- **Rule induction and exploration.** ARC-AGI-3 environments give no instructions. Humans solved 100% of them; frontier AI was under 1% at launch — [ARC human-study capture](https://raw.githubusercontent.com/fstandhartinger/model-market-comparison/f23453577c817fd6c6c003e0b46a6381c7476c61/data/raw/benchmarks/daily-evidence/2026-09-29T05-49-25-487Z/gauntlet/protocol-arc-agi-3/packet-r1.md) [P-m, H]; launch figure [lead/S, M]
+- **Rule induction and exploration.** ARC-AGI-3 environments give no instructions. Humans solved 100% of them — [ARC human-study capture](https://raw.githubusercontent.com/fstandhartinger/model-market-comparison/f23453577c817fd6c6c003e0b46a6381c7476c61/data/raw/benchmarks/daily-evidence/2026-09-29T05-49-25-487Z/gauntlet/protocol-arc-agi-3/packet-r1.md) [P-m, H]. The reported <1% frontier score at launch was not re-verified here [L]
 - **Efficiency vs humans.** Astra used fewer actions than the median human on 96.0% of ARC-AGI-3 levels (Adapter harness) — [ARC Astra post mirror](https://raw.githubusercontent.com/lihenair/techtranslate/821908553b702d9de6565d186fdd2e8661303f6f/archive/2026-09-05/ai/OpenAIs-GPT-6-Astra-on-ARC-AGI-3.md) [P-m, H]
 - **Theory of mind in cooperation.** In LLM-Hanabi, first-order ToM correlates with game success (ρ = 0.76) more than second-order (ρ = 0.58) — [LLM-Hanabi](https://arxiv.org/abs/2510.04980) [S, M]
 - **Deception and detection asymmetry.** WOLF: LLMs "deceive convincingly but remain weak at detecting deception in peers" — [WOLF](https://arxiv.org/abs/2512.09187) [S, M]
@@ -533,7 +422,9 @@ The one game-like eval labs adopted, ARC-AGI-3, is:
   - Claude 3.7 Sonnet "outperformed all previous models in our Pokémon gameplay tests" (24 Feb 2025) — [Anthropic](https://www.anthropic.com/news/claude-3-7-sonnet) [P, H]
   - Sonnet 5.5 is "the first Sonnet model to beat Pokémon Red working only from screenshots" (28 Sep 2026), in prose, not in a table — [Anthropic](https://www.anthropic.com/claude-sonnet-5-5) [P, H]
   - "I don't think anybody's making their buying decision for a model on which model plays Pokemon the best. So this is really for our own understanding" — [transcript mirror](https://github.com/Unson-LLC/anthropic-youtube) [P-m, H]
-- **The exceptions.** ARC-AGI-3 appears in the Opus 5 results (30.2%), and Vending-Bench 2 in the Gemini 3 Pro table — [ARC Astra post](https://arcprize.org/blog/astra) [S, M]
+- **The exceptions.**
+  - Google's Gemini 3 Pro evaluation PDF reports Vending-Bench 2 (numbers sourced from andonlabs.com). The PDF text never mentions Game Arena, chess or Pokémon, even though Game Arena is Google's own platform — [Gemini 3 Pro eval](https://storage.googleapis.com/deepmind-media/gemini/gemini_3_pro_model_evaluation.pdf) [P, H]
+  - Opus 5's ARC-AGI-3 score (30.2%) is cited by ARC. Its inclusion in the Opus 5 launch table is from a lead dossier and was not re-verified [S, M].
 - **Harness dependence.**
   - ARC-AGI-3 Standard 62.7% vs Adapter 99.9% for the same model. ARC will "report both" — [mirror](https://raw.githubusercontent.com/lihenair/techtranslate/821908553b702d9de6565d186fdd2e8661303f6f/archive/2026-09-05/ai/OpenAIs-GPT-6-Astra-on-ARC-AGI-3.md) [P-m, H]
   - The Gemini Pokémon run was 813 h with a harness changed mid-run vs 406.5 h with a frozen one — [Gemini 2.5 report](https://storage.googleapis.com/deepmind-media/gemini/gemini_v2_5_report.pdf) [P, H]
@@ -629,27 +520,18 @@ The one game-like eval labs adopted, ARC-AGI-3, is:
 | 43 | Avalon LLM-vs-LLM Evil:Good | 8:2, "similar to … rookie human players" | 2023–25 | https://github.com/jonathanmli/Avalon-LLM | P | H |
 | 44 | Dormancy: VideoGameBench / lmgame / gg-bench / GTBench / SmartPlay | last commits 2025-05-30 / 2025-09-11 / 2025-07-30 / 2024-09-06 / 2024-04-10 | checked 30 Sep 2026 | repo URLs in §7 | P | H |
 | 45 | Active: LLM Chess / TextArena commits in 2026 | 153 / 167 | 30 Sep 2026 | repo URLs in §7 | P | H |
+| 46 | Gemini 3 Pro eval reports Vending-Bench 2; no Game Arena, chess or Pokémon rows | — | Nov 2025 | https://storage.googleapis.com/deepmind-media/gemini/gemini_3_pro_model_evaluation.pdf | P | H |
 
 ---
 
 ## 7. Sources
 
-**Primary (read directly or through a git clone)**
-- BALROG: https://github.com/balrog-ai/BALROG ; submissions https://github.com/balrog-ai/experiments
-- Game Arena harness: https://github.com/google-deepmind/game_arena ; Kaggle environments (commit history): https://github.com/Kaggle/kaggle-environments
-- ARC Prize docs: https://github.com/arcprize/docs (methodology.mdx, changelog.mdx) ; https://github.com/arcprize/arc-agi-3-benchmarking
-- NetHack ascension: https://github.com/kenforthewin/nethack_astra (README, docs/METHODOLOGY.md) ; NetHackers: https://github.com/dunnolab/nethackers
-- LLM Chess: https://github.com/maxim-saplin/llm_chess ; data/elo_refined.csv ; docs/index.html
-- lechmazur: https://github.com/lechmazur/elimination_game ; https://github.com/lechmazur/step_game
-- clembench: https://github.com/clp-research/clembench ; https://github.com/clembench/clembench-runs (v3.0/results.csv)
-- FLE: https://github.com/JackHopkins/factorio-learning-environment (docs/versions/0.3.0.html, docs/leaderboard)
-- VideoGameBench: https://github.com/alexzhang13/videogamebench ; lmgame: https://github.com/lmgame-org/GamingAgent
-- SnakeBench: https://github.com/gkamradt/SnakeBench ; CodeClash: https://github.com/CodeClash-ai/CodeClash
-- gg-bench: https://github.com/vivek3141/gg-bench ; TextArena: https://github.com/LeonGuertler/TextArena
-- GTBench: https://github.com/jinhaoduan/GTBench ; SmartPlay: https://github.com/microsoft/SmartPlay ; GameBench: https://github.com/Joshuaclymer/GameBench
-- Werewolf Arena: https://github.com/google/werewolf_arena ; Avalon: https://github.com/jonathanmli/Avalon-LLM ; Among Us: https://github.com/7vik/AmongUs
-- AI Diplomacy: https://github.com/GoodStartLabs/AI_Diplomacy ; Craftax: https://github.com/MichaelTMatthews/Craftax
-- Claude Plays Pokémon starter: https://github.com/davidhershey/ClaudePlaysPokemonStarter
+**Primary (read directly or through a git clone; github.com/ prefix omitted)**
+- balrog-ai/BALROG ; balrog-ai/experiments ; google-deepmind/game_arena ; Kaggle/kaggle-environments ; arcprize/docs ; arcprize/arc-agi-3-benchmarking
+- kenforthewin/nethack_astra ; dunnolab/nethackers ; maxim-saplin/llm_chess (data/elo_refined.csv) ; lechmazur/elimination_game ; lechmazur/step_game
+- clp-research/clembench ; clembench/clembench-runs ; JackHopkins/factorio-learning-environment ; alexzhang13/videogamebench ; lmgame-org/GamingAgent
+- gkamradt/SnakeBench ; CodeClash-ai/CodeClash ; vivek3141/gg-bench ; LeonGuertler/TextArena ; jinhaoduan/GTBench ; microsoft/SmartPlay ; Joshuaclymer/GameBench
+- google/werewolf_arena ; jonathanmli/Avalon-LLM ; 7vik/AmongUs ; GoodStartLabs/AI_Diplomacy ; MichaelTMatthews/Craftax ; davidhershey/ClaudePlaysPokemonStarter
 - Anthropic: https://www.anthropic.com/news/claude-3-7-sonnet ; https://www.anthropic.com/claude-sonnet-5-5 ; https://www.anthropic.com/claude-opus-5-5
 - Gemini 2.5 technical report: https://storage.googleapis.com/deepmind-media/gemini/gemini_v2_5_report.pdf
 
@@ -659,15 +541,8 @@ The one game-like eval labs adopted, ARC-AGI-3, is:
 - Boardwalk abstract: https://github.com/LIHUA919/AI-Agents-Daily-Research/blob/main/data/2025-08-25.md
 - Anthropic video transcript "Lessons on AI agents from Claude Plays Pokemon": https://github.com/Unson-LLC/anthropic-youtube
 
-**Secondary (search-result summaries; fetch blocked)**
-- Kaggle: https://www.kaggle.com/game-arena ; https://www.kaggle.com/blog/game-arena-chess-openings ; https://www.kaggle.com/blog/game-arena-poker ; https://blog.google/innovation-and-ai/models-and-research/google-deepmind/kaggle-game-arena-updates/ ; https://arxiv.org/abs/2609.31473
-- ARC-AGI-3 paper: https://arxiv.org/abs/2603.24621
-- VideoGameBench https://arxiv.org/abs/2505.18134 ; lmgame-Bench https://arxiv.org/abs/2505.15146 ; TTT-Bench https://arxiv.org/abs/2506.10209 ; CWM https://arxiv.org/abs/2510.04542 ; CWM follow-up https://arxiv.org/abs/2607.14169
-- Pokémon: https://www.lesswrong.com/posts/sehJYg5Yny9fvpbpt/a-year-late-claude-finally-beats-pokemon ; https://x.com/Clad3815/status/1955980772575268897 ; https://www.tomshardware.com/tech-industry/artificial-intelligence/developer-says-jev-decision-model-beat-pokemon-red-in-under-a-week-non-llm-engine-succeeds-where-traditional-chatbots-stalled-for-months-but-claude-opus-5-coached-the-model-through-its-dead-ends
-- Social and ToM: https://arxiv.org/abs/2605.29512 (MindGames) ; https://arxiv.org/abs/2512.09187 (WOLF) ; https://arxiv.org/abs/2407.13943 (Werewolf Arena) ; https://arxiv.org/abs/2510.04980 (LLM-Hanabi) ; https://openreview.net/forum?id=uPXB5EvNzh (Sparks of Cooperative Reasoning) ; https://arxiv.org/abs/2607.10814 ; https://arxiv.org/abs/2607.11363
-- Business sims: https://andonlabs.com/evals/vending-bench-arena ; https://arxiv.org/abs/2609.34821 ; https://arxiv.org/abs/2606.16613 ; https://arxiv.org/abs/2608.30730
-- SnakeBench: https://arcprize.org/blog/snakebench ; Chess960 transformer: https://arxiv.org/abs/2402.04494
-- Minecraft: https://arxiv.org/abs/2310.08367 (MCU) ; https://arxiv.org/abs/2605.30931 (MineExplorer) ; https://arxiv.org/abs/2608.28884 (MineCEraft) ; RTSGameBench https://arxiv.org/abs/2606.18950 ; LM Fight Arena https://arxiv.org/abs/2510.08928
-- AI Diplomacy leaderboard: https://goodstartlabs.com/leaderboards/diplomacy
+**Secondary (search-result summaries; fetch blocked).** All URLs in the claims table marked S, plus:
+- arXiv: 2603.24621 (ARC-AGI-3) ; 2510.04542 and 2607.14169 (CWM) ; 2407.13943 (Werewolf Arena) ; 2607.10814 ; 2607.11363 ; 2609.34821 ; 2606.16613 ; 2608.30730 ; 2402.04494 ; 2310.08367 ; 2605.30931 ; 2608.28884 ; 2606.18950 ; 2510.08928 ; https://openreview.net/forum?id=uPXB5EvNzh
+- https://www.tomshardware.com/tech-industry/artificial-intelligence/developer-says-jev-decision-model-beat-pokemon-red-in-under-a-week-non-llm-engine-succeeds-where-traditional-chatbots-stalled-for-months-but-claude-opus-5-coached-the-model-through-its-dead-ends ; https://goodstartlabs.com/leaderboards/diplomacy
 
 **Could not verify.** Kaggle per-game standings and the poker winner; AI Diplomacy results; TextArena's "Humanity" rating; Stephenson Codenames numbers; Ludii/GVGAI LLM work; Procgen/Craftax LLM results; the Concept board-game human gap; lab rationales for excluding game arenas.
