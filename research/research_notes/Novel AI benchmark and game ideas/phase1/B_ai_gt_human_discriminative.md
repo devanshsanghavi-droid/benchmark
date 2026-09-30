@@ -144,7 +144,7 @@ See §2. Reliability: about 80–97 learners per arm per section; prompt-variant
 ### 3.2 Vending-Bench 1, Vending-Bench 2, Vending-Bench Arena (Andon Labs)
 
 #### Takeaway
-Scoring by dollars (no ceiling) over a simulated year separates models by more than 50× and keeps producing lab upsets. It is also noisy, depends on the provider or harness, and rewards unethical tactics.
+Scoring by dollars (no ceiling) over a simulated year separates models by more than 50× ($15,515 for GPT-6 Astra vs $35 for Grok 4.3, the latter secondary) and keeps producing lab upsets. It is also noisy, depends on the provider or harness, and rewards unethical tactics.
 
 #### Cited Findings
 **Task (Vending-Bench 2).**
@@ -205,7 +205,7 @@ Scoring by dollars (no ceiling) over a simulated year separates models by more t
   - "Fable 5 is the only agent that ever initiates price collusion" (M, search summary).
   - Sonnet 4.6 "invested heavily in capacity for the first ten simulated months … then pivoted sharply to … profitability" and "finish[ed] well ahead" ([Sonnet 4.6 post](https://www.anthropic.com/news/claude-sonnet-4-6), H).
 
-**Secondary-only mid-table rows** ([llm-frontier-wiki, accessed 2026-07-18](https://github.com/redstone-solution-ou/llm-frontier-wiki/blob/main/wiki/benchmarks/vending-bench-2.md), L): Sonnet 4.6 $7,204; Sonnet 5 $6,378; Opus 4.8-High $5,787; Fable 5-High $5,680; Gemini 3.5 Flash $5,396; Opus 4.8 $5,188; Grok 4.3 $35. The wiki's claim that re-runs moved Opus 4.6 from $8,018 (5 runs) to $5,062 (8 runs) **conflicts** with the 10 and 29 Sep primary captures, which still show $8,017.59 ± $1,367; treat it as unverified.
+**Secondary-only mid-table rows** ([llm-frontier-wiki, accessed 2026-07-18](https://github.com/redstone-solution-ou/llm-frontier-wiki/blob/main/wiki/benchmarks/vending-bench-2.md), L): Sonnet 4.6 $7,204; Sonnet 5 $6,378; Opus 4.8-High $5,787; Fable 5-High $5,680; Gemini 3.5 Flash $5,396; Opus 4.8 $5,188; Grok 4.3 $35. The wiki's claim that re-runs moved Opus 4.6 from $8,018 (5 runs) to $5,062 (8 runs) **conflicts** with the 10 Sep 2026 primary capture, which still shows Opus 4.6 at $8,017.59 ± $1,367 and GPT-5.5 at $7,523.84 ± $1,346 (ranks 8–9); treat it as unverified.
 
 **Gaming acknowledged by Andon.**
 - "the suppliers are other LLMs who can be jailbroken to give away stuff for free"
@@ -454,7 +454,7 @@ Price ratios use list prices per 1M tokens (output/output unless noted):
 | Creative writing | Gemini 3.8 Flash (high) | Gemini 3.1 Pro | 3.2× | +0.22 vs −2.18 (Thurstone) | 26 Sep 2026 | [writing](https://github.com/lechmazur/writing) (H) |
 | Creative writing (within lab) | Claude Sonnet 4.6 thinking | Claude Opus 4.8 (xhigh) | 1.7× | 1.67 vs 0.78 | 26 Sep 2026 | same (H) |
 | Buyout Game | Gemini 3.1 Flash-Lite | Gemini 3.1 Pro | 8× | 1615 vs 1564 BT | 27 May 2026 | [buyout_game](https://github.com/lechmazur/buyout_game) (H) |
-| Elimination Game | GPT-5 mini; Gemini 3 Flash | Gemini 3 Pro | Flash vs Pro input 4× | μ 5.73 / 5.66 vs 4.89 (σ≈0.25) | 6 Jan 2026 | [elimination_game](https://github.com/lechmazur/elimination_game) (H) |
+| Elimination Game | GPT-5 mini; Gemini 3 Flash | Gemini 3 Pro | about 4× on input ($0.50 vs $2; Gemini 3 Pro price assumed equal to 3.1 Pro, L) | μ 5.73 / 5.66 vs 4.89 (σ≈0.25) | 6 Jan 2026 | [elimination_game](https://github.com/lechmazur/elimination_game) (H) |
 | PACT | Gemma 4 31B (open) | Gemini 3.1 Pro | about 29× per StudentBench session cost ($0.067 vs $1.94; proxy) | tie 1557 vs 1557 | 22 Jun 2026 | [pact](https://github.com/lechmazur/pact) (H); cost proxy [StudentBench](https://github.com/Handshake-AI-Research/studentbench) (H) |
 | StudentBench expert reviews | Claude Sonnet 4.6 (low) | Gemini 3.1 Pro (high) | 1.6× per session ($2.01 vs $1.24) | BT +0.40 vs −0.92 (CIs disjoint) | Sep 2026 | [StudentBench](https://github.com/Handshake-AI-Research/studentbench) (H) |
 | StudentBench learning | Gemini 3.1 Pro (high) | GPT-5.5 Pro | 11× per session ($21.24 vs $1.94) | 15.94 vs 15.20 pp (n.s.) | Sep 2026 | same (H) |
