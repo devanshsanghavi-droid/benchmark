@@ -69,13 +69,18 @@ The hypothesis **survives in narrower form**:
 - For **static public instances**, contamination is a real and common killer (AIME 2024, SWE-bench Verified, HumanEval, GSM8K for some families).
 - **Novel skills buy time.** ARC-AGI-1 held for about 5 years, against 1–3 years for exam benchmarks.
 
+[fact-check: the §4 tally is now 5 supports / 10 contradicts / 21 neutral, down from 7 / 17 / 12. Contradicting cases still outnumber supporting ones 2 to 1, so the "refuted as a single common factor" verdict stands. The margin depends on coding, though:
+- If every novel benchmark that failed for any reason counts against the hypothesis, the user's-list rows return to Contradicts.
+- If "novel critical thinking" means a novel *skill* rather than unseen *items*, then AIME 2025, Bulls-and-Cows, Logic-RL K&K and LiveBench move toward Supports. That would leave roughly 9 S / 6 C.
+- The robust counterexamples are ARC-AGI-3 (saturated through the harness, with no training on items), FrontierMath Tier 4 (unpublished research problems, with shortcuts reported) and ARC-AGI-1 (49% by brute force). GPQA and AutomationBench only contradict the converse claim, that lacking novelty leads to failure.]
+
 The better statement (§5) is that failed benchmarks share a **static, finite, cheaply optimisable target with no renewal owner**. Novelty removes one cheap path (memorisation). Brute force, trainable task families, artifacts, broken graders, harness engineering and selective submission remain.
 
 ### Inferences
 - For benchmark design, novelty should be treated as necessary for contamination resistance but not sufficient for longevity or adoption.
 
 ### Gaps
-- "DC Bench" could not be resolved with certainty. The user should confirm which benchmark they meant.
+- "DC Bench" could not be resolved with certainty. The user should confirm which benchmark they meant. [fact-check: the leading candidates are now DCBench (Data Cognition, 2026) and Brief's dcbench (Decision Compliance, 2026); see §2C.]
 
 ---
 

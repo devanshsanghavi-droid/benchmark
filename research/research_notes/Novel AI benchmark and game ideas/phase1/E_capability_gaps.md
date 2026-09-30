@@ -19,25 +19,25 @@
 
 1. **The robust human advantages are perceptual and interactive, not verbal-abstract.**
    - Core vision (BabyVision, Jan 2026): the best model scores 49.7% against 94.1% for adults.
-   - Intuitive physics (IntPhys 2, Jun 2025): models are near chance (≤55.6%) against 96.4% for humans.
+   - Intuitive physics (IntPhys 2, Jun 2025): models are near chance (≤57.5%) against 96.4% for humans. [corrected by fact-check: was "≤55.6%"; the best model overall is V-JEPA 2 at 57.51%, and Gemini 2.5 Flash's 55.63% is only the best MLLM; source: arXiv 2506.09849 results table, via search excerpts]
    - Mental spatial transformation: GPT-5 was still short in Aug 2025.
-   - Reward-free world-model learning (AutumnBench, Oct 2025): 517 humans beat o3, Gemini 2.5 Pro and Claude.
+   - Reward-free world-model learning (AutumnBench, Oct 2025): 517 humans beat o3, Gemini 2.5 Pro and Claude 4 Sonnet.
    - The physics and exploration results predate 2026 models.
 2. **Static few-shot abstraction is no longer a human moat on accuracy.**
-   - ARC-AGI-2 rose from 54.2% (early 2026) to 95%+ with harnesses.
+   - ARC-AGI-2 rose from 54.2% verified (GPT-5.2 Pro, Dec 2025) to 95.0% verified (GPT-6 Astra, Sep 2026, per ARC Prize as reported secondhand). [corrected by fact-check: was "to 95%+ with harnesses"; Imbue's 95.1% harness result is on the *public* eval set, which is not comparable with verified semi-private scores; sources: ARC Prize X post / arcprize.org/results/openai-gpt-6-astra (via search), imbue.com (via search)]
    - o3 matches humans (73%) on text ConceptARC.
-   - The gaps that remain: about 28% of o3's correct answers use unintended or wrong rules, and accuracy drops sharply on visual inputs.
+   - The gaps that remain: about 27% of o3's correct answers use unintended or wrong rules (about 8% for humans), and accuracy drops sharply on visual inputs. [corrected by fact-check: was "about 28%"; the paper's abstract says "around 27%"; source: arXiv 2510.02125, via search excerpts]
 3. **Interactive skill acquisition is fragile as a human advantage.**
    - ARC-AGI-3 launched on 25 Mar 2026 with every frontier model below 1% against 100% for humans.
-   - By 3 Sep 2026, GPT-6 Astra scored 62.7% on the standard harness and 99.9% on a state-preserving harness.
-   - It reportedly used fewer actions than the median human on 96% of levels.
+   - By 3 Sep 2026, GPT-6 Astra scored 62.7% on the standard harness (max effort) and 99.9% on a state-preserving harness (high effort). At matched max effort the two harnesses give 62.7% vs 98.6%. [clarified by fact-check; source: translation of arcprize.org/blog/astra]
+   - Under the state-preserving (Provider Adapter) harness, it used fewer actions than the median human on 96.0% of levels.
 4. **Classic "reasoning vs reciting" deficits shrink with reasoning models, and the evidence is stale.** This covers counterfactual tasks, embers of autoregression, GSM-NoOp, MATH-P-Hard and Mystery Blocksworld.
    - The newest models tested are o1, o1-mini, R1 and Gemini-2.0-thinking (≤ early 2025).
    - GSM-NoOp: −17.5% for o1-preview against up to −65.7% for the worst model.
    - Mystery Blocksworld: 52.8% for o1-preview and 43.3% for R1.
    - ToM perturbation fragility is GPT-3.5-era; a 2026 paper finds reasoning models robust.
 5. **Long-horizon reliability is a robust structural gap.**
-   - In METR's public data [C], the 80% horizon is 4–10× shorter than the 50% horizon for every model; for Opus 4.6 it is 12.0 h against 70 min.
+   - In METR's public data [C], the 80% horizon is 4–10× shorter than the 50% horizon for every model; for Opus 4.6 it is 12.0 h against 70 min. (Re-run by fact-check with METR's own pipeline settings; reproduced. METR first announced 14.5 h for Opus 4.6 on 20 Feb 2026 and corrected it to 11 h 59 min about 3 Mar 2026.)
    - Mythos Preview: p50 ≥ 16 h and p80 about 3.1 h.
    - METR's suite is running out of long tasks.
 6. **Learning from new context or from experience is weak in 2026 frontier models.**
@@ -49,9 +49,9 @@
    - AA-Omniscience hallucination rates: 88% for Gemini 3 Pro against 48% for Claude 4.5 Sonnet.
    - Claude refused up to 70% of hallucination-eval items in the Anthropic–OpenAI pilot.
 8. **The general factor dominates but is not total.**
-   - PC1 explains about 79% of variance across 421 AA model configurations [H data]; Epoch finds cross-domain r = 0.68 against within-domain r = 0.79.
-   - A replicated second axis separates **agentic** strength from **math and vision** (Epoch's "Claudiness"; the Aug 2026 AA factor analysis).
-9. **Vision is the largest lab reordering found.** BabyVision scores: Gemini 3 Pro 49.7, GPT-5.2 34.4, Claude 4.5 Opus 14.2.
+   - PC1 explains about 79% of variance on a 96-configuration complete-case grid (12 benchmarks) drawn from 421 AA model configurations [H data]. [corrected by fact-check: was "across 421 AA model configurations"; the PCA and factor analysis ran on the n = 96 complete-case grid; source: repo PHASE2_REPORT.md and notebook] Epoch finds cross-domain r = 0.68 against within-domain r = 0.79. On Epoch's broader 39-benchmark set, PC1 captures only about half the variance.
+   - A second axis separates **agentic** strength from **math and vision** (Epoch's "Claudiness", Nov 2025). [corrected by fact-check: was "A replicated second axis … (Epoch's 'Claudiness'; the Aug 2026 AA factor analysis)". The AA-data study finds an agentic-vs-academic split only when 3 factors are forced. Its own parallel analysis retains 1 factor, and its battery has no vision or math benchmarks. So it is at most partial support, not a replication. Source: louisyzhu/frontier-ai-economic-validity PHASE2_REPORT.md]
+9. **Vision is the largest lab reordering found.** BabyVision scores: Gemini 3 Pro 49.7, GPT-5.2 34.4, Claude 4.5 Opus 14.2. (Verified. These are Jan 2026 models; no re-test of the Sep 2026 frontier was found.)
 10. **The general factor is partly a release-date trend** (R² ≈ 0.48–0.51). Its share fell from 92% to 64% on one small battery when reasoning models arrived.
 11. **Headline margins no longer track real-world differences.**
     - Anthropic's Opus 5.5 post (22 Sep 2026) says so.

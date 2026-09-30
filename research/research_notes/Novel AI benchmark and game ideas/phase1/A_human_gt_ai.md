@@ -148,7 +148,7 @@ ARC-AGI-3 is the only ARC version built on *action efficiency* against humans. I
   - ARC expected that action efficiency "would remain the dividing line". It found instead a "binary pattern": "once it 'understands' the mechanics, execution usually falls within the human efficiency range". Brute-force paths remain inefficient.
   - Astra wrote compact symbolic world models and built custom tools. ARC notes that humans had no code interpreter [P-m translation](https://raw.githubusercontent.com/lihenair/techtranslate/821908553b702d9de6565d186fdd2e8661303f6f/archive/2026-09-05/ai/OpenAIs-GPT-6-Astra-on-ARC-AGI-3.md).
   - OpenAI separately reported that "enabling two settings tripled" its ARC-AGI-3 scores [S](https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores/). Per search extracts (late Jul 2026), the two settings were retained reasoning and compaction: GPT-5.6 Sol went from 13.3% to 38.3% on the *public* set [S].
-- **ARC Prize 2026** (Kaggle, internet off) has ARC-AGI-3 and ARC-AGI-2 tracks, with milestone prizes on 30 Jun and 30 Sep 2026. Milestone 1 went to Tufa Labs' "The Duck", a REPL- and tool-using harness that evicts old context [S](https://arcprize.org/blog/arc-prize-2026-milestone-1); [P](https://raw.githubusercontent.com/Tufalabs/duck-harness/main/README.md). "Nearly one million scorecards" had been submitted on public environments by April [P-m].
+- **ARC Prize 2026** (Kaggle, internet off) has ARC-AGI-3 and ARC-AGI-2 tracks, with milestone prizes on 30 Jun and 30 Sep 2026. Milestone 1 went to Tufa Labs' "The Duck", a REPL- and tool-using harness (Qwen 3.6 27B) that evicts old context, with **1.21%**; runners-up scored 0.867% and 0.864% [S](https://arcprize.org/blog/arc-prize-2026-milestone-1) (search extract); [P](https://raw.githubusercontent.com/Tufalabs/duck-harness/main/README.md) (the README confirms a tool-using ARC-AGI-3 solver but does not itself state the prize or the eviction policy). "Nearly one million scorecards" had been submitted on public environments by April [P-m].
 
 #### Inferences
 - Given persistent state, frontier models can form, test and compress hypotheses into a world model inside a text or code loop. The 36-point harness gap shows that state and memory plumbing was the bottleneck.
@@ -156,9 +156,9 @@ ARC-AGI-3 is the only ARC version built on *action efficiency* against humans. I
 - "100% solvable" is a panel or existence claim; the average human scores about 48% RHAE.
 
 #### Gaps
-- Kaggle ARC-AGI-3 scores (Milestone 1 and 2 numbers) could not be retrieved.
+- Kaggle ARC-AGI-3 Milestone 2 numbers could not be retrieved. Milestone 1's top Kaggle score was 1.21% [S], which shows how far the offline, compute-limited track lags the API frontier (99.9%).
 - The cost policy is unresolved: the leaderboard says "Only systems <$10,000 … shown", yet Astra's run costs about $19–26k per run.
-- The human-count conflict (458 vs 486) and the "48% average human" figure could not be checked against the report text.
+- The "48% average human" figure could not be checked against the report text. The 458 vs 486 difference appears to be final-set vs candidate-pool counts [S].
 
 ### 2.4 SimpleBench (AI Explained; 2024)
 
