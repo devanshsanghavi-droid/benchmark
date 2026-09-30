@@ -668,7 +668,7 @@ These are leads only, found by search:
 
 ## Fact-check log (Phase 1)
 
-**Tally:** 36 verified · 11 corrected · 8 uncertain · 0 removed (55 claims or claim groups checked; every prioritized claim was checked).
+**Tally:** 37 verified (one with its date corrected) · 10 corrected (two are clarifications) · 8 uncertain · 0 removed · 1 added. That is 56 claim rows; every prioritized claim was checked.
 **Most consequential:** SimpleBench has flipped narrowly (site data max 88.4 vs 83.7 human; the 81.9% was stale prose). GAIA's "95.1%" is not a test-set score. The OSWorld 2.0 leader and its partial-credit metric were misstated. ARC-AGI-1's best is 98.5%, above the panel. ARC-AGI-2 and -3 closure times were shorter than stated (about 11 and about 5 months).
 **Access:** arcprize.org, arxiv.org, simple-bench.com, x.com, openai.com, huggingface.co, kaggle.com, scale.com and most aggregators were blocked. Primary evidence came via raw GitHub (READMEs, captures, the OSWorld xlsx, the balrog-ai PR) and anthropic.com; search extracts are marked secondary.
 
