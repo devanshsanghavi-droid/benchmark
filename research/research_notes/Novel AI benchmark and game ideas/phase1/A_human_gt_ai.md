@@ -26,7 +26,7 @@ Prior repo dossiers were used as leads only. Every number carried over was re-ch
 - **Gaps that still hold, and hold by a lot, are perceptual, spatial, physical or real-time. Three clusters:**
   - **Fine-grained vision and spatial reasoning:**
     - VisFactor: humans 78.8% vs Gemini-3.1-Pro 54.0% [S].
-    - MMSI-Video-Bench: 96.4% vs 38.0% [S].
+    - MMSI-Video-Bench: 96.4% vs 38.0% [P].
     - MindCube: about 95% vs 61.3% after purpose-built training [P/S]. [uncertain: the ~95% human figure was not found in any source reachable here. The trained-model score varies by paper version (61.3% in the current README; 70.67% and 76.1% in earlier versions).]
     - ClockBench: 89.1% vs 66.7% [S].
   - **Intuitive physics from video:** IntPhys 2, humans about 96% vs best model about 57.5% (chance 50%) [S].
@@ -34,7 +34,7 @@ Prior repo dossiers were used as leads only. Every number carried over was re-ch
     - VideoGameBench: 0.48% completion [S].
     - BALROG NetHack progression: about 13% for GPT-6 Astra at max effort (13.24 ± 2.66%) [P, balrog-ai/experiments PR #19].
 - **Gaps with no clean human anchor but large headroom.**
-  - EnigmaEval: best model about 39–44% [S], but there is no formal human baseline.
+  - EnigmaEval: best model about 39% (SEAL, Fable 5; the 43.9% Opus 5 figure is unverified) [S], but there is no formal human baseline. The full dataset went public on 23 Jul 2026 [S].
   - Concept (Gevers & Daelemans): humans >90% vs LLMs <40% [S], but the benchmark has not been re-run on 2026 frontier models.
 - **What flipped each gap (strongest evidence first):**
   1. Test-time compute and RL-trained reasoning (o3 on ARC-AGI-1).
