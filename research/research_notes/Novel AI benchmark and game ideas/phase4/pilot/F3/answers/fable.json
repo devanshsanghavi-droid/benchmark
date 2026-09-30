@@ -1,0 +1,319 @@
+{
+ "solver": "fable",
+ "patches": {
+  "ledger/P1": {
+   "verdict": "compliant",
+   "p_violates": 0.05,
+   "witness": null,
+   "note": "Reordered transfer checks only swap which listed exception is raised when several L3 conditions hold at once; permitted by L3."
+  },
+  "ledger/P2": {
+   "verdict": "violates",
+   "p_violates": 0.98,
+   "witness": {
+    "ops": [
+     [
+      "open",
+      "a",
+      10
+     ],
+     [
+      "open",
+      "b",
+      0
+     ],
+     [
+      "split_fee",
+      [
+       "a",
+       "b"
+      ],
+      2
+     ],
+     [
+      "balance",
+      "a"
+     ],
+     [
+      "balance",
+      "b"
+     ],
+     [
+      "balance",
+      "__house__"
+     ],
+     [
+      "total"
+     ],
+     [
+      "history"
+     ]
+    ]
+   },
+   "rule": "L7",
+   "note": "Merged loops debit earlier payers before a later payer fails: a loses 1 cent, house gains 1, on a raising call."
+  },
+  "ledger/P3": {
+   "verdict": "violates",
+   "p_violates": 0.98,
+   "witness": {
+    "ops": [
+     [
+      "open",
+      "a",
+      10
+     ],
+     [
+      "open",
+      "b",
+      10
+     ],
+     [
+      "open",
+      "c",
+      10
+     ],
+     [
+      "fee_shares",
+      [
+       "a",
+       "b",
+       "c"
+      ],
+      7
+     ],
+     [
+      "split_fee",
+      [
+       "a",
+       "b",
+       "c"
+      ],
+      7
+     ],
+     [
+      "balance",
+      "a"
+     ],
+     [
+      "balance",
+      "b"
+     ],
+     [
+      "balance",
+      "c"
+     ],
+     [
+      "balance",
+      "__house__"
+     ]
+    ]
+   },
+   "rule": "L5",
+   "note": "fee*(i+1)//n - fee*i//n gives the remainder to the LAST names, spec gives it to the first r sorted names: {a:2,b:2,c:3} vs {a:3,b:2,c:2}."
+  },
+  "ledger/P4": {
+   "verdict": "compliant",
+   "p_violates": 0.02,
+   "witness": null,
+   "note": "divmod rewrite is arithmetically identical; q + bool is an int."
+  },
+  "ratelimit/P1": {
+   "verdict": "violates",
+   "p_violates": 0.98,
+   "witness": {
+    "ops": [
+     [
+      "init",
+      1,
+      10
+     ],
+     [
+      "allow",
+      "k",
+      0
+     ],
+     [
+      "remaining",
+      "k",
+      10
+     ],
+     [
+      "keys",
+      10
+     ],
+     [
+      "allow",
+      "k",
+      10
+     ]
+    ]
+   },
+   "rule": "R3",
+   "note": "bisect_left keeps requests with s == t - window, which R3 says are not live: remaining 0 instead of 1, keys ['k'] instead of [], allow False instead of True."
+  },
+  "ratelimit/P2": {
+   "verdict": "compliant",
+   "p_violates": 0.03,
+   "witness": null,
+   "note": "keys() order is unspecified (R7); sorting is allowed."
+  },
+  "ratelimit/P3": {
+   "verdict": "compliant",
+   "p_violates": 0.03,
+   "witness": null,
+   "note": "Comprehension prunes the same prefix since the event list is always sorted (clock rule)."
+  },
+  "ratelimit/P4": {
+   "verdict": "compliant",
+   "p_violates": 0.03,
+   "witness": null,
+   "note": "remaining() ticks and prunes exactly as allow() did; <= 0 test equals len(q) >= capacity."
+  },
+  "intervals/P1": {
+   "verdict": "compliant",
+   "p_violates": 0.03,
+   "witness": null,
+   "note": "bisect_right on [x, inf] finds the last interval with start <= x; equivalent to the linear scan."
+  },
+  "intervals/P2": {
+   "verdict": "compliant",
+   "p_violates": 0.02,
+   "witness": null,
+   "note": "not s > end / max() is the same merge condition and update."
+  },
+  "intervals/P3": {
+   "verdict": "compliant",
+   "p_violates": 0.05,
+   "witness": null,
+   "note": "left/mid/right partition merges overlapping and touching intervals; result stays canonical. No diff in 9000 fuzz runs."
+  },
+  "intervals/P4": {
+   "verdict": "violates",
+   "p_violates": 0.98,
+   "witness": {
+    "ops": [
+     [
+      "add",
+      0,
+      10
+     ],
+     [
+      "remove",
+      0,
+      5
+     ],
+     [
+      "intervals"
+     ],
+     [
+      "add",
+      20,
+      30
+     ],
+     [
+      "remove",
+      25,
+      30
+     ],
+     [
+      "intervals"
+     ]
+    ]
+   },
+   "rule": "I4",
+   "note": "lo <= hi keeps empty pieces: remove(0,5) from [0,10) leaves [(0,0),(5,10)]; intervals() must have start < end."
+  },
+  "pricing/P1": {
+   "verdict": "violates",
+   "p_violates": 0.98,
+   "witness": {
+    "ops": [
+     [
+      "line_total",
+      1,
+      11
+     ],
+     [
+      "checkout",
+      [
+       [
+        "a",
+        1,
+        11
+       ]
+      ],
+      null
+     ],
+     [
+      "line_total",
+      7,
+      13
+     ]
+    ]
+   },
+   "rule": "P3",
+   "note": "gross*90//100 != gross - gross*10//100 when gross % 10 != 0: line_total(1,11) is 9 instead of 10; checkout discount 2 instead of 1."
+  },
+  "pricing/P2": {
+   "verdict": "compliant",
+   "p_violates": 0.05,
+   "witness": null,
+   "note": "UnknownCoupon subclasses PricingError (allowed); the dropped clamp never fired since each coupon minimum exceeds its amount and net >= 0."
+  },
+  "pricing/P3": {
+   "verdict": "compliant",
+   "p_violates": 0.04,
+   "witness": null,
+   "note": "Incremental floor split yields the same non-increasing list summing to total, values differing by at most 1."
+  },
+  "pricing/P4": {
+   "verdict": "compliant",
+   "p_violates": 0.02,
+   "witness": null,
+   "note": "divmod form equals floor((a*825+5000)/10000) for every int."
+  },
+  "depgraph/P1": {
+   "verdict": "compliant",
+   "p_violates": 0.04,
+   "witness": null,
+   "note": "D1 names GraphError for a self-dependency; raising GraphError instead of its subclass CycleError satisfies it."
+  },
+  "depgraph/P2": {
+   "verdict": "violates",
+   "p_violates": 0.98,
+   "witness": {
+    "ops": [
+     [
+      "add",
+      "a",
+      [
+       "b"
+      ]
+     ],
+     [
+      "add",
+      "c"
+     ],
+     [
+      "order"
+     ]
+    ]
+   },
+   "rule": "D5",
+   "note": "FIFO queue lists c before a although a becomes ready after b and a < c; D5 requires the smallest ready node each step: expected [b,a,c], got [b,c,a]."
+  },
+  "depgraph/P3": {
+   "verdict": "compliant",
+   "p_violates": 0.02,
+   "witness": null,
+   "note": "Depths are contiguous from 0, so grouping by depth reproduces the same non-empty layers."
+  },
+  "depgraph/P4": {
+   "verdict": "compliant",
+   "p_violates": 0.02,
+   "witness": null,
+   "note": "min() over a ready set is the same greedy choice as the heap."
+  }
+ }
+}
