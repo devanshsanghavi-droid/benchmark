@@ -154,9 +154,9 @@ ARC-AGI-3 is the only ARC version built on *action efficiency* against humans. I
 - **Scale of play.** "Nearly one million scorecards" had been submitted on public environments by April [P-m].
 
 #### Inferences
-- ARC-AGI-3 fell because frontier models, *given persistent state*, can do the essential steps inside a text or code loop: form a hypothesis, test it, and compress it into a world model. The 36-point gap between harnesses shows that state and memory plumbing was the bottleneck.
-- The "median-human efficiency" bar was beaten once exploration stopped being brute force.
-- The average human (about 48% RHAE) is far below the "100% solvable" framing. That framing is a panel or existence claim.
+- Given persistent state, frontier models can form, test and compress hypotheses into a world model inside a text or code loop. The 36-point harness gap shows that state and memory plumbing was the bottleneck.
+- The median-human efficiency bar fell once exploration stopped being brute force.
+- "100% solvable" is a panel or existence claim; the average human scores about 48% RHAE.
 
 #### Gaps
 - Kaggle ARC-AGI-3 scores (Milestone 1 and 2 numbers) could not be retrieved.
@@ -522,12 +522,7 @@ These are leads only, found by search:
 
 ## 4. Design lessons (with evidence tags)
 
-1. **Pre-register the harness, or measure two tracks.** A single score without a fixed harness measures the harness. Evidence:
-   - 62.7% → 98.6% for the same model and effort on ARC-AGI-3 [P-m].
-   - A 20 pp step-budget effect on OSWorld [P].
-   - NetHack at 13% under protocol vs a win with a self-built harness [P/S].
-
-   ARC now labels "Standard" and "Provider Adapter" results separately [P-m].
+1. **Pre-register the harness, or run two labelled tracks** (as ARC now does with Standard and Provider Adapter [P-m]). Otherwise the score measures the harness. Evidence: ARC-AGI-3 62.7% → 98.6% at the same model and effort [P-m]; a 20 pp step-budget effect on OSWorld [P]; NetHack 13% under protocol vs a win with a self-built harness [P/S].
 2. **Human anchors must be measured, sizeable and reported as distributions.** Report the median person, the top quartile and the panel, not "≥2 solvers". Evidence:
    - The average-vs-panel gaps: 64.2 vs 98 (ARC-AGI-1) and 60 vs 100 (ARC-AGI-2) [P-m].
    - The ARC-AGI-3 baseline was rewritten three weeks after launch [P].
