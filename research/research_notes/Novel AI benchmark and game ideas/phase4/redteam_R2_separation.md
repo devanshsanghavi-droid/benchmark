@@ -6,7 +6,7 @@ As of 30 Sep 2026. Reviewer: independent red team R2 (Claude Opus 5.5). **Lens:*
 - Dossier citations look like "A §2.3".
 - Web evidence is marked [search extract] when I saw only a search-result summary; arxiv.org and several other hosts were not opened.
 - [speculation] marks my own untested judgement.
-- Probe results come from informal single-model probes (the reviewer model, Claude Opus 5.5) and are weak evidence. The scripts and logs are in `probes/`.
+- Probe results come from informal single-model probes (the reviewer model, Claude Opus 5.5) and are weak evidence. The scripts and logs are in `probes/`. [fact-check P4: audited; the numbers reproduce, and additional limits (self-graded, keys on disk, a reconstructed P2 log) are listed under the probe summary in §2]
 
 **Scores.**
 - Q2: 5 = headroom that renews; 1 = saturated in under 6 months or already above 80%.
@@ -366,3 +366,60 @@ Just outside: C06 Alien Physics (3/4, stale physics evidence) and C05 Stump Aren
 10. **Degenerate or enumerable procedural instances** (probe P1: a 4-step cycle and constant registers; the 68-rule Eleusis catalogue; small C42 grammars). Without non-degeneracy and non-enumerability filters, "hard" instances are compressible, and scores overstate the construct.
 
 **Proxy for the general factor (P14), for the record [speculation].** These are likely to correlate highly with a general-capability index: C17, C18, C24, C26, C29, C32, C37 and the C40 rulebook track. These are more likely to reorder models informatively: C14 and C15 (policy), C27 and C33 (probabilistic and game-theoretic play), C28 (long-horizon coherence), C30, C44 and C45 (social), and C01, C04, C09 and C11 (perception, where labs differ 3.5× on BabyVision; E Q2). Each release's validity report should test this rather than assume it.
+
+---
+
+## Fact-check log (Phase 4)
+
+Independent check, 30 Sep 2026. Dossier values (with their corrections and [uncertain] labels) first, then primary text via GitHub mirrors (arxiv.org, lesswrong.com, the Forecasting Research substack and Semantic Scholar were blocked). Probe files were re-run from a scratch copy; nothing in `probes/` was modified.
+
+| Claim | Candidate | Verdict | Source | Note |
+|---|---|---|---|---|
+| ARC-AGI-3: 62.7% vs 98.6% same model on two harnesses; <1% → 99.9% in ~5 months | headline, flaw 1 | verified | A §2.3; F §1 | Max-effort pair (99.9% is at high effort) |
+| ActPLD: consistently low MLLM performance on point-light displays | C01 | verified | arXiv 2509.23517 abstract (GitHub daily-digest mirrors) | "constellations" quote not seen |
+| MMSI-Video 96.4 vs 38.0 | C01, §2.8 | verified | A §2.14 | — |
+| Targeted training "closed" ClockBench 13% → 67% | C01, §2.8, flaw 2 | corrected | A §2.9 | Humans 89.1%, gap ~22 pp; cause undocumented |
+| MUSE meter ID: experts 73.3% vs Gemini Pro 46.7% | C04, §2.8 | uncertain | GitHub digest of arXiv 2510.19055 | Digest confirms design, Gemini best, Qwen/AF3 near chance; exact figures not seen |
+| IntPhys 2: 96.4 vs 57.5 (Jun 2025 models) | C06 | verified | A §2.15 | E gives 55.6 for the best MLLM |
+| MDE ~10–12 pp at ~120 pairings | C07 | corrected | `probes/p5_power_sims_output.txt` | ~9–11 pp at 120 |
+| Human–AI pairs fail to form conventions (Jones et al. 2026) | C08, §2.10 | verified | arXiv 2602.08208 abstract (GitHub mirror) | — |
+| MLLM agents verbose, not partner-specific | C08, §2.10 | verified | arXiv 2606.08081 (author news page on GitHub) | — |
+| 2508.06482 "rewards success and message cost" | §2.10 | corrected | 2508.06482 abstract and digest (GitHub) | Preference optimisation on human demonstrations; up to 26% shorter |
+| VideoGameBench 0.48% real time vs 1.6% paused | C09, §2.9 | verified | A §2.17 | Gemini 2.5 Pro |
+| VSI-Bench nearly closed by spatial fine-tuning | C11 | verified | A §2.12 | — |
+| MindTopo 97.9 vs 61.4 (GPT-5.6 Sol) | C11, §2.8 | verified | A (MindTopo entry and log) | Secondary |
+| AA-Omniscience hallucination 48–88%; always-abstain ranks 4th of 36 | C14, §2.4 | verified | B §3.7; E Q2 | 48–88% covers Nov 2025–Jan 2026 models; lower rates exist (Haiku 26%) |
+| "Who Flips?": GPT-5 88.4% vs 68.4%; Gemini most resistant; Claude quote; ACL HEAL | C16, §2.5 | removed | arXiv 2606.16011 v2 abstract (github.com/qhduan/cn-chat-arxiv) and notes (zhaoyang97/Paper-Notes) | Not in the paper, which tests no Gemini or Claude; replaced with the verified 17.5–97.3% spread; Q3 unchanged |
+| Long-horizon execution: 120 (Gemini 2.5 Pro) to 2,176 steps (GPT-5) | C17, §2.1 | verified | arXiv 2509.09677, quoted verbatim in GitHub notes | 18× spread correct |
+| StudentBench 0 of 364 significant cells | C19 | verified | B §2 | — |
+| ForecastBench: superforecasters led by 0.017 Brier in Jan 2026 | §2.6 | verified | GitHub notes (daniel-wong-tsmc) | Secondary |
+| FRI: AI "likely reached parity" (16 Jul 2026) | C22, §2.6 | verified | github.com/forecastingresearch/forecastbench about page | — |
+| 17 submissions above superforecasters; official board disputes parity | C22, §2.6 | uncertain | not found | FRI's own post contradicts "official board disputes" |
+| Seed SD 5–15 pp | C23 | verified | G §3 | Small math sets |
+| Vending-Bench ranks 3–7 overlap (±$2k) | C28 | verified | B §3.2 | — |
+| Logic-RL 0.99; Bulls-and-Cows 9.5 weeks | C29, flaw 3 | verified | P2 §3 | 3-person puzzles |
+| Weak-judge gains from stronger debaters are modest | C31 | verified | Kenton et al., arXiv 2407.04622 [background] | — |
+| OpenAI beat all 12 finalists at AtCoder WTF 2026 | C36, §2.12 | verified | github.com/adamghaida/ai-hall-of-fame | — |
+| Organisers awarded "humanity surrenders" prizes | §2.12 | corrected | same | "Humanity Prevails Award", unclaimed |
+| HLE GPT-4o 3.07% → Opus 5.5 67.7% with tools in ~20 months | C39, §2.11 | verified | B §3.4 (HLE README); B/E (Anthropic, 22 Sep 2026) | Not like-for-like: no tools vs tools, vendor-reported |
+| Winner's-curse mean p = 0.2; 3/5 gate passes p = 0.5 half the time, p = 0.4 32% | C39, C05 | verified | recomputed (Beta(1,4); binomial) | — |
+| ZendoWorld 73.3% vs 44.5%, 19 humans | C42, §2.2 | verified | F §2 | Secondary |
+| Eleusis 68-rule catalogue, "a search, not a guess" | C42, C43 | verified | F §2 | — |
+| Blicket LLMs: human-level accuracy, less efficient exploration | §2.2 | verified | E Q1 | — |
+| Sonnet 5.5 beat Pokémon Red from screenshots (28 Sep 2026) | §2.9 | verified | D §2.10 | — |
+| METR p80 horizon 4–10× shorter than p50 | §2.1 | verified | E Q1 | 20 models |
+| BabyVision lab gap ~3.5× | P14 note | verified | E Q2 (49.7 vs 14.2) | Jan 2026 models |
+| Original IntPhys saturated by V-JEPA (98.3%) | §2.8, flaw 2 | verified | A §2.15 | Secondary |
+| lechmazur sycophancy abstention 4.7–83.9% | §2.5 | verified | B §3.5 (corrected value) | — |
+| LLMs share human focal points (LessWrong experiment) | C45 | uncertain | lesswrong.com blocked | Label kept |
+| P1: 5/5 exact on two machines (12/30/60; 20/40 steps); 4-step loop in instance 1 | C17 | verified | re-simulated `p1_hidden_run*_revealed.json` | Instance 1's full state has period 40 on a 4-line loop |
+| P1 `--nondegenerate` rejects constant registers | C17 | corrected | `p1_reliability_gen.py` | Checks only state repeats ≤ 60 steps and unreached lines |
+| P2: rule found in 13 of 25 experiments; 20/20 | C42 | verified | re-scored `p2_state_run1_revealed.pkl`; oracle | Rule "yellow touches size ≥ 3"; all 13 logged answers consistent |
+| P3: NashConv 0.15 / 0.16 vs uniform 1.00 vs CFR 0.003 | C33 | verified | re-ran `p3_exploitability.py` | NashConv = sum of both players' BR gains |
+| P4: 12/12, mean forecast 0.84, Brier 0.033, log −0.178 | C14, C15 | verified | recomputed answers and scores | — |
+| P5: C13 0.14–0.21; C40 ±240 Elo; C41 ±125; C08 8–10 pp; C17 ×1.33 / ×1.52 / ~6× | several | verified | re-ran `p5_power_sims.py` | Assumed SDs, as stated |
+| Probe write-up states its limits | conventions, §2 | corrected | file timestamps and ctimes | Added: self-grading, readable keys, post-hoc P2 log, tiny n |
+
+**Tally (44 claims):** 34 verified · 6 corrected · 3 uncertain · 1 removed (the "Who Flips?" figures, quote and venue).
+**Probe audit:** all reported results match the files. The write-up understated its limits, and the generator-filter claim was overstated. Both are fixed.
+**Verdict or top-10 changes:** none. Tally 12/32/3 and the top 10 stand. C16's Q3 = 4 rests on the verified 17.5–97.3% spread, and C36's Q2 = 2 is reinforced.

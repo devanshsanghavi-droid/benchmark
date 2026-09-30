@@ -41,7 +41,7 @@ Tags: [background] is my own knowledge, not re-checked this session. [speculatio
 
 | ID | Name | Q1 | Q2 | Q3 | Q4 | Q5 | Q6 | Mean | Construct-validity concern | Single most fatal flaw | Verdict |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| C01 | Kinetic | 2 | 2 | 4 | 4 | 4 | 3 | 3.17 | May measure the vendor's video frame sampling or tokeniser, not motion perception. | **[H]** The gap probably sits in the input pipeline. Frontier video APIs subsample frames [background]. One engineering change or a synthetic fine-tune could close a metric capped at 1.5×, as ClockBench went 13→67% in about 12 months once targeted (A §2.9). Random-dot and point-light stimuli are textbook and easy to generate as training data. | revise |
+| C01 | Kinetic | 2 | 2 | 4 | 4 | 4 | 3 | 3.17 | May measure the vendor's video frame sampling or tokeniser, not motion perception. | **[H]** The gap probably sits in the input pipeline. Frontier video APIs subsample frames [background]. One engineering change or a synthetic fine-tune could close a metric capped at 1.5×, as ClockBench went 13→67% in about 12 months once targeted (A §2.9) [corrected by fact-check P4: was "once targeted". A §2.9 documents the rise, not its cause (targeted post-training is marked [speculation] there), and humans remain at 89.1%]. Random-dot and point-light stimuli are textbook and easy to generate as training data. | revise |
 | C02 | Live Rig | 4 | 4 | 3 | 4 | 2 | 4 | 3.50 | Tests closed-loop control at LLM call latency, not physics learning. A model-written PID controller would trivialise it. | **[L]** Rigs drift and wear, and no third party can reproduce them. About 10 rig-hours per model and $5–20k per rig give few goals per model. | kill |
 | C03 | Novel Expert | 3 | 3 | 2 | 4 | 4 | 2 | 3.00 | People learn blended ("information-integration") boundaries slowly. Models may verbalise exact measurements, turning "tacit" learning into explicit rules. | **[V]** Nobody has shown which way the human–AI gap runs. Over 400 image trials, the frozen state-carry protocol becomes the real variable. | revise (pilot; or fold into C42 as a perceptual track) |
 | C04 | Earworm | 3 | 3 | 3 | 4 | 3 | 3 | 3.17 | Few models take audio and fewer can stream it, so tap-along measures streaming-API latency. | **[H]** Family (d) is an interface test. Family (a) risks a floor for non-musicians on microtonal scales. Audio results already differ mainly by vendor audio stack: Gemini handles basic perception, others sit near chance ([MUSE, arXiv 2510.19055](https://arxiv.org/pdf/2510.19055)). | revise |
@@ -56,7 +56,7 @@ Tags: [background] is my own knowledge, not re-checked this session. [speculatio
 | C13 | Deep Seasons | 3 | 3 | 2 | 4 | 3 | 4 | 3.17 | Learning Slope penalises strong priors, which leave less room to improve. Roguelike lore (NetHack) supplies those priors. | **[D]** The slope is the difference of two noisy means over 3–4 permadeath runs, across 8 campaigns, and is confounded by starting level. | revise |
 | C14 | Kelly Exam | 3 | 3 | 4 | 4 | 4 | 4 | 3.67 | Log-wealth tracks accuracy (the general factor) more than calibration. Trap formats can be learned. | **[G]** The headline mostly re-ranks by accuracy, and the calibration share is never isolated. Overlaps AA-Omniscience (B §3.7). | revise |
 | C15 | Prospective Self-Forecast | 3 | 3 | 3 | 3 | 4 | 3 | 3.17 | Beating a frozen panel's p̄ rewards being newer or stronger than the panel. | **[R]** A uniform upward shift wins Self-Edge without any item-level self-knowledge. | revise (merge with C14/C26) |
-| C16 | Pushback Ledger | 3 | 2 | 3 | 4 | 5 | 4 | 3.50 | On verifiable items, "discrimination" is mostly the ability to re-verify. | **[G]** It saturates as accuracy rises. Measured sycophancy also flips with where the instruction sits in the prompt ([arXiv 2609.32867](https://arxiv.org/abs/2609.32867)). | revise |
+| C16 | Pushback Ledger | 3 | 2 | 3 | 4 | 5 | 4 | 3.50 | On verifiable items, "discrimination" is mostly the ability to re-verify. | **[G]** It saturates as accuracy rises. Measured sycophancy also flips with where the instruction sits in the prompt ([arXiv 2609.32867](https://arxiv.org/abs/2609.32867)) [uncertain: no copy of arXiv 2609.32867 found in GitHub mirrors or indexes; the ID format is plausible for Sep 2026, but the claim is unverified]. | revise |
 | C17 | Reliability Horizon | 4 | 4 | 4 | 4 | 5 | 3 | 4.00 | Executing a register machine without code is a skill nobody deploys, and it may just track the thinking-token budget. | **[V]** No link to agentic reliability has been shown yet. It must survive removing the general factor and the token budget (P14). | **keep** |
 | C18 | Compaction Chronicle | 4 | 4 | 4 | 2 | 4 | 4 | 3.67 | If query templates are predictable, a model can keep a ledger for each template. | **[V]** The human arm runs a task 10× smaller, so there is no fair human comparison. | **keep** |
 | C19 | Frozen-Student Tutor | 3 | 3 | 3 | 4 | 5 | 3 | 3.50 | Measures prompt-writing for small LMs. The best "lesson" may be a list of examples, as MTOB's gains came from parallel sentences (F §2). | **[R]** Teachers can overfit to three public students. Students' in-context capacity caps gains, which predicts a flat frontier (StudentBench learning omnibus p = 0.755; B §2). | revise |
@@ -79,7 +79,7 @@ Tags: [background] is my own knowledge, not re-checked this session. [speculatio
 | C36 | Season Forge | 4 | 4 | 4 | 4 | 3 | 4 | 3.83 | The harness and the 6-hour agent loop dominate. The human anchor may already be passed. | **[L]** Human seasons cost $20–50k, remote no-AI proctoring is hard, and a human percentile tops out at 100. | revise (minor) |
 | C37 | Saboteur's Patch | 4 | 4 | 4 | 3 | 5 | 4 | 4.00 | Benign refactors need label audits, and the sabotage base rate must be fixed. | **[P]** Partly pre-empted: Auditing Sabotage Bench (best AUROC 0.77; [arXiv 2604.16286](https://arxiv.org/abs/2604.16286)) and SHADE-Arena. Dual-use risk. | **keep** |
 | C38 | Relay | 4 | 3 | 2 | 4 | 3 | 3 | 3.17 | A chain mixes note-writing, note-reading and play. | **[D]** One chain is one sample, errors propagate down the chain, and it costs $1.5–9k per model. | revise (make Note Transfer the headline) |
-| C39 | Blind Spot Cartographer | 3 | 4 | 3 | 4 | 3 | 4 | 3.50 | The pool drifts toward the cheapest blind spots, such as fine visual discrimination and counting. | **[V]** No stable construct across seasons, and adversarially authored items tend to be ambiguous: 18–29% of HLE's chemistry and biology answers are disputed (G §4). | revise (merge with C05) |
+| C39 | Blind Spot Cartographer | 3 | 4 | 3 | 4 | 3 | 4 | 3.50 | The pool drifts toward the cheapest blind spots, such as fine visual discrimination and counting. | **[V]** No stable construct across seasons, and adversarially authored items tend to be ambiguous: 18–29% of HLE's chemistry and biology answers are disputed (G §4) [uncertain: both HLE figures come from search summaries (G §4; P2 fact-check log)]. | revise (merge with C05) |
 | C40 | Rules Gauntlet | 3 | 4 | 3 | 4 | 3 | 3 | 3.33 | Result messages state the win condition, so "blind" ends after game 1. | **[S]** When rules are given, writing a code world model plus MCTS beats direct play (D §2.25 [uncertain]). Against MCTS anchors that know the true rules, LLMs sit at the floor. | revise (merge with C41) |
 | C41 | Practice Week | 4 | 4 | 2 | 3 | 3 | 4 | 3.33 | The notes protocol decides how much is learned, and people can practise or consult between days. | **[D]** One game per season is a sample of one, and learning gain is a difference score. | revise (merge with C40) |
 | C42 | Hidden-Rule Lab | 4 | 3 | 4 | 4 | 4 | 4 | 3.83 | The image track mixes scene parsing with experimenting. | **[S]** The text track may fall to explicit hypothesis enumeration, as ARC-AGI-3's efficiency gap closed once mechanics were understood (A §2.3). | **keep** |
@@ -87,7 +87,7 @@ Tags: [background] is my own knowledge, not re-checked this session. [speculatio
 | C44 | Convention Cross-Play | 4 | 3 | 3 | 4 | 4 | 3 | 3.50 | Six games is too few to measure adaptation. | **[D]** Adaptation Gain is a noisy difference score. Kaggle Hanabi (D §2.16) and the Convention Gap paper ([arXiv 2609.11489](https://arxiv.org/pdf/2609.11489)) crowd the space. | revise |
 | C45 | Crowd Oracle | 4 | 3 | 3 | 4 | 4 | 3 | 3.50 | "Truth" depends on who is in the panel (country, platform). | **[C]** Payoff is capped at the modal choice: predict the mode and you max out. The "Both" archetype claim is weak. | revise |
 | C46 | Grift | 4 | 3 | 1 | 3 | 2 | 4 | 2.83 | The conned rate depends on who the grifters and other players are. | **[L]** Pool-relative, few seats per model, and $15–20k a season. Leaders will sit inside each other's CIs (cf. Step Game, where σ ≈ 0.7 and the top 4 overlap; D §2.14). | kill |
-| C47 | Defuse Line | 3 | 2 | 3 | 4 | 3 | 4 | 3.17 | In the live condition it measures latency, and the human operator's skill dominates. | **[P]** Already done: GPTNT benchmarks Keep Talking and Nobody Explodes expert/defuser play in real time ([arXiv 2606.28514](https://arxiv.org/abs/2606.28514), Jun 2026). | kill |
+| C47 | Defuse Line | 3 | 2 | 3 | 4 | 3 | 4 | 3.17 | In the live condition it measures latency, and the human operator's skill dominates. | **[P]** Already done: GPTNT benchmarks Keep Talking and Nobody Explodes expert/defuser play in real time ([arXiv 2606.28514](https://arxiv.org/abs/2606.28514), Jun 2026). [fact-check P4: verified via the GitHub abstract mirror and repo (github.com/GPTNT/gptnt). Scope: GPTNT pairs two AI agents on the real game's manual, and no tested model defused a single bomb in real time. C47's human-operator headline and freshly generated manuals are not covered, so the pre-emption is partial. The kill is the reviewer's judgement; C47 fails the §7 rule anyway (Q1 = 3).] | kill |
 
 **Tally:** 6 keep, 29 revise, 12 kill.
 - **Keep** (the only candidates that pass the §7 rule): C17, C18, C21, C24, C37, C42.
@@ -145,7 +145,7 @@ Main risk: ARC-AGI-3's action-efficiency gap vanished once models understood the
 **Revision:** run models on the humans' 40-chunk version as well, to get one matched comparison. Rotate secret query families each season. Publish an oracle-notes ceiling for each notes cap (4, 16 and 64 KB), so scores are shares of what is achievable.
 
 **C36 Season Forge (revise, minor).** Writing a competitive bot is a declared, valued construct: CodeClash has run 2,000+ tournaments and NetHackers re-scores on private seeds (D §2.22, §2.6). Real contest veterans are the strongest human anchor of any A2 candidate.
-- Weaknesses: cost (Q5 = 3), and a human-percentile headline that may already be near its cap. In the 2025 AtCoder World Tour Finals heuristic contest, an OpenAI model placed 2nd to a human [background].
+- Weaknesses: cost (Q5 = 3), and a human-percentile headline that may already be near its cap. In the 2025 AtCoder World Tour Finals heuristic contest, an OpenAI model placed 2nd to a human [background]. [fact-check P4: verified, and superseded. At the 7–9 Jul 2026 finals OpenAI's agent beat all 12 human Heuristic finalists by more than 7× (secondary: github.com/adamghaida/ai-hall-of-fame), so the human-percentile cap is already reached. This strengthens the named revision; verdict unchanged.]
 
 **Revision:**
 - Headline an anchored Bradley-Terry rating against the operator's bot ladder, with human percentile secondary.
@@ -231,7 +231,7 @@ Next in line: C33, C29, C16, C44.
 
 3. **Live humans, physical rigs or pool-relative scoring (L, 6).** C02, C07, C12, C30, C36 and C46 need fresh humans or hardware for every model evaluation, which is expensive and drifts over time.
    - C08, C31, C44 and C47 carry the same burden in secondary arms.
-   - With humans in the loop, differences between models disappear (StudentBench: 0 of 364 cells significant; B §2). A continuous ladder died of cost (SnakeBench, D §2.21).
+   - With humans in the loop, differences between models disappear (StudentBench: 0 of 364 cells significant; B §2). A continuous ladder died of cost (SnakeBench, D §2.21) [corrected by fact-check P4: was "died". SnakeBench disabled ladder matchmaking "to reduce recurring game costs" (Feb 2026), but D still lists the project as alive].
    - **Fix:** use a human arm once per season for anchoring, never per model.
 
 4. **Frozen references that age or can be gamed (R, 5), plus metrics that are secretly accuracy (G, 3).** A frozen-model panel appears as the house line (C14, C15), the solver ladder (C34), the judge (C31) and the students (C19).
@@ -258,7 +258,7 @@ Next in line: C33, C29, C16, C44.
    - C08, C30 and C44 face similar crowding.
    - Four A1 designs measure the interface rather than cognition: latency (C09, C10), audio streaming (C04) and video frame sampling (C01). This is the ARC-AGI-3 harness lesson, repeated inside the benchmark itself (Phase 2 §3, mode 5).
 
-7. **The A1 archetype is thin.** No A1-only candidate is a keep. Its seams are either perceptual, and close fast when targeted (ClockBench took 12 months; A §2.9), or real-time, and so artifacts of the harness. The most durable human advantage on the list is the exploration efficiency tested by C42, which is labelled "Both" [speculation that it lasts; ARC-AGI-3 is the counterexample].
+7. **The A1 archetype is thin.** No A1-only candidate is a keep. Its seams are either perceptual, and close fast when targeted (ClockBench took 12 months; A §2.9) [corrected by fact-check P4: ClockBench has not closed. It rose from 13.3% to 66.7% in about 12 months against 89.1% for humans, with no documented cause], or real-time, and so artifacts of the harness. The most durable human advantage on the list is the exploration efficiency tested by C42, which is labelled "Both" [speculation that it lasts; ARC-AGI-3 is the counterexample].
 
 8. **The common protocol does not tell candidates apart.** Every spec claims sealed execution, secret rotating primitives and pre-registered power. Those claims are identical across all 47 and carry no evidence, so Q1 and Q5 differ between candidates only through each task's own structure. What actually separates keeps from kills: the size of the solver shortcut, the cost per model evaluation, and whether the headline metric is a difference score or relative to the player pool.
 
@@ -268,3 +268,55 @@ Next in line: C33, C29, C16, C44.
 3. Scoring that needs live humans, physical rigs or the player pool, making it costly, low-power and hard to reproduce.
 
 Close behind: frozen references that age, noisy difference scores, pre-emption, and interface or latency artifacts.
+
+---
+
+## Fact-check log (Phase 4)
+
+Independent check, 30 Sep 2026. Dossier values (with their corrections and [uncertain] labels) first, then primary text via GitHub mirrors (arxiv.org and Semantic Scholar were blocked). "[background]" = checker's knowledge of a widely cited result, not re-fetched.
+
+| Claim | Candidate | Verdict | Source | Note |
+|---|---|---|---|---|
+| ClockBench 13 → 67% in ~12 months "once targeted"; perceptual seams "close fast" | C01, pattern 7 | corrected | A §2.9 | Humans 89.1%, gap ~22 pp; cause undocumented |
+| MUSE: Gemini handles basic perception, others near chance | C04 | verified | GitHub digest of arXiv 2510.19055 | — |
+| HellaSwag answers survive Lorem-ipsum questions | C05 | verified | C §3; P2 §3 | — |
+| NewtonBench became an RL environment in ~4.5 months | C06, C21 | verified | F §2 | — |
+| 2508.06482 post-training; 2602.08208 title quote; 2606.08081 | C08 | verified | GitHub mirrors of the abstracts | — |
+| VideoGameBench 0.48% → 1.6% paused | C09 | verified | A §2.17 | — |
+| StudentBench omnibus p = 0.755; 0 of 364 cells | C19, pattern 3 | verified | B §2 | — |
+| MTOB gains came from parallel examples | C19 | verified | F §2 (Aycock et al.) | Secondary |
+| Sycophancy flips with instruction position (arXiv 2609.32867) | C16 | uncertain | not found | Supporting citation only; verdict unaffected |
+| 80% horizon 4–10× shorter than 50% across 20 models | C17 | verified | E Q1 (reproduced refit) | — |
+| Thinking models do not self-condition on their own errors | C17 | verified | E Q1 (arXiv 2509.09677) | — |
+| ARC-AGI-3 62.7% vs 98.6% by harness | C18 | verified | A §2.3 | — |
+| Memory systems do not beat naive in-context learning (Continual Learning Bench) | C18 | verified | E Q1 | — |
+| FrontierMath fixes on 42% of problems | C21 | verified | G §4 | — |
+| ForecastBench auto-generates data-series questions and reports AI–superforecaster parity in 2026 | C22 | verified | github.com/forecastingresearch/forecastbench (FRI post, 16 Jul 2026) | Prior-art claim holds |
+| Vending-Bench 2, FLE, CEO Arena fill the niche; provider can double scores | C28 | verified | B §3.2 (CEO Arena, arXiv 2609.34821); D §2.11 | 2× is Vending-Bench 1, mean metric |
+| C29 reduces to Knights-and-Knaves; Logic-RL reached 0.99 after 5k puzzles | C29 | verified | P2 §3 | 0.99 is on 3-person puzzles; the reduction is the reviewer's interpretation |
+| Kaggle Werewolf exists; genre arenas dormant | C30 | verified | D §2.15 and summary | — |
+| Judge swaps move rankings | C31 | verified | G §4 (3rd → 9th) | — |
+| Auditing Sabotage Bench best AUROC 0.77 | C37 | verified | arXiv 2604.16286 abstract (GitHub) | Gemini 3.1 Pro; ML-research sabotage, so pre-emption is partial |
+| SHADE-Arena (arXiv 2506.15740) | C37 | verified | [background] | — |
+| 18–29% of HLE chem/bio answers disputed | C39 | uncertain | G §4; P2 log | Label restored |
+| Code world model + MCTS beats direct play | C40 | verified as labelled | D §2.25 | [uncertain] kept |
+| Kaggle Hanabi; Convention Gap paper | C44 | verified | D §2.1; arXiv 2609.11489 abstract | — |
+| Step Game σ ≈ 0.7, top 4 overlap | C46 | verified | D §2.14 | — |
+| GPTNT (arXiv 2606.28514, Jun 2026) benchmarks KTANE expert/defuser play in real time | C47 | verified | GitHub abstract mirror; github.com/GPTNT/gptnt | AI–AI pairs only; scope note added |
+| ZendoWorld 73.3% vs 44.5%, 19 humans, "near-uninformative" experiments | C42 | verified | F §2 | Secondary |
+| AutumnBench: 517 humans beat 2025 models | C42 | verified | E Q1 | — |
+| Blicket: LLMs reach human accuracy but explore less efficiently | C42 | verified | E Q1 | — |
+| Eleusis 68-rule catalogue | C42 | verified | F §2 | — |
+| Witness RL transfers a little to held-out primitives | C42 | verified | F §1/§3 (corrected wording) | — |
+| ConceptARC: 27% of o3's correct answers use a wrong rule vs 8% for humans | C42 | verified | E Q1 (corrected value) | — |
+| CodeClash 2,000+ tournaments; NetHackers re-scores on private seeds | C36 | verified | D §2.22, §2.6 | — |
+| OpenAI 2nd at AtCoder WTF Heuristic 2025 | C36 | verified | github.com/adamghaida/ai-hall-of-fame | Superseded by the Jul 2026 sweep; note added |
+| AA-Omniscience hallucination 48–88%; always-abstain ranks 4th of 36 | C14 | verified | B §3.7; E Q2 | Nov 2025–Jan 2026 models |
+| IntPhys 2 57.5% vs 96.4%; VPCT 91% vs 100% | C06 | verified | A §2.15, §2.10 | — |
+| Fresh IOL 2026 problems reached gold level | C05/C39 | verified | F §1 | Secondary |
+| SnakeBench ladder "died of cost" | pattern 3 | corrected | D §2.21 | Matchmaking disabled; project still alive |
+| Scorecard arithmetic: row means, per-question means, §7-rule passes, flaw-code counts | all | verified | recomputed | 6 passes = the 6 keeps; codes sum to 47 |
+
+**Tally (39 claims):** 35 verified · 2 corrected · 2 uncertain · 0 removed.
+**Verdict or top-10 changes:** none. The tally (6/29/12) and the top 10 stand. Prior-art claims: C47 vs GPTNT, C22 vs ForecastBench and C37 vs Auditing Sabotage Bench are real papers. GPTNT and ASMR-Bench cover C47 and C37 only partly. C29 → Knights-and-Knaves is an interpretation resting on a verified Logic-RL result.
+**Most consequential:** the ClockBench "closes fast when targeted" inference is weaker than stated, which slightly softens pattern 7 but changes no score.

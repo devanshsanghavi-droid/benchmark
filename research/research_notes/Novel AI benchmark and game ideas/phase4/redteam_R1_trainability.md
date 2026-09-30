@@ -265,6 +265,6 @@ Independent check, 30 Sep 2026. Dossier values (with their corrections and [unce
 | Hanabi is a Kaggle environment | C44 | verified | D §2.1 (Kaggle env repo, 14–15 Sep 2026) | Cited as D §2.16 |
 | Tacit Communication Game is an established paradigm | C07 | verified | de Weerd site [background] | — |
 
-**Tally (29 claims):** 24 verified · 2 corrected · 3 uncertain · 0 removed.
+**Tally (28 claims):** 23 verified · 2 corrected · 3 uncertain · 0 removed.
 **Verdict or top-10 changes:** none. The keep/revise/kill tally (7/36/4) and the top 10 stand.
 **Most consequential:** the ARC "semi-private" citation fix (the substance holds) and the ClockBench causal claim, which the evidence does not support.
