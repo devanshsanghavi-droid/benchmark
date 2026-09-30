@@ -41,7 +41,7 @@
    - Mythos Preview: p50 ≥ 16 h and p80 about 3.1 h.
    - METR's suite is running out of long tasks.
 6. **Learning from new context or from experience is weak in 2026 frontier models.**
-   - CL-bench: the best model reaches 23.7% and the average is 17.2%.
+   - CL-bench: the best model reaches 23.7% and the average is 17.2% (verified). These are Feb 2026 models; no results for Jul–Sep 2026 models were found.
    - Continual Learning Bench: agents don't reuse knowledge across episodes, and memory systems don't beat naive in-context learning.
    - Neither benchmark has a human baseline.
 7. **Metacognition and abstention are robust deficits and diverge strongly by lab.**
@@ -85,7 +85,7 @@ Status definitions:
 | Intuitive physics (possible vs impossible video) | IntPhys 2: humans 96.44% (92.44% on held-out); best model V-JEPA 2 57.51%; best MLLM Gemini 2.5 Flash 55.63%; chance is 50% [corrected by fact-check: was "best model 55.63% (Gemini 2.5 Flash)"; source: arXiv 2506.09849 results table, via search excerpts] | Gemini 2.5 Flash, V-JEPA 2 and other video models (Jun 2025) | **Robust but stale for 2026** | M |
 | Spatial reasoning (mental transformation) | GPT-5 is human-level on metric measurement and spatial relations, short on mental reconstruction and deformation/assembly. Spatial4D-Bench: humans about 17 points above GPT-5 | GPT-5 (Aug 2025); Spatial4D (Jan 2026) | **Robust for transformation subskills; closed for measurement and relations** | M |
 | World-model learning via reward-free exploration | AutumnBench/WorldTest (43 environments, 129 tasks, 517 humans): humans beat o3, Gemini 2.5 Pro and Claude 4 Sonnet. More compute helps in only some environments | o3, Gemini 2.5 Pro, Claude 4 Sonnet (Oct 2025) | **Robust in 2025; untested on 2026 models** | M |
-| Interactive skill acquisition, novel games (ARC-AGI-3) | Launch: all frontier <1% (best 0.37%, Gemini 3.1 Pro). Humans solve 100% of environments, but that is a panel figure: each environment was solved by at least 2 participants. Mid-2026: best 7.78% (GPT-5.6 Sol), then Claude Opus 5 at 30.16%. 3 Sep 2026: GPT-6 Astra 62.7% standard (max effort) / 99.9% Provider Adapter (high effort); 98.6% Provider Adapter at max effort. Under the Provider Adapter, fewer actions than the median human on 96.0% of levels [clarified by fact-check; sources: translation of arcprize.org/blog/astra; Opus 5 system card as cited in sibling dossier F] | GPT-6 Astra (Sep 2026) | **Fragile / closing (harness-dependent)** | M |
+| Interactive skill acquisition, novel games (ARC-AGI-3) | Launch: all frontier <1% (best 0.37%, Gemini 3.1 Pro). Humans solve 100% of environments, but that is a panel figure: each environment was solved by at least 2 participants. Mid-2026: best 7.78% (GPT-5.6 Sol), then Claude Opus 5 at 30.16% (24 Jul 2026). 3 Sep 2026: GPT-6 Astra 62.7% standard (max effort) / 99.9% Provider Adapter (high effort); 98.6% Provider Adapter at max effort. Under the Provider Adapter, fewer actions than the median human on 96.0% of levels [clarified by fact-check; sources: translation of arcprize.org/blog/astra; Opus 5 system card as cited in sibling dossier F] | GPT-6 Astra (Sep 2026) | **Fragile / closing (harness-dependent)** | M |
 | Active causal learning (blicket-style interventions) | Some SOTA LLMs near human hypothesis-inference accuracy but explore less efficiently; same conjunctive-disjunctive gap | Unspecified "state-of-the-art" LLMs (CogSci 2026) | **Accuracy fragile; exploration efficiency robust** | M/L |
 | Static few-shot abstraction (ARC-AGI-1/2) | ARC-AGI-2: GPT-5.2 Pro 54.2% verified (Dec 2025). Imbue harness took Gemini 3.1 Pro from 88.1% to 95.1% (Feb 2026) on the *public* eval set [corrected by fact-check: the public-eval status was not stated; source: imbue.com post, via search excerpts]. 97.9% claimed on the public eval. GPT-6 Astra 95.0% verified (Sep 2026; secondary, via ARC Prize X post) | Gemini 3.1 Pro + harness (Feb 2026); others 2026 | **Closed on accuracy** (efficiency and priors not separately established) | M |
 | Concept abstraction with the right rule, across modalities (ConceptARC) | o3 (medium) matches or beats human accuracy (73%) in text, but about 27% of its correct grids use "correct-unintended" or incorrect rules, against about 8% for humans [corrected by fact-check: was "about 28%"; source: arXiv 2510.02125 abstract, via search]. Visual-modality accuracy drops sharply | o3 (Oct 2025) | **Accuracy closed (text); rule fidelity and visual abstraction robust** | M |
@@ -109,25 +109,26 @@ Numbers already given in the map above are not repeated here. Each bullet names 
 
 **Perception and physics**
 - BabyVision uses child comparison groups aged 3, 6, 10 and 12, plus adults. The four domains are fine-grained discrimination, visual tracking, spatial perception and visual pattern recognition. Deficits are "consistent … across all four domains" — [README](https://raw.githubusercontent.com/UniPat-AI/BabyVision/main/README.md) (H); [arXiv 2601.06521](https://arxiv.org/abs/2601.06521) (M).
-- IntPhys 2 uses photorealistic Unreal scenes with moving cameras. MLLMs are sensitive to prompt phrasing and use long video poorly — [arXiv 2506.09849](https://arxiv.org/abs/2506.09849) (M).
+- IntPhys 2 uses photorealistic Unreal scenes with moving cameras. MLLMs are sensitive to prompt phrasing and use long video poorly — [arXiv 2506.09849](https://arxiv.org/abs/2506.09849) (M). The official [README](https://raw.githubusercontent.com/facebookresearch/IntPhys2/main/README.md) confirms "most models performing at chance levels (50%)" against "near-perfect" humans (H).
 - Spatial reasoning sources: [Cai et al., arXiv 2508.13142](https://arxiv.org/pdf/2508.13142); [Spatial4D-Bench, arXiv 2601.00092](https://arxiv.org/pdf/2601.00092) (M).
 
 **Exploration and interactive learning**
 - AutumnBench task families are masked-frame prediction, planning and change-of-dynamics prediction. The authors attribute the human edge to "strategic experimental design, better uncertainty quantification, and flexible belief updating" — [Warrier et al., arXiv 2510.19788](https://arxiv.org/abs/2510.19788) (M).
-- ARC-AGI-3 launch results — [ARC Prize](https://arcprize.org/blog/arc-agi-3-launch); [arXiv 2603.24621](https://arxiv.org/abs/2603.24621) (M).
+- ARC-AGI-3 launch results — [ARC Prize](https://arcprize.org/blog/arc-agi-3-launch); [arXiv 2603.24621](https://arxiv.org/abs/2603.24621) (M). Launch scores: Gemini 3.1 Pro 0.37%, GPT-5.4 0.26%, Opus 4.6 about 0.2–0.25%. The later pre-Astra bests were GPT-5.6 Sol 7.78% and Claude Opus 5 30.16% (24 Jul 2026), per the Opus 5 system card as cited in sibling dossier F. This is consistent with "<1% at launch" and is not a conflict. [added by fact-check]
 - The two ARC-AGI-3 harnesses differ as follows (secondary sources agree on 62.7 and 99.9):
   - The standard harness carries forward only the notes the model chooses to keep.
   - The Provider Adapter harness "preserves opaque reasoning state between requests and uses compaction".
   - Source: [ARC Prize, Astra post](https://arcprize.org/blog/astra) (M).
+  - Effort levels differ between the two headline numbers. By effort, standard vs Provider Adapter: max 62.7% vs 98.6%; high 54.8% vs 99.9%; none 35.2% vs 96.7%. The 96.0% action-efficiency figure is for the Provider Adapter harness (Astra max), with 51.7% fewer actions on average. Source: [translation of the ARC post](https://raw.githubusercontent.com/lihenair/techtranslate/821908553b702d9de6565d186fdd2e8661303f6f/archive/2026-09-05/ai/OpenAIs-GPT-6-Astra-on-ARC-AGI-3.md) (secondary copy of primary). [added by fact-check]
 - Blicket study: active exploration improves adults' conjunctive inference. LLMs "approach human-level performance on hypothesis inference accuracy" but "exhibit less efficient exploration strategies" — [arXiv 2606.06464](https://arxiv.org/abs/2606.06464) (M).
 - LM agents show a disjunctive bias like adults' — search summary of related work, e.g. [arXiv 2604.20039](https://arxiv.org/abs/2604.20039) (L; attribution uncertain).
 
 **Abstraction and analogy**
 - ARC-AGI-2 scores:
   - GPT-5.2 Pro 54.2% at the start of 2026 — [Metaculus](https://www.metaculus.com/questions/41131/top-arc-agi-2-score-in-2026/) (L/M).
-  - Imbue harness result — [Imbue](https://imbue.com/blog/2026-02-27-arc-agi-2-evolution) (M).
+  - Imbue harness result — [Imbue](https://imbue.com/blog/2026-02-27-arc-agi-2-evolution) (M). It is on the ARC-AGI-2 public eval set; Gemini 3.1 Pro's verified semi-private score was 77.1%. [added by fact-check]
   - Confluence Lab's 97.9% is on the public set, which is not comparable to semi-private results (L).
-- ConceptARC text, visual and rule-quality results — [Beger, …, Mitchell, arXiv 2510.02125](https://arxiv.org/abs/2510.02125) (M).
+- ConceptARC text, visual and rule-quality results — [Beger, …, Mitchell, arXiv 2510.02125](https://arxiv.org/abs/2510.02125) (M). The abstract gives "around 27%" unintended or incorrect rules for o3 against about 8% for humans. [corrected by fact-check: was 28%]
 - Counterfactual analogies: human CI [73.4, 77.3]; GPT-3 48.8% and GPT-3.5 35.0% — [Lewis & Mitchell, CogSci](https://escholarship.org/uc/item/58d9s666) (M/L).
 - Webb et al.'s rebuttal — [arXiv 2404.13070](https://arxiv.org/abs/2404.13070) (M).
 
@@ -161,20 +162,22 @@ Numbers already given in the map above are not repeated here. Each bullet names 
 
   - The p50/p80 ratio spans 4.0–10.3 across all 20 models.
   - Opus 4.6 has the flattest slope of the 20 (−0.41 per log2 minute, against −0.47 to −0.69 for the rest).
-  - The Opus 4.6 values match METR's published ~12 h and ~70 min.
+  - The Opus 4.6 p50 matches METR's *corrected* estimate of 11 h 59 min. METR first announced about 14.5 h (CI 6–98 h) on 20 Feb 2026, then corrected an over-regularized fit that inflated p50 by 10–20% (about 3 Mar 2026; METR on X, via search; a secondary account on X). [corrected by fact-check: was "match METR's published ~12 h and ~70 min"]
+  - p80: [uncertain: not verified — the refit gives 70 min, but the one secondary account of METR's correction gives p80 = 1 h 20 min; metr.org is blocked]
+  - Fact-check re-run: the refit was reproduced exactly. It used METR's `eval-analysis-public` pipeline settings (repo commit 52cb829, 5 Mar 2026, "Adds GPT-5.3-Codex and Opus 4.6"): headline `weighting: invsqrt_task_weight`, `regularization: 0.00001`, `score_binarized`, log2 human minutes. The file has 21 aliases: 20 models plus `human`. The ratios range from 3.99 to 10.29. The refit is described honestly; the data source is real.
   - Data: [runs.jsonl](https://raw.githubusercontent.com/METR/eval-analysis-public/main/reports/time-horizon-1-1/data/raw/runs.jsonl) (H).
-- Self-conditioning on own errors is "not mitigated by scaling model size"; RL-trained thinking models do not self-condition — [Sinha et al., arXiv 2509.09677](https://arxiv.org/abs/2509.09677) (M).
+- Self-conditioning on own errors is "not mitigated by scaling model size"; RL-trained thinking models do not self-condition — [Sinha et al., arXiv 2509.09677](https://arxiv.org/abs/2509.09677) (M). Because thinking models are reported immune, this is weak evidence for a *2026-frontier* reliability deficit. [note added by fact-check]
 - CL-bench:
   - Design: 1,899 tasks, about 63 rubrics and about 20 expert-hours per context, GPT-5.1 judge — [README](https://raw.githubusercontent.com/Tencent-Hunyuan/CL-bench/main/README.md) (H).
   - Scores — [arXiv 2602.03587](https://arxiv.org/abs/2602.03587) (M).
 - Continual Learning Bench (UC Berkeley and Snorkel; six domains, each with a latent structure learnable across episodes): "naive ICL outperforms systems dedicated to memory management" — [arXiv 2606.05661](https://arxiv.org/abs/2606.05661) (M); [README](https://raw.githubusercontent.com/pgasawa/continual-learning-bench/main/README.md) (H).
 - AbstentionBench (20 datasets, 6 scenarios, 20 LLMs):
   - "Reasoning fine-tuning hurts abstention"; scale has "almost no effect" — [README](https://raw.githubusercontent.com/facebookresearch/AbstentionBench/main/README.md) (H).
-  - −24% on average — [arXiv 2506.09038](https://arxiv.org/abs/2506.09038) (M).
+  - −24% on average — [arXiv 2506.09038](https://arxiv.org/abs/2506.09038) (M). The 24% compares reasoning models (DeepSeek R1-Distill-Llama-70B, s1) with their non-reasoning counterparts; it was not measured across all frontier reasoning models. [nuance added by fact-check]
 - Clinical calibration: 48 LLMs on 300 gastroenterology questions. Even o1-preview, GPT-4o and Claude 3.5 Sonnet are substantially overconfident — [Nature Portfolio s44355-026-00053-3](https://www.nature.com/articles/s44355-026-00053-3) (M).
 - SimpleBench:
   - Human baseline 83.7% (n = 9) — [explainer](https://itdoeswhatnow.com/benchmarks/simplebench/) (M).
-  - Opus 5.5 at 88.4% and Fable 5.1 at 86.6% — [benchmarklist](https://benchmarklist.com/benchmarks/simplebench/) (L; the official site was blocked).
+  - Opus 5.5 at 88.4% and Fable 5.1 at 86.6% — [benchmarklist](https://benchmarklist.com/benchmarks/simplebench/) (L; the official site was blocked). [uncertain: not verified — no search hit confirms these; the last official leaderboard found (10 Jun 2026) had Claude Fable 5 at 81.9%, below the 83.7% human baseline]
 
 ### Inferences
 - The pattern fits **"verbal-symbolic gaps close; embodied-perceptual and exploration-efficiency gaps persist."**
@@ -184,15 +187,15 @@ Numbers already given in the map above are not repeated here. Each bullet names 
   - ARC-AGI-3 accuracy closed within about 6 months, and even action-efficiency is claimed for Astra.
   - The blicket and AutumnBench results show gaps in *how many experiments* are needed even where accuracy converges.
   - [speculation] Exploration efficiency measured as information gain per action, not success, may be the more durable human advantage.
-- **Harness sensitivity is part of the construct.** The same model scores 62.7% or 99.9% on ARC-AGI-3 depending on memory handling. So any "learning" benchmark measures a model-plus-memory system unless state carry-over is fixed by protocol.
-- **Right answer, wrong rule** (about 28% on ConceptARC for o3) is under-measured: accuracy-only scoring hides it.
+- **Harness sensitivity is part of the construct.** The same model scores 62.7% or 98.6% on ARC-AGI-3 at the same (max) effort, depending on state handling; the headline 99.9% is at high effort. [corrected by fact-check: was "62.7% or 99.9% … depending on memory handling"] So any "learning" benchmark measures a model-plus-memory system unless state carry-over is fixed by protocol.
+- **Right answer, wrong rule** (about 27% on ConceptARC for o3 [corrected by fact-check: was 28%]) is under-measured: accuracy-only scoring hides it.
 - Several famous deficits are **stale**: Wu et al., Lewis & Mitchell, embers, GSM-NoOp, Mystery Blocksworld and "Illusion of Thinking" have no published 2026-frontier re-test that I found. [speculation] Given the ARC and SimpleBench trajectories, most have probably shrunk further. A benchmark built on them should re-baseline first.
 
 ### Gaps
 - No 2026-model results found for IntPhys 2, AutumnBench, Mystery Blocksworld, GSM-NoOp, Wu-style counterfactuals, Lewis–Mitchell analogies or embers-style probability sensitivity.
 - No human baselines exist for CL-bench or Continual Learning Bench, so "learning from experience" cannot yet be stated as a human-versus-AI gap. It is a documented deficit against the task ceiling.
 - Few-shot concept learning and compositional generalization (Lake et al. 2017; Lake & Baroni 2023) were not re-verified this session, and no 2025–26 frontier result was found.
-- The ARC-AGI-3 human-efficiency comparison (96% of levels) was seen only via summary. It was unclear which harness it applies to.
+- The ARC-AGI-3 human-efficiency comparison (96% of levels) was seen only via summary. It was unclear which harness it applies to. [resolved by fact-check: Provider Adapter harness, Astra at max effort; source: translation of ARC's Astra post]
 - The SimpleBench "closed" verdict rests on aggregators, and the human baseline is n = 9.
 
 ---
@@ -200,8 +203,8 @@ Numbers already given in the map above are not repeated here. Each bullet names 
 ## Q2. Where do frontier models differ most from each other?
 
 ### Takeaway
-About 75–80% of benchmark variance is one general factor, and part of it is a release-date trend. The reliable residual concentrates on:
-- an **agentic vs academic/vision/math axis** (Epoch's "Claudiness", replicated in Aug 2026 Artificial Analysis data);
+One general factor explains roughly 50–80% of benchmark variance, depending on the battery: about 79% on a 12-benchmark AA grid and about 50% on Epoch's 39-benchmark set. Part of it is a release-date trend. [corrected by fact-check: was "About 75–80%"] The reliable residual concentrates on:
+- an **agentic vs academic/vision/math axis** (Epoch's "Claudiness"). Aug 2026 Artificial Analysis data show an agentic-vs-academic split, but only under 3-factor over-extraction, and the battery has no vision or math benchmarks. [corrected by fact-check: was "replicated in Aug 2026 Artificial Analysis data"]
 - **vision and perception**: a 3.5× spread on BabyVision among frontier labs;
 - **hallucination and abstention policy**, which differs by lab and even inversely with accuracy.
 
@@ -211,14 +214,14 @@ Output diversity is where models are most *alike*: the "Artificial Hivemind" eff
 
 | Ability | Evidence of spread or reordering beyond general capability | Conf. |
 |---|---|---|
-| **General factor (baseline)** | AA data (421 configurations × 12 benchmarks, Aug 2026): PC1 79.4%; factor 1 74.5% of common variance; mean inter-benchmark Spearman 0.79; parallel analysis retains 1 factor. Epoch: cross-domain r 0.68 vs within-domain 0.79. Krakauer: PC1 fell from 92% to 64% on a 4-benchmark battery once reasoning models arrived | H (data); M |
-| **Agentic vs academic/math/vision** | Epoch's PC2 ("Claudiness") is "good at agentic tasks but bad at vision and math"; Claude models score highest. In the AA-data 3-factor oblique solution, F1 is agentic/economic and F2 is academic/IF/long-context (see Cited Findings) | M; H (data) |
-| **Vision / core perception** | BabyVision: Gemini 3 Pro 49.7 vs GPT-5.2 34.4 vs Claude 4.5 Opus 14.2 among models of broadly similar general capability. This is the largest lab reordering found | H |
+| **General factor (baseline)** | AA data (96 complete-case configurations × 12 benchmarks, out of 421 retained; AA snapshot 6 Jul 2026; paper Aug 2026): PC1 79.4% [corrected by fact-check: was "421 configurations"]; factor 1 74.5% of common variance; mean inter-benchmark Spearman 0.79; parallel analysis retains 1 factor. Epoch: cross-domain r 0.68 vs within-domain 0.79. Krakauer: PC1 fell from 92% to 64% on a 4-benchmark battery once reasoning models arrived | H (data); M |
+| **Agentic vs academic/math/vision** | Epoch's PC2 ("Claudiness") is "good at agentic tasks but bad at vision and math"; Claude models score highest. In the AA-data 3-factor oblique solution, F1 is agentic/economic and F2 is academic/IF/long-context (see Cited Findings). Parallel analysis retains only 1 factor, so the author calls this over-extraction [added by fact-check] | M; H (data) |
+| **Vision / core perception** | BabyVision: Gemini 3 Pro 49.7 vs GPT-5.2 34.4 vs Claude 4.5 Opus 14.2 among models of broadly similar general capability. This is the largest lab reordering found. Verified; Jan 2026 models only | H |
 | **Hallucination and abstention** | AA-Omniscience hallucination rate: Gemini 3 Pro Preview 88%, Gemini 3 Flash 85%, Claude Opus 4.5 58%, Claude 4.5 Sonnet 48%. The highest-accuracy models (GPT-5, Gemini 2.5 Pro) do not lead the index. Anthropic–OpenAI pilot: Claude refuses up to 70%; o3 gives more than twice as many correct answers but hallucinates more | M |
 | **Coding–reasoning coupling** | 34 models from 10 labs: capabilities co-vary (r = +0.72), but per-lab coupling slopes differ 5× (Google 1.15 vs DeepSeek 0.23). HLE and instruction-following keep their spread as SWE-bench saturates | M (built on 2 benchmarks only) |
 | **Frontier head-to-head reordering (Sep 2026)** | Vendor grid in the Opus 5.5 post: the Opus 5.5 vs GPT-6 Astra lead flips from one benchmark to the next (see Cited Findings) | H (vendor-reported) |
-| **Output diversity / creativity** | Artificial Hivemind: strong intra- and inter-model homogeneity across more than 70 models. In 79% of cases a model's own responses to one prompt have average pairwise similarity above 0.8. This is low divergence, a shared weakness | M |
-| **Economic / knowledge-work tasks** | No distinct factor. They add incremental prediction under linear learners (the advantage reverses under tree learners) | M; H (data) |
+| **Output diversity / creativity** | Artificial Hivemind: strong intra- and inter-model homogeneity across more than 70 models. For 79% of queries (Infinity-Chat100; 50 samples each; text-embedding-3-small), the average pairwise similarity of a model's own responses exceeds 0.8. This is low divergence, a shared weakness. [uncertain: a Sep 2026 re-analysis (arXiv 2609.33936) argues the published evidence does not establish the effect. It finds that 20–32% of pairs in a null baseline also exceed 0.8, and that prompting raises diversity] | M |
+| **Economic / knowledge-work tasks** | No distinct factor. The full factor profile predicts economic scores slightly better than a single index (pooled ΔMSE +0.037, CI [+0.019, +0.055]; 3 of 4 economic benchmarks) [uncertain: "the advantage reverses under tree learners" was not found in the repo's Phase 3 report or notebook and was removed by fact-check] | M; H (data) |
 | **Sycophancy, persuasion** | No quantitative cross-lab comparison found this session | — |
 
 ### Cited Findings
@@ -229,8 +232,8 @@ Output diversity is where models are most *alike*: the "Artificial Hivemind" eff
   - Source: [Epoch, "Benchmark Scores = General Capability + Claudiness"](https://epoch.ai/gradient-updates/benchmark-scores-general-capability-claudiness) (M; Nov 2025).
 - Benchmark scores are "nearly as correlated across domains (0.68) as within them (0.79)" — [Epoch data insight](https://epoch.ai/data-insights/benchmark-correlations) (M; date not verified, c. early 2026).
 - Zhu, "One Capability or Many?" (arXiv 2608.29420, Aug 2026): 421 model configurations, 12 benchmarks (4 economic). "A single factor explains 74.5% of common variance and tracks model release date (R² = 0.505)." Economic benchmarks form no distinct factor but "add incremental predictive information" — [arXiv 2608.29420](https://arxiv.org/abs/2608.29420) (M).
-  - The repository's result file gives PC1 share 0.794, factor-1 communal share 0.745, parallel-analysis k = 1, dominant-factor date R² = 0.477 (the abstract says 0.505, perhaps a different specification), and mean off-diagonal Spearman 0.79 — [task1_structure_results.json](https://raw.githubusercontent.com/louisyzhu/frontier-ai-economic-validity/main/data/processed/task1_structure_results.json) (H).
-  - Three-factor oblique loadings (raw) — [loadings_raw.csv](https://raw.githubusercontent.com/louisyzhu/frontier-ai-economic-validity/main/data/processed/loadings_raw.csv) (H):
+  - The repository's result file gives PC1 share 0.794, factor-1 communal share 0.745, parallel-analysis k = 1, dominant-factor date R² = 0.477 (the abstract says 0.505, perhaps a different specification) [fact-check: confirmed; 0.505 is the pre-registered logistic fit and 0.477 is OLS, per the README], and mean off-diagonal Spearman 0.79. These are computed on the G1 complete-case grid (n = 96, KMO 0.93), not on all 421 configurations [added by fact-check; source: PHASE2_REPORT.md] — [task1_structure_results.json](https://raw.githubusercontent.com/louisyzhu/frontier-ai-economic-validity/main/data/processed/task1_structure_results.json) (H).
+  - Three-factor oblique loadings (raw) — [loadings_raw.csv](https://raw.githubusercontent.com/louisyzhu/frontier-ai-economic-validity/main/data/processed/loadings_raw.csv) (H). Values were re-checked by fact-check. The author notes this is over-extraction relative to parallel analysis (k = 1):
 
 | Factor | Benchmark loadings |
 |---|---|
@@ -248,10 +251,10 @@ Output diversity is where models are most *alike*: the "Artificial Hivemind" eff
 - AA-Omniscience:
   - 6,000 questions, 42 topics, 6 domains. Hallucination rate is incorrect / (incorrect + abstentions); the Omniscience Index gives +1 correct, −1 incorrect, 0 abstain — [arXiv 2511.13029](https://arxiv.org/abs/2511.13029); [AA page](https://artificialanalysis.ai/evaluations/omniscience) (M).
   - Hallucination rates: Gemini 3 Pro Preview (high) 88%, Gemini 3 Flash (reasoning) 85%, Claude 4.5 Sonnet (thinking) 48%, Claude Opus 4.5 (thinking) 58% (M).
-  - Claude Opus 4.8: 35.9% hallucination, 46.6% accuracy, index 27 — [suprmind aggregator](https://suprmind.ai/hub/ai-hallucination-rates-and-benchmarks/) (L).
+  - Claude Opus 4.8: 35.9% hallucination, 46.6% accuracy, index 27 — [suprmind aggregator](https://suprmind.ai/hub/ai-hallucination-rates-and-benchmarks/) (L). [uncertain: not verified — aggregator only; AA site blocked]
 - Anthropic–OpenAI pilot cross-evaluation (Aug 2025):
   - Claude Opus 4 and Sonnet 4 had refusal rates "as much as 70%" on hallucination evals.
-  - o3 gave "more than twice as many fully correct responses" but hallucinated more.
+  - o3 gave "more than twice as many fully correct responses" but hallucinated more. [uncertain: not verified — search excerpts confirm the lower refusal and higher hallucination rates, but not this quote]
   - Source: [OpenAI](https://openai.com/index/openai-anthropic-safety-evaluation/) (M).
 - Anthropic, "Introducing Claude Opus 5.5" (22 Sep 2026). Vendor-reported; GPT-6 Astra figures "as reported by OpenAI" — [Anthropic](https://www.anthropic.com/news/claude-opus-5-5) (H):
 
@@ -263,7 +266,7 @@ Output diversity is where models are most *alike*: the "Artificial Hivemind" eff
 | HLE (with tools) | 67.7 | 65.6 | 63.6 | 57.2 | — |
 | Terminal-Bench-Science 0.1 | 58.7 | 52.6 | 29.0 | 64.6 | 22.4 |
 
-- Artificial Hivemind (NeurIPS 2025 D&B, Best Paper award): Infinity-Chat has 26K open-ended queries. More than 70 models show "pronounced intra- and inter-model homogenization" — [NeurIPS proceedings](https://proceedings.neurips.cc/paper_files/paper/2025/hash/754d5a526a5ee5a47220664a0eb92751-Abstract-Datasets_and_Benchmarks_Track.html); [NeurIPS blog](https://blog.neurips.cc/2025/11/26/announcing-the-neurips-2025-best-paper-awards/) (M).
+- Artificial Hivemind (NeurIPS 2025 D&B, Best Paper award): Infinity-Chat has 26K open-ended queries. More than 70 models show "pronounced intra- and inter-model homogenization". Counterpoint: [arXiv 2609.33936](https://arxiv.org/abs/2609.33936) (Sep 2026, M) argues the evidence does not establish the effect [added by fact-check] — [NeurIPS proceedings](https://proceedings.neurips.cc/paper_files/paper/2025/hash/754d5a526a5ee5a47220664a0eb92751-Abstract-Datasets_and_Benchmarks_Track.html); [NeurIPS blog](https://blog.neurips.cc/2025/11/26/announcing-the-neurips-2025-best-paper-awards/) (M).
 
 ### Inferences
 - **Most reliable reordering axes:**
@@ -272,7 +275,7 @@ Output diversity is where models are most *alike*: the "Artificial Hivemind" eff
   - (3) epistemic policy (answer vs abstain).
   All three reflect post-training emphasis by lab. That is reliable variance, but arguably not a "cognitive" construct. It also lowers the effective N in any psychometric study, because models cluster by family.
 - **Accuracy and hallucination are dissociable.** The most knowledgeable models do not lead abstention-aware indices, so a benchmark that scores abstention separately gets a lab-reordering axis for free. [speculation] This axis may shrink if labs converge on abstention training after the 2025 "why models hallucinate" discourse.
-- **Release date as a confound.** Because the g-factor tracks release date (R² about 0.5), residual "abilities" should be estimated net of date and compute, not just net of the first factor.
+- **Release date as a confound.** Because the g-factor tracks release date (R² about 0.5; verified), residual "abilities" should be estimated net of date and compute, not just net of the first factor.
 - The **Opus 5.5 vs GPT-6 Astra grid** shows that at the Sep 2026 frontier, ranking depends on which agentic benchmark is chosen, even though the grid is vendor-reported. A benchmark that resolves these reorderings with independent, reliability-controlled runs would carry information.
 
 ### Gaps
@@ -305,14 +308,14 @@ The ranking weighs A, B and C jointly:
 
 | Rank | Ability | Evidence strength | Why it matters (evidence) | Testability with novel generated instances |
 |---|---|---|---|---|
-| 1 | **Calibrated abstention** | Strong: −24% from reasoning fine-tuning; AA-Omniscience spread 36–88%; 48 LLMs overconfident | Hallucination in deployment; labs differ by policy | **High**: unanswerable, underspecified or stale-premise variants of solvable items, scored with an abstention-aware rule |
-| 2 | **Learning from experience across episodes** | Strong deficit (CL-bench best 23.7%; no reuse across episodes); no human baseline | On-the-job improvement; ARC-AGI-3 harness gap (62.7 vs 99.9) shows state carry-over is decisive | **High**: generated latent rule systems shared across episodes; score the learning-curve slope |
+| 1 | **Calibrated abstention** | Strong: −24% from reasoning fine-tuning (R1-distill and s1 pairs); AA-Omniscience spread 48–88% verified (36% low end is aggregator-only); 48 LLMs overconfident | Hallucination in deployment; labs differ by policy | **High**: unanswerable, underspecified or stale-premise variants of solvable items, scored with an abstention-aware rule |
+| 2 | **Learning from experience across episodes** | Strong deficit (CL-bench best 23.7%; no reuse across episodes); no human baseline | On-the-job improvement; ARC-AGI-3 harness gap (62.7 vs 99.9) shows state carry-over is decisive | **High**: generated latent rule systems shared across episodes; score the learning-curve slope. [note by fact-check: the ARC-AGI-3 gap is 62.7 vs 98.6 at matched effort] |
 | 3 | **Exploration and experimentation efficiency** | Moderate–strong: AutumnBench humans > 2025 models; blicket LLMs less efficient; ARC-AGI-3 accuracy closed in 6 months | Science and agents; human edge attributed to experiment design | **High**: generated grid worlds and causal machines; information gain per action vs Bayesian-optimal and human baselines |
-| 4 | **Core visual perception and intuitive physics** | Strong human gap (49.7 vs 94.1; physics near chance) and 3.5× lab spread | Computer use, embodied agents, charts | **High**: procedural images and videos; possible-vs-impossible pairs |
-| 5 | **High-reliability long-chain execution (p80/p95)** | Strong: p80 4–10× below p50 [C]; self-conditioning | Deployment needs reliability; METR suite saturating | **High**: long synthetic state-tracking chains with exact checks; report pass^k and p80 |
-| 6 | **Rule fidelity (right answer for the right reason)** | Moderate. About 28% of o3's correct ConceptARC answers use unintended or incorrect rules | Accuracy overstates generalization | **Medium–high.** Generate items where the intended and shortcut rules diverge on held-out probes |
+| 4 | **Core visual perception and intuitive physics** | Strong human gap (49.7 vs 94.1; physics near chance, best 57.5%) and 3.5× lab spread (Jan 2026 models) | Computer use, embodied agents, charts | **High**: procedural images and videos; possible-vs-impossible pairs |
+| 5 | **High-reliability long-chain execution (p80/p95)** | Strong: p80 4–10× below p50 [C, reproduced]; self-conditioning (but reported absent in thinking models) | Deployment needs reliability; METR suite saturating | **High**: long synthetic state-tracking chains with exact checks; report pass^k and p80 |
+| 6 | **Rule fidelity (right answer for the right reason)** | Moderate. About 27% of o3's correct ConceptARC answers use unintended or incorrect rules (humans about 8%) [corrected by fact-check: was 28%] | Accuracy overstates generalization | **Medium–high.** Generate items where the intended and shortcut rules diverge on held-out probes |
 | 7 | **Robustness to counterfactual and irrelevant perturbation** | Moderate but stale (≤ early 2025) | Detects memorization; o1-mini errors ~40% misapplied originals | **High.** Template-based (GSM-Symbolic style); best as a *control* condition, not a headline |
-| 8 | **Output diversity / novelty** | Moderate (Hivemind, 70+ models) | Homogenization across labs; creative and brainstorming use | **Medium.** Generated open prompts, but diversity scoring needs embeddings or judges |
+| 8 | **Output diversity / novelty** | Moderate (Hivemind, 70+ models; contested by a Sep 2026 re-analysis) | Homogenization across labs; creative and brainstorming use | **Medium.** Generated open prompts, but diversity scoring needs embeddings or judges |
 | 9 | **Implicit world-model coherence** | Moderate for small sequence models, thin for frontier agents | Predictive success without the right model generalizes poorly | **High.** Synthetic automata or physics; Vafa-style inductive-bias probes |
 | 10 | **Mental spatial transformation** | Moderate (GPT-5 short on reconstruction, deformation and assembly) | Engineering and design; embodied work | **High.** Procedural 3D shapes, folding and assembly |
 | — | ToM under perturbation; everyday trick questions | Weak or closed by 2026 | — | Low priority |
@@ -347,7 +350,7 @@ Four lines of evidence show that headline scores miss real-world differences:
 Each suggests a measurable target: calibrated self-knowledge of the frontier, reliability, and protocol-fixed state handling.
 
 ### Cited Findings
-- Jagged frontier (BCG field experiment, *Organization Science*):
+- Jagged frontier (BCG field experiment, *Organization Science*, published Mar 2026; figures verified via search):
   - For 18 tasks inside the frontier, AI users completed 12.2% more tasks, 25.1% faster, with higher quality.
   - For a task chosen to lie outside it, AI users were 19% (reported as percentage points in the working paper) less likely to be correct.
   - Source: [Dell'Acqua et al.](https://pubsonline.informs.org/doi/full/10.1287/orsc.2025.21838) (M).
@@ -356,9 +359,9 @@ Each suggests a measurable target: calibrated self-knowledge of the frontier, re
   - METR judges the new data unreliable because of a "significant increase in developers choosing not to participate because they do not wish to work without AI".
   - Reported "speedup" estimates: −18% (CI −38% to +9%) for returning developers and −4% (CI −15% to +9%) for new recruits.
   - METR nevertheless believes developers are likely more sped up in early 2026.
-  - Source: [METR](https://metr.org/blog/2026-02-24-uplift-update/) (M). The sign convention was not verified in the full text; read these as reported.
+  - Source: [METR](https://metr.org/blog/2026-02-24-uplift-update/) (M). The sign convention was not verified in the full text; read these as reported. Secondary summaries read them as small productivity *benefits* (about 4–18% faster), which fits METR's view that developers are likely sped up. [note by fact-check]
 - Anthropic (22 Sep 2026): "at these levels of capability we've found that benchmark margins have become a less reliable guide to real-world differences". It adds that in its own use the gap between Opus 5.5 and Fable 5.1 "is narrower than these scores suggest" — [Anthropic](https://www.anthropic.com/news/claude-opus-5-5) (H).
-- The ARC-AGI-3 harness effect (62.7% vs 99.9% for the same model) comes entirely from memory handling — [ARC Prize](https://arcprize.org/blog/astra) (M).
+- The ARC-AGI-3 harness effect: 62.7% vs 98.6% for the same model at the same (max) effort; the headline 99.9% is at high effort. It comes from the harness's state handling (opaque reasoning state kept between requests, plus compaction) — [ARC Prize](https://arcprize.org/blog/astra) (M). [corrected by fact-check: was "62.7% vs 99.9% … comes entirely from memory handling"; the headline pair mixes effort levels]
 - "Illusion of Thinking" and its rebuttals show that output-token caps and unsolvable instances can masquerade as reasoning failure — [arXiv 2506.09250](https://arxiv.org/abs/2506.09250); [arXiv 2507.01231](https://arxiv.org/abs/2507.01231) (M).
 - Economic benchmarks do not form a distinct latent capability, and the leading factor is "substantially a time trend" — [Zhu 2026](https://arxiv.org/abs/2608.29420) (M).
 - Construct validity: a review of 445 LLM benchmarks by 29 experts found patterns that "undermine the validity of the resulting claims" — [Bean et al., arXiv 2511.04703](https://arxiv.org/abs/2511.04703) (M; not re-read this session).
@@ -381,13 +384,13 @@ Each suggests a measurable target: calibrated self-knowledge of the frontier, re
 | 1 | BabyVision adult human accuracy | 94.1% | Jan 2026 | https://raw.githubusercontent.com/UniPat-AI/BabyVision/main/README.md | Primary | H |
 | 2 | BabyVision best model / spread | Gemini3-Pro-Preview 49.7; GPT-5.2 34.4; Claude-4.5-Opus 14.2 | Jan 2026 | same | Primary | H |
 | 3 | Gemini 3 Pro vs 6-year-olds | ~20 points behind | Jan 2026 | https://arxiv.org/abs/2601.06521 | Primary (summary) | M |
-| 4 | IntPhys 2 humans vs best model | 96.44% vs 55.63% (chance 50%) | Jun 2025 | https://arxiv.org/abs/2506.09849 | Primary (summary) | M |
+| 4 | IntPhys 2 humans vs best model | 96.44% vs 57.51% (V-JEPA 2); best MLLM 55.63% (Gemini 2.5 Flash); chance 50% [corrected by fact-check] | Jun 2025 | https://arxiv.org/abs/2506.09849 | Primary (summary) | M |
 | 5 | Spatial4D-Bench human lead over GPT-5 | ~17 points (human 78.02) | Jan 2026 | https://arxiv.org/pdf/2601.00092 | Primary (summary) | M |
-| 6 | AutumnBench: humans beat o3, Gemini 2.5 Pro, Claude | 517 humans; 43 envs; 129 tasks | Oct 2025 | https://arxiv.org/abs/2510.19788 | Primary (summary) | M |
+| 6 | AutumnBench: humans beat o3, Gemini 2.5 Pro, Claude 4 Sonnet | 517 humans; 43 envs; 129 tasks | Oct 2025 | https://arxiv.org/abs/2510.19788 | Primary (summary) | M |
 | 7 | ARC-AGI-3 at launch | All frontier <1% (best 0.37%); humans 100% of envs | 25 Mar 2026 | https://arcprize.org/blog/arc-agi-3-launch | Primary (summary) + secondary | M |
-| 8 | GPT-6 Astra on ARC-AGI-3 | 62.7% standard; 99.9% provider harness; fewer actions than median human on 96% of levels | 3 Sep 2026 | https://arcprize.org/blog/astra | Primary (summary) + secondary | M |
-| 9 | ARC-AGI-2 harness SOTA | Gemini 3.1 Pro 88.1% → 95.1% (Imbue) | 27 Feb 2026 | https://imbue.com/blog/2026-02-27-arc-agi-2-evolution | Primary (summary) | M |
-| 10 | ConceptARC: o3 text accuracy vs humans; wrong-rule share | ≥73% (human 73%); ~28% of correct grids use unintended or incorrect rules | Oct 2025 | https://arxiv.org/abs/2510.02125 | Primary (summary) | M |
+| 8 | GPT-6 Astra on ARC-AGI-3 | 62.7% standard (max); 99.9% provider harness (high), 98.6% provider harness (max); fewer actions than median human on 96.0% of levels (provider harness) [clarified by fact-check] | 3 Sep 2026 | https://arcprize.org/blog/astra | Primary (summary) + secondary | M |
+| 9 | ARC-AGI-2 harness SOTA | Gemini 3.1 Pro 88.1% → 95.1% (Imbue), on the public eval set [clarified by fact-check] | 27 Feb 2026 | https://imbue.com/blog/2026-02-27-arc-agi-2-evolution | Primary (summary) | M |
+| 10 | ConceptARC: o3 text accuracy vs humans; wrong-rule share | ≥73% (human 73%); ~27% of correct grids use unintended or incorrect rules [corrected by fact-check: was ~28%] | Oct 2025 | https://arxiv.org/abs/2510.02125 | Primary (summary) | M |
 | 11 | Counterfactual analogies, humans vs GPT-4 | 75.3% vs 45.2% | 2024 | https://escholarship.org/uc/item/58d9s666 | Secondary summary | M/L |
 | 12 | GSM-NoOp drops | up to −65.7%; o1-preview −17.5%; o1-mini −29.1% | Oct 2024 / ICLR 2025 | https://arxiv.org/abs/2410.05229 | Primary (summary) | M |
 | 13 | MATH-P-Hard drops | o1-mini −16.49%; Gemini-2.0-FT −12.9% | Feb 2025 / ICML 2025 | https://proceedings.mlr.press/v267/huang25k.html | Primary (summary) | M |
@@ -397,8 +400,8 @@ Each suggests a measurable target: calibrated self-knowledge of the frontier, re
 | 17 | Orbital transformer recovers nonsensical force law | Qualitative | ICML 2025 | https://proceedings.mlr.press/v267/vafa25a.html | Primary (summary) | M |
 | 18 | METR public frontier p80 | ~1.5 h (50 min to 2 h 40 min) | Feb–Mar 2026 | https://metr.org/blog/2026-05-19-frontier-risk-report/ | Primary (summary) | M |
 | 19 | Mythos Preview p50 | ≥16 h (CI 8.5–55 h); 5 of 228 tasks ≥16 h | Mar 2026 | https://x.com/METR_Evals/status/2052896621760004602 | Primary (summary) | M |
-| 20 | Mythos p80; Opus 4.6 p80 | 3 h 06 min; ~70 min | 9 May 2026 | https://metr.org/time-horizons/ | Primary (summary) | M |
-| 21 | p50/p80 ratio across 20 models | 4.0–10.3×; Opus 4.6 719 vs 70 min | TH1.1 data (to Feb 2026) | https://raw.githubusercontent.com/METR/eval-analysis-public/main/reports/time-horizon-1-1/data/raw/runs.jsonl | Primary data [C] | H |
+| 20 | Mythos p80; Opus 4.6 p80 | 3 h 06 min; ~70 min [uncertain: a secondary report of METR's Mar 2026 correction gives 1 h 20 min for Opus 4.6] | 9 May 2026 | https://metr.org/time-horizons/ | Primary (summary) | M |
+| 21 | p50/p80 ratio across 20 models | 4.0–10.3×; Opus 4.6 719 vs 70 min (reproduced by fact-check) | TH1.1 data (repo sync 5 Mar 2026; models to Feb 2026) | https://raw.githubusercontent.com/METR/eval-analysis-public/main/reports/time-horizon-1-1/data/raw/runs.jsonl | Primary data [C] | H |
 | 22 | Self-conditioning not fixed by scale; thinking fixes it | Qualitative | Sep 2025 | https://arxiv.org/abs/2509.09677 | Primary (summary) | M |
 | 23 | CL-bench frontier average / best | 17.2% / 23.7% (GPT-5.1) | Feb 2026 | https://arxiv.org/abs/2602.03587 | Primary (summary) | M |
 | 24 | Continual Learning Bench: memory systems don't beat naive ICL | Qualitative | Jun 2026 | https://arxiv.org/abs/2606.05661 | Primary (summary) | M |
@@ -406,14 +409,14 @@ Each suggests a measurable target: calibrated self-knowledge of the frontier, re
 | 26 | 48 LLMs overconfident on clinical questions | All poorly calibrated | 2026 | https://www.nature.com/articles/s44355-026-00053-3 | Primary (summary) | M |
 | 27 | AA-Omniscience hallucination rates | Gemini 3 Pro 88%; Claude 4.5 Sonnet 48%; Opus 4.5 58% | Nov 2025–2026 | https://arxiv.org/abs/2511.13029 | Primary (summary) | M |
 | 28 | Claude refusals vs o3 hallucinations | Claude up to 70% refusals; o3 >2× correct answers, more hallucination | Aug 2025 | https://openai.com/index/openai-anthropic-safety-evaluation/ | Primary (summary) | M |
-| 29 | SimpleBench human baseline; top model | 83.7% (n = 9); Opus 5.5 88.4% | Sep 2026 | https://benchmarklist.com/benchmarks/simplebench/ | Secondary | L |
+| 29 | SimpleBench human baseline; top model | 83.7% (n = 9); Opus 5.5 88.4% [uncertain: not verified] | Sep 2026 | https://benchmarklist.com/benchmarks/simplebench/ | Secondary | L |
 | 30 | Epoch cross- vs within-domain correlation | 0.68 vs 0.79 | c. 2026 | https://epoch.ai/data-insights/benchmark-correlations | Primary (summary) | M |
 | 31 | Epoch PC2 "Claudiness" | Agentic + / vision and math − | Nov 2025 | https://epoch.ai/gradient-updates/benchmark-scores-general-capability-claudiness | Primary (summary) | M |
-| 32 | AA-data general factor | PC1 79.4%; factor 1 74.5%; date R² 0.48–0.51; mean ρ 0.79 | Aug 2026 | https://raw.githubusercontent.com/louisyzhu/frontier-ai-economic-validity/main/data/processed/task1_structure_results.json | Primary data | H |
+| 32 | AA-data general factor | PC1 79.4%; factor 1 74.5%; date R² 0.48–0.51; mean ρ 0.79 (on the n = 96 complete-case grid of 421 configurations) [clarified by fact-check] | Aug 2026 | https://raw.githubusercontent.com/louisyzhu/frontier-ai-economic-validity/main/data/processed/task1_structure_results.json | Primary data | H |
 | 33 | AA-data agentic vs academic factors | TB v2.1 1.05, GDPval 0.87 (F1); GPQA 0.97, IFBench 0.90 (F2) | Aug 2026 | https://raw.githubusercontent.com/louisyzhu/frontier-ai-economic-validity/main/data/processed/loadings_raw.csv | Primary data | H |
 | 34 | g-factor share falls with reasoning models | 92% → 64% (4-benchmark battery) | Apr 2026 | https://arxiv.org/abs/2604.09911 | Primary (summary) | M |
 | 35 | Lab coupling slopes differ | 5× (Google 1.15 vs DeepSeek 0.23) | May 2026 | https://arxiv.org/abs/2605.18840 | Primary (summary) | M |
-| 36 | Artificial Hivemind | >70 models homogeneous; 79% of cases intra-model similarity >0.8 | NeurIPS 2025 | https://proceedings.neurips.cc/paper_files/paper/2025/hash/754d5a526a5ee5a47220664a0eb92751-Abstract-Datasets_and_Benchmarks_Track.html | Primary (summary) | M |
+| 36 | Artificial Hivemind | >70 models homogeneous; 79% of queries intra-model similarity >0.8 (contested, arXiv 2609.33936) | NeurIPS 2025 | https://proceedings.neurips.cc/paper_files/paper/2025/hash/754d5a526a5ee5a47220664a0eb92751-Abstract-Datasets_and_Benchmarks_Track.html | Primary (summary) | M |
 | 37 | Opus 5.5 vs GPT-6 Astra reordering | TB 4.0 66.4 vs 57.9; TB-Science 58.7 vs 64.6; GDPval-AA 1846 vs 1542 | 22 Sep 2026 | https://www.anthropic.com/news/claude-opus-5-5 | Primary (vendor) | H |
 | 38 | "Benchmark margins … less reliable guide" | Quote | 22 Sep 2026 | https://www.anthropic.com/news/claude-opus-5-5 | Primary | H |
 | 39 | METR RCT | +19% completion time; 16 devs; 246 tasks | Jul 2025 | https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/ | Primary (summary) | M |
@@ -514,3 +517,78 @@ Each suggests a measurable target: calibrated self-knowledge of the frontier, re
 - Full texts on arxiv.org, metr.org, epoch.ai, arcprize.org, openreview.net, huggingface.co and simple-bench.com (all egress-blocked).
 - 2026-model re-tests of GSM-NoOp, Mystery Blocksworld, IntPhys 2, AutumnBench, Lewis–Mitchell and Wu et al. (none found).
 - Cross-lab sycophancy and persuasion rates (none found).
+
+---
+
+## Fact-check log (Phase 1)
+
+**Tally:** 64 claims checked: 43 verified, 9 corrected, 11 uncertain, 1 removed.
+**Access:** arxiv.org, metr.org, arcprize.org, epoch.ai, imbue.com, openreview, AA, the Substack mirrors and simple-bench.com were all blocked. Primary checks used raw GitHub files (METR, Zhu, BabyVision, IntPhys2, PlanBench, CL-bench, AbstentionBench, Wu et al., GSM-Symbolic) and anthropic.com. Everything else rests on search-engine excerpts of primary pages (M).
+**Most consequential changes:** the AA general-factor sample (n = 96, not 421), the "replicated" agentic/vision axis downgraded, the IntPhys 2 best model, the ARC-AGI-3 harness gap at matched effort, and the METR Opus 4.6 history (14.5 h corrected to 11 h 59 min; p80 uncertain).
+
+| Claim | Verdict | Source URL | Note |
+|---|---|---|---|
+| BabyVision: adults 94.1%; best Gemini 3 Pro Preview 49.7; GPT-5.2 34.4; Claude 4.5 Opus 14.2 (3.5× spread) | verified | https://raw.githubusercontent.com/UniPat-AI/BabyVision/main/README.md | Exact README text (H). |
+| BabyVision has 388 items | verified | https://raw.githubusercontent.com/UniPat-AI/BabyVision/main/data/babyvision_data.zip | meta_data.jsonl has 388 lines (H). |
+| BabyVision: most models below 3-year-olds; Gemini ~20 pts behind 6-year-olds; ICML 2026 | verified | https://arxiv.org/abs/2601.06521 ; https://icml.cc/virtual/2026/poster/63195 | Search excerpts (M). |
+| IntPhys 2 humans 96.44% (held-out 92.44%); models near chance | verified | https://raw.githubusercontent.com/facebookresearch/IntPhys2/main/README.md ; https://arxiv.org/abs/2506.09849 | README: "near-perfect" humans vs chance-level models (H); numbers from excerpts (M). |
+| IntPhys 2 best model 55.63% (Gemini 2.5 Flash); summary "≤55.6%" | corrected | https://arxiv.org/abs/2506.09849 (excerpt of results table) | Best overall is V-JEPA 2 at 57.51%; Gemini 2.5 Flash is the best MLLM. Matches sibling A. |
+| GPT-5 spatial: human-level on measurement and relations, short on reconstruction and deformation | verified | https://arxiv.org/abs/2508.13142 | Excerpt (M). |
+| Spatial4D-Bench: humans 78.02, ~17 pts above GPT-5 | verified | https://arxiv.org/abs/2601.00092 | Excerpt (M). |
+| AutumnBench: 43 envs, 129 tasks, 517 humans beat o3, Gemini 2.5 Pro, "Claude" | corrected | https://arxiv.org/abs/2510.19788 | Numbers verified (M); "Claude" specified as Claude 4 Sonnet. |
+| ARC-AGI-3 launch 25 Mar 2026: all frontier <1% (best 0.37%); humans 100% | verified | https://arcprize.org/blog/arc-agi-3-launch (excerpt) | Gemini 3.1 Pro 0.37%. "100%" is a panel figure (each environment solved by ≥2 people). |
+| Conflict: ARC-AGI-3 launch best "<1%" (E, A) vs "7.78%" (F) | verified | Opus 5 system card, as cited in F | Not a conflict: 7.78% (GPT-5.6 Sol) was a later best, before Opus 5's 30.16% (24 Jul 2026). |
+| GPT-6 Astra ARC-AGI-3: 62.7% standard / 99.9% provider harness; 96% of levels beat the median human | verified | https://raw.githubusercontent.com/lihenair/techtranslate/821908553b702d9de6565d186fdd2e8661303f6f/archive/2026-09-05/ai/OpenAIs-GPT-6-Astra-on-ARC-AGI-3.md | Translation of the ARC post (secondary copy). 62.7 is max effort, 99.9 is high effort. The 96.0% is under the Provider Adapter; the harness gap is now resolved. |
+| "Same model 62.7% vs 99.9% … entirely memory handling" | corrected | same | Mixes effort levels. At matched max effort it is 62.7 vs 98.6, and the harness also changes compaction. |
+| ARC-AGI-2 GPT-5.2 Pro 54.2% (start of 2026) | verified | https://x.com/arcprize/status/1999182737107042736 (excerpt) | Verified Dec 2025 (M). |
+| ARC-AGI-2 "to 95%+ with harnesses"; Imbue 88.1→95.1% | corrected | https://imbue.com/blog/2026-02-27-arc-agi-2-evolution (excerpt); https://arcprize.org/results/openai-gpt-6-astra (excerpt) | Imbue's result is on the public eval set. The verified semi-private 95.0% is GPT-6 Astra (Sep 2026; secondary). |
+| Confluence Lab 97.9% on the ARC-AGI-2 public set | uncertain | — | Not checked; already labelled L. |
+| ConceptARC: o3 matches human 73% (text) | verified | https://arxiv.org/abs/2510.02125 | Excerpt (M). |
+| ConceptARC: ~28% of o3's correct grids use wrong or unintended rules | corrected | https://arxiv.org/abs/2510.02125 | The abstract says "around 27%"; humans about 8%. |
+| Blicket: LLMs near-human inference, less efficient exploration | verified | https://arxiv.org/abs/2606.06464 | Excerpt (M). |
+| Lewis & Mitchell: humans 75.3% [73.4, 77.3] vs GPT-4 45.2%; 136 humans | verified | https://arxiv.org/abs/2404.13070 (excerpt) | M. GPT-3 and GPT-3.5 figures not re-checked. |
+| Wu et al.: 11 task families; GPT-4, Claude, PaLM | verified | https://raw.githubusercontent.com/ZhaofengWu/counterfactual-evaluation/master/README.md | 10 task dirs + logic (H). |
+| GSM-NoOp −65.7% worst, o1-preview −17.5%, o1-mini −29.1%; 50 instances/template, P1/P2 | verified | https://arxiv.org/abs/2410.05229 (excerpt); https://raw.githubusercontent.com/apple/ml-gsm-symbolic/main/README.md | M / H. |
+| MATH-P-Hard: 279 items; o1-mini −16.49%, Gemini-2.0-FT −12.9% | verified | https://proceedings.mlr.press/v267/huang25k.html (excerpt) | M. |
+| MATH-P-Hard: ~40% of o1-mini errors reuse the original technique | uncertain | — | Not re-checked. |
+| PlanBench: Mystery BW o1-preview 52.8, R1 43.3; Randomized 37.3/25.8; BW-Hard R1 53.6, o1-preview 23.65; LLMs ≈0% | verified | https://raw.githubusercontent.com/karthikv792/LLMs-Planning/main/README.md | H (LLaMA-3.1 405B at 0.8%). |
+| Illusion-of-Thinking replication: failures around 8 Hanoi disks | verified | https://arxiv.org/abs/2507.01231 (excerpt) | M. |
+| Embers of autoregression (o1); Vafa et al. orbital force law | uncertain | — | Not re-checked this pass; left at M. |
+| ToM 2026: reasoning models consistently more robust (Aug 2026) | verified | https://arxiv.org/abs/2608.04646 (excerpt) | Authors: robustness, not new ToM. Accepted at Discovery Science 2026. |
+| ToM status "largely closed" | uncertain | https://arxiv.org/abs/2602.22072 (excerpt) | A Feb 2026 perturbation study still finds failures; its models were not checked. |
+| METR refit: 24,008 lines, 20 models; p50/p80 table; ratio 4.0–10.3; Opus 4.6 slope flattest | verified | https://raw.githubusercontent.com/METR/eval-analysis-public/main/reports/time-horizon-1-1/data/raw/runs.jsonl | Re-run with METR's own settings (invsqrt weights, reg 1e-5, commit 52cb829). Reproduced to 0.1 min. The data source is real and the refit is honestly described. |
+| "Opus 4.6 values match METR's published ~12 h" | corrected | https://x.com/METR_Evals/status/2024923422867030027 ; https://x.com/scaling01/status/2028949974164127812 (excerpts) | METR announced 14.5 h on 20 Feb 2026 and corrected it to 11 h 59 min about 3 Mar 2026. The refit matches the corrected value. |
+| Opus 4.6 p80 ≈ 70 min as METR-published | uncertain | same | A secondary report of METR's correction gives 1 h 20 min; the refit gives 70 min. metr.org is blocked. |
+| Mythos Preview p50 ≥16 h (CI 8.5–55 h); 5 of 228 tasks ≥16 h; p80 3 h 06 min | verified | https://x.com/METR_Evals/status/2052896621760004602 ; https://metr.org/time-horizons/ (excerpts) | M. |
+| Public frontier p80 ≈1.5 h (50 min–2 h 40 min), Feb–Mar 2026 | verified | https://metr.org/blog/2026-05-19-frontier-risk-report/ (excerpt) | M. |
+| Self-conditioning not fixed by scale; thinking models immune | verified | https://arxiv.org/abs/2509.09677 (excerpt) | M. Note: weak evidence for a 2026 deficit. |
+| CL-bench design: 1,899 tasks, 63.2 rubrics/context, ~20 expert-h, GPT-5.1 judge | verified | https://raw.githubusercontent.com/Tencent-Hunyuan/CL-bench/main/README.md | H. |
+| CL-bench: avg 17.2%, best 23.7% (GPT-5.1) | verified | https://arxiv.org/abs/2602.03587 (excerpt) | M. Feb 2026 models only. |
+| Continual Learning Bench: naive ICL beats memory systems; six domains | verified | https://arxiv.org/abs/2606.05661 (excerpt); https://raw.githubusercontent.com/pgasawa/continual-learning-bench/main/README.md | M/H. "UC Berkeley and Snorkel" not checked. |
+| AbstentionBench: 20 datasets, 6 scenarios, 20 LLMs; scale "almost no effect"; reasoning FT −24% | verified | https://raw.githubusercontent.com/facebookresearch/AbstentionBench/main/README.md ; https://arxiv.org/abs/2506.09038 (excerpt) | H / M. The 24% is from R1-distill and s1 vs base pairs. |
+| Clinical calibration: 48 LLMs, 300 GI questions, all overconfident | verified | https://www.nature.com/articles/s44355-026-00053-3 (excerpt) | M. Newest model tested is o1-preview. |
+| SimpleBench human baseline 83.7% (n = 9) | verified | https://simple-bench.com/ (search snippet) | Secondary. |
+| SimpleBench Opus 5.5 88.4%, Fable 5.1 86.6% | uncertain | https://benchmarklist.com/benchmarks/simplebench/ | Aggregator only. The last official figure found (Jun 2026) was Fable 5 at 81.9%. |
+| AA-Omniscience: 6,000 Qs, 42 topics, 6 domains; top-accuracy models don't lead the index | verified | https://arxiv.org/abs/2511.13029 (excerpt) | M. |
+| AA-Omniscience hallucination: Gemini 3 Pro 88%, Gemini 3 Flash 85%, Opus 4.5 58%, Sonnet 4.5 48% | verified | https://artificialanalysis.ai/evaluations/omniscience (excerpt) | M/secondary. |
+| Opus 4.8 hallucination 35.9% (the 36% end of the range) | uncertain | https://suprmind.ai/hub/ai-hallucination-rates-and-benchmarks/ | Aggregator only. |
+| Anthropic–OpenAI pilot: Claude refusals up to 70%; o3 hallucinates more | verified | https://openai.com/index/openai-anthropic-safety-evaluation/ (excerpt) | M. |
+| o3 "more than twice as many fully correct responses" | uncertain | same | Quote not confirmed. |
+| Epoch Claudiness PC2 (agentic +, vision/math −; Claude highest; TAC/OSUniverse/OSWorld/FLE); PC1 ≈ half of 39 benchmarks; Nov 2025 | verified | https://epoch.ai/gradient-updates/benchmark-scores-general-capability-claudiness (excerpt) | M. |
+| Epoch cross-domain 0.68 vs within-domain 0.79 | verified | https://epoch.ai/data-insights/benchmark-correlations (excerpt) | M. These are median pairwise correlations over 15 benchmarks, c. Jan 2026. |
+| Zhu: PC1 0.794; F1 0.745; k = 1; date R² 0.477/0.505; mean ρ 0.79; loadings | verified | https://raw.githubusercontent.com/louisyzhu/frontier-ai-economic-validity/main/data/processed/task1_structure_results.json | H. 0.505 is the logistic fit and 0.477 is OLS. |
+| General factor ~79% "across 421 AA model configurations" | corrected | https://raw.githubusercontent.com/louisyzhu/frontier-ai-economic-validity/main/PHASE2_REPORT.md | The PCA and FA ran on the n = 96 complete-case grid (421 is the retained dataset). |
+| "Replicated second axis" (agentic vs math/vision) in Aug 2026 AA data | corrected | same | The split appears only under 3-factor over-extraction (parallel analysis gives k = 1), and there are no vision or math benchmarks. |
+| Q2 takeaway: "About 75–80% of variance is one general factor" | corrected | Epoch Claudiness post (excerpt); Zhu repo | The range is ~50% (Epoch, 39 benchmarks) to 79% (AA, 12 benchmarks). |
+| Economic benchmarks: "advantage reverses under tree learners" | removed | https://raw.githubusercontent.com/louisyzhu/frontier-ai-economic-validity/main/PHASE3_REPORT.md | Not found in the Phase 3 report or notebook; replaced with the verified ΔMSE result. |
+| Krakauer: PC1 92%→64% (4-benchmark), 90%→77% (5-benchmark); 39 models, 14 benchmarks | verified | https://arxiv.org/abs/2604.09911 (excerpt) | M. |
+| Maimon et al. TACL 2026: 60×44, low-rank, eight skills | verified | https://aclanthology.org/2026.tacl-1.75/ (excerpt) | M. |
+| Growing Pains: 34 models, 10 labs, r = +0.72, slopes 1.15 vs 0.23 | verified | https://arxiv.org/abs/2605.18840 (excerpt) | M. Built on SWE-bench Verified and GPQA only. |
+| Growing Pains: HLE and IF keep their spread as SWE-bench saturates | uncertain | — | Not checked. |
+| Opus 5.5 grid (TB 4.0, GDPval-AA, AutomationBench, HLE, TB-Science) and "less reliable guide" quote, 22 Sep 2026 | verified | https://www.anthropic.com/news/claude-opus-5-5 | H; every cell matches. |
+| Artificial Hivemind: 26K queries, 70+ models, 79% >0.8 similarity, NeurIPS 2025 best paper | verified | https://arxiv.org/abs/2510.22954 (excerpt) | M. The 79% is on Infinity-Chat100 with 50 samples per query. |
+| Hivemind effect is robust | uncertain | https://arxiv.org/abs/2609.33936 (excerpt) | A Sep 2026 re-analysis says the evidence does not establish it. |
+| METR RCT: 16 devs, 246 tasks, 19% slower | verified | https://arxiv.org/abs/2507.09089 (excerpt) | M. |
+| METR Feb 2026 update: −18% [−38, +9], −4% [−15, +9]; selection problem | verified | https://metr.org/blog/2026-02-24-uplift-update/ (excerpt) | M. The sign convention is still unverified; secondary summaries read these as speedups. |
+| Jagged frontier: +12.2% tasks, 25.1% faster; −19 pp outside the frontier; Org. Sci. | verified | https://pubsonline.informs.org/doi/full/10.1287/orsc.2025.21838 (excerpt) | M; published Mar 2026. |
+| Burnell 2023, Ruan 2024, Bean et al. 2025 | uncertain | — | Not re-checked; already labelled "not re-read". |
