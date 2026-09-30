@@ -87,7 +87,7 @@ The better statement (§5) is that failed benchmarks share a **static, finite, c
 ## 2. Resolving "Automation Bench", "Office Bench" and "DC Bench"
 
 ### Takeaway
-Two of the three names resolve cleanly: Zapier's AutomationBench and OfficeBench. "DC Bench" has no exact LLM-benchmark referent. DCA-Bench is the closest "professional data work" match.
+Two of the three names resolve cleanly: Zapier's AutomationBench and OfficeBench. "DC Bench" has no exact LLM-benchmark referent. DCA-Bench is the closest "professional data work" match. [corrected by fact-check: two exact-name 2026 LLM-agent benchmarks do exist, DCBench (Data Cognition) and dcbench (Decision Compliance). DCBench (Data Cognition) is now the closest "professional data work" match; see C below.]
 
 ### Cited Findings
 
@@ -101,7 +101,8 @@ Two of the three names resolve cleanly: Zapier's AutomationBench and OfficeBench
 - **Results.**
   - At launch: "Even the best frontier models currently score below 10%" (Apr 2026) [abstract](https://github.com/CMander02/DailyAgentPapers/blob/main/data/2026/04/21/automationbench.md) (H).
   - By 22 Sep 2026, Zapier-run scores in Anthropic's launch table were: GPT-6 Astra 41.4%, Claude Opus 5.5 40.0%, Fable 5.1 31.4%, GPT-5.6 Sol 28.8% and Opus 5 26.9%. Footnote: "AutomationBench results were run and reported by Zapier" [Anthropic](https://www.anthropic.com/news/claude-opus-5-5) (H).
-  - **Conflict:** the GitHub README leaderboard lists Opus 5 at 50.3%, Kimi K3 at 46.67% and Fable 5 at 46.17% [GitHub](https://github.com/zapier/AutomationBench). This is incompatible with Anthropic's 26.9% for Opus 5. The cause may be a different split, version or scoring; it is unresolved.
+  - **Two different task sets, not a conflict.** The GitHub README lists Opus 5 at 50.3%, Kimi K3 at 46.67% and Fable 5 at 46.17% [GitHub](https://github.com/zapier/AutomationBench). Those are pass rates on the 600-task *public* set. The README says the official leaderboard (zapier.com/benchmarks) uses "a separate, held-out private task set" that is "purposely harder", so local scores "may not match the official leaderboard 1:1". Anthropic's footnote says its Opus 5, GPT-5.6 Sol and GPT-6 Astra figures "come from Zapier's public leaderboard", meaning the official private-set leaderboard. Its Opus 5.5 figure came from Zapier's early-access run "without fallback models, so safeguard interventions were considered failures". [corrected by fact-check: was "incompatible … unresolved". The README and Anthropic's footnote explain the gap.]
+  - **Scores are not like-for-like over time.** The README says "private tasks are sometimes made even harder in version updates to keep the benchmark around the same top score". The launch figure (<10%) and the Sep 2026 figures (~41%) may therefore come from different private-set versions. [fact-check addition; source: GitHub README]
 - **Adoption.**
   - It is in Anthropic's Opus 5.5 headline table [Anthropic](https://www.anthropic.com/news/claude-opus-5-5) (H).
   - Artificial Analysis runs "AutomationBench-AA" on "a private 657-task held-out split" (v1.0.6) with guardrail-aware scoring. It is part of the Agents category of the AA Intelligence Index (AA methodology text captured 2026-09-21, mirrored at [fstandhartinger/model-market-comparison](https://github.com/fstandhartinger/model-market-comparison); [AA announcement](https://artificialanalysis.ai/articles/announcing-zapier-automationbench-aa)) (M).
