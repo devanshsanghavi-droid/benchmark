@@ -105,7 +105,7 @@ Two of the three names resolve cleanly: Zapier's AutomationBench and OfficeBench
   - **Scores are not like-for-like over time.** The README says "private tasks are sometimes made even harder in version updates to keep the benchmark around the same top score". The launch figure (<10%) and the Sep 2026 figures (~41%) may therefore come from different private-set versions. [fact-check addition; source: GitHub README]
 - **Adoption.**
   - It is in Anthropic's Opus 5.5 headline table [Anthropic](https://www.anthropic.com/news/claude-opus-5-5) (H).
-  - Artificial Analysis runs "AutomationBench-AA" on "a private 657-task held-out split" (v1.0.6) with guardrail-aware scoring. It is part of the Agents category of the AA Intelligence Index (AA methodology text captured 2026-09-21, mirrored at [fstandhartinger/model-market-comparison](https://github.com/fstandhartinger/model-market-comparison); [AA announcement](https://artificialanalysis.ai/articles/announcing-zapier-automationbench-aa)) (M).
+  - Artificial Analysis runs "AutomationBench-AA" on "a private 657-task held-out split" (v1.0.6) with guardrail-aware scoring. It is part of the Agents category of the AA Intelligence Index (AA methodology text captured 2026-09-21, mirrored at [fstandhartinger/model-market-comparison](https://github.com/fstandhartinger/model-market-comparison); [AA announcement](https://artificialanalysis.ai/articles/announcing-zapier-automationbench-aa)) (M). [fact-check: search summaries of AA's pages confirm 657 tasks, v1.0.6 and Index v4.3. AA scores the share of objectives completed per task, and any guardrail violation zeroes the task. That is partial credit, unlike Zapier's strict all-assertions pass rate, so AA and Zapier numbers are not interchangeable.]
   - The repo has 314 stars and 49 forks [GitHub](https://github.com/zapier/AutomationBench) (H).
 - **Lesson.** It is a "boring", non-novel skill (API calls plus business rules). It was adopted within months for four reasons:
   1. It maps onto buying decisions.
@@ -113,7 +113,7 @@ Two of the three names resolve cleanly: Zapier's AutomationBench and OfficeBench
   3. It keeps a harder private split.
   4. A neutral runner (Zapier, and AA) produces the numbers labs cite.
 
-  Its risks are vendor ownership and a public split that can be trained on. The climb from under 10% to about 41% in 5 months suggests a lifetime of 1–2 years [speculation].
+  Its risks are vendor ownership and a public split that can be trained on. The climb from under 10% to about 41% in 5 months suggests a lifetime of 1–2 years [speculation]. [fact-check caveat: Zapier re-hardens the private set in version updates, so the climb is not like-for-like. Re-hardening is also a renewal mechanism that may lengthen the lifetime.]
 
 **B. "Office Bench" = OfficeBench (confidence: H)**
 - **Identity.** "OfficeBench: Benchmarking Language Agents across Multiple Applications for Office Automation" by Zilong Wang, Yuedong Cui, Li Zhong, Zimin Zhang, Da Yin, Bill Yuchen Lin and Jingbo Shang. arXiv 2407.19056, July 2024 — [arXiv](https://arxiv.org/abs/2407.19056); [GitHub](https://github.com/zlwang-cs/OfficeBench) (H).
@@ -123,7 +123,7 @@ Two of the three names resolve cleanly: Zapier's AutomationBench and OfficeBench
   - Evaluation uses "Exact Matching, Fuzzy Matching, and Execution-based Evaluation" [GitHub](https://github.com/zlwang-cs/OfficeBench) (H).
 - **Results.**
   - GPT-4o 47.00%, GPT-4 Turbo 38.00%, Llama 3 70B 27.33% and Gemini 1.5 Pro 26.00% [GitHub](https://github.com/zlwang-cs/OfficeBench) (H).
-  - Humans 93.33%. GPT-4o by app count: single 64.52%, two 60.00%, three 21.43% [search summary of arXiv](https://arxiv.org/abs/2407.19056) (M).
+  - Humans 93.33% [search summary of arXiv](https://arxiv.org/abs/2407.19056) (M). GPT-4o by app count: single 64.52%, two 60.00%, three 21.43% [GitHub README](https://github.com/zlwang-cs/OfficeBench) (H; fact-check upgraded from M).
 - **Adoption.**
   - 47 stars and 16 commits; no maintained leaderboard found [GitHub](https://github.com/zlwang-cs/OfficeBench) (H).
   - Its main afterlife is as raw material. Microsoft's OdysseyBench+ turned OfficeBench's 300 tasks "from their original atomic form into rich, multi-interaction dialogue scenarios that span multiple days" [OdysseyBench](https://arxiv.org/abs/2508.09124) (M).
@@ -133,9 +133,12 @@ Two of the three names resolve cleanly: Zapier's AutomationBench and OfficeBench
 
 | Candidate | What it is | Fit |
 |---|---|---|
-| **DCA-Bench** (Benhao Huang et al., arXiv 2406.07275; ACM DOI 10.1145/3711896.3737422, the KDD 2025 proceedings series) | LLM agents detect data-quality issues on dataset platforms. It has 221 real cases from 8 platforms in 4 types with 18 tags, 4 hint levels and a GPT-4(o) automatic evaluator. Without hints, the best curator finds about 30% of issues — [search summary](https://arxiv.org/abs/2406.07275); [GitHub](https://github.com/TRAIS-Lab/dca-bench) (M-H). Repo: 11 stars, no leaderboard (H). | **Best fit (low-medium, about 50%)**: a "boring professional" LLM-agent benchmark whose name contains "DC" |
+| **DCBench, "Data Cognition Benchmark for LLM Agent"** (YH-CN; repo created 21 Apr 2026; paper "in preparation") | 1,025 expert-curated data-analysis questions on real tabular datasets, mainly from Kaggle. There are 4 categories (logic 584, robustness 326, semantic 80, conditional 35) and 12 sub-categories covering dirty data, statistical traps and multi-table reconciliation. Scoring is by LLM judge on a 100-point rubric. The repo has 0 stars and no leaderboard — [GitHub README](https://github.com/YH-CN/DCBench) (H). [added by fact-check] | **Best fit now (low, about 35%)**: exact name, LLM-agent, "boring professional" data work, same season as AutomationBench |
+| **dcbench, "Decision Compliance Benchmark"** (Drew Dillon and Kasyap Varanasi, Brief; arXiv 2605.08112, May 2026) | Measures whether coding agents follow a team's product and engineering decisions: 8 tasks and 41 weighted decision points. Claude Code alone scored 46%, and 95% with Brief's product-context tool. It is a vendor study — [GitHub](https://github.com/brief-hq/dcbench); [abstract mirror](https://github.com/CSQianDong/Awesome-arXiv-Daily-Reporter/blob/main/12-May-2026/topic/RAG_related_papers.md) (H). [added by fact-check] | Exact name, LLM-agent, professional; small and vendor-run (about 20%) |
+| **DCA-Bench** (Benhao Huang, Yingzhuo Yu, Jin Huang, Xingjian Zhang, Jiaqi Ma; arXiv 2406.07275; KDD 2025 per co-author page; ACM DOI 10.1145/3711896.3737422 not re-verified) | LLM agents detect data-quality issues on dataset platforms. It has 221 real cases from 8 platforms in 4 types with 18 tags, 4 hint levels and a GPT-4 automatic evaluator (README verified, H). Without hints, the best curator finds about 30% of issues — [search summary](https://arxiv.org/abs/2406.07275) (M; not re-verified); [GitHub](https://github.com/TRAIS-Lab/dca-bench). Repo: 11 stars, no leaderboard (H). | Near-name match only (about 20%). [corrected by fact-check: was "Best fit (low-medium, about 50%)"] |
+| **dcbench** (Eyuboglu, Karlaš, Ré, Zhang, Zou; DEEM 2022, ACM DOI 10.1145/3533028.3533310) | Data-centric ML tasks: minimal data selection, slice discovery and feature cleaning — [GitHub](https://github.com/data-centric-ai/dcbench) (H). [added by fact-check] | Exact name, but not an LLM benchmark |
 | **DC-BENCH** (Cui, Wang, Si, Hsieh; NeurIPS 2022 D&B) | Dataset condensation methods (image classification) — [NeurIPS PDF](https://proceedings.neurips.cc/paper_files/paper/2022/file/052e22cfdd344c79634f7ec76fa03e22-Paper-Datasets_and_Benchmarks.pdf) (H) | Exact name match, but not an LLM or professional-task benchmark |
-| "DCBench" / "DC Bench" (2026 LLM agents) | Two searches found no such benchmark (see the queries in the search log) | none found |
+| "DCBench" as LLM4Decompile's short name for Decompile-Bench | A binary-decompilation dataset — [LLM4Decompile](https://github.com/albertan017/LLM4Decompile) (M) [added by fact-check] | Unlikely |
 
 - **DCA-Bench lesson** (if it is the referent): a realistic professional task with an LLM-judge grader and 221 items, and no leaderboard. It was adopted about as widely as OfficeBench.
 
