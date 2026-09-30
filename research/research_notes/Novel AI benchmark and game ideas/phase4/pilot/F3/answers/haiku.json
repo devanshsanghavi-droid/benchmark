@@ -1,0 +1,253 @@
+{
+  "solver": "haiku",
+  "patches": {
+    "ledger/P2": {
+      "verdict": "violates",
+      "p_violates": 0.9,
+      "witness": {
+        "ops": [
+          [
+            "open",
+            "a",
+            2
+          ],
+          [
+            "open",
+            "b",
+            0
+          ],
+          [
+            "split_fee",
+            [
+              "a",
+              "b"
+            ],
+            3
+          ],
+          [
+            "balance",
+            "a"
+          ]
+        ]
+      },
+      "rule": "L7",
+      "note": "Atomicity: balances change before InsufficientFunds on later payer"
+    },
+    "ledger/P3": {
+      "verdict": "violates",
+      "p_violates": 0.9,
+      "witness": {
+        "ops": [
+          [
+            "open",
+            "a",
+            100
+          ],
+          [
+            "open",
+            "b",
+            100
+          ],
+          [
+            "open",
+            "c",
+            100
+          ],
+          [
+            "split_fee",
+            [
+              "a",
+              "b",
+              "c"
+            ],
+            10
+          ],
+          [
+            "balance",
+            "a"
+          ]
+        ]
+      },
+      "rule": "L5",
+      "note": "Fee calculation formula produces different share distribution"
+    },
+    "ratelimit/P1": {
+      "verdict": "violates",
+      "p_violates": 0.9,
+      "witness": {
+        "ops": [
+          [
+            "init",
+            3,
+            5
+          ],
+          [
+            "allow",
+            "k",
+            0
+          ],
+          [
+            "allow",
+            "k",
+            1
+          ],
+          [
+            "allow",
+            "k",
+            2
+          ],
+          [
+            "allow",
+            "k",
+            6
+          ],
+          [
+            "remaining",
+            "k",
+            6
+          ]
+        ]
+      },
+      "rule": "R3",
+      "note": "bisect_left fails to prune entries at boundary value"
+    },
+    "depgraph/P2": {
+      "verdict": "violates",
+      "p_violates": 0.9,
+      "witness": {
+        "ops": [
+          [
+            "add",
+            "z",
+            []
+          ],
+          [
+            "add",
+            "a",
+            []
+          ],
+          [
+            "add",
+            "b",
+            [
+              "a"
+            ]
+          ],
+          [
+            "order"
+          ]
+        ]
+      },
+      "rule": "D5",
+      "note": "Deque appends newly-ready nodes, breaks sorted order requirement"
+    },
+    "pricing/P2": {
+      "verdict": "violates",
+      "p_violates": 0.9,
+      "witness": {
+        "ops": [
+          [
+            "checkout",
+            [
+              [
+                "item",
+                100,
+                1
+              ]
+            ],
+            "INVALID"
+          ]
+        ]
+      },
+      "rule": "P1",
+      "note": "Exception type changed from PricingError to UnknownCoupon subclass"
+    },
+    "depgraph/P1": {
+      "verdict": "violates",
+      "p_violates": 0.9,
+      "witness": {
+        "ops": [
+          [
+            "add",
+            "x",
+            [
+              "x"
+            ]
+          ]
+        ]
+      },
+      "rule": "D1",
+      "note": "Exception type changed from CycleError to GraphError parent class"
+    },
+    "ledger/P1": {
+      "verdict": "compliant",
+      "p_violates": 0.1,
+      "witness": null
+    },
+    "ledger/P4": {
+      "verdict": "compliant",
+      "p_violates": 0.1,
+      "witness": null
+    },
+    "ratelimit/P2": {
+      "verdict": "compliant",
+      "p_violates": 0.1,
+      "witness": null
+    },
+    "ratelimit/P3": {
+      "verdict": "compliant",
+      "p_violates": 0.1,
+      "witness": null
+    },
+    "ratelimit/P4": {
+      "verdict": "compliant",
+      "p_violates": 0.1,
+      "witness": null
+    },
+    "intervals/P1": {
+      "verdict": "compliant",
+      "p_violates": 0.1,
+      "witness": null
+    },
+    "intervals/P2": {
+      "verdict": "compliant",
+      "p_violates": 0.1,
+      "witness": null
+    },
+    "intervals/P3": {
+      "verdict": "compliant",
+      "p_violates": 0.1,
+      "witness": null
+    },
+    "intervals/P4": {
+      "verdict": "compliant",
+      "p_violates": 0.1,
+      "witness": null
+    },
+    "pricing/P1": {
+      "verdict": "compliant",
+      "p_violates": 0.1,
+      "witness": null
+    },
+    "pricing/P3": {
+      "verdict": "compliant",
+      "p_violates": 0.1,
+      "witness": null
+    },
+    "pricing/P4": {
+      "verdict": "compliant",
+      "p_violates": 0.1,
+      "witness": null
+    },
+    "depgraph/P3": {
+      "verdict": "compliant",
+      "p_violates": 0.1,
+      "witness": null
+    },
+    "depgraph/P4": {
+      "verdict": "compliant",
+      "p_violates": 0.1,
+      "witness": null
+    }
+  }
+}
