@@ -95,7 +95,7 @@ As of 30 Sep 2026. Reviewer: independent red team R2 (Claude Opus 5.5). **Lens:*
 - The first randomly generated machine fell into a 4-step loop, because R3 stayed even, which locks out 3 of 7 lines. Its 60-step answer was a closed form.
 - In the second, R0 and R4 were constant and one opcode never appeared.
 - An unfiltered generator therefore lets "L steps" be compressed into far fewer, and L95 inflates.
-- Fix: reject instances with state cycles shorter than L, constant registers or unreached lines. The patched generator (`probes/p1_reliability_gen.py --nondegenerate`) does this.
+- Fix: reject instances with state cycles shorter than L, constant registers or unreached lines. The patched generator (`probes/p1_reliability_gen.py --nondegenerate`) does this. [corrected by fact-check P4: it only partly does. The script rejects full-state repeats within 60 steps and programs that leave a line unexecuted within 40 steps. It does not check for constant registers or missing opcodes. Instance 2 was drawn with the flag (its 20/40 lengths are the flag's) and still had R0 and R4 constant and no rotate opcode.]
 
 **Q3.** Strong.
 - An 18× spread on a log scale is large, and humans with a scratchpad will be orders of magnitude shorter [speculation, but a safe one], so the A2 direction is secure.
@@ -307,7 +307,7 @@ As of 30 Sep 2026. Reviewer: independent red team R2 (Claude Opus 5.5). **Lens:*
 
 **Q2 attack: the headline is at ceiling on day one.**
 - "Percentile among that season's human entrants" is already saturated for frontier systems.
-- OpenAI's model placed 2nd at AtCoder WTF 2025 Heuristic. At the 2026 event it "completely demolished" the 12 human finalists, and organisers awarded "humanity surrenders" prizes ([the-decoder](https://the-decoder.com/openais-ai-beats-every-human-at-atcoder-a-top-competitive-programming-contest/); [officechai](https://officechai.com/ai/openai-completely-demolishes-human-competitors-at-atcoder-2026-after-placing-2nd-last-year/) [search extracts]).
+- OpenAI's model placed 2nd at AtCoder WTF 2025 Heuristic. At the 2026 event it "completely demolished" the 12 human finalists, and organisers awarded "humanity surrenders" prizes [corrected by fact-check P4: was "awarded 'humanity surrenders' prizes". AtCoder offered a 600,000 JPY "Humanity Prevails Award" to a human who won and beat the AI, and it went unclaimed. The AI scored more than 7× the best human in the Heuristic final (github.com/adamghaida/ai-hall-of-fame, citing these reports).] ([the-decoder](https://the-decoder.com/openais-ai-beats-every-human-at-atcoder-a-top-competitive-programming-contest/); [officechai](https://officechai.com/ai/openai-completely-demolishes-human-competitors-at-atcoder-2026-after-placing-2nd-last-year/) [search extracts]).
 - Contest veterans who are not world finalists will be beaten by wider margins [speculation].
 - The operator's "strong bot, built with 10× the time" may itself be outscored, leaving no top anchor.
 
