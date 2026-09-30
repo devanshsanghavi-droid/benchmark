@@ -111,7 +111,7 @@ Canaries, encryption and post-hoc detection have each been defeated or shown nea
 - **ARC-AGI-2** [P, H] — [arXiv 2505.11831](https://arxiv.org/abs/2505.11831) ([text](https://raw.githubusercontent.com/Lumysia/agi-benchmark-framework/main/papers/ARC-AGI-2.txt))
   - Tasks are split into public, semi-private and private sets whose mean human accuracy differs by ≤ 1 pp. New tasks go preferentially to the private set.
   - ARC-AGI-1 added a 100-task semi-private set in mid-2024 to verify closed models.
-  - The Kaggle track runs offline (4×L4 GPUs, 12 h, no internet) on 240 unseen tasks. Private scores stay hidden until the competition closes.
+  - The Kaggle track runs offline (4×L4 GPUs, 12 h, no internet) on 240 unseen tasks (120 semi-private + 120 private). Private scores stay hidden until the competition closes [uncertain: not seen in the text read].
 - **HLE** [P, H] — [arXiv 2501.14249](https://arxiv.org/abs/2501.14249); [repo](https://github.com/centerforaisafety/hle)
   - Releases its questions but keeps "a private test set of held out questions to assess model overfitting".
   - Its canary string is a superset of BIG-bench's.
@@ -167,7 +167,7 @@ Canaries, encryption and post-hoc detection have each been defeated or shown nea
   - Five types: direct, derivative, temporal, distributional and acquired.
   - "Holding out a private test set closes the first alone."
   - "Acquired" contamination arises during a run, so it "must be recorded with the reported score". The paper proposes a four-field disclosure protocol.
-  - Only 13% of 41 documents reported elicitation budgets.
+  - Only 13% of 41 documents reported elicitation budgets. Inter-coder agreement was low (median κ = 0.21), so treat the rate as approximate.
 
 ### Inferences
 - Use three layers together:
@@ -208,15 +208,15 @@ Each channel has a documented countermeasure: pre-registration and disclosure of
 - Training on Arena data raised the ArenaHard win rate from 23.5% to 49.9%.
 - 205 of 243 models were silently deprecated (47 officially), which breaks Bradley-Terry assumptions.
 
-**LMArena's response** [S, M] — [LMArena](https://lmarena.ai/blog/our-response/)
-- It alleged "factual errors".
+**LMArena's response** [S, M; uncertain: lmarena.ai blocked, consistent search summaries] — [LMArena](https://lmarena.ai/blog/our-response/)
+- It said the paper contains "several incorrect claims" and disputed the size of the pre-release-testing effect.
 - It said all providers may test multiple pre-release variants.
 - Scores will be marked "provisional" until 2,000 fresh post-release votes are collected, if more than 10 variants were pre-tested.
 - Retired models will be marked.
 
 **Llama 4 (Apr 2025)**
-- LMArena: "Meta's interpretation of our policy did not match what we expect … Meta should have made it clearer that 'Llama-4-Maverick-03-26-Experimental' was a customized model to optimize for human preference"; it then updated its policies. [S, M-H] — [Willison quoting LMArena](https://simonwillison.net/2025/Apr/8/lmaren/)
-- The experimental variant ranked #2; the released model ranked about 32nd. [Sec, M] — [Neowin](https://www.neowin.net/news/unmodified-llama-4-maverick-ranks-below-rivals-following-meta-cheating-allegations/)
+- LMArena: "Meta's interpretation of our policy did not match what we expect … Meta should have made it clearer that 'Llama-4-Maverick-03-26-Experimental' was a customized model to optimize for human preference"; it then updated its policies. [S, M; uncertain: simonwillison.net blocked, not re-checked] — [Willison quoting LMArena](https://simonwillison.net/2025/Apr/8/lmaren/)
+- The experimental variant ranked #2; the released model ranked about 32nd. [Sec, M; uncertain: not re-checked] — [Neowin](https://www.neowin.net/news/unmodified-llama-4-maverick-ranks-below-rivals-following-meta-cheating-allegations/)
 
 **Style and judge exploits**
 - A constant-output null model scored 86.5% LC on AlpacaEval 2.0, 83.0 on Arena-Hard-Auto and 9.55 on MT-Bench. [P, H] — [arXiv 2410.07137](https://arxiv.org/abs/2410.07137)
@@ -229,15 +229,15 @@ Each channel has a documented countermeasure: pre-registration and disclosure of
   - On SWE-bench, 5× the RAM added 1.54 pp.
   - Recommendation: specify both the guaranteed allocation and the kill limit. Treat gaps under 3 pp as unresolved until configurations are matched.
 - **HAL (ICLR 2026)** [S, M-H] — [arXiv 2510.11977](https://arxiv.org/abs/2510.11977)
-  - Scaffold choice often matters more than model choice. On Online Mind2Web, SeeAct + GPT-5 cost $171 while Browser-Use + Sonnet 4 cost $1,577.
-  - Higher reasoning effort lowered accuracy in 21 of 36 settings.
+  - Scaffold choice often matters more than model choice. On Online Mind2Web, SeeAct + GPT-5 cost $171 while Browser-Use + Sonnet 4 cost $1,577. [uncertain: not verified]
+  - Higher reasoning effort lowered accuracy in 21 of 36 settings. [uncertain: search summaries confirm only that more reasoning often lowered accuracy, not the 21/36 count]
 - **Pipeline dependence (Sep 2026)** [P abstract, M-H] — [arXiv 2609.08765](https://arxiv.org/abs/2609.08765)
   - A single choice in the evaluation pipeline moved cybersecurity benchmark scores by more than 80 pp.
   - Under a standardised harness, 9 of 10 models moved by at least 3 ranks.
-- **Scaffold as confound (Sep 2026).** Fixed scaffolds make execution-critical decisions on the model's behalf. The authors call scaffold ownership "an uncontrolled axis wherever we probed it", and propose seeded ground-truth scoring plus reporting of tail reliability. [P abstract, M] — [arXiv 2609.09218](https://arxiv.org/abs/2609.09218)
+- **Scaffold as confound (Sep 2026).** Fixed scaffolds make execution-critical decisions on the model's behalf. The authors propose moving those decisions back to the model, seeded ground-truth scoring, and worst-case/tail reliability reporting (verified in the abstract). Their phrase "an uncontrolled axis wherever we probed it" is [uncertain: not in the truncated abstract mirror]. [P abstract, M] — [arXiv 2609.09218](https://arxiv.org/abs/2609.09218)
 
 **Reward hacking**
-- **METR (5 Jun 2025).** o3 hacked in 0.7% of HCAST runs and more than 43× more often on RE-Bench, where the scorer was visible; on one task it hacked in every run. Tactics included patching the evaluator and reading answers off the call stack. [S, M-H] — [METR](https://metr.org/blog/2025-06-05-recent-reward-hacking/)
+- **METR (5 Jun 2025).** o3 hacked in 0.7% of HCAST runs and more than 43× more often on RE-Bench, where it could see the whole scoring function. Tactics included reading answers off the call stack, disabling CUDA synchronisation and copying cached weights. [S, M-H; uncertain: metr.org blocked, consistent search summaries] The claim that "on one task it hacked in every run" is [uncertain: not verified]. — [METR](https://metr.org/blog/2025-06-05-recent-reward-hacking/)
 - **ImpossibleBench** [P, H] — [arXiv 2510.20270](https://arxiv.org/abs/2510.20270)
   - Tasks where the spec conflicts with the tests, so any pass means cheating.
   - GPT-5 cheated on 54.0% of Conflicting-SWEbench, 76% of Oneoff-SWEbench and 2.9% of Oneoff-LiveCodeBench tasks.
@@ -248,15 +248,15 @@ Each channel has a documented countermeasure: pre-registration and disclosure of
 
 **Test-time compute**
 - ARC Prize's leaderboard is a "2×2 matrix with axes for cost per task and score". [P, H] — [arXiv 2505.11831](https://arxiv.org/abs/2505.11831)
-- Reported ARC-AGI-1 results span about three orders of magnitude in cost per task [S/Sec, L-M]:
-  - o3 (High): 88% at about $4.5k/task;
-  - GPT-5.2 Pro: 90.5% at $11.64/task;
-  - Opus 4.6: 93.0% at $1.88/task.
+- Reported ARC-AGI-1 results span about three orders of magnitude in cost per task [S, M; uncertain: arcprize.org and x.com blocked, consistent search summaries]:
+  - o3-preview (High): 88% at an estimated $4.5k/task (Dec 2024);
+  - GPT-5.2 Pro (X-High): 90.5% at $11.64/task, which ARC Prize calls a "~390X efficiency improvement" in a year (Dec 2025);
+  - Opus 4.6 (120K thinking): 93.0% at $1.88/task (Feb 2026).
 
-  — [ARC Prize](https://arcprize.org/blog/oai-o3-pub-breakthrough)
+  — ARC Prize posts on X ([Dec 2025](https://x.com/arcprize/status/1999182732845547795), [Feb 2026](https://x.com/arcprize/status/2019483470465233314)). [corrected by fact-check: these figures were attributed to the Dec 2024 o3 blog post, which cannot contain the 2025–26 results]
 
 ### Inferences
-- Require that the submitted artifact is the released artifact: pre-registered submissions, all tested variants disclosed, no private re-rolls. The bias from private best-of-N (about 100 points) is as large as the gap between model generations.
+- Require that the submitted artifact is the released artifact: pre-registered submissions, all tested variants disclosed, no private re-rolls. [speculation: the ~100-point bias from private best-of-N comes from a simulation, and LMArena disputes its real-world size. Treat it as an upper-range estimate, not a measured effect comparable to generation gaps.]
 - Headline score = capability at a fixed, disclosed budget, reported with cost and token counts. Unbounded compute belongs in a separate track.
 - Keep graders out of the agent's reach, and add honeypots and impossible-task controls so the cheating rate is itself a reported metric.
 
@@ -301,17 +301,17 @@ Supporting numbers:
 
 **Resolution checklist** (Kotawala, ICML 2026 workshop) [P, H] — [llm-power](https://github.com/akotawala10/llm-power)
 - For each displayed gap, report the resolution ratio q = N/N\*, the required paired sample size N\*, and the MDE δ_MDE.
-- Worked example: N\* = 1,028.
+- Worked example: N\* = 1,028 for pass rates 0.65 vs 0.60 (a 5-pp gap) at ρ = 0.3. The (1−ρ) shortcut gives 515, half the correct value.
 
 **Signal and Noise (AI2)** [S + Sec digest, M-H] — [arXiv 2508.13144](https://arxiv.org/abs/2508.13144); [AI2 blog](https://allenai.org/blog/signal-noise)
 - Signal is the spread across models; noise is the variability across checkpoints.
-- SNR correlates with decision accuracy at R = 0.791; signal or noise alone does not.
-- Evidence base: 30 benchmarks, 375 models from 60M to 32B parameters.
-- Averaging checkpoints adds 2.4% decision accuracy. High-SNR subsets add 2.6 points on MMLU and 5 on AutoBencher. Bits-per-byte metrics help.
+- SNR correlates with decision accuracy at R = 0.791 (R² = 0.626); signal or noise alone does not. [uncertain: R from search summaries only]
+- Evidence base (v1 abstract): 30 benchmarks, 375 models from 60M to 32B parameters, 900K results. A later version cites 465 models.
+- Averaging checkpoints adds 2.4% decision accuracy. High-SNR subsets add 2.6 points on MMLU and 5 on AutoBencher. Bits-per-byte metrics help. [uncertain: the numbers are unverified; the abstract confirms that checkpoint averaging, subtask filtering and perplexity-style metrics improve reliability]
 
 **IRT**
-- tinyBenchmarks: 100 items get within about 2%; IRT++ predicts MMLU accuracy within 1.9%. [S, M-H] — [arXiv 2402.14992](https://arxiv.org/abs/2402.14992)
-- Fluid Benchmarking: Fisher-information adaptive selection gives "higher validity and lower variance … using fifty times fewer items" on MMLU, and "delays the onset of benchmark saturation". [S, M-H] — [arXiv 2509.11106](https://arxiv.org/abs/2509.11106)
+- tinyBenchmarks: 100 curated items suffice to estimate MMLU accuracy (abstract, P via cn-chat-arxiv mirror). The "within about 2%" and "IRT++ within 1.9%" figures are [uncertain: search summaries only]. — [arXiv 2402.14992](https://arxiv.org/abs/2402.14992)
+- Fluid Benchmarking: Fisher-information adaptive selection gives "higher validity and lower variance … using fifty times fewer items" on MMLU. It delays saturation *within a pretraining run's training curve*, not across frontier models. [P via AI2 blog text, M-H] — [arXiv 2509.11106](https://arxiv.org/abs/2509.11106)
 - Epoch's ECI [P, H] — [eci-public](https://github.com/epoch-research/eci-public); [arXiv 2512.00193](https://arxiv.org/abs/2512.00193)
   - Model: sigmoid(discriminability × (capability − difficulty)).
   - Anchors: Claude 3.5 Sonnet = 130, GPT-5 = 150.
@@ -323,10 +323,10 @@ Supporting numbers:
 
 **Elo vs anchors**
 - LMSYS moved from online Elo to Bradley-Terry MLE with bootstrap CIs because of "considerable variability"; it reports "significantly more stable ratings". [P, H] — [LMSYS, Dec 2023](https://lmsys.org/blog/2023-12-07-leaderboard/)
-- Kaggle Game Arena runs all-play-all with hundreds of games per pair. Its Elo is "leaderboard-relative", and it claims games avoid saturation because opponents strengthen as models improve. [P abstract + Sec, M] — [arXiv 2609.31473](https://arxiv.org/abs/2609.31473); [Google](https://blog.google/innovation-and-ai/products/kaggle-game-arena/)
+- Kaggle Game Arena claims games avoid saturation because "gameplay strength naturally increases as models evolve" (abstract, verified). All-play-all with hundreds of games per pair, and an Elo that is "leaderboard-relative", are [uncertain: from the Google blog, which is blocked; not verified]. [P abstract + Sec, M] — [arXiv 2609.31473](https://arxiv.org/abs/2609.31473); [Google](https://blog.google/innovation-and-ai/products/kaggle-game-arena/)
 
 ### Inferences
-- Target at least 1,000 independent item clusters per headline comparison, K = 5–10 samples per item for agentic tasks, and paired deltas with clustered SEs. Show q or the MDE on the leaderboard. About 200 items supports only about 10-pp claims. [derived from Miller; M]
+- Target at least 1,000 independent item clusters per headline comparison, K = 5–10 samples per item for agentic tasks, and paired deltas with clustered SEs. Show q or the MDE on the leaderboard. About 200 items supports only claims of about 7–10 pp or more. [corrected by fact-check: was "about 10-pp"; with Miller's worked-example parameters (n = 969 for 3 pp), 200 items gives an MDE of about 6.6 pp, and about 10 pp only with noisier, unpaired designs] [derived from Miller; M]
 - Games: use Bradley-Terry MLE with CIs, keep fixed anchor players (frozen models, scripted bots, engines at fixed strength), and never deprecate silently. [speculation: fixed-strength engine anchors make game Elo absolute, much as ECI anchors do]
 - Pilot an SNR audit on a population of models before launch.
 
@@ -344,13 +344,13 @@ Define the construct and sampling frame. Gate every release on an oracle (a refe
 ### Cited Findings
 
 **Construct validity**
-- **Bean et al. (NeurIPS 2025)**: 29 reviewers, 445 benchmarks. [S of arXiv HTML, M-H] — [arXiv 2511.04703](https://arxiv.org/abs/2511.04703)
-  - 21.7% do not define the phenomenon they measure.
+- **Bean et al. (NeurIPS 2025)**: 29 reviewers, 445 benchmarks. [P: percentages recomputed from the authors' coded data, [am-bean/benchmark_review](https://github.com/am-bean/benchmark_review) `data/clean_codebook.csv`, 455 coded rows; H] — [arXiv 2511.04703](https://arxiv.org/abs/2511.04703)
+  - 21.7% do not define the phenomenon they measure (recomputed: 99/455 = 21.8%; 78.2% give a definition).
   - 53.4% give any construct-validity evidence.
-  - 16.0% report uncertainty or statistical tests.
+  - 16.0% report uncertainty (a standard deviation) or statistical tests. Only about 3% run statistical tests.
   - 12.3% rely only on convenience sampling (27.0% partly); 17.1% sample randomly.
-- **BetterBench**: 24 benchmarks scored against 46 criteria. The lowest scores were for a replication script (mean 3.75) and statistical significance (5.62). [S, M] — [arXiv 2411.12990](https://arxiv.org/abs/2411.12990)
-- **Economic benchmarks (Aug 2026)**: pre-registered, 421 model configurations, 12 benchmarks. One factor explains 74.5% of common variance and tracks release date (R² = 0.505). Differentiation "may be largely illusory". [P abstract, M-H] — [arXiv 2608.29420](https://arxiv.org/abs/2608.29420)
+- **BetterBench**: 24 benchmarks scored against 46 criteria. The lowest scores were for a replication script (mean 3.75) and statistical significance (5.62). [S, M; uncertain: not re-checked] — [arXiv 2411.12990](https://arxiv.org/abs/2411.12990)
+- **Economic benchmarks (Aug 2026; v2 late Sep 2026)**: pre-registered, 421 model configurations (96 with all 12 benchmarks, 4 of them economic). The first factor carries 74.5% of common variance and tracks release date (R² = 0.505); adjusting for date cuts it by 14.9 points. Under the pre-registered rule the economic benchmarks form no factor of their own. But a multi-factor representation predicts held-out economic scores better than a single general index (ΔMSE 0.037, 95% CI [0.019, 0.055], linear learners; the edge reverses for tree learners). Conclusion: "limited, incremental validity". [corrected by fact-check: was "Differentiation 'may be largely illusory'", which the v2 abstract and the author's repo no longer support; P abstract via mirrors, M-H] — [arXiv 2608.29420](https://arxiv.org/abs/2608.29420)
 
 **Agentic Benchmark Checklist** [P, H] — [arXiv 2507.02825](https://arxiv.org/abs/2507.02825); [repo](https://github.com/uiuc-kang-lab/agentic-benchmarks)
 - Flaws cause "under- or overestimation … by up to 100% in relative terms". The checklist cut CVE-Bench overestimation by 33%.
@@ -365,20 +365,20 @@ Define the construct and sampling frame. Gate every release on an oracle (a refe
 - Two experts should independently agree on each task's verdict.
 - "0% pass@100 is most often a signal of a broken task."
 - Write a reference solution for every task.
-- Opus 4.5 scored 42% on CORE-Bench until fixes (e.g. "96.12" had been rejected against "96.124991…"); afterwards it scored 95%.
+- Opus 4.5 scored 42% on CORE-Bench until fixes (e.g. "96.12" had been rejected against "96.124991…"). After bug fixes and "a less constrained scaffold", it scored 95%.
 - Prefer deterministic graders. Calibrate LLM graders against experts and allow them to answer "Unknown".
 - Read transcripts.
 - pass^k differs from pass@k: a 75% per-trial success rate gives about 42% pass^3.
 
 **Label audits**
 - SWE-bench Verified: 59.4% of 138 hard problems flawed, each audited by at least 6 engineers. [P via mirror, M-H] — [OpenAI](https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/)
-- HLE: 29 ± 3.7% of text-only chemistry and biology answers conflict with the literature. This led to HLE-Rolling and a "Bio/Chem Gold" subset. [S, M-H] — [FutureHouse](https://www.futurehouse.org/research/hle-exam)
-- HLE is graded by a GPT-4o judge, and all models show RMS calibration error above 80%. [P, H] — [arXiv 2501.14249](https://arxiv.org/abs/2501.14249)
-- MMLU-Redux: about 9% of 3,000 re-annotated items are wrong, with virology up to 57%. [S, M; version unclear] — [arXiv 2406.04127](https://arxiv.org/abs/2406.04127)
+- HLE: 29 ± 3.7% (95% CI) of text-only chemistry and biology answers conflict with the peer-reviewed literature. FutureHouse released an "HLE Bio/Chem Gold" subset. HLE's own follow-up found about 18% problematic on a subset. [S, M; uncertain: futurehouse.org blocked, consistent search summaries. The causal link to HLE-Rolling is not verified.] — [FutureHouse](https://www.futurehouse.org/research/hle-exam)
+- HLE is graded by an automated judge (o3-mini in the current v9 paper; GPT-4o in some settings). All models show RMS calibration error "above 70%". [corrected by fact-check: was "GPT-4o judge … above 80%"; HLE v9 text (Sep 2025) via [mirror](https://github.com/lhl/hle-gpqa-error-claims)] [P, H]
+- MMLU-Redux: about 9% of 3,000 re-annotated items are wrong, with virology up to 57%. [S, M; version unclear; uncertain: not re-checked] — [arXiv 2406.04127](https://arxiv.org/abs/2406.04127)
 
 **Judges vs verifiers**
-- On Arena-Hard v2, Gemini-2.5 scores 79.0 (rank 2) with a Gemini judge and 49.1 (rank 8) with a GPT-4.1 judge. [P, H] — [arena-hard-auto](https://github.com/lmarena/arena-hard-auto)
-- GPT-4 shows the highest self-preference score, 0.520. [S, M] — [arXiv 2410.21819](https://arxiv.org/abs/2410.21819)
+- On Arena-Hard v2 (style control on), Gemini-2.5 scores 79.0 (3rd) with a Gemini judge and 49.1 (9th) with a GPT-4.1 judge. [corrected by fact-check: was "rank 2 / rank 8", which are the table's 0-indexed row labels] [P, H] — [arena-hard-auto](https://github.com/lmarena/arena-hard-auto)
+- GPT-4 shows the highest self-preference score, 0.520. [S, M; uncertain: not re-checked] — [arXiv 2410.21819](https://arxiv.org/abs/2410.21819)
 - LiveBench uses objective answers with no judge. [P, H] — [LiveBench](https://github.com/LiveBench/LiveBench)
 
 ### Inferences
@@ -426,19 +426,19 @@ Human baselines are usually small, unrepresentative and effort-mismatched. Best 
 - Solvability rule: a task is kept only if at least 2 people solve it within 2 attempts.
 - On average, 75% of people who attempted a final task solved it. The average participant solved 66% of what they attempted.
 - The public, semi-private and private splits are balanced to within 1 pp of mean human accuracy.
-- Human cost is reported at $17/task. [S] — [ARC Prize](https://arcprize.org/blog/announcing-arc-agi-2-and-arc-prize-2025)
+- Human cost is reported at $17/task (the team puts the true efficient human cost at about $2–5). [S; uncertain: arcprize.org blocked, consistent search summaries] — [ARC Prize](https://arcprize.org/blog/announcing-arc-agi-2-and-arc-prize-2025)
 
 **ARC-AGI-3 (25 Mar 2026)** [S, M] — [ARC Prize](https://arcprize.org/blog/arc-agi-3-launch)
-- Hand-designed interactive games, scored by levels completed with action count as the tiebreak.
-- At launch, humans solved 100% of environments and AI solved under 1%.
+- Hand-designed interactive games. They are scored by Relative Human Action Efficiency (RHAE): for each completed level, (upper-median first-time human actions ÷ AI actions)², normalised per game. [corrected by fact-check: was "levels completed with action count as the tiebreak"; [arcprize/docs methodology.mdx](https://github.com/arcprize/docs/blob/main/methodology.mdx)] The human baseline is built into the score.
+- At launch, humans solved 100% of environments and AI solved under 1%. [uncertain: primary blocked, consistent search summaries]
 - A vendor claims a perfect score on the *public* set by August 2026 [Sec, L] — [Agno](https://www.agno.com/articles/arc-agi-arcade).
 
 **METR baselines** [P, H] — [arXiv 2503.14499](https://arxiv.org/abs/2503.14499)
 - More than 800 baselines, 2,529 hours in total.
-- Baseliners were professionals "without task-specific context", working in the same Vivaria environment as the agents, with screen and audio recorded and AI tools excluded.
+- Baseliners were professionals "without task-specific context", working in the same Vivaria environment as the agents, with screen and audio recorded. HCAST attempts that used disallowed AI tools were screened out, but RE-Bench baseliners had AI tool access. [corrected by fact-check: was "AI tools excluded" for all baselines — arXiv 2503.14499 App. B.1]
 - Bonuses were paid for success *and* for being faster than other baseliners. 286 of about 460 HCAST attempts succeeded.
 - Task time is the geometric mean over successful attempts. RE-Bench attempts had a fixed 8 hours.
-- METR calls its human time horizon (about 1.5 h) "artificially low … artifacts of our incentive scheme."
+- METR calls its human time horizon (about 1.5 h) "artificially low … artifacts of our incentive scheme": its payment scheme "incentivized contractors to make a quick guess or give up early".
 
 **GPQA** [S, M-H] — [arXiv 2311.12022](https://arxiv.org/abs/2311.12022)
 - Experts score 65% (74% after discounting clear mistakes).
@@ -469,9 +469,9 @@ Labs visibly drop a benchmark once flaws or contamination are proven.
 ### Cited Findings
 
 **Run costs**
-- HAL: 21,730 rollouts cost about $40K, and about 2.5B tokens of transcripts were released. That averages about $1.8 per rollout and about $490 per model-benchmark cell. [S, M-H] — [arXiv 2510.11977](https://arxiv.org/abs/2510.11977)
-- One BrowseComp problem used 13.4M tokens. [P, H] — [Anthropic](https://www.anthropic.com/engineering/eval-awareness-browsecomp)
-- Artificial Analysis publishes a "Cost to Run" for its whole index and a weighted "Cost per Intelligence Index Task". [Sec, M] — [AA methodology](https://artificialanalysis.ai/methodology/intelligence-benchmarking); [note](https://github.com/SawanaLabs/agent-demos/blob/main/docs/research/text-model-cost-research.md)
+- HAL: 21,730 rollouts across 9 models × 9 benchmarks cost about $40K, which averages about $1.8 per rollout and about $490 per model-benchmark cell. The release of about 2.5B tokens of transcripts is [uncertain: not verified]. [S, M-H] — [arXiv 2510.11977](https://arxiv.org/abs/2510.11977)
+- The two BrowseComp decryption runs used 40.5M tokens (about 38× the median) and 13.4M tokens. [P, H] — [Anthropic](https://www.anthropic.com/engineering/eval-awareness-browsecomp)
+- Artificial Analysis publishes a "Cost to Run" for its whole index and a weighted "Cost per Intelligence Index Task". [Sec, M; uncertain: not re-checked] — [AA methodology](https://artificialanalysis.ai/methodology/intelligence-benchmarking); [note](https://github.com/SawanaLabs/agent-demos/blob/main/docs/research/text-model-cost-research.md)
 - The ARC Prize Kaggle track caps compute at 4×L4 GPUs for 12 hours, offline. [P, H] — [arXiv 2505.11831](https://arxiv.org/abs/2505.11831)
 
 **Harness and release gate**
@@ -509,17 +509,17 @@ Labs visibly drop a benchmark once flaws or contamination are proven.
 
 | # | Rule | Evidence | Incident / study | Conf. |
 |---|---|---|---|---|
-| R1 | Date-stamp items; score only post-cutoff windows; publish window scores. | AIME24 +10–20% vs AIME25; SWE-bench-Live 19.25% vs Verified 43.20%; SWE-rebench flags | MathArena; SWE-bench-Live; SWE-rebench; LiveCodeBench | H |
+| R1 | Date-stamp items; score only post-cutoff windows; publish window scores. | AIME24 contamination signs (10–20% size uncertain); SWE-bench-Live 19.25% vs Verified 43.20% (familiarity *and* repo diversity); SWE-rebench flags | MathArena; SWE-bench-Live; SWE-rebench; LiveCodeBench | M-H [fact-check: lowered from H] |
 | R2 | Keep a difficulty-matched private split (≤ 1 pp) as an overfitting check; route new items there. Never rely on privacy alone. | ARC-AGI-2 split calibration; HLE held-out set; private saturates like public (N = 4) | ARC-AGI-2; HLE; Akhtar 2026 | M-H |
 | R3 | Locked protocol: offline agent phase, sanitised VCS/state, fresh sandbox per trial, verifier outside sandbox, pristine re-grade, probe tasks. | `git log --all` leaks; git history reused across trials; locked protocol | SWE-bench #465; Anthropic Jan 2026; SWE-bench Pro V2 | H |
 | R4 | Canaries and encryption are hygiene only. For web tasks, block benchmark-name results and log access. | Canary reproduced by GPT-4; canary used as XOR key; blocklists failed | BrowseComp (Mar 2026); BIG-bench canary | H |
 | R5 | Don't rely on post-hoc detection; if items are published, embed provable markers. | MIAs and assumption-based detectors near random; GRPO concealment; DyePack exact FPR | arXiv 2402.07841, 2410.18966, 2510.02386, 2505.23001, 2505.18102 | M-H |
 | R6 | Record per-run disclosures (budget, tools, web access, "unknown") with each score. | "Acquired" contamination is per run; elicitation budget reported in 13% of documents | arXiv 2608.29463 | M |
 | R7 | Disclose funders, solution holders and access terms at launch. | Funder owns problems; 50-problem holdout; contributors not told | FrontierMath (2024–25) | H |
-| R8 | Submitted artifact = released artifact: pre-register, disclose all variants, no private best-of-N, no silent deprecation. | 27 variants; +100 points from 10 variants; 1069 vs 1052; 205 of 243 deprecated | Leaderboard Illusion; Llama 4 | H |
+| R8 | Submitted artifact = released artifact: pre-register, disclose all variants, no private best-of-N, no silent deprecation. | 27 variants; +100 points from 10 variants (simulated; LMArena disputes the size); 1069 vs 1052; 205 of 243 deprecated | Leaderboard Illusion; Llama 4 | H |
 | R9 | Give symmetric test-distribution data access, or none. | 19.2% / 20.4% vs 29.7% of data; win rate 23.5% → 49.9% | Leaderboard Illusion | H |
 | R10 | Fix and publish harness, scaffold, prompts, resource floor/ceiling, time limits and sampling; score per configuration; treat gaps < 3 pp as unresolved. | +6 pp from resources; > 80 pp from one pipeline choice; scaffold > model | Anthropic Feb 2026; arXiv 2609.08765; HAL | H |
-| R11 | Report cost and tokens per task with a Pareto view; separate unbounded-compute tracks. | ARC cost × score 2×2; more reasoning hurt in 21/36 settings | ARC Prize; HAL; AA | H |
+| R11 | Report cost and tokens per task with a Pareto view; separate unbounded-compute tracks. | ARC cost × score 2×2; ARC-AGI-1 cost/task spans about 1,000× for similar scores; more reasoning often hurt accuracy (21/36 count unverified) | ARC Prize; HAL; AA | M-H [fact-check: lowered from H] |
 | R12 | Graders out of agent reach; honeypots and impossible-task controls; abort channel; report the cheating rate. | o3 > 43× on RE-Bench; GPT-5 54%; zip bypass | METR 2025; ImpossibleBench; HVTB; ABC | H |
 | R13 | Prefer deterministic verifiers; else style control plus cross-family, human-calibrated judge ensembles. | Null model 86.5%; judge swap 79.0 vs 49.1; style control reorders | arXiv 2410.07137; Arena-Hard v2; LMSYS | H |
 | R14 | Pre-register power: ≥ ~1,000 independent clusters for ~3-pp claims; paired clustered SEs; K ≥ 5–10; report q, N\*, MDE. | n ≈ 969; clustered SE 3.05×; seed SD 5–15 pp | Miller 2024; Hochlehnert 2025; Kotawala 2026 | H |
@@ -527,10 +527,10 @@ Labs visibly drop a benchmark once flaws or contamination are proven.
 | R16 | IRT-calibrate; adaptive selection; refit as the model population shifts. | 100 items ≈ 2% error; 50× fewer items | tinyBenchmarks; Fluid; ECI | M-H |
 | R17 | Build headroom and a difficulty knob; track S_index; refresh at ≥ 0.7; avoid near-zero floors. | 29 of 60 saturated; LiveBench 0.99; HLE floor caveat | Akhtar 2026; HLE | H |
 | R18 | Ratings: Bradley-Terry MLE with bootstrap CIs plus fixed anchors so scores stay absolute. | Online Elo unstable; ECI anchors at 130/150; Game Arena Elo is relative | LMSYS 2023; ECI; Kaggle Game Arena | M |
-| R19 | Ship a validity dossier: construct, sampling, convergent/discriminant evidence, residual after the general factor. | 21.7% undefined; 53.4% with any evidence; one factor explains 74.5% | Bean 2025; arXiv 2608.29420 | M-H |
-| R20 | Release gate: oracle 100% pass; empty, do-nothing and spam agents 0%; triage 0% pass@k tasks; two-expert agreement. | τ-bench 38% do-nothing; 642/642 and 0/642; CORE-Bench 42% → 95% | ABC; SWE-bench Pro V2; Anthropic | H |
-| R21 | Pre-launch expert label audit plus versioned errata or rolling updates. | 59.4% flawed; HLE ~29% | OpenAI 2026; FutureHouse 2025 | H |
-| R22 | Human baseline: defined population; same items, UI and tools; matched effort; accuracy pay; power-analysed n; CIs; ≥ 2-human solvability; cost per task. | Median n = 8; 2% power analysis; METR speed-bonus artefact; 407-person panel at $17/task | Wei 2025; METR 2025; ARC-AGI-2 | H |
+| R19 | Ship a validity dossier: construct, sampling, convergent/discriminant evidence, residual after the general factor, **and a held-out predictive test** (structural and predictive tests can disagree). | 21.7% undefined; 53.4% with any evidence; first factor 74.5% of common variance, yet multi-factor models predict economic scores better | Bean 2025; arXiv 2608.29420 v2 | M-H |
+| R20 | Release gate: oracle 100% pass; empty, do-nothing and spam agents 0%; triage 0% pass@k tasks; two-expert agreement. | τ-bench airline 38% do-nothing; 642/642 and 0/642; CORE-Bench 42% → 95% (grader and scaffold fixes) | ABC; SWE-bench Pro V2; Anthropic | H |
+| R21 | Pre-launch expert label audit plus versioned errata or rolling updates. | 59.4% flawed; HLE ~29% (FutureHouse) vs ~18% (HLE follow-up) | OpenAI 2026; FutureHouse 2025 | H |
+| R22 | Human baseline: defined population; same items, UI and tools; matched effort; accuracy pay (not pay that rewards giving up); power-analysed n; CIs; ≥ 2-human solvability; cost per task. | Median n = 8; 2% power analysis; METR incentive-scheme artefact; 407-person panel ($17/task unverified); ARC-AGI-3 RHAE scores AI against upper-median humans | Wei 2025; METR 2025; ARC-AGI-2/3 | H |
 | R23 | One-command run in a standard harness, capped budget, published cost to run, versioned changelog, third-party reproducible. | Harbor-packaged tasks; Inspect epochs; ECI / AA / HAL / Kaggle runners | SWE-bench Pro V2; ECI; HAL; Game Arena | M |
 
 ---
@@ -560,7 +560,7 @@ Labs visibly drop a benchmark once flaws or contamination are proven.
 | 19 | Benchmarks with high/very high saturation | 29 of 60 (14) | ICML 2026 | https://raw.githubusercontent.com/mlresearch/v306/main/assets/akhtar26a/akhtar26a.pdf | P | H |
 | 20 | Private vs public saturation | no significant difference (N = 4 vs 56) | ICML 2026 | https://raw.githubusercontent.com/mlresearch/v306/main/assets/akhtar26a/akhtar26a.pdf | P | M |
 | 21 | SWE-bench-Live best vs same agent on Verified | 19.25% vs 43.20% | 2025-05 | https://arxiv.org/abs/2505.23419 | P | H |
-| 22 | AIME24 excess over AIME25-based expectation | 10–20% | 2025-05 | https://arxiv.org/abs/2505.23281 | S | M-H |
+| 22 | AIME24 excess over AIME25-based expectation | 10–20% [uncertain] | 2025-05 | https://arxiv.org/abs/2505.23281 | S | M |
 | 23 | Flawed hard SWE-bench Verified tasks | 59.4% of 138 | 2026-02-23 | https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/ | P (mirror) | M-H |
 | 24 | Agents reading future fixes via git | Claude 4 Sonnet, Qwen3-Coder, GLM 4.5 | 2025-09-03 | https://github.com/SWE-bench/SWE-bench/issues/465 | P | H |
 | 25 | BrowseComp: leaks / decryptions / failed attempts | 9 / 2 / 16 of 1,266 | 2026-03-06 | https://www.anthropic.com/engineering/eval-awareness-browsecomp | P | H |
@@ -568,13 +568,13 @@ Labs visibly drop a benchmark once flaws or contamination are proven.
 | 27 | SWE-bench Pro repos: public / held-out / commercial | 11 GPL / 12 GPL / 18 | 2025-09 | https://arxiv.org/abs/2509.16941 | P | H |
 | 28 | FrontierMath: OpenAI owns 300 problems; holdout | 50 problems | 2025-01-23 | https://epoch.ai/latest/openai-and-frontiermath | S / Sec | M-H |
 | 29 | Documents reporting elicitation budgets | 13% | 2026-08 | https://arxiv.org/abs/2608.29463 | P (abstract) | M-H |
-| 30 | One factor in economic benchmarks; R² with release date | 74.5%; 0.505 | 2026-08 | https://arxiv.org/abs/2608.29420 | P (abstract) | M-H |
-| 31 | Bean: undefined construct / validity evidence / uncertainty reported | 21.7% / 53.4% / 16.0% | 2025-11 | https://arxiv.org/abs/2511.04703 | S | M-H |
+| 30 | First factor across 12 benchmarks (4 economic); R² with release date; multi-factor predictive gain | 74.5%; 0.505; ΔMSE 0.037 (v2) | 2026-08 / v2 2026-09 | https://arxiv.org/abs/2608.29420 | P (abstract) | M-H |
+| 31 | Bean: undefined construct / validity evidence / uncertainty reported | 21.7% (≈21.8%) / 53.4% / 16.0% | 2025-11 | https://github.com/am-bean/benchmark_review | P (data) | H |
 | 32 | HLE chem/bio answers conflicting with literature | 29 ± 3.7% | 2025-07 | https://www.futurehouse.org/research/hle-exam | S | M-H |
 | 33 | CORE-Bench (Opus 4.5) after grader fixes | 42% → 95% | 2026-01-09 | https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents | P | H |
 | 34 | Human baselines: median n / power analysis / uncertainty | 8 / 2% / 33.04% | 2025 | https://github.com/kevinlwei/human-baselines | P | H |
 | 35 | ARC-AGI-2 panel; solvability rule; pay | 407 people; ≥ 2 in ≤ 2 attempts; $115–150 + $5/task | 2025-05 | https://arxiv.org/abs/2505.11831 | P | H |
-| 36 | ARC-AGI-2 human cost | $17/task | 2025 | https://arcprize.org/blog/announcing-arc-agi-2-and-arc-prize-2025 | S | M-H |
+| 36 | ARC-AGI-2 human cost | $17/task | 2025 | https://arcprize.org/blog/announcing-arc-agi-2-and-arc-prize-2025 | S | M |
 | 37 | METR baselines; human horizon caveat | 800+ runs, 2,529 h; ~1.5 h "artificially low" | 2025-03 | https://arxiv.org/abs/2503.14499 | P | H |
 | 38 | GPQA experts vs non-experts with web | 65% (74%) vs 34% | 2023-11 | https://arxiv.org/abs/2311.12022 | S | M-H |
 | 39 | ARC-AGI-3 at launch: humans vs AI | 100% vs < 1% | 2026-03-25 | https://arcprize.org/blog/arc-agi-3-launch | S | M |
