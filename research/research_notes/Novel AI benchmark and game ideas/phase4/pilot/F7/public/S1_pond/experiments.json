@@ -1,0 +1,91 @@
+{
+ "simulator": "S1",
+ "time_unit": "day",
+ "intervention_types": {
+  "fish_removal": {
+   "kind": "additive",
+   "no_change_value": 0.0
+  },
+  "grazer_stocking": {
+   "kind": "additive",
+   "no_change_value": 0.0
+  },
+  "nutrient_load": {
+   "kind": "multiplier",
+   "no_change_value": 1.0
+  }
+ },
+ "experiments": [
+  {
+   "experiment": "S1-E1",
+   "interventions": [
+    {
+     "type": "nutrient_load",
+     "start": 100,
+     "size": 1.5
+    }
+   ],
+   "replicates": 4
+  },
+  {
+   "experiment": "S1-E2",
+   "interventions": [
+    {
+     "type": "nutrient_load",
+     "start": 100,
+     "size": 0.5
+    }
+   ],
+   "replicates": 3
+  },
+  {
+   "experiment": "S1-E3",
+   "interventions": [
+    {
+     "type": "fish_removal",
+     "start": 150,
+     "size": 0.4
+    }
+   ],
+   "replicates": 4
+  },
+  {
+   "experiment": "S1-E4",
+   "interventions": [
+    {
+     "type": "grazer_stocking",
+     "start": 200,
+     "size": 300
+    }
+   ],
+   "replicates": 3
+  },
+  {
+   "experiment": "S1-E5",
+   "interventions": [
+    {
+     "type": "nutrient_load",
+     "start": 50,
+     "size": 1.25
+    }
+   ],
+   "replicates": 3
+  },
+  {
+   "experiment": "S1-E6",
+   "interventions": [
+    {
+     "type": "nutrient_load",
+     "start": 100,
+     "size": 1.5
+    },
+    {
+     "type": "fish_removal",
+     "start": 150,
+     "size": 0.4
+    }
+   ],
+   "replicates": 3
+  }
+ ]
+}

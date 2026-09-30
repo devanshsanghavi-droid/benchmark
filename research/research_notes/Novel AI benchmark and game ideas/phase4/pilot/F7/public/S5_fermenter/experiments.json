@@ -1,0 +1,97 @@
+{
+ "simulator": "S5",
+ "time_unit": "hour",
+ "intervention_types": {
+  "dilution": {
+   "kind": "set",
+   "no_change_value": 0.1
+  },
+  "feed_conc": {
+   "kind": "multiplier",
+   "no_change_value": 1.0
+  },
+  "setpoint": {
+   "kind": "set",
+   "no_change_value": 34.0
+  }
+ },
+ "experiments": [
+  {
+   "experiment": "S5-E1",
+   "interventions": [
+    {
+     "type": "feed_conc",
+     "start": 100,
+     "size": 1.3
+    }
+   ],
+   "replicates": 4
+  },
+  {
+   "experiment": "S5-E2",
+   "interventions": [
+    {
+     "type": "feed_conc",
+     "start": 100,
+     "size": 0.7
+    }
+   ],
+   "replicates": 3
+  },
+  {
+   "experiment": "S5-E3",
+   "interventions": [
+    {
+     "type": "dilution",
+     "start": 150,
+     "size": 0.12
+    }
+   ],
+   "replicates": 3
+  },
+  {
+   "experiment": "S5-E4",
+   "interventions": [
+    {
+     "type": "dilution",
+     "start": 150,
+     "size": 0.14
+    }
+   ],
+   "replicates": 3
+  },
+  {
+   "experiment": "S5-E5",
+   "interventions": [
+    {
+     "type": "dilution",
+     "start": 150,
+     "size": 0.08
+    }
+   ],
+   "replicates": 2
+  },
+  {
+   "experiment": "S5-E6",
+   "interventions": [
+    {
+     "type": "setpoint",
+     "start": 100,
+     "size": 37
+    }
+   ],
+   "replicates": 3
+  },
+  {
+   "experiment": "S5-E7",
+   "interventions": [
+    {
+     "type": "setpoint",
+     "start": 100,
+     "size": 31
+    }
+   ],
+   "replicates": 2
+  }
+ ]
+}

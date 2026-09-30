@@ -1,0 +1,303 @@
+{
+ "quantile_levels": [
+  0.05,
+  0.25,
+  0.5,
+  0.75,
+  0.95
+ ],
+ "questions": [
+  {
+   "id": "S1-Q1",
+   "simulator": "S1",
+   "folder": "S1_pond",
+   "time_unit": "day",
+   "interventions": [
+    {
+     "type": "nutrient_load",
+     "start": 100,
+     "size": 2.2
+    }
+   ],
+   "outcome": {
+    "column": "grazers",
+    "time_index": 350
+   },
+   "question": "From day 100 onward the nutrient inflow is multiplied by 2.2 (nutrient_load, size 2.2, start 100). Forecast the recorded value of `grazers` on day 350."
+  },
+  {
+   "id": "S1-Q2",
+   "simulator": "S1",
+   "folder": "S1_pond",
+   "time_unit": "day",
+   "interventions": [
+    {
+     "type": "fish_removal",
+     "start": 150,
+     "size": 0.9
+    }
+   ],
+   "outcome": {
+    "column": "grazers",
+    "aggregate": "mean",
+    "from": 250,
+    "to": 299
+   },
+   "question": "On day 150, 90% of the fish are removed (fish_removal, size 0.9, start 150). Forecast the mean of the recorded `grazers` values over days 250-299 (inclusive)."
+  },
+  {
+   "id": "S1-Q3",
+   "simulator": "S1",
+   "folder": "S1_pond",
+   "time_unit": "day",
+   "interventions": [
+    {
+     "type": "grazer_stocking",
+     "start": 200,
+     "size": 1500
+    }
+   ],
+   "outcome": {
+    "column": "algae",
+    "aggregate": "mean",
+    "from": 210,
+    "to": 249
+   },
+   "question": "On day 200, 1500 adult grazers are added (grazer_stocking, size 1500, start 200). Forecast the mean of the recorded `algae` values over days 210-249 (inclusive)."
+  },
+  {
+   "id": "S2-Q1",
+   "simulator": "S2",
+   "folder": "S2_calldesk",
+   "time_unit": "hour",
+   "interventions": [
+    {
+     "type": "demand",
+     "start": 48,
+     "size": 1.6
+    }
+   ],
+   "outcome": {
+    "column": "abandoned",
+    "aggregate": "sum",
+    "from": 216,
+    "to": 335
+   },
+   "question": "From the start of day 2 (hour 48) onward, new-customer demand is multiplied by 1.6 (demand, size 1.6, start hour 48). Forecast the total of `abandoned` over hours 216-335 (days 9-13, inclusive)."
+  },
+  {
+   "id": "S2-Q2",
+   "simulator": "S2",
+   "folder": "S2_calldesk",
+   "time_unit": "hour",
+   "interventions": [
+    {
+     "type": "staff_day",
+     "start": 24,
+     "size": 3
+    }
+   ],
+   "outcome": {
+    "column": "offered",
+    "aggregate": "sum",
+    "from": 168,
+    "to": 335
+   },
+   "question": "From hour 24 (start of day 1) onward, 3 extra agents are added to every day shift (staff_day, size 3, start hour 24). Forecast the total of `offered` over hours 168-335 (days 7-13, inclusive)."
+  },
+  {
+   "id": "S2-Q3",
+   "simulator": "S2",
+   "folder": "S2_calldesk",
+   "time_unit": "hour",
+   "interventions": [
+    {
+     "type": "outage",
+     "start": 177,
+     "duration": 4
+    }
+   ],
+   "outcome": {
+    "column": "abandoned",
+    "aggregate": "sum",
+    "from": 177,
+    "to": 200
+   },
+   "question": "A 4-hour outage starts at hour 177 (day 7, 09:00) and lasts through hour 180 (outage, start hour 177, duration 4). Forecast the total of `abandoned` over hours 177-200 (inclusive)."
+  },
+  {
+   "id": "S3-Q1",
+   "simulator": "S3",
+   "folder": "S3_adoption",
+   "time_unit": "day",
+   "interventions": [
+    {
+     "type": "seed",
+     "start": 20,
+     "size": 45,
+     "community": "all"
+    }
+   ],
+   "outcome": {
+    "column": "active",
+    "time_index": 50,
+    "community": "A+B+C (sum)"
+   },
+   "question": "On day 20, 45 non-practising residents chosen at random from the whole town are recruited (seed, size 45, community all, start 20). Forecast total `active` (sum over A, B and C) on day 50."
+  },
+  {
+   "id": "S3-Q2",
+   "simulator": "S3",
+   "folder": "S3_adoption",
+   "time_unit": "day",
+   "interventions": [
+    {
+     "type": "broadcast",
+     "start": 60,
+     "size": 0.03,
+     "duration": 5
+    }
+   ],
+   "outcome": {
+    "column": "active",
+    "time_index": 75,
+    "community": "A+B+C (sum)"
+   },
+   "question": "A broadcast campaign with size 0.03 runs on days 60-64 (broadcast, size 0.03, start 60, duration 5). Forecast total `active` (sum over A, B and C) on day 75."
+  },
+  {
+   "id": "S3-Q3",
+   "simulator": "S3",
+   "folder": "S3_adoption",
+   "time_unit": "day",
+   "interventions": [
+    {
+     "type": "seed",
+     "start": 20,
+     "size": 40,
+     "community": "B"
+    }
+   ],
+   "outcome": {
+    "column": "active",
+    "time_index": 50,
+    "community": "C"
+   },
+   "question": "On day 20, 40 non-practising residents of neighbourhood B are recruited (seed, size 40, community B, start 20). Forecast `active` in neighbourhood C on day 50."
+  },
+  {
+   "id": "S4-Q1",
+   "simulator": "S4",
+   "folder": "S4_auction",
+   "time_unit": "round",
+   "interventions": [
+    {
+     "type": "reserve",
+     "start": 100,
+     "size": 75
+    }
+   ],
+   "outcome": {
+    "column": "revenue",
+    "aggregate": "sum",
+    "from": 150,
+    "to": 249
+   },
+   "question": "From round 100 onward the reserve price is 75 (reserve, size 75, start 100). Forecast total `revenue` over rounds 150-249 (inclusive)."
+  },
+  {
+   "id": "S4-Q2",
+   "simulator": "S4",
+   "folder": "S4_auction",
+   "time_unit": "round",
+   "interventions": [
+    {
+     "type": "entrants",
+     "start": 80,
+     "size": 20
+    }
+   ],
+   "outcome": {
+    "column": "active_bidders",
+    "time_index": 200
+   },
+   "question": "At round 80, 20 new bidders join the market (entrants, size 20, start 80). Forecast `active_bidders` in round 200."
+  },
+  {
+   "id": "S4-Q3",
+   "simulator": "S4",
+   "folder": "S4_auction",
+   "time_unit": "round",
+   "interventions": [
+    {
+     "type": "budget",
+     "start": 50,
+     "size": 0.5
+    }
+   ],
+   "outcome": {
+    "column": "revenue",
+    "aggregate": "sum",
+    "from": 150,
+    "to": 249
+   },
+   "question": "From round 50 onward every bidder's spending allowance is multiplied by 0.5 (budget, size 0.5, start 50). Forecast total `revenue` over rounds 150-249 (inclusive)."
+  },
+  {
+   "id": "S5-Q1",
+   "simulator": "S5",
+   "folder": "S5_fermenter",
+   "time_unit": "hour",
+   "interventions": [
+    {
+     "type": "feed_conc",
+     "start": 100,
+     "size": 1.8
+    }
+   ],
+   "outcome": {
+    "column": "product",
+    "time_index": 300
+   },
+   "question": "From hour 100 onward the feed substrate concentration is multiplied by 1.8 (feed_conc, size 1.8, start 100). Forecast the recorded `product` at hour 300."
+  },
+  {
+   "id": "S5-Q2",
+   "simulator": "S5",
+   "folder": "S5_fermenter",
+   "time_unit": "hour",
+   "interventions": [
+    {
+     "type": "dilution",
+     "start": 150,
+     "size": 0.24
+    }
+   ],
+   "outcome": {
+    "column": "biomass",
+    "aggregate": "mean",
+    "from": 300,
+    "to": 399
+   },
+   "question": "From hour 150 onward the dilution rate is set to 0.24 per hour (dilution, size 0.24, start 150). Forecast the mean of the recorded `biomass` over hours 300-399 (inclusive)."
+  },
+  {
+   "id": "S5-Q3",
+   "simulator": "S5",
+   "folder": "S5_fermenter",
+   "time_unit": "hour",
+   "interventions": [
+    {
+     "type": "dilution",
+     "start": 150,
+     "size": 0.17
+    }
+   ],
+   "outcome": {
+    "column": "temperature",
+    "time_index": 300
+   },
+   "question": "From hour 150 onward the dilution rate is set to 0.17 per hour (dilution, size 0.17, start 150). Forecast the recorded `temperature` at hour 300."
+  }
+ ]
+}

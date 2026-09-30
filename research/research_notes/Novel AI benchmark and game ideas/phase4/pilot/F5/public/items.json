@@ -1,0 +1,469 @@
+{
+ "pilot": "F5 Self-Knowledge Exam pilot",
+ "n_items": 60,
+ "phase1": {
+  "triage_k": 5,
+  "blocks": {
+   "A": [
+    "Q01",
+    "Q12",
+    "Q14",
+    "Q18",
+    "Q19",
+    "Q27",
+    "Q30",
+    "Q31",
+    "Q34",
+    "Q36",
+    "Q48",
+    "Q50",
+    "Q51",
+    "Q54",
+    "Q57"
+   ],
+   "B": [
+    "Q02",
+    "Q05",
+    "Q07",
+    "Q16",
+    "Q20",
+    "Q22",
+    "Q28",
+    "Q33",
+    "Q35",
+    "Q40",
+    "Q42",
+    "Q44",
+    "Q47",
+    "Q49",
+    "Q53"
+   ],
+   "C": [
+    "Q03",
+    "Q04",
+    "Q17",
+    "Q21",
+    "Q23",
+    "Q24",
+    "Q25",
+    "Q32",
+    "Q37",
+    "Q39",
+    "Q46",
+    "Q52",
+    "Q58",
+    "Q59",
+    "Q60"
+   ]
+  },
+  "forecast_items": [
+   "Q01",
+   "Q02",
+   "Q03",
+   "Q04",
+   "Q05",
+   "Q07",
+   "Q12",
+   "Q14",
+   "Q16",
+   "Q17",
+   "Q18",
+   "Q19",
+   "Q20",
+   "Q21",
+   "Q22",
+   "Q23",
+   "Q24",
+   "Q25",
+   "Q27",
+   "Q28",
+   "Q30",
+   "Q31",
+   "Q32",
+   "Q33",
+   "Q34",
+   "Q35",
+   "Q36",
+   "Q37",
+   "Q39",
+   "Q40",
+   "Q42",
+   "Q44",
+   "Q46",
+   "Q47",
+   "Q48",
+   "Q49",
+   "Q50",
+   "Q51",
+   "Q52",
+   "Q53",
+   "Q54",
+   "Q57",
+   "Q58",
+   "Q59",
+   "Q60"
+  ]
+ },
+ "items": [
+  {
+   "id": "Q01",
+   "family": "program-output",
+   "prompt": "Predict exactly what this Python 3 program prints.\n\n```python\nstack = []\nout = []\nfor x in [7, 2, 6, 7, 5, 3, 8, 8, 9, 9, 8, 1, 6]:\n    if stack and (stack[-1] + x) % 3 == 0:\n        out.append(stack.pop() * x)\n    else:\n        stack.append(x)\nprint(out, stack)\n```",
+   "answer_format": "exactly the one line the program prints"
+  },
+  {
+   "id": "Q02",
+   "family": "stock-log",
+   "prompt": "Read this stock log and answer the question.\n\nRules for reading the log:\n- Every entry is an accurate record, except that a CORRECTION replaces the quantity stated in the entry it names (the correction applies wherever it appears in the log).\n- Stock changes only through the deliveries, shipments and transfers recorded here.\n- Entries are in time order. A stocktake states the exact stock at the end of that day.\n\nOpening stock (start of Day 1): Canal Store: 19 crates of salt, 11 crates of flour; Harbor Shed: 27 crates of salt, 55 crates of flour.\n\n#1 Day 1: a delivery of salt arrived at Canal Store; the number of crates was not recorded.\n#2 Day 1: 22 crates of flour delivered to Harbor Shed.\n#3 Day 1: an inspector visited Canal Store; no goods moved.\n#4 Day 2: 24 crates of salt delivered to Harbor Shed.\n#5 Day 2: 10 crates of flour moved from Canal Store to Harbor Shed.\n#6 Day 2: 52 crates of flour shipped out from Harbor Shed.\n#7 Day 3: 10 crates of salt delivered to Harbor Shed.\n#8 Day 3: 16 crates of salt delivered to Canal Store.\n#9 Day 3: stocktake: Canal Store holds 42 crates of salt.\n#10 Day 4: 23 crates of salt delivered to Canal Store.\n#11 Day 4: 18 crates of salt delivered to Harbor Shed.\n#12 Day 5: 11 crates of flour delivered to Canal Store.\n#13 Day 5: 5 crates of salt delivered to Harbor Shed.\n#14 Day 5: a delivery of salt arrived at Harbor Shed; the number of crates was not recorded.\n#15 Day 5: stocktake: Harbor Shed holds 35 crates of flour.\n#16 Day 6: the loading crane at Harbor Shed was repaired.\n#17 Day 6: 39 crates of flour delivered to Harbor Shed.\n#18 Day 7: 8 crates of flour moved from Canal Store to Harbor Shed.\n#19 Day 7: 15 crates of salt delivered to Canal Store.\n#20 Day 7: CORRECTION to entry #19: the quantity was 26 crates, not 15 crates.\n#21 Day 7: 3 crates of salt shipped out from Harbor Shed.\n#22 Day 7: stocktake: Canal Store holds 4 crates of flour.\n\nQuestion: how many crates of salt were in Harbor Shed at the end of Day 5?\nAnswer with a whole number of crates; or CONTRADICTORY if statements in the log that bear on this number cannot all be true; or NOT DETERMINABLE if the log does not contain enough information to fix the number.",
+   "answer_format": "a whole number, or CONTRADICTORY, or NOT DETERMINABLE"
+  },
+  {
+   "id": "Q03",
+   "family": "string-trace",
+   "prompt": "A rewriting process starts from the string CBBA and uses these rules:\nRule 1: AC → CBB\nRule 2: B → ACB\nRule 3: A → (empty string)\n\nOne step: find the lowest-numbered rule whose left-hand side occurs somewhere in the current string, and replace the leftmost occurrence of that left-hand side with the rule's right-hand side. (Only one replacement is made per step.)\n\nQuestion: what is the string after exactly 3 steps?",
+   "answer_format": "the resulting string (letters only)"
+  },
+  {
+   "id": "Q04",
+   "family": "program-output",
+   "prompt": "Predict exactly what this Python 3 program prints.\n\n```python\nn = 204\nsteps = 0\npeak = n\nwhile n >= 10:\n    if n % 2 == 0:\n        n = n // 2\n    else:\n        n = 3 * n + 1\n    peak = max(peak, n)\n    steps += 1\nprint(steps, peak, n)\n```",
+   "answer_format": "exactly the one line the program prints"
+  },
+  {
+   "id": "Q05",
+   "family": "stock-log",
+   "prompt": "Read this stock log and answer the question.\n\nRules for reading the log:\n- Every entry is an accurate record, except that a CORRECTION replaces the quantity stated in the entry it names (the correction applies wherever it appears in the log).\n- Stock changes only through the deliveries, shipments and transfers recorded here.\n- Entries are in time order. A stocktake states the exact stock at the end of that day.\n\nOpening stock (start of Day 1): Canal Store: 7 crates of rope, 47 crates of soap; Mill Loft: 59 crates of rope, 51 crates of soap.\n\n#1 Day 1: 10 crates of rope delivered to Canal Store.\n#2 Day 1: 14 crates of rope moved from Canal Store to Mill Loft.\n#3 Day 2: 29 crates of soap moved from Mill Loft to Canal Store.\n#4 Day 2: 5 crates of soap delivered to Mill Loft.\n#5 Day 3: 18 crates of rope delivered to Mill Loft.\n#6 Day 3: 3 crates of rope delivered to Mill Loft.\n#7 Day 3: stocktake: Mill Loft holds 94 crates of rope.\n#8 Day 3: stocktake: Canal Store holds 76 crates of soap.\n#9 Day 4: a delivery of rope arrived at Mill Loft; the number of crates was not recorded.\n#10 Day 4: 16 crates of soap delivered to Canal Store.\n#11 Day 4: 23 crates of soap moved from Mill Loft to Canal Store.\n#12 Day 4: 28 crates of soap delivered to Mill Loft.\n#13 Day 5: 28 crates of soap moved from Mill Loft to Canal Store.\n#14 Day 5: an inspector visited Mill Loft; no goods moved.\n#15 Day 6: 96 crates of rope moved from Mill Loft to Canal Store.\n#16 Day 6: 7 crates of rope delivered to Mill Loft.\n\nQuestion: how many crates of rope were in Mill Loft at the end of Day 4?\nAnswer with a whole number of crates; or CONTRADICTORY if statements in the log that bear on this number cannot all be true; or NOT DETERMINABLE if the log does not contain enough information to fix the number.",
+   "answer_format": "a whole number, or CONTRADICTORY, or NOT DETERMINABLE"
+  },
+  {
+   "id": "Q06",
+   "family": "rule-inference",
+   "prompt": "Each line below shows an input list of integers and the output list that a hidden rule produces from it. The same rule is used on every line.\n[1, 0, 5, 6, 6, 3] → [5, 6, 6, 3, 1, 0]\n[10, 10, 5, 5, 4, 12] → [5, 5, 4, 12, 10, 10]\n[6, 8, 8, 0, 2, 4, 11, 9] → [8, 0, 2, 4, 11, 9, 6, 8]\n[8, 10, 12, 12, 5, 10, 7] → [12, 12, 5, 10, 7, 8, 10]\n[1, 4, 1, 0, 4, 3] → [1, 0, 4, 3, 1, 4]\n\nQuestion: what output does the rule produce for the input [6, 7, 6, 1, 9, 2, 0, 4]?",
+   "answer_format": "a list of integers in square brackets"
+  },
+  {
+   "id": "Q07",
+   "family": "stock-log",
+   "prompt": "Read this stock log and answer the question.\n\nRules for reading the log:\n- Every entry is an accurate record, except that a CORRECTION replaces the quantity stated in the entry it names (the correction applies wherever it appears in the log).\n- Stock changes only through the deliveries, shipments and transfers recorded here.\n- Entries are in time order. A stocktake states the exact stock at the end of that day.\n- Harbor Shed is also referred to as Unit 12.\n\nOpening stock (start of Day 1): Canal Store: 13 crates of flour, 30 crates of salt, 10 crates of soap; Harbor Shed: 24 crates of flour, 45 crates of salt, 7 crates of soap; Mill Loft: 44 crates of flour, 41 crates of salt, 33 crates of soap.\n\n#1 Day 1: 3 crates of flour moved from Canal Store to Harbor Shed.\n#2 Day 1: 4 crates of flour delivered to Unit 12.\n#3 Day 1: 20 crates of soap delivered to Harbor Shed.\n#4 Day 1: 24 crates of flour delivered to Mill Loft.\n#5 Day 2: 34 crates of flour delivered to Mill Loft.\n#6 Day 2: 16 crates of salt delivered to Harbor Shed.\n#7 Day 2: 27 crates of salt moved from Canal Store to Mill Loft.\n#8 Day 2: stocktake: Unit 12 holds 31 crates of flour.\n#9 Day 3: 33 crates of salt moved from Mill Loft to Canal Store.\n#10 Day 3: a delivery of salt arrived at Canal Store; the number of crates was not recorded.\n#11 Day 3: 7 crates of flour delivered to Harbor Shed.\n#12 Day 3: 20 crates of soap delivered to Mill Loft.\n#13 Day 3: 6 crates of flour moved from Unit 12 to Mill Loft.\n#14 Day 4: the gate lock at Unit 12 was replaced.\n#15 Day 4: 1 crate of flour shipped out from Canal Store.\n#16 Day 4: CORRECTION to entry #11: the quantity was 14 crates, not 7 crates.\n#17 Day 4: 12 crates of soap shipped out from Mill Loft.\n#18 Day 4: 31 crates of soap delivered to Harbor Shed.\n#19 Day 5: 25 crates of salt delivered to Mill Loft.\n#20 Day 5: 5 crates of salt moved from Canal Store to Harbor Shed.\n#21 Day 5: stocktake: Mill Loft holds 41 crates of soap.\n#22 Day 6: 37 crates of flour delivered to Harbor Shed.\n#23 Day 6: 21 crates of salt shipped out from Mill Loft.\n#24 Day 6: a delivery of salt arrived at Canal Store; the number of crates was not recorded.\n#25 Day 6: stocktake: Harbor Shed holds 66 crates of salt.\n#26 Day 7: the loading crane at Harbor Shed was repaired.\n#27 Day 7: Canal Store was closed for half a day for cleaning.\n#28 Day 7: the gate lock at Canal Store was replaced.\n#29 Day 8: 31 crates of salt delivered to Canal Store.\n#30 Day 8: 15 crates of salt moved from Unit 12 to Canal Store.\n#31 Day 8: 60 crates of salt delivered to Canal Store.\n#32 Day 8: 50 crates of salt shipped out from Harbor Shed.\n#33 Day 8: CORRECTION to entry #31: the quantity was 40 crates, not 60 crates.\n#34 Day 8: stocktake: Canal Store holds 10 crates of soap.\n\nQuestion: how many crates of flour were in Mill Loft at the end of Day 5?\nAnswer with a whole number of crates; or CONTRADICTORY if statements in the log that bear on this number cannot all be true; or NOT DETERMINABLE if the log does not contain enough information to fix the number.",
+   "answer_format": "a whole number, or CONTRADICTORY, or NOT DETERMINABLE"
+  },
+  {
+   "id": "Q08",
+   "family": "string-trace",
+   "prompt": "A rewriting process starts from the string CCABCCB and uses these rules:\nRule 1: CC → C\nRule 2: CA → A\nRule 3: C → BC\nRule 4: B → A\n\nOne step: find the lowest-numbered rule whose left-hand side occurs somewhere in the current string, and replace the leftmost occurrence of that left-hand side with the rule's right-hand side. (Only one replacement is made per step.)\n\nQuestion: what is the string after exactly 10 steps?",
+   "answer_format": "the resulting string (letters only)"
+  },
+  {
+   "id": "Q09",
+   "family": "program-output",
+   "prompt": "Predict exactly what this Python 3 program prints.\n\n```python\nword = \"fazujmki\"\nout = \"\"\nfor ch in word:\n    if ch in \"aeiou\":\n        out = ch + out\n    else:\n        out = out + ch\nprint(out)\n```",
+   "answer_format": "exactly the one line the program prints"
+  },
+  {
+   "id": "Q10",
+   "family": "stock-log",
+   "prompt": "Read this stock log and answer the question.\n\nRules for reading the log:\n- Every entry is an accurate record, except that a CORRECTION replaces the quantity stated in the entry it names (the correction applies wherever it appears in the log).\n- Stock changes only through the deliveries, shipments and transfers recorded here.\n- Entries are in time order. A stocktake states the exact stock at the end of that day.\n\nOpening stock (start of Day 1): North Yard: 25 crates of tea, 16 crates of flour; Harbor Shed: 18 crates of tea, 18 crates of flour.\n\n#1 Day 1: 24 crates of tea delivered to Harbor Shed.\n#2 Day 1: 26 crates of tea delivered to Harbor Shed.\n#3 Day 1: 8 crates of flour moved from North Yard to Harbor Shed.\n#4 Day 1: stocktake: North Yard holds 25 crates of tea.\n#5 Day 2: 16 crates of tea delivered to Harbor Shed.\n#6 Day 3: the gate lock at Harbor Shed was replaced.\n#7 Day 3: stocktake: Harbor Shed holds 22 crates of flour.\n#8 Day 4: 4 crates of tea delivered to Harbor Shed.\n#9 Day 5: 4 crates of flour moved from North Yard to Harbor Shed.\n#10 Day 6: 3 crates of flour shipped out from North Yard.\n#11 Day 6: 19 crates of flour moved from Harbor Shed to North Yard.\n#12 Day 6: a delivery of flour arrived at Harbor Shed; the number of crates was not recorded.\n#13 Day 6: 9 crates of tea moved from North Yard to Harbor Shed.\n\nQuestion: how many crates of flour were in Harbor Shed at the end of Day 3?\nAnswer with a whole number of crates; or CONTRADICTORY if statements in the log that bear on this number cannot all be true; or NOT DETERMINABLE if the log does not contain enough information to fix the number.",
+   "answer_format": "a whole number, or CONTRADICTORY, or NOT DETERMINABLE"
+  },
+  {
+   "id": "Q11",
+   "family": "logic-grid",
+   "prompt": "3 people live in a row of 3 houses, numbered 1 to 3 from left to right. Each person has a different name and a different pet. The possible values are: names: Ada, Dov, Hana; pets: hare, newt, owl. \"Directly to the left of\" means in the house numbered one lower; \"next to\" means in an adjacent house.\n\nClues:\n1. Dov lives directly to the left of the hare owner.\n2. Hana lives in house 2.\n3. The hare owner lives next to Ada.\n4. The hare owner is not Dov.\n5. Ada does not own the hare.\n6. Ada owns the owl.\n7. Ada lives next to the hare owner.\n\nQuestion: list the names in house order, from house 1 to house 3.",
+   "answer_format": "the 3 names separated by commas, in house order 1 to 3"
+  },
+  {
+   "id": "Q12",
+   "family": "program-output",
+   "prompt": "Predict exactly what this Python 3 program prints.\n\n```python\na = list(range(1, 11 + 1))\nfor k in range(2, 5):\n    for i in range(0, len(a), k):\n        a[i], a[-1 - i] = a[-1 - i], a[i]\n    a = a[1:] + a[:1]\nprint(a)\n```",
+   "answer_format": "exactly the one line the program prints"
+  },
+  {
+   "id": "Q13",
+   "family": "stock-log",
+   "prompt": "Read this stock log and answer the question.\n\nRules for reading the log:\n- Every entry is an accurate record, except that a CORRECTION replaces the quantity stated in the entry it names (the correction applies wherever it appears in the log).\n- Stock changes only through the deliveries, shipments and transfers recorded here.\n- Entries are in time order. A stocktake states the exact stock at the end of that day.\n\nOpening stock (start of Day 1): Harbor Shed: 31 crates of soap, 37 crates of salt; Canal Store: 49 crates of soap, 56 crates of salt.\n\n#1 Day 1: 18 crates of salt moved from Harbor Shed to Canal Store.\n#2 Day 1: 8 crates of salt moved from Harbor Shed to Canal Store.\n#3 Day 1: 14 crates of soap moved from Harbor Shed to Canal Store.\n#4 Day 2: 33 crates of salt delivered to Harbor Shed.\n#5 Day 2: 34 crates of salt delivered to Harbor Shed.\n#6 Day 2: 5 crates of salt delivered to Canal Store.\n#7 Day 2: a delivery of salt arrived at Harbor Shed; the number of crates was not recorded.\n#8 Day 2: stocktake: Canal Store holds 87 crates of salt.\n#9 Day 2: stocktake: Harbor Shed holds 86 crates of salt.\n#10 Day 3: 9 crates of soap delivered to Canal Store.\n#11 Day 3: the gate lock at Canal Store was replaced.\n#12 Day 4: 22 crates of soap delivered to Harbor Shed.\n#13 Day 4: the loading crane at Canal Store was repaired.\n#14 Day 4: a delivery of salt arrived at Harbor Shed; the number of crates was not recorded.\n#15 Day 5: 35 crates of soap shipped out from Harbor Shed.\n#16 Day 5: 3 crates of soap moved from Harbor Shed to Canal Store.\n#17 Day 6: 19 crates of salt delivered to Canal Store.\n#18 Day 6: 58 crates of soap moved from Canal Store to Harbor Shed.\n#19 Day 6: stocktake: Harbor Shed holds 57 crates of soap.\n#20 Day 7: 35 crates of salt moved from Harbor Shed to Canal Store.\n#21 Day 7: 56 crates of salt shipped out from Canal Store.\n#22 Day 7: CORRECTION to entry #12: the quantity was 32 crates, not 22 crates.\n\nQuestion: how many crates of soap were in Harbor Shed at the end of Day 6?\nAnswer with a whole number of crates; or CONTRADICTORY if statements in the log that bear on this number cannot all be true; or NOT DETERMINABLE if the log does not contain enough information to fix the number.",
+   "answer_format": "a whole number, or CONTRADICTORY, or NOT DETERMINABLE"
+  },
+  {
+   "id": "Q14",
+   "family": "stock-log",
+   "prompt": "Read this stock log and answer the question.\n\nRules for reading the log:\n- Every entry is an accurate record, except that a CORRECTION replaces the quantity stated in the entry it names (the correction applies wherever it appears in the log).\n- Stock changes only through the deliveries, shipments and transfers recorded here.\n- Entries are in time order. A stocktake states the exact stock at the end of that day.\n- One pallet holds exactly 12 crates.\n- North Yard is also referred to as Unit 12.\n\nOpening stock (start of Day 1): Mill Loft: 15 crates of lamp oil, 0 crates of soap, 15 crates of copper wire; North Yard: 9 crates of lamp oil, 54 crates of soap, 28 crates of copper wire; Canal Store: 0 crates of lamp oil, 53 crates of soap, 46 crates of copper wire.\n\n#1 Day 1: 35 crates of lamp oil delivered to Canal Store.\n#2 Day 1: 25 crates of soap shipped out from North Yard.\n#3 Day 1: 11 crates of lamp oil moved from Mill Loft to North Yard.\n#4 Day 1: the loading crane at Mill Loft was repaired.\n#5 Day 2: 14 crates of copper wire delivered to Unit 12.\n#6 Day 2: Mill Loft was closed for half a day for cleaning.\n#7 Day 2: 11 crates of lamp oil moved from Unit 12 to Canal Store.\n#8 Day 3: 26 crates of soap delivered to North Yard.\n#9 Day 3: 7 crates of copper wire moved from Mill Loft to Canal Store.\n#10 Day 3: 20 crates of lamp oil delivered to Mill Loft.\n#11 Day 3: 14 crates of soap delivered to Mill Loft.\n#12 Day 4: 1 pallet of soap delivered to Canal Store.\n#13 Day 4: 4 pallets of lamp oil delivered to Mill Loft.\n#14 Day 4: 36 crates of copper wire delivered to Mill Loft.\n#15 Day 4: a delivery of lamp oil arrived at Canal Store; the number of crates was not recorded.\n#16 Day 4: 31 crates of copper wire shipped out from North Yard.\n#17 Day 4: stocktake: Unit 12 holds 55 crates of soap.\n#18 Day 5: 38 crates of lamp oil moved from Canal Store to North Yard.\n#19 Day 5: 34 crates of lamp oil shipped out from Mill Loft.\n#20 Day 5: 34 crates of lamp oil delivered to North Yard.\n#21 Day 6: 37 crates of copper wire moved from Mill Loft to Canal Store.\n#22 Day 6: 6 crates of lamp oil delivered to Unit 12.\n#23 Day 6: 56 crates of lamp oil delivered to Canal Store.\n#24 Day 7: 3 pallets of lamp oil delivered to North Yard.\n#25 Day 7: 28 crates of soap delivered to North Yard.\n#26 Day 7: an inspector visited Mill Loft; no goods moved.\n#27 Day 7: 6 crates of soap moved from Mill Loft to Canal Store.\n#28 Day 7: stocktake: Canal Store holds 83 crates of soap.\n#29 Day 8: the loading crane at Mill Loft was repaired.\n#30 Day 8: 23 crates of soap shipped out from North Yard.\n#31 Day 8: CORRECTION to entry #12: the quantity was 2 pallets, not 1 pallet.\n#32 Day 8: 4 pallets of lamp oil delivered to Canal Store.\n#33 Day 8: 17 crates of lamp oil delivered to North Yard.\n#34 Day 8: stocktake: Mill Loft holds 3 crates of copper wire.\n#35 Day 8: stocktake: Unit 12 holds 11 crates of copper wire.\n#36 Day 9: 21 crates of lamp oil delivered to Mill Loft.\n#37 Day 9: a delivery of soap arrived at Unit 12; the number of crates was not recorded.\n#38 Day 9: 113 crates of lamp oil moved from Canal Store to Mill Loft.\n#39 Day 9: 29 crates of soap delivered to North Yard.\n#40 Day 9: 4 pallets of copper wire delivered to Mill Loft.\n#41 Day 9: CORRECTION to entry #23: the quantity was 38 crates, not 56 crates.\n#42 Day 9: stocktake: Mill Loft holds 172 crates of lamp oil.\n\nQuestion: how many crates of copper wire were in Mill Loft at the end of Day 8?\nAnswer with a whole number of crates; or CONTRADICTORY if statements in the log that bear on this number cannot all be true; or NOT DETERMINABLE if the log does not contain enough information to fix the number.",
+   "answer_format": "a whole number, or CONTRADICTORY, or NOT DETERMINABLE"
+  },
+  {
+   "id": "Q15",
+   "family": "exact-computation",
+   "prompt": "Compute 25334 × 4367.",
+   "answer_format": "a single integer (digits only)"
+  },
+  {
+   "id": "Q16",
+   "family": "program-output",
+   "prompt": "Predict exactly what this Python 3 program prints.\n\n```python\ncells = [1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0]\nfor step in range(5):\n    cells = [cells[i - 1] ^ cells[(i + 1) % 11] ^ (cells[i] & cells[i - 1]) for i in range(11)]\nprint(\"\".join(str(c) for c in cells))\n```",
+   "answer_format": "exactly the one line the program prints"
+  },
+  {
+   "id": "Q17",
+   "family": "logic-grid",
+   "prompt": "5 people live in a row of 5 houses, numbered 1 to 5 from left to right. Each person has a different name, a different drink, a different pet and a house of a different colour. The possible values are: names: Bram, Cleo, Dov, Esme, Fitz; drinks: cider, cocoa, coffee, kefir, water; pets: crow, dog, goat, hare, newt; colours: blue, grey, red, white, yellow. \"Directly to the left of\" means in the house numbered one lower; \"next to\" means in an adjacent house.\n\nClues:\n1. Bram does not live next to the cocoa drinker.\n2. The dog owner does not live in house 1.\n3. The resident of the blue house owns the newt.\n4. The water drinker lives in one of the two end houses.\n5. The resident of the grey house does not live next to the resident of the yellow house.\n6. Bram lives next to the resident of the red house.\n7. Cleo lives next to the cocoa drinker.\n8. The kefir drinker is not Dov.\n9. The hare owner does not live in house 3.\n10. The resident of the grey house lives somewhere to the left of the kefir drinker.\n11. The resident of the white house lives somewhere to the left of the newt owner.\n12. Esme owns the dog.\n13. The hare owner does not live in house 1.\n14. The kefir drinker lives next to the cider drinker.\n15. The coffee drinker lives somewhere to the left of the cocoa drinker.\n16. The kefir drinker does not live next to the hare owner.\n17. The resident of the grey house lives directly to the left of the goat owner.\n18. The kefir drinker lives in one of the two end houses.\n19. The dog owner does not live next to Cleo.\n20. Bram does not live in house 5.\n\nQuestion: list the names in house order, from house 1 to house 5.",
+   "answer_format": "the 5 names separated by commas, in house order 1 to 5"
+  },
+  {
+   "id": "Q18",
+   "family": "string-trace",
+   "prompt": "Start with the string ewhsa. Apply the following operations in order. Positions are numbered from 1 at the left. Rotating left by one step moves the first letter to the end; rotating right by one step moves the last letter to the front.\n1. Rotate left by 3 steps.\n2. Reverse the letters in positions 1 through 2.\n3. Reverse the letters in positions 2 through 3.\n\nQuestion: what is the final string?",
+   "answer_format": "the final string (letters only)"
+  },
+  {
+   "id": "Q19",
+   "family": "rule-inference",
+   "prompt": "Each line below shows an input list of integers and the output list that a hidden rule produces from it. The same rule is used on every line.\n[5, 6, 5, 3, 5, 4, 3] → [11, 12, 12, 12, 12, 12, 11]\n[4, 5, 3, 11, 4, 6, 12, 6] → [9, 10, 16, 22, 22, 23, 24, 16]\n[4, 6, 10, 9, 2, 12, 3] → [10, 16, 20, 20, 22, 24, 16]\n[8, 4, 10, 0, 8, 6, 0] → [16, 18, 20, 20, 20, 20, 18]\n[8, 6, 6, 5, 8, 4, 5] → [16, 16, 16, 16, 16, 16, 16]\n[9, 0, 9, 0, 4, 4, 9] → [18, 18, 18, 18, 18, 18, 18]\n\nQuestion: what output does the rule produce for the input [0, 7, 3, 2, 0]?",
+   "answer_format": "a list of integers in square brackets"
+  },
+  {
+   "id": "Q20",
+   "family": "string-trace",
+   "prompt": "Start with the string ovzefldj. Apply the following operations in order. Positions are numbered from 1 at the left. Rotating left by one step moves the first letter to the end; rotating right by one step moves the last letter to the front.\n1. Swap the letters in positions 6 and 8.\n2. Reverse the letters in positions 2 through 6.\n3. Swap the letters l and z (wherever they currently are).\n4. Reverse the letters in positions 2 through 6.\n5. Reverse the letters in positions 5 through 6.\n6. Remove the letter in position 2 and reinsert it so that it ends up in position 6.\n7. Rotate left by 3 steps.\n8. Remove the letter in position 3 and reinsert it so that it ends up in position 8.\n9. Rotate right by 3 steps.\n10. Reverse the letters in positions 2 through 8.\n\nQuestion: what is the final string?",
+   "answer_format": "the final string (letters only)"
+  },
+  {
+   "id": "Q21",
+   "family": "stock-log",
+   "prompt": "Read this stock log and answer the question.\n\nRules for reading the log:\n- Every entry is an accurate record, except that a CORRECTION replaces the quantity stated in the entry it names (the correction applies wherever it appears in the log).\n- Stock changes only through the deliveries, shipments and transfers recorded here.\n- Entries are in time order. A stocktake states the exact stock at the end of that day.\n- Mill Loft is also referred to as Unit 12.\n\nOpening stock (start of Day 1): Canal Store: 6 crates of tea, 43 crates of salt, 57 crates of copper wire; Mill Loft: 32 crates of tea, 58 crates of salt, 17 crates of copper wire; East Depot: 35 crates of tea, 7 crates of salt, 23 crates of copper wire.\n\n#1 Day 1: 2 crates of copper wire shipped out from Canal Store.\n#2 Day 1: 2 crates of tea moved from Canal Store to Unit 12.\n#3 Day 2: 58 crates of salt shipped out from Unit 12.\n#4 Day 2: 7 crates of salt shipped out from Mill Loft.\n#5 Day 2: 1 crate of salt shipped out from East Depot.\n#6 Day 2: stocktake: East Depot holds 35 crates of tea.\n#7 Day 3: 6 crates of tea moved from Unit 12 to East Depot.\n#8 Day 3: 5 crates of salt delivered to East Depot.\n#9 Day 4: a delivery of salt arrived at Unit 12; the number of crates was not recorded.\n#10 Day 4: 15 crates of copper wire delivered to Unit 12.\n#11 Day 4: a delivery of tea arrived at Canal Store; the number of crates was not recorded.\n#12 Day 4: 6 crates of salt delivered to Mill Loft.\n#13 Day 4: stocktake: Canal Store holds 43 crates of salt.\n#14 Day 5: 8 crates of tea shipped out from Canal Store.\n#15 Day 5: 6 crates of copper wire delivered to Mill Loft.\n#16 Day 5: 8 crates of salt moved from Canal Store to East Depot.\n#17 Day 5: 30 crates of copper wire delivered to East Depot.\n#18 Day 6: Canal Store was closed for half a day for cleaning.\n#19 Day 6: 45 crates of copper wire moved from Canal Store to Mill Loft.\n#20 Day 6: 11 crates of tea delivered to Canal Store.\n#21 Day 6: 1 crate of salt moved from East Depot to Mill Loft.\n#22 Day 7: 30 crates of copper wire moved from East Depot to Canal Store.\n#23 Day 7: 27 crates of copper wire moved from East Depot to Canal Store.\n#24 Day 7: CORRECTION to entry #23: the quantity was 21 crates, not 27 crates.\n#25 Day 7: stocktake: East Depot holds 41 crates of tea.\n#26 Day 8: 38 crates of salt delivered to Unit 12.\n#27 Day 8: CORRECTION to entry #3: the quantity was 49 crates, not 58 crates.\n#28 Day 8: 14 crates of tea moved from East Depot to Canal Store.\n#29 Day 8: 13 crates of copper wire shipped out from Canal Store.\n#30 Day 8: 18 crates of copper wire delivered to Mill Loft.\n#31 Day 8: stocktake: Mill Loft holds 28 crates of tea.\n\nQuestion: how many crates of salt were in Mill Loft at the end of Day 5?\nAnswer with a whole number of crates; or CONTRADICTORY if statements in the log that bear on this number cannot all be true; or NOT DETERMINABLE if the log does not contain enough information to fix the number.",
+   "answer_format": "a whole number, or CONTRADICTORY, or NOT DETERMINABLE"
+  },
+  {
+   "id": "Q22",
+   "family": "program-output",
+   "prompt": "Predict exactly what this Python 3 program prints.\n\n```python\na, b, c = 18, 6, 2\nwhile a > 0:\n    if (a + b) % 3 == 0:\n        b = b * 2 - c\n        a = a - 2\n    elif b % 3 == 0:\n        c = c + a\n        a = a - 1\n    else:\n        b = b + 2\n        c = c - 1\n        a = a - 1\nprint(a, b, c)\n```",
+   "answer_format": "exactly the one line the program prints"
+  },
+  {
+   "id": "Q23",
+   "family": "rule-inference",
+   "prompt": "Each line below shows an input list of integers and the output list that a hidden rule produces from it. The same rule is used on every line.\n[1, 0, 11, 9, 11] → [1, 0, 11, 9]\n[1, 3, 1, 3, 1, 8, 3, 10] → [1, 3, 1, 3, 1, 8, 3]\n[0, 8, 1, 9, 4, 2, 6, 5] → [0, 8, 1, 9, 4, 2, 6]\n[5, 9, 12, 5, 5, 7, 7] → [5, 9, 12, 5, 5, 7]\n[9, 3, 4, 12, 10, 0, 11, 0] → [9, 3, 4, 12, 10, 0, 11]\n\nQuestion: what output does the rule produce for the input [10, 7, 1, 1, 6]?",
+   "answer_format": "a list of integers in square brackets"
+  },
+  {
+   "id": "Q24",
+   "family": "rule-inference",
+   "prompt": "Each line below shows an input list of integers and the output list that a hidden rule produces from it. The same rule is used on every line.\n[6, 6, 9, 9, 12, 3, 7, 0] → [0, 3, 0, -6, 9, -12, 7]\n[8, 11, 2, 4, 0, 1, 0, 5] → [-3, -4, -2, -1, -1, 5, -5]\n[10, 1, 11, 11, 12, 8, 8] → [9, 1, 0, -3, 4, -4]\n[0, 1, 10, 6, 4] → [-1, 6, 4, -6]\n[7, 12, 0, 3, 11, 5, 10] → [-5, -4, -3, 5, 6, -1]\n[9, 5, 2, 7, 9, 12, 5] → [4, -2, -5, 10, -3, -4]\n\nQuestion: what output does the rule produce for the input [5, 9, 9, 2, 0, 7, 4]?",
+   "answer_format": "a list of integers in square brackets"
+  },
+  {
+   "id": "Q25",
+   "family": "stock-log",
+   "prompt": "Read this stock log and answer the question.\n\nRules for reading the log:\n- Every entry is an accurate record, except that a CORRECTION replaces the quantity stated in the entry it names (the correction applies wherever it appears in the log).\n- Stock changes only through the deliveries, shipments and transfers recorded here.\n- Entries are in time order. A stocktake states the exact stock at the end of that day.\n- One pallet holds exactly 12 crates.\n- East Depot is also referred to as Store B.\n\nOpening stock (start of Day 1): Harbor Shed: 25 crates of rope, 24 crates of salt, 11 crates of soap; Bell Barn: 29 crates of rope, 24 crates of salt, 5 crates of soap; East Depot: 39 crates of rope, 40 crates of salt, 52 crates of soap.\n\n#1 Day 1: 35 crates of rope delivered to Bell Barn.\n#2 Day 1: 39 crates of soap delivered to Harbor Shed.\n#3 Day 1: 40 crates of soap delivered to Bell Barn.\n#4 Day 1: 9 crates of salt delivered to Store B.\n#5 Day 2: the gate lock at Bell Barn was replaced.\n#6 Day 2: 10 crates of rope moved from East Depot to Bell Barn.\n#7 Day 2: 10 crates of salt shipped out from Harbor Shed.\n#8 Day 2: stocktake: East Depot holds 29 crates of rope.\n#9 Day 3: a delivery of salt arrived at Harbor Shed; the number of crates was not recorded.\n#10 Day 3: 22 crates of soap moved from Harbor Shed to East Depot.\n#11 Day 3: 2 pallets of salt delivered to Harbor Shed.\n#12 Day 3: 16 crates of salt moved from Bell Barn to Harbor Shed.\n#13 Day 3: 16 crates of soap delivered to Bell Barn.\n#14 Day 3: stocktake: Store B holds 29 crates of rope.\n#15 Day 4: 1 crate of soap shipped out from Harbor Shed.\n#16 Day 4: the loading crane at East Depot was repaired.\n#17 Day 4: 18 crates of rope moved from Bell Barn to East Depot.\n#18 Day 4: stocktake: Bell Barn holds 8 crates of salt.\n#19 Day 5: a delivery of soap arrived at Harbor Shed; the number of crates was not recorded.\n#20 Day 5: 1 pallet of salt delivered to Harbor Shed.\n#21 Day 5: 1 pallet of salt delivered to Harbor Shed.\n#22 Day 5: the gate lock at Bell Barn was replaced.\n#23 Day 5: stocktake: Bell Barn holds 56 crates of rope.\n#24 Day 6: 3 pallets of rope delivered to Bell Barn.\n#25 Day 6: the loading crane at Harbor Shed was repaired.\n#26 Day 6: 13 crates of rope delivered to Bell Barn.\n#27 Day 7: 2 pallets of rope delivered to Bell Barn.\n#28 Day 7: CORRECTION to entry #26: the quantity was 17 crates, not 13 crates.\n#29 Day 7: 17 crates of soap delivered to Bell Barn.\n#30 Day 7: the loading crane at Store B was repaired.\n#31 Day 7: 4 pallets of salt delivered to Store B.\n#32 Day 8: 34 crates of rope moved from Bell Barn to East Depot.\n#33 Day 8: 24 crates of rope delivered to East Depot.\n#34 Day 8: an inspector visited Store B; no goods moved.\n#35 Day 8: stocktake: Harbor Shed holds 41 crates of soap.\n#36 Day 9: 44 crates of soap moved from East Depot to Bell Barn.\n#37 Day 9: 67 crates of salt moved from Store B to Harbor Shed.\n#38 Day 9: 10 crates of soap shipped out from Bell Barn.\n#39 Day 9: CORRECTION to entry #38: the quantity was 7 crates, not 10 crates.\n\nQuestion: how many crates of rope were in Harbor Shed at the end of Day 5?\nAnswer with a whole number of crates; or CONTRADICTORY if statements in the log that bear on this number cannot all be true; or NOT DETERMINABLE if the log does not contain enough information to fix the number.",
+   "answer_format": "a whole number, or CONTRADICTORY, or NOT DETERMINABLE"
+  },
+  {
+   "id": "Q26",
+   "family": "exact-computation",
+   "prompt": "Compute 311 × 863.",
+   "answer_format": "a single integer (digits only)"
+  },
+  {
+   "id": "Q27",
+   "family": "program-output",
+   "prompt": "Predict exactly what this Python 3 program prints.\n\n```python\nx = 23\nqueue = []\nscore = 0\nfor t in range(17):\n    x = (22 * x + 12) % 97\n    if x % 3 == 0:\n        queue.append(x)\n    elif queue:\n        score += queue.pop(0) * (t % 4 + 1)\n    else:\n        score -= 1\nprint(score, len(queue), x)\n```",
+   "answer_format": "exactly the one line the program prints"
+  },
+  {
+   "id": "Q28",
+   "family": "logic-grid",
+   "prompt": "4 people live in a row of 4 houses, numbered 1 to 4 from left to right. Each person has a different name, a different pet and a different drink. The possible values are: names: Ada, Bram, Dov, Fitz; pets: cat, dog, goat, newt; drinks: coffee, kefir, milk, water. \"Directly to the left of\" means in the house numbered one lower; \"next to\" means in an adjacent house.\n\nClues:\n1. The goat owner lives in house 2.\n2. Bram lives in house 4.\n3. The milk drinker lives in house 4.\n4. The dog owner drinks water.\n5. The kefir drinker lives directly to the left of the dog owner.\n6. Ada does not own the dog.\n7. The newt owner lives directly to the left of Dov.\n\nQuestion: list the drinks in house order, from house 1 to house 4.",
+   "answer_format": "the 4 drinks separated by commas, in house order 1 to 4"
+  },
+  {
+   "id": "Q29",
+   "family": "string-trace",
+   "prompt": "Start with the string fgomjkrdswui. Apply the following operations in order. Positions are numbered from 1 at the left. Rotating left by one step moves the first letter to the end; rotating right by one step moves the last letter to the front.\n1. Rotate left by 1 step.\n2. Rotate left by 4 steps.\n3. Reverse the letters in positions 8 through 9.\n4. Reverse the letters in positions 3 through 6.\n5. Swap the letters g and d (wherever they currently are).\n6. Reverse the letters in positions 1 through 11.\n7. Swap the letters u and r (wherever they currently are).\n8. Remove the letter in position 12 and reinsert it so that it ends up in position 11.\n9. Reverse the letters in positions 4 through 7.\n10. Rotate right by 3 steps.\n11. Rotate right by 4 steps.\n12. Swap the letters m and d (wherever they currently are).\n13. Swap the letters in positions 5 and 11.\n14. Swap the letters k and d (wherever they currently are).\n15. Rotate left by 4 steps.\n16. Reverse the letters in positions 5 through 11.\n17. Rotate left by 3 steps.\n18. Rotate left by 1 step.\n19. Reverse the letters in positions 1 through 9.\n20. Reverse the letters in positions 6 through 9.\n21. Remove the letter in position 6 and reinsert it so that it ends up in position 12.\n22. Swap the letters in positions 12 and 10.\n23. Reverse the letters in positions 1 through 5.\n24. Swap the letters in positions 4 and 2.\n25. Remove the letter in position 11 and reinsert it so that it ends up in position 4.\n26. Swap the letters s and d (wherever they currently are).\n\nQuestion: what is the final string?",
+   "answer_format": "the final string (letters only)"
+  },
+  {
+   "id": "Q30",
+   "family": "logic-grid",
+   "prompt": "4 people live in a row of 4 houses, numbered 1 to 4 from left to right. Each person has a different name and a house of a different colour. The possible values are: names: Bram, Fitz, Hana, Ivo; colours: black, green, white, yellow. \"Directly to the left of\" means in the house numbered one lower; \"next to\" means in an adjacent house.\n\nClues:\n1. The resident of the black house lives in house 2.\n2. The resident of the white house lives in house 4.\n3. Bram does not live in the green house.\n4. Bram does not live in the yellow house.\n5. Fitz does not live in house 1.\n6. The resident of the yellow house does not live in house 1.\n7. Ivo lives in the black house.\n\nQuestion: list the names in house order, from house 1 to house 4.",
+   "answer_format": "the 4 names separated by commas, in house order 1 to 4"
+  },
+  {
+   "id": "Q31",
+   "family": "program-output",
+   "prompt": "Predict exactly what this Python 3 program prints.\n\n```python\ntotal = 0\nfor i in range(1, 13):\n    if i % 2 == 0:\n        total += i * 5\n    else:\n        total -= 1\nprint(total)\n```",
+   "answer_format": "exactly the one line the program prints"
+  },
+  {
+   "id": "Q32",
+   "family": "logic-grid",
+   "prompt": "5 people live in a row of 5 houses, numbered 1 to 5 from left to right. Each person has a different name, a house of a different colour and a different pet. The possible values are: names: Ada, Bram, Cleo, Dov, Gus; colours: black, grey, orange, red, white; pets: cat, crow, goat, newt, owl. \"Directly to the left of\" means in the house numbered one lower; \"next to\" means in an adjacent house.\n\nClues:\n1. The cat owner is Gus.\n2. The owl owner does not live next to Ada.\n3. The resident of the grey house does not live next to the resident of the white house.\n4. The cat owner does not live in house 5.\n5. The owl owner does not live in house 4.\n6. Dov lives in one of the two end houses.\n7. Bram lives somewhere to the left of Ada.\n8. The resident of the black house does not live next to Ada.\n9. The resident of the white house lives in one of the two end houses.\n10. The crow owner does not live in the grey house.\n11. The newt owner lives somewhere to the left of Cleo.\n12. The owl owner does not live next to the resident of the white house.\n13. The resident of the grey house lives somewhere to the left of Ada.\n14. The goat owner lives next to Ada.\n15. The resident of the grey house does not live next to Bram.\n16. The newt owner lives in one of the two end houses.\n17. The resident of the orange house is Dov.\n18. The resident of the grey house does not live in house 2.\n\nQuestion: list the names in house order, from house 1 to house 5.",
+   "answer_format": "the 5 names separated by commas, in house order 1 to 5"
+  },
+  {
+   "id": "Q33",
+   "family": "rule-inference",
+   "prompt": "Each line below shows an input list of integers and the output list that a hidden rule produces from it. The same rule is used on every line.\n[0, 3, 9, 8, 7, 4, 5, 12] → [3, 6, 12, 11, 10, 7, 8]\n[9, 8, 3, 8, 6, 3, 2] → [12, 11, 6, 11, 9, 6]\n[8, 2, 9, 2, 6, 1] → [11, 5, 12, 5, 9]\n[2, 1, 12, 0, 5] → [5, 4, 15, 3]\n[7, 12, 3, 10, 0, 4, 8, 12] → [10, 15, 6, 13, 3, 7, 11]\n\nQuestion: what output does the rule produce for the input [2, 9, 11, 10, 12]?",
+   "answer_format": "a list of integers in square brackets"
+  },
+  {
+   "id": "Q34",
+   "family": "string-trace",
+   "prompt": "Start with the string lacusydorp. Apply the following operations in order. Positions are numbered from 1 at the left. Rotating left by one step moves the first letter to the end; rotating right by one step moves the last letter to the front.\n1. Rotate right by 1 step.\n2. Rotate left by 4 steps.\n3. Rotate left by 3 steps.\n4. Swap the letters u and o (wherever they currently are).\n5. Swap the letters u and p (wherever they currently are).\n6. Remove the letter in position 2 and reinsert it so that it ends up in position 8.\n7. Swap the letters d and r (wherever they currently are).\n8. Rotate left by 4 steps.\n9. Remove the letter in position 10 and reinsert it so that it ends up in position 7.\n10. Rotate left by 4 steps.\n11. Swap the letters d and u (wherever they currently are).\n12. Reverse the letters in positions 4 through 6.\n13. Swap the letters in positions 10 and 1.\n14. Swap the letters o and r (wherever they currently are).\n15. Rotate left by 3 steps.\n16. Reverse the letters in positions 7 through 8.\n\nQuestion: what is the final string?",
+   "answer_format": "the final string (letters only)"
+  },
+  {
+   "id": "Q35",
+   "family": "exact-computation",
+   "prompt": "Compute the greatest common divisor of 10286 and 9472.",
+   "answer_format": "a single integer (digits only)"
+  },
+  {
+   "id": "Q36",
+   "family": "exact-computation",
+   "prompt": "A path goes from (0,0) to (10,10) using unit steps, each of which increases either the x-coordinate or the y-coordinate by 1, and it never visits a point with y > x. How many such paths pass through none of the points (2,1), (5,3), (7,4), (10,7)?",
+   "answer_format": "a single integer (digits only)"
+  },
+  {
+   "id": "Q37",
+   "family": "rule-inference",
+   "prompt": "Each line below shows an input list of integers and the output list that a hidden rule produces from it. The same rule is used on every line.\n[2, 4, 2, 4, 11] → [16, 121, 4]\n[7, 7, 2, 7, 6, 5, 12] → [4, 36, 25, 144, 49]\n[8, 10, 5, 0, 8, 8, 9] → [100, 25, 0, 81, 64]\n[7, 11, 12, 2, 12, 7, 9] → [121, 144, 4, 81, 49]\n[9, 11, 8, 6, 4, 9, 3, 8] → [121, 64, 36, 16, 9, 81]\n[0, 9, 7, 12, 4, 10, 2] → [81, 49, 144, 16, 100, 4, 0]\n\nQuestion: what output does the rule produce for the input [4, 1, 11, 5, 2, 12]?",
+   "answer_format": "a list of integers in square brackets"
+  },
+  {
+   "id": "Q38",
+   "family": "rule-inference",
+   "prompt": "Each line below shows an input list of integers and the output list that a hidden rule produces from it. The same rule is used on every line.\n[11, 2, 8, 2, 12, 0] → [35, 11, 13, 21, 23, 35]\n[6, 10, 7, 0, 1] → [24, 6, 16, 23, 23]\n[3, 1, 1, 0, 10, 10] → [25, 3, 4, 5, 5, 15]\n[3, 4, 11, 2, 3, 10, 5] → [38, 3, 7, 18, 20, 23, 33]\n[7, 6, 2, 12, 5, 5, 12] → [49, 7, 13, 15, 27, 32, 37]\n\nQuestion: what output does the rule produce for the input [3, 1, 10, 1, 5]?",
+   "answer_format": "a list of integers in square brackets"
+  },
+  {
+   "id": "Q39",
+   "family": "exact-computation",
+   "prompt": "Compute 5696982400532 × 203952330124.",
+   "answer_format": "a single integer (digits only)"
+  },
+  {
+   "id": "Q40",
+   "family": "string-trace",
+   "prompt": "Start with the string tmcukw. Apply the following operations in order. Positions are numbered from 1 at the left. Rotating left by one step moves the first letter to the end; rotating right by one step moves the last letter to the front.\n1. Rotate left by 2 steps.\n2. Reverse the letters in positions 2 through 3.\n3. Rotate left by 4 steps.\n4. Reverse the letters in positions 1 through 5.\n5. Swap the letters in positions 2 and 6.\n6. Reverse the letters in positions 1 through 5.\n\nQuestion: what is the final string?",
+   "answer_format": "the final string (letters only)"
+  },
+  {
+   "id": "Q41",
+   "family": "logic-grid",
+   "prompt": "5 people live in a row of 5 houses, numbered 1 to 5 from left to right. Each person has a different name, a different pet and a house of a different colour. The possible values are: names: Ada, Bram, Cleo, Gus, Ivo; pets: dog, fox, goat, hare, newt; colours: black, green, orange, red, yellow. \"Directly to the left of\" means in the house numbered one lower; \"next to\" means in an adjacent house.\n\nClues:\n1. The resident of the black house lives directly to the left of the resident of the green house.\n2. The resident of the red house is not Ivo.\n3. The resident of the green house does not own the newt.\n4. The dog owner lives directly to the left of Cleo.\n5. The goat owner does not live in the black house.\n6. Ada lives in one of the two end houses.\n7. The resident of the green house does not live in house 4.\n8. The resident of the red house lives somewhere to the left of the newt owner.\n9. The hare owner is not Ada.\n10. Ada lives directly to the left of Ivo.\n11. The goat owner does not live in house 5.\n12. Bram does not live in house 5.\n13. Ivo lives next to Gus.\n14. Ivo does not live next to the goat owner.\n15. The resident of the orange house lives next to the resident of the black house.\n\nQuestion: list the colours in house order, from house 1 to house 5.",
+   "answer_format": "the 5 colours separated by commas, in house order 1 to 5"
+  },
+  {
+   "id": "Q42",
+   "family": "stock-log",
+   "prompt": "Read this stock log and answer the question.\n\nRules for reading the log:\n- Every entry is an accurate record, except that a CORRECTION replaces the quantity stated in the entry it names (the correction applies wherever it appears in the log).\n- Stock changes only through the deliveries, shipments and transfers recorded here.\n- Entries are in time order. A stocktake states the exact stock at the end of that day.\n\nOpening stock (start of Day 1): Canal Store: 20 crates of lamp oil.\n\n#1 Day 1: 11 crates of lamp oil shipped out from Canal Store.\n#2 Day 1: 25 crates of lamp oil delivered to Canal Store.\n#3 Day 2: the gate lock at Canal Store was replaced.\n#4 Day 2: stocktake: Canal Store holds 34 crates of lamp oil.\n#5 Day 3: 7 crates of lamp oil delivered to Canal Store.\n#6 Day 4: 7 crates of lamp oil shipped out from Canal Store.\n#7 Day 4: the gate lock at Canal Store was replaced.\n#8 Day 4: stocktake: Canal Store holds 34 crates of lamp oil.\n#9 Day 5: 40 crates of lamp oil delivered to Canal Store.\n#10 Day 5: 19 crates of lamp oil shipped out from Canal Store.\n#11 Day 5: a delivery of lamp oil arrived at Canal Store; the number of crates was not recorded.\n\nQuestion: how many crates of lamp oil were in Canal Store at the end of Day 4?\nAnswer with a whole number of crates; or CONTRADICTORY if statements in the log that bear on this number cannot all be true; or NOT DETERMINABLE if the log does not contain enough information to fix the number.",
+   "answer_format": "a whole number, or CONTRADICTORY, or NOT DETERMINABLE"
+  },
+  {
+   "id": "Q43",
+   "family": "exact-computation",
+   "prompt": "Compute the sum of all positive divisors of 483600 (including 1 and 483600 itself).",
+   "answer_format": "a single integer (digits only)"
+  },
+  {
+   "id": "Q44",
+   "family": "exact-computation",
+   "prompt": "A path goes from (0,0) to (7,6) using unit steps, each of which increases either the x-coordinate or the y-coordinate by 1. How many such paths pass through none of the points (0,5), (3,4), (6,5)?",
+   "answer_format": "a single integer (digits only)"
+  },
+  {
+   "id": "Q45",
+   "family": "program-output",
+   "prompt": "Predict exactly what this Python 3 program prints.\n\n```python\nwords = \"crest delta fjord ember amber flint echo atlas delta\".split()\ncounts = {}\nfor w in words:\n    counts[w[0]] = counts.get(w[0], 0) + len(w)\nprint(\",\".join(k + str(v) for k, v in sorted(counts.items())))\n```",
+   "answer_format": "exactly the one line the program prints"
+  },
+  {
+   "id": "Q46",
+   "family": "logic-grid",
+   "prompt": "4 people live in a row of 4 houses, numbered 1 to 4 from left to right. Each person has a different name and a house of a different colour. The possible values are: names: Bram, Esme, Fitz, Hana; colours: black, green, red, yellow. \"Directly to the left of\" means in the house numbered one lower; \"next to\" means in an adjacent house.\n\nClues:\n1. Hana lives in house 2.\n2. The resident of the green house lives next to Fitz.\n3. The resident of the yellow house lives directly to the left of the resident of the black house.\n4. Esme lives in house 1.\n5. Bram does not live in the green house.\n\nQuestion: list the colours in house order, from house 1 to house 4.",
+   "answer_format": "the 4 colours separated by commas, in house order 1 to 4"
+  },
+  {
+   "id": "Q47",
+   "family": "string-trace",
+   "prompt": "A rewriting process starts from the string CCAAACC and uses these rules:\nRule 1: AA → A\nRule 2: C → CA\n\nOne step: find the lowest-numbered rule whose left-hand side occurs somewhere in the current string, and replace the leftmost occurrence of that left-hand side with the rule's right-hand side. (Only one replacement is made per step.)\n\nQuestion: what is the string after exactly 16 steps?",
+   "answer_format": "the resulting string (letters only)"
+  },
+  {
+   "id": "Q48",
+   "family": "exact-computation",
+   "prompt": "How many integers n with 1 ≤ n ≤ 85581 are divisible by none of 3, 5 and 11?",
+   "answer_format": "a single integer (digits only)"
+  },
+  {
+   "id": "Q49",
+   "family": "exact-computation",
+   "prompt": "Compute 42985572 × 6402966.",
+   "answer_format": "a single integer (digits only)"
+  },
+  {
+   "id": "Q50",
+   "family": "exact-computation",
+   "prompt": "Compute the remainder when 11^71 (that is, 11 raised to the power 71) is divided by 43.",
+   "answer_format": "a single integer (digits only)"
+  },
+  {
+   "id": "Q51",
+   "family": "string-trace",
+   "prompt": "A rewriting process starts from the string CCBCCC and uses these rules:\nRule 1: BB → (empty string)\nRule 2: CC → BB\nRule 3: AB → B\nRule 4: B → ABA\n\nOne step: find the lowest-numbered rule whose left-hand side occurs somewhere in the current string, and replace the leftmost occurrence of that left-hand side with the rule's right-hand side. (Only one replacement is made per step.)\n\nQuestion: what is the string after exactly 26 steps?",
+   "answer_format": "the resulting string (letters only)"
+  },
+  {
+   "id": "Q52",
+   "family": "stock-log",
+   "prompt": "Read this stock log and answer the question.\n\nRules for reading the log:\n- Every entry is an accurate record, except that a CORRECTION replaces the quantity stated in the entry it names (the correction applies wherever it appears in the log).\n- Stock changes only through the deliveries, shipments and transfers recorded here.\n- Entries are in time order. A stocktake states the exact stock at the end of that day.\n\nOpening stock (start of Day 1): North Yard: 54 crates of nails.\n\n#1 Day 1: 12 crates of nails delivered to North Yard.\n#2 Day 1: stocktake: North Yard holds 66 crates of nails.\n#3 Day 2: 5 crates of nails delivered to North Yard.\n#4 Day 2: 28 crates of nails shipped out from North Yard.\n#5 Day 3: 7 crates of nails delivered to North Yard.\n#6 Day 3: the gate lock at North Yard was replaced.\n#7 Day 3: a delivery of nails arrived at North Yard; the number of crates was not recorded.\n#8 Day 4: 32 crates of nails delivered to North Yard.\n#9 Day 4: 28 crates of nails delivered to North Yard.\n#10 Day 5: 129 crates of nails shipped out from North Yard.\n#11 Day 5: stocktake: North Yard holds 4 crates of nails.\n\nQuestion: how many crates of nails were in North Yard at the end of Day 3?\nAnswer with a whole number of crates; or CONTRADICTORY if statements in the log that bear on this number cannot all be true; or NOT DETERMINABLE if the log does not contain enough information to fix the number.",
+   "answer_format": "a whole number, or CONTRADICTORY, or NOT DETERMINABLE"
+  },
+  {
+   "id": "Q53",
+   "family": "logic-grid",
+   "prompt": "3 people live in a row of 3 houses, numbered 1 to 3 from left to right. Each person has a different name and a different instrument. The possible values are: names: Ada, Esme, Ivo; instruments: cello, harp, violin. \"Directly to the left of\" means in the house numbered one lower; \"next to\" means in an adjacent house.\n\nClues:\n1. Esme lives directly to the left of the harpist.\n2. Esme does not play the violin.\n3. The harpist is Ivo.\n4. The harpist lives directly to the left of Ada.\n\nQuestion: list the instruments in house order, from house 1 to house 3.",
+   "answer_format": "the 3 instruments separated by commas, in house order 1 to 3"
+  },
+  {
+   "id": "Q54",
+   "family": "program-output",
+   "prompt": "Predict exactly what this Python 3 program prints.\n\n```python\nxs = [2, 21, 33, 36, 4, 6, 29, 11, 5, 32]\nys = sorted(x % 8 for x in xs if x > 8)\nprint(ys[1:-1], sum(ys))\n```",
+   "answer_format": "exactly the one line the program prints"
+  },
+  {
+   "id": "Q55",
+   "family": "string-trace",
+   "prompt": "A rewriting process starts from the string AABA and uses these rules:\nRule 1: AA → BA\nRule 2: A → BBA\n\nOne step: find the lowest-numbered rule whose left-hand side occurs somewhere in the current string, and replace the leftmost occurrence of that left-hand side with the rule's right-hand side. (Only one replacement is made per step.)\n\nQuestion: what is the string after exactly 6 steps?",
+   "answer_format": "the resulting string (letters only)"
+  },
+  {
+   "id": "Q56",
+   "family": "rule-inference",
+   "prompt": "Each line below shows an input list of integers and the output list that a hidden rule produces from it. The same rule is used on every line.\n[10, 9, 5, 9, 11] → [11, 10, 9, 5, 9]\n[7, 9, 12, 6, 9] → [9, 7, 9, 12, 6]\n[9, 5, 4, 6, 8, 8, 4] → [4, 9, 5, 4, 6, 8, 8]\n[10, 12, 0, 6, 6, 12] → [12, 10, 12, 0, 6, 6]\n\nQuestion: what output does the rule produce for the input [5, 12, 11, 11, 8, 7]?",
+   "answer_format": "a list of integers in square brackets"
+  },
+  {
+   "id": "Q57",
+   "family": "rule-inference",
+   "prompt": "Each line below shows an input list of integers and the output list that a hidden rule produces from it. The same rule is used on every line.\n[12, 10, 12, 1, 0, 4, 7] → [19, 4, 11, 13, 1, 22, 22]\n[7, 4, 11, 6, 0, 3] → [3, 10, 17, 6, 11, 15]\n[3, 9, 2, 5, 2, 8] → [10, 11, 7, 7, 12, 11]\n[7, 11, 7, 6, 2, 7, 5] → [12, 9, 12, 13, 8, 18, 18]\n[0, 7, 1, 2, 7] → [7, 3, 9, 7, 8]\n[6, 4, 5, 8, 7] → [13, 13, 15, 10, 9]\n\nQuestion: what output does the rule produce for the input [3, 8, 10, 5, 2, 9, 2, 2]?",
+   "answer_format": "a list of integers in square brackets"
+  },
+  {
+   "id": "Q58",
+   "family": "logic-grid",
+   "prompt": "5 people live in a row of 5 houses, numbered 1 to 5 from left to right. Each person has a different name, a house of a different colour, a different pet and a different drink. The possible values are: names: Ada, Bram, Cleo, Hana, Ivo; colours: blue, orange, red, white, yellow; pets: dog, fox, hare, newt, owl; drinks: cocoa, coffee, kefir, tea, water. \"Directly to the left of\" means in the house numbered one lower; \"next to\" means in an adjacent house.\n\nClues:\n1. Ivo lives next to the resident of the yellow house.\n2. The hare owner lives directly to the left of the cocoa drinker.\n3. The dog owner lives somewhere to the left of Bram.\n4. The kefir drinker does not live next to the tea drinker.\n5. The cocoa drinker does not live in house 2.\n6. The resident of the red house lives next to the resident of the yellow house.\n7. The coffee drinker lives directly to the left of the cocoa drinker.\n8. The owl owner is Hana.\n9. The resident of the blue house lives somewhere to the left of the water drinker.\n10. The newt owner drinks water.\n11. The dog owner lives next to the newt owner.\n12. Bram lives somewhere to the left of Ada.\n13. The resident of the red house does not drink kefir.\n14. The resident of the orange house lives directly to the left of the dog owner.\n15. The resident of the blue house does not live in house 1.\n\nQuestion: list the pets in house order, from house 1 to house 5.",
+   "answer_format": "the 5 pets separated by commas, in house order 1 to 5"
+  },
+  {
+   "id": "Q59",
+   "family": "logic-grid",
+   "prompt": "4 people live in a row of 4 houses, numbered 1 to 4 from left to right. Each person has a different name, a different pet and a house of a different colour. The possible values are: names: Ada, Esme, Fitz, Ivo; pets: cat, crow, hare, owl; colours: black, grey, red, yellow. \"Directly to the left of\" means in the house numbered one lower; \"next to\" means in an adjacent house.\n\nClues:\n1. Ivo lives in house 4.\n2. The owl owner lives next to the resident of the black house.\n3. The resident of the black house lives in house 1.\n4. The resident of the yellow house does not live in house 4.\n5. Ivo does not live in the grey house.\n6. The resident of the yellow house does not live in house 3.\n7. The resident of the yellow house is not Ada.\n8. Fitz does not live in house 3.\n9. Ada does not live in the grey house.\n10. The hare owner lives in house 3.\n11. The cat owner lives in house 4.\n\nQuestion: list the names in house order, from house 1 to house 4.",
+   "answer_format": "the 4 names separated by commas, in house order 1 to 4"
+  },
+  {
+   "id": "Q60",
+   "family": "rule-inference",
+   "prompt": "Each line below shows an input list of integers and the output list that a hidden rule produces from it. The same rule is used on every line.\n[5, 0, 10, 6, 4, 9] → [8, 3, 13, 9, 7, 12]\n[2, 10, 5, 12, 12, 4, 8, 8] → [5, 13, 8, 15, 15, 7, 11, 11]\n[11, 7, 2, 8, 1, 3, 0, 12] → [14, 10, 5, 11, 4, 6, 3, 15]\n[12, 4, 5, 1, 4, 8, 8] → [15, 7, 8, 4, 7, 11, 11]\n\nQuestion: what output does the rule produce for the input [9, 0, 2, 7, 8, 11, 6]?",
+   "answer_format": "a list of integers in square brackets"
+  }
+ ]
+}
