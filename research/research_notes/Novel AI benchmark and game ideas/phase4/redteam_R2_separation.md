@@ -178,7 +178,7 @@ As of 30 Sep 2026. Reviewer: independent red team R2 (Claude Opus 5.5). **Lens:*
 ### 2.5 C16 Pushback Ledger (revise)
 
 **Q3 today is good.**
-- "Who Flips?" finds GPT-5 flipping 88.4% of correct answers vs 68.4% of incorrect ones under counterarguments, with Gemini most resistant and Claude "succumbing to even mild pushback" ([2606.16011](https://arxiv.org/abs/2606.16011); ACL 2026 HEAL workshop [search extracts]).
+- "Who Flips?" challenges models' correct MMLU answers with a coherent argument for a wrong option. Across seven models, flip rates range from 17.5% to 97.3%, and self-attribution raises them by 7.1 pp on average ([2606.16011](https://arxiv.org/abs/2606.16011), abstract via GitHub mirror). [corrected by fact-check P4: was "GPT-5 flipping 88.4% of correct answers vs 68.4% of incorrect ones … Gemini most resistant … Claude 'succumbing to even mild pushback' (ACL 2026 HEAL workshop)". The paper tests GPT-5.1, Gemma-4-26B, Llama-3.1-8B, Llama-3.3-70B and Qwen3.5 (4B/9B/35B), not Gemini or Claude, and does not challenge incorrect answers. The removed figures, quote and venue were not found in any source. The spread still supports Q3 = 4.]
 - lechmazur's sycophancy board shows abstention from 4.7% to 83.9% (B §3.5).
 - 1,000 items × 3 samples with frozen challengers is well powered.
 
@@ -206,7 +206,7 @@ As of 30 Sep 2026. Reviewer: independent red team R2 (Claude Opus 5.5). **Lens:*
 
 **C22.**
 - Realised outcomes bring irreducible noise, and sources cluster, since pageviews and downloads move together.
-- ForecastBench: superforecasters led by 0.017 Brier in Jan 2026, "about one year of LLM progress". By 16 Jul 2026, 17 submissions ranked above superforecasters on the preliminary board, though the official board and Good Judgment dispute parity ([LessWrong summary](https://www.lesswrong.com/posts/a82q6yd8zKpYk56cF/ai-forecasting-in-2026-what-11-analyses-say) [search extract]).
+- ForecastBench: superforecasters led by 0.017 Brier in Jan 2026, "about one year of LLM progress". By 16 Jul 2026, 17 submissions ranked above superforecasters on the preliminary board, though the official board and Good Judgment dispute parity ([LessWrong summary](https://www.lesswrong.com/posts/a82q6yd8zKpYk56cF/ai-forecasting-in-2026-what-11-analyses-say) [search extract]). [fact-check P4: the Jan 2026 0.017 gap is confirmed (secondary). On 16 Jul 2026 FRI, which runs the board, posted "AI models have likely reached parity with superforecasters on ForecastBench" (confirmed via the forecastbench GitHub repo). Uncertain: the "17 submissions" count and the claim that the official board disputes parity, which FRI's own post contradicts.]
 - Frontier-model differences are fractions of that 0.017, so separating neighbours needs many weeks of accumulation.
 - It never saturates for lack of items, but the spread compresses toward the noise floor. A2 against laypeople is near-certain.
 
