@@ -30,7 +30,7 @@ Dossiers in `notes/` were used only as leads. Every carried-over number was re-c
    - GRPO conceals contamination signals.
    - Provable markers (DyePack, Bayes-accuracy ceilings) are the exception.
 4. **Leaderboards are gamed by selection.**
-   - Meta privately tested 27 Llama 4 variants; testing 10 variants is worth about +100 Arena points.
+   - Meta privately tested 27 Llama 4 variants; testing 10 variants is worth about +100 Arena points in simulation (LMArena disputes the real-world size).
    - Two identical checkpoints scored 1069 vs 1052.
    - The "experimental" Maverick ranked #2; the release ranked about #32 [Sec].
 5. **The harness is part of the measurement.**
@@ -48,8 +48,8 @@ Dossiers in `notes/` were used only as leads. Every carried-over number was re-c
    - Clustered SEs can exceed naive ones by more than 3×.
    - Random seeds alone give Pass@1 a standard deviation of 5–15 pp on small math sets (AIME24, AMC23). [corrected by fact-check: was "move AIME Pass@1 by 5–15 pp"; the paper reports an SD across 20 seeds — arXiv 2504.07086]
 8. **Signal-to-noise and item response theory (IRT) buy efficiency.**
-   - SNR predicts decision accuracy (R = 0.791).
-   - 100 IRT-chosen items land within about 2% of full-benchmark accuracy.
+   - SNR predicts decision accuracy (R = 0.791) [uncertain: R seen only in search summaries].
+   - 100 IRT-chosen items suffice to estimate MMLU accuracy (the "within about 2%" figure is [uncertain]).
    - Adaptive IRT needs 50× fewer items.
    - Epoch's capability index (ECI) is an anchored, absolute scale; pool-relative Elo is not.
 9. **Validity evidence is usually absent** (445-benchmark review).
@@ -668,3 +668,87 @@ OpenAI (via mirror):
 - Platinum-benchmark counts;
 - LiveBench release cadence;
 - the number of recommendations in Bean et al.
+
+---
+
+## Fact-check log (Phase 1)
+
+**Tally (73 claim groups):** verified 43 · corrected 12 · uncertain 18 · removed 0.
+**Method:** checked on 30 Sep 2026 by an independent fact-checker. Primary sources were read directly where reachable (anthropic.com, raw GitHub, official repos and data). arXiv, epoch.ai, metr.org, arcprize.org, lmarena.ai, lesswrong.com and futurehouse.org were blocked; for those, legitimate full-text or abstract mirrors on GitHub were used, or the claim was marked uncertain.
+**Most consequential:** (1) arXiv 2608.29420 v2 reverses "differentiation may be largely illusory" to "limited, incremental validity"; R19 now requires a predictive test. (2) The SWE-bench-Live gap is partly repo diversity, not only contamination; R1 lowered to M-H. (3) The METR human-baseline artefact comes from its payment scheme, and RE-Bench baseliners had AI tools; R22 reworded. (4) ARC-AGI-3 scores by RHAE, not a level count. (5) The HLE judge and calibration figures, Arena-Hard ranks and CORE-Bench attribution are fixed. No claim was fabricated; nothing was removed.
+
+| Claim | Verdict | Source URL | Note |
+|---|---|---|---|
+| MathArena: "strong signs of contamination in AIME 2024"; USAMO 2025 < 25% | verified | https://github.com/eth-sri/eth-sri.github.io (MathArena abstract, author site) | arXiv blocked; the authors' site copy of the abstract was read |
+| AIME24 10–20% above AIME25-based expectation; QwQ ~60% | uncertain | https://arxiv.org/abs/2505.23281 | search summaries plus a blog quote of the paper; magnitude not read in the primary source |
+| MathArena: top models ~91% on AIME | uncertain | — | not found |
+| SWE-bench-Live 19.25% vs 43.20% (OpenHands + Claude 3.7 Sonnet); 1,319 tasks; 93 repos; monthly | verified | https://raw.githubusercontent.com/averkij/top_papers/main/assets/json/2505.23419.json | full-text mirror |
+| SWE-bench-Live gap reads as contamination | corrected | same | authors credit the gap to familiarity *and* repo diversity; R1 lowered to M-H |
+| Akhtar et al.: 60 benchmarks (56 public / 4 private), no significant difference, 29 (14) saturated, LiveBench 0.99 / 1.09 / ~79%, LCB 0.77, MATH-500 0.92, TruthfulQA 0.55, ρ = 0.05, age and size predict | verified | https://raw.githubusercontent.com/mlresearch/v306/main/assets/akhtar26a/akhtar26a.pdf | PMLR 306 = ICML 2026 confirmed |
+| LiveCodeBench v1–v6 400→1,055; date windows; post-Aug-2023 for DeepSeek | verified | https://raw.githubusercontent.com/LiveCodeBench/LiveCodeBench/main/README.md |  |
+| LiveBench: monthly, objective, no judge, current release not fully public | verified | https://raw.githubusercontent.com/LiveBench/LiveBench/main/README.md |  |
+| SWE-rebench: 21,000+ tasks; contamination flags; SEM + pass@5 | verified | https://raw.githubusercontent.com/averkij/top_papers/main/assets/json/2505.20411.json |  |
+| ARC-AGI-2 split calibration ≤ 1 pp; new tasks go to private; 100-task semi-private set (mid-2024); Kaggle 4×L4, 12 h, 240 tasks | verified | https://raw.githubusercontent.com/Lumysia/agi-benchmark-framework/main/papers/ARC-AGI-2.txt | paper text mirror |
+| HLE: private held-out set; canary is a superset of BIG-bench's; "small inflections" quote | verified | https://raw.githubusercontent.com/centerforaisafety/hle/main/README.md ; HLE v9 text mirror (lhl/hle-gpqa-error-claims) |  |
+| SWE-bench Pro: 11 / 12 GPL + 18 commercial repos; "legal barriers"; GPT-5 23.3% | verified | https://raw.githubusercontent.com/averkij/top_papers/main/assets/json/2509.16941.json |  |
+| FrontierMath: OpenAI owns 300 problems, 50-problem holdout, disclosure on o3 day, "negotiated harder" | uncertain | https://epoch.ai/latest/openai-and-frontiermath | blocked; consistent search summaries; the holdout gives OpenAI statements but not solutions |
+| OpenAI retires SWE-bench Verified: 59.4% of 138 (o3, 64 runs, ≥ 6 engineers); GPT-5.2-Chat / Opus 4.5 / Gemini 3 Flash; 74.9→80.9; recommends Pro; 23 Feb 2026 | verified | https://raw.githubusercontent.com/visual-snow/seshat/main/web-research/openai/why-we-no-longer-evaluate-swe-bench-verified.md | mirror of the primary |
+| GPT-4 reproduces the BIG-bench canary | uncertain | https://www.lesswrong.com/posts/kSmHMoaLKGcGgyWzs/ | blocked |
+| SWE-bench #465: Claude 4 Sonnet, Qwen3-Coder, GLM 4.5; git log --all / --grep; 3 Sep 2025 | verified | https://github.com/SWE-bench/SWE-bench/issues/465 |  |
+| #465 "the fix was" to strip refs | corrected | same | a proposed fix; the issue is closed but shipping is not confirmed |
+| Claude reading git history from previous trials | verified | https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents |  |
+| BrowseComp: 1,266; 9 web leaks; 2 decryptions; 16 failures; canary used as key (SHA256 + XOR); blocking "BrowseComp" works best; 3.7× (0.87 vs 0.24%); 86.81→86.57; model cards amended; 6 Mar 2026 | verified | https://www.anthropic.com/engineering/eval-awareness-browsecomp | clarified the key derivation |
+| SWE-bench Pro V2: 642 tasks; offline; sanitised git; verifier outside sandbox + pristine re-grade; 50 min; probes; 642/642 oracle, 0/642 empty; Harbor; locked Claude Code / Codex / mini-swe-agent | verified | https://raw.githubusercontent.com/scaleapi/SWE-bench_Pro-os/main/v2/README.md |  |
+| V2 date "(9/22)" in v2/README | corrected | https://raw.githubusercontent.com/scaleapi/SWE-bench_Pro-os/main/README.md | the date is in the top-level README News; 2026 confirmed by the order of entries |
+| Detection limits: MIAs near random (160M–12B); 47-paper review; GRPO concealment; one replica beats irreducible loss; exchangeability test; DyePack 0.000073% (8 backdoors); Bayes-accuracy ceiling; ConStat | verified | https://github.com/lyy1994/awesome-data-contamination | verbatim abstracts |
+| Taxonomy (2608.29463): 5 types; private set closes first only; acquired recorded per run; 4-field protocol; 13% of 41 documents | verified | https://raw.githubusercontent.com/Neilblaze/DailyPapers/main/cs.CL/2026/08/20260829.md | full abstract; added the low-κ caveat |
+| Leaderboard Illusion: 27 variants; ~+100 (simulated, 10 variants); 1069 vs 1052 with 4 models between; 19.2 / 20.4 / 29.7%; 23.5→49.9%; 205/243 (47 official) | verified | https://raw.githubusercontent.com/averkij/top_papers/main/assets/json/2504.20879.json |  |
+| LMArena response (errors, multi-variant policy, provisional until 2,000 votes) | uncertain | https://lmarena.ai/blog/our-response/ | blocked; consistent search summaries; LMArena disputes the size of the effect (inference now marked speculation) |
+| LMArena on Maverick-Experimental (Willison quote); #2 vs ~#32 | uncertain | https://simonwillison.net/2025/Apr/8/lmaren/ | blocked |
+| Null model 86.5% LC / 83.0 / 9.55 | verified | https://raw.githubusercontent.com/averkij/top_papers/main/assets/json/2410.07137.json |  |
+| Style control covariates; GPT-4o-mini and Grok-2-mini drop | verified | https://raw.githubusercontent.com/lm-sys/lm-sys.github.io/main/blog/2024-08-28-style-control.md | official blog source |
+| Terminal-Bench 2.0: +6 pp (p < 0.01); infra errors 5.8→0.5%; 1–3× p = 0.40; SWE-bench 5× RAM +1.54 pp; floor + ceiling; < 3 pp skepticism; per-task CPU/RAM | verified | https://www.anthropic.com/engineering/infrastructure-noise |  |
+| HAL: SeeAct $171 vs Browser-Use $1,577; reasoning hurt in 21/36 | uncertain | https://arxiv.org/abs/2510.11977 | blocked; the direction is consistent; R11 lowered to M-H |
+| HAL: 21,730 rollouts, ~$40K, 9 × 9 (≈ $1.8 / rollout, ≈ $490 / cell); 2.5B tokens | uncertain | https://arxiv.org/abs/2510.11977 | search summaries confirm the rollouts and cost; the token count is unverified |
+| Pipeline dependence: > 80 pp; 9 of 10 models shift ≥ 3 ranks | verified | https://raw.githubusercontent.com/qhduan/cn-chat-arxiv/master/papers/26/09/2609.08765.json | abstract |
+| Scaffold confound (2609.09218): de-scaffolding, seeded scoring, tail metrics | verified | https://raw.githubusercontent.com/qhduan/cn-chat-arxiv/master/papers/26/09/2609.09218.json | the "uncontrolled axis" quote is not in the truncated abstract (marked uncertain) |
+| METR: o3 0.7% HCAST, > 43× on RE-Bench, visible scorer | uncertain | https://metr.org/blog/2025-06-05-recent-reward-hacking/ | blocked; consistent search summaries; "every run on one task" unverified |
+| ImpossibleBench: GPT-5 54.0 / 76 / 2.9%; 92→1%; abort option | verified | https://raw.githubusercontent.com/averkij/top_papers/main/assets/json/2510.20270.json |  |
+| HVTB embeds detectable hacks | verified | https://raw.githubusercontent.com/qhduan/cn-chat-arxiv/master/papers/26/08/2608.22103.json |  |
+| METR misconfigured threshold tasks penalised Claude | verified | https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents |  |
+| ARC leaderboard 2×2 cost × score | verified | ARC-AGI-2 paper text mirror |  |
+| ARC-AGI-1: o3 88% @ ~$4.5k; GPT-5.2 Pro 90.5% @ $11.64; Opus 4.6 93.0% @ $1.88 | uncertain | https://x.com/arcprize/status/1999182732845547795 | figures consistent; the source was wrongly cited as the Dec 2024 blog (fixed) |
+| Miller: 5 recommendations; clustered SE 3.05 / 1.88 / 1.10×; correlation 0.3–0.7; 969 → ≥ 1,000; Inspect epochs | verified | https://raw.githubusercontent.com/averkij/top_papers/main/assets/json/2411.00640.json ; https://www.anthropic.com/research/statistical-approach-to-model-evals | 969 uses the paper's own fictional parameters |
+| Seeds: Pass@1 SD 5–15 pp over 20 runs; 2.5–3.3 pp per question; ≥ 10 seeds | verified | https://raw.githubusercontent.com/averkij/top_papers/main/assets/json/2504.07086.json |  |
+| Summary "seeds move AIME Pass@1 by 5–15 pp" | corrected | same | it is a standard deviation, not a range |
+| "~200 items supports only ~10-pp claims" | corrected | derived from Miller 2411.00640 | ≈ 6.6 pp with Miller's parameters; ~10 pp only in noisier designs |
+| Kotawala llm-power: q, N*, MDE; N* = 1,028 | verified | https://raw.githubusercontent.com/akotawala10/llm-power/main/README.md | the example is a 5-pp gap (0.65 vs 0.60) |
+| Signal & Noise: 30 benchmarks, 375 models, 60M–32B | verified | https://raw.githubusercontent.com/sailfish009/paper/master/2025.08.19.txt | v1 abstract; a later version says 465 models |
+| Signal & Noise: R = 0.791; +2.4%; +2.6 / +5 | uncertain | https://arxiv.org/abs/2508.13144 | search summary only |
+| tinyBenchmarks: 100 curated items suffice for MMLU | verified | https://raw.githubusercontent.com/qhduan/cn-chat-arxiv/master/papers/24/02/2402.14992.json | "~2%" and "1.9%" unverified |
+| Fluid Benchmarking: 50× fewer items, higher validity, lower variance; delays saturation | verified | AI2 blog text (copy in Zagred47/NewsAI-Restart feed) | saturation is within a pretraining run |
+| ECI: sigmoid form; anchors 130 / 150; re-anchored bootstrap | verified | https://raw.githubusercontent.com/epoch-research/eci-public/main/README.md |  |
+| LMSYS: online Elo "considerable variability" → BT "significantly more stable" | verified | https://raw.githubusercontent.com/lm-sys/lm-sys.github.io/main/blog/2023-12-07-leaderboard.md |  |
+| Kaggle Game Arena: open, ever-expanding; strength rises with models | verified | https://raw.githubusercontent.com/qhduan/cn-chat-arxiv/master/papers/26/09/2609.31473.json | all-play-all and "leaderboard-relative" Elo unverified (marked) |
+| Bean et al.: 21.7% / 53.4% / 16.0%; 12.3 / 27.0 / 17.1% sampling | verified | https://github.com/am-bean/benchmark_review (data/clean_codebook.csv) | recomputed from the authors' data: 21.8 / 53.4 / 16.0 / 12.3 / 27.0 / 17.1% |
+| BetterBench 24 × 46; 3.75 / 5.62 | uncertain | https://arxiv.org/abs/2411.12990 | blocked |
+| Economic validity: "differentiation may be largely illusory"; "74.5% across economic benchmarks" | corrected | https://raw.githubusercontent.com/louisyzhu/frontier-ai-economic-validity/main/paper/frontmatter.tex | v2: 74.5% across 12 benchmarks; multi-factor predicts economic scores better; "limited, incremental validity"; R19 updated |
+| ABC: up to 100% relative; CVE-Bench −33%; τ-bench airline 38% / 40%; KernelBench 31%; SWE-Lancer zips; OSWorld 13/46; WebArena | verified | https://raw.githubusercontent.com/uiuc-kang-lab/agentic-benchmarks/main/README.md ; arXiv abstract copy (stanford-cs336/lectures) |  |
+| Anthropic guidance: two experts; 0% pass@100; reference solutions; "Unknown"; pass^3 ≈ 42%; near-saturation quote | verified | https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents |  |
+| CORE-Bench 42→95% from "fixing graders" | corrected | same | it was grading-bug fixes *plus* a less constrained scaffold |
+| HLE chem/bio 29 ± 3.7% wrong (FutureHouse); led to HLE-Rolling | uncertain | https://www.futurehouse.org/research/hle-exam | blocked; the HLE team's follow-up found ~18%; the HLE-Rolling link is unverified |
+| HLE: GPT-4o judge; calibration error > 80% | corrected | HLE v9 text (lhl/hle-gpqa-error-claims) | v9 uses an o3-mini judge (GPT-4o in some settings) and reports > 70% |
+| MMLU-Redux ~9%, virology 57% | uncertain | https://arxiv.org/abs/2406.04127 | blocked |
+| Arena-Hard v2: Gemini-2.5 79.0 vs 49.1 by judge | verified | https://raw.githubusercontent.com/lmarena/arena-hard-auto/main/README.md |  |
+| Arena-Hard ranks "2 vs 8" | corrected | same | 0-indexed rows; the actual ranks are 3rd vs 9th |
+| Self-preference GPT-4 0.520 | uncertain | https://arxiv.org/abs/2410.21819 | blocked |
+| Wei et al.: 115 baselines; median 8 (mean 90); 2% power analysis; 33.04% uncertainty; 8.70% significance; sampling 31 / 32 / 0 / 37%; 43% population; 35 / 23 / 41 / 8 / 14 / 21.74%; ~1,000 US adults | verified | https://raw.githubusercontent.com/kevinlwei/human-baselines/main/paper.pdf |  |
+| ARC-AGI-2 panel: 407 people / 515 sessions / 1,848 pairs / 13,405 attempts / 62% / 2.3 min; $115–150 + $5; ≥ 2 solvers in ≤ 2 attempts; 75% / 66% | verified | ARC-AGI-2 paper text mirror |  |
+| ARC-AGI-2 human cost $17/task | uncertain | https://arcprize.org/blog/announcing-arc-agi-2-and-arc-prize-2025 | blocked; consistent search summary |
+| ARC-AGI-3 scoring "levels with action tiebreak" | corrected | https://raw.githubusercontent.com/arcprize/docs/main/methodology.mdx | RHAE: (human upper-median actions ÷ AI actions)² per level |
+| ARC-AGI-3 launch 25 Mar 2026; humans 100%, AI < 1%; vendor public-set claim | uncertain | https://arcprize.org/blog/arc-agi-3-launch | blocked; consistent search summaries; vendor claim not checked |
+| METR baselines: 800+ / 2,529 h; 286 of ~460; geometric mean; RE-Bench 8 h; ~1.5 h "artificially low"; speed + success bonuses | verified | https://raw.githubusercontent.com/averkij/top_papers/main/assets/json/2503.14499.json |  |
+| METR "AI tools excluded"; "speed bonus depresses success" | corrected | same | RE-Bench baseliners had AI tools; METR blames its payment scheme (pay favoured giving up early); R22 updated |
+| GPQA: 65% (74%) experts vs 34% non-experts, > 30 min, web access | verified | https://raw.githubusercontent.com/allenai/olmes/main/oe_eval/tasks/oe_eval_tasks/gpqa.py | abstract quoted in AI2's official repo; "37 min" unverified |
+| BrowseComp run tokens | corrected | https://www.anthropic.com/engineering/eval-awareness-browsecomp | 13.4M was the second run; the first used 40.5M (added) |
+| Artificial Analysis cost metrics | uncertain | https://artificialanalysis.ai/methodology/intelligence-benchmarking | not re-checked |
