@@ -1,0 +1,1 @@
+{"seed": 2362258109, "answers": {"12": [5, 9, 8, 6, 0], "30": [5, 9, 2, 6, 0], "60": [5, 9, 0, 6, 0]}, "prog": ["SWIVEL R3 1", "DRAPE R1 R2", "SWIVEL R3 2", "DRAPE R0 R3", "MUNCH", "DRAPE R2 R3", "BRISK R4"], "init": [5, 9, 0, 6, 9]}

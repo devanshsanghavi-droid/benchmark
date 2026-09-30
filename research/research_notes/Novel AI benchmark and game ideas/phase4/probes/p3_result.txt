@@ -1,0 +1,9 @@
+game: N=5 bet=2 ante=1
+uniform-random NashConv (antes/hand): 1.0
+pure NashConv: 0.15  BR2(s1): 0.15  BR1(s2): 0.0
+mixed NashConv: 0.16  BR2(s1): 0.18  BR1(s2): -0.02
+CFR NashConv: 0.00315  game value (P1): -0.0667
+CFR P1 bet: {1: 0.33, 2: 0.0, 3: 0.0, 4: 0.0, 5: 0.68}
+CFR P1 call: {1: 0.0, 2: 0.13, 3: 0.21, 4: 1.0, 5: 1.0}
+CFR P2 call: {1: 0.0, 2: 0.11, 3: 0.42, 4: 0.46, 5: 1.0}
+CFR P2 bet: {1: 0.66, 2: 0.0, 3: 0.0, 4: 0.33, 5: 1.0}

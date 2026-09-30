@@ -1,0 +1,5 @@
+hypothesis committed before scoring: every yellow block touches a size-3 block (vacuous true); labels NYYNYNNYNNNYYNYNNYYY; 13 queries
+truth: NYYNYNNYNNNYYNYNNYYY
+mine:  NYYNYNNYNNNYYNYNNYYY
+accuracy: 1.0 queries used: 13
+RULE: every block with color=yellow touches a block with size>=3 (vacuous true)
