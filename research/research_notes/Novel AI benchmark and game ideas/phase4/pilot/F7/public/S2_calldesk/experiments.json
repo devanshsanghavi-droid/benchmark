@@ -1,0 +1,86 @@
+{
+ "simulator": "S2",
+ "time_unit": "hour",
+ "intervention_types": {
+  "demand": {
+   "kind": "multiplier",
+   "no_change_value": 1.0
+  },
+  "outage": {
+   "kind": "additive",
+   "no_change_value": 0.0
+  },
+  "staff_day": {
+   "kind": "additive",
+   "no_change_value": 0.0
+  }
+ },
+ "experiments": [
+  {
+   "experiment": "S2-E1",
+   "interventions": [
+    {
+     "type": "demand",
+     "start": 48,
+     "size": 1.15
+    }
+   ],
+   "replicates": 4
+  },
+  {
+   "experiment": "S2-E2",
+   "interventions": [
+    {
+     "type": "demand",
+     "start": 48,
+     "size": 0.85
+    }
+   ],
+   "replicates": 3
+  },
+  {
+   "experiment": "S2-E3",
+   "interventions": [
+    {
+     "type": "staff_day",
+     "start": 24,
+     "size": -1
+    }
+   ],
+   "replicates": 4
+  },
+  {
+   "experiment": "S2-E4",
+   "interventions": [
+    {
+     "type": "staff_day",
+     "start": 24,
+     "size": 1
+    }
+   ],
+   "replicates": 3
+  },
+  {
+   "experiment": "S2-E5",
+   "interventions": [
+    {
+     "type": "outage",
+     "start": 82,
+     "duration": 1
+    }
+   ],
+   "replicates": 3
+  },
+  {
+   "experiment": "S2-E6",
+   "interventions": [
+    {
+     "type": "outage",
+     "start": 206,
+     "duration": 2
+    }
+   ],
+   "replicates": 3
+  }
+ ]
+}

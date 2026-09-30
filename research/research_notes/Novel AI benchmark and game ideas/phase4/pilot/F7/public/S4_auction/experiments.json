@@ -1,0 +1,86 @@
+{
+ "simulator": "S4",
+ "time_unit": "round",
+ "intervention_types": {
+  "budget": {
+   "kind": "multiplier",
+   "no_change_value": 1.0
+  },
+  "entrants": {
+   "kind": "additive",
+   "no_change_value": 0.0
+  },
+  "reserve": {
+   "kind": "set",
+   "no_change_value": 20.0
+  }
+ },
+ "experiments": [
+  {
+   "experiment": "S4-E1",
+   "interventions": [
+    {
+     "type": "reserve",
+     "start": 100,
+     "size": 40
+    }
+   ],
+   "replicates": 3
+  },
+  {
+   "experiment": "S4-E2",
+   "interventions": [
+    {
+     "type": "reserve",
+     "start": 100,
+     "size": 55
+    }
+   ],
+   "replicates": 4
+  },
+  {
+   "experiment": "S4-E3",
+   "interventions": [
+    {
+     "type": "entrants",
+     "start": 80,
+     "size": 5
+    }
+   ],
+   "replicates": 4
+  },
+  {
+   "experiment": "S4-E4",
+   "interventions": [
+    {
+     "type": "budget",
+     "start": 50,
+     "size": 1.5
+    }
+   ],
+   "replicates": 3
+  },
+  {
+   "experiment": "S4-E5",
+   "interventions": [
+    {
+     "type": "budget",
+     "start": 50,
+     "size": 0.8
+    }
+   ],
+   "replicates": 3
+  },
+  {
+   "experiment": "S4-E6",
+   "interventions": [
+    {
+     "type": "entrants",
+     "start": 150,
+     "size": 10
+    }
+   ],
+   "replicates": 3
+  }
+ ]
+}
