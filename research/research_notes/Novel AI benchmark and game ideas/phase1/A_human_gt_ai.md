@@ -19,7 +19,7 @@ Prior repo dossiers were used as leads only. Every number carried over was re-ch
   - **ARC-AGI-3.** GPT-6 Astra scores 99.9% under the provider harness, taking fewer actions than the median human on 96% of levels [P-m].
   - **OSWorld.** Agents passed the 72.36% human rate on 11 Dec 2025, and the best agent reached 90.19% on 25 Jul 2026 [P].
   - **GAIA.** Top test-set entries of 93–95% sit above the 92% human baseline [S].
-- **Near-parity, likely inside noise:**
+- **Near parity or nearly closed** (SimpleBench's gap is likely inside noise):
   - SimpleBench: 81.9% (Claude Fable 5) against 83.7% for 9 humans [S].
   - WebArena: 74.3% against 78.24% [S].
   - VPCT: 91% against 100% [S].
@@ -29,7 +29,7 @@ Prior repo dossiers were used as leads only. Every number carried over was re-ch
     - MMSI-Video-Bench: 96.4% vs 38.0% [S].
     - MindCube: about 95% vs 61.3% after purpose-built training [P/S].
     - ClockBench: 89.1% vs 66.7% [S].
-  - **Intuitive physics from video:** IntPhys 2 humans score about 96% while the best model scores about 57.5%, with chance at 50% [S].
+  - **Intuitive physics from video:** IntPhys 2, humans about 96% vs best model about 57.5% (chance 50%) [S].
   - **Real-time and long-horizon games under a fixed protocol:**
     - VideoGameBench: 0.48% completion [S].
     - BALROG NetHack progression: about 13% for GPT-6 Astra-Max [S].
@@ -170,8 +170,7 @@ SimpleBench is multiple-choice "trick" questions on everyday spatio-temporal, so
 - **Code.** The public repo ships only a small public set and a runner [P](https://raw.githubusercontent.com/simple-bench/SimpleBench/main/README.md).
 
 #### Inferences
-- The hardness driver is distractor-laden wording that invites pattern-completion to the "textbook" answer, not the physically or socially obvious one.
-- RL-trained reasoning models learned to discount irrelevant detail, which closed most of the gap. This is inferred; no ablation was found.
+- The hardness driver is distractor-laden wording that pulls toward the "textbook" answer. RL-trained reasoning models apparently learned to discount irrelevant detail [I; no ablation found].
 - With about 200 private items and 9 humans, a gap under about 5 pp is not statistically meaningful [I].
 
 #### Gaps
@@ -374,8 +373,7 @@ Intuitive physics from video remains a large gap. On IntPhys 2, humans score abo
 - **Physics-IQ Verified** (DeepMind), physical realism of video generation.
   - The ceiling of 100 is defined by physical variance.
   - Best scores are 58.2 (Magi-1 24B + GeoPhys best-of-N, v2v, Jun 2026) and 48.2 i2v (Physis-Lang/Cosmos3-Super, 28 Sep 2026). Veo 3.1 Fast scores 29.96 [P](https://raw.githubusercontent.com/google-deepmind/physics-IQ-benchmark/main/README.md).
-- **Physion** (NeurIPS 2021) compares humans and models on the same physical-prediction stimuli, with training protocols of "only", "all" and "all-but-one" scenarios [P](https://raw.githubusercontent.com/cogtoolslab/physics-benchmarking-neurips2021/master/README.md).
-- **PHYRE** is an agent physics-puzzle benchmark; it points to the human-comparable "Virtual Tools" [P](https://raw.githubusercontent.com/facebookresearch/phyre/main/README.md).
+- **Physion** (NeurIPS 2021) tests humans and models on identical stimuli [P](https://raw.githubusercontent.com/cogtoolslab/physics-benchmarking-neurips2021/master/README.md); **PHYRE** is an agent physics-puzzle set [P](https://raw.githubusercontent.com/facebookresearch/phyre/main/README.md). Neither has 2026 frontier-LLM numbers that I could find.
 
 #### Inferences
 - The hardness driver is temporal object tracking and violation detection, not static geometry. VPCT, a *static* image, closed; video VoE did not [I].
@@ -435,8 +433,7 @@ Pokémon became an informal human-over-AI showcase. Claude needed about 140 hour
 - TypeSafe AI's Jev "entered the Hall of Fame on September 23, 2026", with Claude Opus 5 "monitoring the game log and adjusting options" [S](https://www.tomshardware.com/tech-industry/artificial-intelligence/developer-says-jev-decision-model-beat-pokemon-red-in-under-a-week-non-llm-engine-succeeds-where-traditional-chatbots-stalled-for-months-but-claude-opus-5-coached-the-model-through-its-dead-ends).
 
 #### Inferences
-- The drivers are spatial navigation from screenshots, memory across hundreds of hours, and self-correction of wrong beliefs.
-- Harness differences make runs incomparable. This is a showcase, not a benchmark [I].
+- Drivers: navigation from screenshots, memory over hundreds of hours, and correcting wrong beliefs. Harness differences make runs incomparable; it is a showcase, not a benchmark [I].
 
 #### Gaps
 - Gemini's 2025 Pokémon Blue completion and its harness details were not re-verified this session.
@@ -663,6 +660,4 @@ These are leads only, found by search:
   - CityCube: https://aclanthology.org/2026.acl-long.416.pdf
   - SpatiaLab: https://arxiv.org/pdf/2602.03916
 
-**Blocked or unverifiable this session** (recorded for the fact-checker):
-- Blocked hosts: arcprize.org (leaderboard JSON rows), simple-bench.com, cbrower.dev (VPCT), clockbench.ai, balrogai.com, vgbench.com, the GAIA HF leaderboard, the IntPhys 2 HF leaderboard, all arXiv full texts, and lesswrong.com.
-- The web-search budget was exhausted before the Pokémon (Gemini), VPCT-2026, MindTopo and SimpleBench-2026 checks.
+**Not verifiable this session:** blocked hosts (arcprize.org JSON rows, simple-bench.com, cbrower.dev, clockbench.ai, balrogai.com, vgbench.com, GAIA and IntPhys 2 HF leaderboards, arXiv full texts, lesswrong.com); search budget exhausted before the Gemini-Pokémon, VPCT-2026, MindTopo and SimpleBench-2026 checks.
