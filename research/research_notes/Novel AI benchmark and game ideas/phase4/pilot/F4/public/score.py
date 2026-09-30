@@ -59,12 +59,13 @@ def fit_rating(data, ladder):
 
 def rung_position(r, ladder):
     xs = [ladder[k] for k in RUNGS]
+    eps = 1e-6
     if r <= xs[0]:
-        return (r - xs[0]) / (xs[1] - xs[0]), r < xs[0]
+        return (r - xs[0]) / (xs[1] - xs[0]), r < xs[0] - eps
     for i in range(len(xs) - 1):
         if r <= xs[i + 1]:
             return i + (r - xs[i]) / (xs[i + 1] - xs[i]), False
-    return len(xs) - 1 + (r - xs[-1]) / (xs[-1] - xs[-2]), True
+    return len(xs) - 1 + (r - xs[-1]) / (xs[-1] - xs[-2]), r > xs[-1] + eps
 
 
 def cluster_ci(pairs, B, rng):
