@@ -1,0 +1,19 @@
+Subject: Simplify fee_shares with divmod
+
+--- a/ledger.py
++++ b/ledger.py
+@@ -66,12 +66,8 @@
+     def fee_shares(self, names, fee):
+         """Return {name: cents} for splitting `fee` across `names`."""
+         payers = sorted(names)
+-        n = len(payers)
+-        base, rem = fee // n, fee % n
+-        shares = {}
+-        for i, name in enumerate(payers):
+-            shares[name] = base + (1 if i < rem else 0)
+-        return shares
++        q, r = divmod(fee, len(payers))
++        return {name: q + (i < r) for i, name in enumerate(payers)}
+ 
+     def split_fee(self, names, fee):
+         _check_amount(fee, allow_zero=True)

@@ -1,0 +1,26 @@
+Subject: Use binary search in contains()
+
+--- a/intervals.py
++++ b/intervals.py
+@@ -1,4 +1,6 @@
+ """A set of integers stored as sorted, disjoint half-open intervals."""
++
++import bisect
+ 
+ 
+ def _check(a, b):
+@@ -46,12 +48,8 @@
+         self._iv = out
+ 
+     def contains(self, x):
+-        for s, e in self._iv:
+-            if s <= x < e:
+-                return True
+-            if s > x:
+-                break
+-        return False
++        i = bisect.bisect_right(self._iv, [x, float("inf")]) - 1
++        return i >= 0 and self._iv[i][0] <= x < self._iv[i][1]
+ 
+     def intervals(self):
+         return [(s, e) for s, e in self._iv]

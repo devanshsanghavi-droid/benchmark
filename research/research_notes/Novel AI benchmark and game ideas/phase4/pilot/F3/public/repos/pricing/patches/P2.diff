@@ -1,0 +1,28 @@
+Subject: Add UnknownCoupon error and drop the coupon clamp
+
+--- a/pricing.py
++++ b/pricing.py
+@@ -9,6 +9,10 @@
+ 
+ 
+ class PricingError(ValueError):
++    pass
++
++
++class UnknownCoupon(PricingError):
+     pass
+ 
+ 
+@@ -44,10 +48,10 @@
+     coupon_off = 0
+     if coupon is not None:
+         if coupon not in COUPONS:
+-            raise PricingError("unknown coupon")
++            raise UnknownCoupon(coupon)
+         minimum, amount = COUPONS[coupon]
+         if after_bulk >= minimum:
+-            coupon_off = max(0, min(amount, after_bulk))
++            coupon_off = amount
+     net = after_bulk - coupon_off
+     shipping = 0 if net >= FREE_SHIP_MIN else SHIPPING
+     tax = tax_on(net)

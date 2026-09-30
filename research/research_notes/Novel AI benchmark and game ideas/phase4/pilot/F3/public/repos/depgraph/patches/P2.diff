@@ -1,0 +1,33 @@
+Subject: Use a FIFO queue in order()
+
+--- a/depgraph.py
++++ b/depgraph.py
+@@ -1,6 +1,6 @@
+ """Dependency graph with deterministic build ordering."""
+ 
+-import heapq
++from collections import deque
+ 
+ 
+ class GraphError(ValueError):
+@@ -50,16 +50,15 @@
+ 
+     def order(self):
+         waiting, users = self._indegrees()
+-        ready = [n for n, k in waiting.items() if k == 0]
+-        heapq.heapify(ready)
++        ready = deque(sorted(n for n, k in waiting.items() if k == 0))
+         out = []
+         while ready:
+-            n = heapq.heappop(ready)
++            n = ready.popleft()
+             out.append(n)
+-            for u in users[n]:
++            for u in sorted(users[n]):
+                 waiting[u] -= 1
+                 if waiting[u] == 0:
+-                    heapq.heappush(ready, u)
++                    ready.append(u)
+         if len(out) != len(self._deps):
+             stuck = sorted(n for n, k in waiting.items() if k > 0)
+             raise CycleError("cycle among: " + ", ".join(stuck))

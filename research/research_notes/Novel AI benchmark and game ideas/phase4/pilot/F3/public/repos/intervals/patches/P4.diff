@@ -1,0 +1,18 @@
+Subject: Compute remove() remainders with min/max
+
+--- a/intervals.py
++++ b/intervals.py
+@@ -39,10 +39,9 @@
+             if e <= a or s >= b:
+                 out.append([s, e])
+                 continue
+-            if s < a:
+-                out.append([s, a])
+-            if b < e:
+-                out.append([b, e])
++            for lo, hi in ((s, min(e, a)), (max(s, b), e)):
++                if lo <= hi:
++                    out.append([lo, hi])
+         self._iv = out
+ 
+     def contains(self, x):

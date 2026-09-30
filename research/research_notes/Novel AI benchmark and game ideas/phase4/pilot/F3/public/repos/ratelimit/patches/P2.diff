@@ -1,0 +1,13 @@
+Subject: Return keys in sorted order
+
+--- a/ratelimit.py
++++ b/ratelimit.py
+@@ -65,7 +65,7 @@
+         for key in list(self._events):
+             if self._prune(key, t):
+                 live.append(key)
+-        return live
++        return sorted(live)
+ 
+     def reset(self, key):
+         self._events.pop(key, None)

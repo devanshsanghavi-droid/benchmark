@@ -1,0 +1,16 @@
+Subject: Compute fee shares without a separate remainder pass
+
+--- a/ledger.py
++++ b/ledger.py
+@@ -67,10 +67,9 @@
+         """Return {name: cents} for splitting `fee` across `names`."""
+         payers = sorted(names)
+         n = len(payers)
+-        base, rem = fee // n, fee % n
+         shares = {}
+         for i, name in enumerate(payers):
+-            shares[name] = base + (1 if i < rem else 0)
++            shares[name] = fee * (i + 1) // n - fee * i // n
+         return shares
+ 
+     def split_fee(self, names, fee):

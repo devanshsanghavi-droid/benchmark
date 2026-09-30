@@ -1,0 +1,19 @@
+Subject: Build layers directly from depths
+
+--- a/depgraph.py
++++ b/depgraph.py
+@@ -70,12 +70,8 @@
+         depth = {}
+         for n in order:
+             depth[n] = 1 + max((depth[d] for d in self._deps[n]), default=-1)
+-        out = []
+-        for n in order:
+-            while len(out) <= depth[n]:
+-                out.append([])
+-            out[depth[n]].append(n)
+-        return [sorted(layer) for layer in out]
++        width = max(depth.values(), default=-1) + 1
++        return [sorted(n for n in order if depth[n] == i) for i in range(width)]
+ 
+     def affected(self, node):
+         """Nodes that must be rebuilt when `node` changes (node included)."""
