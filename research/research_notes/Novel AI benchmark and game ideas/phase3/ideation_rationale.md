@@ -26,6 +26,7 @@ Principles P1–P20, the §5 opportunity map, the §6 Must items (M1–M11) and 
 | [bg] / [background] | The ideator's background knowledge, not verified |
 | [I] / [interpretation] | The ideator's interpretation |
 | [S] (inside dossier citations) | The dossier marked the figure as coming from a search summary |
+| [corrected by fact-check P3: …] / [verified by fact-check P3 …] / [fact-check P3: …] | Added by the independent Phase 3 fact-check (30 Sep 2026); see the log at the end of this file |
 
 **Self-scores.** These are each ideator's own scores on the Phase 2 §7 rubric, 1–5 each:
 
@@ -183,7 +184,7 @@ These are genuinely distinct in the scored subject or the construct. They are fl
 
 Cited rationale behind the protocol items, as given by the panels:
 - **Harness sensitivity.** ARC-AGI-3 scored 62.7% vs 98.6% for the same model depending on harness (A §2.3). Code world models plus search beat direct play (D §2.25 [uncertain]). Source: G S2.
-- **Refusal accounting.** On NYT Connections, Opus 4.7's 39% came from refusals scored as zero. Source: D S7, citing B §3.5 and B §5 lesson 10.
+- **Refusal accounting.** On NYT Connections, Opus 4.7's 39% came from refusals scored as zero. Source: D S7, citing B §3.5 and B §5 lesson 10. [fact-check P3: the refusal finding is in B §3.5 (and P13 *Against*); B §5 lesson 10 is about keeping conduct telemetry separate, not refusals]
 - **Cost reference.** G's cost estimates assume frontier pricing of about $4 in and $20 out per 1M tokens (Opus 5.5 list price, B §4), with no caching discount [speculation]. Source: G S7.
 
 ### 3.2 H panel: moat taxonomy (A1 durability)
@@ -201,17 +202,17 @@ The H panel kept only ideas whose human edge rests on at least one "moat". A moa
 - **H's context claims.**
   - Novel instances, and even novel task families, buy about 5 months once labs target them: ARC-AGI-3 went from under 1% to 62.7% on the standard harness and 98.6% on a provider harness (F §3; A §2.3).
   - Anything whose state can be written as text gets compiled into code and searched (P4; A §4 lesson 4).
-  - Evidence that stand-in human-proxy agents fail to transfer: human–AI convention pairs fail [web: arXiv 2602.08208].
+  - Evidence that stand-in human-proxy agents fail to transfer: human–AI convention pairs fail [web: arXiv 2602.08208]. [verified by fact-check P3 (search excerpts of the abstract): same-type dyads converged, human–LLM dyads did not, and prompting LLMs to behave in a superficially human-like way matched message length but not accuracy or lexical overlap. The paper tests prompted LLMs, not trained proxy agents, so "proxies fail to transfer" is an [interpretation]]
 - **H's caveat: none of these moats is proven durable.**
   - ClockBench went from 13.3% to 66.7% in about 12 months.
   - VPCT reached 91% against 100% for 3 human volunteers.
   - VSI-Bench is nearly closed (A §2.9–2.12).
-- **H's durability ranking:** M1 and M2 first, then M4. M3 and M5 only with secret primitives that rotate.
+- **H's durability ranking [speculation]:** M1 and M2 first, then M4. M3 and M5 only with secret primitives that rotate.
 - **H's cross-cutting caveat.** Most of the anchors behind these gaps predate the Sep 2026 frontier: IntPhys 2, VideoGameBench, BabyVision, Concept and AutumnBench. Before building H1, H5 or H7–H11, run a quick pilot on Opus 5.5, GPT-6 Astra and Gemini 3.x.
 
 ### 3.3 Panel recommendations (verbatim intent, labelled by panel)
 
-- **H panel.**
+- **H panel [speculation / interpretation].**
   1. Lead candidate: H2 Tacit Signals (C07). Its moat is the most structural, because the environment is people. There is fresh 2026 evidence that mixed human–AI pairs fail, and it has a clean human–human reference.
   2. Renewal backbone: H3 Stump Arena (C05). Its cost-to-stump headline has no ceiling.
   3. Cheap perception battery: H1 + H7 + H11 as one seasonal "Perception Season" (C01 + C03 + C04). These have the largest current gaps but are the most exposed to targeted training.
@@ -263,19 +264,19 @@ Format per candidate:
   - A §2.8: BlindTest shows the vision encoder holds the information and the language model loses it.
   - A §2.15: in IntPhys 2 the driver is tracking objects over time; the static VPCT closed.
   - E Q1.
-- **Self-scores:** Q1 4, Q2 3, Q3 5, Q4 4, Q5 5, Q6 3. Chance of a clear human edge after 12 months of targeting: ~35%. Biggest risk: an engineering fix (denser frames plus motion pretraining).
+- **Self-scores:** Q1 4, Q2 3, Q3 5, Q4 4, Q5 5, Q6 3. Chance of a clear human edge after 12 months of targeting: ~35% [speculation]. Biggest risk: an engineering fix (denser frames plus motion pretraining).
 - **Risks:**
   - The most engineering-fixable H idea; it could close within 12 months, as ClockBench did.
   - It may be dismissed as "psychophysics, not intelligence".
   - SpookyBench has been public since 2025, so plain-motion carriers may already be a target.
   - Video compression could leak the signal into single frames; the controls audit for this.
-- **Prior art:** SpookyBench (static public set), MotionBlind (Sep 2026), MotionBench [web]. Stated differences:
+- **Prior art:** SpookyBench (static public set), MotionBlind (Sep 2026), MotionBench [web]. [fact-check P3: all three exist. MotionBlind (arXiv 2609.09528; search excerpts) uses paired self-recorded clips differing only in speed, magnitude or direction, and already reports no-video and frame-shuffle controls (shuffling drops it to chance), so shuffle controls are not a difference from MotionBlind. MotionBench (arXiv 2501.02955) is a fine-grained video-motion benchmark (Jan 2025) [bg]] Stated differences:
   - secret rotating carriers with a held-out split;
   - thresholds instead of accuracy;
-  - shuffle controls;
+  - shuffle controls (shared with MotionBlind);
   - separate tools-off and tools-on tracks.
 - **Cited claims:**
-  - SpookyBench reports humans at 98% and GPT-4o, Gemini 2.0 and Qwen-VL at **0%** on video where meaning exists only over time [web: "Time Blindness", CVPR 2026, arXiv 2505.24867; 2025 models].
+  - SpookyBench reports humans at 98% and GPT-4o, Gemini 2.0 and Qwen-VL at **0%** on video where meaning exists only over time [web: "Time Blindness", CVPR 2026, arXiv 2505.24867; 2025 models]. [verified by fact-check P3: CVPR 2026 Open Access listing (Upadhyay et al.) and the TimeBlindness GitHub repo; the 98% vs 0% figures appear in search excerpts of the paper]
   - ClockBench went from 13.3% to 66.7% in about 12 months (A §2.9–2.12).
   - URLs given: arxiv.org/abs/2505.24867; github.com/TimeBlindness/time-blindness; arxiv.org/html/2609.09528 (MotionBlind); arxiv.org/abs/2501.02955 (MotionBench).
 - **Spec omissions:** 200 online adults. Carriers can include "motion visible only through colour, not brightness" as a backlog example.
@@ -291,13 +292,13 @@ Format per candidate:
   - P4 (no simulator to compile), P8, P10, P17.
   - A §2.15.
   - D §2.11: in Factorio, agents gamed the reward, so goal checks must be physical and robust.
-- **Self-scores:** 5/4/4/4/2/4. About 60% chance of a human edge after 12 months. Biggest risk: throughput and operations cost.
+- **Self-scores:** 5/4/4/4/2/4. About 60% chance of a human edge after 12 months [speculation]. Biggest risk: throughput and operations cost.
 - **Risks:**
   - Physical upkeep is a new kind of maintenance burden.
   - Reproducibility across rigs.
   - Adoption (P19), although "physical AI" is a live purchasing decision.
   - A lab could build a dedicated VLA robot controller. The ideator calls this "real capability gain, which is the point".
-- **Prior art:** Real Robot Challenge (remote TriFinger rigs); RoboDojo, whose real-world evaluation has expert teleoperators on the same setup as the robot policies [web, arXiv 2607.04434]. Stated differences:
+- **Prior art:** Real Robot Challenge (remote TriFinger rigs); RoboDojo, whose real-world evaluation has expert teleoperators on the same setup as the robot policies [web, arXiv 2607.04434]. [verified by fact-check P3 (search excerpts): RoboDojo has 42 simulated and 18 real-world tasks, a remote-access RealEval rig and expert teleoperators on the same leader–follower setup; the leading policy completed under 9% of simulation tasks vs 76% for teleoperators. It evaluates trained manipulation policies, consistent with the stated differences] Stated differences:
   - general-purpose models rather than trained robot policies;
   - lay humans on an identical interface;
   - novel physics puzzles;
@@ -314,7 +315,7 @@ Format per candidate:
 - **Expected human vs AI [speculation]:** tools-off frontier models well below the human median on held-out spaces.
 - **Expected separation [speculation]:** large. Vision is the biggest reordering between labs (E Q2).
 - **Evidence:** P3, P8, P9, P7; A §2.8, §2.11; E Q1, Q2.
-- **Self-scores:** 4/3/4/4/4/2. About 40%. Biggest risk: many-image in-context learning may work.
+- **Self-scores:** 4/3/4/4/4/2. About 40% [speculation]. Biggest risk: many-image in-context learning may work.
 - **Risks:**
   - Learning from many images in a long context may work better than expected; this is untested.
   - A single low-level statistic, such as mean colour, would leak the answer.
@@ -334,8 +335,8 @@ Format per candidate:
 - **Ideator notes:** A1, on moat M3.
 - **Expected human vs AI [speculation]:** a gap of at least 20 pp for non-musicians on families (a)–(c).
 - **Expected separation [speculation]:** large, because some models have no audio input.
-- **Evidence:** P8, P3; E Q3. The ideator notes this is "the thinnest evidence of the set: no Phase 1 dossier covers audio."
-- **Self-scores:** 4/3/3/4/5/3. About 40%. Biggest risks: thin evidence and uneven audio support.
+- **Evidence:** P8, P3; E Q3. The ideator notes this is "the thinnest evidence of the set: no Phase 1 dossier covers audio." [fact-check P3: E Q3 has no audio entry; its perception target (rank 4) is visual perception and intuitive physics, so it supports this card only by analogy]
+- **Self-scores:** 4/3/3/4/5/3. About 40% [speculation]. Biggest risks: thin evidence and uneven audio support.
 - **Risks:**
   - Uneven audio support across models limits coverage and adoption.
   - Synthetic-music training.
@@ -346,10 +347,10 @@ Format per candidate:
   - a real-time tapping track;
   - non-musician baselines.
 - **Cited claims:**
-  - MUSE (200 humans), metre identification: human experts 73.3% vs Gemini Pro 46.67% [web, arXiv 2510.19055].
-  - MMAU: humans 82% vs best model 53% (2024) [web, arXiv 2410.19168].
-  - People learn the statistics of the Bohlen–Pierce scale within about 30 minutes [background, Loui et al.; not verified].
-  - CASU: arXiv 2606.25391. SCENEBench: EACL 2026.
+  - MUSE (200 humans), metre identification: human experts 73.3% vs Gemini Pro 46.67% [web, arXiv 2510.19055]. [fact-check P3: partly verified. The official MUSE GitHub README confirms N = 200 humans, four models (Gemini 2.5 Pro and Flash, Qwen2.5-Omni, Audio Flamingo 3), a Meter ID task, and that expert listeners significantly outperformed all models on music-theoretic tasks; uncertain: the specific 73.3% vs 46.67% figures were not found in accessible sources]
+  - MMAU: humans 82% vs best model 53% (2024) [web, arXiv 2410.19168]. [verified by fact-check P3 (search excerpts; ICLR 2025): humans about 82% vs Gemini Pro v1.5 52.97%]
+  - People learn the statistics of the Bohlen–Pierce scale within about 30 minutes [background, Loui et al.; not verified]. [verified by fact-check P3: Loui, Wessel & Hudson Kam (2010), "Humans rapidly learn grammatical structure in a new musical scale", *Music Perception* 27(5): 377–388; learning after 25–30 min of passive exposure]
+  - CASU: arXiv 2606.25391. SCENEBench: EACL 2026. [uncertain: not checked by fact-check P3]
 
 ### C05 Stump Arena (H3)
 - **Sources:** H3. W §3 proposed twists for it.
@@ -361,19 +362,19 @@ Format per candidate:
   - Text-only trick questions are closed (SimpleBench, A §2.4), so authors are expected to drift toward perception and video. "That drift is itself a finding."
 - **Expected separation [speculation]:** wide on held-out-panel items, split by modality strength (E Q2).
 - **Evidence:** P1, P7, P17, P20 (participation); A §2.4; G §4 (newly written items are error-prone).
-- **Self-scores:** 5/5/4/4/3/5. About 85% by construction. Biggest risks: ambiguous items and filter-panel bias.
+- **Self-scores:** 5/5/4/4/3/5. About 85% by construction [speculation]. Biggest risks: ambiguous items and filter-panel bias.
 - **Risks:**
   - Items may be hard only for the filter panel; held-out scoring mitigates this.
   - Ambiguity and label errors.
   - Author–verifier collusion; random assignment and audits mitigate this.
   - Programme cost and moderation load.
-- **Prior art:** Dynabench, ANLI, adversarial Quizbowl, HLE (experts, text, static), SimpleBench (fixed, 9 humans). Stated differences:
+- **Prior art:** Dynabench, ANLI, adversarial Quizbowl, HLE (experts, mostly text, static) [corrected by fact-check P3: was "text"; the official HLE README describes it as "a multi-modal benchmark"], SimpleBench (fixed, 9 humans). Stated differences:
   - an ordinary-human gate;
   - any medium;
   - weekly renewal;
   - held-out-model scoring;
   - an uncapped, effort-based headline.
-- **Cited claims:** adversarial Quizbowl authoring cut strong QA models' relative accuracy by up to 40% while leaving human difficulty unchanged [web: TACL 2019; aclanthology.org/Q19-1029].
+- **Cited claims:** adversarial Quizbowl authoring cut strong QA models' relative accuracy by up to 40% while leaving human difficulty unchanged [web: TACL 2019; aclanthology.org/Q19-1029]. [verified by fact-check P3 (search excerpts of the paper): the adversarial set "is as easy as regular questions for humans, but the relative accuracy of strong QA models drops as much as 40%" (Wallace et al., "Trick Me If You Can")]
 - **Proposed variants (W §3):**
   - Score each model only on items accepted after its release date (future-dated windows).
   - "Burn accounting": record which providers saw each item during filtering.
@@ -397,7 +398,7 @@ Format per candidate:
   - H10: P3, P4, P8; A §2.10, §2.15; F §2 (NewtonBench's altered laws are numeric and already an RL training environment).
   - G13: P2, P8, P9, P10, P17; A §2.10, §2.15; E Q3 rank 4.
 - **Self-scores:**
-  - H10: 4/3/3/3/5/3. About 35%. Biggest risk: a weak human anchor, plus trajectory fitting with tools.
+  - H10: 4/3/3/3/5/3. About 35% [speculation]. Biggest risk: a weak human anchor, plus trajectory fitting with tools.
   - G13: 4/3/4/4/4/4, mean 3.8. Passes the rule.
 - **Risks:**
   - On the tools-on track, a model can extract trajectories and fit the law.
@@ -406,7 +407,7 @@ Format per candidate:
   - Synthetic physics-video training may close the gap quickly (ClockBench went from 13.3 to 66.7 in about 12 months).
   - Continuous-action precision could confound the result; quantise, and use the coordinates ablation as a control.
   - "Only a game" framing (P19).
-- **Prior art:** PHYRE, IntPhys 2, NewtonBench, Physion; AIBIRDS (known physics, non-LLM agents); VPCT. Stated differences:
+- **Prior art:** PHYRE, IntPhys 2, NewtonBench, Physion; AIBIRDS (known physics, non-LLM agents); VPCT. [added by fact-check P3: **Physion++** (Tung et al., NeurIPS 2023 Datasets & Benchmarks) already tests *online inference of latent physical properties* (mass, friction, elasticity, deformability) from observed dynamics, then prediction, with humans and models on the same stimuli; it is the closest prior art for the observe-then-predict core, though it uses normal physics and no action phase] Stated differences:
   - secret altered laws learned from video only;
   - one-shot action;
   - a human baseline;
@@ -415,7 +416,7 @@ Format per candidate:
 - **Cited claims:**
   - Static normal-physics prediction is nearly closed: VPCT 91% vs 100% (A §2.10).
   - Physics in video is not: IntPhys 2 96.44 vs 57.51 (A §2.15).
-  - The AIBIRDS man-vs-machine challenge has been won by humans every year since 2013. In 2022 the best human scored 251,710 vs 144,630 for the best AI [web, S; aibirds.org].
+  - The AIBIRDS man-vs-machine challenge has been won by humans every year since 2013. In 2022 the best human scored 251,710 vs 144,630 for the best AI [web, S; aibirds.org]. [fact-check P3: 2022 figures verified via search excerpts of aibirds.org's 2022 results (Hannu Laaksonen 251,710; Bambirds 144,630); organiser papers say humans "always won" in early years; uncertain: not checked year by year, and no result after 2022 was seen]
 - **Spec omissions:**
   - G13 details:
     - 6–10 balls, pockets and obstacles;
@@ -436,23 +437,23 @@ Format per candidate:
 - **Expected separation [speculation]:** moderate. Differences in over-adaptation or deference (sycophancy) and in pragmatic style may appear as a conduct axis (P11).
 - **Evidence:**
   - A §2.5 (Concept).
-  - D §2.16: in Hanabi, first-order theory of mind correlates with success at ρ = 0.76.
+  - D §2.16: in Hanabi, first-order theory of mind correlates with success at ρ = 0.76. [fact-check P3: D's fact-check notes the excerpt reports "r", not ρ, and p = 0.0015 was not seen; LLM-agent games only, no human baseline]
   - E Q1: theory-of-mind vignettes are largely closed [uncertain], so the remaining gap must come from live interaction.
   - P1, P7, P17, P20.
-- **Self-scores:** 4/4/4/5/3/4. About 60%. Biggest risks: labs paying humans for online RL, and human variance.
+- **Self-scores:** 4/4/4/5/3/4. About 60% [speculation]. Biggest risks: labs paying humans for online RL, and human variance.
 - **Risks:**
   - Humans may guess they are playing an AI; measure suspicion and control for it.
   - Human partners vary widely, so large samples are needed (P16).
   - The main durability threat is labs paying humans for online RL. That is costly, and secret channel families limit transfer.
   - An AI that teaches the human an explicit code is succeeding legitimately.
-- **Prior art:** Tacit Communication Game (de Ruiter et al., 2010); ICCA; arXiv 2602.08208; TUX, human–AI tacit understanding (arXiv 2605.30930); AH2AC2, Hanabi with human-proxy agents [web]. Stated differences:
+- **Prior art:** Tacit Communication Game (de Ruiter et al., 2010); ICCA; arXiv 2602.08208; TUX, human–AI tacit understanding (arXiv 2605.30930); AH2AC2, Hanabi with human-proxy agents [web]. [fact-check P3: ICCA exists (Hua & Artzi, "Talk Less, Interact Better", arXiv 2408.01417); uncertain: TUX not checked] Stated differences:
   - live humans as the scored environment, rather than proxies;
   - non-linguistic channels that rotate each season;
   - a human–human reference condition, giving a clean A1 comparison.
 - **Cited claims:**
-  - "LLMs and people both learn to form conventions — just not with each other" (arXiv 2602.08208): human–human and AI–AI pairs formed conventions, while mixed pairs "consistently failed", even when models were prompted to behave like humans [web; model list not seen].
+  - "LLMs and people both learn to form conventions — just not with each other" (arXiv 2602.08208): human–human and AI–AI pairs formed conventions, while mixed pairs "consistently failed", even when models were prompted to behave like humans [web; model list not seen]. [verified in substance by fact-check P3 (search excerpts of the abstract; Jones, Lombardi, Mahowald & Bergen, submitted 9 Feb 2026, reported as CogSci 2026): in a multimodal communication game, same-type dyads (human–human, AI–AI) showed convention formation (rising accuracy and consistency, falling message length), while "heterogenous human-AI pairs fail". In Experiment 2, prompting LLMs to act superficially human-like matched human message length, but accuracy and lexical overlap in human–LLM pairs "continues to lag behind". The word "consistently" was not seen in the abstract; the model list is still unseen]
   - Concept: humans above 90% vs LLMs below 40% (A §2.5; 2025 models, stale).
-  - **Note:** the G panel (G2, now C44) cites the same paper as evidence *against* a human edge in convention formation ("LLMs and people both learn to form conventions"). The two panels read the source differently.
+  - **Note:** the G panel (G2, now C44) cites the same paper as evidence *against* a human edge in convention formation ("LLMs and people both learn to form conventions"). The two panels read the source differently. [resolved by fact-check P3: H2's reading is correct. The G reading quotes only the first half of the title. The paper does show that LLMs can form conventions *with each other*, so it is evidence against a general AI inability to form conventions. But its headline result is that human–AI pairs fail where human–human pairs succeed, which supports a human–AI gap in exactly the mixed cells that C07 and C44 score. It is not evidence against an A1 gap in those cells]
 - **Proposed variants (W §3, for G3/H2/D7):**
   - A **third-party decodability** score: a fresh model from a different lab, or a human, reads 30 rounds of transcript, then plays as matcher for 10 rounds. This measures whether agent-invented conventions are readable by monitors, which is safety-relevant.
   - Cap bandwidth below what a naive attribute encoding needs.
@@ -462,20 +463,20 @@ Format per candidate:
 - **Sources:** G3. W §3 proposed a twist for it.
 - **Ideator notes:** A1, a repeated reference game. It matters for collaboration on novel artefacts such as designs, data plots and lab samples.
 - **Expected human vs AI [speculation]:**
-  - Human dyads reach about 96% with shrinking messages.
+  - Human dyads reach about 96% with shrinking messages. [uncertain: the 96% figure is attributed to arXiv 2606.08081 but was not found by fact-check P3; see Cited claims]
   - Human–model dyads lag on efficiency and on near-duplicate discrimination, a perception bottleneck (P8; BabyVision 94.1 vs 49.7, E Q1).
 - **Expected separation [speculation]:** large on vision-heavy families. BabyVision spread 3.5× across labs (Jan 2026 models, E Q2).
 - **Evidence:** P8, P17, P20; A §4 lesson 4; E Q1–Q2.
 - **Self-scores:** 3/2/4/4/4/3, mean 3.3. Fails the rule on Q1.
 - **Risks:**
-  - Targeted post-training for convention formation already exists [web, S: arXiv 2508.06482], so the gap may close within months (ClockBench-like, A §2.9).
+  - Targeted post-training for convention formation already exists [web, S: arXiv 2508.06482], so the gap may close within months (ClockBench-like, A §2.9). [fact-check P3: paper exists, "Post-training for Efficient Communication via Convention Formation"; the "within months" is [speculation]]
   - Live human pairing is the cost driver.
   - Self-play dyads may invent codes; only human-paired scores are headline.
 - **Prior art:** Clark & Wilkes-Gibbs tangrams; Hawkins et al.; KTH Tangrams; arXiv 2606.08081. Stated differences:
   - secret generated stimuli;
   - a partner-swap probe;
   - human–model dyads under a frozen protocol, as a maintained leaderboard.
-- **Cited claims:** in repeated reference games, human dyads rise from 78% to 96%, while multimodal LLM agents are "aligned but not partner-specific" [web, S: arXiv 2606.08081].
+- **Cited claims:** in repeated reference games, human dyads rise from 78% to 96%, while multimodal LLM agents are "aligned but not partner-specific" [web, S: arXiv 2606.08081]. [fact-check P3: the paper exists (Wang, Mishra, Özyürek, Rubio-Fernández & Ghaleb). It compares 45 MLLM–MLLM dyads with 42 human dyads from the existing KTH Tangrams corpus; humans compress descriptions and entrain, while agents *succeed* by verbose description with near-ceiling label overlap that does not depend on partner history ("coordination without convention"). So it shows an efficiency and partner-specificity difference, not an accuracy deficit, and it tests no human–model dyads. uncertain: the 78% → 96% figures were not found in accessible excerpts]
 - **Proposed variants (W §3):** third-party decodability, a bandwidth cap, and randomised inventory order per player (see C07).
 - **Spec omissions:**
   - Positions differ between the two players, as in the classic design, so "top-left" is useless.
@@ -493,16 +494,17 @@ Format per candidate:
   - P10, P18, P8, P1, P7.
   - A §2.3: what closed ARC-AGI-3 was carried-over state and symbolic world models.
   - A §2.17; D §2.8; F §1.
-- **Self-scores:** 4/3/4/4/3/5. About 45% with the frozen harness. Biggest risks: fast-policy harnesses, and the "artificial" critique.
+- **Self-scores:** 4/3/4/4/3/5. About 45% [speculation] with the frozen harness. Biggest risks: fast-policy harnesses, and the "artificial" critique.
 - **Risks:**
   - The "artificial latency handicap" critique (P10); the paused ablation measures how much of the gap is latency.
   - A lab builds a fast policy tier, as SIMA 2 did, which is real capability gain.
   - Cost.
   - Harness capture on the BYO track; the difference is published.
 - **Prior art:** VideoGameBench (known retro games, dormant); ARC-AGI-3 (turn-based); SIMA 2 (instructed); gg-bench (turn-based). Stated differences: secret generated real-time games with no instructions, and a paused ablation.
+  - [added by fact-check P3] **GVGAI**, the General Video Game AI competition (Perez-Liebana et al., from 2014; games written in VGDL), already scores agents on *unseen*, generated real-time arcade games, including a learning track without a forward model [bg]. **Tsividis et al.** ("Human learning in Atari", 2017; "Human-level reinforcement learning through theory-based modeling, exploration, and planning", 2021) measured how fast people learn new VGDL games with no instructions and compared agents with them [bg]. **Real-Time Reasoning Gym** (Wen et al., ICLR 2026, arXiv 2511.04898) evaluates language agents in environments that keep evolving while the agent reasons (Freeway, Snake, Overcooked) [web, verified via search excerpts]. The remaining differences are LLM-era frontier models, a matched human first-run baseline, and secret seasonal mechanics.
 - **Cited claims:**
   - VideoGameBench: 0.48% in real time vs 1.6% paused (A §2.17; May 2025, stale).
-  - SIMA 2 reached about 65% vs 71% for humans on *instructed* tasks in 3D games [web; arXiv 2512.04797].
+  - SIMA 2 reached about 65% vs 71% for humans on *instructed* tasks in 3D games [web; arXiv 2512.04797]. [verified by fact-check P3 (secondary press and search excerpts): SIMA 2 about 65% vs SIMA 1 31% and humans 71% on the same task suite; one secondary source gives humans about 75%]
 - **Related:** the H panel suggested an H5 + H13 "arcade with a dual-task mode".
 
 ### C10 Two Clocks (H13)
@@ -513,11 +515,11 @@ Format per candidate:
   - A single frontier model in the frozen harness will largely collapse on one of the two tasks: it either stops steering while it thinks, or abandons the puzzles.
 - **Expected separation [speculation]:** large. It exposes the trade-off between latency and reasoning effort.
 - **Evidence:** P10, P18, P13; A §2.17.
-- **Self-scores:** 4/3/4/4/3/3. About 50% with the frozen harness; low with BYOH. Biggest risk: "architecture, not intelligence".
+- **Self-scores:** 4/3/4/4/3/3. About 50% [speculation] with the frozen harness; low with BYOH. Biggest risk: "architecture, not intelligence".
 - **Risks:**
   - It measures system architecture as much as intelligence. A two-model harness would close it, and "that difference is the informative result".
   - It may look artificial (P10).
-- **Prior art:** human-factors dual-task batteries such as NASA's MATB-II. The ideator found no AI benchmark.
+- **Prior art:** human-factors dual-task batteries such as NASA's MATB-II. The ideator found no AI benchmark. [fact-check P3: the closest AI prior art is **Real-Time Reasoning Gym** (Wen et al., ICLR 2026, arXiv 2511.04898; verified via search excerpts): environments change while the agent thinks, and its AgileThinker agent runs a fast reactive thread and a slow planning thread in parallel, i.e. the "two-model harness" this card expects to close the gap. It is not a dual-task (two concurrent tasks) design, so the construct difference stands]
 - **Cited claims:** latency already hurts in real time: VideoGameBench 0.48% real time vs 1.6% paused (A §2.17).
 
 ### C11 Wayfinder (H9)
@@ -526,17 +528,17 @@ Format per candidate:
 - **Expected human vs AI [speculation]:** path efficiency of about 0.8 for the human median and 0.3–0.5 for frontier models.
 - **Expected separation [speculation]:** moderate to large.
 - **Evidence:** P8, P3, P10; A §2.12–2.14, §2.20; E Q1.
-- **Self-scores:** 4/2/4/4/4/3. About 25%. Biggest risk: embodied-navigation training.
+- **Self-scores:** 4/2/4/4/4/3. About 25% [speculation]. Biggest risk: embodied-navigation training.
 - **Risks:**
-  - Embodied navigation is a lab priority (SIMA 2, robotics), so this is probably the fastest-closing of the H perception ideas.
-  - The SLAM route will close the tools-on track quickly.
-- **Prior art:** VSI-Bench, MindCube, Habitat ObjectNav, SIMA 2. Stated differences:
+  - Embodied navigation is a lab priority (SIMA 2, robotics), so this is probably the fastest-closing of the H perception ideas [speculation].
+  - The SLAM route will close the tools-on track quickly [speculation].
+- **Prior art:** VSI-Bench, MindCube, Habitat ObjectNav, SIMA 2. [added by fact-check P3: **SPACE** (Ramakrishnan et al., "Does Spatial Cognition Emerge in Frontier Models?", ICLR 2025) already gives frontier models egocentric video tours of environments followed by map-use tests taken from human spatial-cognition research (direction and distance estimation, map sketching, route retracing, shortcut discovery), with human comparison [bg]. It is non-interactive (fixed video), so interactivity, secret grammars and human normalisation remain the differences] Stated differences:
   - interactive exploration followed by map-use tests taken from human spatial-cognition research;
   - secret grammars;
   - human normalisation.
 - **Cited claims:**
   - MMSI-Video: humans 96.4 vs 38.0 (Dec 2025 models).
-  - MindTopo: 97.87 vs 61.42 (Sep 2026) [secondary, low confidence].
+  - MindTopo: 97.87 vs 61.42 (Sep 2026) [secondary, low confidence]. [fact-check P3: A's fact-check log marks this verified (secondary, search extract of arXiv 2609.11900); the model is GPT-5.6-Sol]
   - MindCube: vision-language models near random.
   - VSI-Bench is closed on distances and sizes but not on relational questions (A §2.12–2.14, §2.20).
 
@@ -593,7 +595,7 @@ Format per candidate:
 - **Ideator notes:**
   - A2. Hallucination is the top deployment failure, and a model's knowledge of its own frontier appears on no leaderboard (E Q4).
   - D's spread driver: "calibration × knowledge; a do-nothing agent scores exactly 0".
-  - Training on the practice families teaches calibration in general, which is the intended construct, but not the private trap structure.
+  - Training on the practice families teaches calibration in general, which is the intended construct, but not the private trap structure [speculation].
 - **Expected human vs AI [speculation]:**
   - AI clearly ahead, mainly on accuracy for knowledge and computation items.
   - Typical humans near zero or negative growth from overconfidence.
@@ -611,7 +613,7 @@ Format per candidate:
   - Verbalised probabilities are sensitive to prompt format.
   - Label errors in generated items.
   - Calibration can be trained, which is desirable but may saturate the trap families quickly.
-- **Prior art:** AA-Omniscience (+1/−1/0, static items); lechmazur confabulations; KellyBench (arXiv 2604.27865, Apr 2026: sports-betting strategies scored by log-wealth) [prior-art search]. Stated differences:
+- **Prior art:** AA-Omniscience (+1/−1/0, static items); lechmazur confabulations; KellyBench (arXiv 2604.27865, Apr 2026: sports-betting strategies scored by log-wealth) [prior-art search]. [verified by fact-check P3 (search excerpts): KellyBench has models build betting strategies for the 2023/24 Premier League season; reward is change in log-wealth per matchday; no model made a return on average across 5 seeds] Stated differences:
   - per-item wagering against a house line anchored to frozen models;
   - a compounding bankroll;
   - secret trap families;
@@ -633,7 +635,7 @@ Format per candidate:
 - **Ideator notes:**
   - A2. Idiosyncratic, prospective self-knowledge, for routing, delegation and deciding when to ask for help.
   - The structural property: the ground truth is the model's own future behaviour, and population odds absorb generic difficulty.
-  - Training on the practice pool teaches self-knowledge about that pool only.
+  - Training on the practice pool teaches self-knowledge about that pool only [speculation].
   - Sandbagging is blocked because attempts are blind and task accuracy is reported alongside.
   - Self-Edge equals the expected log-wealth growth of a Kelly bettor against the house.
 - **Expected human vs AI [spec]:** humans are also overconfident, but may beat models on idiosyncratic resolution, since people know their own weak spots. Mixed overall; mostly A2.
@@ -653,8 +655,8 @@ Format per candidate:
   - triage is scored.
 - **Cited claims:**
   - Hallucination rates of 48–88% split by lab; an always-abstain model ranks 4th of 36 (E Q2, B §3.7).
-  - [web] 2026 papers report universal overconfidence (MIRROR gap 0.17), failure of compositional self-prediction (CCE 0.50–0.94), and confidence that "reduces to a shared difficulty heuristic" [attribution to arXiv 2605.07806 uncertain].
-  - Links given: MIRROR arXiv 2604.19809; TRIAGE arXiv 2605.13414.
+  - [web] 2026 papers report universal overconfidence (MIRROR gap 0.17), failure of compositional self-prediction (CCE 0.50–0.94), and confidence that "reduces to a shared difficulty heuristic" [attribution to arXiv 2605.07806 uncertain]. [corrected by fact-check P3: the gap and CCE figures both come from MIRROR itself (arXiv 2604.19809; 16 models from 8 labs; mean gap 0.170; CCE 0.500–0.943 on its 15-model set, 0.434–0.758 on the 16-model expansion), not from a separate paper; search excerpts. uncertain: the "shared difficulty heuristic" quote remains unattributed]
+  - Links given: MIRROR arXiv 2604.19809; TRIAGE arXiv 2605.13414. [fact-check P3: MIRROR and the Metacognitive Monitoring Battery (arXiv 2604.15702) exist; uncertain: TRIAGE not checked]
 
 ### C16 Pushback Ledger (D12)
 - **Sources:** D12.
@@ -667,16 +669,16 @@ Format per candidate:
   - Frozen challengers become recognisable.
   - Items must be hard enough to produce first-answer errors.
   - The construct may converge across labs once targeted.
-- **Prior art:** FlipFlop (arXiv 2311.08596), SYCON Bench, lechmazur sycophancy, "Sycophancy as material failure under pushback" (arXiv 2606.16617) [prior-art search]. Stated differences: valid and fallacious challenges in equal measure, and a discrimination metric that punishes stubbornness as much as caving.
+- **Prior art:** FlipFlop (arXiv 2311.08596), SYCON Bench, lechmazur sycophancy, "Sycophancy as material failure under pushback" (arXiv 2606.16617) [prior-art search]. [fact-check P3: FlipFlop and SYCON-Bench [bg] and 2606.16617 exist; the last is "Sycophancy as Material Failure under Pushback Loading" (Schessl, Jun 2026), which measures multi-turn pushback across debate, false-presupposition and ethical cases (search excerpts)] Stated differences: valid and fallacious challenges in equal measure, and a discrimination metric that punishes stubbornness as much as caving.
 - **Cited claims:**
   - lechmazur's sycophancy board shows "Insufficient" rates of 4.7–83.9% (B §3.5).
-  - A 2026 report that Claude's sycophancy roughly doubles under pushback (18% vs 9%) [prior-art search, uncertain].
+  - A 2026 report that Claude's sycophancy roughly doubles under pushback (18% vs 9%) [prior-art search, uncertain]. [uncertain: no source found by fact-check P3]
 
 ### C17 Reliability Horizon (D13)
 - **Sources:** D13.
 - **Ideator notes:**
   - A2. Deployment needs p80/p95 reliability.
-  - The code track is expected to be near-trivial.
+  - The code track is expected to be near-trivial [speculation].
   - Output-token caps follow the "Illusion of Thinking" rebuttals (E Q4).
 - **Expected human vs AI [speculation]:** AI's L95 far above humans', who slip.
 - **Expected separation [speculation]:** wide on L95, even where L50 is similar. Expected inversion: cheap models with larger reasoning budgets beating flagships.
@@ -687,10 +689,10 @@ Format per candidate:
   - Token caps can masquerade as failures.
   - RL on "execute procedures" inflates scores generically.
   - Low interest.
-- **Prior art:** METR time horizons, BABILong, Tower-of-Hanoi scaling studies, EsoLang-Bench. Stated differences: new primitives for every item, a p95 staircase, and low cost.
+- **Prior art:** METR time horizons, BABILong, Tower-of-Hanoi scaling studies, EsoLang-Bench. Stated differences: new primitives for every item, a p95 staircase, and low cost. [added by fact-check P3: Sinha et al., "The Illusion of Diminishing Returns: Measuring Long Horizon Execution in LLMs" (arXiv 2509.09677, cited in E Q1) already isolates *execution* of a given procedure over increasing horizon lengths with synthetic items; it is the closest prior art for this construct]
 - **Cited claims:**
   - The 80% horizon is 4–10× shorter than the 50% horizon (E Q1, reproduced).
-  - On NYT Connections, reasoning budget drove Flash to beat Pro (B §3.5).
+  - On NYT Connections, reasoning budget drove Flash to beat Pro (B §3.5). [corrected by fact-check P3: was "beat"; Gemini 3.8 Flash (high) *ties* Gemini 3.1 Pro at 97.4 (B §3.5 says "match"); Flash beat Claude Opus 5.5 (97.4 vs 88.5; B §4)]
 
 ### C18 Compaction Chronicle (D4)
 - **Sources:** D4.
@@ -702,7 +704,7 @@ Format per candidate:
 - **Evidence:** P12, P18, P2; B §3.2; D §4; E Q1, Q3 rank 5.
 - **Self-scores:** 3/4/4/3/5/3. Fails on Q1.
 - **Risks:**
-  - Crowded prior art: BEAM, MemoryAgentBench, and 2026 compaction papers ("The Compaction Cliff…", arXiv 2608.22752) [prior-art search].
+  - Crowded prior art: BEAM, MemoryAgentBench, and 2026 compaction papers ("The Compaction Cliff…", arXiv 2608.22752) [prior-art search]. [uncertain: 2608.22752 not checked by fact-check P3]
   - A byte cap is not how deployed memory works (hence BYOH).
   - Loads on the general factor.
 - **Prior art:** most memory benchmarks test retrieval systems or raw long context. Stated differences:
@@ -753,7 +755,7 @@ Format per candidate:
 - **Ideator notes:**
   - A2, with human tutors as the anchor. Diagnostic teaching, for orchestrating weaker sub-agents, onboarding and tutoring.
   - The structural property: the score is a frozen learner's measured repair, and the planted misconception is secret and must be found by probing.
-  - Public training doesn't transfer trivially: the teacher never sees the misconception, and learner-specific exploits don't carry across rotated bases.
+  - Public training doesn't transfer trivially: the teacher never sees the misconception, and learner-specific exploits don't carry across rotated bases [interpretation].
 - **Expected human vs AI [spec]:** models beat humans on Repair, since they write better prompts for LLM learners. Humans may be competitive on turns-to-diagnosis. A2 overall.
 - **Expected separation [spec]:** strong. W1 replaces StudentBench's rater with a low-noise outcome. Weak teachers should show high Harm from over-explaining.
 - **Evidence:** P14, P15, P16, P7, P3; B §2; E Q3; G §3.
@@ -763,7 +765,7 @@ Format per candidate:
   - Misconception strength needs tuning; the release gates cover this.
   - The construct may collapse into prompt engineering for small models [I].
   - Transfer to human learners is untested; run a small P14 check with human learners given a flawed worksheet.
-- **Prior art:** D3 (now C19); Teach2Eval (2025; weak student models on standard QA) [web, arXiv 2505.12259]; EduClaw-Bench (simulated knowledge-tracing learner) [web, arXiv 2608.03206]; StudentBench. Stated differences:
+- **Prior art:** D3 (now C19); Teach2Eval (2025; weak student models on standard QA) [web, arXiv 2505.12259]; EduClaw-Bench (simulated knowledge-tracing learner) [web, arXiv 2608.03206]; StudentBench. [uncertain: Teach2Eval and EduClaw-Bench not checked by fact-check P3] Stated differences:
   - a secret planted misconception found by interactive probing;
   - a behavioural-diagnosis score;
   - a do-no-harm term;
@@ -817,11 +819,11 @@ Format per candidate:
   - full distributions scored against frozen statistical anchors;
   - very high volume.
 - **Cited claims:**
-  - Existing forecasting benchmarks score newsworthy events, where market prices and pundit forecasts can be looked up.
-  - By Jul 2026, reportedly 17 ForecastBench submissions ranked above superforecasters [web, unverified].
+  - Existing forecasting benchmarks score newsworthy events, where market prices and pundit forecasts can be looked up. [corrected by fact-check P3: too broad. **Context is Key (CiK)** (Williams et al., ICML 2025, arXiv 2410.18959) already scores probabilistic forecasts of numeric time series where a natural-language context is essential, using a CRPS-based metric [bg]. It is a static set of mostly historical series, so real-time resolution on un-newsworthy series and high weekly volume remain the differences]
+  - By Jul 2026, reportedly 17 ForecastBench submissions ranked above superforecasters [web, unverified]. [verified by fact-check P3 (search excerpt of forecastingresearch.substack): "17 submissions now rank above superforecasters on the preliminary leaderboard", which ranks resolved *dataset* questions only; uncertain: the Jul 2026 date was not confirmed]
   - An in-repo lead claims calibration error is nearly uncorrelated with general capability [uncertain; E Q2 Gaps].
   - The pinned time-series foundation-model anchor is [bg].
-  - Links given: ForecastBench arXiv 2409.19839 and forecastingresearch.substack; Prophet Arena; Prediction Arena arXiv 2604.07355; LLM-SoccerArena arXiv 2607.24573.
+  - Links given: ForecastBench arXiv 2409.19839 and forecastingresearch.substack; Prophet Arena; Prediction Arena arXiv 2604.07355; LLM-SoccerArena arXiv 2607.24573. [uncertain: Prediction Arena and LLM-SoccerArena IDs not checked by fact-check P3]
 
 ### C23 Hunch Lab (W6)
 - **Sources:** W6, which the source labelled "bold".
@@ -846,8 +848,8 @@ Format per candidate:
   - continuous quantities;
   - multiple computational domains.
 - **Cited claims:**
-  - BrainBench: LLMs beat neuroscientists at predicting results [web; Nature Hum. Behav., s41562-024-02046-9].
-  - LLM forecasts of unpublished social-science experiments were near pooled human accuracy [web; Nature s41586-026-10742-x].
+  - BrainBench: LLMs beat neuroscientists at predicting results [web; Nature Hum. Behav., s41562-024-02046-9]. [verified by fact-check P3 [bg]: Luo et al., "Large language models surpass human experts in predicting neuroscience results"]
+  - LLM forecasts of unpublished social-science experiments were near pooled human accuracy [web; Nature s41586-026-10742-x]. [verified by fact-check P3 (search excerpts; *Nature* 656, Aug 2026): 70 preregistered survey experiments, 469 effects; GPT-4-derived predictions correlated strongly with actual effects, "achieving accuracy similar to pooled human forecasts", and stayed high for studies unpublished before the training cutoff; effect sizes were systematically overestimated]
 
 ### C24 MDL Arena (W7)
 - **Sources:** W7, which the source labelled "bold".
@@ -864,7 +866,7 @@ Format per candidate:
   - Flexible generic models score passably; the bits metric already penalises this.
   - The human baseline is weak (M9 only partly met).
   - Appeal may be narrow outside ML.
-- **Prior art:** Hutter Prize and Large Text Compression Benchmark [bg]; rule and law discovery benchmarks (F §2). No LLM MDL benchmark was found [web]. Stated differences:
+- **Prior art:** Hutter Prize and Large Text Compression Benchmark [bg]; rule and law discovery benchmarks (F §2). No LLM MDL benchmark was found [web]. [corrected by fact-check P3: one exists. **The KoLMogorov Test** (Yoran et al., ICLR 2025, arXiv 2503.13992; verified via ICLR proceedings listing) gives a code-generating LLM a data sequence and asks for the *shortest program* that outputs it, on natural data (audio, text, DNA) and on sequences from random programs in a synthetic DSL, i.e. with a known generator. Remaining differences: program-*plus-data* (probabilistic) MDL on held-out draws, a secret rotating DSL, and normalisation between a generic compressor and the owner's generator] Stated differences:
   - novel secret generators with a known optimum;
   - program-plus-data MDL;
   - structure measured beyond generic compression.
@@ -883,7 +885,7 @@ Format per candidate:
   - Validity rests on simulated agents; check rank order with human-subject sessions on a subset (P14).
   - The oracle may be intractable for a rich DSL.
   - Pool effects are small, since scores are oracle-normalised.
-- **Prior art:** automated mechanism design [bg]; LLM bidders preserving mechanism orderings (2025) [web, arXiv 2507.09083]; G9 and D2, where the subject plays *inside* the rules. Stated difference: the subject *designs* the institution for a secret, partly adversarial population, scored against an oracle.
+- **Prior art:** automated mechanism design [bg]; LLM bidders preserving mechanism orderings (2025) [web, arXiv 2507.09083]; G9 and D2, where the subject plays *inside* the rules. [added by fact-check P3: **The AI Economist** (Zheng et al., *Science Advances* 2022) designs tax policy against a population of adaptive RL agents and scores the planner by a welfare objective [bg]; it is an RL planner, not an LLM benchmark. uncertain: 2507.09083 not checked] Stated difference: the subject *designs* the institution for a secret, partly adversarial population, scored against an oracle.
 - **Cited claims:**
   - In Vending-Bench Arena, Opus 5 proposed or joined a cartel in all 6 runs (D §2.19).
   - Andon Labs concedes its sales equations are gameable (B §3.2).
@@ -910,7 +912,7 @@ Format per candidate:
   - penalties for non-delivery;
   - secret heterogeneous families, including impossible jobs;
   - the flat-rate vs list-price split.
-- **Cited claims:** MarketBench [prior-art search, uncertain]: six models' SWE-bench Lite pass rates clustered at 75.3–80.6%, but their mean stated success probabilities ranged from 61.4% to 92.9%.
+- **Cited claims:** MarketBench [prior-art search, uncertain]: six models' SWE-bench Lite pass rates clustered at 75.3–80.6%, but their mean stated success probabilities ranged from 61.4% to 92.9%. [fact-check P3: design verified via search excerpts (93-task SWE-bench Lite subset, six LLMs, bids derived from elicited success and token estimates, models miscalibrated on both); uncertain: the specific percentages were not seen]
 - **Spec omissions:**
   - Anchor bidders are frozen models whose bids are precomputed per version, plus scripted bidders.
   - The human time charge of $75/h follows StudentBench's human reference (B §2).
@@ -931,7 +933,7 @@ Format per candidate:
   - Exact posteriors with code; this is declared allowed, and a no-tools track runs.
   - Learning the bots' patterns within a session; randomise them.
   - Mixed pits invite collusion (S7).
-- **Prior art:** LLM double-auction collusion (arXiv 2507.01413); information aggregation with AI agents (arXiv 2604.20050); the Bazaar sealed-bid benchmark (arXiv 2608.00102); StockBench [prior-art search]; Kaggle poker. Stated differences:
+- **Prior art:** LLM double-auction collusion (arXiv 2507.01413); information aggregation with AI agents (arXiv 2604.20050); the Bazaar sealed-bid benchmark (arXiv 2608.00102); StockBench [prior-art search]; Kaggle poker. [uncertain: the three arXiv IDs were not checked by fact-check P3] Stated differences:
   - a common-value asset with private signals;
   - fixed anchor bots with paired common-random-number scoring;
   - secret value families.
@@ -942,7 +944,7 @@ Format per candidate:
 - **Sources:** D8 Twin-Seed Colony and G5 Unknown Factory. See merge log §2.
 - **Ideator notes:**
   - D8: long-horizon adaptive control under hidden, drifting dynamics, where errors compound. Vending-Bench spreads models widely but is noisy and has jailbreakable LLM suppliers, so this is a lower-noise version.
-  - G5: FLE is the only game with evidence that its ranking tracks valued work (GDPval) (D §4). G5 is A2, possibly A1 at launch.
+  - G5: FLE is the only game with evidence that its ranking tracks valued work (GDPval) (D §4). G5 is A2, possibly A1 at launch [speculation].
 - **Expected human vs AI [speculation]:**
   - D8: AI ahead at full length; the short version may be close.
   - G5: frontier above the median engineer on V/V\* by 2027, but maybe below expert players at launch.
@@ -980,7 +982,7 @@ Format per candidate:
   - FLE called 2025 models "shockingly bad" at Factorio (D §2.11).
   - FLE error rates ran from 22.99% to 40.89% across labs.
   - Vending-Bench 2 shows a wide spread plus inversions (B §3.2).
-  - FLE reported a manual-crafting exploit (D §2.11); G5's 60-second hands-off holdout blocks it.
+  - FLE reported a manual-crafting exploit (D §2.11); G5's 60-second hands-off holdout blocks it. [fact-check P3: FLE itself already mitigates this with a 60 s hands-off holdout (D §2.11), so the holdout is inherited from FLE, not new in G5]
 - **Spec omissions:**
   - D8:
     - 10 seeds, each with an antithetic twin;
@@ -1003,7 +1005,7 @@ Format per candidate:
 - **Evidence:** P12, P15, P9 (efficiency), P16; D §2.15, §4; B §3.2.
 - **Self-scores:** 4/3/3/4/5/5. Fails on Q3.
 - **Risks:** a template question language feels artificial; parser errors; case-difficulty variance.
-- **Prior art:** WhodunitBench, MIRAGE, WellPlay, Watson & Holmes (arXiv 2602.19914), hobby "murder mystery engines" [prior-art search]. Stated differences:
+- **Prior art:** WhodunitBench, MIRAGE, WellPlay, Watson & Holmes (arXiv 2602.19914), hobby "murder mystery engines" [prior-art search]. [uncertain: 2602.19914 not checked by fact-check P3] Stated differences:
   - simulation-grounded witnesses with deterministic, knowledge-consistent lies;
   - a question budget;
   - proper scoring;
@@ -1032,7 +1034,7 @@ Format per candidate:
 - **Cited claims:**
   - "LLMs deceive convincingly but remain weak at detecting deception" (WOLF, D §2.15, [S]).
   - Elimination Game: GPT-4o ranks #7 and o3 #22, and Gemini 3 Flash outranks Pro (D §4).
-  - Opus 5 formed cartels in 6 of 6 Vending-Bench Arena runs (D §2.19).
+  - Opus 5 formed cartels in 6 of 6 Vending-Bench Arena runs (D §2.19). [corrected by fact-check P3: was "formed cartels"; D §2.19 quotes Andon Labs that Opus 5 "proposed or joined a price cartel … in all six arena runs" [S]]
   - The Step Game's σ ≈ 0.7 put its top 4 within noise (D §2.14).
 - **Spec omissions:**
   - Humans get 90 minutes, pay per win plus a log-score bonus, which is incentive-compatible (P17).
@@ -1071,13 +1073,13 @@ Format per candidate:
   - Degenerate games, such as instant-win amendments; needs entrenched rules and turn caps.
   - Prompt injection inside proposals.
   - Relevance to real contract work is speculative; a P14 test is required.
-- **Prior art:** Nomic (Suber 1982); NomicLaw (arXiv 2508.05344, [web, S]), where LLMs propose and vote on legal rules in natural language; a Nomic LLM scaling study ([web, S]; content.cooperate.com/post/nomic). Stated differences:
+- **Prior art:** Nomic (Suber 1982); NomicLaw (arXiv 2508.05344, [web, S]), where LLMs propose and vote on legal rules in natural language; a Nomic LLM scaling study ([web, S]; content.cooperate.com/post/nomic). [fact-check P3: NomicLaw verified via search excerpts (propose–justify–vote over legal vignettes; AIES); uncertain: the cooperate.com study not checked] Stated differences:
   - executable constitutions;
   - planted loopholes with ground truth;
   - exact consequence probes;
   - anchored tables.
 - **Cited claims:**
-  - Vending-Bench Arena: Fable 5 initiated cartels, and Opus 5 joined in 6 of 6 runs (D §2.19).
+  - Vending-Bench Arena: Fable 5 initiated cartels, and Opus 5 joined in 6 of 6 runs (D §2.19). [fact-check P3: scoped per D's fact-check: Fable 5 was the only initiator *within its own round* (cartels in 9 of 12 extended runs); Opus 5 "proposed or joined" a cartel in all six of its runs [S]]
   - A Nomic study reports non-monotonic collective behaviour with model scale ([web, S]).
 - **Spec omissions:**
   - The loophole ledger records whether each loophole was discovered, exploited or patched.
@@ -1086,7 +1088,7 @@ Format per candidate:
 
 ### C33 Exploitability Gauntlet (G10)
 - **Sources:** G10.
-- **Ideator notes:** A2. An opponent-independent absolute score, which fixes the pool-relative-rating problem (§3 failure mode 10). Writing CFR for a new game on the Open track is expected to be near-trivial for frontier coders.
+- **Ideator notes:** A2. An opponent-independent absolute score, which fixes the pool-relative-rating problem (§3 failure mode 10). Writing CFR for a new game on the Open track is expected to be near-trivial for frontier coders [speculation].
 - **Expected human vs AI [speculation]:** frontier models less exploitable than most humans.
 - **Expected separation [speculation]:** large, and not in exam order.
 - **Evidence:** P2, P4, P15, P16; D §2.18, §2.20; G §3.
@@ -1095,13 +1097,13 @@ Format per candidate:
   - A narrow construct with weak ties to valued work (P14).
   - The frontier may solve small games in its head, so the size knob matters.
   - Probabilities may be elicited poorly; the consistency check mitigates this.
-- **Prior art:** riverline (Kuhn, Leduc and HUNL; known games); Kaggle HU NLHE (pool-relative BB/100); GTBench. Stated differences:
+- **Prior art:** riverline (Kuhn, Leduc and HUNL; known games; exact exploitability only for Kuhn and Leduc, and only for the Jev model [fact-check P3]); Kaggle HU NLHE (pool-relative BB/100); GTBench. Stated differences:
   - secret new games each season;
   - absolute exploitability as the headline;
   - a human elicitation baseline.
 - **Cited claims:**
   - LLM Chess spreads from Astra at 1614 to Opus 5 at 1285 (D §2.20).
-  - Exact exploitability has been computed for LLM poker policies ([web, S]; github.com/Lironktf/riverline).
+  - Exact exploitability has been computed for LLM poker policies ([web, S]; github.com/Lironktf/riverline). [corrected by fact-check P3: was "LLM poker policies" in general. The riverline README (read directly) computes exact exploitability for one model, TypeSafe AI's **Jev** (a "decision model" that A §2.18 reports as non-LLM, although the README calls it a language model), and only on Kuhn and Leduc poker; heads-up hold'em has no exploitability ("not available"). Jev (sampled) is exploitable for 116.1 milli-antes/hand in Kuhn vs 0.04 for CFR]
 
 ### C34 Setter's Duel (D6)
 - **Sources:** D6, which the source labelled "bold". W §3 proposed twists for it.
@@ -1114,14 +1116,14 @@ Format per candidate:
   - Difficulty is measured against a ladder of LLMs, which invites puzzles that exploit LLM quirks such as tokenisation traps. Human solve time and search-tree cross-checks mitigate this.
   - The ladder ages.
   - Human setters are costly.
-- **Prior art:** ZebraLogic and SATBench (puzzle generation for solving benchmarks); "Can LLMs Generate and Solve Linguistic Olympiad Puzzles?" (arXiv 2509.21820) [prior-art search]; Hide-and-Seek Game (AAAI). Stated difference: the *setter* is the subject.
+- **Prior art:** ZebraLogic and SATBench (puzzle generation for solving benchmarks); "Can LLMs Generate and Solve Linguistic Olympiad Puzzles?" (arXiv 2509.21820) [prior-art search]; Hide-and-Seek Game (AAAI). Stated difference: the *setter* is the subject. [uncertain: 2509.21820 and the Hide-and-Seek Game not checked by fact-check P3]
 - **Cited claims:** in Boardwalk, Claude 3.7 Sonnet produced 55.6% error-free code for games (D §2.25).
 - **Proposed variants (W §3, for D6/G11 setters):**
   - A **self-solvability gate:** 3 fresh, memoryless copies of the setter, without the certificate, must solve at least 2 of 3.
   - A **cross-lab solvability gate:** at least one solver from another lab, or a frozen anchor, must solve the item; otherwise it is void.
   - These block one-way-function trapdoors and same-family "Schelling codes", and tie the setter's reward to its own frontier.
   - A joint two-parameter IRT fit over solvers × items gives each model both a setter score and a solver score.
-  - Prior art for the twist: Critique-Resilient Benchmarking (ICML 2026) [web].
+  - Prior art for the twist: Critique-Resilient Benchmarking (ICML 2026) [web]. [uncertain: not checked by fact-check P3]
 - **Spec omissions:**
   - Duel mode: two setters swap sets and solve each other's; zero-sum, for display only.
   - Human strata: 100 public (1 hour, 3 puzzles) and 20 setters (4 hours, 10 puzzles), with the same tools minus code for a no-code stratum.
@@ -1169,7 +1171,7 @@ Format per candidate:
   - Humans cheating with AI.
   - Human prizes are the main cost.
   - Harness dependence.
-- **Prior art:** CodeClash (known arenas), NetHackers (fixed game), Battlecode, Halite, Lux AI, AtCoder heuristic contests. Stated differences:
+- **Prior art:** CodeClash (known arenas), NetHackers (fixed game), Battlecode, Halite, Lux AI, AtCoder heuristic contests. [added by fact-check P3, important: **ALE-Bench** (Sakana AI with AtCoder; arXiv 2506.09050, NeurIPS 2025 D&B) already benchmarks AI on past AtCoder Heuristic Contest problems with human rank distributions. Live human-vs-AI contests on *fresh, secret* problems under the same time budget have also happened: at the **AtCoder World Tour Finals 2025 Heuristic** (10 h), OpenAI's model placed 2nd behind the human winner Psyho (about 9.5% lower score), and Sakana AI reports its agent placed **1st in AHC058** (search excerpts). So "a secret task released simultaneously to humans and AIs" is not new; the remaining differences are a game-bot (adversarial) task rather than single-player optimisation, an anchored ladder and private evaluation maps] Stated differences:
   - a secret game released simultaneously to humans and AIs under an identical budget;
   - an anchored ladder;
   - private evaluation maps.
@@ -1190,11 +1192,11 @@ Format per candidate:
   - Refusals confound the saboteur side, so the auditor side is the headline.
   - Dual use.
   - Benign diffs must look realistic.
-- **Prior art:** Hide and Seek Game (AAAI; subtle errors in math reasoning); GBQA (arXiv 2604.02648) [prior-art search]; AI-control backdoor settings (background, not in the dossiers). Stated differences:
+- **Prior art:** Hide and Seek Game (AAAI; subtle errors in math reasoning); GBQA (arXiv 2604.02648) [prior-art search]; AI-control backdoor settings (background, not in the dossiers). [added by fact-check P3: Anthropic's **"Sabotage evaluations for frontier models"** (Benton et al., Oct 2024) includes a code-sabotage game in which an attacker model inserts bugs and a defender model reviews the changes, and **SHADE-Arena** (Anthropic et al., 2025) scores saboteur agents against monitor models [bg]. These are the closest two-sided precedents; the anchored ladder, execution-verified witnesses and secret property families remain the differences] Stated differences:
   - an anchored two-sided ladder;
   - witnesses verified by execution;
   - secret repo and property families.
-- **Cited claims:** GBQA's best model found only 48.39% of planted bugs in games (Claude 4.6 Opus) [prior-art search].
+- **Cited claims:** GBQA's best model found only 48.39% of planted bugs in games (Claude 4.6 Opus) [prior-art search]. [verified by fact-check P3 (search excerpts of the abstract): 30 games, 124 human-verified bugs; best Claude-4.6-Opus (thinking) 48.39%. Note the bugs are "human-verified", not necessarily planted]
 - **Proposed variants (W §3):**
   - Regenerate the saboteur side each season from the *newest* frontier models, so difficulty co-evolves with the frontier.
   - Publish the full cross-lab auditor × saboteur matrix, and flag same-lab cells for style recognition.
@@ -1222,7 +1224,7 @@ Format per candidate:
   - Domains may saturate after one good note; mitigated by drift and depth.
   - Human-chain cost and attrition.
   - Injected instructions in notes are harmless to the score but logged.
-- **Prior art:** G7 and D4 (single-agent notebooks); CL-bench and Continual Learning Bench (E); iterated-learning experiments [bg]. Stated differences:
+- **Prior art:** G7 and D4 (single-agent notebooks); CL-bench and Continual Learning Bench (E); iterated-learning experiments [bg]. [added by fact-check P3: LLM transmission-chain experiments already exist, e.g. Acerbi & Stubbersfield, "Large language models show human-like content biases in transmission chain experiments" (*PNAS* 2023) [bg]; they study what survives retelling, not successor task gain] Stated differences:
   - successors are *different* agents, which gives humans exact parity;
   - the score is successor gain;
   - rules drift;
@@ -1270,7 +1272,7 @@ Format per candidate:
 ### C40 Rules Gauntlet (G1 + D14)
 - **Sources:** G1 Blind Rules Gauntlet and D14 Rulebook Gauntlet. See merge log §2.
 - **Ideator notes:**
-  - G1 construct: learning an unknown adversarial game from play, including inferring the goal from how a competent opponent plays (inverse planning). Its blind track is expected A1 at launch, and its revealed track A2.
+  - G1 construct: learning an unknown adversarial game from play, including inferring the goal from how a competent opponent plays (inverse planning). Its blind track is expected A1 at launch, and its revealed track A2 [speculation].
   - D14 construct: acting on long documents under adversarial pressure; classic games are contaminated or solvable by engines (D §5). D14 is "both".
   - The G panel calls G1 its **strongest single flagship**. It has three built-in ablations (blind vs revealed, Closed vs Open, symbolic vs rendered), which address P20. It "could absorb G13 and G11 as sub-leagues" in a "game decathlon".
 - **Expected human vs AI [speculation]:**
@@ -1302,7 +1304,7 @@ Format per candidate:
 - **Cited claims:**
   - ARC-AGI-3 was under 1% at launch (F §2).
   - Witness: the best model solves 24% of private level slots (F §2, [S]).
-  - Witness: Opus 5 scored 59.9 without rules and 97.8 with them (F §2, [S]).
+  - Witness: Opus 5 scored 59.9 without rules and 97.8 with them (F §2, [S]). [fact-check P3: verified against F; these are RHAE-L5 scores on the *validation* set]
   - ZendoWorld agents run near-uninformative experiments (F §2).
   - gg-bench: reasoning models won 31–36% vs RL agents in 2025, and LLMs won only 7–36% against RL agents on new generated games (D §2.23).
   - TTT-Bench: reasoning models score 41% lower on new tic-tac-toe variants than on MATH 500 (D §2.24).
@@ -1330,12 +1332,12 @@ Format per candidate:
 - **Expected human vs AI [speculation]:** humans show larger learning gains; who ends at the higher level is uncertain.
 - **Expected separation [speculation]:** strong.
 - **Evidence:** P2, P4, P9, P12, P16, P18; D §2.20, §2.23, §2.25; E Q1.
-- **Self-scores:** 4/4/3/3/3/4. About 30%. Biggest risks: a weak A1 prior, and the notes protocol deciding the score.
+- **Self-scores:** 4/4/3/3/3/4. About 30% [speculation]. Biggest risks: a weak A1 prior, and the notes protocol deciding the score.
 - **Risks:**
   - The weakest A1 claim of the H set.
   - Reasoning models may internalise search.
   - Recruiting humans for a whole week is expensive.
-  - The notes protocol will decide the score, as the harness did on ARC-AGI-3; report no-notes, notes and full-log tracks.
+  - The notes protocol will decide the score [speculation], as the harness did on ARC-AGI-3; report no-notes, notes and full-log tracks.
 - **Prior art:** gg-bench, LLM Chess, Kaggle Game Arena, TTT-Bench. Stated differences:
   - a new game each season;
   - learning gain as the headline;
@@ -1362,7 +1364,7 @@ Format per candidate:
   - H8: P9 (confidence L-M), P3, P4, P8; F §2–4; §5c targets #1 and #8.
   - W4: P3, P4, P8, P9, P2; F §2–4; A §2.3; E Q3 #3.
 - **Self-scores:**
-  - H8: 4/3/3/4/4/3. About 35%. Biggest risk: efficiency moats fell on ARC-AGI-3.
+  - H8: 4/3/3/4/4/3. About 35% [speculation]. Biggest risk: efficiency moats fell on ARC-AGI-3.
   - W4: 4/4/4/5/4/4, mean 4.2. Passes.
 - **Risks:**
   - H8: efficiency moats fell on ARC-AGI-3 once models understood the mechanics (A §2.3).
@@ -1395,7 +1397,7 @@ Format per candidate:
 ### C43 Eleusis Masters (G11)
 - **Sources:** G11, which the source labelled "bold". W §3 proposed twists for it.
 - **Ideator notes:**
-  - Both archetypes: solving is expected A1 at launch, setting A2.
+  - Both archetypes: solving is expected A1 at launch, setting A2 [speculation].
   - The solver construct ranks #1 among Phase 2 targets (§5c).
   - Setters must model how other minds differ.
   - Setter outputs become the next season's item bank, so the benchmark renews itself.
@@ -1408,7 +1410,7 @@ Format per candidate:
   - The DSL leaks after a season.
   - Declaring rules in a DSL is harder for humans, hence a guided rule builder for both.
   - It closes fast once targeted (ARC-AGI-3 precedent).
-- **Prior art:** Eleusis (Abbott); the Hugging Face "Game of Science" Eleusis benchmark (solver-only, with a "boldness" index) ([web, S], huggingface.co/spaces/huggingface/eleusis-benchmark); cogame-eleusis; ZendoWorld; WILT. Stated differences:
+- **Prior art:** Eleusis (Abbott); the Hugging Face "Game of Science" Eleusis benchmark (solver-only, with a "boldness" index) ([web, S], huggingface.co/spaces/huggingface/eleusis-benchmark) [fact-check P3: the space's existence is also recorded in F §2 [S]; uncertain: the "boldness" index was not checked, huggingface.co blocked]; cogame-eleusis; ZendoWorld; WILT. Stated differences:
   - the adversarial setter role;
   - a secret rotating DSL;
   - perceptual attributes;
@@ -1416,7 +1418,7 @@ Format per candidate:
   - human tables.
 - **Cited claims:**
   - ZendoWorld: 73.3% vs 44.5% (F §2).
-  - ConceptARC wrong-rule answers: 27% for models vs 8% for humans (E Q1).
+  - ConceptARC wrong-rule answers: 27% for models vs 8% for humans (E Q1). [corrected by fact-check P3: was "for models"; the 27% is for o3 (medium) only (E Q1)]
   - FalsifyBench: "no model comes close to optimal" (F §2).
   - The ZendoWorld template used 19 people and 10 plays per game (F §2).
 - **Proposed variants (W §3):**
@@ -1431,7 +1433,7 @@ Format per candidate:
 - **Sources:** D11 Stranger Coordination and G2 Convention Crucible. W §3 proposed twists for D11. See merge log §2.
 - **Ideator notes:**
   - Zero-shot coordination, for multi-agent systems that mix vendors and for human–AI teams.
-  - D11 and G2 are both "both". G2 expects A1 when paired with humans and A2 across models.
+  - D11 and G2 are both "both". G2 expects A1 when paired with humans and A2 across models [speculation].
   - Memorised Hanabi conventions (the "H-group" style) don't apply, because attribute and hint structures are new.
 - **Expected human vs AI [speculation]:**
   - D11, A1 side: human–human pairs may beat model–stranger pairs on fresh signalling games.
@@ -1450,15 +1452,15 @@ Format per candidate:
   - G2: human cross-play is high-variance and costly.
   - G2: tactical skill confounds convention inference; use the bot-to-bot optimum as a ceiling control.
   - G2: Kaggle added Hanabi in Sep 2026 (D §2.1), a pre-emption risk.
-- **Prior art:** LLM-Hanabi; Kaggle Hanabi (Sep 2026; pool-relative, fixed rules); Codenames in clembench; "Epistemic Schelling Points" (arXiv 2607.11363, title only; D §2); the Hanabi Learning Environment and zero-shot coordination research (background). Stated differences:
+- **Prior art:** [added by fact-check P3: **AH2AC2**, the Ad-Hoc Human-AI Coordination Challenge (Hanabi with human-proxy partner agents; listed under C07 but missing here) [bg]]; LLM-Hanabi; Kaggle Hanabi (Sep 2026; pool-relative, fixed rules); Codenames in clembench; "Epistemic Schelling Points" (arXiv 2607.11363, title only; D §2); the Hanabi Learning Environment and zero-shot coordination research (background). Stated differences:
   - fresh signalling games each season;
   - anchored cross-play including humans;
   - hidden-convention anchor partners;
   - a human cross-play ratio.
 - **Cited claims:**
   - LLM-Hanabi: first-order theory of mind correlates with success at ρ = 0.76 (D §2.16; [S]; the fact-check says the excerpt reports "r"). No human baseline was found for it.
-  - For a human edge: in repeated reference games human dyads rise from 78% to 96%, while multimodal LLM agents are "aligned but not partner-specific" [web, S: arXiv 2606.08081].
-  - Against: "LLMs and people both learn to form conventions" [web, S: arXiv 2602.08208]. H2/C07 reads the same paper as evidence that mixed human–AI pairs fail.
+  - For a human edge: in repeated reference games human dyads rise from 78% to 96%, while multimodal LLM agents are "aligned but not partner-specific" [web, S: arXiv 2606.08081]. [fact-check P3: see C08; the agent dyads *succeed* verbosely and no human–model dyads were tested; 78% → 96% not found]
+  - Against: "LLMs and people both learn to form conventions" [web, S: arXiv 2602.08208]. H2/C07 reads the same paper as evidence that mixed human–AI pairs fail. [corrected by fact-check P3: this is not evidence against a human–AI gap. The paper's result is that same-type dyads (including AI–AI) form conventions but human–AI dyads fail, even with human-like prompting (see C07). For C44 it supports the W §3 expectation that the human–AI cell is the weakest, and argues against a general AI–AI deficit only]
 - **Proposed variants (W §3 on D11):**
   - 3-game matches with Adaptation = game 3 − game 1. The merged spec uses G2's 6-game matches instead.
   - A **Legibility** score: the partner's improvement when paired with the subject.
@@ -1474,7 +1476,7 @@ Format per candidate:
 ### C45 Crowd Oracle (G12)
 - **Sources:** G12, which the source labelled "bold".
 - **Ideator notes:**
-  - Both archetypes. The predicted result is A2, "but it is genuinely uncertain".
+  - Both archetypes. The predicted result is A2, "but it is genuinely uncertain" [speculation].
   - It matters for product design, forecasting, negotiation, and detecting **AI–AI tacit coordination** (collusion) that is stronger than AI–human coordination.
   - Memorised focal points ("Grand Central at noon") don't apply.
 - **Expected human vs AI [speculation]:** frontier models may beat the median individual at hitting the mode, having absorbed aggregate human text. Visual and spatial items may favour humans.
@@ -1500,7 +1502,7 @@ Format per candidate:
 - **Expected human vs AI [speculation]:** honest-role humans lose less to grifters than AIs do, with a clear lab spread (A2).
 - **Expected separation [speculation]:** strong, because labs differ in conduct (P11; E Q2).
 - **Evidence:** P11, P12, P16; D §2.14–2.15, §2.19.
-- **Self-scores:** 5/4/3/5/2/5. About 50%. Biggest risks: variance, cost and ethics.
+- **Self-scores:** 5/4/3/5/2/5. About 50% [speculation]. Biggest risks: variance, cost and ethics.
 - **Risks:**
   - Social games have the highest variance of any game type (D §1), and this design is expensive.
   - Consented deception needs ethics review.
@@ -1518,7 +1520,7 @@ Format per candidate:
 ### C47 Defuse Line (W11)
 - **Sources:** W11.
 - **Ideator notes:**
-  - Both archetypes: A1 expected when live, A2 when paused.
+  - Both archetypes: A1 expected when live, A2 when paused [speculation].
   - The AI must read fast, ask the right questions, repair imprecise human descriptions, and manage latency.
   - It maps onto AI support agents guiding field technicians.
 - **Expected human vs AI [spec]:** paused, AI experts at least match humans, since they read long manuals perfectly. Live, reasoning latency and dialogue repair may flip that to A1.
@@ -1530,7 +1532,7 @@ Format per candidate:
   - Operator variance and learning; mitigated by many operators, first-exposure module types and within-operator estimates.
   - Human cost.
   - It may be seen as a gimmick.
-- **Prior art:** GPTNT (Jun 2026; AI–AI Keep Talking and Nobody Explodes with the official manual) [web, arXiv 2606.28514]; G6. Stated differences:
+- **Prior art:** GPTNT (Jun 2026; AI–AI Keep Talking and Nobody Explodes with the official manual) [web, arXiv 2606.28514]; G6. [verified by fact-check P3 (search excerpts and the GPTNT GitHub repo): two AI agents as Defuser and Expert, real game and official manual, asynchronous real-time play; reported top average Claude Sonnet 4.6 39.1, GPT-5.2 38.2] Stated differences:
   - secret, generated manuals;
   - a human operator partner;
   - the live-vs-paused ablation.
@@ -1611,3 +1613,145 @@ These are noted only, not filled.
     - Most A1 expectations rest on anchors that predate the Sep 2026 frontier (H panel caveat).
     - Most A2 separation expectations rest on inversions that the sources themselves note are often within noise (Phase 2 §1).
     - The D panel's falsification test applies to every A2 candidate: correlation with ECI or AA above about 0.9 after controlling for release date means no added information.
+
+---
+
+## Fact-check log (Phase 3)
+
+**Tally (115 rows; several bundle related numbers):** verified 81 · corrected 14 · uncertain 20 · removed 0.
+**Most consequential:** arXiv 2602.08208 resolved in H2's favour (same-type dyads form conventions; human–AI dyads fail, even with human-like prompting), so G2's "against" reading is corrected; C24's "no LLM MDL benchmark" and C36's novelty are contradicted by the KoLMogorov Test and by ALE-Bench/AtCoder live human-vs-AI contests; riverline's exploitability is for one model on Kuhn/Leduc, not "LLM poker policies"; 2606.08081's agents succeed at the task (no accuracy gap); MIRROR figures re-attributed; HLE is multi-modal.
+**Method:** checked 30 Sep 2026 against the Phase 1 dossiers and Phase 2 principles first, then web search excerpts and raw GitHub/official pages. arxiv.org, aclanthology.org, aibirds.org, deepmind.google, direct.mit.edu, huggingface.co and several paper mirrors were blocked; [S]-level verifications rest on search excerpts. Predictions that lacked a label (H self-score probabilities, several "expected" archetype notes and risk forecasts) were tagged [speculation]. Nothing was found to be fabricated, so nothing was removed.
+
+| Claim | Candidate | Verdict | Basis | Note |
+|---|---|---|---|---|
+| ARC-AGI-3: 62.7% vs 98.6% for the same model by harness; <1% at launch → Astra in ~5 months | §3.1, §3.2, C18, C38, C40 | verified | A §2.3; F §1; A log | 98.6% is max effort; headline 99.9% is high effort |
+| Code world models + search beat direct play | §3.1 | uncertain | D §2.25 [S]; P4 | Label kept; search excerpt only |
+| NYT Connections: Opus 4.7's 39% = refusals scored zero | §3.1 | verified | B §3.5; B log | Citation of B §5 lesson 10 is off-target (conduct telemetry); noted inline |
+| Opus 5.5 list price $4/$20; Kaggle poker 900k duplicate hands | §3.1 | verified | B §4; D §2.18 [S] |  |
+| Human–AI convention pairs fail; proxies fail to transfer (arXiv 2602.08208) | §3.2 | verified | Search excerpts of abstract | "Proxies" framing is an interpretation; noted inline |
+| ClockBench 13.3→66.7% in ~12 mo; VPCT 91% vs 100% (3 people); VSI-Bench nearly closed | §3.2, C01, C06, C08, C12 | verified | A §2.9–2.12 |  |
+| Rubric Q1–Q6 wording and decision rule | header | verified | Phase 2 §7 |  |
+| Self-score means and pass/fail verdicts (all cards with scores) | C06–C47 | verified | Recomputed | All means and rule outcomes consistent |
+| SpookyBench: humans 98% vs GPT-4o/Gemini 2.0/Qwen-VL 0%; CVPR 2026; arXiv 2505.24867 | C01 | verified | CVPR 2026 Open Access listing; TimeBlindness GitHub; search excerpts |  |
+| MotionBlind (arXiv 2609.09528) and MotionBench (2501.02955) exist | C01 | verified | Search excerpts; [bg] | MotionBlind already has frame-shuffle/no-video controls, so "shuffle controls" is not a difference |
+| BabyVision covers visual tracking; 3.5× lab spread (Jan 2026 models) | C01, C08, C39 | verified | E Q1, E Q2 |  |
+| BlindTest: encoder holds the information, LM loses it | C01 | verified | A §2.8 | Journal-version probe claim is [uncertain] in A log |
+| IntPhys 2 96.44 vs 57.51; Physics-IQ best 58.2 of 100 | C02, C06 | verified | A §2.15 |  |
+| RoboDojo (arXiv 2607.04434): expert teleoperators on the same setup | C02 | verified | Search excerpts | Leading policy <9% vs teleoperators 76% (simulation) |
+| Real Robot Challenge (TriFinger); Greebles; Bongard-LOGO/OpenWorld | C02, C03 | verified | [bg] |  |
+| BabyVision 94.1 vs 49.7; VisFactor 78.8 vs 54.0; ConceptARC visual drop | C03, C08 | verified | E Q1; A §2.11 |  |
+| Humans learn information-integration categories within a few hundred trials | C03 | uncertain | [bg] only | Not checked |
+| E Q3 as evidence for an audio card | C04 | corrected | E Q3 | E Q3 has no audio entry; rank 4 is visual perception/physics |
+| MUSE: N=200; metre 73.3% (experts) vs 46.67% (Gemini Pro) | C04 | uncertain | MUSE GitHub README | N=200, models and expert>model verified; the two percentages not found |
+| MMAU: humans ~82% vs best 53% (2024) | C04 | verified | Search excerpts (ICLR 2025) | Gemini Pro 1.5 52.97% |
+| Bohlen–Pierce scale learned in ~30 min (Loui et al.) | C04 | verified | Music Perception 27(5), 2010 (search excerpts) | 25–30 min passive exposure |
+| CASU (2606.25391); SCENEBench (EACL 2026) | C04 | uncertain | — | Not checked |
+| Adversarial Quizbowl: model relative accuracy −40%, humans unchanged | C05 | verified | Search excerpts of Wallace et al., TACL 2019 | ACL Anthology blocked |
+| HLE described as "text" | C05 | corrected | HLE GitHub README | "a multi-modal benchmark" |
+| SimpleBench closed narrowly, 88.4 vs 83.7 (9 humans) | C05, C39 | verified | A §2.4; A log |  |
+| AIBIRDS: humans won every year since 2013; 2022 best human 251,710 vs AI 144,630 | C06 | verified | Search excerpts of aibirds.org 2022 results | "Every year" only partly checked (early years + 2022); tagged inline |
+| NewtonBench altered laws; became RL env in ~4.5 months | C06, C21 | verified | F §1–2 |  |
+| Evidence refs E Q3 rank 4 (G13); §5c rows 1, 8, 9 (C42–C44) | C06, C42–C44 | verified | E Q3; Phase 2 §5c |  |
+| Concept: humans >90% vs LLMs <40% (2025 models) | C07 | verified | A §2.5 |  |
+| LLM-Hanabi: first-order ToM–success ρ = 0.76 | C07, C44 | verified | D §2.16; D log | Excerpt reports r, not ρ; caveat added to C07 |
+| ToM vignettes largely closed [uncertain] | C07 | verified | E Q1 | Label correctly kept |
+| arXiv 2602.08208: same-type dyads form conventions; mixed pairs fail even when LLMs prompted to be human-like | C07 | verified | Search excerpts of abstract (Jones, Lombardi, Mahowald, Bergen; Feb 2026; CogSci 2026) | "Consistently" not seen; model list unseen |
+| G panel: 2602.08208 is evidence *against* a human edge | C07, C44 | corrected | Same | Misreading of the title's first half; the paper supports a human–AI gap in mixed cells |
+| Tacit Communication Game (2010); ICCA | C07 | verified | [bg]; arXiv 2408.01417 (search) |  |
+| TUX (arXiv 2605.30930) | C07 | uncertain | — | Not checked |
+| arXiv 2606.08081: human dyads 78%→96%; agents "aligned but not partner-specific" | C08, C44 | corrected | Search excerpts | Agent–agent dyads *succeed* verbosely; no human–model dyads; human data from KTH corpus; 78→96 not found |
+| Targeted post-training for convention formation exists (arXiv 2508.06482) | C08 | verified | Search result title | "Post-training for Efficient Communication via Convention Formation" |
+| VideoGameBench 0.48% real-time vs 1.6% paused | C09, C10, C47 | verified | A §2.17 |  |
+| SIMA 2 ~65% vs humans 71% (instructed tasks) | C09 | verified | Secondary press/search excerpts | One source gives humans ~75% |
+| A §2.3: carried state and symbolic world models closed ARC-AGI-3 | C09 | verified | A §2.3; F §1 |  |
+| "No AI benchmark" for dual-task / real-time deliberation | C10 | corrected | Real-Time Reasoning Gym, ICLR 2026 (search excerpts) | Prior art added |
+| Humans lose 10–30% per task under dual-task load | C10 | uncertain | — | No source given or found |
+| MMSI-Video 96.4 vs 38.0; MindCube near random; MindTopo 97.87 vs 61.42 | C11, C12 | verified | A §2.13–2.14, §2.20; A log | MindTopo secondary (GPT-5.6-Sol) |
+| MindCube ~95 [uncertain] vs 61–76 | C12 | verified | A §2.13 | Label correctly kept |
+| BabyVision: Gemini 3 Pro 49.7, GPT-5.2 34.4, Claude 4.5 Opus 14.2 | C12 | verified | E Q2 |  |
+| BALROG NetHack 13.24%; BALROG spread 68.3→3.7; ascension used wiki/source | C13 | verified | A §2.16; D §2.6 |  |
+| CL-bench best 23.7%; Continual Learning Bench no reuse, naive ICL beats memory | C13, C38 | verified | E Q1, summary 6 |  |
+| AA-Omniscience hallucination 48–88% by lab; always-abstain 4th of 36 | C14, C15 | verified | E Q2; B §3.7 |  |
+| Haiku 4.5 26% vs Opus 4.5 58% hallucination | C14 | verified | B §4; B log | Nov 2025; leader changed by ~May 2026 |
+| Reasoning fine-tuning cuts abstention ~24% | C14 | verified | E Q1 | Measured on R1-distill/s1 pairs |
+| HLE GPT-4o calibration error 92.3 | C14 | verified | B §3.4 |  |
+| KellyBench (arXiv 2604.27865): betting strategies scored by log-wealth | C14 | verified | Search excerpts | 2023/24 Premier League; no model profitable |
+| Spec C14 example multipliers 1.45 / 0.44; always-q scores 0 | C14 (spec) | verified | Arithmetic | p/q and (1−p)/(1−q) |
+| MIRROR gap 0.17; CCE 0.50–0.94 (attributed to 2605.07806 [uncertain]) | C15 | corrected | Search excerpts of MIRROR (2604.19809) | Both figures are MIRROR's own |
+| "Shared difficulty heuristic" quote; TRIAGE (2605.13414) | C15 | uncertain | — | Not found / not checked |
+| Self-Edge = expected log-wealth growth of a Kelly bettor | C15 | verified | Arithmetic |  |
+| lechmazur sycophancy "Insufficient" 4.7–83.9%; no cross-lab sycophancy data | C16 | verified | B §3.5; E Q2 |  |
+| FlipFlop (2311.08596), SYCON-Bench, arXiv 2606.16617 exist | C16 | verified | [bg]; search excerpts |  |
+| Claude sycophancy doubles under pushback (18% vs 9%) | C16 | uncertain | — | No source found |
+| Spec C16 example: 110 lattice paths avoiding (3,2) | C16 (spec) | verified | Arithmetic | 210 − 100 |
+| 80% horizon 4–10× shorter than 50% | C17, C18 | verified | E Q1 (reproduced) |  |
+| NYT Connections: reasoning budget let Flash *beat* Pro | C17 | corrected | B §3.5, §4 | Flash ties Pro (97.4 = 97.4); beats Opus 5.5 |
+| Opus 4.8 High > Max on Vending-Bench (compaction hypothesis) | C18, C28 | verified | B §3.2 |  |
+| FLE: 97.7% of Opus 4.1 errors pragmatic; error rates 22.99–40.89%; "shockingly bad"; open play prohibitive | C18, C28 | verified | D §1, §2.11, §4 |  |
+| "The Compaction Cliff" (2608.22752) | C18 | uncertain | — | Not checked |
+| StudentBench: omnibus p=0.755, 0/364; SD 14–17 pp, 120–180/arm; Opus 5 +1.10 vs Gemini 3.1 Pro −0.92; Opus 5 top expert/bottom-third learning; $75/h | C19, C20, C26 | verified | B §2 |  |
+| "Can Language Models Teach Weaker Agents?" (2306.09299) | C19 | verified | [bg] |  |
+| Teach2Eval (2505.12259); EduClaw-Bench (2608.03206) | C20 | uncertain | — | Not checked |
+| ZendoWorld agents run near-uninformative experiments; 73.3% vs 44.5%; 19 people, 10 plays | C21, C42, C43 | verified | F §2 |  |
+| 17 ForecastBench submissions above superforecasters (by Jul 2026) | C22 | verified | Search excerpt, forecastingresearch.substack | Preliminary leaderboard, dataset questions only; date unconfirmed |
+| Existing forecasting benchmarks score only newsworthy events | C22 | corrected | Context is Key (ICML 2025) [bg] | Prior art added |
+| Calibration error ~uncorrelated with capability [uncertain; E Q2 Gaps] | C22 | verified | E Q2 Gaps | Label correct |
+| Prediction Arena (2604.07355); LLM-SoccerArena (2607.24573) | C22 | uncertain | — | Not checked |
+| BrainBench: LLMs beat neuroscientists (Nat. Hum. Behav. s41562-024-02046-9) | C23 | verified | [bg] |  |
+| LLM forecasts of social-science experiments ≈ pooled human accuracy (Nature s41586-026-10742-x) | C23 | verified | Search excerpts (Nature 656, Aug 2026) | Effect sizes overestimated |
+| "Predicting Empirical AI Research Outcomes" (2506.00794) | C23 | uncertain | — | Not re-checked; consistent with [bg] |
+| No LLM MDL benchmark exists | C24 | corrected | KoLMogorov Test, ICLR 2025 (search excerpts) | Prior art added |
+| Opus 5 proposed or joined a cartel in all 6 Arena runs; Andon concedes gameable equations | C25, C27, C46 | verified | D §2.19 [S]; B §3.2 |  |
+| LLM bidders preserving mechanism orderings (2507.09083) | C25 | uncertain | — | Not checked |
+| MarketBench design (93 SWE-bench Lite tasks, 6 LLMs, bids from elicited probabilities) | C26 | verified | Search excerpts | — |
+| MarketBench numbers 75.3–80.6% pass vs 61.4–92.9% stated | C26 | uncertain | — | Not seen in excerpts |
+| Second-price bidding makes truthful bids near-optimal | C26 | verified | [bg] | Standard Vickrey result |
+| C27 prior-art IDs (2507.01413, 2604.20050, 2608.00102) | C27 | uncertain | — | Not checked |
+| Vending-Bench: >50× spread [uncertain]; Grok 4.7 > Opus 5.5; ranks 3–7 overlap; jailbreakable suppliers; ±$2.1k bands | C28 | verified | B §3.2; P2 | Uncertain label on 50× correctly kept |
+| Vending-Bench 1: Claude 3.5 Sonnet $2,218 vs human $844; human beat every model's worst run; VB2 60–100M tokens | C28 | verified | B §3.2 |  |
+| G5's 60-s hands-off holdout blocks FLE's manual-crafting exploit | C28 | corrected | D §2.11 | FLE already uses it; inherited, not new |
+| WOLF: LLMs deceive convincingly but weak at detecting deception | C29–C31, C46 | verified | D §2.15 [S] |  |
+| Elimination Game: GPT-4o #7, o3 #22; Gemini 3 Flash > Pro; Step Game σ≈0.7 | C30 | verified | D §2.14, §4; B §3.5 |  |
+| Opus 5 "formed cartels" in 6/6 Arena runs | C30 | corrected | D §2.19 | "Proposed or joined" |
+| Watson & Holmes (2602.19914) | C29 | uncertain | — | Not checked |
+| More persuasive debaters made judges more accurate | C31 | verified | [bg] Khan et al., ICML 2024 |  |
+| Fable 5 initiated cartels; Opus 5 joined 6/6 | C32 | verified | D §2.19; D log | Fable 5 "only initiator" is within its own round |
+| NomicLaw (2508.05344) | C32 | verified | Search excerpts (AIES) |  |
+| Nomic LLM scaling study (cooperate.com) | C32 | uncertain | — | Not checked |
+| LLM Chess: Astra 1614, Opus 5 1285; ±110–180 Elo at 29–67 games | C33, C35, C40, C41 | verified | D §2.20 |  |
+| Exact exploitability computed for LLM poker policies (riverline) | C33 | corrected | riverline README (raw GitHub) | One model (TypeSafe Jev), Kuhn/Leduc only; HUNL not available |
+| Boardwalk: Claude 3.7 Sonnet 55.6% error-free | C34 | verified | D §2.25; D log [P-m] |  |
+| 2509.21820; Hide-and-Seek Game; Critique-Resilient Benchmarking | C34, C37 | uncertain | — | Not checked |
+| gg-bench 7–9% vs 31–36%, o1 36%, dormant Jul 2025; TTT-Bench −41% vs MATH 500 | C35, C40, C41 | verified | D §2.23–2.24; F §2 |  |
+| CodeClash >2,000 tournaments | C36 | verified | D §2.22 |  |
+| Human-vs-AI live contests on fresh problems not covered | C36 | corrected | ALE-Bench; AWTF 2025 Heuristic; AHC058 (search excerpts) | Prior art added |
+| GBQA: best model (Claude 4.6 Opus) found 48.39% of bugs | C37 | verified | Search excerpts of abstract | Bugs are "human-verified", not necessarily planted |
+| Human transmission chains accumulate improvement | C38 | uncertain | [bg] only | Not checked |
+| Witness: best of 18 solves 24% of private slots; Opus 5 59.9 vs 97.8 with rules; RL 2.1→5.4 | C40, C42 | verified | F §1–3 [S] | 59.9/97.8 are validation RHAE-L5 |
+| BALROG: Opus 5 leads Astra on TextWorld, trails on MiniHack | C40 | verified | D §2.6 |  |
+| AutumnBench 517 humans; blicket accuracy near human, exploration worse; FalsifyBench; Eleusis cogame 68 rules; Astra fewer actions on 96% of levels | C42 | verified | E Q1; F §2; A §2.3 |  |
+| ConceptARC wrong-rule 27% "for models" vs 8% humans | C43 | corrected | E Q1 | 27% is o3 (medium) only |
+| HF "Game of Science" Eleusis benchmark with "boldness" index | C43 | uncertain | F §2 [S] | Space existence per F; index not checked |
+| Kaggle added Hanabi Sep 2026; Epistemic Schelling Points (2607.11363) title only | C44, C45 | verified | D §2.1, §2.F |  |
+| Artificial Hivemind homogenisation (contested) | C45 | verified | E Q2–Q3 |  |
+| Social games have the highest variance | C46 | verified | D §1 |  |
+| GPTNT (2606.28514): AI–AI KTANE with the official manual | C47 | verified | Search excerpts; GPTNT GitHub |  |
+| Gemini 3.8 Flash > Opus 5.5 on NYT Connections | C47 | verified | B §4 |  |
+| §5.1 counts (A1 13, A2 24, both 10; 17/27/3 formats; all A1 from H and G) | §5.1 | verified | candidates_spec.md coverage table |  |
+| Spec file: leaked rationale (expected results, self-scores, P#, prior-art claims, persuasive adjectives) | spec | verified | Full-text scan | None found; no text moved. The only real-world references are archetype exemplars (ARC-AGI, StudentBench) and game-genre names |
+
+### Prior-art additions (for Phase 4)
+
+- **C24 MDL Arena:** The KoLMogorov Test (Yoran et al., ICLR 2025, arXiv 2503.13992): shortest-program compression by code LLMs, including sequences from random programs in a synthetic DSL. Closest prior art; contradicts "no LLM MDL benchmark".
+- **C36 Season Forge:** ALE-Bench (Sakana AI/AtCoder, arXiv 2506.09050, NeurIPS 2025 D&B); AtCoder World Tour Finals 2025 Heuristic (OpenAI model 2nd behind human Psyho); Sakana AI agent reported 1st in AHC058. Live, same-budget human-vs-AI contests on secret problems already exist.
+- **C09 First-Run Arcade:** GVGAI competition (unseen VGDL real-time games, incl. a learning track); Tsividis et al. human-vs-agent learning speed on new VGDL games (2017, 2021); Real-Time Reasoning Gym (ICLR 2026, arXiv 2511.04898).
+- **C10 Two Clocks:** Real-Time Reasoning Gym and its dual-thread AgileThinker agent (the "two-model harness" the card expects to close the gap).
+- **C11 Wayfinder:** SPACE, "Does Spatial Cognition Emerge in Frontier Models?" (ICLR 2025): video tours plus map sketching, route retracing and shortcut tests from human spatial cognition.
+- **C06 Alien Physics:** Physion++ (NeurIPS 2023 D&B): online inference of latent physical properties with human–model comparison.
+- **C17 Reliability Horizon:** Sinha et al., "The Illusion of Diminishing Returns: Measuring Long Horizon Execution in LLMs" (arXiv 2509.09677).
+- **C22 Long-Tail Futures:** Context is Key (CiK; ICML 2025, arXiv 2410.18959), context-essential numeric forecasting with CRPS scoring.
+- **C37 Saboteur's Patch:** Anthropic's sabotage evaluations (code-sabotage attacker vs defender, Oct 2024) and SHADE-Arena (2025).
+- **C25 Mechanism Lab:** The AI Economist (Zheng et al., Science Advances 2022).
+- **C44 Convention Cross-Play:** AH2AC2 (Hanabi human-AI ad hoc coordination with human-proxy partners), cited for C07 but missing here.
+- **C38 Relay:** LLM transmission-chain experiments (Acerbi & Stubbersfield, PNAS 2023).
+- **C01 Kinetic:** MotionBlind (arXiv 2609.09528) already uses frame-shuffle and no-video controls, which narrows the stated differences.
