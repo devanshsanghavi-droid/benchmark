@@ -8,6 +8,8 @@
 
 The earlier dossiers in `research/notes/` and `briefs/C_failures_attention.md` were used only as leads. Numbers carried over from them without being re-checked this session are marked **(not re-verified)**.
 
+**Fact-check (Phase 1, 30 Sep 2026):** an independent fact-check edited this file in place. Corrections are marked "[corrected by fact-check: …]" and unverifiable items "[uncertain: …]". The hypothesis-table tally changed from 7 / 17 / 12 to **5 / 10 / 21**, and "DC Bench" now has exact-name LLM candidates. See the "Fact-check log (Phase 1)" at the end.
+
 Confidence: **H** means a primary source or a verbatim mirror of one. **M** means a single secondary source, a search summary of a primary page, or a figure not re-verified. **L** means an aggregator only. Speculation is marked [speculation].
 
 ---
@@ -18,7 +20,7 @@ Confidence: **H** means a primary source or a verbatim mirror of one. **M** mean
 The hypothesis is **refuted as a "one common factor" claim and partly confirmed as a claim about one failure mode.** Leaked or familiar items explain contamination failures (AIME 2024, HumanEval, SWE-bench Verified, GSM8K for some model families). They do not explain the other four failure modes, and several benchmarks built on genuinely novel items or skills still saturated fast.
 
 ### Cited Findings (summary bullets)
-1. **Novel items do not prevent saturation.** FrontierMath Tier 4 used unpublished, expert-written problems. Its top score went from 5% to 98% in less than 14 months, and Epoch now considers it saturated — [Epoch AI on X](https://x.com/EpochAIResearch/status/2098103831502708864); [AlphaSignal](https://alphasignal.ai/news/openai-s-gpt-6-astra-cracks-epoch-s-hardest-math-benchmark-in-14-months). MathArena says final-answer contest benchmarks, which use fresh and uncontaminated problems each year, "have become saturated in just one year" — [MathArena platform paper](https://arxiv.org/abs/2605.00674); [MathArena "Farewell"](https://matharena.ai/no_final_answer/).
+1. **Novel items do not prevent saturation.** FrontierMath Tier 4 used unpublished, expert-written problems. Its top score went from 5% to 98% in less than 14 months, and Epoch now considers it saturated — [Epoch AI on X](https://x.com/EpochAIResearch/status/2098103831502708864); [AlphaSignal](https://alphasignal.ai/news/openai-s-gpt-6-astra-cracks-epoch-s-hardest-math-benchmark-in-14-months). [fact-check note: the 5% was on Tier 4 v1 at launch; the 98% is on Tier 4 v2 (43 problems left after Epoch's 12 Jun 2026 error correction). Part of the rise therefore reflects fixed items rather than capability, and Epoch's post says mathematicians "often commented that AI found unintended shortcuts" on Tier 4 problems.] MathArena says final-answer contest benchmarks, which use fresh and uncontaminated problems each year, "have become saturated in just one year" — [MathArena platform paper](https://arxiv.org/abs/2605.00674); [MathArena "Farewell"](https://matharena.ai/no_final_answer/). [uncertain: the exact phrase was not verified. The platform-paper abstract says static benchmarks are "quickly saturated". The Farewell post reports that Gemini 3.1 Pro solved 162 of 176 new final-answer problems in all four attempts.]
 2. **Novel *skills* do not prevent saturation either; they delay it.**
    - ARC-AGI-1 took about 4 years to go from 0% (GPT-3) to 5% (GPT-4o). Then o3 reached 75.7%, or 87.5% at high compute (Dec 2024).
    - 49% of ARC-AGI-1's private set had already fallen to an ensemble of brute-force program searches in 2020.
@@ -26,8 +28,8 @@ The hypothesis is **refuted as a "one common factor" claim and partly confirmed 
    - Sources: [ARC Prize 2024 report](https://arxiv.org/abs/2412.04604); [ARC Prize Astra post](https://arcprize.org/blog/astra).
 3. **Contamination is real where it occurs, but it is uneven.**
    - AIME 2024 scores run 10–20 points above what AIME 2025 predicts [MathArena](https://arxiv.org/abs/2505.23281).
-   - OpenAI stopped reporting SWE-bench Verified after "all frontier models we tested" reproduced gold patches [OpenAI via mirror](https://github.com/BobYeger/state-of-agents/blob/main/raw/articles/openai-retires-swe-bench-verified.md).
-   - On GSM1k, Phi and Mistral drop by up to 13%, while frontier models show "minimal" overfitting [GSM1k](https://arxiv.org/abs/2405.00332).
+   - OpenAI stopped reporting SWE-bench Verified after "all frontier models we tested" could reproduce the gold patch *or verbatim problem-statement specifics for certain tasks* [OpenAI via mirror](https://github.com/BobYeger/state-of-agents/blob/main/raw/articles/openai-retires-swe-bench-verified.md). [corrected by fact-check: was "reproduced gold patches". OpenAI's wording is gold patch *or* problem specifics, for certain tasks.]
+   - On GSM1k, models dropped by up to 8% in the final (NeurIPS) version, or up to 13% in arXiv v1, which named Phi and Mistral. Frontier models show "minimal" overfitting [GSM1k](https://arxiv.org/abs/2405.00332). [corrected by fact-check: was "up to 13%" paired with the NeurIPS r² = 0.36. The 13% belongs to v1 (with r² = 0.32); the final version says 8% (with r² = 0.36).]
 4. **Validity collapse is common and independent of novelty.** Novel expert items are, if anything, *more* error-prone:
    - FrontierMath v2 fixed errors in 42% of problems [Epoch](https://epoch.ai/benchmarks/frontiermath-tier-4-v2).
    - About 29% of HLE's chemistry and biology answers conflict with the literature [FutureHouse](https://www.futurehouse.org/research/hle-exam).
@@ -39,7 +41,7 @@ The hypothesis is **refuted as a "one common factor" claim and partly confirmed 
    - The raw-corpora pipeline "avoids benchmark contamination".
    - TopoBench and MastermindEval are procedurally generated.
 
-   They stalled through empty repositories, no leaderboard, pre-emption or white-box metrics (§3.3).
+   They stalled through empty repositories, no leaderboard, pre-emption or white-box metrics (§3.3). [fact-check: these are adoption or validity failures, so §4 now codes these rows Neutral rather than Contradicts. They show that novelty did not buy adoption. They do not show that novel benchmarks stop discriminating.]
 7. **Benchmarks with no novelty often stayed useful for years.**
    - SWE-bench discriminated for about 2.3 years although its issues come from public GitHub.
    - GPQA Diamond went from 39% to above 90% over about 2 years.
@@ -47,15 +49,19 @@ The hypothesis is **refuted as a "one common factor" claim and partly confirmed 
 8. **Benchmark lifetimes are shrinking.**
    - AI Index 2026: evaluations "intended to be challenging for years are saturated in months" [AI Index 2026 ch. 2](https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_2_technical.pdf).
    - Of 60 widely used benchmarks, about half are saturated. Age and test-set size predict saturation; private test sets show no protective effect [Akhtar et al.](https://arxiv.org/abs/2602.16763).
-9. **Procedural novelty plus automatic verification turns a benchmark into a training environment.** Reasoning Gym ships more than 100 such generators for reinforcement learning with verifiable rewards (RLVR). Logic-RL reached 0.99–0.89 on Knights-and-Knaves puzzles from fewer than 5,000 synthetic samples. A community Mastermind-style ladder was "saturated" by o3-mini about 9 weeks after launch — [Reasoning Gym](https://arxiv.org/abs/2505.24760); [Logic-RL](https://arxiv.org/abs/2502.14768); [Bulls-and-Cows commits](https://github.com/stalkermustang/llm-bulls-and-cows-benchmark/commits/main).
+9. **Procedural novelty plus automatic verification turns a benchmark into a training environment.** Reasoning Gym ships more than 100 such generators for reinforcement learning with verifiable rewards (RLVR). Logic-RL's 7B model, trained on about 5,000 synthetic Knights-and-Knaves puzzles, scored 0.99 on 3-person and 0.80 on 7-person puzzles (0.67 on out-of-distribution 8-person puzzles; 0.89 average over 2–8 people). [corrected by fact-check: was "0.99–0.89 … from fewer than 5,000". The paper says "just 5K", and 0.89 is the 2–8-person average, not the 7-person score.] A community Bulls-and-Cows (Mastermind-style) ladder was "saturated" by o3-mini, which won 50 of 50 games, about 9.5 weeks (66 days) after launch — [Reasoning Gym](https://arxiv.org/abs/2505.24760); [Logic-RL](https://arxiv.org/abs/2502.14768); [Bulls-and-Cows commits](https://github.com/stalkermustang/llm-bulls-and-cows-benchmark/commits/main).
 10. **The user's "boring professional benchmarks":**
     - "Automation Bench" is almost certainly **Zapier's AutomationBench** (H).
     - "Office Bench" is **OfficeBench**, arXiv 2407.19056 (H).
-    - "DC Bench" is **unresolved**. The best fit is **DCA-Bench**, arXiv 2406.07275 (low-medium). DC-BENCH (dataset condensation, NeurIPS 2022) is a non-LLM name-match.
+    - "DC Bench" is **unresolved**. [corrected by fact-check: was "best fit DCA-Bench; no 2026 LLM 'DCBench' exists". Two exact-name LLM-agent benchmarks exist.] The candidates are:
+      - **DCBench, "Data Cognition Benchmark for LLM Agent"** ([YH-CN/DCBench](https://github.com/YH-CN/DCBench); repo created Apr 2026; 1,025 expert-curated data-analysis questions on real Kaggle tables; LLM-judge rubric; paper "in preparation"). This is now the best topical and name fit for a "boring professional" benchmark (low confidence).
+      - **dcbench, "Decision Compliance Benchmark"** (Brief; arXiv 2605.08112, May 2026; 8 coding-agent tasks with 41 decision points).
+      - **DCA-Bench** (arXiv 2406.07275) is now only a near-name match.
+      - Two exact-name matches are not LLM benchmarks: dcbench (data-centric AI, DEEM 2022) and DC-BENCH (dataset condensation, NeurIPS 2022).
 
 ### Hypothesis verdict (one paragraph)
 Taken literally, "failed benchmarks lack novel critical thinking the model can't have been trained on" is **refuted**, for three reasons:
-- **Counterexamples with novelty that still failed or saturated.** FrontierMath Tier 4 (novel items), AIME 2025 and the MathArena final-answer contests (novel items), ARC-AGI-1 and ARC-AGI-3 (novel skills), Bulls-and-Cows and MastermindEval (procedural items), and LMArena (novel prompts, gamed anyway).
+- **Counterexamples with novelty that still failed or saturated.** FrontierMath Tier 4 (novel items), AIME 2025 and the MathArena final-answer contests (novel items), ARC-AGI-1 and ARC-AGI-3 (novel skills), Bulls-and-Cows and Logic-RL Knights-and-Knaves (procedural items), and LMArena (novel prompts, gamed anyway). [corrected by fact-check: MastermindEval was removed from this list. No source shows it saturated or was brute-forced; it survives as an lm-eval task. Logic-RL K&K, already coded C in §4, replaces it.]
 - **Counterexamples without novelty that stayed useful.** SWE-bench, GPQA Diamond, chess ladders and AutomationBench.
 - **Many failures have nothing to do with training exposure.** These are validity collapse (τ-bench, HellaSwag, HLE, FrontierMath errors) and adoption or infrastructure failure (most of the user's list, OfficeBench, DCA-Bench, BIG-bench, HELM).
 
