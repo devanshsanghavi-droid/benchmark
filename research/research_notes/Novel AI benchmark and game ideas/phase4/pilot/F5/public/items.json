@@ -420,7 +420,7 @@
   {
    "id": "Q53",
    "family": "logic-grid",
-   "prompt": "3 people live in a row of 3 houses, numbered 1 to 3 from left to right. Each person has a different name and a different instrument. The possible values are: names: Ada, Esme, Ivo; instruments: cello, harp, violin. \"Directly to the left of\" means in the house numbered one lower; \"next to\" means in an adjacent house.\n\nClues:\n1. Esme lives directly to the left of the harpist.\n2. Esme does not play the violin.\n3. The harpist is Ivo.\n4. The harpist lives directly to the left of Ada.\n\nQuestion: list the instruments in house order, from house 1 to house 3.",
+   "prompt": "3 people live in a row of 3 houses, numbered 1 to 3 from left to right. Each person has a different name and a different instrument. The possible values are: names: Ada, Gus, Hana; instruments: cello, oboe, violin. \"Directly to the left of\" means in the house numbered one lower; \"next to\" means in an adjacent house.\n\nClues:\n1. The cellist lives next to Gus.\n2. Ada lives in house 2.\n3. Gus lives directly to the left of Ada.\n4. The cellist is not Gus.\n5. Gus lives next to Ada.\n6. Hana plays the oboe.\n\nQuestion: list the instruments in house order, from house 1 to house 3.",
    "answer_format": "the 3 instruments separated by commas, in house order 1 to 3"
   },
   {
