@@ -155,7 +155,7 @@ These holes in the common protocol matter more than most candidate-specific ones
 - *Residual risk.* Closed-API tool use cannot be verified (§0.2).
 - *Why the score survives.* It is computed exactly and offline, and it cannot be hacked by a judge. The information-set knob gives headroom, and the check that stated and played policies agree catches "state a nice mix, play something else".
 
-**C28 Hidden-Dynamics Economy** is in the table only. **C17 Reliability Horizon (revise; Q1 3, Q2 3)** is contested.
+**C17 Reliability Horizon (revise; Q1 3, Q2 3).** Contested.
 - *Cycle shortcut.* A 5-register machine over bounded integers often becomes periodic. A model that notices "state repeats every 37 steps" computes step 4,096 without executing, so L95 measures cycle-spotting, not reliable execution.
 - *Otherwise* the cheap path (RL on execution traces) is the construct.
 - *Headroom.* The 4,096 ceiling is a cap that long-CoT models may reach [spec.: 12–24 months].
