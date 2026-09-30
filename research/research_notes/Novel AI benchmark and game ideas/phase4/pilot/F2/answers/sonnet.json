@@ -1,0 +1,13 @@
+{
+  "solver_label": "sonnet",
+  "problems": {
+    "P1": {"labels": ["N", "Y", "N", "Y", "Y", "Y", "N", "N"], "rule": "Every stack contains at least one yellow object."},
+    "P2": {"labels": ["N", "N", "N", "N", "N", "Y", "Y", "Y"], "rule": "Every large square has a small object resting directly on top of it."},
+    "P3": {"labels": ["Y", "Y", "Y", "N", "N", "Y", "N", "Y"], "rule": "No large object rests directly on a small object."},
+    "P4": {"labels": ["Y", "N", "N", "N", "N", "Y", "N", "Y"], "rule": "Every triangle is in a stack to the right of every circle."},
+    "P5": {"labels": ["Y", "N", "Y", "Y", "N", "Y", "N", "Y"], "rule": "There is at least one large yellow object."},
+    "P6": {"labels": ["N", "N", "Y", "N", "Y", "Y", "N", "N"], "rule": "There are more red objects than blue objects."},
+    "P7": {"labels": ["N", "N", "Y", "N", "N", "Y", "N", "Y"], "rule": "The total number of objects in the scene is odd."},
+    "P8": {"labels": ["N", "N", "N", "N", "N", "Y", "Y", "Y"], "rule": "Every triangle rests directly on a blue square."}
+  }
+}
