@@ -135,10 +135,10 @@ Confidence is H (high), M (medium) or L (low). Model names such as GPT-6 Astra, 
 - **NetHack beyond BALROG.**
   - GPT-6 Astra achieved "the first recorded LLM-agent ascension" on 21 Sep 2026: 37,140 turns, 3rd campaign run, 12 calendar days [P].
   - Caveats stated by the authors [P]:
-    - the harness was agent-built and "changed mid-game";
+    - the harness was agent-built, and "the system evolved over the campaign" [corrected by fact-check: was quoted as "changed mid-game", which does not appear in the repo; README and METHODOLOGY.md];
     - the web, wiki and source code could be consulted;
     - wishes, genocide and bones were used;
-    - the run was human-supervised, so it "supports no controlled win-rate claim".
+    - the user chose the character, permitted spoilers, requested changes and paused/resumed sessions; the authors say it "supports no controlled win-rate claim".
   - **NetHackers** (dunnolab, first commit 8 Aug 2026) scores bot programs, which can be written or evolved by Claude Code, Codex or OpenCode. Each is scored on 15 public seeds per identity, then re-scored on secret seeds across 73 identities. The stated reason for the private tier: "A bot can still influence its self-reported score" [P].
 - **Human baseline.** None in BALROG. [gap]
 - **Weaknesses.**
@@ -162,7 +162,7 @@ Confidence is H (high), M (medium) or L (low). Model names such as GPT-6 Astra, 
 
 **2.9 lmgame-Bench**
 
-- **Games.** Sokoban, Tetris, 2048, Candy Crush, Super Mario, Ace Attorney, Pokémon Red.
+- **Games.** Sokoban, Tetris, 2048, Candy Crush, Super Mario, Ace Attorney, Pokémon Red. (The paper describes six games; Pokémon Red was added in the repo.)
 - **Harness effect.** 86.7% of harnessed runs beat random, and paired t-tests show harnessed runs are significantly better than unharnessed ones [S].
 - **Construct overlap with static benchmarks.** Correlation and factor analysis [S]:
   - Sokoban tracks math and coding;
@@ -173,7 +173,7 @@ Confidence is H (high), M (medium) or L (low). Model names such as GPT-6 Astra, 
 **2.10 "Plays Pokémon" runs (Claude, Gemini, GPT)**
 
 - **Format.** One agent, a full RPG playthrough of hundreds of hours; milestones per step or hour.
-- **Harness caveats** [P]: the Gemini run added a RAM-derived fog-of-war map plus "pathfinder" and "boulder_puzzle_strategist" tools (themselves Gemini 2.5 Pro instances). Run 1, with "modifications … as difficulties arose", took 813 h (done 2 May 2025); the "fully autonomous" Run 2 with a frozen harness took 406.5 h.
+- **Harness caveats** [P]: the Gemini run added a RAM-derived fog-of-war map plus "pathfinder" and "boulder_puzzle_strategist" tools (themselves Gemini 2.5 Pro instances). Run 1 (Gemini 2.5 Pro Exp 03-25), with "modifications … as difficulties arose", took 813 h (done 2 May 2025). The "fully autonomous" Run 2 (Gemini 2.5 Pro Preview 05-06, "finalized fixed agentic harness") took 406.5 h. The comparison changes the model checkpoint as well as the harness [corrected by fact-check: checkpoint difference was omitted; Gemini 2.5 report p.16].
 - **Results.** GPT-5: Red in 6,470 steps vs o3 18,184; Crystal 9,517 vs 27,040 (Aug 2025) [S]. Claude Opus 4.7 beat Red in May 2026, and GeminiPlaysPokemon later won "with progressively weaker harnesses" [S]. Sonnet 5.5 is the "first Sonnet model to beat Pokémon Red working only from screenshots" (28 Sep 2026) [P]. A non-LLM "Jev" model beat Red on 23 Sep 2026, "coached" by Claude Opus 5 [S].
 - **Human baseline.** Informal only (a children's game).
 - **Weaknesses.** A different harness per lab; walkthroughs all over the web; n = 1; Anthropic calls it "for our own understanding" [P-m].

@@ -549,3 +549,83 @@ Novel instances close path 0 (contamination). Novel skills close paths 0 and 1 o
 - o1 MATH 94.8%;
 - HumanEval 28.8% → 99.3%;
 - the o3 FrontierMath 25% vs 10% comparison.
+
+---
+
+## Fact-check log (Phase 1)
+
+**Tally (57 claims checked):** verified 35 · corrected 13 · uncertain 9 · removed 0.
+**Hypothesis table:** Supports / Contradicts / Neutral changed from 7 / 17 / 12 to **5 / 10 / 21**. Nine rows were recoded to apply the dossier's own "orthogonal = Neutral" rule consistently. The headline verdict ("refuted as a single common factor; partly confirmed for static public items") stands, but it is coding-sensitive (§4 Gaps).
+**DC Bench:** two exact-name 2026 LLM-agent benchmarks were found: DCBench (Data Cognition; best fit) and Brief's dcbench (Decision Compliance). DCA-Bench is demoted to a near-name match. The referent is still unconfirmed.
+
+Access: arxiv.org, arcprize.org, epoch.ai, x.com, openai.com, hai.stanford.edu, aclanthology.org, futurehouse.org and matharena.ai were blocked. Checks used GitHub raw files and git history, verbatim abstract and text mirrors found with GitHub code search, anthropic.com (fetched directly) and web-search summaries (labelled).
+
+| Claim | Verdict | Source URL | Note |
+|---|---|---|---|
+| FrontierMath T4 5% (11 Jul 2025) → 98% (GPT-6 Astra) in <14 months; saturated | verified (M) + caveat | https://x.com/EpochAIResearch/status/2098103831502708864 (search summary) | 98% is on T4 v2 (43 problems after fixes). Epoch notes AI "unintended shortcuts" |
+| FrontierMath v2: errors in 42%; 123+12 corrected, 5+7 removed; 338 remain | verified (M) | https://epoch.ai/benchmarks/frontiermath-tier-4-v2 (search summary) | Split is T1–3 / T4; 295 + 43 |
+| FrontierMath v2: models ~12 points higher on corrected set | uncertain | secondary (Digg / aggregators) | Secondary reports GPT-5.5 T4 35%→73% after fixes |
+| FrontierMath AI audit flagged fatal errors in ~1/3 | verified (M) | https://x.com/EpochAIResearch/status/2053995435870892048 (search summary) | — |
+| Bulls-and-Cows created 26 Nov 2024; "o3-mini saturated the benchmark" 31 Jan 2025; ~9.5 wk | verified | https://github.com/stalkermustang/llm-bulls-and-cows-benchmark (git log) | Run log: o3-mini won 50 of 50 games. Commit is 1 Feb 00:19 +04:00, i.e. 31 Jan UTC |
+| MastermindEval lm-eval: 6 tasks (2/4, 3/5, 4/6), Knuth pre-play, hard = one-symbol distractors | verified | https://github.com/EleutherAI/lm-evaluation-harness/tree/main/lm_eval/tasks/mastermind | — |
+| MastermindEval hypothesis spaces ≤ 1,296 codes | verified, qualified | https://github.com/flairNLP/mastermind | True for released splits; agentic mode is configurable to larger spaces |
+| MastermindEval as a "failed/saturated" counterexample (C) | corrected | same | No evidence it saturated or was brute-forced; recoded N and removed from §1 counterexample list |
+| ARC-AGI-1 0% (GPT-3, 2020) → 5% (GPT-4o, 2024) | verified | https://github.com/ndbroadbent/arc_agi_pareto_frontiers (saved copy of arcprize.org o3 post) | — |
+| ARC-AGI-1 2020: top single entry 20%; all-entries ensemble 49% of private set | verified | https://github.com/UNIR-TUC/arc-agi (2412.04604 text) | The ARC-AGI-2 paper says 49% "solved by at least one team" |
+| ARC Prize 2024: ARChitects 53.5%, MindsAI 55.5% | verified | same | — |
+| o3-preview 75.7% ($10k) / 87.5% (172×); trained on 75% of public training set | verified | saved copy of https://arcprize.org/blog/oai-o3-pub-breakthrough | Semi-Private set |
+| ARC-AGI-3: GPT-6 Astra 62.7% ($26K) standard vs 99.9% ($19K) provider adapter, 3 Sep 2026 | verified (M-H) | https://github.com/lihenair/techtranslate (full translation of arcprize.org/blog/astra) | $26,098 (max) / $18,817 (high) |
+| ARC-AGI-3 provider adapter "builds per-game tools such as a board parser" | corrected | same | The adapter keeps opaque reasoning state and compacts context. Board parsers and solvers were seen in a separate sandboxed PRO-LONG harness |
+| τ-bench do-nothing agent 38%; spamming agent 40% | verified | https://github.com/uiuc-kang-lab/agentic-benchmarks | Repo has since released a patch |
+| ABC: up to 100% relative misestimation; CVE-Bench overestimation −33%; KernelBench 31% | verified | https://arxiv.org/abs/2507.02825 (abstract mirrors); ABC README | Upgraded M→H |
+| HLE: 29 ± 3.7% of text-only chem/bio answers conflict; HLE-team ~18% on subset | verified (M-H) | https://www.futurehouse.org/research/hle-exam (search summary); https://github.com/benchflow-ai/awesome-evals | — |
+| HLE with tools (Anthropic table) | verified (added) | https://www.anthropic.com/news/claude-opus-5-5 | Opus 5.5 67.7%, GPT-6 Astra 57.2% with tools |
+| Llama 4: 27 private variants; Google 19.2% / OpenAI 20.4% of data; up to 112% gains | verified | https://arxiv.org/abs/2504.20879 (abstract mirrors) | — |
+| Llama-4-Maverick-03-26-Experimental "topped the board" | corrected | https://www.theregister.com/2025/04/08/meta_llama4_cheating/ (search summary) | Ranked #2 (Elo 1417) behind Gemini 2.5 Pro |
+| LMArena quote "Meta's interpretation of our policy…" | verified (M) | https://x.com/arena/status/1909397817434816562 (search summary) | — |
+| AutomationBench identity (Shepard & Salimans, Zapier, arXiv 2604.18934, 21 Apr 2026); "below 10%"; end-state grading | verified | https://github.com/CMander02/DailyAgentPapers/blob/main/data/2026/04/21/automationbench.md | — |
+| AutomationBench 600 public tasks (6×100), 47 tools, 200 simple excluded, harder private leaderboard set | verified | https://github.com/zapier/AutomationBench | README also says private tasks are re-hardened between versions |
+| Anthropic table: Astra 41.4, Opus 5.5 40.0, Fable 5.1 31.4, GPT-5.6 Sol 28.8, Opus 5 26.9; Zapier-run | verified | https://www.anthropic.com/news/claude-opus-5-5 | 22 Sep 2026. Footnote: Opus 5.5 run without fallback models |
+| AutomationBench README vs Anthropic "conflict … unresolved" | corrected | README + Anthropic footnote | Public 600-task set vs official held-out private set |
+| AutomationBench <10% → ~41% climb as a lifetime signal | verified, caveated | README | Not like-for-like: the private set is re-hardened |
+| AutomationBench-AA: 657 private tasks, v1.0.6, Index v4.3 | verified (M) | https://artificialanalysis.ai/evaluations/automationbench-aa (search summary) | AA uses partial-credit scoring |
+| AutomationBench repo 314 stars / 49 forks | verified | GitHub API via MCP search | — |
+| OfficeBench identity, authors, arXiv 2407.19056, 300 tasks (93/95/112), metrics | verified | https://github.com/zlwang-cs/OfficeBench | — |
+| OfficeBench scores (GPT-4o 47.00, GPT-4T 38.00, Llama 3 70B 27.33, Gemini 1.5 Pro 26.00; per-app 64.52/60.00/21.43) | verified | same | Per-app figures upgraded M→H |
+| OfficeBench human 93.33% | uncertain | arXiv (blocked) | Not in README |
+| OfficeBench 47 stars, 16 commits | verified | GitHub | — |
+| OdysseyBench+ derived from OfficeBench's 300 tasks | verified (M) | https://github.com/microsoft/OdysseyBench; abstract mirror | — |
+| DC Bench: "no 2026 LLM DCBench exists"; best fit DCA-Bench (~50%) | corrected | https://github.com/YH-CN/DCBench ; https://github.com/brief-hq/dcbench ; https://arxiv.org/abs/2605.08112 | Two exact-name LLM-agent benchmarks exist; dcbench (DEEM 2022, non-LLM) also added |
+| DCA-Bench: authors, 221 cases, 8 platforms, 4 types, 18 tags, 4 hint levels, GPT-4 evaluator, 11 stars, KDD | verified | https://github.com/TRAIS-Lab/dca-bench ; co-author page (xingjian-zhang.github.io) | ACM DOI not re-verified |
+| DCA-Bench ~30% issues found without hints | uncertain | arXiv (blocked) | Not in v1 abstract or README |
+| SWE-bench Verified: ≥59.4% of audited 27.6% subset flawed; stopped reporting; 23 Feb 2026 | verified | https://github.com/BobYeger/state-of-agents (verbatim mirror); date by search | — |
+| "all frontier models … reproduced gold patches" (§1 summary) | corrected | same | Gold patch *or* verbatim problem specifics, "for certain tasks" |
+| SWE-Bench Illusion 76% vs 53% | verified | https://github.com/ATOM00blue/machine-learning-library (abstract) | — |
+| GSM1k: drops up to 13% with r² = 0.36 (NeurIPS) | corrected | https://github.com/thanhbn/arxiv-downloader (current text); v1 abstract mirrors | Final: 8%, r² = 0.36. v1: 13%, r² = 0.32 |
+| MMLU-Redux 6.49% errors; Virology 57% | verified (M-H) | abstract mirrors (multiple) | — |
+| HellaSwag >65% predictions unchanged with Lorem ipsum | verified | https://github.com/Luvata/arxive/blob/main/pages/2025-04-11-cs-cl.html | — |
+| MMMU-Pro 16.8–26.9% drop | verified | https://github.com/MMMU-Benchmark/MMMU | README wording ambiguous; consistent with paper |
+| EvoEval "19.6–47.7-point drops" | corrected | abstract mirrors | 19.6–47.7% (average 39.4%) |
+| AIME 2024 contaminated (MathArena) | verified | abstract mirror (HuggingAGI) | "strong signs of contamination" |
+| AIME 2024 +10–20 pts; QwQ ~60% | uncertain | arXiv body (blocked) | — |
+| MathArena "saturated in just one year" | uncertain (substance verified) | https://matharena.ai/no_final_answer/ (search summary); 2605.00674 abstract | Exact phrase not found |
+| GPQA top 94.3% (Gemini 3.1 Pro) | verified (M) | search summary of Feb 2026 model card | — |
+| GPQA Epoch logistic asymptote ~92% | uncertain | https://epoch.ai/gradient-updates/gpqa-diamond-whats-left (search summary) | Summary says ~8% invalid; 92% conflicts with 94.3% |
+| Akhtar et al.: 60 benchmarks, 29 highly saturated, age/size predict, private sets no protective effect, expert-curated better | verified | abstract mirrors; https://github.com/zhaoyang97/Paper-Notes-en | Count upgraded from "not re-verified" |
+| AI Index 2026 "saturated in months"; MMLU >88%; HLE +30 pts | verified (M) | https://hai.stanford.edu/ai-index/2026-ai-index-report/technical-performance (search summary) | — |
+| AI Index 2026 "nearly half of the 60 most-cited benchmarks" | uncertain | same | Figure originates in Akhtar et al.; "most-cited" wording unverified |
+| Logic-RL 0.99–0.89 (3–7 persons) from <5k samples | corrected | https://github.com/Unakar/Logic-RL ; paper text mirror (anyscale digests) | 0.99→0.80 (3–7); 0.67 (8); 0.89 is the average; "5K" |
+| Reasoning Gym >100 generators for RLVR | verified | abstract mirror (CSQianDong) | — |
+| TTT-Bench 41% / 5% below MATH-500 / AIME 2024 | verified (M) | abstract digests | — |
+| LLM Chess: random evaluations saturated; Komodo Dragon added | verified | https://github.com/maxim-saplin/llm_chess | — |
+| Game Reasoning Arena last commit 11 Sep 2025 | verified | git log | Initial commit 23 Jul 2025 |
+| Grid games: gpt-4o-mini added 19 Jul 2024; last commit 14 Dec 2024 | verified | git log | — |
+| TopoBench <25% hard; repo empty | verified | abstract mirror; git clone (empty) | — |
+| Qi Town, Boardwalk, Concept abstract quotes | verified | abstract mirrors | — |
+| clembench Codenames experiment variables | verified | https://github.com/clp-research/clembench/tree/main/codenames | — |
+| HELM maintenance mode from 1 Jun 2026 | verified | https://github.com/stanford-crfm/helm/blob/main/docs/maintenance_mode.md | — |
+| BIG-bench archived 17 Apr 2026 | uncertain (archived: verified) | GitHub API | Date not verifiable |
+| Hypothesis-table verdicts: Qi Town, Game Reasoning Arena, Grid games, TopoBench, Raw corpora, BloomQA (C) | corrected → N | §3.3 facts | Adoption or validity failures; inconsistent with the dossier's N definition and with OfficeBench/τ-bench coding |
+| Hypothesis-table verdicts: MastermindEval (C), Codenames (S weak), Boardwalk (S weak) | corrected → N | §3.3 facts | No observed saturation or training-exposure failure |
+
+Not re-checked this pass, carried over as already labelled: MMLU 43.9%→~90%; TS-Guessing 57%; HellaSwag BERT 47.3% / GPT-4 95.3%; MATH launch 3.0–6.9% and o1 94.8%; HumanEval 28.8%→99.3%; GPQA 65%/34%; o3 FrontierMath 25% vs ~10%; LiveBench S = 0.99; WebArena 14.41%/78.24% and later leaderboard; Kaggle Game Arena date; AI Index 2025 one-year gains; grid-games 2,310 matches; raw-corpora ≤8B models. These are consistent with the fact-checker's background knowledge but were not re-fetched.
