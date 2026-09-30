@@ -587,3 +587,81 @@ Price ratios use list prices per 1M tokens (output/output unless noted):
 - andonlabs.com (direct), openai.com (GDPval, BrowseComp, GPT-6 pricing), artificialanalysis.ai (current Omniscience and GDPval-AA boards), eqbench.com (EQ-Bench 4 values), kaggle.com (SimpleQA Verified), fiction.live numbers, lmarena.ai, arxiv.org PDFs.
 - Full Vending-Bench 2 rows beyond the top 10.
 - GPT-6 Astra, Sol and Grok 4.7 prices.
+
+---
+
+## Fact-check log (Phase 1)
+
+**Tally (67 log rows; several rows bundle related numbers):** verified 42 · corrected 15 · uncertain 10 · removed 0.
+**Resolution:** StudentBench exists as described (Handshake-AI-Research repo; README BibTeX: Northcutt, Hasmani, Feng, Khangi, Plesner, Mueller; arXiv 2609.28470; listed 24 Sep 2026), and every prioritized StudentBench number matches the repo's verification files. The resolution (about 70%) holds.
+**Biggest changes:** SimpleBench's human baseline has been passed (Opus 5.5 88.4% > 83.7%). The NYT Opus 4.7 "inversion" is a refusal artefact. Six smaller numeric fixes. Fact-checked 30 Sep 2026; arxiv.org, andonlabs.com, openai.com, simple-bench.com and taubench.com were blocked, so verbatim GitHub captures were used where labelled.
+
+| Claim | Verdict | Source URL | Note |
+|---|---|---|---|
+| StudentBench exists; title, authors, Handshake-AI-Research, arXiv 2609.28470 (v1) | verified | https://raw.githubusercontent.com/Handshake-AI-Research/studentbench/main/README.md | BibTeX in README; arXiv page blocked |
+| StudentBench listed 24 Sep 2026 | corrected | https://github.com/sairam0424/daily-dose/blob/main/src/data/digest/2026-09-24/arxiv-2609.28470.json | Date consistent across several digests (L); the cited repo is an HF Daily Papers digest, not an arXiv listing |
+| License "code and data CC-BY 4.0" | corrected | StudentBench README | Code MIT; data CC BY 4.0 |
+| 2,383 learners; 2,469 sessions (2,139/140/190); 27-q pre/post; 7 domains; 13 configs per section; 51 experts, 2,028 reviews | verified | README; verification/paper_results_expected.json | Exact matches |
+| Pooled AI ≈ human, p = .015; six tutors pass individually | verified | paper_results_expected.json | p is a TOST equivalence p; clarifying note added |
+| Gemma 4 31B 918×; $0.0052 vs $4.81; $75/h | verified | README; paper_results_expected.json | 917.78 unrounded |
+| AI vs control +6.15 [4.08, 8.21]; p_TOST .015/.028/.085 | verified | paper_results_expected.json | |
+| Raw quant 19.43 vs human 17.43; verbal 13.84 < 14.21; Algebra/SE human-led; 3 quant domains AI-led | verified | verification/figure_expected.json | |
+| Omnibus p_Holm 0.755; 0/364 cells; 7 winners | verified | paper_results_expected.json | |
+| Combined ranking bottom = Gemini 3.6 Flash low 12.65 | corrected | figure_expected.json (raw_arm_outcomes) | Bottom is Opus 5 high 12.08 |
+| Expert BT table (13 rows) incl. Sonnet 4.6 +0.40 [0.17, 0.64] vs Gemini 3.1 Pro −0.92 [−1.13, −0.71] | verified | figure_expected.json → teaching/fit_planning_combined.json | All 13 abilities match |
+| Opus 5 won 7 of 10 criteria | corrected | paper_results_expected.json | 5 of 8 criteria plus both combined scores |
+| Session costs $1.24 vs $2.01 (quant); Sonnet 5 $1.17 vs $1.85 (verbal); gains 17.60/18.11/12.16/13.26 | verified | figure_expected.json → costs/pareto_figure_data.json | |
+| GPT-5.5 Pro $21.24 / 15.20 pp; Gemini 3.1 Pro $1.94 / 15.94; dominance flag; Opus 5 10th quant, 11th verbal | verified | pareto_figure_data; paper_results_expected.json | |
+| Reviewer-clustered caveat; Opus 5 prompt contrast +3.61 [−1.66, 8.89]; rankings survive repeat exclusion | verified | paper_results_expected.json | |
+| 80–97 learners per arm per section | corrected | figure_expected.json | 71–97 |
+| Per-learner SD ≈ 14 pp → 120+ per arm | corrected | figure_expected.json (arm CIs) | SD ≈ 14–17 → about 120–180 per arm |
+| Anthropic list prices (Opus 5.5 $4/$20; Opus 5 and 4.8 $5/$25; Sonnet 4.6 $3/$15; Sonnet 5 $2/$10; Haiku 4.5 $1/$5) | verified | https://www.anthropic.com/news/claude-opus-5-5 (and the other posts) | Sonnet 5 intro price made permanent |
+| Vertex prices (3.1 Pro $2/$12; 3.5 Flash $1.50/$9; 3.6–3.8 Flash $0.75/$3.75 to 31 Dec 2026, then $1.50/$7.50; 3.1 Flash-Lite $0.25/$1.50; 3 Flash input $0.50) | verified | https://cloud.google.com/vertex-ai/generative-ai/pricing | Global-endpoint prices |
+| Opus 5 (24 Jul 2026) "close to … Fable 5 at half the price" | verified | https://www.anthropic.com/news/claude-opus-5 | Fable 5 ≈ 2× remains an inference |
+| NYT ext. scores (Astra 98.1; 3.1 Pro 97.4; 3.8 Flash 97.4; Opus 5.5 high 88.5; Gemma 70.6 > Luna 68.7; GPT-5.5 no-reasoning 22.0; etc.); 940 puzzles; updated 22 Sep | verified | https://github.com/lechmazur/nyt-connections | Price ratios 5.3× / 2.7× recomputed correctly |
+| NYT Opus 4.7 39.0 vs Opus 4.6 92.1 as unexplained inversion | corrected | https://github.com/lechmazur/nyt-connections (Notes) | Opus 4.7 refusals scored 0/4 |
+| NYT human 71% (Dec 2024–Feb 2025), elite 100% | verified | nyt-connections README | |
+| Elimination Game μ values and ranks; updated 6 Jan 2026 | verified | https://github.com/lechmazur/elimination_game | Grok 3 Mini (5.53) sits between Gemini 3 Flash and GPT-4o |
+| Elimination Game "8-player" | uncertain | same | Count not stated in README |
+| PACT ratings; 9,995 games; switch on 22 Jun 2026; 20 rounds | verified | https://github.com/lechmazur/pact | |
+| PACT CIs "±10–15" | corrected | same | About ±8–25 |
+| Buyout: GPT-5.5 1975; Opus 4.7 1878; 3.5 Flash 1667; Sonnet 4.6 1656; Flash-Lite 1615 > 3.1 Pro 1564; 27 May 2026 | verified | https://github.com/lechmazur/buyout_game | 8× output-price ratio correct |
+| Writing: Fable 5.1 3.80 … 3.8 Flash 0.22 > Gemma −1.87 > 3.1 Pro −2.18; Grok 4.5 −5.07; 102,592 judgments; 56 writers; 26 Sep 2026 | verified | https://github.com/lechmazur/writing | |
+| Confabulations stale (Aug 2025); 3.5 Haiku 65.8 vs Sonnet 4 thinking 2.5 | verified | https://github.com/lechmazur/confabulations | |
+| Sycophancy abstention 13.5–83.9% | corrected | https://github.com/lechmazur/sycophancy | 4.7–83.9% (Kimi K3 4.7%) |
+| EQ-Bench 3: judge Opus 4.6; Opus 4.7 2020, Sonnet 4.6 1789, Opus 4.6 1786, Gemini 3.1 Pro 1540; data 2026-05-10 | verified | https://github.com/EQ-bench/eqbench3 | Recomputed from the raw .json.gz |
+| EQ-Bench 3 bottom = Gemma 2 9B 557 | corrected | same | Bottom is Llama 3.2 1B 200 (Gemma 2 9B is 74th of 75) |
+| VB2 29 Sep top 10 (Astra $15,514.70 … Grok 4.7 $10,536.83, Opus 5.5 $9,235.25, Opus 5 $11,181.87, GLM-5.3 $8,163.61); "Show 56 more" | verified | https://github.com/fstandhartinger/model-market-comparison/blob/main/data/raw/benchmarks/daily-evidence/2026-09-29T05-49-25-487Z/gauntlet/protocol-vending-bench-2/packet-r1.md | Verbatim capture (M-H) |
+| VB2 protocol ($500; $2/day; 3,000–6,000 messages; 60–100M tokens; $100/M; about 69k context; +$822/month; 111 days; Oct 2027; $63k "good"; jailbreak and gameable quotes) | verified | same | |
+| VB2 inference "Opus 5 > Opus 5.5 > Grok 4.7" | corrected | same | Opus 5 > Grok 4.7 > Opus 5.5 |
+| Opus 4.6 $8,017.59 ± $1,367 (10 Sep); +$3,050.53 over Opus 4.5 | verified | fstandhartinger …/phase-04/sources/a-ebcec333cce2.txt; https://www.anthropic.com/news/claude-opus-4-6 | |
+| VB1 table; human $844.05 (1 sample); Kimi K2 Thinking $1,295.80 vs $648.93 | verified | https://github.com/O6lvl4/agent-bench-matrix/blob/main/data/tables/vending-bench.json | Means; the min-net-worth order flips; Andon counts Opus 4 as first past the human baseline |
+| VB1 paper quotes ("surpass[es] the human baseline on average", meltdowns) | uncertain | https://arxiv.org/html/2502.15840v1 | arXiv blocked; search-summary only |
+| Sonnet 4.6 Arena capacity-then-profit quote | verified | https://www.anthropic.com/news/claude-sonnet-4-6 | |
+| Opus 4.8 High > Max on VB2 | verified | https://github.com/kzinmr/ai-topics/blob/main/wiki/raw/articles/2026-09-17_andonlabs_fable5-vending-bench.md | Copy of an Andon post (M) |
+| Fable 5 the only Arena cartel initiator | verified | same | Upgraded from search summary |
+| "First Grok win"; GPT-6 Sol 3/4 Arena wins; GPT-6 Sol lies to suppliers | uncertain | https://andonlabs.com/blog/opus-5-5-gpt-6-sol-grok-4-7-vending-bench | Blocked; leaderboard ordering verified |
+| Astra vs Fable 5.1 $5,422; $2,389 losses per run | uncertain | https://andonlabs.com/blog/gpt-6-astra-vending-bench | Blocked |
+| Arena Round 8 $7,980 / $5,838 / $2,158 | uncertain | https://andonlabs.com/evals/vending-bench-arena | Blocked |
+| VB2 wiki mid-table rows (Sonnet 4.6 $7,204 … Grok 4.3 $35) | uncertain | https://github.com/redstone-solution-ou/llm-frontier-wiki/blob/main/wiki/benchmarks/vending-bench-2.md | Present in wiki (L) but conflicts with the 10 Sep primary capture |
+| GDPval Opus 4.1 47.6% vs GPT-5 high 38.8% | verified | https://github.com/visual-snow/seshat/blob/main/web-research/openai/gdpval.md | Verbatim copies of OpenAI page and PDF (M); some digests give 39.0%; Claude ran via consumer UI |
+| GDPval design (1,320 / 44 / 9 / 220; 66% vs 71%; about 14 yrs) | verified | https://github.com/turbobeest/modelspec/blob/main/benchmarks/gdpval.md | Secondary (M) |
+| GPT-5 edge "text and instruction following" | corrected | seshat copies of OpenAI page and paper | "Accuracy" per OpenAI and the paper |
+| GDPval-AA v2.1: 1846 / 1735 / 1708 / Sol 1588 / Astra 1542 | verified | https://www.anthropic.com/news/claude-opus-5-5 | Lab-reported |
+| GPT-6.1 Sol 1575.1 vs Astra 1541.9 | uncertain | https://www.orcarouter.ai/blog/gpt-6-1-sol-vs-gpt-6-astra | Blocked; the model exists |
+| Opus 5.5 vs Fable 5.1 "2.5×" price ratio | uncertain | — | Fable 5.1 price not found |
+| GDPval-AA grader Gemini 3 Pro at launch | uncertain | — | Lead only, as the dossier says |
+| HLE with tools 67.7 / 65.6 / 63.6 / 57.2; grader update Sonnet 4.6 34.6 / 46.8; README 2,500 q, GPT-4o 3.07% / 92.3 | verified | anthropic.com posts; https://github.com/centerforaisafety/hle | |
+| Terminal-Bench: GPT-5.5 Codex CLI 83.4%; TB 4.0 66.4 / 57.9 / 55.8 / 37.3 (±2.6); Haiku 40.21 / 41.75 | verified | anthropic.com (Opus 4.8, Opus 5.5, Haiku 4.5 posts) | |
+| SimpleQA values (GPT-4.5 62.5 … o4-mini 20.2 > o4-mini-high 19.3; Claude 3.5 Sonnet 28.9); repo frozen Jul 2025 | verified | https://github.com/openai/simple-evals | |
+| SimpleBench human 83.7% > best AI (Claude Fable 81.9%) | corrected | https://github.com/fstandhartinger/model-market-comparison/blob/main/data/raw/benchmarks/daily-evidence/2026-09-29T05-49-25-487Z/bbcf304f3df1b31fb1ca.gz | Page prose stale; data: Opus 5.5 88.4, Fable 5.1 86.6, Astra Pro 86.5 > 83.7; changes §1, §2, §5, §6 |
+| "Claude Fable" 81.9% is a real row (not a garbled name) | verified | same | Added 2026-06-10 |
+| BrowseComp 1,266 q; trainers 29.2% and 86.4%; DR 51.5, o1 9.9, GPT-4o 0.6 | verified | https://github.com/visual-snow/seshat/blob/main/web-research/openai/browsecomp.md | Verbatim copy (M) |
+| AA-Omniscience: 6,000 q / 42 topics / 6 domains; abstain-all 4th of 36 | verified | memgrafter digest of arXiv 2511.13029 | Secondary (M) |
+| AA-Omniscience "3 of ~24 models above 0" | corrected | same | 3 of 36 |
+| AA Opus 4.5 note: Index 13 / 10 / 5 / 2; Haiku (thinking) 26% vs Opus 4.5 58% | verified | https://github.com/ia3andy/devoured/blob/main/templates/full-content/2026-05-01/ai-2.html | Copy of AA text (M) |
+| Haiku 4.5 "has" the lowest hallucination rate | corrected | same copy (Grok 4.3 note) | True Nov 2025; Grok 4.20 0309 v2 led by ~May 2026 |
+| τ²: Qwen3.5-397B 87.9 > Gemini 3.0 Pro 85.4 > Opus 4.5 85.3; τ³-Banking 55.2 / 48.7 / 47.9; Feb 2026 audit of 50+ tasks | verified | fstandhartinger …/phase-04/sources/final-9a145eb8c66c.txt | taubench.com capture of 10 Sep (M) |
+| LCB-Pro 53% / 0%; ICPC 12/12 and Gemini 10; LCB-Pro Gemini 3.1 Pro 2887 | verified | ringlyra / ai-hall-of-fame / audst copies | Secondary only (L); copies match the dossier |
+| CEO Arena 2609.34821; YC-Bench 2604.01212 | verified | https://github.com/ehijano/rss_fetch (cs.MA 2026-09-29); https://github.com/collinear-ai/yc-bench | Exist |
+| CoffeeBench 2606.16613; LemonadeBench 2602.13209 | uncertain | — | No copy found |

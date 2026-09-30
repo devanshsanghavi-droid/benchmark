@@ -14,25 +14,25 @@ Prior repo dossiers were used as leads only. Every number carried over was re-ch
 ## 1. Summary
 
 - **The famous "human > AI" gaps in reasoning and agentic benchmarks have mostly flipped by Sep 2026.**
-  - **ARC-AGI-1.** Frontier models match the human panel: Claude Opus 5 scores 97.5% against a 98% panel.
+  - **ARC-AGI-1.** Frontier models have reached or passed the human panel: the top verified score is 98.5% (Claude Fable 5, reported by ARC Prize 5 Aug 2026; GPT-6 Astra tied it on 3 Sep 2026), against a 98% panel. Claude Opus 5 scores 97.5% [corrected by fact-check: was "match the human panel: Claude Opus 5 scores 97.5%", which omitted the higher 98.5% entries; source: ARC leaderboard capture of 29 Sep 2026 (highest served ARC-AGI-1 value 98.5) https://raw.githubusercontent.com/fstandhartinger/model-market-comparison/f23453577c817fd6c6c003e0b46a6381c7476c61/data/raw/benchmarks/daily-evidence/2026-09-29T05-49-25-487Z/gauntlet/protocol-arc-agi-1/packet-r1.md ; model attribution from search extracts of https://x.com/arcprize/status/2085115252035785168 and https://x.com/arcprize/status/2095597602545025138, secondary].
   - **ARC-AGI-2.** Claude Opus 5 scores 90.42% [P-m]. GPT-6 Astra is reported at 95.0% for $1.12/task [S]. The human panel solves 100%; the average test-taker scores 60%.
   - **ARC-AGI-3.** GPT-6 Astra scores 99.9% under the provider harness, taking fewer actions than the median human on 96% of levels [P-m].
-  - **OSWorld.** Agents passed the 72.36% human rate on 11 Dec 2025, and the best agent reached 90.19% on 25 Jul 2026 [P].
-  - **GAIA.** Top test-set entries of 93–95% sit above the 92% human baseline [S].
+  - **OSWorld.** Agents passed the 72.36% human rate on 11 Dec 2025, and the best agent reached 90.19% on 25 Jul 2026 [P] [verified]. [uncertain: comparability — the 72.36% human rate was measured on the original 2024 OSWorld tasks, while the agent scores are on the revised OSWorld-Verified set.]
+  - **GAIA.** The top test-set entry, 93.36% (CustomGPT.ai Research Lab v44), sits just above the 92% human baseline [S] [corrected by fact-check: was "Top test-set entries of 93–95%"; the 95.1% figure (Agents-A1-4B) is a developer self-report, not a GAIA test-set leaderboard entry; source: https://raw.githubusercontent.com/InternScience/Agents-A1/main/README.md].
 - **Near parity or nearly closed** (SimpleBench's gap is likely inside noise):
-  - SimpleBench: 81.9% (Claude Fable 5) against 83.7% for 9 humans [S].
+  - SimpleBench: 81.9% (Claude Fable 5) against 83.7% for 9 humans [S]. [uncertain: not verified — one aggregator (benchmarklist.com, via search extract) lists Claude Opus 5.5 at 88.4% and Fable 5.1 at 86.6% in Sep 2026, which would mean the gap has flipped. Another extract attributes 88.4% to a different benchmark, and simple-bench.com was blocked.]
   - WebArena: 74.3% against 78.24% [S].
   - VPCT: 91% against 100% [S].
 - **Gaps that still hold, and hold by a lot, are perceptual, spatial, physical or real-time. Three clusters:**
   - **Fine-grained vision and spatial reasoning:**
     - VisFactor: humans 78.8% vs Gemini-3.1-Pro 54.0% [S].
     - MMSI-Video-Bench: 96.4% vs 38.0% [S].
-    - MindCube: about 95% vs 61.3% after purpose-built training [P/S].
+    - MindCube: about 95% vs 61.3% after purpose-built training [P/S]. [uncertain: the ~95% human figure was not found in any source reachable here. The trained-model score varies by paper version (61.3% in the current README; 70.67% and 76.1% in earlier versions).]
     - ClockBench: 89.1% vs 66.7% [S].
   - **Intuitive physics from video:** IntPhys 2, humans about 96% vs best model about 57.5% (chance 50%) [S].
   - **Real-time and long-horizon games under a fixed protocol:**
     - VideoGameBench: 0.48% completion [S].
-    - BALROG NetHack progression: about 13% for GPT-6 Astra-Max [S].
+    - BALROG NetHack progression: about 13% for GPT-6 Astra at max effort (13.24 ± 2.66%) [P, balrog-ai/experiments PR #19].
 - **Gaps with no clean human anchor but large headroom.**
   - EnigmaEval: best model about 39–44% [S], but there is no formal human baseline.
   - Concept (Gevers & Daelemans): humans >90% vs LLMs <40% [S], but the benchmark has not been re-run on 2026 frontier models.
@@ -45,11 +45,11 @@ Prior repo dossiers were used as leads only. Every number carried over was re-ch
 - **Harnesses and tools can decide a benchmark even when the model is unchanged.**
   - ARC-AGI-3: 62.7% vs 98.6% for the same model at the same effort [P-m].
   - OSWorld: Sonnet 4.5 scores 42.88%, 58.08% and 62.88% at 15, 50 and 100 steps [P].
-  - NetHack: GPT-6 Astra *ascended* on 21 Sep 2026 using a harness it built itself, with web and wiki access, on its third attempt [P]. The protocol-constrained BALROG progression is still about 13% [S].
+  - NetHack: GPT-6 Astra *ascended* on 21 Sep 2026 using a harness it built itself, with web and wiki access, on its third attempt [P]. The protocol-constrained BALROG progression is still about 13% [P].
 - **Speed of closure.**
   - ARC-AGI-1 took about 5 years to pass the average human.
-  - ARC-AGI-2 took about 15 months to pass its 60% human average.
-  - ARC-AGI-3 took 6 months to go from under 1% to human-level under a provider harness.
+  - ARC-AGI-2 took about 11 months to pass its 60% human average: Claude Opus 4.6 reported 68.8% (Feb 2026) and Gemini 3 Deep Think 84.6% (12 Feb 2026) [S] [corrected by fact-check: was "about 15 months"; source: search extracts of https://9to5google.com/2026/02/12/gemini-3-deep-think-upgrade/ and https://officechai.com/ai/gemini-3-deep-think-benchmarks-arc-agi/, secondary].
+  - ARC-AGI-3 took about 5 months (25 Mar → 3 Sep 2026) to go from under 1% to human-level under a provider harness [corrected by fact-check: was "6 months"; dates from the ARC Astra post, see §2.3].
   - ClockBench went from 13.3% to 66.7% in about 12 months.
   - Durability is shrinking for anything with a verifiable, text-renderable state.
 - **What still makes items hard, by mechanism:**
@@ -62,7 +62,7 @@ Prior repo dossiers were used as leads only. Every number carried over was re-ch
 - **Weak human anchors are common.**
   - BlindTest's "100%" is an *expected* human accuracy, not a measured one [P].
   - SimpleBench rests on 9 people [S]; ClockBench on 5 [S]; VPCT on 3 volunteers [S].
-  - ARC's "human panel" counts a task as solved if at least 2 people solved it. The *average* test-taker scores 60–64% on ARC-AGI-1/2 [P-m] and about 48% on ARC-AGI-3 [S].
+  - ARC's "human panel" counts a task as solved if at least 2 people solved it. The *average* test-taker scores 60–64% on ARC-AGI-1/2 [P-m] and about 48% on ARC-AGI-3 [S] [uncertain: the 48% figure appears only in search extracts that do not clearly attribute it; it was not found in the ARC-AGI-3 technical report extract].
 - **New 2025–26 benchmarks with large gaps are mostly video, spatial or perceptual** (MMSI-Video-Bench, VisFactor v4, MindTopo, CityCube, SpatiaLab). None is yet a leaderboard that labs track.
 
 ---
@@ -82,7 +82,7 @@ ARC-AGI-1 is flipped and saturated. It took about 5 years to beat the *average* 
 - **o3-preview (Dec 2024).**
   - It scored 75.7% on the semi-private set within the $10k limit, and 87.5% with 172× compute.
   - OpenAI "trained the o3 we tested on 75% of the Public Training set" [P-m](https://raw.githubusercontent.com/ndbroadbent/arc_agi_pareto_frontiers/90d0c6822f82b8ef95423f2a37c74cdb45e7b40f/sources/o3_announcement.html).
-- **Latest.** Claude Opus 5 scored 97.50% (verified by ARC Prize, max effort, Jul 2026) [P-m](https://raw.githubusercontent.com/malob/ai-system-cards/282a67c3c79617b23a1a23ed0869239b6e28d139/cards/anthropic/claude-opus-5/sections/08b-capabilities-2.md).
+- **Latest.** Claude Opus 5 scored 97.50% (verified by ARC Prize, max effort, Jul 2026) [P-m](https://raw.githubusercontent.com/malob/ai-system-cards/282a67c3c79617b23a1a23ed0869239b6e28d139/cards/anthropic/claude-opus-5/sections/08b-capabilities-2.md) [verified]. The top verified score is higher: 98.5%, by Claude Fable 5 (ARC post of 5 Aug 2026) and tied by GPT-6 Astra (3 Sep 2026) [S] [corrected by fact-check: Opus 5 was presented as the latest/best; the ARC leaderboard capture of 29 Sep 2026 gives a maximum of 98.5, https://raw.githubusercontent.com/fstandhartinger/model-market-comparison/f23453577c817fd6c6c003e0b46a6381c7476c61/data/raw/benchmarks/daily-evidence/2026-09-29T05-49-25-487Z/gauntlet/protocol-arc-agi-1/packet-r1.md].
 - **ARC's own framing.** ARC-AGI-1 "stayed unbeaten for so long, despite a 50,000x scaleup of base LLM pretraining" [P-m](https://raw.githubusercontent.com/fstandhartinger/model-market-comparison/f23453577c817fd6c6c003e0b46a6381c7476c61/data/raw/benchmarks/daily-evidence/2026-09-29T05-49-25-487Z/gauntlet/protocol-arc-agi-1/packet-r1.md).
 
 #### Inferences
@@ -95,7 +95,7 @@ ARC-AGI-1 is flipped and saturated. It took about 5 years to beat the *average* 
 ### 2.2 ARC-AGI-2 (launched 24 Mar 2025)
 
 #### Takeaway
-ARC-AGI-2 is flipped against the average human (60%) and above the 85% prize threshold on the commercial leaderboard, within about 15–18 months. The ARC Prize Kaggle track, with its compute limits, lagged far behind: 24% in Nov 2025.
+ARC-AGI-2 is flipped against the average human (60%) and above the 85% prize threshold on the commercial leaderboard. It passed 60% within about 11 months (Feb 2026) and was above 85% by Jul 2026 at the latest (Opus 5, 90.42%), about 16 months after launch [corrected by fact-check: was "within about 15–18 months" for both; first >60% results were Claude Opus 4.6 at 68.8% and Gemini 3 Deep Think at 84.6% in Feb 2026, per search extracts, secondary]. The ARC Prize Kaggle track, with its compute limits, lagged far behind: 24% in Nov 2025.
 
 #### Cited Findings
 - **Human baseline.** More than 400 humans were tested live. Every task was solved by at least 2 humans in 2 attempts or fewer. The panel scores 100%, the average test-taker 60%, at $17/task [P-m](https://raw.githubusercontent.com/steel-dev/leaderboard/33aaee5bf46a492e0ff9a84eb7643f8d0def66d6/docs/research/arc-agi-2/paper.md).
@@ -109,7 +109,8 @@ ARC-AGI-2 is flipped against the average human (60%) and above the 85% prize thr
 - **Knowledge overfitting.** ARC's verification harness never mentions ARC or its colour format, yet Gemini 3 Deep Think "employs correct ARC color mappings". ARC asserts that "overfitting" is "now occurring with ARC-AGI-1 and ARC-AGI-2" [P-m](https://raw.githubusercontent.com/UNIR-TUC/arc-agi/48d931918edd904b99ef546a98adc97e19ccf528/src/SuperCompressARC/Docs/2025/2601.10904v1_arc_prize_2025.md).
 - **2026 scores.**
   - Claude Opus 4.7 scored 75.83% and Claude Opus 5 90.42%, both at max effort and verified [P-m](https://raw.githubusercontent.com/malob/ai-system-cards/282a67c3c79617b23a1a23ed0869239b6e28d139/cards/anthropic/claude-opus-5/sections/08b-capabilities-2.md).
-  - GPT-6 Astra is reported at 95.0% for $1.12/task [S](https://x.com/arcprize/status/2095597602545025138); [S](https://arcprize.org/results/openai-gpt-6-astra).
+  - GPT-6 Astra is reported at 95.0% for $1.12/task [S](https://x.com/arcprize/status/2095597602545025138); [S](https://arcprize.org/results/openai-gpt-6-astra). [verified: several independent search extracts agree, and the 29 Sep capture's maximum of 95 is consistent; the primary page was blocked.]
+  - Note: Imbue's 95.1% (Gemini 3.1 Pro + code evolution, Feb 2026) is on the *public* eval set and is not comparable to the semi-private verified scores [S](https://imbue.com/blog/2026-02-27-arc-agi-2-evolution).
   - A 29 Sep 2026 capture of the official v2.json gives a maximum of 95 [P-m](https://raw.githubusercontent.com/fstandhartinger/model-market-comparison/f23453577c817fd6c6c003e0b46a6381c7476c61/data/raw/benchmarks/daily-evidence/2026-09-29T05-49-25-487Z/gauntlet/protocol-arc-agi-2/packet-r1.md) (via the prior dossier; the capture holds a summary, not the rows).
 
 #### Inferences
@@ -135,18 +136,18 @@ ARC-AGI-3 is the only ARC version built on *action efficiency* against humans. I
   - Every environment was beaten by at least 2 participants, "typically five or more, out of … around ten".
   - Per-environment solve rates vary; tr87 was solved by 6 of 12.
   - 342 replays were open-sourced [P-m](https://raw.githubusercontent.com/fstandhartinger/model-market-comparison/f23453577c817fd6c6c003e0b46a6381c7476c61/data/raw/benchmarks/daily-evidence/2026-09-29T05-49-25-487Z/gauntlet/protocol-arc-agi-3/packet-r1.md).
-  - **Conflict.** The technical report reportedly counts "486 unique participants … 2,893 total environment attempts". It also says "the average human tester scored 48%" [S](https://arcprize.org/media/ARC_AGI_3_Technical_Report.pdf).
+  - **Conflict (largely resolved).** The technical report counts "486 unique participants … 2,893 total environment attempts", but *across 414 candidate environments* (the pre-selection pool), so it need not contradict the blog's 458 for the final set [S, search extract of https://arcprize.org/media/ARC_AGI_3_Technical_Report.pdf]. The "average human tester scored 48%" figure was not found in the report extract [uncertain: not verified — attribution unclear in search extracts].
 - **Scoring change three weeks after launch.** The baseline moved from the 2nd-best human to the median human, and the per-level cap rose from 1.0× to 1.15× [P](https://raw.githubusercontent.com/arcprize/docs/main/changelog.mdx). ARC's reasons were a "luck factor" and a +0.5 pp effect for both humans and AI [P-m, blog capture].
 - **Score trajectory.**
-  - At launch, frontier models scored below 1% on the private set [S, paper digest].
-  - In Jul 2026, Claude Opus 5 (high) reached 30.16%, "roughly four times the best previously reported score". GPT-5.6 Sol (max) scored 7.78% [P-m](https://raw.githubusercontent.com/malob/ai-system-cards/282a67c3c79617b23a1a23ed0869239b6e28d139/cards/anthropic/claude-opus-5/sections/08b-capabilities-2.md).
+  - At launch (25 Mar 2026), frontier models scored below 1% [S, paper digest] [verified]. Launch coverage gives Gemini 3.1 Pro 0.37%, GPT-5.4 (high) 0.26%, Opus 4.6 0.25% and Grok 4.20 0% [S](https://officechai.com/ai/arc-agi-3/).
+  - In Jul 2026 (Opus 5 released 24 Jul 2026), Claude Opus 5 (high) reached 30.16%, "roughly four times the best previously reported score". GPT-5.6 Sol (max; released 9 Jul 2026) scored 7.78%, and Opus 4.8 (high) 1.52% [verified; the 7.78% is the best *pre-Opus-5* score, not the launch score]. [P-m](https://raw.githubusercontent.com/malob/ai-system-cards/282a67c3c79617b23a1a23ed0869239b6e28d139/cards/anthropic/claude-opus-5/sections/08b-capabilities-2.md).
   - On 3 Sep 2026, GPT-6 Astra scored 62.7% on the Standard harness (max effort, about $26,098 per semi-private run) and 99.9% on the Provider Adapter harness (high effort, about $18,817). At max effort the two harnesses give 62.7% vs 98.6%.
     - Under the Provider Adapter, Astra used fewer actions than the median human on 96.0% of levels, and 51.7% fewer actions on average.
     - The Provider Adapter "preserves opaque reasoning state between requests" and compacts context. It was about 3.66× faster and used 49% fewer tokens [P-m translation](https://raw.githubusercontent.com/lihenair/techtranslate/821908553b702d9de6565d186fdd2e8661303f6f/archive/2026-09-05/ai/OpenAIs-GPT-6-Astra-on-ARC-AGI-3.md).
 - **Mechanism evidence from ARC.**
   - ARC expected that action efficiency "would remain the dividing line". It found instead a "binary pattern": "once it 'understands' the mechanics, execution usually falls within the human efficiency range". Brute-force paths remain inefficient.
   - Astra wrote compact symbolic world models and built custom tools. ARC notes that humans had no code interpreter [P-m translation](https://raw.githubusercontent.com/lihenair/techtranslate/821908553b702d9de6565d186fdd2e8661303f6f/archive/2026-09-05/ai/OpenAIs-GPT-6-Astra-on-ARC-AGI-3.md).
-  - OpenAI separately reported that "enabling two settings tripled" its ARC-AGI-3 scores [S](https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores/).
+  - OpenAI separately reported that "enabling two settings tripled" its ARC-AGI-3 scores [S](https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores/). Per search extracts (late Jul 2026), the two settings were retained reasoning and compaction: GPT-5.6 Sol went from 13.3% to 38.3% on the *public* set [S].
 - **ARC Prize 2026** (Kaggle, internet off) has ARC-AGI-3 and ARC-AGI-2 tracks, with milestone prizes on 30 Jun and 30 Sep 2026. Milestone 1 went to Tufa Labs' "The Duck", a REPL- and tool-using harness that evicts old context [S](https://arcprize.org/blog/arc-prize-2026-milestone-1); [P](https://raw.githubusercontent.com/Tufalabs/duck-harness/main/README.md). "Nearly one million scorecards" had been submitted on public environments by April [P-m].
 
 #### Inferences
