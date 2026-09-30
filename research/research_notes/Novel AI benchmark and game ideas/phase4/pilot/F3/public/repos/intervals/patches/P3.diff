@@ -1,0 +1,19 @@
+Subject: Merge only neighbouring intervals in add()
+
+--- a/intervals.py
++++ b/intervals.py
+@@ -27,8 +27,12 @@
+         _check(a, b)
+         if a == b:
+             return
+-        self._iv.append([a, b])
+-        self._normalize()
++        left = [iv for iv in self._iv if iv[1] < a]
++        right = [iv for iv in self._iv if iv[0] > b]
++        mid = [iv for iv in self._iv if a <= iv[1] and iv[0] <= b]
++        if mid:
++            a, b = min(a, mid[0][0]), max(b, mid[-1][1])
++        self._iv = left + [[a, b]] + right
+ 
+     def remove(self, a, b):
+         _check(a, b)

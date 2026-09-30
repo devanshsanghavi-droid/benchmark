@@ -1,0 +1,32 @@
+Subject: Pick the next node with min() in order()
+
+--- a/depgraph.py
++++ b/depgraph.py
+@@ -1,6 +1,5 @@
+ """Dependency graph with deterministic build ordering."""
+ 
+-import heapq
+ 
+ 
+ class GraphError(ValueError):
+@@ -50,16 +49,16 @@
+ 
+     def order(self):
+         waiting, users = self._indegrees()
+-        ready = [n for n, k in waiting.items() if k == 0]
+-        heapq.heapify(ready)
++        ready = {n for n, k in waiting.items() if k == 0}
+         out = []
+         while ready:
+-            n = heapq.heappop(ready)
++            n = min(ready)
++            ready.discard(n)
+             out.append(n)
+             for u in users[n]:
+                 waiting[u] -= 1
+                 if waiting[u] == 0:
+-                    heapq.heappush(ready, u)
++                    ready.add(u)
+         if len(out) != len(self._deps):
+             stuck = sorted(n for n, k in waiting.items() if k > 0)
+             raise CycleError("cycle among: " + ", ".join(stuck))

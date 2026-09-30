@@ -1,0 +1,12 @@
+Subject: Merge the validation and debit loops in split_fee
+
+--- a/ledger.py
++++ b/ledger.py
+@@ -85,7 +85,6 @@
+         for name, share in shares.items():
+             if self._bal[name] < share:
+                 raise InsufficientFunds(name)
+-        for name, share in shares.items():
+             self._bal[name] -= share
+             self._bal[HOUSE] += share
+         self._log.append(("fee", tuple(sorted(names)), fee))

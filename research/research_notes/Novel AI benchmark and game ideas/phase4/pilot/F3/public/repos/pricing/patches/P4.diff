@@ -1,0 +1,14 @@
+Subject: Make tax rounding explicit
+
+--- a/pricing.py
++++ b/pricing.py
+@@ -33,7 +33,8 @@
+ 
+ 
+ def tax_on(amount):
+-    return (amount * TAX_BP + 5000) // 10000
++    q, r = divmod(amount * TAX_BP, 10000)
++    return q + (r >= 5000)
+ 
+ 
+ def checkout(cart, coupon=None):

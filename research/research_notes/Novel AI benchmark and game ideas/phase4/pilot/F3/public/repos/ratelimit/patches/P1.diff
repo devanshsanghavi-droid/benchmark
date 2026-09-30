@@ -1,0 +1,22 @@
+Subject: Use binary search to prune expired requests
+
+--- a/ratelimit.py
++++ b/ratelimit.py
+@@ -1,4 +1,6 @@
+ """Sliding-window rate limiter driven by caller-supplied timestamps."""
++
++import bisect
+ 
+ 
+ class ClockError(ValueError):
+@@ -28,9 +30,7 @@
+         if q is None:
+             return []
+         cutoff = t - self.window
+-        i = 0
+-        while i < len(q) and q[i] <= cutoff:
+-            i += 1
++        i = bisect.bisect_left(q, cutoff)
+         if i:
+             del q[:i]
+         if not q:

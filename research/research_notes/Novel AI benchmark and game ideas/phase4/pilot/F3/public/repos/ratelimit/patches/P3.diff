@@ -1,0 +1,16 @@
+Subject: Prune expired requests with a comprehension
+
+--- a/ratelimit.py
++++ b/ratelimit.py
+@@ -28,9 +28,8 @@
+         if q is None:
+             return []
+         cutoff = t - self.window
+-        i = 0
+-        while i < len(q) and q[i] <= cutoff:
+-            i += 1
++        kept = [s for s in q if s > cutoff]
++        i = len(q) - len(kept)
+         if i:
+             del q[:i]
+         if not q:

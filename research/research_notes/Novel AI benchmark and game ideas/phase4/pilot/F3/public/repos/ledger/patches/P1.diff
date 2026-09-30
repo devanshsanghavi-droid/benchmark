@@ -1,0 +1,21 @@
+Subject: Check accounts and funds before other transfer validation
+
+--- a/ledger.py
++++ b/ledger.py
+@@ -53,12 +53,12 @@
+ 
+     def transfer(self, src, dst, cents):
+         _check_amount(cents)
++        bal = self._get(src)
++        self._get(dst)
++        if cents > bal:
++            raise InsufficientFunds(src)
+         if src == dst:
+             raise LedgerError("self transfer")
+-        bal = self._get(src)
+-        self._get(dst)
+-        if bal < cents:
+-            raise InsufficientFunds(src)
+         self._bal[src] -= cents
+         self._bal[dst] += cents
+         self._log.append(("transfer", src, dst, cents))

@@ -1,0 +1,13 @@
+Subject: Report a self-dependency as GraphError
+
+--- a/depgraph.py
++++ b/depgraph.py
+@@ -20,7 +20,7 @@
+             raise GraphError("bad node name")
+         deps = list(deps)
+         if node in deps:
+-            raise CycleError("self dependency")
++            raise GraphError("node cannot depend on itself")
+         self._deps.setdefault(node, set()).update(deps)
+         for d in deps:
+             self._deps.setdefault(d, set())

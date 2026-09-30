@@ -1,0 +1,13 @@
+Subject: Simplify the bulk line total
+
+--- a/pricing.py
++++ b/pricing.py
+@@ -28,7 +28,7 @@
+ def line_total(price, qty):
+     gross = price * qty
+     if qty >= BULK_QTY:
+-        return gross - gross * BULK_PCT // 100
++        return gross * (100 - BULK_PCT) // 100
+     return gross
+ 
+ 

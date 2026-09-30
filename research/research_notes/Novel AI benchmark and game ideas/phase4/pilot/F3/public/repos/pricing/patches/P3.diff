@@ -1,0 +1,14 @@
+Subject: Compute instalments incrementally
+
+--- a/pricing.py
++++ b/pricing.py
+@@ -66,5 +66,7 @@
+     """Split `total` cents into `parts` instalments, largest first."""
+     if parts < 1:
+         raise PricingError("parts must be positive")
+-    q, r = divmod(total, parts)
+-    return [q + 1] * r + [q] * (parts - r)
++    out = []
++    for i in range(parts):
++        out.append((total - sum(out)) // (parts - i))
++    return out[::-1]

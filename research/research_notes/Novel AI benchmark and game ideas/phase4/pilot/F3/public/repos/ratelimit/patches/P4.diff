@@ -1,0 +1,15 @@
+Subject: Implement allow() on top of remaining()
+
+--- a/ratelimit.py
++++ b/ratelimit.py
+@@ -39,9 +39,7 @@
+         return q
+ 
+     def allow(self, key, t):
+-        self._tick(t)
+-        q = self._prune(key, t)
+-        if len(q) >= self.capacity:
++        if self.remaining(key, t) <= 0:
+             return False
+         self._events.setdefault(key, []).append(t)
+         return True

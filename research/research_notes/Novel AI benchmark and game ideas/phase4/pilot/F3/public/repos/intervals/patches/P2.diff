@@ -1,0 +1,16 @@
+Subject: Tidy the merge step in _normalize
+
+--- a/intervals.py
++++ b/intervals.py
+@@ -16,9 +16,8 @@
+         self._iv.sort()
+         merged = []
+         for s, e in self._iv:
+-            if merged and s <= merged[-1][1]:
+-                if e > merged[-1][1]:
+-                    merged[-1][1] = e
++            if merged and not s > merged[-1][1]:
++                merged[-1][1] = max(merged[-1][1], e)
+             else:
+                 merged.append([s, e])
+         self._iv = merged
