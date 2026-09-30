@@ -663,3 +663,78 @@ These are leads only, found by search:
   - SpatiaLab: https://arxiv.org/pdf/2602.03916
 
 **Not verifiable this session:** blocked hosts (arcprize.org JSON rows, simple-bench.com, cbrower.dev, clockbench.ai, balrogai.com, vgbench.com, GAIA and IntPhys 2 HF leaderboards, arXiv full texts, lesswrong.com); search budget exhausted before the Gemini-Pokémon, VPCT-2026, MindTopo and SimpleBench-2026 checks.
+
+---
+
+## Fact-check log (Phase 1)
+
+**Tally:** 36 verified · 11 corrected · 8 uncertain · 0 removed (55 claims or claim groups checked; every prioritized claim was checked).
+**Most consequential:** SimpleBench has flipped narrowly (site data max 88.4 vs 83.7 human; the 81.9% was stale prose). GAIA's "95.1%" is not a test-set score. The OSWorld 2.0 leader and its partial-credit metric were misstated. ARC-AGI-1's best is 98.5%, above the panel. ARC-AGI-2 and -3 closure times were shorter than stated (about 11 and about 5 months).
+**Access:** arcprize.org, arxiv.org, simple-bench.com, x.com, openai.com, huggingface.co, kaggle.com, scale.com and most aggregators were blocked. Primary evidence came via raw GitHub (READMEs, captures, the OSWorld xlsx, the balrog-ai PR) and anthropic.com; search extracts are marked secondary.
+
+**ARC-AGI-3 launch-score conflict (A/E "under 1%" vs F "7.78%"): resolved; both are correct for different dates.** At launch (25 Mar 2026) every frontier model scored under 1%: Gemini 3.1 Pro 0.37%, GPT-5.4 0.26%, Opus 4.6 0.25% (paper digest [P-m] plus launch coverage [S]). The 7.78% is GPT-5.6 Sol (max), released 9 Jul 2026. It was the best *pre-Opus-5* score cited in the Opus 5 system card (30.16%, "roughly four times" the prior best; Opus 5 released 24 Jul 2026). The timeline is therefore <1% (Mar) → 7.78% (Jul) → 30.16% (24 Jul) → 62.7% Standard / 99.9% Provider Adapter (3 Sep). F's framing ("from a best of 7.78% … about 5 months after launch") omits the launch value but is not wrong.
+
+**Other sibling conflicts:**
+- E gives IntPhys 2's best model as Gemini 2.5 Flash at 55.63%; A gives V-JEPA 2 at 57.51%. Both numbers appear in search extracts, and E appears to count MLLMs only.
+- F gives the ARC-AGI-2 average human as 66% (public-eval README [P]); A gives 60% (launch post [P-m]). Both are primary but describe different samples.
+- E's SimpleBench claim (Opus 5.5 88.4%) is consistent with the correction here.
+
+| Claim | Verdict | Source URL | Note |
+|---|---|---|---|
+| ARC-AGI-1/2 panel 98/100%, average 64.2/60%, $17/task, 400+ testers | verified | https://raw.githubusercontent.com/steel-dev/leaderboard/33aaee5bf46a492e0ff9a84eb7643f8d0def66d6/docs/research/arc-agi-2/paper.md | Mirror of the arcprize.org launch post (24 Mar 2025) |
+| ARC-AGI-2 launch: pure LLMs 0%, o3-preview-low 4%, o1-pro 1%; three failure modes | verified | same | Quotes match |
+| o3-preview 75.7% ($10k) / 87.5% (172×); trained on 75% of the public train set | verified | https://raw.githubusercontent.com/ndbroadbent/arc_agi_pareto_frontiers/90d0c6822f82b8ef95423f2a37c74cdb45e7b40f/sources/o3_announcement.html | 20 Dec 2024 |
+| ARC Prize 2024: 33→55.5%, ARChitects 53.5%, 1,430 teams / 17,789 entries, 2020 ensemble 49% | verified | https://raw.githubusercontent.com/UNIR-TUC/arc-agi/48d931918edd904b99ef546a98adc97e19ccf528/src/SuperCompressARC/Docs/2024/2412.04604v2_arc_prize_2024.md | |
+| ARC Prize 2025: 1,455 teams / 15,154 entries; NVARC 24.03, ARChitects 16.53, MindsAI 12.64 | verified | https://raw.githubusercontent.com/UNIR-TUC/arc-agi/48d931918edd904b99ef546a98adc97e19ccf528/src/SuperCompressARC/Docs/2025/2601.10904v1_arc_prize_2025.md | The top-3 split is also in the report itself |
+| Poetiq: Gemini 3 Pro 31% @ $0.81 → 54% @ $31; "knowledge overfitting"; "bottlenecked by engineering" | verified | same | |
+| Opus 5 ARC-AGI-1 97.50%, ARC-AGI-2 90.42%, ARC-AGI-3 30.16%; Opus 4.7 75.83%; GPT-5.6 Sol 7.78%; Opus 4.8 1.52% | verified | https://raw.githubusercontent.com/malob/ai-system-cards/282a67c3c79617b23a1a23ed0869239b6e28d139/cards/anthropic/claude-opus-5/sections/08b-capabilities-2.md | Mirror; www-cdn PDF blocked. anthropic.com/news/claude-opus-5 confirms the 24 Jul 2026 release and "three times … next-best" on ARC-AGI-3 |
+| ARC-AGI-1 best is Opus 5 97.5% ("match the panel") | corrected | https://raw.githubusercontent.com/fstandhartinger/model-market-comparison/f23453577c817fd6c6c003e0b46a6381c7476c61/data/raw/benchmarks/daily-evidence/2026-09-29T05-49-25-487Z/gauntlet/protocol-arc-agi-1/packet-r1.md | Capture max 98.5. Search extracts: Claude Fable 5 98.5% (ARC post 5 Aug 2026), tied by GPT-6 Astra (3 Sep) |
+| GPT-6 Astra ARC-AGI-2 95.0% @ $1.12/task | verified | https://x.com/arcprize/status/2095597602545025138 | Secondary (several extracts agree); capture max 95 [P-m] |
+| ARC-AGI-2 "~15 months" to pass the 60% average | corrected | https://9to5google.com/2026/02/12/gemini-3-deep-think-upgrade/ | About 11 months: Deep Think 84.6% (12 Feb 2026) and Opus 4.6 68.8% (Feb 2026), secondary |
+| Astra ARC-AGI-3: 62.7% Standard (max, $26,098), 99.9% Provider (high, $18,817), 98.6% Provider (max) | verified | https://raw.githubusercontent.com/lihenair/techtranslate/821908553b702d9de6565d186fdd2e8661303f6f/archive/2026-09-05/ai/OpenAIs-GPT-6-Astra-on-ARC-AGI-3.md | Translation of arcprize.org/blog/astra (3 Sep 2026); full effort table matches |
+| Astra fewer actions than median human on 96.0% of levels; −51.7% | corrected (clarified) | same | Figures come from the **max-effort 98.6%** run, not the 99.9% run. Summary bullet fixed |
+| Provider Adapter keeps native reasoning state plus compaction; Standard keeps visible notes (`manual_rolling`) | verified | https://raw.githubusercontent.com/arcprize/arc-agi-3-benchmarking/main/README.md | |
+| ARC-AGI-3: 135 environments, 25 public; 458 humans, 90 min; tr87 6/12; 342 replays; ~1M scorecards; <$10k display policy | verified | https://raw.githubusercontent.com/fstandhartinger/model-market-comparison/f23453577c817fd6c6c003e0b46a6381c7476c61/data/raw/benchmarks/daily-evidence/2026-09-29T05-49-25-487Z/gauntlet/protocol-arc-agi-3/packet-r1.md | Capture of the 14 Apr 2026 blog |
+| Scoring change: 2nd-best → median human; cap 1.0 → 1.15 (14 Apr 2026) | verified | https://raw.githubusercontent.com/arcprize/docs/main/changelog.mdx | |
+| 64×64 grid, 5 moves + select + undo, 5× cutoff, RHAE (h/a)² | verified | https://raw.githubusercontent.com/memgrafter/research-digests/491d1e597ee1384396057fbe72e2bdec9f11c2c6/ml_research_analysis_2026/2603.24621_arc-agi-3-a-new-challenge-for-frontier-agentic-intelligence_20260331_185732.md | Paper digest |
+| ARC-AGI-3 launch: frontier <1% | verified | https://officechai.com/ai/arc-agi-3/ | Best 0.37% (Gemini 3.1 Pro); secondary plus digest |
+| ARC-AGI-3 "6 months" to human level | corrected | (dates above) | 25 Mar → 3 Sep 2026 ≈ 5 months |
+| Tech report "486 participants" conflicts with 458 | corrected (clarified) | https://arcprize.org/media/ARC_AGI_3_Technical_Report.pdf | Search extract: 486 across **414 candidate** environments, so not a true conflict |
+| ARC-AGI-3 average human 48% | uncertain | — | Seen only in unattributed search extracts; not in the report extract |
+| OpenAI "two settings tripled" | verified | https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores/ | Secondary: retained reasoning + compaction, GPT-5.6 Sol 13.3 → 38.3% on the public set (late Jul 2026) |
+| ARC Prize 2026 Milestone 1: Tufa Labs "The Duck" | verified | https://arcprize.org/blog/arc-prize-2026-milestone-1 | Secondary; added score 1.21% (runners-up 0.867%, 0.864%) |
+| SimpleBench: Fable 5 81.9% vs human 83.7% (N=9), "near parity" | corrected | https://raw.githubusercontent.com/fstandhartinger/model-market-comparison/f23453577c817fd6c6c003e0b46a6381c7476c61/data/raw/benchmarks/daily-evidence/2026-09-29T05-49-25-487Z/gauntlet/protocol-simple-bench-snapshot-2026-09-10/producer-packet-r1.md | simple-bench.com leaderboard-data.js on 29 Sep 2026: 104 values, max 88.4, 3 new rows. Page prose still says 81.9% (stale). Human 83.7%/N=9 verified. Flipped narrowly (confirms the Panel B cross-panel note) |
+| SimpleBench model attributions: Opus 5.5 88.4%, Fable 5.1 86.6%, GPT-6 Astra Pro 86.5% | uncertain | https://benchmarklist.com/benchmarks/simplebench/ | Aggregator only; Astra Pro 86.5% not found in any source reachable here |
+| OSWorld human 72.36% | verified | https://raw.githubusercontent.com/os-world/os-world.github.io/main/index.html | |
+| OSWorld-Verified: 144 entries; first above human 72.58% (2025-12-11, bBoN N=10); HIPPO 74.48% (2026-02-25); best 90.19% (2026-07-25); Fable 5 85.96%; 16 ≥ 72.36; Sonnet 4.5 42.88/58.08/62.88 | verified | https://raw.githubusercontent.com/os-world/os-world.github.io/main/static/data/osworld_verified_results.xlsx | Re-parsed independently; Excel serial dates converted |
+| OSWorld human-vs-agent comparability | uncertain | same | Human rate from the 2024 task set; agents on the revised Verified set |
+| OSWorld 2.0: Astra 72.6%, Opus 5 70.6% (best) | corrected | https://raw.githubusercontent.com/steel-dev/leaderboard/main/src/data/osworld2.json | These are *partial* scores. Fable 5.1 77.9% partial (41.7% strict) is higher; strict rates are about 28–42%. Opus 5.5 81.8% partial on OSWorld 2.1 (https://www.anthropic.com/claude-opus-5-5) |
+| WebArena human 78.24%, GPT-4 14.41%; WebTactix 74.3% (Feb 2026); ~170 human trajectories | verified | https://raw.githubusercontent.com/steel-dev/leaderboard/main/src/data/webarena.json | Aggregator data file (secondary); trajectories from the WebArena README [P]; WebTactix is self-reported |
+| GAIA test leader CustomGPT.ai v44 93.36% (15 Jul 2026) | verified (date corrected) | https://customgpt.ai/gaia-state-of-the-art-agent-harness/ | Secondary: 281/301; submission dated ~3 Jun 2026 |
+| GAIA Agents-A1-4B 95.1% (test set) | corrected | https://raw.githubusercontent.com/InternScience/Agents-A1/main/README.md | Self-reported; 4B model released 14 Jul 2026; the numbers fit the 103-question text-only validation subset [I]; not a test-set entry |
+| GAIA human 92% | verified | https://arxiv.org/abs/2311.12983 | Paper abstract (known figure; arXiv blocked) |
+| Concept >90% humans vs <40% LLMs; Findings of ACL 2026 | verified | https://aclanthology.org/2026.findings-acl.1219/ | Search extract of the abstract |
+| EnigmaEval 1,184 puzzles / 8 sources; SEAL Fable 5 39.28±2.80 | verified | https://labs.scale.com/leaderboard | Secondary |
+| EnigmaEval: Opus 5 43.9% on the "CAIS dashboard" | uncertain | — | No source found |
+| EnigmaEval now public (23 Jul 2026) | added | https://x.com/CAIS/status/2080344746699170214 | Secondary; date from the tweet ID. Contamination caveat added to lesson 7 |
+| PlanBench table (GPT-4o 0%, o1-preview 52.8/37.3, R1 43.3/25.8) | verified | https://raw.githubusercontent.com/karthikv792/LLMs-Planning/main/README.md | |
+| BlindTest 58.12% avg, Sonnet-3.5 74.94%, "expected" 100%; line intersections 48.67/77.33 | verified | https://raw.githubusercontent.com/anguyen8/vision-llms-are-blind/main/README.md | The line-intersection table is commented out in the README |
+| BlindTest journal v6 (58.07%, 77.84%, linear probes) | uncertain | https://arxiv.org/abs/2407.06581 | arXiv blocked; not re-verified |
+| ClockBench 10 of 180 public; 89.1% humans vs 13.3% at launch; 66.7% GPT-5.6 Sol Max | verified | https://raw.githubusercontent.com/aleksafar/clockbench/main/README.md | 10/180 [P]; scores secondary (theslowai extract). Human N=5 not re-verified |
+| VPCT: 3 volunteers 100%; Gemini 3 Pro 91% | verified | https://llmlearner.com/rankings/vpct | Secondary (leaderboard update 6 May 2026) |
+| VisFactor: 20 subtests, 39 MLLMs; humans 78.8% vs Gemini-3.1-Pro 54.0% | verified | https://raw.githubusercontent.com/CUHK-ARISE/VisFactor/main/README.md | Scores via search extract of v4 |
+| VSI-Bench: 15 MLLMs, CVPR 2025 oral; SSR-3D 73.9 (+4.4 over InternVL3.5-241B) | verified | https://raw.githubusercontent.com/vision-x-nyu/thinking-in-space/main/README.md | SSR secondary |
+| MindCube: 21,154 Q / 3,268 images; 37.8 → 57.8 → 61.3 | verified | https://raw.githubusercontent.com/mll-lab-nu/MindCube/main/README.md | Other versions report 70.67 / 76.1 |
+| MindCube human ~95% | uncertain | — | Not found |
+| MMSI-Video-Bench humans 96.4% vs Gemini 3 Pro 38.0% | verified | https://raw.githubusercontent.com/InternRobotics/MMSI-Video-Bench/main/README.md | Upgraded to [P] (96.40 vs 37.97) |
+| IntPhys 2: 1,012 main + 344 held-out; humans 96.44/92.44; V-JEPA 2 57.51 | verified | https://raw.githubusercontent.com/facebookresearch/IntPhys2/main/README.md | Counts [P]; scores secondary; see the E conflict above |
+| Physics-IQ Verified: 58.2 v2v (2026-06-19), 48.2 i2v (2026-09-28), Veo 3.1 Fast 29.96 | verified | https://raw.githubusercontent.com/google-deepmind/physics-IQ-benchmark/main/README.md | |
+| BALROG NetHack: GPT-6 Astra-Max 13.2 ± 2.7% | verified | https://github.com/balrog-ai/experiments/pull/19 | Upgraded to [P]: 13.24 ± 2.66%, merged 19 Sep 2026 |
+| BRAID: GPT-5.2 12.56% | corrected | https://kenforthewin.github.io/blog/posts/nethack-agent/ | Secondary extract: 2.56% average, 12.56% maximum |
+| NetHack ascension by GPT-6 Astra (21 Sep 2026; 37,140 turns; 1,766,446 pts; 3rd attempt; web/wiki; not BALROG protocol) | verified | https://raw.githubusercontent.com/kenforthewin/nethack_astra/main/README.md | |
+| VideoGameBench 0.48% / 1.6% by "Gemini 2.5 Pro and Claude 3.7 Sonnet" | corrected | https://arxiv.org/abs/2505.18134 | Best model is Gemini 2.5 Pro alone (abstract via search extract) |
+| VideoGameBench "first checkpoint in a single game" quote | uncertain | — | Not re-verified |
+| Pokémon: 140 h / 3 badges, 78 h in Mt. Moon; Opus 4.7 beat Red (May 2026); Jev Hall of Fame 23 Sep 2026 | verified | https://www.lesswrong.com/posts/sehJYg5Yny9fvpbpt/a-year-late-claude-finally-beats-pokemon | Secondary. jev-pokemon README [P] confirms Jev beat the game (stream 25–26 Sep) |
+| MindTopo: GPT-5.6-Sol 61.42% vs humans 97.87% | verified | https://arxiv.org/html/2609.11900v1 | Search extract (secondary) |
+| Model names: GPT-6 Astra, GPT-5.6 Sol, Claude Opus 5, Claude Fable 5 | verified | https://www.anthropic.com/news/claude-opus-5 | Opus 5 released 24 Jul 2026; Opus 5.5 22 Sep 2026 [P]. Astra launched 3 Sep 2026, GPT-5.6 on 9 Jul 2026 [S] |
+| SpatialViz-Bench, SpatiaLab, CityCube leads | uncertain | — | Not checked (left as leads) |

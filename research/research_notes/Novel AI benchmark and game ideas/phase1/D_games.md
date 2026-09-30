@@ -226,7 +226,7 @@ Confidence is H (high), M (medium) or L (low). Model names such as GPT-6 Astra, 
 **2.16 Hanabi (cooperation / theory of mind)**
 
 - **LLM-Hanabi** (arXiv:2510.04980): first-order ToM scores exceed second-order. First-order ToM correlates with game success at ρ = 0.76 (p = 0.0015); second-order at ρ = 0.58 [S].
-- **ICML 2026 "Sparks of Cooperative Reasoning"** [S, L-M]:
+- **ICML 2026 "Sparks of Cooperative Reasoning"** [S, L-M] [uncertain: not verified — no primary copy reached; arxiv/openreview blocked]:
   - 17 LLMs in 2–5-player games;
   - a fine-tuned Qwen3-4B came within 3 points of o4-mini;
   - Hanabi RL transferred to other tasks, for example +6.4% on EventQA.
@@ -276,7 +276,7 @@ Confidence is H (high), M (medium) or L (low). Model names such as GPT-6 Astra, 
   - "Disable ladder matchmaking to reduce recurring game costs" (24 Feb 2026);
   - Bayesian 10-game placement (29 May 2026);
   - "Pause automated new-model evaluation" (10 Jun 2026);
-  - last commit 24 Sep 2026.
+  - last commit 24 Sep 2026 ("add bounded model evaluation").
 - **Weakness.** A cheap game still became too costly as a continuous ladder.
 
 **2.22 CodeClash (code-as-proxy arenas)**
@@ -288,7 +288,7 @@ Confidence is H (high), M (medium) or L (low). Model names such as GPT-6 Astra, 
 
 **2.23 gg-bench**
 
-- LLM-generated novel two-player games (126 kept), implemented as Gym environments; RL self-play opponents are trained per game.
+- LLM-generated novel two-player games (126 kept [uncertain: not verified — the count is not in the README; paper on arxiv.org blocked]), implemented as Gym environments; RL self-play opponents are trained per game.
 - Results [P]:
   - GPT-4o and Claude 3.7 Sonnet win 7–9%;
   - o1, o3-mini and DeepSeek-R1 win 31–36%.
@@ -330,7 +330,7 @@ NetHackers (Aug 2026) [P]; ARC-AGI-3 (Mar 2026) [P]; MindGames (May 2026) [S]; R
 
 | Game / eval | Format | Measures | Human baseline | Top model(s) and spread (date) | Main weakness |
 |---|---|---|---|---|---|
-| Kaggle Game Arena | 2p/team adversarial; ~16 games; Elo, BB/100 | planning, bluffing, persuasion, teamwork | none found | Opus 5 354 / GPT-5.5 353 / Fable 5.1 344 unified (~19 Sep 2026) [S] | operator conflict; pool-relative; contaminated classics |
+| Kaggle Game Arena | 2p/team adversarial; ~16 games; Elo, BB/100 | planning, bluffing, persuasion, teamwork | none found | Opus 5 354 ±6 / GPT-5.5 353 (tie) / Fable 5.1 344 [uncertain] unified (~19 Sep 2026) [S] | operator conflict; pool-relative; contaminated classics |
 | ARC-AGI-3 | single-agent novel games; RHAE vs median human | exploration, rule induction, action efficiency | yes: 458 people; median per level | Astra 62.7% Std vs 99.9% Adapter; Opus 5 30.2; Sol 7.8 (Jul–Sep 2026) [P-m/S] | harness swing of ~37 pts; $17–41k per run |
 | BALROG | 6 RL envs; progression % | long-horizon, exploration, spatial | none | Astra 68.3 / Opus 5 63.4 (unverified, Sep 2026); Qwen2-VL-7B 3.7 [P] | NetHack n=4–5; saturated easy envs |
 | NetHack (ascension / NetHackers) | open-ended roguelike; win or score | 37k-turn coherence, knowledge use | implicit (expert humans ascend) | Astra ascended 21 Sep 2026 (1 of 3 runs) [P] | agent-built, supervised, open-book; n=1 |
