@@ -1,0 +1,1099 @@
+{
+ "pilot": "F5 Self-Knowledge Exam pilot",
+ "seed": 15532781863539088666,
+ "triage_k": 5,
+ "blocks": {
+  "A": [
+   "Q01",
+   "Q12",
+   "Q14",
+   "Q18",
+   "Q19",
+   "Q27",
+   "Q30",
+   "Q31",
+   "Q34",
+   "Q36",
+   "Q48",
+   "Q50",
+   "Q51",
+   "Q54",
+   "Q57"
+  ],
+  "B": [
+   "Q02",
+   "Q05",
+   "Q07",
+   "Q16",
+   "Q20",
+   "Q22",
+   "Q28",
+   "Q33",
+   "Q35",
+   "Q40",
+   "Q42",
+   "Q44",
+   "Q47",
+   "Q49",
+   "Q53"
+  ],
+  "C": [
+   "Q03",
+   "Q04",
+   "Q17",
+   "Q21",
+   "Q23",
+   "Q24",
+   "Q25",
+   "Q32",
+   "Q37",
+   "Q39",
+   "Q46",
+   "Q52",
+   "Q58",
+   "Q59",
+   "Q60"
+  ]
+ },
+ "items": {
+  "Q01": {
+   "family": "program-output",
+   "level": 3,
+   "sub": 1,
+   "set": "forecast",
+   "block": "A",
+   "atype": "printed",
+   "answer": "[14, 35, 18, 81, 8] [8, 8, 6]",
+   "doc_label": null,
+   "prompt_chars": 266,
+   "meta": {
+    "template": "L3b"
+   }
+  },
+  "Q02": {
+   "family": "stock-log",
+   "level": 3,
+   "sub": 0,
+   "set": "forecast",
+   "block": "B",
+   "atype": "doc",
+   "answer": "NOT DETERMINABLE",
+   "doc_label": "ND",
+   "prompt_chars": 2199,
+   "meta": {
+    "doc_label": "ND",
+    "n_entries": 22
+   }
+  },
+  "Q03": {
+   "family": "string-trace",
+   "level": 1,
+   "sub": 1,
+   "set": "forecast",
+   "block": "C",
+   "atype": "str",
+   "answer": "CCACBBBBA",
+   "doc_label": null,
+   "prompt_chars": 417,
+   "meta": {
+    "T": 3,
+    "rules": 3
+   }
+  },
+  "Q04": {
+   "family": "program-output",
+   "level": 3,
+   "sub": 0,
+   "set": "forecast",
+   "block": "C",
+   "atype": "printed",
+   "answer": "21 232 5",
+   "doc_label": null,
+   "prompt_chars": 238,
+   "meta": {
+    "template": "L3a"
+   }
+  },
+  "Q05": {
+   "family": "stock-log",
+   "level": 2,
+   "sub": 0,
+   "set": "forecast",
+   "block": "B",
+   "atype": "doc",
+   "answer": "NOT DETERMINABLE",
+   "doc_label": "ND",
+   "prompt_chars": 1791,
+   "meta": {
+    "doc_label": "ND",
+    "n_entries": 16
+   }
+  },
+  "Q06": {
+   "family": "rule-inference",
+   "level": 2,
+   "sub": 1,
+   "set": "twin",
+   "block": null,
+   "atype": "intlist",
+   "answer": [
+    6,
+    1,
+    9,
+    2,
+    0,
+    4,
+    6,
+    7
+   ],
+   "doc_label": null,
+   "prompt_chars": 460,
+   "meta": {
+    "chain": [
+     "rotl2"
+    ],
+    "n_consistent": 12
+   }
+  },
+  "Q07": {
+   "family": "stock-log",
+   "level": 4,
+   "sub": 0,
+   "set": "forecast",
+   "block": "B",
+   "atype": "doc",
+   "answer": 108,
+   "doc_label": "ANSWERABLE",
+   "prompt_chars": 3055,
+   "meta": {
+    "doc_label": "ANSWERABLE",
+    "n_entries": 34
+   }
+  },
+  "Q08": {
+   "family": "string-trace",
+   "level": 3,
+   "sub": 1,
+   "set": "twin",
+   "block": null,
+   "atype": "str",
+   "answer": "ABBBBBBBBCB",
+   "doc_label": null,
+   "prompt_chars": 420,
+   "meta": {
+    "T": 10,
+    "rules": 4
+   }
+  },
+  "Q09": {
+   "family": "program-output",
+   "level": 1,
+   "sub": 1,
+   "set": "twin",
+   "block": null,
+   "atype": "printed",
+   "answer": "iuafzjmk",
+   "doc_label": null,
+   "prompt_chars": 197,
+   "meta": {
+    "template": "L1b"
+   }
+  },
+  "Q10": {
+   "family": "stock-log",
+   "level": 2,
+   "sub": 1,
+   "set": "twin",
+   "block": null,
+   "atype": "doc",
+   "answer": "CONTRADICTORY",
+   "doc_label": "CONTRA",
+   "prompt_chars": 1633,
+   "meta": {
+    "doc_label": "CONTRA",
+    "n_entries": 13
+   }
+  },
+  "Q11": {
+   "family": "logic-grid",
+   "level": 1,
+   "sub": 1,
+   "set": "twin",
+   "block": null,
+   "atype": "wordlist",
+   "answer": [
+    "Dov",
+    "Hana",
+    "Ada"
+   ],
+   "doc_label": null,
+   "prompt_chars": 608,
+   "meta": {
+    "N": 3,
+    "K": 2,
+    "n_clues": 7
+   }
+  },
+  "Q12": {
+   "family": "program-output",
+   "level": 4,
+   "sub": 1,
+   "set": "forecast",
+   "block": "A",
+   "atype": "printed",
+   "answer": "[4, 3, 8, 5, 6, 7, 10, 9, 2, 11, 1]",
+   "doc_label": null,
+   "prompt_chars": 221,
+   "meta": {
+    "template": "L4b"
+   }
+  },
+  "Q13": {
+   "family": "stock-log",
+   "level": 3,
+   "sub": 1,
+   "set": "twin",
+   "block": null,
+   "atype": "doc",
+   "answer": "CONTRADICTORY",
+   "doc_label": "CONTRA",
+   "prompt_chars": 2234,
+   "meta": {
+    "doc_label": "CONTRA",
+    "n_entries": 22
+   }
+  },
+  "Q14": {
+   "family": "stock-log",
+   "level": 5,
+   "sub": 0,
+   "set": "forecast",
+   "block": "A",
+   "atype": "doc",
+   "answer": "CONTRADICTORY",
+   "doc_label": "CONTRA",
+   "prompt_chars": 3681,
+   "meta": {
+    "doc_label": "CONTRA",
+    "n_entries": 42
+   }
+  },
+  "Q15": {
+   "family": "exact-computation",
+   "level": 2,
+   "sub": 0,
+   "set": "twin",
+   "block": null,
+   "atype": "int",
+   "answer": 110633578,
+   "doc_label": null,
+   "prompt_chars": 21,
+   "meta": {
+    "kind": "mul5x4"
+   }
+  },
+  "Q16": {
+   "family": "program-output",
+   "level": 4,
+   "sub": 0,
+   "set": "forecast",
+   "block": "B",
+   "atype": "printed",
+   "answer": "00000110111",
+   "doc_label": null,
+   "prompt_chars": 263,
+   "meta": {
+    "template": "L4a"
+   }
+  },
+  "Q17": {
+   "family": "logic-grid",
+   "level": 5,
+   "sub": 1,
+   "set": "forecast",
+   "block": "C",
+   "atype": "wordlist",
+   "answer": [
+    "Dov",
+    "Cleo",
+    "Bram",
+    "Esme",
+    "Fitz"
+   ],
+   "doc_label": null,
+   "prompt_chars": 1637,
+   "meta": {
+    "N": 5,
+    "K": 4,
+    "n_clues": 20
+   }
+  },
+  "Q18": {
+   "family": "string-trace",
+   "level": 1,
+   "sub": 0,
+   "set": "forecast",
+   "block": "A",
+   "atype": "str",
+   "answer": "aeswh",
+   "doc_label": null,
+   "prompt_chars": 398,
+   "meta": {
+    "n": 5,
+    "nops": 3
+   }
+  },
+  "Q19": {
+   "family": "rule-inference",
+   "level": 4,
+   "sub": 1,
+   "set": "forecast",
+   "block": "A",
+   "atype": "intlist",
+   "answer": [
+    7,
+    14,
+    14,
+    14,
+    7
+   ],
+   "doc_label": null,
+   "prompt_chars": 546,
+   "meta": {
+    "chain": [
+     "running_max",
+     "next_sum"
+    ],
+    "n_consistent": 3
+   }
+  },
+  "Q20": {
+   "family": "string-trace",
+   "level": 3,
+   "sub": 0,
+   "set": "forecast",
+   "block": "B",
+   "atype": "str",
+   "answer": "lozdfjve",
+   "doc_label": null,
+   "prompt_chars": 799,
+   "meta": {
+    "n": 8,
+    "nops": 10
+   }
+  },
+  "Q21": {
+   "family": "stock-log",
+   "level": 4,
+   "sub": 1,
+   "set": "forecast",
+   "block": "C",
+   "atype": "doc",
+   "answer": "NOT DETERMINABLE",
+   "doc_label": "ND",
+   "prompt_chars": 2963,
+   "meta": {
+    "doc_label": "ND",
+    "n_entries": 31
+   }
+  },
+  "Q22": {
+   "family": "program-output",
+   "level": 5,
+   "sub": 1,
+   "set": "forecast",
+   "block": "B",
+   "atype": "printed",
+   "answer": "-1 363 31",
+   "doc_label": null,
+   "prompt_chars": 298,
+   "meta": {
+    "template": "L5b"
+   }
+  },
+  "Q23": {
+   "family": "rule-inference",
+   "level": 2,
+   "sub": 0,
+   "set": "forecast",
+   "block": "C",
+   "atype": "intlist",
+   "answer": [
+    10,
+    7,
+    1,
+    1
+   ],
+   "doc_label": null,
+   "prompt_chars": 451,
+   "meta": {
+    "chain": [
+     "drop_last"
+    ],
+    "n_consistent": 12
+   }
+  },
+  "Q24": {
+   "family": "rule-inference",
+   "level": 4,
+   "sub": 0,
+   "set": "forecast",
+   "block": "C",
+   "atype": "intlist",
+   "answer": [
+    -4,
+    -3,
+    7,
+    -2,
+    -7,
+    4
+   ],
+   "doc_label": null,
+   "prompt_chars": 514,
+   "meta": {
+    "chain": [
+     "swap_pairs",
+     "diffs"
+    ],
+    "n_consistent": 7
+   }
+  },
+  "Q25": {
+   "family": "stock-log",
+   "level": 5,
+   "sub": 1,
+   "set": "forecast",
+   "block": "C",
+   "atype": "doc",
+   "answer": 25,
+   "doc_label": "ANSWERABLE",
+   "prompt_chars": 3347,
+   "meta": {
+    "doc_label": "ANSWERABLE",
+    "n_entries": 39
+   }
+  },
+  "Q26": {
+   "family": "exact-computation",
+   "level": 1,
+   "sub": 0,
+   "set": "twin",
+   "block": null,
+   "atype": "int",
+   "answer": 268393,
+   "doc_label": null,
+   "prompt_chars": 18,
+   "meta": {
+    "kind": "mul3x3"
+   }
+  },
+  "Q27": {
+   "family": "program-output",
+   "level": 5,
+   "sub": 0,
+   "set": "forecast",
+   "block": "A",
+   "atype": "printed",
+   "answer": "256 1 33",
+   "doc_label": null,
+   "prompt_chars": 300,
+   "meta": {
+    "template": "L5a"
+   }
+  },
+  "Q28": {
+   "family": "logic-grid",
+   "level": 3,
+   "sub": 0,
+   "set": "forecast",
+   "block": "B",
+   "atype": "wordlist",
+   "answer": [
+    "coffee",
+    "kefir",
+    "water",
+    "milk"
+   ],
+   "doc_label": null,
+   "prompt_chars": 720,
+   "meta": {
+    "N": 4,
+    "K": 3,
+    "n_clues": 7
+   }
+  },
+  "Q29": {
+   "family": "string-trace",
+   "level": 5,
+   "sub": 0,
+   "set": "twin",
+   "block": null,
+   "atype": "str",
+   "answer": "urokfdmigjws",
+   "doc_label": null,
+   "prompt_chars": 1563,
+   "meta": {
+    "n": 12,
+    "nops": 26
+   }
+  },
+  "Q30": {
+   "family": "logic-grid",
+   "level": 2,
+   "sub": 1,
+   "set": "forecast",
+   "block": "A",
+   "atype": "wordlist",
+   "answer": [
+    "Hana",
+    "Ivo",
+    "Fitz",
+    "Bram"
+   ],
+   "doc_label": null,
+   "prompt_chars": 730,
+   "meta": {
+    "N": 4,
+    "K": 2,
+    "n_clues": 7
+   }
+  },
+  "Q31": {
+   "family": "program-output",
+   "level": 1,
+   "sub": 0,
+   "set": "forecast",
+   "block": "A",
+   "atype": "printed",
+   "answer": "204",
+   "doc_label": null,
+   "prompt_chars": 182,
+   "meta": {
+    "template": "L1a"
+   }
+  },
+  "Q32": {
+   "family": "logic-grid",
+   "level": 4,
+   "sub": 1,
+   "set": "forecast",
+   "block": "C",
+   "atype": "wordlist",
+   "answer": [
+    "Dov",
+    "Gus",
+    "Bram",
+    "Cleo",
+    "Ada"
+   ],
+   "doc_label": null,
+   "prompt_chars": 1447,
+   "meta": {
+    "N": 5,
+    "K": 3,
+    "n_clues": 18
+   }
+  },
+  "Q33": {
+   "family": "rule-inference",
+   "level": 3,
+   "sub": 0,
+   "set": "forecast",
+   "block": "B",
+   "atype": "intlist",
+   "answer": [
+    5,
+    12,
+    14,
+    13
+   ],
+   "doc_label": null,
+   "prompt_chars": 447,
+   "meta": {
+    "chain": [
+     "add3",
+     "drop_last"
+    ],
+    "n_consistent": 11
+   }
+  },
+  "Q34": {
+   "family": "string-trace",
+   "level": 4,
+   "sub": 0,
+   "set": "forecast",
+   "block": "A",
+   "atype": "str",
+   "answer": "duoacrpsyl",
+   "doc_label": null,
+   "prompt_chars": 1054,
+   "meta": {
+    "n": 10,
+    "nops": 16
+   }
+  },
+  "Q35": {
+   "family": "exact-computation",
+   "level": 1,
+   "sub": 1,
+   "set": "forecast",
+   "block": "B",
+   "atype": "int",
+   "answer": 74,
+   "doc_label": null,
+   "prompt_chars": 54,
+   "meta": {
+    "kind": "gcd"
+   }
+  },
+  "Q36": {
+   "family": "exact-computation",
+   "level": 5,
+   "sub": 1,
+   "set": "forecast",
+   "block": "A",
+   "atype": "int",
+   "answer": 1112,
+   "doc_label": null,
+   "prompt_chars": 246,
+   "meta": {
+    "kind": "lattice_diag"
+   }
+  },
+  "Q37": {
+   "family": "rule-inference",
+   "level": 5,
+   "sub": 1,
+   "set": "forecast",
+   "block": "C",
+   "atype": "intlist",
+   "answer": [
+    1,
+    121,
+    25,
+    4,
+    144,
+    16
+   ],
+   "doc_label": null,
+   "prompt_chars": 503,
+   "meta": {
+    "chain": [
+     "dedupe",
+     "rotl1",
+     "square"
+    ],
+    "n_consistent": 3
+   }
+  },
+  "Q38": {
+   "family": "rule-inference",
+   "level": 3,
+   "sub": 1,
+   "set": "twin",
+   "block": null,
+   "atype": "intlist",
+   "answer": [
+    20,
+    3,
+    4,
+    14,
+    15
+   ],
+   "doc_label": null,
+   "prompt_chars": 456,
+   "meta": {
+    "chain": [
+     "prefix_sum",
+     "rotr1"
+    ],
+    "n_consistent": 3
+   }
+  },
+  "Q39": {
+   "family": "exact-computation",
+   "level": 5,
+   "sub": 0,
+   "set": "forecast",
+   "block": "C",
+   "atype": "int",
+   "answer": 1161912835263920457225968,
+   "doc_label": null,
+   "prompt_chars": 37,
+   "meta": {
+    "kind": "mul13x12"
+   }
+  },
+  "Q40": {
+   "family": "string-trace",
+   "level": 2,
+   "sub": 0,
+   "set": "forecast",
+   "block": "B",
+   "atype": "str",
+   "answer": "tmcwuk",
+   "doc_label": null,
+   "prompt_chars": 517,
+   "meta": {
+    "n": 6,
+    "nops": 6
+   }
+  },
+  "Q41": {
+   "family": "logic-grid",
+   "level": 4,
+   "sub": 0,
+   "set": "twin",
+   "block": null,
+   "atype": "wordlist",
+   "answer": [
+    "red",
+    "yellow",
+    "orange",
+    "black",
+    "green"
+   ],
+   "doc_label": null,
+   "prompt_chars": 1273,
+   "meta": {
+    "N": 5,
+    "K": 3,
+    "n_clues": 15
+   }
+  },
+  "Q42": {
+   "family": "stock-log",
+   "level": 1,
+   "sub": 1,
+   "set": "forecast",
+   "block": "B",
+   "atype": "doc",
+   "answer": 34,
+   "doc_label": "ANSWERABLE",
+   "prompt_chars": 1461,
+   "meta": {
+    "doc_label": "ANSWERABLE",
+    "n_entries": 11
+   }
+  },
+  "Q43": {
+   "family": "exact-computation",
+   "level": 4,
+   "sub": 1,
+   "set": "twin",
+   "block": null,
+   "atype": "int",
+   "answer": 1722112,
+   "doc_label": null,
+   "prompt_chars": 83,
+   "meta": {
+    "kind": "sigma"
+   }
+  },
+  "Q44": {
+   "family": "exact-computation",
+   "level": 3,
+   "sub": 1,
+   "set": "forecast",
+   "block": "B",
+   "atype": "int",
+   "answer": 541,
+   "doc_label": null,
+   "prompt_chars": 196,
+   "meta": {
+    "kind": "lattice"
+   }
+  },
+  "Q45": {
+   "family": "program-output",
+   "level": 2,
+   "sub": 1,
+   "set": "twin",
+   "block": null,
+   "atype": "printed",
+   "answer": "a10,c5,d10,e9,f10",
+   "doc_label": null,
+   "prompt_chars": 275,
+   "meta": {
+    "template": "L2b"
+   }
+  },
+  "Q46": {
+   "family": "logic-grid",
+   "level": 2,
+   "sub": 0,
+   "set": "forecast",
+   "block": "C",
+   "atype": "wordlist",
+   "answer": [
+    "red",
+    "green",
+    "yellow",
+    "black"
+   ],
+   "doc_label": null,
+   "prompt_chars": 659,
+   "meta": {
+    "N": 4,
+    "K": 2,
+    "n_clues": 5
+   }
+  },
+  "Q47": {
+   "family": "string-trace",
+   "level": 4,
+   "sub": 1,
+   "set": "forecast",
+   "block": "B",
+   "atype": "str",
+   "answer": "CAACACC",
+   "doc_label": null,
+   "prompt_chars": 391,
+   "meta": {
+    "T": 16,
+    "rules": 2
+   }
+  },
+  "Q48": {
+   "family": "exact-computation",
+   "level": 3,
+   "sub": 0,
+   "set": "forecast",
+   "block": "A",
+   "atype": "int",
+   "answer": 41494,
+   "doc_label": null,
+   "prompt_chars": 76,
+   "meta": {
+    "kind": "incl_excl"
+   }
+  },
+  "Q49": {
+   "family": "exact-computation",
+   "level": 4,
+   "sub": 0,
+   "set": "forecast",
+   "block": "B",
+   "atype": "int",
+   "answer": 275235156006552,
+   "doc_label": null,
+   "prompt_chars": 27,
+   "meta": {
+    "kind": "mul8x7"
+   }
+  },
+  "Q50": {
+   "family": "exact-computation",
+   "level": 2,
+   "sub": 1,
+   "set": "forecast",
+   "block": "A",
+   "atype": "int",
+   "answer": 11,
+   "doc_label": null,
+   "prompt_chars": 87,
+   "meta": {
+    "kind": "powmod"
+   }
+  },
+  "Q51": {
+   "family": "string-trace",
+   "level": 5,
+   "sub": 1,
+   "set": "forecast",
+   "block": "A",
+   "atype": "str",
+   "answer": "BAAAAAAAAAAAC",
+   "doc_label": null,
+   "prompt_chars": 435,
+   "meta": {
+    "T": 26,
+    "rules": 4
+   }
+  },
+  "Q52": {
+   "family": "stock-log",
+   "level": 1,
+   "sub": 0,
+   "set": "forecast",
+   "block": "C",
+   "atype": "doc",
+   "answer": 73,
+   "doc_label": "ANSWERABLE",
+   "prompt_chars": 1413,
+   "meta": {
+    "doc_label": "ANSWERABLE",
+    "n_entries": 11
+   }
+  },
+  "Q53": {
+   "family": "logic-grid",
+   "level": 1,
+   "sub": 0,
+   "set": "forecast",
+   "block": "B",
+   "atype": "wordlist",
+   "answer": [
+    "violin",
+    "cello",
+    "oboe"
+   ],
+   "doc_label": null,
+   "prompt_chars": 576,
+   "meta": {
+    "N": 3,
+    "K": 2,
+    "n_clues": 6
+   }
+  },
+  "Q54": {
+   "family": "program-output",
+   "level": 2,
+   "sub": 0,
+   "set": "forecast",
+   "block": "A",
+   "atype": "printed",
+   "answer": "[1, 3, 4, 5] 18",
+   "doc_label": null,
+   "prompt_chars": 172,
+   "meta": {
+    "template": "L2a"
+   }
+  },
+  "Q55": {
+   "family": "string-trace",
+   "level": 2,
+   "sub": 1,
+   "set": "twin",
+   "block": null,
+   "atype": "str",
+   "answer": "BBBBBBBBBBBABA",
+   "doc_label": null,
+   "prompt_chars": 389,
+   "meta": {
+    "T": 6,
+    "rules": 2
+   }
+  },
+  "Q56": {
+   "family": "rule-inference",
+   "level": 1,
+   "sub": 0,
+   "set": "twin",
+   "block": null,
+   "atype": "intlist",
+   "answer": [
+    7,
+    5,
+    12,
+    11,
+    11,
+    8
+   ],
+   "doc_label": null,
+   "prompt_chars": 389,
+   "meta": {
+    "chain": [
+     "rotr1"
+    ],
+    "n_consistent": 9
+   }
+  },
+  "Q57": {
+   "family": "rule-inference",
+   "level": 5,
+   "sub": 0,
+   "set": "forecast",
+   "block": "A",
+   "atype": "intlist",
+   "answer": [
+    4,
+    5,
+    11,
+    11,
+    15,
+    7,
+    11,
+    18
+   ],
+   "doc_label": null,
+   "prompt_chars": 494,
+   "meta": {
+    "chain": [
+     "next_sum",
+     "swap_pairs",
+     "reverse"
+    ],
+    "n_consistent": 1
+   }
+  },
+  "Q58": {
+   "family": "logic-grid",
+   "level": 5,
+   "sub": 0,
+   "set": "forecast",
+   "block": "C",
+   "atype": "wordlist",
+   "answer": [
+    "owl",
+    "hare",
+    "dog",
+    "newt",
+    "fox"
+   ],
+   "doc_label": null,
+   "prompt_chars": 1400,
+   "meta": {
+    "N": 5,
+    "K": 4,
+    "n_clues": 15
+   }
+  },
+  "Q59": {
+   "family": "logic-grid",
+   "level": 3,
+   "sub": 1,
+   "set": "forecast",
+   "block": "C",
+   "atype": "wordlist",
+   "answer": [
+    "Ada",
+    "Fitz",
+    "Esme",
+    "Ivo"
+   ],
+   "doc_label": null,
+   "prompt_chars": 952,
+   "meta": {
+    "N": 4,
+    "K": 3,
+    "n_clues": 11
+   }
+  },
+  "Q60": {
+   "family": "rule-inference",
+   "level": 1,
+   "sub": 1,
+   "set": "forecast",
+   "block": "C",
+   "atype": "intlist",
+   "answer": [
+    12,
+    3,
+    5,
+    10,
+    11,
+    14,
+    9
+   ],
+   "doc_label": null,
+   "prompt_chars": 435,
+   "meta": {
+    "chain": [
+     "add3"
+    ],
+    "n_consistent": 16
+   }
+  }
+ }
+}
