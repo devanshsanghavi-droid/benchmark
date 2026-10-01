@@ -1,0 +1,109 @@
+{
+ "solver_label": "RANDOM_s0",
+ "problems": {
+  "P1": {
+   "labels": [
+    "N",
+    "Y",
+    "N",
+    "N",
+    "Y",
+    "N",
+    "Y",
+    "N"
+   ],
+   "rule": "random"
+  },
+  "P2": {
+   "labels": [
+    "Y",
+    "Y",
+    "Y",
+    "N",
+    "N",
+    "Y",
+    "N",
+    "Y"
+   ],
+   "rule": "random"
+  },
+  "P3": {
+   "labels": [
+    "N",
+    "Y",
+    "Y",
+    "N",
+    "Y",
+    "N",
+    "N",
+    "Y"
+   ],
+   "rule": "random"
+  },
+  "P4": {
+   "labels": [
+    "Y",
+    "N",
+    "Y",
+    "Y",
+    "Y",
+    "N",
+    "Y",
+    "N"
+   ],
+   "rule": "random"
+  },
+  "P5": {
+   "labels": [
+    "Y",
+    "Y",
+    "N",
+    "Y",
+    "N",
+    "N",
+    "Y",
+    "Y"
+   ],
+   "rule": "random"
+  },
+  "P6": {
+   "labels": [
+    "N",
+    "N",
+    "N",
+    "Y",
+    "Y",
+    "N",
+    "N",
+    "Y"
+   ],
+   "rule": "random"
+  },
+  "P7": {
+   "labels": [
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N"
+   ],
+   "rule": "random"
+  },
+  "P8": {
+   "labels": [
+    "Y",
+    "Y",
+    "Y",
+    "N",
+    "Y",
+    "Y",
+    "N",
+    "Y"
+   ],
+   "rule": "random"
+  }
+ }
+}

@@ -1,0 +1,66 @@
+{
+ "P1": {
+  "id": "R7",
+  "family": "per-stack quantification",
+  "cost": 3,
+  "text": "Every stack contains at least one yellow object.",
+  "grammar": "every stack contains yellow",
+  "problem_seed": 175005108
+ },
+ "P2": {
+  "id": "R8",
+  "family": "compositional relational (conjunctive concept + support)",
+  "cost": 5,
+  "text": "Every large square has a small object resting directly on top of it (vacuously true if there are no large squares).",
+  "grammar": "every large&square under some small",
+  "problem_seed": 1244407789
+ },
+ "P3": {
+  "id": "R6",
+  "family": "forbidden support relation (size)",
+  "cost": 4,
+  "text": "No large object rests directly on a small object.",
+  "grammar": "no large on any small",
+  "problem_seed": 1749800960
+ },
+ "P4": {
+  "id": "R3",
+  "family": "relative position (universal, pairwise)",
+  "cost": 4,
+  "text": "Every circle is in a stack to the left of every triangle (vacuously true if there are no circles or no triangles).",
+  "grammar": "every circle left_of every triangle",
+  "problem_seed": 400841218
+ },
+ "P5": {
+  "id": "R1",
+  "family": "attribute conjunction (existential)",
+  "cost": 3,
+  "text": "There is at least one large yellow object.",
+  "grammar": "exists large&yellow",
+  "problem_seed": 1153504370
+ },
+ "P6": {
+  "id": "R2",
+  "family": "count comparison",
+  "cost": 4,
+  "text": "There are more red objects than blue objects.",
+  "grammar": "count(red)>count(blue)",
+  "problem_seed": 610052162
+ },
+ "P7": {
+  "id": "R4",
+  "family": "parity of a count",
+  "cost": 2,
+  "text": "The total number of objects is odd.",
+  "grammar": "count(object) odd",
+  "problem_seed": 450059686
+ },
+ "P8": {
+  "id": "R5",
+  "family": "universal support relation",
+  "cost": 4,
+  "text": "Every triangle rests directly on a blue object (vacuously true if there are no triangles).",
+  "grammar": "every triangle on some blue",
+  "problem_seed": 61008398
+ }
+}

@@ -1,0 +1,11 @@
+Unrun Lab pilot -- skill: 0 = no-change forecast, 100 = oracle (true-model) forecast
+solver                    skill     90% CI (boot)      S1      S2      S3      S4      S5  anchored  mean QS  valid
+-------------------------------------------------------------------------------------------------------------------
+history_climatology        -1.7   [  -5.1,    1.6]    -8.9    -0.2    -7.8     4.0     0.6     -21.0   0.5837  15/15
+ideal_insample_truth      100.0   [ 100.0,  100.0]   100.0   100.0   100.0   100.0   100.0     100.0   0.1651  15/15
+naive_extrapolator         16.0   [  -8.1,   35.8]   -91.5    31.9    36.5    55.4    23.1       0.0   0.5110  15/15
+nochange_true_model         0.0   [   0.0,    0.0]     0.0     0.0     0.0     0.0     0.0     -19.0   0.5768  15/15
+oracle_true_model         100.0   [ 100.0,  100.0]   100.0   100.0   100.0   100.0   100.0     100.0   0.1651  15/15
+spam_random                -0.5   [ -30.8,   25.9]   -68.4    16.0    82.1   -22.2    -7.8     -19.7   0.5790  15/15
+
+reference QS (mean over questions): no-change 0.5768, oracle 0.1651

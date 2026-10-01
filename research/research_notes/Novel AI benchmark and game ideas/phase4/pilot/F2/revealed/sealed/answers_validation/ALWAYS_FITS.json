@@ -1,0 +1,109 @@
+{
+ "solver_label": "ALWAYS_FITS",
+ "problems": {
+  "P1": {
+   "labels": [
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y"
+   ],
+   "rule": "always fits"
+  },
+  "P2": {
+   "labels": [
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y"
+   ],
+   "rule": "always fits"
+  },
+  "P3": {
+   "labels": [
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y"
+   ],
+   "rule": "always fits"
+  },
+  "P4": {
+   "labels": [
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y"
+   ],
+   "rule": "always fits"
+  },
+  "P5": {
+   "labels": [
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y"
+   ],
+   "rule": "always fits"
+  },
+  "P6": {
+   "labels": [
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y"
+   ],
+   "rule": "always fits"
+  },
+  "P7": {
+   "labels": [
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y"
+   ],
+   "rule": "always fits"
+  },
+  "P8": {
+   "labels": [
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y"
+   ],
+   "rule": "always fits"
+  }
+ }
+}

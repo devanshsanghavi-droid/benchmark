@@ -1,0 +1,258 @@
+{
+ "P1": {
+  "delta0_cost_le_cstar": {
+   "consistent_rules": 1,
+   "consistent_rules_disagreeing_on_tests": 0,
+   "max_test_errors_any_consistent_rule": 0,
+   "examples_of_disagreeing": []
+  },
+  "delta1_cost_eq_cstar_plus1": {
+   "consistent_rules": 0,
+   "consistent_rules_disagreeing_on_tests": 0,
+   "max_test_errors_any_consistent_rule": 0,
+   "examples_of_disagreeing": []
+  },
+  "min_cost_consistent": 3,
+  "simplest_consistent_rules": [
+   "every stack contains yellow"
+  ],
+  "true_rule_min_cost_on_pool": 3,
+  "true_rule_equivalent_desc": "every stack contains yellow",
+  "n_rules_enumerated": 3924,
+  "n_shortcut_rules": 0,
+  "attempt_result": {
+   "n_fit": 4,
+   "left0": 0,
+   "left1": 0,
+   "K": 564,
+   "K1": 3357,
+   "stump_correct": 4,
+   "attempts": 1
+  },
+  "build_seconds": 3.3
+ },
+ "P2": {
+  "delta0_cost_le_cstar": {
+   "consistent_rules": 1,
+   "consistent_rules_disagreeing_on_tests": 0,
+   "max_test_errors_any_consistent_rule": 0,
+   "examples_of_disagreeing": []
+  },
+  "delta1_cost_eq_cstar_plus1": {
+   "consistent_rules": 0,
+   "consistent_rules_disagreeing_on_tests": 0,
+   "max_test_errors_any_consistent_rule": 0,
+   "examples_of_disagreeing": []
+  },
+  "min_cost_consistent": 5,
+  "simplest_consistent_rules": [
+   "every square&large under some small"
+  ],
+  "true_rule_min_cost_on_pool": 5,
+  "true_rule_equivalent_desc": "every square&large under some small",
+  "n_rules_enumerated": 99508,
+  "n_shortcut_rules": 57,
+  "attempt_result": {
+   "n_fit": 3,
+   "left0": 0,
+   "left1": 0,
+   "K": 20068,
+   "K1": 79360,
+   "stump_correct": 5,
+   "attempts": 1
+  },
+  "build_seconds": 27.5
+ },
+ "P3": {
+  "delta0_cost_le_cstar": {
+   "consistent_rules": 1,
+   "consistent_rules_disagreeing_on_tests": 0,
+   "max_test_errors_any_consistent_rule": 0,
+   "examples_of_disagreeing": []
+  },
+  "delta1_cost_eq_cstar_plus1": {
+   "consistent_rules": 1,
+   "consistent_rules_disagreeing_on_tests": 0,
+   "max_test_errors_any_consistent_rule": 0,
+   "examples_of_disagreeing": []
+  },
+  "min_cost_consistent": 4,
+  "simplest_consistent_rules": [
+   "no large on any small"
+  ],
+  "true_rule_min_cost_on_pool": 4,
+  "true_rule_equivalent_desc": "no large on any small",
+  "n_rules_enumerated": 20098,
+  "n_shortcut_rules": 6,
+  "attempt_result": {
+   "n_fit": 5,
+   "left0": 0,
+   "left1": 0,
+   "K": 3903,
+   "K1": 16097,
+   "stump_correct": 4,
+   "attempts": 1
+  },
+  "build_seconds": 9.2
+ },
+ "P4": {
+  "delta0_cost_le_cstar": {
+   "consistent_rules": 1,
+   "consistent_rules_disagreeing_on_tests": 0,
+   "max_test_errors_any_consistent_rule": 0,
+   "examples_of_disagreeing": []
+  },
+  "delta1_cost_eq_cstar_plus1": {
+   "consistent_rules": 0,
+   "consistent_rules_disagreeing_on_tests": 0,
+   "max_test_errors_any_consistent_rule": 0,
+   "examples_of_disagreeing": []
+  },
+  "min_cost_consistent": 4,
+  "simplest_consistent_rules": [
+   "no triangle left_of any circle"
+  ],
+  "true_rule_min_cost_on_pool": 4,
+  "true_rule_equivalent_desc": "no triangle left_of any circle",
+  "n_rules_enumerated": 20093,
+  "n_shortcut_rules": 15,
+  "attempt_result": {
+   "n_fit": 3,
+   "left0": 0,
+   "left1": 0,
+   "K": 3895,
+   "K1": 16109,
+   "stump_correct": 3,
+   "attempts": 1
+  },
+  "build_seconds": 9.5
+ },
+ "P5": {
+  "delta0_cost_le_cstar": {
+   "consistent_rules": 1,
+   "consistent_rules_disagreeing_on_tests": 0,
+   "max_test_errors_any_consistent_rule": 0,
+   "examples_of_disagreeing": []
+  },
+  "delta1_cost_eq_cstar_plus1": {
+   "consistent_rules": 0,
+   "consistent_rules_disagreeing_on_tests": 0,
+   "max_test_errors_any_consistent_rule": 0,
+   "examples_of_disagreeing": []
+  },
+  "min_cost_consistent": 3,
+  "simplest_consistent_rules": [
+   "exists yellow&large"
+  ],
+  "true_rule_min_cost_on_pool": 3,
+  "true_rule_equivalent_desc": "exists yellow&large",
+  "n_rules_enumerated": 3928,
+  "n_shortcut_rules": 1,
+  "attempt_result": {
+   "n_fit": 5,
+   "left0": 0,
+   "left1": 0,
+   "K": 564,
+   "K1": 3361,
+   "stump_correct": 5,
+   "attempts": 1
+  },
+  "build_seconds": 2.9
+ },
+ "P6": {
+  "delta0_cost_le_cstar": {
+   "consistent_rules": 1,
+   "consistent_rules_disagreeing_on_tests": 0,
+   "max_test_errors_any_consistent_rule": 0,
+   "examples_of_disagreeing": []
+  },
+  "delta1_cost_eq_cstar_plus1": {
+   "consistent_rules": 0,
+   "consistent_rules_disagreeing_on_tests": 0,
+   "max_test_errors_any_consistent_rule": 0,
+   "examples_of_disagreeing": []
+  },
+  "min_cost_consistent": 4,
+  "simplest_consistent_rules": [
+   "count(red)>count(blue)"
+  ],
+  "true_rule_min_cost_on_pool": 4,
+  "true_rule_equivalent_desc": "count(red)>count(blue)",
+  "n_rules_enumerated": 20112,
+  "n_shortcut_rules": 11,
+  "attempt_result": {
+   "n_fit": 3,
+   "left0": 0,
+   "left1": 0,
+   "K": 3877,
+   "K1": 16028,
+   "stump_correct": 5,
+   "attempts": 3
+  },
+  "build_seconds": 11.7
+ },
+ "P7": {
+  "delta0_cost_le_cstar": {
+   "consistent_rules": 1,
+   "consistent_rules_disagreeing_on_tests": 0,
+   "max_test_errors_any_consistent_rule": 0,
+   "examples_of_disagreeing": []
+  },
+  "delta1_cost_eq_cstar_plus1": {
+   "consistent_rules": 0,
+   "consistent_rules_disagreeing_on_tests": 0,
+   "max_test_errors_any_consistent_rule": 0,
+   "examples_of_disagreeing": []
+  },
+  "min_cost_consistent": 2,
+  "simplest_consistent_rules": [
+   "count(object) odd"
+  ],
+  "true_rule_min_cost_on_pool": 2,
+  "true_rule_equivalent_desc": "count(object) odd",
+  "n_rules_enumerated": 562,
+  "n_shortcut_rules": 0,
+  "attempt_result": {
+   "n_fit": 3,
+   "left0": 0,
+   "left1": 0,
+   "K": 60,
+   "K1": 500,
+   "stump_correct": 4,
+   "attempts": 1
+  },
+  "build_seconds": 1.9
+ },
+ "P8": {
+  "delta0_cost_le_cstar": {
+   "consistent_rules": 1,
+   "consistent_rules_disagreeing_on_tests": 0,
+   "max_test_errors_any_consistent_rule": 0,
+   "examples_of_disagreeing": []
+  },
+  "delta1_cost_eq_cstar_plus1": {
+   "consistent_rules": 0,
+   "consistent_rules_disagreeing_on_tests": 0,
+   "max_test_errors_any_consistent_rule": 0,
+   "examples_of_disagreeing": []
+  },
+  "min_cost_consistent": 4,
+  "simplest_consistent_rules": [
+   "every triangle on some blue"
+  ],
+  "true_rule_min_cost_on_pool": 4,
+  "true_rule_equivalent_desc": "every triangle on some blue",
+  "n_rules_enumerated": 20114,
+  "n_shortcut_rules": 99,
+  "attempt_result": {
+   "n_fit": 3,
+   "left0": 0,
+   "left1": 0,
+   "K": 3920,
+   "K1": 16183,
+   "stump_correct": 5,
+   "attempts": 1
+  },
+  "build_seconds": 9.6
+ }
+}

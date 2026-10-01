@@ -1,0 +1,109 @@
+{
+ "solver_label": "COUNT_STUMP",
+ "problems": {
+  "P1": {
+   "labels": [
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "N",
+    "Y",
+    "N"
+   ],
+   "rule": "count-feature stump"
+  },
+  "P2": {
+   "labels": [
+    "N",
+    "N",
+    "Y",
+    "N",
+    "Y",
+    "Y",
+    "N",
+    "Y"
+   ],
+   "rule": "count-feature stump"
+  },
+  "P3": {
+   "labels": [
+    "Y",
+    "Y",
+    "N",
+    "Y",
+    "N",
+    "N",
+    "Y",
+    "Y"
+   ],
+   "rule": "count-feature stump"
+  },
+  "P4": {
+   "labels": [
+    "N",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "N",
+    "Y"
+   ],
+   "rule": "count-feature stump"
+  },
+  "P5": {
+   "labels": [
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "N",
+    "Y",
+    "Y",
+    "N"
+   ],
+   "rule": "count-feature stump"
+  },
+  "P6": {
+   "labels": [
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N"
+   ],
+   "rule": "count-feature stump"
+  },
+  "P7": {
+   "labels": [
+    "Y",
+    "N",
+    "N",
+    "Y",
+    "N",
+    "N",
+    "N",
+    "Y"
+   ],
+   "rule": "count-feature stump"
+  },
+  "P8": {
+   "labels": [
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N"
+   ],
+   "rule": "count-feature stump"
+  }
+ }
+}

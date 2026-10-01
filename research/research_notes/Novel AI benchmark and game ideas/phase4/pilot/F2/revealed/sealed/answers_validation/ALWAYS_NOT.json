@@ -1,0 +1,109 @@
+{
+ "solver_label": "ALWAYS_NOT",
+ "problems": {
+  "P1": {
+   "labels": [
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N"
+   ],
+   "rule": "never fits"
+  },
+  "P2": {
+   "labels": [
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N"
+   ],
+   "rule": "never fits"
+  },
+  "P3": {
+   "labels": [
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N"
+   ],
+   "rule": "never fits"
+  },
+  "P4": {
+   "labels": [
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N"
+   ],
+   "rule": "never fits"
+  },
+  "P5": {
+   "labels": [
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N"
+   ],
+   "rule": "never fits"
+  },
+  "P6": {
+   "labels": [
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N"
+   ],
+   "rule": "never fits"
+  },
+  "P7": {
+   "labels": [
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N"
+   ],
+   "rule": "never fits"
+  },
+  "P8": {
+   "labels": [
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N"
+   ],
+   "rule": "never fits"
+  }
+ }
+}

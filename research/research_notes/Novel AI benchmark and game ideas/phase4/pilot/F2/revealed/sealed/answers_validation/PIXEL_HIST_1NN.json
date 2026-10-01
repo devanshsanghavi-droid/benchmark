@@ -1,0 +1,109 @@
+{
+ "solver_label": "PIXEL_HIST_1NN",
+ "problems": {
+  "P1": {
+   "labels": [
+    "Y",
+    "N",
+    "Y",
+    "Y",
+    "Y",
+    "N",
+    "Y",
+    "Y"
+   ],
+   "rule": "colour histogram 1-NN"
+  },
+  "P2": {
+   "labels": [
+    "Y",
+    "N",
+    "Y",
+    "N",
+    "Y",
+    "Y",
+    "N",
+    "Y"
+   ],
+   "rule": "colour histogram 1-NN"
+  },
+  "P3": {
+   "labels": [
+    "Y",
+    "N",
+    "N",
+    "N",
+    "Y",
+    "Y",
+    "Y",
+    "Y"
+   ],
+   "rule": "colour histogram 1-NN"
+  },
+  "P4": {
+   "labels": [
+    "N",
+    "Y",
+    "N",
+    "Y",
+    "Y",
+    "N",
+    "Y",
+    "N"
+   ],
+   "rule": "colour histogram 1-NN"
+  },
+  "P5": {
+   "labels": [
+    "Y",
+    "N",
+    "Y",
+    "Y",
+    "N",
+    "Y",
+    "N",
+    "N"
+   ],
+   "rule": "colour histogram 1-NN"
+  },
+  "P6": {
+   "labels": [
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "Y",
+    "N",
+    "N"
+   ],
+   "rule": "colour histogram 1-NN"
+  },
+  "P7": {
+   "labels": [
+    "N",
+    "Y",
+    "N",
+    "N",
+    "N",
+    "Y",
+    "N",
+    "Y"
+   ],
+   "rule": "colour histogram 1-NN"
+  },
+  "P8": {
+   "labels": [
+    "Y",
+    "N",
+    "N",
+    "Y",
+    "N",
+    "Y",
+    "N",
+    "Y"
+   ],
+   "rule": "colour histogram 1-NN"
+  }
+ }
+}

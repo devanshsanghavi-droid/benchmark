@@ -1,0 +1,329 @@
+{
+ "ladder_ratings_logit": {
+  "L0": 0.0,
+  "L1": 5.870647424649518,
+  "L2": 7.311725684803012,
+  "L3": 8.253340236613877
+ },
+ "games_per_rung": 100,
+ "pseudo_count": 0.5,
+ "solvers": {
+  "fable": {
+   "vs": {
+    "L0": {
+     "score_rate": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ],
+     "W": 100,
+     "D": 0,
+     "L": 0,
+     "games": 100,
+     "forfeits": 0,
+     "forfeit_examples": [],
+     "opponent_forfeits": 0,
+     "mean_grain_diff": 25259.93
+    },
+    "L1": {
+     "score_rate": 0.29,
+     "ci95": [
+      0.19,
+      0.41
+     ],
+     "W": 29,
+     "D": 0,
+     "L": 71,
+     "games": 100,
+     "forfeits": 0,
+     "forfeit_examples": [],
+     "opponent_forfeits": 0,
+     "mean_grain_diff": -3983.11
+    },
+    "L2": {
+     "score_rate": 0.01,
+     "ci95": [
+      0.0,
+      0.03
+     ],
+     "W": 1,
+     "D": 0,
+     "L": 99,
+     "games": 100,
+     "forfeits": 0,
+     "forfeit_examples": [],
+     "opponent_forfeits": 0,
+     "mean_grain_diff": -10926.05
+    },
+    "L3": {
+     "score_rate": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "W": 0,
+     "D": 0,
+     "L": 100,
+     "games": 100,
+     "forfeits": 0,
+     "forfeit_examples": [],
+     "opponent_forfeits": 0,
+     "mean_grain_diff": -17394.85
+    }
+   },
+   "bt_logit_rel_L1": -1.2324541975093855,
+   "bt_logit_ci95_rel_L1": [
+    -1.6963571286900265,
+    -0.8704931702032761
+   ],
+   "elo_rel_L1": -214.09922287073059,
+   "rung_position": 0.7900650288868329,
+   "rung_position_ci95": [
+    0.7110442842185672,
+    0.8517210952665506
+   ],
+   "extrapolated": false,
+   "forfeits": 0,
+   "cpu_per_game_mean": 0.2570750000000002,
+   "cpu_per_game_max": 0.33
+  },
+  "haiku": {
+   "vs": {
+    "L0": {
+     "score_rate": 0.95,
+     "ci95": [
+      0.91,
+      0.99
+     ],
+     "W": 95,
+     "D": 0,
+     "L": 5,
+     "games": 100,
+     "forfeits": 0,
+     "forfeit_examples": [],
+     "opponent_forfeits": 0,
+     "mean_grain_diff": 5511.12
+    },
+    "L1": {
+     "score_rate": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "W": 0,
+     "D": 0,
+     "L": 100,
+     "games": 100,
+     "forfeits": 0,
+     "forfeit_examples": [],
+     "opponent_forfeits": 0,
+     "mean_grain_diff": -13326.51
+    },
+    "L2": {
+     "score_rate": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "W": 0,
+     "D": 0,
+     "L": 100,
+     "games": 100,
+     "forfeits": 0,
+     "forfeit_examples": [],
+     "opponent_forfeits": 0,
+     "mean_grain_diff": -29512.81
+    },
+    "L3": {
+     "score_rate": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "W": 0,
+     "D": 0,
+     "L": 100,
+     "games": 100,
+     "forfeits": 0,
+     "forfeit_examples": [],
+     "opponent_forfeits": 0,
+     "mean_grain_diff": -35425.22
+    }
+   },
+   "bt_logit_rel_L1": -3.442521597700305,
+   "bt_logit_ci95_rel_L1": [
+    -3.7720204519929825,
+    -3.0898144003530845
+   ],
+   "elo_rel_L1": -598.0272534856034,
+   "rung_position": 0.4136044376901367,
+   "rung_position_ci95": [
+    0.3574779442289238,
+    0.4736842162621359
+   ],
+   "extrapolated": false,
+   "forfeits": 0,
+   "cpu_per_game_mean": 0.0586249999999999,
+   "cpu_per_game_max": 0.08
+  },
+  "opus": {
+   "vs": {
+    "L0": {
+     "score_rate": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ],
+     "W": 100,
+     "D": 0,
+     "L": 0,
+     "games": 100,
+     "forfeits": 0,
+     "forfeit_examples": [],
+     "opponent_forfeits": 0,
+     "mean_grain_diff": 36459.57
+    },
+    "L1": {
+     "score_rate": 0.98,
+     "ci95": [
+      0.95,
+      1.0
+     ],
+     "W": 98,
+     "D": 0,
+     "L": 2,
+     "games": 100,
+     "forfeits": 0,
+     "forfeit_examples": [],
+     "opponent_forfeits": 0,
+     "mean_grain_diff": 10556.46
+    },
+    "L2": {
+     "score_rate": 0.98,
+     "ci95": [
+      0.95,
+      1.0
+     ],
+     "W": 98,
+     "D": 0,
+     "L": 2,
+     "games": 100,
+     "forfeits": 0,
+     "forfeit_examples": [],
+     "opponent_forfeits": 0,
+     "mean_grain_diff": 9546.03
+    },
+    "L3": {
+     "score_rate": 0.87,
+     "ci95": [
+      0.8,
+      0.93
+     ],
+     "W": 87,
+     "D": 0,
+     "L": 13,
+     "games": 100,
+     "forfeits": 0,
+     "forfeit_examples": [],
+     "opponent_forfeits": 0,
+     "mean_grain_diff": 6197.37
+    }
+   },
+   "bt_logit_rel_L1": 4.344416482811206,
+   "bt_logit_ci95_rel_L1": [
+    3.90550630725303,
+    4.842601672637785
+   ],
+   "elo_rel_L1": 754.702442229776,
+   "rung_position": 5.083361676042666,
+   "rung_position_ci95": [
+    4.617236577705893,
+    5.6124371760638745
+   ],
+   "extrapolated": true,
+   "forfeits": 0,
+   "cpu_per_game_mean": 0.28114999999999996,
+   "cpu_per_game_max": 0.38
+  },
+  "sonnet": {
+   "vs": {
+    "L0": {
+     "score_rate": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ],
+     "W": 100,
+     "D": 0,
+     "L": 0,
+     "games": 100,
+     "forfeits": 0,
+     "forfeit_examples": [],
+     "opponent_forfeits": 0,
+     "mean_grain_diff": 29571.28
+    },
+    "L1": {
+     "score_rate": 0.31,
+     "ci95": [
+      0.22,
+      0.42
+     ],
+     "W": 31,
+     "D": 0,
+     "L": 69,
+     "games": 100,
+     "forfeits": 0,
+     "forfeit_examples": [],
+     "opponent_forfeits": 0,
+     "mean_grain_diff": -1954.44
+    },
+    "L2": {
+     "score_rate": 0.03,
+     "ci95": [
+      0.0,
+      0.07
+     ],
+     "W": 3,
+     "D": 0,
+     "L": 97,
+     "games": 100,
+     "forfeits": 0,
+     "forfeit_examples": [],
+     "opponent_forfeits": 0,
+     "mean_grain_diff": -9054.3
+    },
+    "L3": {
+     "score_rate": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "W": 0,
+     "D": 0,
+     "L": 100,
+     "games": 100,
+     "forfeits": 0,
+     "forfeit_examples": [],
+     "opponent_forfeits": 0,
+     "mean_grain_diff": -19751.0
+    }
+   },
+   "bt_logit_rel_L1": -1.0919401721511477,
+   "bt_logit_ci95_rel_L1": [
+    -1.5116469894016227,
+    -0.755008936927335
+   ],
+   "elo_rel_L1": -189.6894365334921,
+   "rung_position": 0.8140000423860683,
+   "rung_position_ci95": [
+    0.7425076179750534,
+    0.8713925599147339
+   ],
+   "extrapolated": false,
+   "forfeits": 0,
+   "cpu_per_game_mean": 0.2614000000000004,
+   "cpu_per_game_max": 0.35
+  }
+ },
+ "h2h": {}
+}

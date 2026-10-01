@@ -1,0 +1,104 @@
+[
+ {
+  "file": "haiku.json",
+  "per_problem": {
+   "P1": 6,
+   "P2": 4,
+   "P3": 6,
+   "P4": 2,
+   "P5": 4,
+   "P6": 3,
+   "P7": 3,
+   "P8": 3
+  },
+  "invalid": 0,
+  "error": null,
+  "rules": {
+   "P1": "A scene fits if it does not contain a large circle or large triangle resting on top of a square.",
+   "P2": "A scene fits if no color-shape combination appears more than once.",
+   "P3": "A scene fits if no color-shape combination appears more than once.",
+   "P4": "A scene fits if no color-shape combination appears more than once.",
+   "P5": "A scene fits if no color-shape combination appears more than once.",
+   "P6": "A scene fits if no color-shape combination appears more than once.",
+   "P7": "A scene fits if no color-shape combination appears more than once.",
+   "P8": "A scene fits if no color-shape combination appears more than once."
+  },
+  "label": "haiku",
+  "correct": 31,
+  "n": 64,
+  "accuracy": 0.484375,
+  "fully_correct": 0,
+  "ci95": [
+   0.375,
+   0.609375
+  ]
+ },
+ {
+  "file": "opus.json",
+  "per_problem": {
+   "P1": 8,
+   "P2": 8,
+   "P3": 8,
+   "P4": 8,
+   "P5": 8,
+   "P6": 8,
+   "P7": 8,
+   "P8": 8
+  },
+  "invalid": 0,
+  "error": null,
+  "rules": {
+   "P1": "Every stack contains at least one yellow object.",
+   "P2": "Every large square has a small object resting directly on top of it.",
+   "P3": "No large object rests on a small object.",
+   "P4": "No triangle is in a stack to the left of any circle (all circles are left of all triangles).",
+   "P5": "The scene contains at least one large yellow object.",
+   "P6": "There are more red objects than blue objects.",
+   "P7": "The total number of objects in the scene is odd.",
+   "P8": "Every triangle rests directly on a blue object."
+  },
+  "label": "opus",
+  "correct": 64,
+  "n": 64,
+  "accuracy": 1.0,
+  "fully_correct": 8,
+  "ci95": [
+   1.0,
+   1.0
+  ]
+ },
+ {
+  "file": "sonnet.json",
+  "per_problem": {
+   "P1": 8,
+   "P2": 8,
+   "P3": 8,
+   "P4": 8,
+   "P5": 8,
+   "P6": 8,
+   "P7": 8,
+   "P8": 8
+  },
+  "invalid": 0,
+  "error": null,
+  "rules": {
+   "P1": "Every stack contains at least one yellow object.",
+   "P2": "Every large square has a small object resting directly on top of it.",
+   "P3": "No large object rests directly on a small object.",
+   "P4": "Every triangle is in a stack to the right of every circle.",
+   "P5": "There is at least one large yellow object.",
+   "P6": "There are more red objects than blue objects.",
+   "P7": "The total number of objects in the scene is odd.",
+   "P8": "Every triangle rests directly on a blue square."
+  },
+  "label": "sonnet",
+  "correct": 64,
+  "n": 64,
+  "accuracy": 1.0,
+  "fully_correct": 8,
+  "ci95": [
+   1.0,
+   1.0
+  ]
+ }
+]
