@@ -1,0 +1,308 @@
+[
+ {
+  "file": "ALWAYS_FITS.json",
+  "per_problem": {
+   "P1": 4,
+   "P2": 3,
+   "P3": 5,
+   "P4": 3,
+   "P5": 5,
+   "P6": 3,
+   "P7": 3,
+   "P8": 3
+  },
+  "invalid": 0,
+  "error": null,
+  "rules": {
+   "P1": "always fits",
+   "P2": "always fits",
+   "P3": "always fits",
+   "P4": "always fits",
+   "P5": "always fits",
+   "P6": "always fits",
+   "P7": "always fits",
+   "P8": "always fits"
+  },
+  "label": "ALWAYS_FITS",
+  "correct": 29,
+  "n": 64,
+  "accuracy": 0.453125,
+  "fully_correct": 0,
+  "ci95": [
+   0.390625,
+   0.53125
+  ]
+ },
+ {
+  "file": "ALWAYS_NOT.json",
+  "per_problem": {
+   "P1": 4,
+   "P2": 5,
+   "P3": 3,
+   "P4": 5,
+   "P5": 3,
+   "P6": 5,
+   "P7": 5,
+   "P8": 5
+  },
+  "invalid": 0,
+  "error": null,
+  "rules": {
+   "P1": "never fits",
+   "P2": "never fits",
+   "P3": "never fits",
+   "P4": "never fits",
+   "P5": "never fits",
+   "P6": "never fits",
+   "P7": "never fits",
+   "P8": "never fits"
+  },
+  "label": "ALWAYS_NOT",
+  "correct": 35,
+  "n": 64,
+  "accuracy": 0.546875,
+  "fully_correct": 0,
+  "ci95": [
+   0.46875,
+   0.609375
+  ]
+ },
+ {
+  "file": "COUNT_1NN.json",
+  "per_problem": {
+   "P1": 4,
+   "P2": 5,
+   "P3": 4,
+   "P4": 1,
+   "P5": 6,
+   "P6": 7,
+   "P7": 5,
+   "P8": 6
+  },
+  "invalid": 0,
+  "error": null,
+  "rules": {
+   "P1": "count-feature 1-NN",
+   "P2": "count-feature 1-NN",
+   "P3": "count-feature 1-NN",
+   "P4": "count-feature 1-NN",
+   "P5": "count-feature 1-NN",
+   "P6": "count-feature 1-NN",
+   "P7": "count-feature 1-NN",
+   "P8": "count-feature 1-NN"
+  },
+  "label": "COUNT_1NN",
+  "correct": 38,
+  "n": 64,
+  "accuracy": 0.59375,
+  "fully_correct": 0,
+  "ci95": [
+   0.421875,
+   0.734375
+  ]
+ },
+ {
+  "file": "COUNT_STUMP.json",
+  "per_problem": {
+   "P1": 4,
+   "P2": 5,
+   "P3": 4,
+   "P4": 3,
+   "P5": 5,
+   "P6": 5,
+   "P7": 4,
+   "P8": 5
+  },
+  "invalid": 0,
+  "error": null,
+  "rules": {
+   "P1": "count-feature stump",
+   "P2": "count-feature stump",
+   "P3": "count-feature stump",
+   "P4": "count-feature stump",
+   "P5": "count-feature stump",
+   "P6": "count-feature stump",
+   "P7": "count-feature stump",
+   "P8": "count-feature stump"
+  },
+  "label": "COUNT_STUMP",
+  "correct": 35,
+  "n": 64,
+  "accuracy": 0.546875,
+  "fully_correct": 0,
+  "ci95": [
+   0.484375,
+   0.609375
+  ]
+ },
+ {
+  "file": "PIXEL_HIST_1NN.json",
+  "per_problem": {
+   "P1": 2,
+   "P2": 4,
+   "P3": 4,
+   "P4": 1,
+   "P5": 7,
+   "P6": 6,
+   "P7": 6,
+   "P8": 5
+  },
+  "invalid": 0,
+  "error": null,
+  "rules": {
+   "P1": "colour histogram 1-NN",
+   "P2": "colour histogram 1-NN",
+   "P3": "colour histogram 1-NN",
+   "P4": "colour histogram 1-NN",
+   "P5": "colour histogram 1-NN",
+   "P6": "colour histogram 1-NN",
+   "P7": "colour histogram 1-NN",
+   "P8": "colour histogram 1-NN"
+  },
+  "label": "PIXEL_HIST_1NN",
+  "correct": 35,
+  "n": 64,
+  "accuracy": 0.546875,
+  "fully_correct": 0,
+  "ci95": [
+   0.375,
+   0.703125
+  ]
+ },
+ {
+  "file": "RANDOM_s0.json",
+  "per_problem": {
+   "P1": 5,
+   "P2": 4,
+   "P3": 5,
+   "P4": 2,
+   "P5": 4,
+   "P6": 4,
+   "P7": 5,
+   "P8": 3
+  },
+  "invalid": 0,
+  "error": null,
+  "rules": {
+   "P1": "random",
+   "P2": "random",
+   "P3": "random",
+   "P4": "random",
+   "P5": "random",
+   "P6": "random",
+   "P7": "random",
+   "P8": "random"
+  },
+  "label": "RANDOM_s0",
+  "correct": 32,
+  "n": 64,
+  "accuracy": 0.5,
+  "fully_correct": 0,
+  "ci95": [
+   0.40625,
+   0.578125
+  ]
+ },
+ {
+  "file": "RANDOM_s1.json",
+  "per_problem": {
+   "P1": 4,
+   "P2": 4,
+   "P3": 7,
+   "P4": 4,
+   "P5": 4,
+   "P6": 2,
+   "P7": 2,
+   "P8": 6
+  },
+  "invalid": 0,
+  "error": null,
+  "rules": {
+   "P1": "random",
+   "P2": "random",
+   "P3": "random",
+   "P4": "random",
+   "P5": "random",
+   "P6": "random",
+   "P7": "random",
+   "P8": "random"
+  },
+  "label": "RANDOM_s1",
+  "correct": 33,
+  "n": 64,
+  "accuracy": 0.515625,
+  "fully_correct": 0,
+  "ci95": [
+   0.375,
+   0.65625
+  ]
+ },
+ {
+  "file": "RANDOM_s2.json",
+  "per_problem": {
+   "P1": 3,
+   "P2": 3,
+   "P3": 4,
+   "P4": 3,
+   "P5": 5,
+   "P6": 4,
+   "P7": 3,
+   "P8": 6
+  },
+  "invalid": 0,
+  "error": null,
+  "rules": {
+   "P1": "random",
+   "P2": "random",
+   "P3": "random",
+   "P4": "random",
+   "P5": "random",
+   "P6": "random",
+   "P7": "random",
+   "P8": "random"
+  },
+  "label": "RANDOM_s2",
+  "correct": 31,
+  "n": 64,
+  "accuracy": 0.484375,
+  "fully_correct": 0,
+  "ci95": [
+   0.40625,
+   0.578125
+  ]
+ },
+ {
+  "file": "REFERENCE.json",
+  "per_problem": {
+   "P1": 8,
+   "P2": 8,
+   "P3": 8,
+   "P4": 8,
+   "P5": 8,
+   "P6": 8,
+   "P7": 8,
+   "P8": 8
+  },
+  "invalid": 0,
+  "error": null,
+  "rules": {
+   "P1": "(grammar, cost 3) every stack contains yellow",
+   "P2": "(grammar, cost 5) every square&large under some small",
+   "P3": "(grammar, cost 4) no large on any small",
+   "P4": "(grammar, cost 4) no triangle left_of any circle",
+   "P5": "(grammar, cost 3) exists yellow&large",
+   "P6": "(grammar, cost 4) count(red)>count(blue)",
+   "P7": "(grammar, cost 2) count(object) odd",
+   "P8": "(grammar, cost 4) every triangle on some blue"
+  },
+  "label": "REFERENCE",
+  "correct": 64,
+  "n": 64,
+  "accuracy": 1.0,
+  "fully_correct": 8,
+  "ci95": [
+   1.0,
+   1.0
+  ]
+ }
+]

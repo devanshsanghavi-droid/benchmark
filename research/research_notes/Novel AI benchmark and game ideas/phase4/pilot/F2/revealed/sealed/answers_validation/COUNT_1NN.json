@@ -1,0 +1,109 @@
+{
+ "solver_label": "COUNT_1NN",
+ "problems": {
+  "P1": {
+   "labels": [
+    "Y",
+    "N",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "N"
+   ],
+   "rule": "count-feature 1-NN"
+  },
+  "P2": {
+   "labels": [
+    "N",
+    "N",
+    "Y",
+    "N",
+    "Y",
+    "Y",
+    "N",
+    "Y"
+   ],
+   "rule": "count-feature 1-NN"
+  },
+  "P3": {
+   "labels": [
+    "Y",
+    "Y",
+    "N",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "Y"
+   ],
+   "rule": "count-feature 1-NN"
+  },
+  "P4": {
+   "labels": [
+    "N",
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "N",
+    "Y",
+    "Y"
+   ],
+   "rule": "count-feature 1-NN"
+  },
+  "P5": {
+   "labels": [
+    "Y",
+    "Y",
+    "Y",
+    "Y",
+    "N",
+    "Y",
+    "Y",
+    "Y"
+   ],
+   "rule": "count-feature 1-NN"
+  },
+  "P6": {
+   "labels": [
+    "Y",
+    "N",
+    "Y",
+    "N",
+    "Y",
+    "Y",
+    "N",
+    "N"
+   ],
+   "rule": "count-feature 1-NN"
+  },
+  "P7": {
+   "labels": [
+    "Y",
+    "Y",
+    "Y",
+    "N",
+    "N",
+    "Y",
+    "Y",
+    "Y"
+   ],
+   "rule": "count-feature 1-NN"
+  },
+  "P8": {
+   "labels": [
+    "Y",
+    "N",
+    "N",
+    "N",
+    "N",
+    "Y",
+    "N",
+    "Y"
+   ],
+   "rule": "count-feature 1-NN"
+  }
+ }
+}

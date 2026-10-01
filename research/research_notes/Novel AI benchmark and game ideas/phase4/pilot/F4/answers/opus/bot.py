@@ -12,6 +12,9 @@ PROFILES = {20: (11, 2, 1, 3), 21: (11, 2, 2, 2), 22: (13, 1, 2, 3), 23: (13, 2,
             36: (19, 3, 3, 5), 37: (21, 3, 3, 4), 38: (21, 3, 3, 5), 39: (21, 4, 3, 4),
             40: (23, 3, 3, 5)}
 
+PARAMS = dict(hold_enemy=40, enemy_mult=2.0, time_c=1.0, threat_mult=0.6, occupied_mult=0.0,
+              fen_mult=1.0, frontier=0.0, rec_rate=1.5, rec_off=10, soft_pen=2.0)
+
 DIRS = (("N", 0, -1), ("E", 1, 0), ("S", 0, 1), ("W", -1, 0))
 
 
@@ -87,6 +90,7 @@ class Tide:
 
 class Bot:
     def __init__(self, player, game_info):
+        self.P = dict(PARAMS)
         self.p = player
         W = self.W = game_info["width"]
         H = self.H = game_info["height"]
@@ -298,12 +302,12 @@ class Bot:
             return {"orders": {}, "recruit": False}
 
     def _act(self, obs):
+        P = self.P
         t = obs["turn"]
         crews = obs["crews"]
         elev = self.elev
         yld = self.yld
         D = self.D
-        nb = self.nb
         END = self.turns
         self._observe_tide(obs)
         self._predict(t)
@@ -322,15 +326,16 @@ class Bot:
                 self.estakes[c] = t
             elif c in self.estakes:
                 del self.estakes[c]
-        # forget enemy fen stakes that must have been washed
+        for c in obs.get("lost_stakes", []):
+            if elev[c] >= 3 and c not in vis:
+                self.estakes[c] = t
         Lmin = self.Lmin
+        lm = Lmin.get(t, 0)
         for c in list(self.estakes):
-            e = elev[c]
-            if e <= 2 and Lmin.get(t, 0) > e:
+            if elev[c] <= 2 and lm > elev[c]:
                 del self.estakes[c]
         estakes = self.estakes
         ecrew = obs["enemy_crews"]
-        # threat map: number of enemy crews that could end on cell this turn
         threat = {}
         for ec, k in ecrew.items():
             threat[ec] = threat.get(ec, 0) + k
@@ -339,55 +344,67 @@ class Bot:
 
         Ev, Ed = self.Ev, self.Ed
         HZ = len(Ev[0])
-        # candidate targets
+        hold_e = P["hold_enemy"]
+        emult = P["enemy_mult"]
+        tc = P["time_c"]
+        thr_m = P["threat_mult"]
+        occ_m = P["occupied_mult"]
+        fen_m = P["fen_mult"]
+        front = P["frontier"]
+        dhub, dehub = self.dhub, self.dehub
         tg = []
         for c in self.cells:
             if c in mine:
                 continue
             e = elev[c]
             en = c in estakes
-            tg.append((c, e, en))
-        orders = {}
+            m = 1.0
+            k = ecrew.get(c, 0)
+            if k:
+                m = occ_m
+            elif threat.get(c, 0):
+                m = 0.0 if en else thr_m
+            if front and e >= 3 and not en:
+                # frontier land: bonus when contested (closer to enemy than to us)
+                if dehub[c] <= dhub[c] + 2:
+                    m *= front
+            tg.append((c, e, en, m, yld[c] * fen_m))
         assigned = {}
         taken = set()
-        # intruders on our stakes: free kills
-        intr = [c for c in ecrew if c in mine]
-
+        intr = [(c, k) for c, k in ecrew.items() if c in mine]
         cand = []
         crew_list = sorted(crews.items())
+        rem0 = END - t
         for cid, cc in crew_list:
             Dc = D[cc]
             best = []
-            for (g, e, en) in tg:
+            for (g, e, en, m, y) in tg:
                 d = Dc[g]
                 if d >= 99:
                     continue
                 if e >= 3:
-                    v = END - t - d
+                    r = rem0 - d
+                    if r <= 0:
+                        continue
                     if en:
-                        v *= 2
+                        v = r + min(r, hold_e) * (emult - 1.0)
+                    else:
+                        v = r
                     tt = d + 1
                 else:
                     if d >= HZ:
                         continue
-                    v = Ev[e][d] * yld[g]
+                    v = Ev[e][d] * y
                     if en:
-                        v *= 2
+                        v *= emult
                     tt = d + 1 + Ed[e][d]
-                if v <= 0:
-                    continue
-                k = ecrew.get(g, 0)
-                if k:
-                    v *= 0.3
-                elif threat.get(g, 0):
-                    v *= 0.6
-                sc = v / (tt + 1.0)
-                best.append((sc, g))
-            for g in intr:
+                    if v <= 0:
+                        continue
+                best.append((v * m / (tt + tc), g))
+            for g, k in intr:
                 d = Dc[g]
-                if d <= 2:
-                    sc = 400.0 / (d + 1.0)
-                    best.append((sc, g))
+                if d <= 1 and k == 1:
+                    best.append((1000.0, g))
             best.sort(reverse=True)
             for sc, g in best[:6]:
                 cand.append((sc, cid, g))
@@ -397,58 +414,82 @@ class Bot:
                 continue
             assigned[cid] = g
             taken.add(g)
-
-        # movement
-        occ = {}
+        # unassigned crews: recompute against remaining targets
         for cid, cc in crew_list:
-            g = assigned.get(cid)
-            o = "H"
-            if g is None:
-                # idle: drift toward enemy-ish frontier / hold safe
-                g = cc
-            if cc == g and safe(cc):
-                if g not in mine and self.stakeable[g]:
-                    o = "K"
-                else:
-                    o = "H"
-            else:
-                Dg = D[g]
-                dc = Dg[cc]
-                bestn, bestk = None, None
-                for oo, n in self.mv[cc]:
-                    if not safe(n):
+            if cid in assigned:
+                continue
+            Dc = D[cc]
+            bs, bg = 0.0, None
+            for (g, e, en, m, y) in tg:
+                if g in taken:
+                    continue
+                d = Dc[g]
+                if d >= 99:
+                    continue
+                if e >= 3:
+                    r = rem0 - d
+                    if r <= 0:
                         continue
-                    k = (Dg[n] - dc, ecrew.get(n, 0) * 10 + threat.get(n, 0), -elev[n] if elev[n] < 3 else -3)
-                    if bestk is None or k < bestk:
-                        bestk, bestn = k, oo
-                if bestn is not None and bestk[0] < 0:
-                    o = bestn
-                elif safe(cc):
-                    o = "H"
-                elif bestn is not None:
-                    o = bestn
+                    v = r + (min(r, hold_e) * (emult - 1.0) if en else 0.0)
+                    tt = d + 1
                 else:
-                    # desperate: go to highest elevation
-                    be = -2
-                    for oo, n in self.mv[cc]:
-                        if elev[n] > be:
-                            be, o = elev[n], oo
-            if o == "H" and not safe(cc):
-                be = elev[cc]
+                    if d >= HZ:
+                        continue
+                    v = Ev[e][d] * y * (emult if en else 1.0)
+                    tt = d + 1 + Ed[e][d]
+                sc = v * m / (tt + tc)
+                if sc > bs:
+                    bs, bg = sc, g
+            if bg is not None:
+                assigned[cid] = bg
+                taken.add(bg)
+
+        orders = {}
+        soft = P["soft_pen"]
+        for cid, cc in crew_list:
+            g = assigned.get(cid, cc)
+            Dg = D[g]
+            dc = Dg[cc]
+            best_o, best_k = None, None
+            stay_o = "K" if (cc == g and g not in mine and self.stakeable[g]) else "H"
+            for oo, n in [(stay_o, cc)] + self.mv[cc]:
+                if not safe(n):
+                    continue
+                k = ecrew.get(n, 0)
+                th = threat.get(n, 0)
+                hard = 0
+                pen = 0.0
+                if k:
+                    if not (n in mine and k == 1 and n == g):
+                        hard = 1
+                elif th:
+                    if n in mine:
+                        if th >= 2:
+                            pen = soft
+                    elif n in estakes:
+                        hard = 1
+                    else:
+                        pen = soft
+                key = (hard, Dg[n] - dc + pen, -elev[n] if elev[n] < 3 else -3)
+                if best_k is None or key < best_k:
+                    best_k, best_o = key, oo
+            if best_o is None:
+                # no tide-safe option: climb
+                be, best_o = elev[cc], "H"
                 for oo, n in self.mv[cc]:
                     if elev[n] > be:
-                        be, o = elev[n], oo
-            orders[cid] = o
-        self.last_orders = dict(orders)
+                        be, best_o = elev[n], oo
+            if best_o == "K" and ecrew.get(cc, 0):
+                best_o = "H"
+            orders[cid] = best_o
+        self.last_orders = orders
         self.last_pos = dict(crews)
 
-        # recruit
         n = len(crews)
         cost = obs["recruit_cost"]
         rec = False
         if n < self.cap and obs["grain"] >= cost:
-            rem = END - t
-            if cost <= 1.5 * (rem - 10):
+            if cost <= P["rec_rate"] * (END - t - P["rec_off"]):
                 rec = True
         return {"orders": orders, "recruit": rec}
 

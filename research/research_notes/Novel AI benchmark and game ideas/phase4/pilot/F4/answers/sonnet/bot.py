@@ -39,8 +39,9 @@ RISK_CREW = 0.03       # tolerated probability mass of tide candidates when judg
 CAP = 30               # cap on stake lifetime used in valuation
 HV = 44                # forecast horizon (turns)
 HS_UNCERTAIN = 22      # survival-DP horizon when the tide is not identified
-NMAX = 11              # target crew count
-RECRUIT_UNTIL = 150
+NMAX = 22              # hard cap on crew count we aim for
+KAPPA = 3.5            # recruit only if cost <= KAPPA * turns_left
+RECRUIT_UNTIL = 190
 MAXD = 16
 
 
@@ -414,6 +415,6 @@ class Bot:
         cost = obs["recruit_cost"]
         recruit = False
         if (obs["grain"] >= cost and n_crews < self.crew_cap and n_crews < NMAX
-                and t <= RECRUIT_UNTIL):
+                and t <= RECRUIT_UNTIL and cost <= KAPPA * (self.turns - t)):
             recruit = True
         return {"orders": orders, "recruit": recruit}

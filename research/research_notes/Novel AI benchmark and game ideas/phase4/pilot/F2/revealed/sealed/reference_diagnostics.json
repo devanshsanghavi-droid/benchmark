@@ -1,0 +1,48 @@
+{
+ "parse_fidelity": {
+  "panels": 160,
+  "exact_match": 160
+ },
+ "per_problem": {
+  "P1": {
+   "min_cost": 3,
+   "n_min_cost_classes": 1,
+   "unanimous": true
+  },
+  "P2": {
+   "min_cost": 5,
+   "n_min_cost_classes": 1,
+   "unanimous": true
+  },
+  "P3": {
+   "min_cost": 4,
+   "n_min_cost_classes": 1,
+   "unanimous": true
+  },
+  "P4": {
+   "min_cost": 4,
+   "n_min_cost_classes": 1,
+   "unanimous": true
+  },
+  "P5": {
+   "min_cost": 3,
+   "n_min_cost_classes": 1,
+   "unanimous": true
+  },
+  "P6": {
+   "min_cost": 4,
+   "n_min_cost_classes": 1,
+   "unanimous": true
+  },
+  "P7": {
+   "min_cost": 2,
+   "n_min_cost_classes": 1,
+   "unanimous": true
+  },
+  "P8": {
+   "min_cost": 4,
+   "n_min_cost_classes": 1,
+   "unanimous": true
+  }
+ }
+}

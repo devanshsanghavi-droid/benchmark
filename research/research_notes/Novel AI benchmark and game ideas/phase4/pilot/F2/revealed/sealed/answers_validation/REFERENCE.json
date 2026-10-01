@@ -1,0 +1,109 @@
+{
+ "solver_label": "REFERENCE",
+ "problems": {
+  "P1": {
+   "labels": [
+    "N",
+    "Y",
+    "N",
+    "Y",
+    "Y",
+    "Y",
+    "N",
+    "N"
+   ],
+   "rule": "(grammar, cost 3) every stack contains yellow"
+  },
+  "P2": {
+   "labels": [
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "Y",
+    "Y",
+    "Y"
+   ],
+   "rule": "(grammar, cost 5) every square&large under some small"
+  },
+  "P3": {
+   "labels": [
+    "Y",
+    "Y",
+    "Y",
+    "N",
+    "N",
+    "Y",
+    "N",
+    "Y"
+   ],
+   "rule": "(grammar, cost 4) no large on any small"
+  },
+  "P4": {
+   "labels": [
+    "Y",
+    "N",
+    "N",
+    "N",
+    "N",
+    "Y",
+    "N",
+    "Y"
+   ],
+   "rule": "(grammar, cost 4) no triangle left_of any circle"
+  },
+  "P5": {
+   "labels": [
+    "Y",
+    "N",
+    "Y",
+    "Y",
+    "N",
+    "Y",
+    "N",
+    "Y"
+   ],
+   "rule": "(grammar, cost 3) exists yellow&large"
+  },
+  "P6": {
+   "labels": [
+    "N",
+    "N",
+    "Y",
+    "N",
+    "Y",
+    "Y",
+    "N",
+    "N"
+   ],
+   "rule": "(grammar, cost 4) count(red)>count(blue)"
+  },
+  "P7": {
+   "labels": [
+    "N",
+    "N",
+    "Y",
+    "N",
+    "N",
+    "Y",
+    "N",
+    "Y"
+   ],
+   "rule": "(grammar, cost 2) count(object) odd"
+  },
+  "P8": {
+   "labels": [
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "Y",
+    "Y",
+    "Y"
+   ],
+   "rule": "(grammar, cost 4) every triangle on some blue"
+  }
+ }
+}

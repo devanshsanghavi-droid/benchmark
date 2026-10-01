@@ -1,0 +1,4 @@
+{
+ "master_seed": 16168359625145567761,
+ "note": "all rollout seeds derive from master_seed via numpy SeedSequence(entropy=master, spawn_key=crc32 of labels); see common.seed_for"
+}
