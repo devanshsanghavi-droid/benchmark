@@ -1,0 +1,19 @@
+<note>
+Critical differences in this tariff:
+
+§12a: Zone C volumetric divisor is 2500, not 4000—major impact on high-volume parcels.
+
+§6 Heavy items: Surcharge applies to kg 9 and above (first 8 kg at ordinary rates; kg 9+ at +80¢ per kg).
+
+§9 GOLD discount: 10% (not 15%), applies only to base price and percentage surcharges. Zone A excluded. Flat fees charged in full.
+
+§12b Oversize: Sides > 45 cm (not 40 cm). One side = 200¢; two+ sides = 400¢.
+
+§10 DOCUMENT cap: 800 cents after all calculations (including cap before minimum).
+
+§12c Minimum: 630 cents (not 440 or other values)—apply after cap.
+
+Postcode check: GT or XL must be the FIRST two letters for remote fee (400¢).
+
+Order: base → weekend % → remote fee → oversize → GOLD discount → cap → minimum.
+</note>

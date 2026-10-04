@@ -1,0 +1,11 @@
+<note>
+Three fixes:
+
+1. §6 heavy items: the +60c raises the per-kg rate itself, so it is part of the base price and sits inside the weekend 10% and GOLD 15%. Base for chargeable W (>5 kg) = first-kg rate + 4 × further rate + (W−5) × (further rate + 60). P8: 340 + 4×120 + 49×180 = 9640; weekend +964; +250 oversize = 10854.
+
+2. DOCUMENTS are charged per rounded kg too: 1.4 kg → 2 kg → first kg + one further kg (Zone C: 880). Only documents over 2 kg become parcels.
+
+3. GOLD applies in Zones A and B (only Zone C is excluded), even with oversize/remote fees. P11 needed 15% off.
+
+Order: base (with heavy) → weekend 10%, floor → GOLD 15% of base+weekend, floor → +300 remote, +250/500 oversize → document cap 1200 → minimum 440.
+</note>

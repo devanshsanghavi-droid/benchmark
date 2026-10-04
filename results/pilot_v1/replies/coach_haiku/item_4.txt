@@ -1,0 +1,15 @@
+<note>
+Critical points from §12 amendments and other sections:
+
+1) Zone A volumetric divisor is 2500, NOT 6000. This dramatically changes chargeable weight for Zone A parcels.
+
+2) Remote area fees apply only to postcodes STARTING WITH "XU" or "PG". Check the first two letters only.
+
+3) Oversize fees (§12b): one side > 50 cm = 250¢; two or more sides > 50 cm = 500¢ (doubled). Check all three dimensions.
+
+4) GOLD discount does NOT apply to Zone C (only excluded zone). Zone A and B can use it.
+
+5) DOCUMENT cap is 1200¢ after all calculations. Apply minimum charge (440¢) AFTER the cap if needed.
+
+6) Order: base price → weekend surcharge → remote area fee → oversize fee → GOLD discount → cap/minimum.
+</note>

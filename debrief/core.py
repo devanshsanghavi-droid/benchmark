@@ -48,6 +48,13 @@ MISCONCEPTIONS = {
     "no_minimum": "minimum",           # ignores the minimum charge
 }
 
+# Misconceptions found AFTER pilot v1 by a coach (not by the authors). Used only for diagnosis, never for case
+# sampling, so items generated from a seed stay identical. Promote to MISCONCEPTIONS at the next version bump.
+POSTHOC_MISCONCEPTIONS = {
+    "tier_outside_base": "tier",       # treats the heavy-kg uplift as a separate add-on: % surcharge and GOLD
+                                       # discount computed on the ordinary base only (found by the Opus coach)
+}
+
 LEVEL_PROVISIONS = {
     1: ["rounding", "vol", "weekend"],
     2: ["rounding", "vol", "weekend", "remote", "gold", "gold_excl"],
@@ -160,7 +167,11 @@ def price(sys: System, c: Case, mis: frozenset = frozenset()) -> int:
                 div = sys.zone_divisor
             w = max(w, _round_kg(l * wd * h / div, nearest))
     first, per = sys.first[c.zone], sys.per[c.zone]
-    if "tier" in P and w > sys.tier_kg and "no_tier" not in mis:
+    uplift = 0
+    if "tier" in P and w > sys.tier_kg and "no_tier" not in mis and "tier_outside_base" in mis:
+        base = first + (w - 1) * per
+        uplift = (w - sys.tier_kg) * sys.tier_add
+    elif "tier" in P and w > sys.tier_kg and "no_tier" not in mis:
         if "tier_all_kg" in mis:
             base = first + (w - 1) * (per + sys.tier_add)
         else:
@@ -177,7 +188,7 @@ def price(sys: System, c: Case, mis: frozenset = frozenset()) -> int:
         n_long = sum(d > sys.oversize_cm for d in c.dims)
         if n_long:
             oversize = sys.oversize_fee * (2 if n_long >= 2 and "oversize_once" not in mis else 1)
-    flat = remote + oversize
+    flat = remote + oversize + uplift
     weekend = "weekend" in P and c.day in ("Sat", "Sun")
     if weekend and "weekend_on_total" in mis:
         pct_part = (base + flat) * sys.weekend_pct // 100
@@ -395,11 +406,14 @@ def make_item(seed: int, level: int, n_practice: int | None = None, n_fresh: int
 # Diagnosis by mutation search, and the template-coach baseline
 # ---------------------------------------------------------------------------
 
-def diagnose(item: Item, answers: dict, max_size: int = 3):
+def diagnose(item: Item, answers: dict, max_size: int = 3, posthoc: bool = False):
     """Smallest misconception set reproducing the most practice answers. Returns (set, n_explained,
-    per-case labels) where unexplained wrong answers are labelled 'slip'."""
+    per-case labels) where unexplained wrong answers are labelled 'slip'. posthoc=True also searches
+    POSTHOC_MISCONCEPTIONS."""
     sys = item.system
     live = live_misconceptions(sys)
+    if posthoc:
+        live += [m for m, prov in POSTHOC_MISCONCEPTIONS.items() if all(p in sys.provisions for p in _provs(prov))]
     best = (frozenset(), -1)
     for k in range(0, max_size + 1):
         for combo in itertools.combinations(live, k):

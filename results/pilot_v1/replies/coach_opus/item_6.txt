@@ -1,0 +1,7 @@
+<note>
+Fix two things:
+1. The §6 heavy uplift (80 per chargeable kg above 8) is PART OF the base price. Base = §5 charges + uplift; the weekend 25% and the GOLD 10% (on base + weekend) are calculated on that full base. P5: 15360 + 3600 uplift = 18960 base; GOLD takes 1896 off, not 1536 → 17464.
+2. The 400 remote fee (postcode BEGINS with GT/XL) applies to every consignment, DOCUMENTS included. P11: 530 + 400 = 930, then capped at 800 (not 630).
+Order: base incl. uplift → weekend % → GOLD % (never Zone A) → flat fees (remote; oversize 200, or 400 if two+ sides exceed 45 cm, 45 exactly doesn't count; never discounted) → 800 document cap → 630 minimum.
+Keep doing: round weights up, Zone C divisor 2500, other zones 4000, DOCUMENTS over 1 kg become PARCELS.
+</note>

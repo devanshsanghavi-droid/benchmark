@@ -1,0 +1,7 @@
+<note>
+Your one systematic error: you treated the §6 heavy-kg increase (+80 per kg above 8) as a separate flat surcharge. It is not. It raises the per-kg rate, so it is part of the base price. Build the full base first (ordinary rate up to 8 kg, ordinary+80 for every kg beyond 8), then apply the weekend 25% and the GOLD 10% (round each down) to that whole figure. Only the remote fee (400) is flat: add it last, undiscounted.
+
+Example: Zone C, chargeable 11 kg, Sunday, GOLD, XL postcode. Base = 800 + 7x280 + 3x360 = 3840. Weekend +960 = 4800. GOLD -480 = 4320. Remote +400 = 4720 (not 4690).
+
+Your weights, volumetric, document reclassification and caps were right; keep them.
+</note>

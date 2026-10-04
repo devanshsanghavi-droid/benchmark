@@ -1,0 +1,7 @@
+<note>
+Your one systematic error: you treated the §6 heavy-kg increase (+60 per kg above 6) as a separate flat surcharge. It is not. It raises the per-kg rate, so it is part of the base price. Build the full base first (ordinary rate up to 6 kg, ordinary+60 for every kg beyond 6), then apply the weekend 20% and the GOLD 15% (round each down) to that whole figure. Flat fees (remote 300, oversize 300 or 600) are added last, undiscounted.
+
+Example: Zone C, 57 kg chargeable (volume/3000), Sunday, GOLD, all three sides over 40 cm: base 840 + 5x260 + 51x320 = 18460; +20% = 22152; -15% = 18830; +600 = 19430 (not 19368).
+
+Your volumetric, reclassification and Zone A exclusion were right; keep them.
+</note>

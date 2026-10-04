@@ -1,0 +1,13 @@
+<note>
+Your only error is §6 heavy items. The extra 80c is NOT a separate flat fee: it raises the per-kg rate itself, so it is part of the base price and therefore sits inside the weekend 25% and the GOLD 10%.
+
+Base price for chargeable weight W (>8 kg): first-kg rate + 7 × further-kg rate + (W−8) × (further-kg rate + 80). Example P3 (Zone C, 11 kg): 800 + 7×280 + 3×360 = 3840.
+
+Then, in order:
+1. Weekend: +25% of that whole base, rounded down (3840 → +960 = 4800).
+2. GOLD (not Zone A): subtract 10% of base + weekend, rounded down (480 → 4320).
+3. Remote GT/XL: +400 flat, never discounted (4720).
+4. Document cap 800.
+
+Keep everything else as you did: round weights up, volumetric (/4000) for parcels only, documents over 1 kg become parcels.
+</note>

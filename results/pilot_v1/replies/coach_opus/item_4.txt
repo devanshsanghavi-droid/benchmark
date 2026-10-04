@@ -1,0 +1,7 @@
+<note>
+Fix three things:
+1. The §6 heavy uplift (60 per chargeable kg above 5) is PART OF the base price. Weekend 10% and GOLD 15% are calculated on base INCLUDING it. P7: 3120 + 300 uplift = 3420 base, so weekend is 342, not 312.
+2. Documents also round UP: a 1.2 kg or 1.4 kg DOCUMENT is 2 kg, so first kg + one further kg (Zone C: 600 + 280 = 880), not 600. Apply the 1200 cap after surcharges.
+3. GOLD discount applies in Zones A and B; only Zone C is excluded. P11 (Zone A, GOLD) needed 15% off (base + weekend), i.e. 1709 off.
+Keep doing: Zone A divisor 2500; oversize 250, or 500 if two or more sides exceed 50 cm (exactly 50 doesn't count); remote and oversize fees are flat, never discounted or percentaged; cap is documents only; 440 minimum last.
+</note>

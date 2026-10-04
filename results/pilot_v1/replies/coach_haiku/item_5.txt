@@ -1,0 +1,17 @@
+<note>
+Key distinctions for this tariff:
+
+§3 Reclassification: DOCUMENT with weight EXCEEDING 1 kg becomes a PARCEL. Weight exactly 1 kg stays a DOCUMENT.
+
+§6 Heavy items: Surcharge applies to kg 7 and above (not kg 6+). First 6 kg at ordinary rates; kg 7+ at +60¢ per kg.
+
+§12a (Amended): Zone C volumetric divisor is 3000, not 4000—major difference for large Zone C parcels.
+
+§12b Oversize: Applies ONLY to PARCELs. One side > 40 cm = 300¢; two or more sides > 40 cm = 600¢. Check all dimensions carefully.
+
+§8 Remote: Postcodes must BEGIN with JL or JX (first two letters only), not just contain those letters.
+
+§9 GOLD: Does NOT apply to Zone A. Applies to Zones B and C.
+
+Order: base price → weekend surcharge → remote fee → oversize fee → GOLD discount → cap/minimum (570¢).
+</note>
