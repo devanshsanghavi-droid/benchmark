@@ -1,0 +1,316 @@
+{
+ "flagged_cells": {
+  "control_r1": [],
+  "control_r2": [],
+  "placebo": [],
+  "post_fable": [],
+  "post_fable_r2": [
+   2,
+   3
+  ],
+  "post_haiku": [],
+  "post_haiku_r2": [],
+  "post_opus": [],
+  "post_opus_r2": [
+   1,
+   2,
+   3
+  ],
+  "post_sonnet": [],
+  "post_sonnet_r2": [],
+  "template": []
+ },
+ "raw": {
+  "placebo": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.9,
+   "NFR": 18.2,
+   "CI95": [
+    -50.0,
+    100.0
+   ]
+  },
+  "template": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.878,
+   "NFR": 0.0,
+   "CI95": [
+    -100.0,
+    100.0
+   ]
+  },
+  "coach_haiku": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.939,
+   "NFR": 50.0,
+   "CI95": [
+    8.3,
+    76.0
+   ]
+  },
+  "coach_sonnet": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.933,
+   "NFR": 45.5,
+   "CI95": [
+    20.0,
+    92.3
+   ]
+  },
+  "coach_opus": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.717,
+   "NFR": -131.8,
+   "CI95": [
+    -327.3,
+    -54.5
+   ]
+  },
+  "coach_fable": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.85,
+   "NFR": -22.7,
+   "CI95": [
+    -157.1,
+    40.0
+   ]
+  },
+  "coach_haiku_r1": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.956,
+   "NFR": 63.6,
+   "CI95": [
+    33.3,
+    100.0
+   ]
+  },
+  "coach_sonnet_r1": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.967,
+   "NFR": 72.7,
+   "CI95": [
+    35.7,
+    100.0
+   ]
+  },
+  "coach_opus_r1": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.989,
+   "NFR": 90.9,
+   "CI95": [
+    76.0,
+    100.0
+   ]
+  },
+  "coach_fable_r1": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.933,
+   "NFR": 45.5,
+   "CI95": [
+    0.0,
+    76.5
+   ]
+  },
+  "coach_haiku_r2": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.922,
+   "NFR": 36.4,
+   "CI95": [
+    -68.4,
+    86.2
+   ]
+  },
+  "coach_sonnet_r2": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.9,
+   "NFR": 18.2,
+   "CI95": [
+    -50.0,
+    84.6
+   ]
+  },
+  "coach_opus_r2": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.444,
+   "NFR": -354.5,
+   "CI95": [
+    -754.5,
+    -191.7
+   ]
+  },
+  "coach_fable_r2": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.767,
+   "NFR": -90.9,
+   "CI95": [
+    -318.2,
+    13.3
+   ]
+  },
+  "_control_accuracy": 0.878,
+  "_noise_floor_NFR_r2_vs_r1": -75.0
+ },
+ "screened": {
+  "placebo": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.9,
+   "NFR": 18.2,
+   "CI95": [
+    -50.0,
+    100.0
+   ]
+  },
+  "template": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.878,
+   "NFR": 0.0,
+   "CI95": [
+    -100.0,
+    100.0
+   ]
+  },
+  "coach_haiku": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.939,
+   "NFR": 50.0,
+   "CI95": [
+    8.3,
+    76.0
+   ]
+  },
+  "coach_sonnet": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.933,
+   "NFR": 45.5,
+   "CI95": [
+    20.0,
+    92.3
+   ]
+  },
+  "coach_opus": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.894,
+   "NFR": 13.6,
+   "CI95": [
+    -45.0,
+    77.8
+   ]
+  },
+  "coach_fable": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.889,
+   "NFR": 9.1,
+   "CI95": [
+    -85.0,
+    63.6
+   ]
+  },
+  "coach_haiku_r1": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.956,
+   "NFR": 63.6,
+   "CI95": [
+    33.3,
+    100.0
+   ]
+  },
+  "coach_sonnet_r1": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.967,
+   "NFR": 72.7,
+   "CI95": [
+    35.7,
+    100.0
+   ]
+  },
+  "coach_opus_r1": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.989,
+   "NFR": 90.9,
+   "CI95": [
+    76.0,
+    100.0
+   ]
+  },
+  "coach_fable_r1": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.933,
+   "NFR": 45.5,
+   "CI95": [
+    0.0,
+    76.5
+   ]
+  },
+  "coach_haiku_r2": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.922,
+   "NFR": 36.4,
+   "CI95": [
+    -68.4,
+    86.2
+   ]
+  },
+  "coach_sonnet_r2": {
+   "items": 6,
+   "control_errors": 11.0,
+   "accuracy": 0.9,
+   "NFR": 18.2,
+   "CI95": [
+    -50.0,
+    84.6
+   ]
+  },
+  "coach_opus_r2": {
+   "items": 3,
+   "control_errors": 6.5,
+   "accuracy": 0.625,
+   "NFR": -176.9,
+   "CI95": [
+    -233.3,
+    -133.3
+   ]
+  },
+  "coach_fable_r2": {
+   "items": 4,
+   "control_errors": 10.0,
+   "accuracy": 0.774,
+   "NFR": -40.0,
+   "CI95": [
+    -200.0,
+    40.0
+   ]
+  },
+  "_control_accuracy": 0.878,
+  "_noise_floor_NFR_r2_vs_r1": -75.0
+ },
+ "practice_diagnosability": {
+  "library": 2,
+  "with_posthoc": 18,
+  "errors": 22
+ }
+}

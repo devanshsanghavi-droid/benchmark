@@ -1,0 +1,368 @@
+{
+ "items": [
+  {
+   "seed": 303,
+   "level": 4
+  },
+  {
+   "seed": 304,
+   "level": 4
+  },
+  {
+   "seed": 305,
+   "level": 4
+  },
+  {
+   "seed": 303,
+   "level": 5
+  },
+  {
+   "seed": 304,
+   "level": 5
+  },
+  {
+   "seed": 305,
+   "level": 5
+  }
+ ],
+ "arms": {
+  "placebo": {
+   "accuracy": 0.9,
+   "NFR": 18.181818181818183,
+   "CI95": [
+    -50.0,
+    100.0
+   ],
+   "by_level": {
+    "L4": 33.333333333333336,
+    "L5": 7.6923076923076925
+   },
+   "fix_mass": 7.5,
+   "break_mass": 5.5,
+   "cases_improved": 15
+  },
+  "post_fable": {
+   "accuracy": 0.9333333333333333,
+   "NFR": 45.45454545454545,
+   "CI95": [
+    0.0,
+    76.47058823529412
+   ],
+   "by_level": {
+    "L4": 77.77777777777777,
+    "L5": 23.076923076923077
+   },
+   "fix_mass": 10.5,
+   "break_mass": 5.5,
+   "cases_improved": 19
+  },
+  "post_fable_r2": {
+   "accuracy": 0.7666666666666667,
+   "NFR": -90.9090909090909,
+   "CI95": [
+    -340.0,
+    13.333333333333334
+   ],
+   "by_level": {
+    "L4": -100.0,
+    "L5": -84.61538461538461
+   },
+   "fix_mass": 8.0,
+   "break_mass": 18.0,
+   "cases_improved": 14
+  },
+  "post_haiku": {
+   "accuracy": 0.9555555555555556,
+   "NFR": 63.63636363636363,
+   "CI95": [
+    33.333333333333336,
+    100.0
+   ],
+   "by_level": {
+    "L4": 33.333333333333336,
+    "L5": 84.61538461538461
+   },
+   "fix_mass": 8.0,
+   "break_mass": 1.0,
+   "cases_improved": 16
+  },
+  "post_haiku_r2": {
+   "accuracy": 0.9222222222222223,
+   "NFR": 36.36363636363637,
+   "CI95": [
+    -60.0,
+    86.20689655172414
+   ],
+   "by_level": {
+    "L4": 55.55555555555556,
+    "L5": 23.076923076923077
+   },
+   "fix_mass": 9.5,
+   "break_mass": 5.5,
+   "cases_improved": 17
+  },
+  "post_opus": {
+   "accuracy": 0.9888888888888889,
+   "NFR": 90.9090909090909,
+   "CI95": [
+    75.0,
+    100.0
+   ],
+   "by_level": {
+    "L4": 100.0,
+    "L5": 84.61538461538461
+   },
+   "fix_mass": 10.5,
+   "break_mass": 0.5,
+   "cases_improved": 19
+  },
+  "post_opus_r2": {
+   "accuracy": 0.4444444444444444,
+   "NFR": -354.54545454545456,
+   "CI95": [
+    -754.5454545454545,
+    -200.0
+   ],
+   "by_level": {
+    "L4": -611.1111111111111,
+    "L5": -176.92307692307693
+   },
+   "fix_mass": 2.5,
+   "break_mass": 41.5,
+   "cases_improved": 5
+  },
+  "post_sonnet": {
+   "accuracy": 0.9666666666666667,
+   "NFR": 72.72727272727273,
+   "CI95": [
+    35.13513513513514,
+    100.0
+   ],
+   "by_level": {
+    "L4": 33.333333333333336,
+    "L5": 100.0
+   },
+   "fix_mass": 8.5,
+   "break_mass": 0.5,
+   "cases_improved": 17
+  },
+  "post_sonnet_r2": {
+   "accuracy": 0.9,
+   "NFR": 18.181818181818183,
+   "CI95": [
+    -50.0,
+    84.61538461538461
+   ],
+   "by_level": {
+    "L4": 55.55555555555556,
+    "L5": -7.6923076923076925
+   },
+   "fix_mass": 7.5,
+   "break_mass": 5.5,
+   "cases_improved": 15
+  },
+  "template": {
+   "accuracy": 0.8777777777777778,
+   "NFR": 0.0,
+   "CI95": [
+    -100.0,
+    100.0
+   ],
+   "by_level": {
+    "L4": -100.0,
+    "L5": 69.23076923076923
+   },
+   "fix_mass": 7.0,
+   "break_mass": 7.0,
+   "cases_improved": 14
+  },
+  "post_fable_pooled": {
+   "accuracy": 0.85,
+   "NFR": -22.727272727272727,
+   "CI95": [
+    -162.5,
+    40.0
+   ],
+   "by_level": {
+    "L4": -11.11111111111111,
+    "L5": -30.76923076923077
+   },
+   "fix_mass": 7.5,
+   "break_mass": 10.0,
+   "cases_improved": 13
+  },
+  "post_haiku_pooled": {
+   "accuracy": 0.9388888888888889,
+   "NFR": 50.0,
+   "CI95": [
+    14.285714285714286,
+    77.77777777777777
+   ],
+   "by_level": {
+    "L4": 44.44444444444444,
+    "L5": 53.84615384615385
+   },
+   "fix_mass": 8.0,
+   "break_mass": 2.5,
+   "cases_improved": 16
+  },
+  "post_opus_pooled": {
+   "accuracy": 0.7166666666666667,
+   "NFR": -131.8181818181818,
+   "CI95": [
+    -327.27272727272725,
+    -56.666666666666664
+   ],
+   "by_level": {
+    "L4": -255.55555555555554,
+    "L5": -46.15384615384615
+   },
+   "fix_mass": 3.5,
+   "break_mass": 18.0,
+   "cases_improved": 7
+  },
+  "post_sonnet_pooled": {
+   "accuracy": 0.9333333333333333,
+   "NFR": 45.45454545454545,
+   "CI95": [
+    20.0,
+    92.3076923076923
+   ],
+   "by_level": {
+    "L4": 44.44444444444444,
+    "L5": 46.15384615384615
+   },
+   "fix_mass": 7.0,
+   "break_mass": 2.0,
+   "cases_improved": 14
+  }
+ },
+ "practice": [
+  {
+   "item": 1,
+   "practice_correct": 8,
+   "diagnosable": 0,
+   "slip": 2,
+   "blamed": [],
+   "diagnosable_posthoc": 2,
+   "blamed_posthoc": [
+    "tier_outside_base"
+   ]
+  },
+  {
+   "item": 2,
+   "practice_correct": 7,
+   "diagnosable": 0,
+   "slip": 3,
+   "blamed": [],
+   "diagnosable_posthoc": 3,
+   "blamed_posthoc": [
+    "tier_outside_base"
+   ]
+  },
+  {
+   "item": 3,
+   "practice_correct": 5,
+   "diagnosable": 0,
+   "slip": 5,
+   "blamed": [],
+   "diagnosable_posthoc": 5,
+   "blamed_posthoc": [
+    "tier_outside_base"
+   ]
+  },
+  {
+   "item": 4,
+   "practice_correct": 7,
+   "diagnosable": 2,
+   "slip": 3,
+   "blamed": [
+    "round_nearest",
+    "tier_all_kg"
+   ],
+   "diagnosable_posthoc": 2,
+   "blamed_posthoc": [
+    "tier_outside_base"
+   ]
+  },
+  {
+   "item": 5,
+   "practice_correct": 9,
+   "diagnosable": 0,
+   "slip": 3,
+   "blamed": [],
+   "diagnosable_posthoc": 3,
+   "blamed_posthoc": [
+    "tier_outside_base"
+   ]
+  },
+  {
+   "item": 6,
+   "practice_correct": 8,
+   "diagnosable": 0,
+   "slip": 4,
+   "blamed": [],
+   "diagnosable_posthoc": 3,
+   "blamed_posthoc": [
+    "tier_outside_base"
+   ]
+  }
+ ],
+ "control_accuracy": {
+  "control_r1": 0.9111111111111111,
+  "control_r2": 0.8444444444444444
+ },
+ "control_accuracy_mean": 0.8777777777777778,
+ "control_test_retest_agreement": 0.8,
+ "noise_floor_nfr_r2_vs_r1": -75.0,
+ "note_words": {
+  "coach_fable": [
+   140,
+   141,
+   141,
+   142,
+   145,
+   138
+  ],
+  "coach_haiku": [
+   125,
+   118,
+   119,
+   125,
+   140,
+   134
+  ],
+  "coach_opus": [
+   143,
+   148,
+   149,
+   148,
+   147,
+   144
+  ],
+  "coach_sonnet": [
+   126,
+   132,
+   124,
+   140,
+   126,
+   134
+  ],
+  "placebo": [
+   18,
+   18,
+   18,
+   18,
+   18,
+   18
+  ],
+  "template": [
+   13,
+   13,
+   13,
+   52,
+   13,
+   13
+  ]
+ }
+}

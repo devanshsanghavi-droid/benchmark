@@ -1,0 +1,479 @@
+{
+ "system": {
+  "seed": 303,
+  "level": 5,
+  "name": "Tamsin Express",
+  "provisions": [
+   "rounding",
+   "vol",
+   "weekend",
+   "remote",
+   "gold",
+   "gold_excl",
+   "doc_cap",
+   "doc_reclass",
+   "flat_undiscounted",
+   "tier",
+   "zone_div",
+   "oversize",
+   "minimum"
+  ],
+  "first": {
+   "A": 340,
+   "B": 540,
+   "C": 600
+  },
+  "per": {
+   "A": 120,
+   "B": 180,
+   "C": 280
+  },
+  "divisor": 6000,
+  "weekend_pct": 10,
+  "remote_prefixes": [
+   "XU",
+   "PG"
+  ],
+  "remote_fee": 300,
+  "gold_pct": 15,
+  "excl_zone": "C",
+  "doc_cap": 1200,
+  "reclass_kg": 2,
+  "tier_kg": 5,
+  "tier_add": 60,
+  "zone_div_zone": "A",
+  "zone_divisor": 2500,
+  "oversize_cm": 50,
+  "oversize_fee": 250,
+  "minimum": 440
+ },
+ "spec": "TAMSIN EXPRESS: DOMESTIC TARIFF (edition 8)\n\nAll prices are in cents. Apply the sections in order.\n\n\u00a71 Definitions. 'Consignment' means one item collected from one address. 'Working day' excludes public holidays.\n\n\u00a72 Weight. All weights are rounded UP to the next whole kilogram (minimum 1 kg) before any comparison or charge.\n\n\u00a73 Reclassification. Any DOCUMENT weighing more than 2 kg (after rounding) is reclassified as a PARCEL and priced as one in every section.\n\n\u00a74 Chargeable weight. PARCELS are charged on whichever is larger: actual weight, or volumetric weight (L x W x H in cm divided by 6000), each rounded up first. DOCUMENTS are never charged on volumetric weight.\n\n\u00a75 Base price. Zone A: 340 for the first kg, then 120 per further kg; Zone B: 540 for the first kg, then 180 per further kg; Zone C: 600 for the first kg, then 280 per further kg.\n\n\u00a76 Heavy items. For each chargeable kg above 5 kg, the per-kg rate is increased by 60 cents. The first 5 kg are charged at the ordinary rates.\n\n\u00a77 Tracking. Every consignment receives a tracking reference by email on the day of collection.\n\n\u00a78 Surcharges. A weekend collection (Sat/Sun) adds 10% of the base price, rounded down; the percentage is never applied to other surcharges. A flat remote-area fee of 300 cents applies when the postcode starts with XU or PG; it is added after percentage surcharges.\n\n\u00a79 Discounts. GOLD accounts receive 15% off the base price plus any percentage surcharge (rounded down to a whole cent); flat fees are never discounted. Zone C consignments are excluded from the GOLD discount.\n\n\u00a710 Cap. A DOCUMENT never costs more than 1200 cents in total, after all surcharges and discounts.\n\n\u00a711 Claims. Loss or damage must be reported within 14 days of the delivery date with photographs of the packaging.\n\n\u00a712 Amendments to this edition (these override any earlier section). (a) For Zone A consignments only, the volumetric divisor is 2500 instead of the divisor stated in the chargeable-weight section. (b) A PARCEL with any one side longer than 50 cm pays a flat oversize fee of 250 cents; if two or more sides are longer than 50 cm, the fee is doubled. (c) No consignment is charged less than 440 cents in total, after all other sections (including any cap).",
+ "practice": [
+  {
+   "cid": "P1",
+   "zone": "C",
+   "weight": 1.4,
+   "dims": [
+    45,
+    25,
+    3
+   ],
+   "kind": "DOCUMENT",
+   "day": "Tue",
+   "postcode": "PG2",
+   "account": "STANDARD"
+  },
+  {
+   "cid": "P2",
+   "zone": "C",
+   "weight": 2.3,
+   "dims": [
+    40,
+    25,
+    8
+   ],
+   "kind": "DOCUMENT",
+   "day": "Sat",
+   "postcode": "PG8",
+   "account": "STANDARD"
+  },
+  {
+   "cid": "P3",
+   "zone": "B",
+   "weight": 1.1,
+   "dims": [
+    30,
+    10,
+    50
+   ],
+   "kind": "PARCEL",
+   "day": "Mon",
+   "postcode": "HN2",
+   "account": "STANDARD"
+  },
+  {
+   "cid": "P4",
+   "zone": "B",
+   "weight": 9.2,
+   "dims": [
+    45,
+    30,
+    45
+   ],
+   "kind": "PARCEL",
+   "day": "Wed",
+   "postcode": "QPG6",
+   "account": "STANDARD"
+  },
+  {
+   "cid": "P5",
+   "zone": "C",
+   "weight": 0.3,
+   "dims": [
+    35,
+    55,
+    5
+   ],
+   "kind": "PARCEL",
+   "day": "Sat",
+   "postcode": "XU1",
+   "account": "STANDARD"
+  },
+  {
+   "cid": "P6",
+   "zone": "B",
+   "weight": 0.2,
+   "dims": [
+    15,
+    25,
+    45
+   ],
+   "kind": "PARCEL",
+   "day": "Thu",
+   "postcode": "HP4",
+   "account": "STANDARD"
+  },
+  {
+   "cid": "P7",
+   "zone": "C",
+   "weight": 9.5,
+   "dims": [
+    75,
+    15,
+    10
+   ],
+   "kind": "PARCEL",
+   "day": "Sun",
+   "postcode": "FS9",
+   "account": "STANDARD"
+  },
+  {
+   "cid": "P8",
+   "zone": "A",
+   "weight": 2.1,
+   "dims": [
+    45,
+    60,
+    50
+   ],
+   "kind": "PARCEL",
+   "day": "Sat",
+   "postcode": "FB2",
+   "account": "STANDARD"
+  },
+  {
+   "cid": "P9",
+   "zone": "C",
+   "weight": 1.2,
+   "dims": [
+    45,
+    35,
+    12
+   ],
+   "kind": "DOCUMENT",
+   "day": "Sat",
+   "postcode": "PG5",
+   "account": "GOLD"
+  },
+  {
+   "cid": "P10",
+   "zone": "B",
+   "weight": 4.0,
+   "dims": [
+    35,
+    25,
+    5
+   ],
+   "kind": "DOCUMENT",
+   "day": "Tue",
+   "postcode": "XU2",
+   "account": "STANDARD"
+  },
+  {
+   "cid": "P11",
+   "zone": "A",
+   "weight": 2.7,
+   "dims": [
+    75,
+    35,
+    55
+   ],
+   "kind": "PARCEL",
+   "day": "Sun",
+   "postcode": "QPG8",
+   "account": "GOLD"
+  },
+  {
+   "cid": "P12",
+   "zone": "A",
+   "weight": 1.0,
+   "dims": [
+    30,
+    35,
+    8
+   ],
+   "kind": "DOCUMENT",
+   "day": "Sat",
+   "postcode": "QXU3",
+   "account": "GOLD"
+  }
+ ],
+ "fresh": [
+  {
+   "cid": "F1",
+   "zone": "B",
+   "weight": 2.3,
+   "dims": [
+    30,
+    25,
+    12
+   ],
+   "kind": "DOCUMENT",
+   "day": "Sun",
+   "postcode": "XU6",
+   "account": "STANDARD"
+  },
+  {
+   "cid": "F2",
+   "zone": "B",
+   "weight": 0.4,
+   "dims": [
+    35,
+    25,
+    3
+   ],
+   "kind": "DOCUMENT",
+   "day": "Sun",
+   "postcode": "WJ7",
+   "account": "STANDARD"
+  },
+  {
+   "cid": "F3",
+   "zone": "A",
+   "weight": 4.1,
+   "dims": [
+    65,
+    65,
+    55
+   ],
+   "kind": "PARCEL",
+   "day": "Sat",
+   "postcode": "PG7",
+   "account": "GOLD"
+  },
+  {
+   "cid": "F4",
+   "zone": "A",
+   "weight": 0.9,
+   "dims": [
+    45,
+    35,
+    5
+   ],
+   "kind": "DOCUMENT",
+   "day": "Sun",
+   "postcode": "QXU7",
+   "account": "GOLD"
+  },
+  {
+   "cid": "F5",
+   "zone": "A",
+   "weight": 1.9,
+   "dims": [
+    80,
+    10,
+    55
+   ],
+   "kind": "PARCEL",
+   "day": "Sat",
+   "postcode": "XU1",
+   "account": "STANDARD"
+  },
+  {
+   "cid": "F6",
+   "zone": "C",
+   "weight": 1.8,
+   "dims": [
+    40,
+    30,
+    3
+   ],
+   "kind": "DOCUMENT",
+   "day": "Sun",
+   "postcode": "PG7",
+   "account": "GOLD"
+  },
+  {
+   "cid": "F7",
+   "zone": "C",
+   "weight": 4.9,
+   "dims": [
+    75,
+    55,
+    5
+   ],
+   "kind": "PARCEL",
+   "day": "Mon",
+   "postcode": "MR3",
+   "account": "STANDARD"
+  },
+  {
+   "cid": "F8",
+   "zone": "A",
+   "weight": 11.7,
+   "dims": [
+    60,
+    55,
+    25
+   ],
+   "kind": "PARCEL",
+   "day": "Fri",
+   "postcode": "PG4",
+   "account": "STANDARD"
+  },
+  {
+   "cid": "F9",
+   "zone": "A",
+   "weight": 0.9,
+   "dims": [
+    35,
+    30,
+    12
+   ],
+   "kind": "DOCUMENT",
+   "day": "Sat",
+   "postcode": "HP2",
+   "account": "GOLD"
+  },
+  {
+   "cid": "F10",
+   "zone": "C",
+   "weight": 1.5,
+   "dims": [
+    35,
+    30,
+    5
+   ],
+   "kind": "DOCUMENT",
+   "day": "Tue",
+   "postcode": "ER6",
+   "account": "STANDARD"
+  },
+  {
+   "cid": "F11",
+   "zone": "A",
+   "weight": 1.2,
+   "dims": [
+    40,
+    35,
+    12
+   ],
+   "kind": "DOCUMENT",
+   "day": "Thu",
+   "postcode": "EU7",
+   "account": "STANDARD"
+  },
+  {
+   "cid": "F12",
+   "zone": "C",
+   "weight": 1.6,
+   "dims": [
+    40,
+    35,
+    8
+   ],
+   "kind": "DOCUMENT",
+   "day": "Sun",
+   "postcode": "XU6",
+   "account": "GOLD"
+  },
+  {
+   "cid": "F13",
+   "zone": "A",
+   "weight": 2.7,
+   "dims": [
+    80,
+    60,
+    50
+   ],
+   "kind": "PARCEL",
+   "day": "Mon",
+   "postcode": "QXU8",
+   "account": "GOLD"
+  },
+  {
+   "cid": "F14",
+   "zone": "B",
+   "weight": 10.1,
+   "dims": [
+    30,
+    60,
+    40
+   ],
+   "kind": "PARCEL",
+   "day": "Wed",
+   "postcode": "RE5",
+   "account": "STANDARD"
+  },
+  {
+   "cid": "F15",
+   "zone": "B",
+   "weight": 3.0,
+   "dims": [
+    45,
+    35,
+    12
+   ],
+   "kind": "DOCUMENT",
+   "day": "Sat",
+   "postcode": "GD7",
+   "account": "GOLD"
+  },
+  {
+   "cid": "F16",
+   "zone": "C",
+   "weight": 2.0,
+   "dims": [
+    45,
+    30,
+    12
+   ],
+   "kind": "DOCUMENT",
+   "day": "Tue",
+   "postcode": "QXU5",
+   "account": "GOLD"
+  }
+ ],
+ "practice_key": {
+  "P1": 1180,
+  "P2": 1576,
+  "P3": 900,
+  "P4": 2700,
+  "P5": 1518,
+  "P6": 900,
+  "P7": 4012,
+  "P8": 10854,
+  "P9": 1200,
+  "P10": 1380,
+  "P11": 10187,
+  "P12": 440
+ },
+ "fresh_key": {
+  "F1": 1290,
+  "F2": 594,
+  "F3": 16378,
+  "F4": 440,
+  "F5": 4276,
+  "F6": 1200,
+  "F7": 2220,
+  "F8": 6660,
+  "F9": 440,
+  "F10": 880,
+  "F11": 460,
+  "F12": 1200,
+  "F13": 15120,
+  "F14": 3190,
+  "F15": 1010,
+  "F16": 880
+ }
+}
