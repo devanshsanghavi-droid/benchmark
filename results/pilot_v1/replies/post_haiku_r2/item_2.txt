@@ -1,0 +1,31 @@
+Working:
+
+F1: Weight 0.8→1kg DOCUMENT. Zone B base 560. GOLD -84. = 476
+F2: Weight 1.0kg DOCUMENT. Zone A base 470. No GOLD on Zone A. = 470
+F3: Weight 1.4→2kg PARCEL, volumetric 45×20×20/4000=4.5→5kg, chargeable 5kg. Zone A: 470+4×110=910. Remote JX +300. = 1210
+F4: Weight 1.8→2kg becomes PARCEL, volumetric 45×30×12/4000=4.05→5kg, chargeable 5kg. Zone B: 560+4×240=1520. Weekend 20%=304. GOLD -273. Remote JX +300. = 1824-273+300=1851
+F5: Weight 8.8→9kg PARCEL, volumetric 45×25×45/4000=12.65→13kg, chargeable 13kg. Zone C: 840+5×260+6×320=4060. = 4060
+F6: Weight 0.5→1kg DOCUMENT. Zone C base 840. Weekend 20%=168. Remote JL +300. GOLD -151. Total 1157 capped at 800. = 800
+F7: Weight 0.7→1kg DOCUMENT. Zone B base 560. GOLD -84. Remote JL +300. = 776
+F8: Weight 2.9→3kg becomes PARCEL, volumetric 35×25×12/4000=2.625→3kg, chargeable 3kg. Zone C: 840+2×260=1360. Remote JX +300. = 1660
+F9: Weight 2.1→3kg becomes PARCEL, volumetric 4.05→5kg, chargeable 5kg. Zone A: 470+4×110=910. Weekend 20%=182. Remote JL +300. No GOLD on Zone A. = 1392
+F10: Weight 0.6→1kg DOCUMENT. Zone A base 470. Weekend 20%=94. Remote JX +300. No GOLD on Zone A. = 864
+F11: Weight 6.2→7kg PARCEL, volumetric 20×45×30/4000=6.75→7kg, chargeable 7kg. Zone C: 840+5×260+1×320=2460. = 2460
+F12: Weight 11.5→12kg PARCEL, volumetric 40×10×5/4000=0.5→1kg, chargeable 12kg. Zone C: 840+5×260+6×320=4060. GOLD -609. = 3451
+F13: Weight 8.8→9kg PARCEL, volumetric 65×25×50/4000=20.3125→21kg, chargeable 21kg. Zone B: 560+5×240+15×300=6260. = 6260
+F14: Weight 5.0kg PARCEL, volumetric 40×10×15/4000=1.5→2kg, chargeable 5kg. Zone B: 560+4×240=1520. Remote JL +300. = 1820
+
+F1: 476
+F2: 470
+F3: 1210
+F4: 1851
+F5: 4060
+F6: 800
+F7: 776
+F8: 1660
+F9: 1392
+F10: 864
+F11: 2460
+F12: 3451
+F13: 6260
+F14: 1820
