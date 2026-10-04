@@ -1,0 +1,35 @@
+Working:
+
+F1: Weight 0.9→1kg DOCUMENT. Zone C base 840. = 840
+F2: Weight 9.8→10kg PARCEL, volumetric 40×25×20/4000=5kg, chargeable 10kg. Zone A: 470+660+510=1640. = 1640
+F3: Weight 1.2→2kg becomes PARCEL, volumetric Zone C 45×35×5/3000=2.625→3kg, chargeable 3kg. Zone C: 840+520=1360. Oversize 1 side +300. = 1660
+F4: Weight 0.6→1kg DOCUMENT. Zone B base 560. Remote JL +300. Total 860 capped at 800. = 800
+F5: Weight 3.9→4kg PARCEL, volumetric Zone C 50×50×40/3000=33.333→34kg, chargeable 34kg. Zone C: 840+1300+8960=11100. Weekend 20%=2220. Oversize 2 sides +600. GOLD -1998. = 11922
+F6: Weight 1.3→2kg becomes PARCEL, volumetric Zone A 45×30×5/4000=1.6875→2kg, chargeable 2kg. Zone A: 470+110=580. Weekend 20%=116. Oversize 1 side +300. = 996
+F7: Weight 10.9→11kg PARCEL, volumetric Zone C 80×65×40/3000=69.333→70kg, chargeable 70kg. Zone C: 840+1300+20480=22620. Weekend 20%=4524. Oversize 2 sides +600. GOLD -4071. = 23673
+F8: Weight 2.4→3kg PARCEL, volumetric Zone A 85×65×5/4000=6.90625→7kg, chargeable 7kg. Zone A: 470+550+170=1190. Remote JL +300. Oversize 2 sides +600. = 2090
+F9: Weight 3.8→4kg becomes PARCEL, volumetric Zone C 45×35×3/3000=1.575→2kg, chargeable 4kg. Zone C: 840+780=1620. Oversize 1 side +300. GOLD -243. = 1677
+F10: Weight 0.8→1kg DOCUMENT. Zone A base 470. Weekend 20%=94. Total 564 min 570. = 570
+F11: Weight 11.2→12kg PARCEL, volumetric 85×60×50/4000=63.75→64kg, chargeable 64kg. Zone B: 560+1200+17400=19160. Remote JX +300. Oversize 3 sides +600. GOLD -2874. = 17186
+F12: Weight 0.9→1kg DOCUMENT. Zone A base 470. Weekend 20%=94. Remote JX +300. Total 864 capped at 800. = 800
+F13: Weight 0.6→1kg DOCUMENT. Zone A base 470. Min 570. = 570
+F14: Weight 1.1→2kg becomes PARCEL, volumetric Zone A 30×35×8/4000=2.1→3kg, chargeable 3kg. Zone A: 470+220=690. = 690
+F15: Weight 9.1→10kg PARCEL, volumetric 40×55×25/4000=13.75→14kg, chargeable 14kg. Zone A: 470+660+1190=2320. Remote JX +300. Oversize 1 side +300. = 2920
+F16: Weight 8.4→9kg PARCEL, volumetric 40×40×40/4000=16kg, chargeable 16kg. Zone B: 560+1200+3000=4760. GOLD -714. = 4046
+
+F1: 840
+F2: 1640
+F3: 1660
+F4: 800
+F5: 11922
+F6: 996
+F7: 23673
+F8: 2090
+F9: 1677
+F10: 570
+F11: 17186
+F12: 800
+F13: 570
+F14: 690
+F15: 2920
+F16: 4046
