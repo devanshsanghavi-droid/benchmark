@@ -1,0 +1,38 @@
+Do not use any tools, code execution or browsing; answer from the text alone.
+
+You are pricing consignments under the tariff below.
+
+TARIFF:
+HALDEN PARCEL CO.: DOMESTIC TARIFF (edition 9)
+
+All prices are in cents. Apply the sections in order.
+
+§1 Prohibited items. Lithium batteries, aerosols and perishable goods are not accepted for carriage.
+
+§2 Weight. All weights are rounded UP to the next whole kilogram (minimum 1 kg) before any comparison or charge.
+
+§3 Chargeable weight. PARCELS are charged on whichever is larger: actual weight, or volumetric weight (L x W x H in cm divided by 4000), each rounded up first. DOCUMENTS are never charged on volumetric weight.
+
+§4 Base price. Zone A: 420 for the first kg, then 240 per further kg; Zone B: 850 for the first kg, then 250 per further kg; Zone C: 910 for the first kg, then 270 per further kg.
+
+§5 Claims. Loss or damage must be reported within 14 days of the delivery date with photographs of the packaging.
+
+§6 Surcharges. A weekend collection (Sat/Sun) adds 15% of the base price, rounded down; the percentage is never applied to other surcharges. A flat remote-area fee of 400 cents applies when the postcode starts with JU or GE; it is added after percentage surcharges.
+
+§7 Discounts. GOLD accounts receive 15% off the total after all surcharges (rounded down to a whole cent). The GOLD discount is not available on Zone B consignments.
+
+§8 Cap. A DOCUMENT never costs more than 1100 cents in total, after all surcharges and discounts.
+
+§9 Delivery times. Zone A: next working day. Zone B: two working days. Zone C: three to five working days.
+
+CASES:
+P1: Zone C, 3.9 kg, 75x25x10 cm, PARCEL, collected Thu, postcode JU7, GOLD account
+P2: Zone C, 9.4 kg, 80x25x10 cm, PARCEL, collected Thu, postcode QGE9, STANDARD account
+P3: Zone C, 1.3 kg, 30x35x12 cm, DOCUMENT, collected Thu, postcode JA1, GOLD account
+P4: Zone C, 0.4 kg, 35x35x3 cm, DOCUMENT, collected Wed, postcode GE1, STANDARD account
+P5: Zone B, 0.3 kg, 45x30x5 cm, DOCUMENT, collected Sat, postcode GE1, STANDARD account
+P6: Zone A, 6.3 kg, 60x20x20 cm, PARCEL, collected Tue, postcode AS1, STANDARD account
+P7: Zone B, 8.3 kg, 85x40x25 cm, PARCEL, collected Sun, postcode QJU4, GOLD account
+P8: Zone C, 1.1 kg, 10x20x30 cm, PARCEL, collected Sun, postcode JU2, STANDARD account
+
+For each case, think briefly, then end your reply with exactly one line per case in the form `<case id>: <price in cents as an integer>` (e.g. `P1: 1234`).

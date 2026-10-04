@@ -1,0 +1,47 @@
+Do not use any tools, code execution or browsing; answer from the text alone.
+
+You are pricing consignments under the tariff below.
+
+TARIFF:
+KESTREL POST: DOMESTIC TARIFF (edition 10)
+
+All prices are in cents. Apply the sections in order.
+
+§1 Delivery times. Zone A: next working day. Zone B: two working days. Zone C: three to five working days.
+
+§2 Weight. All weights are rounded UP to the next whole kilogram (minimum 1 kg) before any comparison or charge.
+
+§3 Chargeable weight. PARCELS are charged on whichever is larger: actual weight, or volumetric weight (L x W x H in cm divided by 4000), each rounded up first. DOCUMENTS are never charged on volumetric weight.
+
+§4 Base price. Zone A: 310 for the first kg, then 140 per further kg; Zone B: 400 for the first kg, then 170 per further kg; Zone C: 690 for the first kg, then 290 per further kg.
+
+§5 Claims. Loss or damage must be reported within 14 days of the delivery date with photographs of the packaging.
+
+§6 Surcharges. A weekend collection (Sat/Sun) adds 15% of the base price, rounded down; the percentage is never applied to other surcharges. Postcodes that BEGIN with JG or MK are remote: add a flat 450 cents after any percentage surcharge.
+
+§7 Discounts. GOLD accounts receive 5% off the total after all surcharges (rounded down to a whole cent). Zone B consignments are excluded from the GOLD discount.
+
+§8 Cap. The final price of any DOCUMENT is capped at 1100 cents.
+
+§9 Prohibited items. Lithium batteries, aerosols and perishable goods are not accepted for carriage.
+
+NOTE FROM A REVIEWER (may help you):
+<<<
+Work through every rule in order. Re-read each surcharge, discount and exception before answering, and recompute your arithmetic.
+>>>
+
+CASES:
+F1: Zone A, 5.0 kg, 80x55x20 cm, PARCEL, collected Thu, postcode EW4, STANDARD account
+F2: Zone C, 1.5 kg, 55x40x35 cm, PARCEL, collected Fri, postcode TN3, GOLD account
+F3: Zone B, 11.4 kg, 85x60x20 cm, PARCEL, collected Thu, postcode UH9, GOLD account
+F4: Zone B, 2.9 kg, 45x30x12 cm, DOCUMENT, collected Mon, postcode DU8, GOLD account
+F5: Zone B, 2.9 kg, 40x35x12 cm, DOCUMENT, collected Sun, postcode QJG7, GOLD account
+F6: Zone A, 0.5 kg, 45x25x8 cm, DOCUMENT, collected Sun, postcode JG5, STANDARD account
+F7: Zone C, 3.5 kg, 30x25x3 cm, DOCUMENT, collected Fri, postcode NW5, STANDARD account
+F8: Zone A, 2.7 kg, 45x35x8 cm, DOCUMENT, collected Wed, postcode QMK2, STANDARD account
+F9: Zone C, 4.0 kg, 70x65x30 cm, PARCEL, collected Fri, postcode DN4, STANDARD account
+F10: Zone C, 8.4 kg, 50x55x25 cm, PARCEL, collected Sun, postcode JG2, STANDARD account
+F11: Zone A, 1.2 kg, 80x35x10 cm, PARCEL, collected Sun, postcode JG4, GOLD account
+F12: Zone C, 3.8 kg, 40x35x5 cm, DOCUMENT, collected Fri, postcode LJ9, GOLD account
+
+For each case, think briefly, then end your reply with exactly one line per case in the form `<case id>: <price in cents as an integer>` (e.g. `F1: 1234`).
