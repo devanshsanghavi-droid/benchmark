@@ -1,0 +1,58 @@
+Do not use any tools, code execution or browsing; answer from the text alone.
+
+A junior assistant priced practice consignments under the tariff below. You will see the tariff, each practice case, the junior's answer and the correct answer. Write ONE note of at most 150 words that will help the same junior price NEW consignments correctly (you will not see them). The junior will get the tariff plus your note. Notes are truncated at 150 words.
+
+TARIFF:
+TAMSIN EXPRESS: DOMESTIC TARIFF (edition 8)
+
+All prices are in cents. Apply the sections in order.
+
+§1 Definitions. 'Consignment' means one item collected from one address. 'Working day' excludes public holidays.
+
+§2 Weight. All weights are rounded UP to the next whole kilogram (minimum 1 kg) before any comparison or charge.
+
+§3 Reclassification. Any DOCUMENT weighing more than 2 kg (after rounding) is reclassified as a PARCEL and priced as one in every section.
+
+§4 Chargeable weight. PARCELS are charged on whichever is larger: actual weight, or volumetric weight (L x W x H in cm divided by 6000), each rounded up first. DOCUMENTS are never charged on volumetric weight.
+
+§5 Base price. Zone A: 340 for the first kg, then 120 per further kg; Zone B: 540 for the first kg, then 180 per further kg; Zone C: 600 for the first kg, then 280 per further kg.
+
+§6 Heavy items. For each chargeable kg above 5 kg, the per-kg rate is increased by 60 cents. The first 5 kg are charged at the ordinary rates.
+
+§7 Tracking. Every consignment receives a tracking reference by email on the day of collection.
+
+§8 Surcharges. A weekend collection (Sat/Sun) adds 10% of the base price, rounded down; the percentage is never applied to other surcharges. A flat remote-area fee of 300 cents applies when the postcode starts with XU or PG; it is added after percentage surcharges.
+
+§9 Discounts. GOLD accounts receive 15% off the base price plus any percentage surcharge (rounded down to a whole cent); flat fees are never discounted. Zone C consignments are excluded from the GOLD discount.
+
+§10 Cap. A DOCUMENT never costs more than 1200 cents in total, after all surcharges and discounts.
+
+§11 Claims. Loss or damage must be reported within 14 days of the delivery date with photographs of the packaging.
+
+PRACTICE LOG:
+P1: Zone B, 4.8 kg, 80x55x35 cm, PARCEL, collected Sat, postcode PG9, GOLD account | junior answered 6273 | correct 6191
+P2: Zone B, 11.4 kg, 85x35x40 cm, PARCEL, collected Fri, postcode UB2, GOLD account | junior answered 4266 | correct 4131
+P3: Zone C, 7.1 kg, 10x60x20 cm, PARCEL, collected Wed, postcode XU6, STANDARD account | junior answered 3040 | correct 3040
+P4: Zone C, 1.6 kg, 75x50x25 cm, PARCEL, collected Fri, postcode EM4, STANDARD account | junior answered 5460 | correct 5460
+P5: Zone C, 6.5 kg, 80x60x20 cm, PARCEL, collected Fri, postcode BG3, STANDARD account | junior answered 5460 | correct 5460
+P6: Zone A, 2.2 kg, 45x35x12 cm, DOCUMENT, collected Sat, postcode XU2, GOLD account | junior answered 955 | correct 955
+P7: Zone C, 1.2 kg, 35x30x12 cm, DOCUMENT, collected Sun, postcode XU1, STANDARD account | junior answered 1200 | correct 1200
+P8: Zone A, 1.3 kg, 65x30x15 cm, PARCEL, collected Sun, postcode PG6, STANDARD account | junior answered 1202 | correct 1202
+P9: Zone A, 2.7 kg, 45x30x8 cm, DOCUMENT, collected Thu, postcode ER6, GOLD account | junior answered 493 | correct 493
+P10: Zone C, 0.8 kg, 40x25x12 cm, DOCUMENT, collected Thu, postcode QPG7, GOLD account | junior answered 600 | correct 600
+
+JUNIOR'S WORKING (verbatim):
+<<<
+P1: 6273
+P2: 4266
+P3: 3040
+P4: 5460
+P5: 5460
+P6: 955
+P7: 1200
+P8: 1202
+P9: 493
+P10: 600
+>>>
+
+Reply with the note only, between <note> and </note>.

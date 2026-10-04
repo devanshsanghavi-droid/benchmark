@@ -1,0 +1,64 @@
+Do not use any tools, code execution or browsing; answer from the text alone.
+
+A junior assistant priced practice consignments under the tariff below. You will see the tariff, each practice case, the junior's answer and the correct answer. Write ONE note of at most 150 words that will help the same junior price NEW consignments correctly (you will not see them). The junior will get the tariff plus your note. Notes are truncated at 150 words.
+
+TARIFF:
+HALDEN PARCEL CO.: DOMESTIC TARIFF (edition 10)
+
+All prices are in cents. Apply the sections in order.
+
+§1 Delivery times. Zone A: next working day. Zone B: two working days. Zone C: three to five working days.
+
+§2 Weight. Weights are always rounded upward to a whole kilogram, never to the nearest; the minimum is 1 kg.
+
+§3 Reclassification. A DOCUMENT whose rounded actual weight exceeds 1 kg is treated as a PARCEL for all purposes in this tariff.
+
+§4 Chargeable weight. For a PARCEL, the chargeable weight is the greater of its actual weight and its volumetric weight, where volumetric weight = length x width x height in cm / 4000. Each is rounded up separately before the two are compared. A DOCUMENT is always charged on its actual weight only.
+
+§5 Base price. Zone A: 530 for the first kg, then 150 per further kg; Zone B: 660 for the first kg, then 260 per further kg; Zone C: 800 for the first kg, then 280 per further kg.
+
+§6 Heavy items. For each chargeable kg above 8 kg, the per-kg rate is increased by 80 cents. The first 8 kg are charged at the ordinary rates.
+
+§7 Claims. Loss or damage must be reported within 14 days of the delivery date with photographs of the packaging.
+
+§8 Surcharges. A weekend collection (Sat/Sun) adds 25% of the base price, rounded down; the percentage is never applied to other surcharges. Postcodes that BEGIN with GT or XL are remote: add a flat 400 cents after any percentage surcharge.
+
+§9 Discounts. For GOLD accounts, 10% (rounded down) is deducted from the base price and percentage surcharges only. Flat fees such as the remote-area or oversize fee are charged in full. Zone A consignments are excluded from the GOLD discount.
+
+§10 Cap. A DOCUMENT never costs more than 800 cents in total, after all surcharges and discounts.
+
+§11 Prohibited items. Lithium batteries, aerosols and perishable goods are not accepted for carriage.
+
+§12 Amendments to this edition (these override any earlier section). (a) For Zone C consignments only, the volumetric divisor is 2500 instead of the divisor stated in the chargeable-weight section. (b) A PARCEL with any one side longer than 45 cm pays a flat oversize fee of 200 cents; if two or more sides are longer than 45 cm, the fee is doubled. (c) No consignment is charged less than 630 cents in total, after all other sections (including any cap).
+
+PRACTICE LOG:
+P1: Zone C, 5.1 kg, 80x60x10 cm, PARCEL, collected Sat, postcode BD8, STANDARD account | junior answered 9010 | correct 9250
+P2: Zone B, 0.7 kg, 65x15x5 cm, PARCEL, collected Sun, postcode XL1, GOLD account | junior answered 1635 | correct 1635
+P3: Zone B, 3.8 kg, 35x30x5 cm, DOCUMENT, collected Fri, postcode DJ9, STANDARD account | junior answered 1440 | correct 1440
+P4: Zone A, 2.1 kg, 45x35x12 cm, DOCUMENT, collected Sun, postcode GT6, GOLD account | junior answered 1812 | correct 1812
+P5: Zone C, 10.7 kg, 40x60x55 cm, PARCEL, collected Fri, postcode QXL4, GOLD account | junior answered 17824 | correct 17464
+P6: Zone C, 1.1 kg, 35x25x5 cm, DOCUMENT, collected Fri, postcode XL2, GOLD account | junior answered 1372 | correct 1372
+P7: Zone B, 1.8 kg, 70x55x35 cm, PARCEL, collected Wed, postcode XL6, GOLD account | junior answered 11196 | correct 10988
+P8: Zone B, 0.1 kg, 40x25x3 cm, DOCUMENT, collected Sat, postcode XL3, STANDARD account | junior answered 800 | correct 800
+P9: Zone A, 0.6 kg, 45x25x5 cm, DOCUMENT, collected Wed, postcode WG2, GOLD account | junior answered 630 | correct 630
+P10: Zone C, 1.2 kg, 30x25x12 cm, DOCUMENT, collected Fri, postcode FT1, GOLD account | junior answered 1476 | correct 1476
+P11: Zone A, 0.8 kg, 35x25x5 cm, DOCUMENT, collected Thu, postcode XL3, GOLD account | junior answered 630 | correct 800
+P12: Zone A, 4.8 kg, 65x55x45 cm, PARCEL, collected Tue, postcode QXL2, GOLD account | junior answered 9570 | correct 9570
+
+JUNIOR'S WORKING (verbatim):
+<<<
+P1: 9010
+P2: 1635
+P3: 1440
+P4: 1812
+P5: 17824
+P6: 1372
+P7: 11196
+P8: 800
+P9: 630
+P10: 1476
+P11: 630
+P12: 9570
+>>>
+
+Reply with the note only, between <note> and </note>.
