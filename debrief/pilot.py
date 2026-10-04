@@ -116,9 +116,12 @@ def score(keys):
     for k, it in enumerate(items, 1):
         ans = parse_answers(_r(os.path.join(ROOT, "replies", "practice", f"item_{k}.txt")))
         s, _, labels = diagnose(it, ans)
+        s2, _, labels2 = diagnose(it, ans, posthoc=True)
         pr.append({"item": k, "practice_correct": sum(v == "correct" for v in labels.values()),
                    "diagnosable": sum(v == "diagnosable" for v in labels.values()),
-                   "slip": sum(v == "slip" for v in labels.values()), "blamed": sorted(s)})
+                   "slip": sum(v == "slip" for v in labels.values()), "blamed": sorted(s),
+                   "diagnosable_posthoc": sum(v == "diagnosable" for v in labels2.values()),
+                   "blamed_posthoc": sorted(s2)})
     out["practice"] = pr
     acc = lambda rows: sum(map(sum, rows)) / sum(map(len, rows))
     out["control_accuracy"] = {s: acc(corr[s]) for s in reps}
@@ -128,7 +131,14 @@ def score(keys):
                                                 / sum(len(r) for r in corr[reps[0]]))
         # replicate-vs-replicate NFR: pure noise floor
         out["noise_floor_nfr_r2_vs_r1"] = nfr(corr[reps[0]], corr[reps[1]])
-    arms = [s for s in stages if s not in ("practice",) + tuple(reps)]
+    arms = [s for s in stages if s not in ("practice",) + tuple(reps) and not s.startswith("coach_")]
+    # pool replicate post-tests (post_X and post_X_r2) into one arm "post_X (pooled)"
+    pooled = {}
+    for a in arms:
+        if a.endswith("_r2") and a[:-3] in corr:
+            pooled[a[:-3] + "_pooled"] = [[(x + y) / 2 for x, y in zip(r1, r2)] for r1, r2 in zip(corr[a[:-3]], corr[a])]
+    corr.update(pooled)
+    arms += sorted(pooled)
     for a in arms:
         post_rows = corr[a]
         fixed = sum(1 for i in range(n) for c, p in zip(control[i], post_rows[i]) if p > c)
