@@ -48,6 +48,7 @@ def load_item(keys, k):
 
 def prepare(keys):
     os.makedirs(keys, exist_ok=True)
+    _w(os.path.join(ROOT, "items.txt"), ",".join(f"{a}:{b}" for a, b in ITEMS))
     for k, (seed, level) in enumerate(ITEMS, 1):
         it = make_item(seed, level)
         _w(os.path.join(keys, f"item_{k}.json"), it.to_json())
@@ -152,7 +153,15 @@ def main(argv=None):
     ap.add_argument("cmd", choices=["prepare", "coaches", "post", "score"])
     ap.add_argument("--keys", required=True)
     ap.add_argument("--coach", nargs="*", default=[])
+    ap.add_argument("--run", default="pilot_v0", help="results/<run>/ folder")
+    ap.add_argument("--items", default=None, help="comma list seed:level (default: the v0 items)")
     a = ap.parse_args(argv)
+    global ROOT, ITEMS
+    ROOT = os.path.join(os.path.dirname(ROOT), a.run)
+    if a.items:
+        ITEMS = [tuple(int(x) for x in t.split(":")) for t in a.items.split(",")]
+    elif a.run != "pilot_v0" and os.path.exists(os.path.join(ROOT, "items.txt")):
+        ITEMS = [tuple(int(x) for x in t.split(":")) for t in open(os.path.join(ROOT, "items.txt")).read().split(",")]
     {"prepare": lambda: prepare(a.keys), "coaches": lambda: coaches(a.keys),
      "post": lambda: post(a.keys, a.coach), "score": lambda: score(a.keys)}[a.cmd]()
 

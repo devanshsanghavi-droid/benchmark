@@ -1,0 +1,48 @@
+Do not use any tools, code execution or browsing; answer from the text alone.
+
+A junior assistant priced practice consignments under the tariff below. You will see the tariff, each practice case, the junior's answer and the correct answer. Write ONE note of at most 150 words that will help the same junior price NEW consignments correctly (you will not see them). The junior will get the tariff plus your note. Notes are truncated at 150 words.
+
+TARIFF:
+NORTHVALE PARCEL CO.: DOMESTIC TARIFF (edition 7)
+
+All prices are in cents. Apply the sections in order.
+
+§1 Delivery times. Zone A: next working day. Zone B: two working days. Zone C: three to five working days.
+
+§2 Weight. Weights are always rounded upward to a whole kilogram, never to the nearest; the minimum is 1 kg.
+
+§3 Chargeable weight. For a PARCEL, the chargeable weight is the greater of its actual weight and its volumetric weight, where volumetric weight = length x width x height in cm / 5000. Each is rounded up separately before the two are compared. A DOCUMENT is always charged on its actual weight only.
+
+§4 Base price. Zone A: 350 for the first kg, then 100 per further kg; Zone B: 410 for the first kg, then 160 per further kg; Zone C: 920 for the first kg, then 290 per further kg.
+
+§5 Definitions. 'Consignment' means one item collected from one address. 'Working day' excludes public holidays.
+
+§6 Surcharges. Collections on Saturday or Sunday attract a surcharge of 10% of the base price only (rounded down to a whole cent). A flat remote-area fee of 450 cents applies when the postcode starts with YK or YJ; it is added after percentage surcharges.
+
+§7 Discounts. GOLD accounts receive 5% off the total after all surcharges (rounded down to a whole cent). Zone A consignments are excluded from the GOLD discount.
+
+§8 Tracking. Every consignment receives a tracking reference by email on the day of collection.
+
+PRACTICE LOG:
+P1: Zone A, 2.8 kg, 30x30x8 cm, DOCUMENT, collected Thu, postcode QYK2, STANDARD account | junior answered 550 | correct 550
+P2: Zone A, 0.9 kg, 25x40x35 cm, PARCEL, collected Tue, postcode NB8, GOLD account | junior answered 950 | correct 950
+P3: Zone C, 0.2 kg, 30x30x12 cm, DOCUMENT, collected Tue, postcode QYJ5, GOLD account | junior answered 874 | correct 874
+P4: Zone A, 10.3 kg, 80x30x40 cm, PARCEL, collected Fri, postcode HM9, STANDARD account | junior answered 2250 | correct 2250
+P5: Zone C, 10.7 kg, 70x65x40 cm, PARCEL, collected Wed, postcode FW5, GOLD account | junior answered 10792 | correct 10792
+P6: Zone C, 3.7 kg, 35x30x8 cm, DOCUMENT, collected Sat, postcode YJ4, STANDARD account | junior answered 2419 | correct 2419
+P7: Zone A, 3.6 kg, 35x20x50 cm, PARCEL, collected Thu, postcode YK5, STANDARD account | junior answered 1400 | correct 1400
+P8: Zone C, 0.8 kg, 40x30x8 cm, DOCUMENT, collected Wed, postcode YJ8, GOLD account | junior answered 1302 | correct 1302
+
+JUNIOR'S WORKING (verbatim):
+<<<
+P1: 550
+P2: 950
+P3: 874
+P4: 2250
+P5: 10792
+P6: 2419
+P7: 1400
+P8: 1302
+>>>
+
+Reply with the note only, between <note> and </note>.
