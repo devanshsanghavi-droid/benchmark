@@ -1,0 +1,107 @@
+CASE F1: Zone B, 1.7 kg, 80x45x20 cm, PARCEL, collected Sun, postcode AN7, GOLD account
+Weight rounds to 2 kg. Volumetric: 80×45×20÷6000 = 12 kg. Chargeable: max(2,12) = 12 kg.
+Base (Zone B): 540 + 11×180 = 2520. Heavy uplift (12-5=7 kg): 7×60 = 420. Base total: 2940.
+Weekend surcharge (Sun): 10% of 2940 = 294.
+Total with surcharge: 3234. GOLD discount (15% of 3234): 485.1→485. After discount: 2749.
+Remote fee (AN7): 0. Final: 2749.
+
+CASE F2: Zone A, 1.6 kg, 30x60x50 cm, PARCEL, collected Mon, postcode WG4, GOLD account
+Weight rounds to 2 kg. Volumetric: 30×60×50÷6000 = 15 kg. Chargeable: max(2,15) = 15 kg.
+Base (Zone A): 340 + 14×120 = 2020. Heavy uplift (15-5=10 kg): 10×60 = 600. Base total: 2620.
+Weekend surcharge (Mon): 0.
+GOLD discount (15% of 2620): 393. After discount: 2227.
+Remote fee (WG4): 0. Final: 2227.
+
+CASE F3: Zone B, 2.5 kg, 45x30x12 cm, DOCUMENT, collected Sun, postcode QXU6, STANDARD account
+Weight rounds to 3 kg. Exceeds 2 kg, reclassified to PARCEL.
+Volumetric (PARCEL): 45×30×12÷6000 = 2.7→3 kg. Chargeable: max(3,3) = 3 kg.
+Base (Zone B): 540 + 2×180 = 900. No heavy uplift.
+Weekend surcharge (Sun): 10% of 900 = 90. Total: 990.
+STANDARD account: no GOLD discount. Remote fee (QXU6 starts with QX): 0. Final: 990.
+
+CASE F4: Zone C, 10.4 kg, 45x15x40 cm, PARCEL, collected Fri, postcode AL5, GOLD account
+Weight rounds to 11 kg. Volumetric: 45×15×40÷6000 = 4.5→5 kg. Chargeable: max(11,5) = 11 kg.
+Base (Zone C): 600 + 10×280 = 3400. Heavy uplift (11-5=6 kg): 6×60 = 360. Base total: 3760.
+Weekend surcharge (Fri): 0.
+Zone C excluded from GOLD discount. Remote fee (AL5): 0. Final: 3760.
+
+CASE F5: Zone C, 7.5 kg, 60x65x55 cm, PARCEL, collected Wed, postcode WS2, GOLD account
+Weight rounds to 8 kg. Volumetric: 60×65×55÷6000 = 35.75→36 kg. Chargeable: max(8,36) = 36 kg.
+Base (Zone C): 600 + 35×280 = 10400. Heavy uplift (36-5=31 kg): 31×60 = 1860. Base total: 12260.
+Weekend surcharge (Wed): 0.
+Zone C excluded from GOLD discount. Remote fee (WS2): 0. Final: 12260.
+
+CASE F6: Zone B, 0.7 kg, 40x35x5 cm, DOCUMENT, collected Sun, postcode XU6, GOLD account
+Weight rounds to 1 kg. Stays DOCUMENT (≤2 kg).
+Base (Zone B): 540. No heavy uplift.
+Weekend surcharge (Sun): 10% of 540 = 54. Total: 594.
+GOLD discount (15% of 594): 89.1→89. After discount: 505.
+Remote fee (XU6 starts with XU): 300. Total: 805. Cap (1200): 805 < 1200. Final: 805.
+
+CASE F7: Zone B, 3.4 kg, 40x35x12 cm, DOCUMENT, collected Sat, postcode XU7, GOLD account
+Weight rounds to 4 kg. Exceeds 2 kg, reclassified to PARCEL.
+Volumetric: 40×35×12÷6000 = 2.8→3 kg. Chargeable: max(4,3) = 4 kg.
+Base (Zone B): 540 + 3×180 = 1080. No heavy uplift.
+Weekend surcharge (Sat): 10% of 1080 = 108. Total: 1188.
+GOLD discount (15% of 1188): 178.2→178. After discount: 1010.
+Remote fee (XU7 starts with XU): 300. Total: 1310. Final: 1310.
+
+CASE F8: Zone C, 0.3 kg, 35x35x45 cm, PARCEL, collected Thu, postcode MN3, GOLD account
+Weight rounds to 1 kg. Volumetric: 35×35×45÷6000 = 9.1875→10 kg. Chargeable: max(1,10) = 10 kg.
+Base (Zone C): 600 + 9×280 = 3120. Heavy uplift (10-5=5 kg): 5×60 = 300. Base total: 3420.
+Weekend surcharge (Thu): 0.
+Zone C excluded from GOLD discount. Remote fee (MN3): 0. Final: 3420.
+
+CASE F9: Zone C, 1.1 kg, 45x30x8 cm, DOCUMENT, collected Sun, postcode XU9, GOLD account
+Weight rounds to 2 kg. Stays DOCUMENT (≤2 kg).
+Base (Zone C): 600 + 280 = 880. No heavy uplift.
+Weekend surcharge (Sun): 10% of 880 = 88. Total: 968.
+Zone C excluded from GOLD discount.
+Remote fee (XU9 starts with XU): 300. Total: 1268. Cap (1200): 1268 > 1200, capped at 1200. Final: 1200.
+
+CASE F10: Zone B, 4.1 kg, 60x45x45 cm, PARCEL, collected Fri, postcode PG2, STANDARD account
+Weight rounds to 5 kg. Volumetric: 60×45×45÷6000 = 20.25→21 kg. Chargeable: max(5,21) = 21 kg.
+Base (Zone B): 540 + 20×180 = 4140. Heavy uplift (21-5=16 kg): 16×60 = 960. Base total: 5100.
+Weekend surcharge (Fri): 0.
+STANDARD account: no GOLD discount. Remote fee (PG2 starts with PG): 300. Final: 5400.
+
+CASE F11: Zone C, 3.5 kg, 40x35x8 cm, DOCUMENT, collected Thu, postcode QXU9, GOLD account
+Weight rounds to 4 kg. Exceeds 2 kg, reclassified to PARCEL.
+Volumetric: 40×35×8÷6000 = 1.867→2 kg. Chargeable: max(4,2) = 4 kg.
+Base (Zone C): 600 + 3×280 = 1440. No heavy uplift.
+Weekend surcharge (Thu): 0.
+Zone C excluded from GOLD discount. Remote fee (QXU9 starts with QX): 0. Final: 1440.
+
+CASE F12: Zone C, 1.9 kg, 45x30x8 cm, DOCUMENT, collected Sat, postcode PG1, GOLD account
+Weight rounds to 2 kg. Stays DOCUMENT (≤2 kg).
+Base (Zone C): 600 + 280 = 880. No heavy uplift.
+Weekend surcharge (Sat): 10% of 880 = 88. Total: 968.
+Zone C excluded from GOLD discount.
+Remote fee (PG1 starts with PG): 300. Total: 1268. Cap (1200): 1268 > 1200, capped at 1200. Final: 1200.
+
+CASE F13: Zone C, 0.9 kg, 45x25x12 cm, DOCUMENT, collected Thu, postcode MU5, GOLD account
+Weight rounds to 1 kg. Stays DOCUMENT (≤2 kg).
+Base (Zone C): 600. No heavy uplift.
+Weekend surcharge (Thu): 0.
+Zone C excluded from GOLD discount. Remote fee (MU5): 0. Final: 600.
+
+CASE F14: Zone B, 0.9 kg, 45x30x8 cm, DOCUMENT, collected Fri, postcode QPG2, STANDARD account
+Weight rounds to 1 kg. Stays DOCUMENT (≤2 kg).
+Base (Zone B): 540. No heavy uplift.
+Weekend surcharge (Fri): 0.
+STANDARD account: no GOLD discount. Remote fee (QPG2 starts with QP): 0. Final: 540.
+
+F1: 2749
+F2: 2227
+F3: 990
+F4: 3760
+F5: 12260
+F6: 805
+F7: 1310
+F8: 3420
+F9: 1200
+F10: 5400
+F11: 1440
+F12: 1200
+F13: 600
+F14: 540
