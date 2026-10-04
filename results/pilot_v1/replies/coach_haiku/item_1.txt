@@ -1,0 +1,7 @@
+<note>
+Pay close attention to how the heavy surcharge works in §6. It modifies the per-kg rate for kg ABOVE 5—those kg cost an extra 60 cents each. This means when building your base price, you need separate calculations: the first 5 kg use standard rates, then kg 6+ use the higher rates (base rate + 60). Don't add the heavy surcharge separately after calculating base price.
+
+Also check your order of operations: (1) calculate base price including heavy rates, (2) apply percentage surcharges like weekend (10%), (3) add flat fees like remote area charges, (4) apply GOLD discount to base price + percentage surcharges only. Flat fees are excluded from the discount.
+
+Double-check volumetric weight for parcels and verify which weight is larger before pricing.
+</note>
