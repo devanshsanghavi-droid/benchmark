@@ -4,7 +4,7 @@ subtitle: "Why AI benchmarks die, what survived a red-teamed search for new ones
 author: "Benchmark research project (multi-agent study coordinated with Claude Code)"
 date: "October 2026"
 abstract: |
-  We asked what makes an AI benchmark durable and discriminative, then searched for a new one. Seven evidence panels (about 465 fact-checked claims) covered benchmarks humans still win, benchmarks AI wins that still separate models, dead and saturated benchmarks, games, capability gaps, test-time learning and evaluation methodology. The common hypothesis that failed benchmarks "lack novel thinking a model could not have trained on" is only partly right: novelty prevents item contamination, but novel benchmarks such as ARC-AGI-3 (under 1% to 99.9% in about five months) and FrontierMath Tier 4 (5% to 98% in under 14 months) still fell. What failed benchmarks share is a cheap path to a higher score that bypasses the named ability, plus no owner renewing the task faster than labs optimise against it. We generated 47 candidates, attacked them with seven independent red teams, and ran blinded pilots on five finalists with four Claude model tiers. Pilots killed three finalists outright: clean visual rule induction, patch auditing and self-knowledge quizzes all saturated at the mid tier. A bot-writing league on a secret new game (Season Forge) produced the widest separation (0.41 to 5.08 ladder rungs). We then built and piloted DEBRIEF, which scores the share of a fixed junior model's errors that a 150-word note from the model under test removes on unseen cases. Version 0 failed its first gate: the Haiku junior priced generated tariffs at 98.6% accuracy, leaving nothing to coach. We report the v0.2 redesign and its pilot below. The broad lesson is that durable benchmarks need renewal as the mechanism, an outcome measured on something other than the model's own answer, and pre-registered gates that are allowed to fail.
+  We asked what makes an AI benchmark durable and discriminative, then searched for a new one. Seven evidence panels (about 465 fact-checked claims) covered benchmarks humans still win, benchmarks AI wins that still separate models, dead and saturated benchmarks, games, capability gaps, test-time learning and evaluation methodology. The common hypothesis that failed benchmarks "lack novel thinking a model could not have trained on" is only partly right: novelty prevents item contamination, but novel benchmarks such as ARC-AGI-3 (under 1% to 99.9% in about five months) and FrontierMath Tier 4 (5% to 98% in under 14 months) still fell. What failed benchmarks share is a cheap path to a higher score that bypasses the named ability, plus no owner renewing the task faster than labs optimise against it. We generated 47 candidates, attacked them with seven independent red teams, and ran blinded pilots on five finalists with four Claude model tiers. Pilots killed three finalists outright: clean visual rule induction, patch auditing and self-knowledge quizzes all saturated at the mid tier. A bot-writing league on a secret new game (Season Forge) produced the widest separation (0.41 to 5.08 ladder rungs). We then built and piloted DEBRIEF, which scores the share of a fixed junior model's errors that a 150-word note from the model under test removes on unseen cases. Version 0 failed its first gate: the Haiku junior priced generated tariffs at 98.6% accuracy, leaving nothing to coach. A harder v0.2 produced a coachable junior: all four coaches independently diagnosed a misconception the authors' mutation library had missed (explaining 18 of 22 practice errors), and in their first post-test replicate every coach note beat the placebo and template baselines (net fix rates of 45 to 91% against 0 to 18%). But the same notes swung by more than 100 points between replicates, so the instrument cannot yet rank models. The broad lesson is that durable benchmarks need renewal as the mechanism, an outcome measured on something other than the model's own answer, and pre-registered gates that are allowed to fail.
 ---
 
 # Introduction
@@ -15,7 +15,7 @@ Benchmarks are how the field decides which models are good. Most of them stop wo
 2. **A red-teamed search for a new benchmark or game**, with blinded pilots that killed most of the shortlist (Section 3).
 3. **DEBRIEF**, a non-game benchmark that grades the effect of a model's explanation on another model, and its live pilots, including a failed first version (Sections 4 and 5).
 
-We use two archetypes throughout. In **A1**, humans clearly outperform AI (the ARC-AGI pattern). In **A2**, AI clearly outperforms typical humans but the results still separate strong from weak models, ideally in informative ways such as cheap models beating expensive ones (the StudentBench pattern [@northcutt2026studentbench]).
+We use two archetypes throughout. In **A1**, humans clearly outperform AI (the ARC-AGI pattern). In **A2**, AI clearly outperforms typical humans but the results still separate strong from weak models, ideally in informative ways such as cheap models beating expensive ones [the StudentBench pattern; @northcutt2026studentbench].
 
 All evidence files, fact-check logs, pilot materials and decrypted answer keys are in the repository under `research/research_notes/Novel AI benchmark and game ideas/` and `results/`. Claims we could see only through search-engine summaries, because the environment blocked several primary hosts, are marked [S].
 
@@ -149,11 +149,86 @@ Each trap doubles as a misconception in a mutation library. A mutation search la
 
 # DEBRIEF live pilots
 
-PILOT_RESULTS_PLACEHOLDER
+We ran two live pilots with Claude models as Claude Code agents.
+
+- **Junior:** Claude Haiku, told not to use tools, answering every case in a single reply.
+- **Coaches (models under test):** Haiku, Sonnet, Opus and Fable, each writing one note per item without tools.
+- **Blinding:** answer keys were held outside the repository until scoring.
+
+Everything is in `results/pilot_v0/` and `results/pilot_v1/`: prompts, replies, notes, keys and scores.
+
+## Pilot v0 (levels L2–L3): no headroom
+
+Six items, 8 practice and 12 fresh cases each. The junior priced **48 of 48 practice cases** correctly. On the fresh cases it scored **98.6%** in both control replicates and 100% with the placebo note. With two errors in 144 control answers there was nothing to coach: NFR is undefined in practice, and the placebo's nominal "100%" was two random slips disappearing.
+
+**Gate G1 failed.** Pre-registered, it required control accuracy between 30% and 70%. This is the same saturation pattern seen in Section 3: a current small model already applies clearly written rule systems almost perfectly.
+
+## Pilot v0.2 (levels L4–L5): coaches diagnose well, the junior is unstable
+
+**What changed.** We added interacting, counter-default provisions:
+
+- heavy documents reclassified as parcels;
+- a per-kg uplift above a weight threshold;
+- discounts that exclude flat fees;
+- oversize fees that double when two or more sides are long;
+- a minimum charge;
+- buried "amendments" that override earlier sections.
+
+Items are larger: 10 to 12 practice cases and 14 to 16 fresh cases. We ran six items, three at L4 and three at L5. Unit tests with hand-computed prices cover each new rule. Arms:
+
+- two control replicates;
+- placebo;
+- template coach;
+- two post-test replicates for each of the four coaches.
+
+**The junior's errors.** Its practice accuracy fell to 44 of 66, but the pre-registered mutation library explained only **2 of its 22 errors**. Every coach found what the library missed. Without being told, Haiku, Sonnet, Opus and Fable each identified the same systematic misconception: the junior treated the heavy-kg uplift as a separate add-on, so it computed the weekend percentage and the GOLD discount on the ordinary base only. Opus and Fable also caught the secondary errors in two items: a missed rounding to 2 kg, a skipped discount, an omitted remote fee.
+
+We added the coaches' misconception to the library as a labelled post-hoc entry. It explains **18 of 22** practice errors. Here the models under test out-diagnosed the benchmark's own authors, which is the construct DEBRIEF claims to measure.
+
+**Fresh-case scores.** Control accuracy on the fresh cases was 87.8% (replicates 91.1% and 84.4%). The two replicates agreed on only 80% of cases, and the replicate-versus-replicate "NFR" was −75%.
+
+| Arm (fresh cases, 90 per run) | Run 1 accuracy | Run 1 NFR | Run 2 accuracy | Run 2 NFR | Pooled NFR [95% CI] |
+|---|---|---|---|---|---|
+| Control | 91.1% | — | 84.4% | — | — |
+| Placebo note | 90.0% | +18 | — | — | +18 [−50, 100] |
+| Template coach | 87.8% | 0 | — | — | 0 [−100, 100] |
+| Haiku coach | 95.6% | +64 | 92.2% | +36 | **+50 [8, 76]** |
+| Sonnet coach | 96.7% | +73 | 90.0% | +18 | **+45 [20, 92]** |
+| Opus coach | **98.9%** | **+91** | 44.4% | −355 | −132 [−327, −55] |
+| Fable coach | 93.3% | +45 | 76.7% | −91 | −23 [−157, 40] |
+
+In the first post-test replicate, every coach beat both baselines. Opus's notes lifted the junior to 98.9% accuracy (NFR +91, 95% CI [76, 100]). The second replicate of the same notes collapsed for Opus and Fable, for two reasons:
+
+- **A harness artefact.** Items *k* and *k*+3 shared a seed, so each L4 tariff had a near-identical L5 twin. Agents that read all six prompts in one context sometimes applied the twin's amendments, and one wrote another item's answers into a file. Screening out the five affected item-runs (post hoc) raises pooled NFR to +14 for Opus and +9 for Fable.
+- **Note-induced over-generalisation.** On the remaining items the junior applied a document cap mentioned in a note to parcels. These are exactly the "breaks" DEBRIEF is designed to subtract, but they appeared in one replicate and not the other for the same note.
+
+**Gates.**
+
+| Gate | Requirement | Outcome |
+|---|---|---|
+| G1 | Junior control accuracy 30–70% | Failed (87.8%) |
+| G2 | Practice errors diagnosable by the library | Failed as pre-registered (2/22); passes with the coach-discovered entry (18/22) |
+| G3 | Template coach beats placebo | Failed (0 vs +18; the template had nothing to blame) |
+| G4 | Placebo within ±5 points of 0 | Not met (+18, CI spans −50 to 100) |
+| G6 | Junior repeatable enough to rank coaches | Failed: the same note produced NFR +91 and −355 |
+
+## What the DEBRIEF pilot shows
+
+The construct is real. Four models diagnosed a misconception that the pre-registered library missed, wrote notes under 150 words, and in their first replicates removed 45 to 91% of the junior's errors on cases they never saw, against 0 to 18% for the baselines. Weaker coaches wrote shorter, safer notes and showed smaller swings.
+
+The instrument is not yet reliable enough to rank models. Variance in how the junior reads a note dominates differences between coaches, and our agent harness added cross-item contamination. These problems are fixable, and the fixes are concrete:
+
+- one item per junior call, at fixed temperature through an API;
+- at least 4 replicates;
+- at least 60 items with distinct tariffs and no shared seeds;
+- several interacting misconceptions per item, so that diagnosis and triage, not just the one dominant fix, separate coaches;
+- a pinned junior whose control accuracy sits at 40 to 70%.
+
+With pooled NFR swinging by more than 100 points between replicates, we make no claim that any coach is better than another.
 
 # Limitations
 
-- **One lab's models.** All pilot solvers, coaches and juniors were Claude models, run as Claude Code agents with honour-system tool policies rather than a frozen harness.
+- **One lab's models.** All pilot solvers, coaches and juniors were Claude models, run as Claude Code agents with honour-system tool policies rather than a frozen harness. One DEBRIEF coach used shell commands to count words; no coach or junior is known to have run code to compute prices.
 - **Tiny samples:** 8 to 60 items per pilot.
 - **No human participants.** DEBRIEF's human-coach and human-learner validation arms remain to be run.
 - **Interrupted runs.** Usage limits cut several runs short, so the Season Forge snapshots for Sonnet, Fable and Opus and three Unrun Lab solvers are incomplete.
