@@ -1,0 +1,35 @@
+Working:
+
+F1: Weight 2.3→3kg becomes PARCEL, volumetric 30×25×12/6000=1.5→2kg, chargeable 3kg. Zone B: 540+360=900. Weekend +90. Remote XU +300. = 1290
+F2: Weight 0.4→1kg DOCUMENT. Zone B base 540. Weekend +54. = 594
+F3: Weight 4.1→5kg PARCEL, volumetric Zone A 65×65×55/2500=93.35→94kg, chargeable 94kg. Zone A: 340+480+16020=16840. Weekend +1684. Remote PG +300. Oversize 2 sides +500. GOLD -2778. = 16546
+F4: Weight 0.9→1kg DOCUMENT. Zone A base 340. Weekend +34. GOLD -56. Min 440. = 440
+F5: Weight 1.9→2kg PARCEL, volumetric Zone A 80×10×55/2500=17.6→18kg, chargeable 18kg. Zone A: 340+480+2340=3160. Weekend +316. Remote XU +300. Oversize 2 sides +500. = 4276
+F6: Weight 1.8→2kg DOCUMENT. Zone C base 600+280=880. Weekend +88. Remote PG +300. Total 1268 capped at 1200. = 1200
+F7: Weight 4.9→5kg PARCEL, volumetric 75×55×5/6000=3.4375→4kg, chargeable 5kg. Zone C: 600+1120=1720. Oversize 2 sides +500. = 2220
+F8: Weight 11.7→12kg PARCEL, volumetric Zone A 60×55×25/2500=33kg, chargeable 33kg. Zone A: 340+480+5040=6240. Remote PG +300. Oversize 2 sides +500. = 7040
+F9: Weight 0.9→1kg DOCUMENT. Zone A base 340. Weekend +34. GOLD -56. Min 440. = 440
+F10: Weight 1.5→2kg DOCUMENT. Zone C base 600+280=880. = 880
+F11: Weight 1.2→2kg DOCUMENT. Zone A base 340+120=460. = 460
+F12: Weight 1.6→2kg DOCUMENT. Zone C base 600+280=880. Weekend +88. Remote XU +300. Total 1268 capped at 1200. = 1200
+F13: Weight 2.7→3kg PARCEL, volumetric Zone A 80×60×50/2500=96kg, chargeable 96kg. Zone A: 340+480+16380=17200. Oversize 2 sides +500. GOLD -2580. = 15120
+F14: Weight 10.1→11kg PARCEL, volumetric 30×60×40/6000=12kg, chargeable 12kg. Zone B: 540+720+1680=2940. Oversize 1 side +250. = 3190
+F15: Weight 3.0kg becomes PARCEL, volumetric 45×35×12/6000=3.15→4kg, chargeable 4kg. Zone B: 540+540=1080. Weekend +108. GOLD -178. = 1010
+F16: Weight 2.0kg DOCUMENT. Zone C base 600+280=880. = 880
+
+F1: 1290
+F2: 594
+F3: 16546
+F4: 440
+F5: 4276
+F6: 1200
+F7: 2220
+F8: 7040
+F9: 440
+F10: 880
+F11: 460
+F12: 1200
+F13: 15120
+F14: 3190
+F15: 1010
+F16: 880

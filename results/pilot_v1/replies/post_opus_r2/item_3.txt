@@ -1,0 +1,41 @@
+F1: Zone C, 2.5 kg → 3 kg, DOCUMENT > 1 → PARCEL. Vol: 35×25×12/2500 = 5 kg. Chargeable: 5 kg. Base: 800 + 1120 = 1920. No uplift (5≤8). No weekend. No remote. Cap 800.
+F1: 800
+
+F2: Zone C, 9.1 kg → 10 kg, PARCEL. Vol: 55×30×30/2500 = 20 kg. Chargeable: 20 kg. Base: 800 + 5320 = 6120. Uplift 12×80 = 960 → base 7080. Sat 25% = 1770 → 8850. Remote (XL) = 400 → 9250. Oversize 1 = 200 → 9450. GOLD 10% of 8850 = 885 off → 8565.
+F2: 8565
+
+F3: Zone A, 10.8 kg → 11 kg, PARCEL. Vol: 65×45×30/4000 = 22 kg. Chargeable: 22 kg. Base: 530 + 3150 = 3680. Uplift 14×80 = 1120 → base 4800. Sat 25% = 1200 → 6000. No remote. Oversize 1 = 200 → 6200.
+F3: 6200
+
+F4: Zone C, 3.3 kg → 4 kg, PARCEL. Vol: 25×55×5/2500 = 3 kg. Chargeable: 4 kg. Base: 800 + 840 = 1640. No uplift. No weekend. No remote. Oversize 55 > 45 = 200 → 1840. GOLD 10% = 164 off → 1676.
+F4: 1676
+
+F5: Zone A, 11.8 kg → 12 kg, PARCEL. Vol: 20×25×40/4000 = 5 kg. Chargeable: 12 kg. Base: 530 + 1650 = 2180. Uplift 4×80 = 320 → base 2500. Sun 25% = 625 → 3125. No remote. No oversize.
+F5: 3125
+
+F6: Zone C, 0.1 kg → 1 kg, DOCUMENT. Base: 800. Sun 25% = 200 → 1000. Remote (GT) = 400 → 1400. GOLD 10% of 1000 = 100 off → 1300. Cap 800.
+F6: 800
+
+F7: Zone C, 10.4 kg → 11 kg, PARCEL. Vol: 20×55×5/2500 = 3 kg. Chargeable: 11 kg. Base: 800 + 2800 = 3600. Uplift 3×80 = 240 → base 3840. No weekend. No remote. Oversize 55 > 45 = 200 → 4040. GOLD 10% = 384 off → 3656.
+F7: 3656
+
+F8: Zone C, 1.0 kg, DOCUMENT. Base: 800. Sun 25% = 200 → 1000. Remote (XL) = 400 → 1400. Cap 800.
+F8: 800
+
+F9: Zone B, 0.2 kg → 1 kg, DOCUMENT. Base: 660. No weekend. No remote (Q). GOLD 10% = 66 off → 594. Cap 800, minimum 630.
+F9: 630
+
+F10: Zone A, 0.6 kg → 1 kg, DOCUMENT. Base: 530. Sat 25% = 132 → 662. Remote (XL) = 400 → 1062. Cap 800.
+F10: 800
+
+F11: Zone A, 3.0 kg, DOCUMENT > 1 → PARCEL. Vol: 35×30×3/4000 = 1 kg. Chargeable: 3 kg. Base: 530 + 300 = 830. Sat 25% = 207 → 1037. No remote. No GOLD (Zone A). Cap 800.
+F11: 800
+
+F12: Zone A, 2.1 kg → 3 kg, PARCEL. Vol: 30×20×35/4000 = 6 kg. Chargeable: 6 kg. Base: 530 + 750 = 1280. No uplift. No weekend. Remote (GT) = 400 → 1680. No oversize (35≤45).
+F12: 1680
+
+F13: Zone A, 0.9 kg → 1 kg, DOCUMENT. Base: 530. No weekend. No remote (Q). No GOLD (Zone A). Minimum 630.
+F13: 630
+
+F14: Zone B, 3.9 kg → 4 kg, DOCUMENT > 1 → PARCEL. Vol: 45×30×12/4000 = 5 kg. Chargeable: 5 kg. Base: 660 + 1040 = 1700. Sun 25% = 425 → 2125. Remote (XL) = 400 → 2525. No oversize (45 exact). GOLD 10% of 2125 = 212 off. Cap 800.
+F14: 800
