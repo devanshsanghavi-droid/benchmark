@@ -1,0 +1,95 @@
+TAMSIN COURIERS: DOMESTIC TARIFF (edition 8)
+
+All prices are in cents. Apply the sections in order.
+
+§1 Prohibited items. Lithium batteries, aerosols and perishable goods are not accepted for carriage.
+
+§2 Weight. Weights are always rounded upward to a whole kilogram, never to the nearest; the minimum is 1 kg.
+
+§3 Chargeable weight. For a PARCEL, the chargeable weight is the greater of its actual weight and its volumetric weight, where volumetric weight = length x width x height in cm / 4000. Each is rounded up separately before the two are compared. A DOCUMENT is always charged on its actual weight only.
+
+§4 Base price. Zone A: 330 for the first kg, then 140 per further kg; Zone B: 440 for the first kg, then 170 per further kg; Zone C: 650 for the first kg, then 290 per further kg.
+
+§5 Definitions. 'Consignment' means one item collected from one address. 'Working day' excludes public holidays.
+
+§6 Surcharges. A weekend collection (Sat/Sun) adds 10% of the base price, rounded down; the percentage is never applied to other surcharges. Postcodes that BEGIN with EW or DX are remote: add a flat 250 cents after any percentage surcharge.
+
+§7 Discounts. GOLD accounts receive 5% off the total after all surcharges (rounded down to a whole cent). The GOLD discount is not available on Zone C consignments.
+
+§8 Delivery times. Zone A: next working day. Zone B: two working days. Zone C: three to five working days.
+
+=== JUNIOR PRACTICE PROMPT ===
+Do not use any tools, code execution or browsing; answer from the text alone.
+
+You are pricing consignments under the tariff below.
+
+TARIFF:
+TAMSIN COURIERS: DOMESTIC TARIFF (edition 8)
+
+All prices are in cents. Apply the sections in order.
+
+§1 Prohibited items. Lithium batteries, aerosols and perishable goods are not accepted for carriage.
+
+§2 Weight. Weights are always rounded upward to a whole kilogram, never to the nearest; the minimum is 1 kg.
+
+§3 Chargeable weight. For a PARCEL, the chargeable weight is the greater of its actual weight and its volumetric weight, where volumetric weight = length x width x height in cm / 4000. Each is rounded up separately before the two are compared. A DOCUMENT is always charged on its actual weight only.
+
+§4 Base price. Zone A: 330 for the first kg, then 140 per further kg; Zone B: 440 for the first kg, then 170 per further kg; Zone C: 650 for the first kg, then 290 per further kg.
+
+§5 Definitions. 'Consignment' means one item collected from one address. 'Working day' excludes public holidays.
+
+§6 Surcharges. A weekend collection (Sat/Sun) adds 10% of the base price, rounded down; the percentage is never applied to other surcharges. Postcodes that BEGIN with EW or DX are remote: add a flat 250 cents after any percentage surcharge.
+
+§7 Discounts. GOLD accounts receive 5% off the total after all surcharges (rounded down to a whole cent). The GOLD discount is not available on Zone C consignments.
+
+§8 Delivery times. Zone A: next working day. Zone B: two working days. Zone C: three to five working days.
+
+CASES:
+P1: Zone A, 6.5 kg, 85x10x5 cm, PARCEL, collected Sat, postcode QDX4, STANDARD account
+P2: Zone C, 4.8 kg, 70x65x25 cm, PARCEL, collected Fri, postcode QDX3, GOLD account
+P3: Zone A, 0.8 kg, 35x25x50 cm, PARCEL, collected Mon, postcode DX6, GOLD account
+P4: Zone A, 3.7 kg, 35x35x5 cm, DOCUMENT, collected Wed, postcode TS4, GOLD account
+P5: Zone C, 9.2 kg, 10x45x25 cm, PARCEL, collected Sun, postcode DX6, GOLD account
+P6: Zone B, 4.4 kg, 60x10x50 cm, PARCEL, collected Tue, postcode QEW7, GOLD account
+P7: Zone C, 0.9 kg, 35x25x8 cm, DOCUMENT, collected Thu, postcode DX6, GOLD account
+P8: Zone A, 6.0 kg, 25x40x45 cm, PARCEL, collected Tue, postcode EW3, STANDARD account
+
+For each case, think briefly, then end your reply with exactly one line per case in the form `<case id>: <price in cents as an integer>` (e.g. `P1: 1234`).
+
+=== COACH PROMPT (with oracle answers as placeholder log) ===
+Do not use any tools, code execution or browsing; answer from the text alone.
+
+A junior assistant priced practice consignments under the tariff below. You will see the tariff, each practice case, the junior's answer and the correct answer. Write ONE note of at most 150 words that will help the same junior price NEW consignments correctly (you will not see them). The junior will get the tariff plus your note. Notes are truncated at 150 words.
+
+TARIFF:
+TAMSIN COURIERS: DOMESTIC TARIFF (edition 8)
+
+All prices are in cents. Apply the sections in order.
+
+§1 Prohibited items. Lithium batteries, aerosols and perishable goods are not accepted for carriage.
+
+§2 Weight. Weights are always rounded upward to a whole kilogram, never to the nearest; the minimum is 1 kg.
+
+§3 Chargeable weight. For a PARCEL, the chargeable weight is the greater of its actual weight and its volumetric weight, where volumetric weight = length x width x height in cm / 4000. Each is rounded up separately before the two are compared. A DOCUMENT is always charged on its actual weight only.
+
+§4 Base price. Zone A: 330 for the first kg, then 140 per further kg; Zone B: 440 for the first kg, then 170 per further kg; Zone C: 650 for the first kg, then 290 per further kg.
+
+§5 Definitions. 'Consignment' means one item collected from one address. 'Working day' excludes public holidays.
+
+§6 Surcharges. A weekend collection (Sat/Sun) adds 10% of the base price, rounded down; the percentage is never applied to other surcharges. Postcodes that BEGIN with EW or DX are remote: add a flat 250 cents after any percentage surcharge.
+
+§7 Discounts. GOLD accounts receive 5% off the total after all surcharges (rounded down to a whole cent). The GOLD discount is not available on Zone C consignments.
+
+§8 Delivery times. Zone A: next working day. Zone B: two working days. Zone C: three to five working days.
+
+PRACTICE LOG:
+P1: Zone A, 6.5 kg, 85x10x5 cm, PARCEL, collected Sat, postcode QDX4, STANDARD account | junior answered 1287 | correct 1287
+P2: Zone C, 4.8 kg, 70x65x25 cm, PARCEL, collected Fri, postcode QDX3, GOLD account | junior answered 8770 | correct 8770
+P3: Zone A, 0.8 kg, 35x25x50 cm, PARCEL, collected Mon, postcode DX6, GOLD account | junior answered 1881 | correct 1881
+P4: Zone A, 3.7 kg, 35x35x5 cm, DOCUMENT, collected Wed, postcode TS4, GOLD account | junior answered 713 | correct 713
+P5: Zone C, 9.2 kg, 10x45x25 cm, PARCEL, collected Sun, postcode DX6, GOLD account | junior answered 3836 | correct 3836
+P6: Zone B, 4.4 kg, 60x10x50 cm, PARCEL, collected Tue, postcode QEW7, GOLD account | junior answered 1549 | correct 1549
+P7: Zone C, 0.9 kg, 35x25x8 cm, DOCUMENT, collected Thu, postcode DX6, GOLD account | junior answered 900 | correct 900
+P8: Zone A, 6.0 kg, 25x40x45 cm, PARCEL, collected Tue, postcode EW3, STANDARD account | junior answered 2120 | correct 2120
+
+Reply with the note only, between <note> and </note>.
