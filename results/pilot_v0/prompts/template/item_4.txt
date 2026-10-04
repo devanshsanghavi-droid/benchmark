@@ -1,0 +1,47 @@
+Do not use any tools, code execution or browsing; answer from the text alone.
+
+You are pricing consignments under the tariff below.
+
+TARIFF:
+OSTREY EXPRESS: DOMESTIC TARIFF (edition 8)
+
+All prices are in cents. Apply the sections in order.
+
+§1 Claims. Loss or damage must be reported within 14 days of the delivery date with photographs of the packaging.
+
+§2 Weight. All weights are rounded UP to the next whole kilogram (minimum 1 kg) before any comparison or charge.
+
+§3 Chargeable weight. PARCELS are charged on whichever is larger: actual weight, or volumetric weight (L x W x H in cm divided by 4000), each rounded up first. DOCUMENTS are never charged on volumetric weight.
+
+§4 Base price. Zone A: 400 for the first kg, then 140 per further kg; Zone B: 560 for the first kg, then 230 per further kg; Zone C: 800 for the first kg, then 250 per further kg.
+
+§5 Delivery times. Zone A: next working day. Zone B: two working days. Zone C: three to five working days.
+
+§6 Surcharges. A weekend collection (Sat/Sun) adds 25% of the base price, rounded down; the percentage is never applied to other surcharges. A flat remote-area fee of 200 cents applies when the postcode starts with ME or XG; it is added after percentage surcharges.
+
+§7 Discounts. GOLD accounts receive 10% off the total after all surcharges (rounded down to a whole cent). Zone C consignments are excluded from the GOLD discount.
+
+§8 Cap. The final price of any DOCUMENT is capped at 1000 cents.
+
+§9 Tracking. Every consignment receives a tracking reference by email on the day of collection.
+
+NOTE FROM A REVIEWER (may help you):
+<<<
+Re-read every section of the tariff and apply each rule exactly as written.
+>>>
+
+CASES:
+F1: Zone C, 5.5 kg, 60x10x55 cm, PARCEL, collected Tue, postcode PW1, STANDARD account
+F2: Zone B, 0.9 kg, 45x30x8 cm, DOCUMENT, collected Mon, postcode QME8, GOLD account
+F3: Zone C, 1.6 kg, 45x30x12 cm, DOCUMENT, collected Wed, postcode XG9, GOLD account
+F4: Zone A, 2.1 kg, 40x25x5 cm, DOCUMENT, collected Mon, postcode BU6, GOLD account
+F5: Zone B, 1.2 kg, 45x10x30 cm, PARCEL, collected Sun, postcode ME3, STANDARD account
+F6: Zone C, 5.6 kg, 60x40x15 cm, PARCEL, collected Sat, postcode ME1, STANDARD account
+F7: Zone A, 2.7 kg, 45x35x8 cm, DOCUMENT, collected Sat, postcode ME1, GOLD account
+F8: Zone C, 3.8 kg, 40x30x8 cm, DOCUMENT, collected Mon, postcode NJ4, STANDARD account
+F9: Zone A, 7.3 kg, 50x15x35 cm, PARCEL, collected Fri, postcode QME6, STANDARD account
+F10: Zone B, 3.4 kg, 45x30x8 cm, DOCUMENT, collected Mon, postcode ME8, GOLD account
+F11: Zone C, 10.6 kg, 30x55x10 cm, PARCEL, collected Thu, postcode LG9, GOLD account
+F12: Zone C, 11.8 kg, 40x60x10 cm, PARCEL, collected Mon, postcode PE3, GOLD account
+
+For each case, think briefly, then end your reply with exactly one line per case in the form `<case id>: <price in cents as an integer>` (e.g. `F1: 1234`).

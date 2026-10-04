@@ -10,7 +10,7 @@ def main(argv=None):
     sub = ap.add_subparsers(dest="cmd", required=True)
     g = sub.add_parser("generate")
     g.add_argument("--seed", type=int, default=1)
-    g.add_argument("--level", type=int, default=2, choices=[1, 2, 3])
+    g.add_argument("--level", type=int, default=2, choices=[1, 2, 3, 4, 5])
     g.add_argument("--out")
     g.add_argument("--show-prompts", action="store_true")
     sub.add_parser("simulate")

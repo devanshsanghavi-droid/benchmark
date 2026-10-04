@@ -38,12 +38,24 @@ MISCONCEPTIONS = {
     "no_gold_excl": "gold_excl",       # applies the GOLD discount in the excluded zone
     "no_cap": "doc_cap",               # ignores the document price cap
     "remote_any_position": "remote",   # matches remote prefixes anywhere in the postcode
+    # L4-L5 (v0.2): counter-default provisions that interact
+    "no_doc_reclass": "doc_reclass",   # keeps treating heavy documents as documents
+    "discount_flat_fees": ("gold", "flat_undiscounted"),  # discounts the flat fees as well
+    "no_tier": "tier",                 # charges every kg at the ordinary rate
+    "tier_all_kg": "tier",             # once over the threshold, charges ALL further kg at the heavy rate
+    "no_zone_div": "zone_div",         # uses the general divisor in the amended zone
+    "oversize_once": "oversize",       # charges the oversize fee once even when 2+ sides are long
+    "no_minimum": "minimum",           # ignores the minimum charge
 }
 
 LEVEL_PROVISIONS = {
     1: ["rounding", "vol", "weekend"],
     2: ["rounding", "vol", "weekend", "remote", "gold", "gold_excl"],
     3: ["rounding", "vol", "weekend", "remote", "gold", "gold_excl", "doc_cap"],
+    4: ["rounding", "vol", "weekend", "remote", "gold", "gold_excl", "doc_cap", "doc_reclass", "flat_undiscounted",
+        "tier"],
+    5: ["rounding", "vol", "weekend", "remote", "gold", "gold_excl", "doc_cap", "doc_reclass", "flat_undiscounted",
+        "tier", "zone_div", "oversize", "minimum"],
 }
 
 
@@ -62,6 +74,14 @@ class System:
     gold_pct: int
     excl_zone: str
     doc_cap: int
+    reclass_kg: int = 2
+    tier_kg: int = 8
+    tier_add: int = 60
+    zone_div_zone: str = "C"
+    zone_divisor: int = 3000
+    oversize_cm: int = 60
+    oversize_fee: int = 300
+    minimum: int = 700
 
 
 @dataclass
@@ -89,13 +109,25 @@ def make_system(seed: int, level: int) -> System:
     prefixes = ["".join(r.sample(letters, 2)) for _ in range(2)]
     name = r.choice(["Northvale", "Brightwater", "Kestrel", "Halden", "Marlow", "Ostrey", "Tamsin", "Wexcombe"])
     name += " " + r.choice(["Couriers", "Parcel Co.", "Freight", "Express", "Post"])
-    return System(
+    sysobj = System(
         seed=seed, level=level, name=name, provisions=list(LEVEL_PROVISIONS[level]),
         first=dict(zip(ZONES, firsts)), per=dict(zip(ZONES, pers)),
         divisor=r.choice([4000, 5000, 6000]), weekend_pct=r.choice([10, 15, 20, 25]),
         remote_prefixes=prefixes, remote_fee=r.choice(range(200, 500, 50)),
         gold_pct=r.choice([5, 10, 15]), excl_zone=r.choice(ZONES), doc_cap=r.choice(range(600, 1300, 100)),
+        # v0.2 parameters; drawn from a separate stream so L1-L3 systems are unchanged
+        **_v02_params(seed),
     )
+    sysobj.minimum = sysobj.first["A"] + sysobj.minimum  # binds on light, discounted Zone A consignments
+    return sysobj
+
+
+def _v02_params(seed: int) -> dict:
+    r = random.Random(seed * 101 + 7)
+    return dict(reclass_kg=r.choice([1, 2, 3]), tier_kg=r.choice([5, 6, 8, 10]), tier_add=r.choice(range(40, 160, 20)),
+                zone_div_zone=r.choice(ZONES), zone_divisor=r.choice([2500, 3000, 3500]),
+                oversize_cm=r.choice([40, 45, 50]), oversize_fee=r.choice(range(150, 450, 50)),
+                minimum=r.choice([60, 100, 150]))  # offset above Zone A's first-kg price; set in make_system
 
 
 def live_misconceptions(sys: System) -> list:
@@ -116,29 +148,53 @@ def price(sys: System, c: Case, mis: frozenset = frozenset()) -> int:
     P = sys.provisions
     nearest = "round_nearest" in mis
     w = _round_kg(c.weight, nearest)
+    kind = c.kind
+    if "doc_reclass" in P and kind == "DOCUMENT" and w > sys.reclass_kg and "no_doc_reclass" not in mis:
+        kind = "PARCEL"  # a heavy document is treated as a parcel for all purposes
     if "vol" in P:
-        use_vol = (c.kind == "PARCEL" and "no_vol" not in mis) or (c.kind == "DOCUMENT" and "vol_on_docs" in mis)
+        use_vol = (kind == "PARCEL" and "no_vol" not in mis) or (kind == "DOCUMENT" and "vol_on_docs" in mis)
         if use_vol:
             l, wd, h = c.dims
-            w = max(w, _round_kg(l * wd * h / sys.divisor, nearest))
-    base = sys.first[c.zone] + (w - 1) * sys.per[c.zone]
+            div = sys.divisor
+            if "zone_div" in P and c.zone == sys.zone_div_zone and "no_zone_div" not in mis:
+                div = sys.zone_divisor
+            w = max(w, _round_kg(l * wd * h / div, nearest))
+    first, per = sys.first[c.zone], sys.per[c.zone]
+    if "tier" in P and w > sys.tier_kg and "no_tier" not in mis:
+        if "tier_all_kg" in mis:
+            base = first + (w - 1) * (per + sys.tier_add)
+        else:
+            base = first + (sys.tier_kg - 1) * per + (w - sys.tier_kg) * (per + sys.tier_add)
+    else:
+        base = first + (w - 1) * per
     remote = 0
     if "remote" in P:
         pc = c.postcode.upper()
         hit = any(p in pc for p in sys.remote_prefixes) if "remote_any_position" in mis else any(pc.startswith(p) for p in sys.remote_prefixes)
         remote = sys.remote_fee if hit else 0
+    oversize = 0
+    if "oversize" in P and kind == "PARCEL":
+        n_long = sum(d > sys.oversize_cm for d in c.dims)
+        if n_long:
+            oversize = sys.oversize_fee * (2 if n_long >= 2 and "oversize_once" not in mis else 1)
+    flat = remote + oversize
     weekend = "weekend" in P and c.day in ("Sat", "Sun")
     if weekend and "weekend_on_total" in mis:
-        total = base + remote
-        total += total * sys.weekend_pct // 100
+        pct_part = (base + flat) * sys.weekend_pct // 100
     else:
-        total = base + (base * sys.weekend_pct // 100 if weekend else 0) + remote
+        pct_part = base * sys.weekend_pct // 100 if weekend else 0
+    discountable, total = base + pct_part, base + pct_part + flat
     if "gold" in P and c.account == "GOLD":
         excluded = "gold_excl" in P and c.zone == sys.excl_zone and "no_gold_excl" not in mis
         if not excluded:
-            total -= total * sys.gold_pct // 100
-    if "doc_cap" in P and c.kind == "DOCUMENT" and "no_cap" not in mis:
+            if "flat_undiscounted" in P and "discount_flat_fees" not in mis:
+                total -= discountable * sys.gold_pct // 100
+            else:
+                total -= total * sys.gold_pct // 100
+    if "doc_cap" in P and kind == "DOCUMENT" and "no_cap" not in mis:
         total = min(total, sys.doc_cap)
+    if "minimum" in P and "no_minimum" not in mis:
+        total = max(total, sys.minimum)
     return int(total)
 
 
@@ -161,6 +217,22 @@ PHRASES = {
     "doc_cap": ["A DOCUMENT never costs more than {doc_cap} cents in total, after all surcharges and discounts.",
                 "The final price of any DOCUMENT is capped at {doc_cap} cents."],
 }
+PHRASES_V02 = {
+    "doc_reclass": ["A DOCUMENT whose rounded actual weight exceeds {reclass_kg} kg is treated as a PARCEL for all purposes in this tariff.",
+                    "Any DOCUMENT weighing more than {reclass_kg} kg (after rounding) is reclassified as a PARCEL and priced as one in every section."],
+    "flat_undiscounted": ["GOLD accounts receive {gold_pct}% off the base price plus any percentage surcharge (rounded down to a whole cent); flat fees are never discounted.",
+                          "For GOLD accounts, {gold_pct}% (rounded down) is deducted from the base price and percentage surcharges only. Flat fees such as the remote-area or oversize fee are charged in full."],
+    "tier": ["For each chargeable kg above {tier_kg} kg, the per-kg rate is increased by {tier_add} cents. The first {tier_kg} kg are charged at the ordinary rates.",
+             "Each chargeable kilogram beyond the {tier_kg}th costs {tier_add} cents more than the zone's ordinary per-kg rate; kilograms up to and including the {tier_kg}th are unaffected."],
+    "zone_div": ["(a) For Zone {zone_div_zone} consignments only, the volumetric divisor is {zone_divisor} instead of the divisor stated in the chargeable-weight section."],
+    "oversize": ["(b) A PARCEL with any one side longer than {oversize_cm} cm pays a flat oversize fee of {oversize_fee} cents; if two or more sides are longer than {oversize_cm} cm, the fee is doubled."],
+    "minimum": ["(c) No consignment is charged less than {minimum} cents in total, after all other sections (including any cap)."],
+}
+SECTION_TITLES = {"rounding": "Weight.", "vol": "Chargeable weight.", "weekend": "Surcharges.", "remote": "Surcharges.",
+                  "gold": "Discounts.", "gold_excl": "Discounts.", "flat_undiscounted": "Discounts.", "doc_cap": "Cap.",
+                  "doc_reclass": "Reclassification.", "tier": "Heavy items.", "zone_div": "Amendments",
+                  "oversize": "Amendments", "minimum": "Amendments"}
+
 DISTRACTORS = [
     "Claims. Loss or damage must be reported within 14 days of the delivery date with photographs of the packaging.",
     "Delivery times. Zone A: next working day. Zone B: two working days. Zone C: three to five working days.",
@@ -174,27 +246,39 @@ def render_spec(sys: System) -> str:
     r = random.Random(sys.seed * 7 + 1)
     fmt = dict(divisor=sys.divisor, weekend_pct=sys.weekend_pct, remote_fee=sys.remote_fee,
                prefixes=" or ".join(sys.remote_prefixes), gold_pct=sys.gold_pct, excl_zone=sys.excl_zone,
-               doc_cap=sys.doc_cap)
+               doc_cap=sys.doc_cap, reclass_kg=sys.reclass_kg, tier_kg=sys.tier_kg, tier_add=sys.tier_add,
+               zone_div_zone=sys.zone_div_zone, zone_divisor=sys.zone_divisor, oversize_cm=sys.oversize_cm,
+               oversize_fee=sys.oversize_fee, minimum=sys.minimum)
+    P = sys.provisions
+    pick = lambda k: r.choice((PHRASES_V02 if k in PHRASES_V02 else PHRASES)[k]).format(**fmt)
     lines = [f"{sys.name.upper()}: DOMESTIC TARIFF (edition {sys.seed % 9 + 2})", "",
              "All prices are in cents. Apply the sections in order."]
     sec = 1
     distract = r.sample(DISTRACTORS, 3)
     lines.append(f"\n§{sec} {distract[0]}"); sec += 1
-    lines.append(f"\n§{sec} Weight. " + r.choice(PHRASES["rounding"]).format(**fmt)); sec += 1
-    if "vol" in sys.provisions:
-        lines.append(f"\n§{sec} Chargeable weight. " + r.choice(PHRASES["vol"]).format(**fmt)); sec += 1
+    lines.append(f"\n§{sec} Weight. " + pick("rounding")); sec += 1
+    if "doc_reclass" in P:
+        lines.append(f"\n§{sec} Reclassification. " + pick("doc_reclass")); sec += 1
+    if "vol" in P:
+        lines.append(f"\n§{sec} Chargeable weight. " + pick("vol")); sec += 1
     base = "; ".join(f"Zone {z}: {sys.first[z]} for the first kg, then {sys.per[z]} per further kg" for z in ZONES)
     lines.append(f"\n§{sec} Base price. {base}."); sec += 1
+    if "tier" in P:
+        lines.append(f"\n§{sec} Heavy items. " + pick("tier")); sec += 1
     lines.append(f"\n§{sec} {distract[1]}"); sec += 1
-    surch = [r.choice(PHRASES[p]).format(**fmt) for p in ("weekend", "remote") if p in sys.provisions]
+    surch = [pick(k) for k in ("weekend", "remote") if k in P]
     if surch:
         lines.append(f"\n§{sec} Surcharges. " + " ".join(surch)); sec += 1
-    disc = [r.choice(PHRASES[p]).format(**fmt) for p in ("gold", "gold_excl") if p in sys.provisions]
+    gold_key = "flat_undiscounted" if "flat_undiscounted" in P else "gold"
+    disc = [pick(k) for k in (gold_key, "gold_excl") if k in P or (k == gold_key and "gold" in P)]
     if disc:
         lines.append(f"\n§{sec} Discounts. " + " ".join(disc)); sec += 1
-    if "doc_cap" in sys.provisions:
-        lines.append(f"\n§{sec} Cap. " + r.choice(PHRASES["doc_cap"]).format(**fmt)); sec += 1
-    lines.append(f"\n§{sec} {distract[2]}")
+    if "doc_cap" in P:
+        lines.append(f"\n§{sec} Cap. " + pick("doc_cap")); sec += 1
+    lines.append(f"\n§{sec} {distract[2]}"); sec += 1
+    amend = [pick(k) for k in ("zone_div", "oversize", "minimum") if k in P]
+    if amend:
+        lines.append(f"\n§{sec} Amendments to this edition (these override any earlier section). " + " ".join(amend))
     return "\n".join(lines)
 
 
@@ -235,7 +319,21 @@ def sample_cases(sys: System, n: int, prefix: str, r: random.Random, min_cover: 
         need["vol_on_docs"] = max(need["vol_on_docs"], guards)
     need0 = dict(need)
     chosen = []
-    for _ in range(20000):
+    if sys.level >= 4:  # v0.2: best-of-N greedy cover (many interacting traps need efficient covering)
+        for _ in range(n):
+            if all(v <= 0 for v in need.values()):
+                break
+            cands = [random_case(r, sys, "tmp") for _ in range(400)]
+            sens = [{m for m, v in need.items() if v > 0 and sensitive(sys, c, m)} for c in cands]
+            freq = {m: sum(m in s_ for s_ in sens) for m in need}
+            # rarity-weighted greedy: traps that few random cases expose are covered first
+            scores = [sum(1.0 / (1 + freq[m]) for m in s_) for s_ in sens]
+            best = cands[max(range(len(cands)), key=scores.__getitem__)]
+            chosen.append(best)
+            for m in need:
+                if sensitive(sys, best, m):
+                    need[m] -= 1
+    for _ in range(0 if sys.level >= 4 else 20000):
         if all(v <= 0 for v in need.values()):
             break
         if len(chosen) >= n:  # restart: greedy set grew too large
@@ -273,11 +371,22 @@ class Item:
         return json.dumps(d, indent=1)
 
 
-def make_item(seed: int, level: int, n_practice: int = 8, n_fresh: int = 12) -> Item:
+LEVEL_SIZES = {4: (10, 14), 5: (12, 16)}  # (practice, fresh); L1-L3 use 8 / 12
+
+
+def make_item(seed: int, level: int, n_practice: int | None = None, n_fresh: int | None = None) -> Item:
+    dp, df = LEVEL_SIZES.get(level, (8, 12))
+    n_practice, n_fresh = n_practice or dp, n_fresh or df
     sys = make_system(seed, level)
-    r = random.Random(seed * 31 + level)
-    practice = sample_cases(sys, n_practice, "P", r, min_cover=1)
-    fresh = sample_cases(sys, n_fresh, "F", r, min_cover=2, guards=2)
+    for attempt in range(1 if level < 4 else 25):  # v0.2: deterministic retries for heavily constrained levels
+        r = random.Random(seed * 31 + level + 1000 * attempt)
+        try:
+            practice = sample_cases(sys, n_practice, "P", r, min_cover=1)
+            fresh = sample_cases(sys, n_fresh, "F", r, min_cover=2, guards=2)
+            break
+        except RuntimeError:
+            if level < 4 or attempt == 24:
+                raise
     return Item(sys, render_spec(sys), practice, fresh,
                 {c.cid: price(sys, c) for c in practice}, {c.cid: price(sys, c) for c in fresh})
 
@@ -318,8 +427,7 @@ def template_coach_note(item: Item, answers: dict, budget: int = 150) -> str:
         return truncate_words("Re-read every section of the tariff and apply each rule exactly as written.", budget)
     provs = sorted({p for m in s for p in _provs(MISCONCEPTIONS[m])})
     paras = [p for p in item.spec.split("\n") if p.strip()]
-    keyw = {"rounding": "Weight.", "vol": "Chargeable weight.", "weekend": "Surcharges.", "remote": "Surcharges.",
-            "gold": "Discounts.", "gold_excl": "Discounts.", "doc_cap": "Cap."}
+    keyw = SECTION_TITLES
     picked = []
     for pv in provs:
         for p in paras:
