@@ -1,0 +1,344 @@
+{
+ "system": {
+  "seed": 42,
+  "level": 2,
+  "name": "Tamsin Couriers",
+  "provisions": [
+   "rounding",
+   "vol",
+   "weekend",
+   "remote",
+   "gold",
+   "gold_excl"
+  ],
+  "first": {
+   "A": 330,
+   "B": 440,
+   "C": 650
+  },
+  "per": {
+   "A": 140,
+   "B": 170,
+   "C": 290
+  },
+  "divisor": 4000,
+  "weekend_pct": 10,
+  "remote_prefixes": [
+   "EW",
+   "DX"
+  ],
+  "remote_fee": 250,
+  "gold_pct": 5,
+  "excl_zone": "C",
+  "doc_cap": 1000
+ },
+ "spec": "TAMSIN COURIERS: DOMESTIC TARIFF (edition 8)\n\nAll prices are in cents. Apply the sections in order.\n\n\u00a71 Prohibited items. Lithium batteries, aerosols and perishable goods are not accepted for carriage.\n\n\u00a72 Weight. Weights are always rounded upward to a whole kilogram, never to the nearest; the minimum is 1 kg.\n\n\u00a73 Chargeable weight. For a PARCEL, the chargeable weight is the greater of its actual weight and its volumetric weight, where volumetric weight = length x width x height in cm / 4000. Each is rounded up separately before the two are compared. A DOCUMENT is always charged on its actual weight only.\n\n\u00a74 Base price. Zone A: 330 for the first kg, then 140 per further kg; Zone B: 440 for the first kg, then 170 per further kg; Zone C: 650 for the first kg, then 290 per further kg.\n\n\u00a75 Definitions. 'Consignment' means one item collected from one address. 'Working day' excludes public holidays.\n\n\u00a76 Surcharges. A weekend collection (Sat/Sun) adds 10% of the base price, rounded down; the percentage is never applied to other surcharges. Postcodes that BEGIN with EW or DX are remote: add a flat 250 cents after any percentage surcharge.\n\n\u00a77 Discounts. GOLD accounts receive 5% off the total after all surcharges (rounded down to a whole cent). The GOLD discount is not available on Zone C consignments.\n\n\u00a78 Delivery times. Zone A: next working day. Zone B: two working days. Zone C: three to five working days.",
+ "practice": [
+  {
+   "cid": "P1",
+   "zone": "A",
+   "weight": 6.5,
+   "dims": [
+    85,
+    10,
+    5
+   ],
+   "kind": "PARCEL",
+   "day": "Sat",
+   "postcode": "QDX4",
+   "account": "STANDARD"
+  },
+  {
+   "cid": "P2",
+   "zone": "C",
+   "weight": 4.8,
+   "dims": [
+    70,
+    65,
+    25
+   ],
+   "kind": "PARCEL",
+   "day": "Fri",
+   "postcode": "QDX3",
+   "account": "GOLD"
+  },
+  {
+   "cid": "P3",
+   "zone": "A",
+   "weight": 0.8,
+   "dims": [
+    35,
+    25,
+    50
+   ],
+   "kind": "PARCEL",
+   "day": "Mon",
+   "postcode": "DX6",
+   "account": "GOLD"
+  },
+  {
+   "cid": "P4",
+   "zone": "A",
+   "weight": 3.7,
+   "dims": [
+    35,
+    35,
+    5
+   ],
+   "kind": "DOCUMENT",
+   "day": "Wed",
+   "postcode": "TS4",
+   "account": "GOLD"
+  },
+  {
+   "cid": "P5",
+   "zone": "C",
+   "weight": 9.2,
+   "dims": [
+    10,
+    45,
+    25
+   ],
+   "kind": "PARCEL",
+   "day": "Sun",
+   "postcode": "DX6",
+   "account": "GOLD"
+  },
+  {
+   "cid": "P6",
+   "zone": "B",
+   "weight": 4.4,
+   "dims": [
+    60,
+    10,
+    50
+   ],
+   "kind": "PARCEL",
+   "day": "Tue",
+   "postcode": "QEW7",
+   "account": "GOLD"
+  },
+  {
+   "cid": "P7",
+   "zone": "C",
+   "weight": 0.9,
+   "dims": [
+    35,
+    25,
+    8
+   ],
+   "kind": "DOCUMENT",
+   "day": "Thu",
+   "postcode": "DX6",
+   "account": "GOLD"
+  },
+  {
+   "cid": "P8",
+   "zone": "A",
+   "weight": 6.0,
+   "dims": [
+    25,
+    40,
+    45
+   ],
+   "kind": "PARCEL",
+   "day": "Tue",
+   "postcode": "EW3",
+   "account": "STANDARD"
+  }
+ ],
+ "fresh": [
+  {
+   "cid": "F1",
+   "zone": "A",
+   "weight": 4.2,
+   "dims": [
+    20,
+    50,
+    55
+   ],
+   "kind": "PARCEL",
+   "day": "Sat",
+   "postcode": "EW9",
+   "account": "GOLD"
+  },
+  {
+   "cid": "F2",
+   "zone": "A",
+   "weight": 0.6,
+   "dims": [
+    45,
+    25,
+    5
+   ],
+   "kind": "DOCUMENT",
+   "day": "Fri",
+   "postcode": "DX8",
+   "account": "STANDARD"
+  },
+  {
+   "cid": "F3",
+   "zone": "B",
+   "weight": 1.1,
+   "dims": [
+    45,
+    25,
+    3
+   ],
+   "kind": "DOCUMENT",
+   "day": "Mon",
+   "postcode": "EW5",
+   "account": "GOLD"
+  },
+  {
+   "cid": "F4",
+   "zone": "B",
+   "weight": 1.9,
+   "dims": [
+    40,
+    65,
+    45
+   ],
+   "kind": "PARCEL",
+   "day": "Sat",
+   "postcode": "EW8",
+   "account": "GOLD"
+  },
+  {
+   "cid": "F5",
+   "zone": "C",
+   "weight": 1.4,
+   "dims": [
+    30,
+    25,
+    12
+   ],
+   "kind": "DOCUMENT",
+   "day": "Mon",
+   "postcode": "EU4",
+   "account": "GOLD"
+  },
+  {
+   "cid": "F6",
+   "zone": "B",
+   "weight": 4.7,
+   "dims": [
+    70,
+    55,
+    25
+   ],
+   "kind": "PARCEL",
+   "day": "Sun",
+   "postcode": "QDX5",
+   "account": "STANDARD"
+  },
+  {
+   "cid": "F7",
+   "zone": "C",
+   "weight": 9.7,
+   "dims": [
+    40,
+    30,
+    35
+   ],
+   "kind": "PARCEL",
+   "day": "Sat",
+   "postcode": "DX8",
+   "account": "STANDARD"
+  },
+  {
+   "cid": "F8",
+   "zone": "C",
+   "weight": 2.4,
+   "dims": [
+    40,
+    30,
+    12
+   ],
+   "kind": "DOCUMENT",
+   "day": "Thu",
+   "postcode": "EW9",
+   "account": "GOLD"
+  },
+  {
+   "cid": "F9",
+   "zone": "B",
+   "weight": 1.3,
+   "dims": [
+    40,
+    30,
+    5
+   ],
+   "kind": "DOCUMENT",
+   "day": "Fri",
+   "postcode": "EW9",
+   "account": "GOLD"
+  },
+  {
+   "cid": "F10",
+   "zone": "A",
+   "weight": 0.9,
+   "dims": [
+    75,
+    35,
+    10
+   ],
+   "kind": "PARCEL",
+   "day": "Mon",
+   "postcode": "WM1",
+   "account": "GOLD"
+  },
+  {
+   "cid": "F11",
+   "zone": "C",
+   "weight": 2.6,
+   "dims": [
+    25,
+    55,
+    10
+   ],
+   "kind": "PARCEL",
+   "day": "Fri",
+   "postcode": "QDX5",
+   "account": "STANDARD"
+  },
+  {
+   "cid": "F12",
+   "zone": "B",
+   "weight": 2.4,
+   "dims": [
+    30,
+    30,
+    5
+   ],
+   "kind": "DOCUMENT",
+   "day": "Sat",
+   "postcode": "QDX2",
+   "account": "STANDARD"
+  }
+ ],
+ "practice_key": {
+  "P1": 1287,
+  "P2": 8770,
+  "P3": 1881,
+  "P4": 713,
+  "P5": 3836,
+  "P6": 1549,
+  "P7": 900,
+  "P8": 2120
+ },
+ "fresh_key": {
+  "F1": 2485,
+  "F2": 580,
+  "F3": 817,
+  "F4": 5850,
+  "F5": 940,
+  "F6": 4972,
+  "F7": 4155,
+  "F8": 1480,
+  "F9": 817,
+  "F10": 1112,
+  "F11": 1520,
+  "F12": 858
+ }
+}
