@@ -1,0 +1,10 @@
+<note>
+Fix these three things.
+1. Round every weight UP: a 1.2 or 1.4 kg document is charged as 2 kg, not 1. A 2 kg document is still a document: Zone C = 600 + 280 = 880 before surcharges.
+2. The §6 heavy-kg increase (+60 per kg above 5) is not a separate surcharge; it is part of the base price. Build the full base, then apply weekend 10% and GOLD 15% (round down) to all of it.
+3. GOLD excludes only Zone C. Zone A and B GOLD consignments are discounted. Flat fees (remote 300, oversize 250 or 500) are added last, undiscounted.
+
+Example: Zone A, GOLD, Sunday, 58 kg chargeable (volume/2500), two sides over 50 cm: base 10360, +1036 = 11396, -1709 = 9687, +500 = 10187.
+
+The 440 minimum applies last, after the 1200 document cap.
+</note>

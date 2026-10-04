@@ -1,0 +1,57 @@
+Do not use any tools, code execution or browsing; answer from the text alone.
+
+You are pricing consignments under the tariff below.
+
+TARIFF:
+TAMSIN EXPRESS: DOMESTIC TARIFF (edition 8)
+
+All prices are in cents. Apply the sections in order.
+
+§1 Definitions. 'Consignment' means one item collected from one address. 'Working day' excludes public holidays.
+
+§2 Weight. All weights are rounded UP to the next whole kilogram (minimum 1 kg) before any comparison or charge.
+
+§3 Reclassification. Any DOCUMENT weighing more than 2 kg (after rounding) is reclassified as a PARCEL and priced as one in every section.
+
+§4 Chargeable weight. PARCELS are charged on whichever is larger: actual weight, or volumetric weight (L x W x H in cm divided by 6000), each rounded up first. DOCUMENTS are never charged on volumetric weight.
+
+§5 Base price. Zone A: 340 for the first kg, then 120 per further kg; Zone B: 540 for the first kg, then 180 per further kg; Zone C: 600 for the first kg, then 280 per further kg.
+
+§6 Heavy items. For each chargeable kg above 5 kg, the per-kg rate is increased by 60 cents. The first 5 kg are charged at the ordinary rates.
+
+§7 Tracking. Every consignment receives a tracking reference by email on the day of collection.
+
+§8 Surcharges. A weekend collection (Sat/Sun) adds 10% of the base price, rounded down; the percentage is never applied to other surcharges. A flat remote-area fee of 300 cents applies when the postcode starts with XU or PG; it is added after percentage surcharges.
+
+§9 Discounts. GOLD accounts receive 15% off the base price plus any percentage surcharge (rounded down to a whole cent); flat fees are never discounted. Zone C consignments are excluded from the GOLD discount.
+
+§10 Cap. A DOCUMENT never costs more than 1200 cents in total, after all surcharges and discounts.
+
+§11 Claims. Loss or damage must be reported within 14 days of the delivery date with photographs of the packaging.
+
+§12 Amendments to this edition (these override any earlier section). (a) For Zone A consignments only, the volumetric divisor is 2500 instead of the divisor stated in the chargeable-weight section. (b) A PARCEL with any one side longer than 50 cm pays a flat oversize fee of 250 cents; if two or more sides are longer than 50 cm, the fee is doubled. (c) No consignment is charged less than 440 cents in total, after all other sections (including any cap).
+
+NOTE FROM A REVIEWER (may help you):
+<<<
+Critical points from §12 amendments and other sections: 1) Zone A volumetric divisor is 2500, NOT 6000. This dramatically changes chargeable weight for Zone A parcels. 2) Remote area fees apply only to postcodes STARTING WITH "XU" or "PG". Check the first two letters only. 3) Oversize fees (§12b): one side > 50 cm = 250¢; two or more sides > 50 cm = 500¢ (doubled). Check all three dimensions. 4) GOLD discount does NOT apply to Zone C (only excluded zone). Zone A and B can use it. 5) DOCUMENT cap is 1200¢ after all calculations. Apply minimum charge (440¢) AFTER the cap if needed. 6) Order: base price → weekend surcharge → remote area fee → oversize fee → GOLD discount → cap/minimum.
+>>>
+
+CASES:
+F1: Zone B, 2.3 kg, 30x25x12 cm, DOCUMENT, collected Sun, postcode XU6, STANDARD account
+F2: Zone B, 0.4 kg, 35x25x3 cm, DOCUMENT, collected Sun, postcode WJ7, STANDARD account
+F3: Zone A, 4.1 kg, 65x65x55 cm, PARCEL, collected Sat, postcode PG7, GOLD account
+F4: Zone A, 0.9 kg, 45x35x5 cm, DOCUMENT, collected Sun, postcode QXU7, GOLD account
+F5: Zone A, 1.9 kg, 80x10x55 cm, PARCEL, collected Sat, postcode XU1, STANDARD account
+F6: Zone C, 1.8 kg, 40x30x3 cm, DOCUMENT, collected Sun, postcode PG7, GOLD account
+F7: Zone C, 4.9 kg, 75x55x5 cm, PARCEL, collected Mon, postcode MR3, STANDARD account
+F8: Zone A, 11.7 kg, 60x55x25 cm, PARCEL, collected Fri, postcode PG4, STANDARD account
+F9: Zone A, 0.9 kg, 35x30x12 cm, DOCUMENT, collected Sat, postcode HP2, GOLD account
+F10: Zone C, 1.5 kg, 35x30x5 cm, DOCUMENT, collected Tue, postcode ER6, STANDARD account
+F11: Zone A, 1.2 kg, 40x35x12 cm, DOCUMENT, collected Thu, postcode EU7, STANDARD account
+F12: Zone C, 1.6 kg, 40x35x8 cm, DOCUMENT, collected Sun, postcode XU6, GOLD account
+F13: Zone A, 2.7 kg, 80x60x50 cm, PARCEL, collected Mon, postcode QXU8, GOLD account
+F14: Zone B, 10.1 kg, 30x60x40 cm, PARCEL, collected Wed, postcode RE5, STANDARD account
+F15: Zone B, 3.0 kg, 45x35x12 cm, DOCUMENT, collected Sat, postcode GD7, GOLD account
+F16: Zone C, 2.0 kg, 45x30x12 cm, DOCUMENT, collected Tue, postcode QXU5, GOLD account
+
+For each case, think briefly, then end your reply with exactly one line per case in the form `<case id>: <price in cents as an integer>` (e.g. `F1: 1234`).

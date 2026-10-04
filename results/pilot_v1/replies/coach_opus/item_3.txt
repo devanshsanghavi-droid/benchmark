@@ -1,0 +1,8 @@
+<note>
+Your one recurring error: the §6 heavy-item uplift (80 cents per chargeable kg above 8) is PART OF the base price, not a separate add-on. Base price = §5 first-kg charge + further-kg charges + §6 uplift. Then:
+- Weekend surcharge = 25% of that full base (round down).
+- GOLD discount = 10% of (full base + weekend surcharge), rounded down; none for Zone A.
+- Add the 400 remote fee last, never discounted.
+Example P3: 11 kg Zone C → 800 + 10×280 = 3600, plus uplift 3×80 = 240, base 3840; Sunday 25% = 960 → 4800; GOLD 480 off → 4320, +400 = 4720 (you applied 25% and 10% to 3600 only → 4690).
+Keep what you got right: round weights up, reclassify DOCUMENTS over 1 kg as PARCELS, charge the larger of actual/volumetric (/4000), postcode must BEGIN with GT/XL, 800 cap only for documents.
+</note>

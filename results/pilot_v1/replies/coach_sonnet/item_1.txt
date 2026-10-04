@@ -1,0 +1,7 @@
+<note>
+Your one systematic error: you treated the §6 heavy-kg increase as a separate flat surcharge. It is not. §6 raises the per-kg rate, so it is part of the base price. Build the full base first (ordinary rate up to 5 kg, ordinary+60 for every kg beyond 5), and only then apply the weekend 10% and the GOLD 15% (round each down) to that whole figure. Only the remote-area fee is flat: add it last, undiscounted.
+
+Example: Zone B, chargeable 20 kg, weekday, GOLD. Base = 540 + 4x180 + 15x240 = 4860. Discount = 729. Price 4131 (not 4266). On a weekend, add 486 (10% of the full 4860) before discounting.
+
+Everything else you did correctly; keep rounding weights up and checking the volumetric weight.
+</note>

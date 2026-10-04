@@ -1,0 +1,13 @@
+<note>
+Your only error is §6 heavy items. The extra 60c is NOT a separate flat surcharge: it raises the per-kg rate itself, so it is part of the base price and therefore sits inside the weekend 20% and the GOLD 15%.
+
+Base price for chargeable weight W (>6 kg): first-kg rate + 5 × further-kg rate + (W−6) × (further-kg rate + 60). Example P2 (Zone B, 25 kg): 560 + 5×240 + 19×300 = 7460.
+
+Then, in order:
+1. Weekend: +20% of that whole base, rounded down (7460 → +1492 = 8952).
+2. GOLD (not Zone A): subtract 15% of base + weekend, rounded down (1342 → 7610).
+3. Remote JL/JX: +300 flat, never discounted (7910).
+4. Document cap 800.
+
+Keep everything else as you did: round weights up, volumetric (/4000) for parcels only, documents over 1 kg become parcels.
+</note>

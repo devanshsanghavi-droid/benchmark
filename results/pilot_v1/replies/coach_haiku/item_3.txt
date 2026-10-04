@@ -1,0 +1,11 @@
+<note>
+Core points for accurate pricing:
+
+§6 Heavy items: The surcharge applies starting at kg 9+ (not 8+). Kg 1-8 use standard rates; kg 9+ use the modified rate (base rate + 80¢).
+
+§9 GOLD discount: Apply 10% to BASE PRICE PLUS percentage surcharges only. Flat fees (remote area) are charged in full and never discounted. Zone A consignments cannot use GOLD—always skip the discount.
+
+§8 Surcharges: Weekend is 25% of base price, rounded down. Remote areas (postcodes starting GT or XL) add 400¢ as a flat fee after percentage surcharges.
+
+Order of calculation: (1) Base price with correct heavy rates, (2) Weekend surcharge if applicable, (3) Remote area fee, (4) Apply GOLD discount (if eligible and not Zone A).
+</note>

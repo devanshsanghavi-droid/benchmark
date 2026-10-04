@@ -1,0 +1,13 @@
+<note>
+Key points for accurate pricing:
+
+§3 Reclassification: A DOCUMENT weighing more than 1 kg (after rounding) becomes a PARCEL for all pricing purposes.
+
+§6 Heavy items: The heavy surcharge (60¢) applies to kg 7 and above—these kg use the modified per-kg rate (base rate + 60¢). Build your base price correctly with this structure, not as a separate addition.
+
+§8 Surcharges: Weekend is 20% of base price. Remote areas (postcodes starting JL or JX) add a flat 300¢ AFTER percentage surcharges.
+
+§9 Discounts: GOLD discount (15% of base + percentage surcharges) does NOT apply to Zone A consignments—check this carefully! Flat fees are never discounted.
+
+Order matters: base price → weekend surcharge → remote fee → GOLD discount.
+</note>

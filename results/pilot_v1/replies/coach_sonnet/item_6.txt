@@ -1,0 +1,7 @@
+<note>
+Main error: you treated the §6 heavy-kg increase (+80 per kg above 8) as a separate flat fee. It raises the per-kg rate, so it belongs in the base price. Build the full base first (ordinary rate to 8 kg, ordinary+80 per kg beyond), then apply weekend 25% and GOLD 10% (round each down) to that whole figure. Only remote (400) and oversize (200 or 400) fees are flat: add them last, undiscounted.
+
+Example: Zone B, 34 kg chargeable, weekday, GOLD, XL postcode, two sides over 45 cm: base 660 + 7x260 + 26x340 = 11320; -10% = 10188; +400 +400 = 10988 (not 11196).
+
+Remote fees count toward the 800 document cap even in Zone A: 0.8 kg document to XL3 = 530+400 = 930, capped to 800. The 630 minimum applies last.
+</note>

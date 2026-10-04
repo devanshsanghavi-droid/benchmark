@@ -1,0 +1,13 @@
+<note>
+Your only error is §6 heavy items. The extra 60c is NOT a separate flat fee: it raises the per-kg rate itself, so it is part of the base price and sits inside the weekend 20% and the GOLD 15%.
+
+Base price for chargeable weight W (>6 kg): first-kg rate + 5 × further-kg rate + (W−6) × (further-kg rate + 60). Example P7 (Zone C, 57 kg): 840 + 5×260 + 51×320 = 18460.
+
+Then, in order:
+1. Weekend: +20% of that whole base, rounded down (3692 → 22152).
+2. GOLD (not Zone A): subtract 15% of base + weekend, rounded down (3322 → 18830).
+3. Flat fees, never discounted: remote JL/JX +300; oversize +300 (one side >40 cm) or +600 (two or more) (19430).
+4. Document cap 800, then minimum 570.
+
+Everything else you did was right (rounding, Zone C divisor 3000, reclassification).
+</note>
