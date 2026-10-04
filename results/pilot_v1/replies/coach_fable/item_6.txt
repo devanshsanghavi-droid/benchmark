@@ -1,0 +1,11 @@
+<note>
+Two fixes:
+
+1. §6 heavy items: the +80c raises the per-kg rate itself, so it is part of the base price and sits inside the weekend 25% and the GOLD 10%. Base for chargeable W (>8 kg) = first-kg rate + 7 × further rate + (W−8) × (further rate + 80). P1 (Zone C, 20 kg): 800 + 7×280 + 12×360 = 7080; weekend +1770; +400 oversize = 9250.
+
+2. The remote fee (GT/XL, +400) applies to DOCUMENTS too, before the cap. P11: 530 + 400 = 930 → cap 800 → answer 800, not 630.
+
+Order: base (with heavy) → weekend 25%, floor → GOLD 10% of base+weekend, floor (not Zone A) → +400 remote, +200/400 oversize → document cap 800 → minimum 630.
+
+Everything else you did was right (rounding, Zone C divisor 2500, reclassification).
+</note>
