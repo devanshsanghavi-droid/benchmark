@@ -1,0 +1,114 @@
+{
+ "items": [
+  {
+   "seed": 201,
+   "level": 2
+  },
+  {
+   "seed": 202,
+   "level": 2
+  },
+  {
+   "seed": 203,
+   "level": 2
+  },
+  {
+   "seed": 204,
+   "level": 3
+  },
+  {
+   "seed": 205,
+   "level": 3
+  },
+  {
+   "seed": 206,
+   "level": 3
+  }
+ ],
+ "arms": {
+  "placebo": {
+   "accuracy": 1.0,
+   "NFR": 100.0,
+   "CI95": [
+    100.0,
+    100.0
+   ],
+   "by_level": {
+    "L2": NaN,
+    "L3": 100.0
+   },
+   "fix_mass": 1.0,
+   "break_mass": 0.0,
+   "cases_improved": 2
+  }
+ },
+ "practice": [
+  {
+   "item": 1,
+   "practice_correct": 8,
+   "diagnosable": 0,
+   "slip": 0,
+   "blamed": []
+  },
+  {
+   "item": 2,
+   "practice_correct": 8,
+   "diagnosable": 0,
+   "slip": 0,
+   "blamed": []
+  },
+  {
+   "item": 3,
+   "practice_correct": 8,
+   "diagnosable": 0,
+   "slip": 0,
+   "blamed": []
+  },
+  {
+   "item": 4,
+   "practice_correct": 8,
+   "diagnosable": 0,
+   "slip": 0,
+   "blamed": []
+  },
+  {
+   "item": 5,
+   "practice_correct": 8,
+   "diagnosable": 0,
+   "slip": 0,
+   "blamed": []
+  },
+  {
+   "item": 6,
+   "practice_correct": 8,
+   "diagnosable": 0,
+   "slip": 0,
+   "blamed": []
+  }
+ ],
+ "control_accuracy": {
+  "control_r1": 0.9861111111111112,
+  "control_r2": 0.9861111111111112
+ },
+ "control_accuracy_mean": 0.9861111111111112,
+ "control_test_retest_agreement": 0.9722222222222222,
+ "noise_floor_nfr_r2_vs_r1": 0.0,
+ "note_words": {
+  "placebo": [
+   18,
+   18,
+   18,
+   18,
+   18,
+   18
+  ],
+  "template": [
+   13,
+   13,
+   13,
+   13,
+   13,
+   13
+  ]
+ }
+}
