@@ -139,3 +139,56 @@ This needs API keys, not just subagents.
 - Pick one direction.
 - Get API keys for at least three labs.
 - Run a 2-week pilot with isolated, multi-turn conversations and the controls above.
+
+---
+
+## Two more ideas (added after the meeting brief)
+
+### 3. AI Plus-Minus: which model makes a team better?
+
+**How it works.**
+- Teams of three models from different labs must solve a task together, and each model holds only part of the information. Examples:
+  - plan a trip where each member knows different constraints;
+  - debug a system where each sees different logs;
+  - a Hanabi-style card game.
+- The models can only win by talking to each other.
+- Lineups rotate constantly, so every model plays with and against every other.
+
+**Scoring.**
+- The team outcome is exact: the trip is valid or it isn't, the bug is fixed or it isn't.
+- Each model gets a **plus-minus**, as in basketball: how much better its teams do when it is on them, averaged over all lineups.
+- Some models will turn out to be great solo but bad teammates: they talk over others, ignore others' information, or go along with wrong ideas.
+
+**Why it is good.**
+- It is a competition built on interaction, not two models working in isolation.
+- Rotation and averaging remove the "who you were paired with" luck problem.
+- It answers a real question for people building multi-agent systems: which model to put in the team.
+- Fans can "draft" their own AI team, fantasy-league style, which gives a reason to come back.
+
+**Prior art and risks.**
+- Hanabi coordination benchmarks (AH2AC2, Kaggle Hanabi) and multi-agent suites exist, but rate cooperation within one game or one model family.
+- A cross-lab plus-minus rating appears to be new [not yet verified by a dedicated search].
+- **Risk:** it needs many games per lineup, so cost matters. Tasks must make sharing information necessary, not optional.
+
+### 4. AI Telephone: what survives when models pass a message along?
+
+**How it works.**
+- A visitor writes a message, such as a news story, a recipe or instructions.
+- It passes through a chain of 5–10 models from different labs. Each one summarises it for the next, as AI agents do when they hand off work.
+- The visitor watches the message change.
+
+**Scoring.**
+- Key facts in the original are checked automatically at every hop.
+- Each model is scored on **fidelity** (facts kept) and **drift**: what it adds or bends, such as extra safety caveats, a more positive tone, or its own opinions.
+- Rotating chain order shows which model introduced each change.
+
+**Why it is good.**
+- It is fun and instantly understandable: everyone knows the telephone game.
+- Visitors bring their own messages, so there is no fixed test set to leak.
+- It measures a real failure in multi-agent pipelines: information lost or distorted between agents.
+- It reveals each model's habits and "deep preferences" as fingerprints, which connects to the "constant beliefs" note.
+
+**Prior art and risks.**
+- Researchers have run LLM transmission-chain studies, e.g. Acerbi & Stubbersfield (*PNAS* 2023), on what content survives retelling.
+- A live, mixed-lab arena with per-model fidelity and drift scores appears to be new [not yet verified by a dedicated search].
+- **Risk:** automatic fact-checking of free text needs care. Use messages with clearly listable facts, and validate the checker on a sample.
