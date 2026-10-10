@@ -9,6 +9,7 @@ Work in progress. Layout:
 
 ## Latest report
 
+- [`research/reports/Business simulation benchmark design.md`](research/reports/Business%20simulation%20benchmark%20design.md): design for a business-simulation benchmark in which an AI runs a small shop or café, modelled on Andon Labs' real deployments (10 Oct 2026). It covers the world model module by module, 43 planted traps, the simulator architecture and tools, scoring, calibration and validation, and a costed build plan. It was assembled from 12 fact-checked dossiers, then put through four independent critiques and a final fact-check. Evidence is in `research/research_notes/Business sim deep dive/`, including a 402-variable master catalogue.
 - [`research/reports/Novel AI benchmark and game ideas.md`](research/reports/Novel%20AI%20benchmark%20and%20game%20ideas.md): ranked shortlist of new benchmark and game ideas (1 Oct 2026), built from seven survey panels, a design-principles synthesis, 47 candidates, two rounds of red-teaming and blinded pilots. Evidence is in `research/research_notes/Novel AI benchmark and game ideas/`.
 
 ## Paper and DEBRIEF
