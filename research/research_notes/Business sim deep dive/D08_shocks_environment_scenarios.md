@@ -31,7 +31,7 @@ Sibling dossiers D01, D02, D05, D06, D09 and D10 and the R2 brief were used as l
    - Prosus draws weather independently each day, and adds holiday multipliers and supplier hazards [P].
    - E-CommerceBench has 10 scripted shocks that fall on the same dates every episode [P].
    - YC-Bench has difficulty presets but no macro shocks [P].
-   - None models inflation, commodity prices, interest rates, equipment failure, inspections, outages or competitor entry as processes.
+   - None models inflation, commodity prices, interest rates, equipment failure, inspections, outages or competitor entry as processes. [fact-check: holds as worded. The nearest exception is a single scripted E-CommerceBench event, "Raw Material Shortage" (11-20, 7 days), which carries `cost_increase: 0.15`. It is a one-off, not a process; events.csv]
 2. **Real weather persists; most sims' weather does not** [corrected by fact-check: was "the sims' weather does not". open-vending-bench's weather.py is a seasonal Markov chain with `persistence_bonus = 0.3`, as the §2.1 table says; only Prosus and aijnek are memoryless; github.com/markattarcolgate64/open-vending-bench weather.py]. NOAA data for Seattle [calc]:
    - P(wet | dry) = 0.21 and P(wet | wet) = 0.61;
    - the daily temperature anomaly has an AR(1) of 0.67.
@@ -427,27 +427,27 @@ Evidence:
 | 5 | Local events | Preparation and capacity | Announced 1–8 weeks ahead; ×1.5–3 nearby traffic | [design] | extended |
 | 6 | General inflation | Repricing; erosion of real margin | Two-regime AR(1): normal 2–3%, high 5–9% lasting 1–6 years; feeds suppliers, wages, rent, reference prices [modelling flag: CPI-U spells above 5% lasted 3–70 months, and 4 of 8 were under a year. Use a heavy-tailed duration of about 3 months to 6 years, and a normal band of about 0–4%] | CPI-U [P\*, calc] | core |
 | 7 | Supplier price pass-through | Margin management | List-price resets every 1–6 months; 30–100% pass-through | [design] | core |
-| 8 | Commodity spikes (coffee, cocoa, dairy, sugar) | Café cost shocks; menu and hedging | Mean-reverting log price (φ ≈ 0.98 monthly; vol 20–32%) plus jumps (λ 0.15–0.2/yr; +50% to +300%) | IMF [P\*, calc]; 2024–25 [U] | core (café) |
+| 8 | Commodity spikes (coffee, cocoa, dairy, sugar) | Café cost shocks; menu and hedging | Mean-reverting log price (φ ≈ 0.98 monthly; vol 20–32%) plus jumps (λ 0.15–0.2/yr; +50% to +300%) [modelling flag: +50% to +300% is the size of a whole 12-month episode. The largest one-month Arabica rise in 1980–2017 was +53%. Spread each jump over a 2–6-month ramp, and re-estimate σ net of jumps] | IMF [P\*, calc]; 2024–25 [U] | core (café) |
 | 9 | Wage-floor steps | Labour cost planning | Announced annual or legislated steps of +3–25% | [U] | extended |
 | 10 | Rent and lease events | Fixed-cost shock | Escalator 2–5% or CPI-linked; renewal shock | [U]; D05 | extended |
 | 11 | Interest rates and credit | Debt cost; liquidity | Scheduled steps of ±25–75 bp; variable-rate debt; credit tightening | [U] | extended |
 | 12 | Exchange rates | Import costs | Random walk, annual vol 7–13%; lagged pass-through | Fed H.10 [P\*, calc] | stretch |
 | 13 | Tariffs and tax changes | Category-specific cost or price wedges | Rare announced jumps | [U] | stretch |
-| 14 | Per-order supplier delay | Safety stock; plan B | Bernoulli 0.05–0.35, adding 2–9 days | Prosus [P]; VB2 [P\*] | core |
+| 14 | Per-order supplier delay | Safety stock; plan B | Bernoulli 0.05–0.35 per order, adding 2–9 days | Prosus [P]; VB2 [P\*] | core |
 | 15 | Supplier insolvency | Diversification; prepayment risk | Hazard 0–0.0035/day (0–72% a year); prepaid funds lost | Prosus [P]; VB2 [P\*] | core |
 | 16 | Systemic logistics stress | Correlated delays | Latent AR(1) factor plus jumps; delays ×2–5 during events | E-CommerceBench [P]; GSCPI [U] | extended |
 | 17 | SKU shortages | Substitution; menu flexibility | Product outages of 1–8 weeks | [design] | extended |
 | 18 | Road works | Forecastable traffic loss | Announced 2–8 weeks ahead; 4–12 weeks long; traffic ×0.6–0.9 | [design]; [U] | extended |
 | 19 | Competitor entry and exit | Strategic response | Entry hazard rises with visible profit; entrant joins the choice set; exit is a windfall | [U] Jia; Bresnahan & Reiss | extended (core in arena) |
-| 20 | Health inspections | Hygiene, compliance, demand | Poisson 1–3/yr plus complaint-triggered; hidden hygiene state; grade multiplies demand (A +5.7%, C −1%); 1–3-day closures | [U] Jin & Leslie; FDA Food Code | extended (core for café) |
+| 20 | Health inspections | Hygiene, compliance, demand | Poisson 1–3/yr plus complaint-triggered; hidden hygiene state; grade multiplies demand (A +5.7%, C −1%) [uncertain: unverified figures, measured as the effect of introducing grade cards in LA in 1998, not of a single inspection]; 1–3-day closures | [U] Jin & Leslie; FDA Food Code | extended (core for café) |
 | 21 | Equipment failure | Maintenance trade-off | Weibull (shape 1.5–3; scale set by age and maintenance); repair 1–5 days plus cost; fridge failure spoils stock | [U] McBroken; [design] | core |
 | 22 | Power and payment outages | Contingency planning | Poisson 1–2/yr; lognormal duration (median 1–2 h); spoilage after about 4 h; cash-only fallback | [U] EIA, USDA; Prosus card share [P] | extended |
 | 23 | Theft, shrink, burglary | Loss control; insurance honesty | Shrink ∝ traffic × unattended hours (about 1–3% of sales); rare burglary scaled by cash on site | Vend 2 [P]; NRF [U]; Arena [P\*] | core (shrink); extended (burglary) |
-| 24 | Viral attention and reviews | Surge capacity; reputation | Hawkes, branching 0.3–0.8; surges ×2–10; overflow becomes bad reviews | [U] Crane & Sornette, Luca; D02 | extended |
+| 24 | Viral attention and reviews | Surge capacity; reputation | Hawkes, branching 0.3–0.8; surges ×2–10; overflow becomes bad reviews [modelling flag: an exponential kernel with branching ≤0.8 cannot give the power-law decay cited from Crane & Sornette. That needs a power-law kernel and branching near 1] | [U] Crane & Sornette, Luca; D02 | extended |
 | 25 | Pandemic or lockdown | Extreme stress; compliance | Rare regime: closure or takeaway-only; office demand ×0.1–0.3; relief with friction | [U] Bartik et al.; D02 [S] | stretch (stress suite) |
 | 26 | Local economic cycle | Drift in demand level | Regime factor on arrivals and price sensitivity, ±5–15% | E-CommerceBench "downturn" [P]; [U] | extended |
 | 27 | Forecast and news signals | Measures anticipation | Lead time 0–14 days; precision; false alarms 0–30%; decoy headlines | [design]; E-CommerceBench [P] | core |
-| 28 | Starting cash runway | Unequal starts | 1–12 months of fixed costs | VB2 250 days; Prosus 125 days [calc] | core |
+| 28 | Starting cash runway | Unequal starts | 1–12 months of fixed costs | VB2 250 days (before its output-token bill); Prosus 125 days [calc] | core |
 | 29 | Location quality | Unequal starts | Base traffic ×0.5–2 | [design] | core |
 | 30 | Starting reputation | Unequal starts | Rating 3.0–4.8; 0–500 reviews | D02 | extended |
 | 31 | Starting debt and lease | Unequal starts; covenants | 0–12 months of revenue; prime + 2–8% | [U]; D05 | extended |
@@ -508,7 +508,7 @@ Evidence:
 7. How should historical replays be mapped across currency and location, e.g. US 2022 inflation onto a Stockholm café?
 8. How long does a private generator stay secret once labs can probe it through API runs? Nobody has measured this (R1).
 9. Should the horizon length be hidden? How would that affect comparability with VB2's one-year bank balance?
-10. Does the Prosus shared-stream divergence matter in practice? Confirm it by replaying two action logs on one seed.
+10. Does the Prosus shared-stream divergence matter in practice? Confirm it by replaying two action logs on one seed. [fact-check note: because the seed key includes `len(events)`, one diverging collapse changes every later day's stream, weather included. The replay should compare full weather paths, not only collapse days.]
 11. Verify the [U] items first: Jin & Leslie, Bartik et al., EIA outage figures, NRF shrink, 2024–25 commodity prices, TAC SCM day-0.
 
 ---
@@ -568,3 +568,134 @@ Evidence:
 - FDA Food Code: https://www.fda.gov/food/retail-food-protection/fda-food-code
 - BLS Business Employment Dynamics: https://www.bls.gov/bdm/bdmage.htm
 - McBroken: https://mcbroken.com
+
+---
+
+## Fact-check log
+
+Independent adversarial check, 10 Oct 2026.
+
+**What was reachable:** anthropic.com, raw GitHub, and `git clone` of public GitHub repos. WebSearch was unavailable because the shared per-turn budget was exhausted. arXiv, Andon Labs, BLS, EIA, FRED, the Fed, PNAS, NRF, Semantic Scholar, Crossref and OpenAlex were all blocked. No proxy or reader services were used.
+
+**How [calc] items were checked:** every one was recomputed from the same mirrors with the checker's own scripts.
+
+**Verdict labels:**
+- **verified (sibling)**: checked by D01's, R2's or R1's own fact-check against a primary copy, not re-fetched here.
+- **uncertain (bg)**: consistent with the checker's background knowledge, but the primary source was unreachable.
+
+| # | Claim | Verdict | Source | Note |
+|---|---|---|---|---|
+| 1 | VB2: "Deliveries can be delayed and trusted suppliers can go out of business…" | verified | aijnek/vending_bench docs VB2 page copy | exact quote |
+| 2 | VB2 sales depend on "day of the week, season, weather, and price" | verified | same | exact quote |
+| 3 | VB2 uses 5 runs per model | verified | same ("Average across 5 runs") | |
+| 4 | GPT-5.1 prepaid a supplier that had gone out of business | verified | same | it "paid a supplier before it got an order specification" |
+| 5 | VB2 $500 start, $2/day fee, so 250 days of runway | verified | same | the output-token bill ($100/M weekly) shortens the real runway; note added |
+| 6 | Andon: VB sales "equations … can be gamed" | verified | same | |
+| 7 | Prosus weather: 5 states, monthly tables "roughly Amsterdam", drawn independently each day | verified | ProsusAI config.toml `[weather]`; engine.py `_roll_weather` | |
+| 8 | Prosus cold drinks ×1.75 hot / ×0.65 cold | verified | config.toml `weather.category_multiplier` | |
+| 9 | Prosus holiday multipliers 0.05–0.35 | verified | config.toml `[[demand.holidays]]` | 7 Dutch holidays |
+| 10 | Prosus seed "fixes weather, delivery delays, complaints" | verified | config.toml line 29 | |
+| 11 | Prosus score "floored at zero"; bankrupt or unfinished runs score 0 | verified | ProsusAI README | |
+| 12 | Prosus delay 0.05–0.35 per order, +2–9 days | verified | config.toml suppliers; `[orders]` | |
+| 13 | Prosus bait-and-switch 0.28, ships 45–75% "of the order" | **corrected** | config.toml comment and engine.py `_process_deliveries` | the draw is per line, and the shorted line ships 45–75% |
+| 14 | Prosus ghost 0.10 | verified | config.toml | |
+| 15 | Prosus flaky collapse 0.0035/day ≈ 72%/yr ≈ 10% per 30 days | verified | config.toml; [calc] | 1−0.9965^365 = 0.722; 1−0.9965^30 = 0.10 |
+| 16 | `_reseed()` uses `f"{seed}:{day}:{len(events)}"` | verified | engine.py line 108 | |
+| 17 | End-of-day draw order: bait, then collapse, then complaints | **corrected** | engine.py `end_of_day` | ghost draws in `_overnight_mail` (agent-email-dependent) were omitted |
+| 18 | "Weather stays common across agents" | **corrected** | engine.py `_reseed`, `_supplier_attrition` | only until collapse histories diverge; `len(events)` is in the seed key |
+| 19 | Prosus scripted reference: €2,944.77–€3,323.17 (mean €3,227.89); €57,954.45–€64,709.50 (mean €61,218.52) | verified | ProsusAI README | v3 economy, 5 seeds |
+| 20 | Range ≈ 11% of mean; seed SD ≈ 5%; "±5–6%" | verified | [calc] | 11.7% and 11.0%; SD ≈ range/2.33 for n = 5 |
+| 21 | Prosus €1,500 start, €12/day fee, 125 days | verified | README; config.toml | |
+| 22 | Prosus card share 0.72 | verified | config.toml `[payments]` | |
+| 23 | Prosus "Machine ate my money" complaint | verified | config.toml complaint templates | |
+| 24 | Prosus "open-book benchmark" quote | verified | README | exact |
+| 25 | Prosus reference "has privileged catalogue knowledge" | verified | README | exact |
+| 26 | aijnek: San Francisco climate, multiplier "about 0.75–1.20", pure function of (seed, date), no persistence | verified | aijnek env/weather.py | |
+| 27 | open-vending-bench: `persistence_bonus = 0.3`; elasticity, reference price and base sales from a live LLM call | verified | weather.py; economic_environment.py | in-process `@cache` only |
+| 28 | E-CommerceBench: 10 dated events, 3–7 days, demand ×0.2–3.0, delays ×2–5; the named examples | verified | QwenLM events.csv | |
+| 29 | E-CommerceBench: shocks announced on start date; promotions about 7 days ahead; same calendar each episode | verified | tools/ecommerce_env.py `_process_events_for_date` | |
+| 30 | E-CommerceBench deterministic demand and negotiation kernel | verified | E-CommerceBench README | |
+| 31 | YC-Bench `sha256(run_seed:stream_key)`; "Same seed → same world → same event sequence (given same agent actions)" | verified | yc-bench rng.py; 09_configuration.md | |
+| 32 | YC-Bench presets easy to nightmare; "dozens of independent parameters" | verified | 09_configuration.md | |
+| 33 | YC-Bench has no macro shocks | verified | grep of cloned repo (src, system_design) | no shock, macro or recession terms |
+| 34 | OR-Gym: Poisson μ = 20; fixed lead times; user-supplied demand trace | verified | or-gym inventory_management.py | L = [3, 5, 10] |
+| 35 | Vend 1: free Coke Zero in the employee fridge as a competitor | verified | anthropic.com/research/project-vend-1 | "next to the employee fridge"; "next door" reworded |
+| 36 | Vend 2 "real shoplifting episode" | **corrected** | anthropic.com/research/project-vend-2 | a staff member "claimed" to have seen it; not confirmed |
+| 37 | Vend 2: $10/h guard offer, "substantially below minimum wage in California" | verified | project-vend-2 | "dedicated security officer" |
+| 38 | Vend 2 expansion to NYC and London | verified | project-vend-2 | |
+| 39 | Procgen `jumper`: about 7% of levels end after one step whatever the action | verified | openai/procgen README, Known Issues | |
+| 40 | Anthropic: "0% pass rate across many trials… broken task"; a reference solution proves solvability | verified | anthropic.com/engineering/demystifying-evals-for-ai-agents | quote qualified "With frontier models" |
+| 41 | Anthropic: clustered SEs "over three times as large as naive"; paired differences | verified | anthropic.com/research/statistical-approach-to-model-evals | |
+| 42 | pass^k concept | verified | demystifying-evals | |
+| 43 | CPI-U 1960–2026: mean 3.7%, SD 2.8, max 14.8% | verified | datasets/cpi-us [calc] | 3.74 / 2.78 / 14.76 (Mar 1980) |
+| 44 | CPI-U 1984–2019: mean 2.7%, SD 1.3 | verified | [calc] | 2.66 / 1.32 |
+| 45 | Peak since 2000: 9.1% in June 2022 | verified | [calc] | 9.06 |
+| 46 | 2026: 2.4% (Jan), 4.25% (May), 3.4% (Aug) | verified | [calc] on mirror | 2.39 / 4.25 / 3.40; BLS itself unreachable |
+| 47 | Monthly annualised 1984–2019: SD 3.75 pp, AR(1) 0.48 | verified | [calc] | not seasonally adjusted, so includes seasonality; note added |
+| 48 | >5% in 22% of months since 1960; spells 3, 3, 3, 7, 21, 24, 43, 70 | verified | [calc] | exact |
+| 49 | Mirror lacks October 2025 | verified | cpiai.csv | |
+| 50 | Commodity table: vol, φ, half-life, share >50%, max rise, kurtosis (6 series) | verified | datasets/commodity-prices [calc] | kurtosis is raw (normal = 3); note added |
+| 51 | Arabica: 6 episodes; peaks 1.6–4.2×; recoveries 3, 75, 12, 14, 5 months; 2005 not reverted | verified | [calc] | |
+| 52 | Summary: recovery "about 7 years" | **corrected** | [calc] | 75 months ≈ 6 years |
+| 53 | FX vol (SEK 8.7, EUR 7.4, GBP 7.1, BRL 12.8%) and largest moves (41/28/41/67%) | verified | datasets/exchange-rates [calc] | |
+| 54 | FX share of months with \|12-month move\| >10% (43/30/26/60%) | verified (definition-dependent) | [calc] | the plain definition gives 40/27–30/22/56–58%; note added |
+| 55 | Seattle Markov table (P01, P11, P(wet), spells) | verified | vega-datasets seattle-weather.csv [calc] | 1,461 days |
+| 56 | Seattle Tmax anomaly SD 3.7 °C, AR(1) 0.67 | verified | [calc] | |
+| 57 | Summary: "the sims' weather does not" persist | **corrected** | open-vending-bench weather.py | open-vending-bench has Markov persistence |
+| 58 | Spearman–Brown table | verified | [calc] | all 12 cells |
+| 59 | Paired power table | verified | [calc] | all 8 cells (normal approximation) |
+| 60 | VB1: $100 start hurt; $5/day fee killed every run before day 100; $0 fee did not help | verified (sibling) | D01 fact-check row 34 (VB1 §3.5) | GPT-4o mini only; qualifier added to summary |
+| 61 | VB1: LLM-generated, cached elasticities; day-of-week, month and weather multipliers | verified (sibling) | D01 §2.4 | |
+| 62 | VB Arena theft variant probes insurance fraud | verified (sibling) | D01 row 56 | |
+| 63 | E-CommerceBench spread "40–90% of the mean" | **corrected** | E-CommerceBench README Table 1 | per-model SD/mean is 20–100%, median about 43% |
+| 64 | VB2 runs vary ±$785–2,094 on about $10k | uncertain | R2 (Epoch board, 29 Sep 2026) | unreachable; "±" undefined; 7–19% of the means |
+| 65 | Fed funds rose "in 25-bp steps" | **corrected** | FOMC record (background; federalreserve.gov unreachable) | 11 hikes of 25–75 bp; endpoints and 8 meetings a year are correct |
+| 66 | Evans & Jovanovic 1989 cited for survival | **corrected** | background knowledge of the paper's title and scope | it is about entry under liquidity constraints |
+| 67 | Andon SF rent about $7.5k/month | uncertain | D01 row 82 | press-only |
+| 68 | $952 of café vouchers in the first fortnight | uncertain | D01 row 89 | press and X only |
+| 69 | Andon Market $100k covers about 13 months of rent | uncertain | D01 row 81 | arithmetic fine; inputs press-only |
+| 70 | Sweden's BankID e-ID as a friction | uncertain (partly verified) | D01 row 61 | BankID appears in the Willison copy; "blocked by" is press-only |
+| 71 | ARC "semi-private" set plus zero-data-retention agreements | uncertain (partly verified) | R1 fact-check §0.1 | wording real; ZDR label unconfirmed |
+| 72 | The October 2025 CPI gap was caused by the shutdown | uncertain (bg) | — | consistent with the Oct–Nov 2025 shutdown |
+| 73 | California fast-food minimum wage $20/h from April 2024 | uncertain (bg) | — | AB 1228 |
+| 74 | Arabica >$4/lb in early 2025; cocoa >$10k/t in 2024; record US egg prices in 2025 | uncertain (bg) | — | |
+| 75 | GSCPI peaked in late 2021 | uncertain (bg) | — | |
+| 76 | UK CO₂ shortage of 2018 | uncertain (bg) | — | |
+| 77 | SBA 7(a) priced at prime plus a spread | uncertain (bg) | — | |
+| 78 | Jin & Leslie: A +5.7%, B +0.7%, C −1% | uncertain | — | commonly cited figures; measure the effect of introducing grade cards |
+| 79 | FDA Food Code risk-based inspection frequency | uncertain (bg) | — | |
+| 80 | McBroken: 10–15% of machines broken | uncertain | — | site unreachable; the rate varied over time |
+| 81 | NRF shrink 1.6% of sales, FY2022 | uncertain (bg) | — | large-retailer survey |
+| 82 | EIA 2022: about 5.5 h of interruptions with major events, about 2 h without | uncertain (bg) | — | |
+| 83 | USDA: perishables unsafe after about 4 h | uncertain (bg) | — | |
+| 84 | Bartik et al. 2020: 43% closed; about 5,800 firms; about 2 weeks of cash | uncertain (bg) | — | |
+| 85 | Crane & Sornette: exogenous bursts decay quickly; endogenous ones follow a power law | uncertain | — | oversimplified; exogenous-critical bursts also relax as a power law |
+| 86 | Luca: one Yelp star = 5–9% of revenue for independents | uncertain (bg) | — | |
+| 87 | Sterman 1989: demand step 4 to 8 cases; costs about 10× optimal | uncertain (bg) | — | |
+| 88 | Holtz-Eakin, Joulfaian & Rosen 1994: liquidity raises survival | uncertain (bg) | — | |
+| 89 | About half of new US establishments close within 5 years (BLS) | uncertain (bg) | — | |
+| 90 | Jia 2008; Basker 2005; Bresnahan & Reiss 1991 findings | uncertain (bg) | — | transfer to cafés is an assumption |
+| 91 | TAC SCM 2003 day-0 procurement flood; rules changed for 2004 | uncertain (bg) | — | |
+| 92 | Sodomka, Collins & Gini 2007: fixed-seed TAC SCM re-runs | uncertain (bg) | — | |
+| 93 | Business games: Gamlath 2009; Teach & Patel 2007; 1,164 firms in 194 competitions; Markstrat unequal and Capsim identical starts | uncertain | R2 [S] | matches R2's text; primaries unreachable |
+| 94 | Teach 1990, "Profits: the false prophet in business gaming" | uncertain (bg) | — | |
+| 95 | Methods: Law (CRN, antithetic variates); Mauboussin; Duersch et al. 2020; Getty et al. 2018 | uncertain (bg) | — | |
+| 96 | Overfitting: Dwork 2015; Blum & Hardt 2015; Recht 2019; Cobbe 2019; PAIRED 2020 | uncertain (bg) | — | findings as stated match background knowledge |
+| 97 | Models: Hamilton 1989; Richardson 1981 WGEN; Hawkes 1971 | uncertain (bg) | — | |
+| 98 | Fed "severely adverse" stress-scenario naming | uncertain (bg) | — | |
+| 99 | Road-works evidence is mostly case studies (light rail) | uncertain | — | no source given |
+
+**Modelling sanity check of the variables catalogue.** Six flags were added inline. None removes a variable.
+- **Row 8 (commodity jumps).** It applies 12-month episode sizes (+50% to +300%) as single monthly jumps. The record largest monthly Arabica rise is +53%. It also double-counts jump variance in σ.
+- **Row 6 (inflation regimes).** The high-regime floor of 1–6 years contradicts the dossier's own spell data (4 of 8 spells were under a year). The normal band is too narrow.
+- **Row 24 (Hawkes process).** Branching 0.3–0.8 with an exponential kernel cannot produce the cited power-law decay.
+- **Row 3 (weather extremes).** E-CommerceBench's scripted ×0.2–3 national category multipliers are not calibrated café traffic effects.
+- **Row 20 (inspections).** The Jin & Leslie figures are policy-introduction effects, not per-inspection multipliers.
+- **Row 28 (runway).** VB2's 250-day runway ignores its output-token bill.
+
+The other ranges are plausible design choices consistent with the cited sources: supplier hazards, Seattle-calibrated Markov weather, FX volatility, runway, and the difficulty knobs. The world-tape and keyed-stream recommendations are reinforced by the Prosus `len(events)` finding.
+
+**Tally**
+- Checked 99: verified 56 (3 via sibling fact-checks), corrected 9, uncertain 34, removed 0.
+- Most consequential: the Prosus CRN break is wider than stated (rows 17–18: weather also diverges after a collapse); E-CommerceBench spread (row 63); fed funds steps (row 65); Vend 2 theft was only reported (row 36).
+- No fabricated load-bearing claims were found. The main residual risk is the 34 unverifiable literature, press and industry figures, which need a session with web access.

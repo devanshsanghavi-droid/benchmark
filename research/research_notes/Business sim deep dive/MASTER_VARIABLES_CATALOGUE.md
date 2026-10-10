@@ -326,32 +326,32 @@ Source: `D08_shocks_environment_scenarios.md` §3 (fact-checked; inline markers 
 |---|---|---|---|---|---|
 | 1 | World tape and RNG streams | Paired comparison; stops luck being re-rolled | All exogenous paths pre-generated; endogenous draws keyed by `hash(seed, process, entity, period)` | YC-Bench [P]; Prosus pitfall [P] | core |
 | 2 | Daily weather | Demand level and mix; forecast use | Markov chain for precipitation (P01 0.1–0.35, P11 0.4–0.7 by season); AR(1) temperature anomaly (φ ≈ 0.67, SD ≈ 3.7 °C); climate presets | NOAA [P\*, calc]; Prosus [P] | core |
-| 3 | Weather extremes | Joint demand and supply shocks | 2–6 per year, 3–7 days each; demand ×0.2–3 by category; delays ×2–3 | E-CommerceBench [P] | extended |
+| 3 | Weather extremes | Joint demand and supply shocks | 2–6 per year, 3–7 days each; demand ×0.2–3 by category; delays ×2–3 [modelling flag: E-CommerceBench's multipliers are scripted values for national online categories, not calibrated. Use them as category-mix stress values; for a café's total traffic, calibrated sim ranges are about 0.75–1.2 (aijnek) and the cold-drink extremes 0.65–1.75 (Prosus)] | E-CommerceBench [P] | extended |
 | 4 | Calendar, holidays, occupancy | Large predictable swings | Fixed multipliers (holidays 0.05–0.35); school terms; office-occupancy curve | Prosus [P]; D02 | core |
 | 5 | Local events | Preparation and capacity | Announced 1–8 weeks ahead; ×1.5–3 nearby traffic | [design] | extended |
-| 6 | General inflation | Repricing; erosion of real margin | Two-regime AR(1): normal 2–3%, high 5–9% lasting 1–6 years; feeds suppliers, wages, rent, reference prices | CPI-U [P\*, calc] | core |
+| 6 | General inflation | Repricing; erosion of real margin | Two-regime AR(1): normal 2–3%, high 5–9% lasting 1–6 years; feeds suppliers, wages, rent, reference prices [modelling flag: CPI-U spells above 5% lasted 3–70 months, and 4 of 8 were under a year. Use a heavy-tailed duration of about 3 months to 6 years, and a normal band of about 0–4%] | CPI-U [P\*, calc] | core |
 | 7 | Supplier price pass-through | Margin management | List-price resets every 1–6 months; 30–100% pass-through | [design] | core |
-| 8 | Commodity spikes (coffee, cocoa, dairy, sugar) | Café cost shocks; menu and hedging | Mean-reverting log price (φ ≈ 0.98 monthly; vol 20–32%) plus jumps (λ 0.15–0.2/yr; +50% to +300%) | IMF [P\*, calc]; 2024–25 [U] | core (café) |
+| 8 | Commodity spikes (coffee, cocoa, dairy, sugar) | Café cost shocks; menu and hedging | Mean-reverting log price (φ ≈ 0.98 monthly; vol 20–32%) plus jumps (λ 0.15–0.2/yr; +50% to +300%) [modelling flag: +50% to +300% is the size of a whole 12-month episode. The largest one-month Arabica rise in 1980–2017 was +53%. Spread each jump over a 2–6-month ramp, and re-estimate σ net of jumps] | IMF [P\*, calc]; 2024–25 [U] | core (café) |
 | 9 | Wage-floor steps | Labour cost planning | Announced annual or legislated steps of +3–25% | [U] | extended |
 | 10 | Rent and lease events | Fixed-cost shock | Escalator 2–5% or CPI-linked; renewal shock | [U]; D05 | extended |
 | 11 | Interest rates and credit | Debt cost; liquidity | Scheduled steps of ±25–75 bp; variable-rate debt; credit tightening | [U] | extended |
 | 12 | Exchange rates | Import costs | Random walk, annual vol 7–13%; lagged pass-through | Fed H.10 [P\*, calc] | stretch |
 | 13 | Tariffs and tax changes | Category-specific cost or price wedges | Rare announced jumps | [U] | stretch |
-| 14 | Per-order supplier delay | Safety stock; plan B | Bernoulli 0.05–0.35, adding 2–9 days | Prosus [P]; VB2 [P\*] | core |
+| 14 | Per-order supplier delay | Safety stock; plan B | Bernoulli 0.05–0.35 per order, adding 2–9 days | Prosus [P]; VB2 [P\*] | core |
 | 15 | Supplier insolvency | Diversification; prepayment risk | Hazard 0–0.0035/day (0–72% a year); prepaid funds lost | Prosus [P]; VB2 [P\*] | core |
 | 16 | Systemic logistics stress | Correlated delays | Latent AR(1) factor plus jumps; delays ×2–5 during events | E-CommerceBench [P]; GSCPI [U] | extended |
 | 17 | SKU shortages | Substitution; menu flexibility | Product outages of 1–8 weeks | [design] | extended |
 | 18 | Road works | Forecastable traffic loss | Announced 2–8 weeks ahead; 4–12 weeks long; traffic ×0.6–0.9 | [design]; [U] | extended |
 | 19 | Competitor entry and exit | Strategic response | Entry hazard rises with visible profit; entrant joins the choice set; exit is a windfall | [U] Jia; Bresnahan & Reiss | extended (core in arena) |
-| 20 | Health inspections | Hygiene, compliance, demand | Poisson 1–3/yr plus complaint-triggered; hidden hygiene state; grade multiplies demand (A +5.7%, C −1%); 1–3-day closures | [U] Jin & Leslie; FDA Food Code | extended (core for café) |
+| 20 | Health inspections | Hygiene, compliance, demand | Poisson 1–3/yr plus complaint-triggered; hidden hygiene state; grade multiplies demand (A +5.7%, C −1%) [uncertain: unverified figures, measured as the effect of introducing grade cards in LA in 1998, not of a single inspection]; 1–3-day closures | [U] Jin & Leslie; FDA Food Code | extended (core for café) |
 | 21 | Equipment failure | Maintenance trade-off | Weibull (shape 1.5–3; scale set by age and maintenance); repair 1–5 days plus cost; fridge failure spoils stock | [U] McBroken; [design] | core |
 | 22 | Power and payment outages | Contingency planning | Poisson 1–2/yr; lognormal duration (median 1–2 h); spoilage after about 4 h; cash-only fallback | [U] EIA, USDA; Prosus card share [P] | extended |
 | 23 | Theft, shrink, burglary | Loss control; insurance honesty | Shrink ∝ traffic × unattended hours (about 1–3% of sales); rare burglary scaled by cash on site | Vend 2 [P]; NRF [U]; Arena [P\*] | core (shrink); extended (burglary) |
-| 24 | Viral attention and reviews | Surge capacity; reputation | Hawkes, branching 0.3–0.8; surges ×2–10; overflow becomes bad reviews | [U] Crane & Sornette, Luca; D02 | extended |
+| 24 | Viral attention and reviews | Surge capacity; reputation | Hawkes, branching 0.3–0.8; surges ×2–10; overflow becomes bad reviews [modelling flag: an exponential kernel with branching ≤0.8 cannot give the power-law decay cited from Crane & Sornette. That needs a power-law kernel and branching near 1] | [U] Crane & Sornette, Luca; D02 | extended |
 | 25 | Pandemic or lockdown | Extreme stress; compliance | Rare regime: closure or takeaway-only; office demand ×0.1–0.3; relief with friction | [U] Bartik et al.; D02 [S] | stretch (stress suite) |
 | 26 | Local economic cycle | Drift in demand level | Regime factor on arrivals and price sensitivity, ±5–15% | E-CommerceBench "downturn" [P]; [U] | extended |
 | 27 | Forecast and news signals | Measures anticipation | Lead time 0–14 days; precision; false alarms 0–30%; decoy headlines | [design]; E-CommerceBench [P] | core |
-| 28 | Starting cash runway | Unequal starts | 1–12 months of fixed costs | VB2 250 days; Prosus 125 days [calc] | core |
+| 28 | Starting cash runway | Unequal starts | 1–12 months of fixed costs | VB2 250 days (before its output-token bill); Prosus 125 days [calc] | core |
 | 29 | Location quality | Unequal starts | Base traffic ×0.5–2 | [design] | core |
 | 30 | Starting reputation | Unequal starts | Rating 3.0–4.8; 0–500 reviews | D02 | extended |
 | 31 | Starting debt and lease | Unequal starts; covenants | 0–12 months of revenue; prime + 2–8% | [U]; D05 | extended |
