@@ -147,10 +147,10 @@ Use two real rule files, each pinned to a "law date" per release: California/San
 | Payroll taxes | Trust money | US 7.65% + FUTA; SE 31.42% (youth 20.81%); IRS 2/5/10/15% | D05 §2.4 [S] | extended |
 | Chargebacks | Late reversals | 0.1–0.3%; up to 120 days; 9–30-day response window; fee $0–15 | D05 §2.3 [S, unverified] | extended |
 | Cash and shrink | Hidden losses | Till discrepancies; theft; shrink ≈1–2% | NRF 1.6% (D12 §2.4) [S] | extended |
-| Credit and capex | Leverage; temptation | Credit line ≤ Prime + 3–6.5%; cash advance at factor 1.2–1.5; espresso machine $5k–25k depreciated over 5–7 years | D05 §2.2 [S] | extended |
+| Credit and capex | Leverage; temptation | Credit ≤ Prime + 3–6.5%; cash advance factor 1.2–1.5; espresso $5k–25k, 5–7-year depreciation | D05 §2.2 [S] | extended |
 | Compute cost | Real AI cost | Fixed fictional price per token | VB2 $100/M (D05 §2.1) [P\*] | core (decision) |
 | Rule file and enforcement | Law as data | Fines, detection probability, escalation, effective dates | D09 §2.3 [S] | core |
-| Oversight and identity | Approval behaviour | Rolling spending caps; approver NPC with delay and an approval rate; actions that require a human principal | Vend 2 (D09 §2.1) [P] | core |
+| Oversight and identity | Approval behaviour | Rolling spending caps; approver NPC (delay, approval rate); human-only actions | Vend 2 (D09 §2.1) [P] | core |
 | Claims and books audit | False money statements | Claims checked against the ledger; the agent's books graded | Penrose (D05 §2.5) [S] | core (claims) / extended (books) |
 
 ### Planted traps (for S2's master catalogue)
@@ -173,10 +173,9 @@ Use two real rule files, each pinned to a "law date" per release: California/San
 ### Leave out or fold together
 
 - **Interchange caps, VAMP thresholds, friendly-fraud shares.** Fold into one fee and one chargeback probability.
-- **Tax depreciation and income tax.** Leave out for the MVP.
+- **Tax depreciation, income tax, foreign exchange.** Leave out of the MVP.
 - **Overdraft fee size and supplier cash-on-delivery switching.** Fold into the insolvency ladder.
-- **Tips.** Fold into payroll as a pass-through to staff.
-- **Foreign exchange and inflation.** Leave out, or use S2/S8's cost index.
+- **Tips.** Fold into payroll as a pass-through.
 - **Onion-futures-style contracts.** Fold into a contract-legality flag.
 - **CCPA.** Leave out: small shops are exempt.
 - **Fines.** Charge each fine once, in-world or at audit, never both.
@@ -192,11 +191,10 @@ Use two real rule files, each pinned to a "law date" per release: California/San
 
 ### Open questions
 
-1. Should the headline be one number or a vector, and how should bankruptcy count?
-2. Should compute count in the headline, and at what price?
-3. Is exploiting a simulator error skill or misconduct? Pre-register the answer (D05 §5).
-4. How should severity be weighted: statutory fines, harm, or expert judgement (D09 §5)?
-5. Should tacit price matching be penalised (D09 §5)?
-6. Is it ethical to make agents believe the stakes are real (D09 §5)?
-7. Should bookkeeping be a separate track?
-8. Will Andon share its ledgers (D05 §5)?
+1. Should the headline be one number or a vector? How should bankruptcy and compute count?
+2. Is exploiting a simulator error skill or misconduct? Pre-register the answer (D05 §5).
+3. How should severity be weighted: statutory fines, harm, or expert judgement (D09 §5)?
+4. Should tacit price matching be penalised (D09 §5)?
+5. Is it ethical to make agents believe the stakes are real (D09 §5)?
+6. Should bookkeeping be a separate track?
+7. Will Andon share its ledgers (D05 §5)?
