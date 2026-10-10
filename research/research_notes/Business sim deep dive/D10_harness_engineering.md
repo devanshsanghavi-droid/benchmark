@@ -493,3 +493,109 @@ Real deployments use a fourth: a periodic wake-up (Mona's roughly 30-minute cycl
 - Hypothesis 6.168.5 wheel, `hypothesis/stateful.py` (`invariant()` docstring)
 - Simon Willison, "Our AI started a cafe in Stockholm" (5 May 2026), quoting Andon. Read via the GitHub mirror https://raw.githubusercontent.com/kzinmr/ai-topics/main/wiki/raw/articles/simonwillison.net--2026-may-5-our-ai-started-a-cafe-in-stockholm--0a8c7878.md (secondary)
 - A third-party capture of https://andonlabs.com/evals/vending-bench-2 (retrieved 29 Sep 2026) found in the shared workspace scratchpad. Its provenance is unverified and it was not re-fetched; it is used only for [uncertain] leads.
+
+---
+
+## Fact-check log
+
+Independent adversarial fact-check, 10 Oct 2026. Primary sources were re-read from raw.githubusercontent.com, pypi.org, anthropic.com and platform.claude.com.
+
+Some hosts were unreachable from this sandbox: arxiv.org, andonlabs.com, metr.org, the-decoder, wtop, dailycoffeenews, bloomberg, docs.stripe.com, thinkingmachines.ai, simonwillison.net and Semantic Scholar. The web-search budget was also exhausted, and no reader or proxy services were used. As a result, most [S] claims stay [uncertain].
+
+Each row below is a claim group; rows that bundle several sub-claims are counted once.
+
+| # | Claim | Verdict | Source | Note |
+|---|---|---|---|---|
+| 1 | Prosus: Apache-2.0; MCP streamable-http; 22 tools; 6 machines / 72 slots | Verified | Prosus README, task.toml, instruction.md | 21 tools in `[clock.tool_minutes]` plus `wait_for_next_day` = 22 |
+| 2 | Prosus quotes: "Every call advances simulated time"; "Calls are serialized, even if submitted in parallel" | Verified | README; instruction.md | |
+| 3 | Prosus: 5 min for reads, prices and notes; 25 min for orders, email and search | **Corrected** | config.toml `[clock.tool_minutes]` | Inventory, storage and sales reports and `check_offers` are 25 min; default is 25. Fixed in §2.1 and the catalogue |
+| 4 | Prosus: 30 min swap, 45 min restock, 09:00–17:00 day | Verified | config.toml | `clear_slot` is also 30 |
+| 5 | Prosus commitment rules (pay on order, no preview or cancellation, email with quantities purchases, `CMP-` refunds) | Verified | instruction.md | |
+| 6 | Prosus anti-gaming: impact clamp 4.0, duplicate slots share demand, copy has no effect, cross-channel fatigue 0.12–0.20 | Verified | config.toml `[demand]`, `[marketing]`; instruction.md | The clamp is on the sales-impact factor |
+| 7 | Prosus scoring: balance floored at 0, unfinished or bankrupt = 0, inventory excluded, API spend separate | Verified | README; engine.py `score()` | |
+| 8 | Prosus reference bot ≈ €3.2k / 30 d and €61.2k / 365 d, 5 seeds | Verified | README (€3,227.89; €61,218.52) | Bot has privileged catalogue knowledge (note added) |
+| 9 | Harbor agent timeout 43,200 s, 2 CPU / 4 GB; "$5 API-equivalent" budget | Verified | task.toml; README | The $5 cap pairs with a 1,800 s limit in `run_models.py` |
+| 10 | `VENDING_STATE_PATH` / `VENDING_RESUME` | Verified | docker-compose.yaml; config.toml | |
+| 11 | Verifier: finalize, rewrite reward on every path, NaN/inf → 0 | Verified (nuance) | test.sh | `reward.txt` is zeroed *before* finalize; ordering clarified |
+| 12 | Supplier and negotiation numbers (markup 1.3–3.4×, pace 0.30–0.75, 5 rounds; aijnek 6; delivery 2–12 d; delay 0.05–0.35; short-ship 45–75%) | Verified | config.toml `[[suppliers]]`, `[negotiation]`; aijnek README | |
+| 13 | Complaints 0.035/day scaled by volume; sales report 14 / 120 days; 400-day log | Verified | config.toml | |
+| 14 | Day-of-week multipliers Sat 0.30, Sun 0.25 | Verified (flagged) | config.toml | Office-building values; flagged as wrong for a café |
+| 15 | "deterministic seeds; live model sampling can still vary" | Verified | README | |
+| 16 | Prosus training-exclusion request | Verified | README | |
+| 17 | OQ11: can `main` reach `/verifier/finalize`? | Resolved | server.py; engine.py | Same port as `/mcp`, no auth; an early call seals the run and scores 0 |
+| 18 | aijnek: 14 tools, 8k-token history, $100/M output weekly, Haiku with engine-set prices, days×60 steps, 180 s, no licence | Verified | aijnek README; repo (no LICENSE file) | |
+| 19 | aijnek: "only `wait_for_next_day` advances time" | **Corrected** | tools/api.py, tools/schema.py | Every call costs 5/25/75 min. Fixed in §2.1 and §2.3 |
+| 20 | In-game token charge is aijnek's design (implied) | Uncertain | aijnek README ("VB2-style"); third-party VB2 capture | Probably Andon VB2's rule; annotated |
+| 21 | open-vending-bench incomplete | Verified | README ("STILL IN PROGRESS") | |
+| 22 | YC-Bench: SQLite DES, `sim resume`, arbitrarily many actions, JSON, 20 turns plus scratchpad | Verified | YC-Bench README | |
+| 23 | YC-Bench: 47% of bankruptcies from adversarial clients; scratchpad "the strongest predictor of success" | Verified | docs/index.html | |
+| 24 | YC-Bench MIT | Verified (note) | pyproject.toml, README badge | No LICENSE file in repo root |
+| 25 | E-Commerce Bench: 18 tools, `context_manager/`, logs, 9-day escrow, 152/576 fraudulent, seeded kernel, LLM renders only, Apache-2.0, `BadSpend%` | Verified | E-CommerceBench README, LICENSE | |
+| 26 | TheAgentCompany: GitLab/Plane/ownCloud/RocketChat, pre-baked data, 30+ GB, MIT | Verified | README; LICENSE | |
+| 27 | AppWorld: 9 apps, 457 APIs, 100+ tables, state-based grading, encrypted `.bundle`, canary | Verified | README | README says "database tables" and does not say "SQLite" |
+| 28 | Mailpit MIT; Odoo LGPLv3 | Verified | LICENSE files | |
+| 29 | Stripe test clocks only move forward | Uncertain | — | docs.stripe.com unreachable |
+| 30 | SimPy 4.1.2, MIT, May 2026, real-time quote | Verified | PyPI (24 May 2026) | |
+| 31 | Mesa 3.5 added a monotonic-time check | **Corrected** | Mesa HISTORY.md | That check (#3343) is in 4.0.0a0 |
+| 32 | Mesa 3.5 `mesa.time`, `schedule_event`, `run_until`; 4.0a removed `DEVSimulator`; 3.5.1, Apache-2.0; 4.0 in alpha | Verified | HISTORY.md; PyPI | |
+| 33 | Inspect compaction: 5 strategies, 0.9 default, `memory()` to `/memories`, history retained | Verified | docs/compaction.qmd | |
+| 34 | Claude compaction beta `compact-2026-09-04` | Verified (nuance) | platform.claude.com compaction | Header for on-demand compaction; threshold compaction has its own |
+| 35 | `clear_tool_uses_20250919` (100k trigger, keep 3), `memory_20250818`, cache invalidation, `clear_at_least` | Verified | platform.claude.com context-editing | |
+| 36 | Context-engineering post (29 Sep 2025): Pokémon notes over thousands of steps; sub-agents return distilled summaries | Verified | anthropic.com | |
+| 37 | Harnesses post quote "less likely to … improperly alter" | **Corrected** | anthropic.com (26 Nov 2025) | Actual: "less likely to inappropriately change or overwrite JSON files compared to Markdown files" |
+| 38 | Inspect checkpointing (turn boundaries, no in-memory state, restores sandbox and store) | Verified | docs/checkpointing.qmd | |
+| 39 | Opus 5.5: $4 in, $0.20 hit, $5 5-min write, $20 out; Fable 5.1 $10/$50; Batch 50% | Verified | platform.claude.com pricing | |
+| 40 | Uncached VB2-scale run ≈ $380 | Verified | Arithmetic | 80×4 + 3×20 = $380 |
+| 41 | 90%-cache run ≈ $120 | **Corrected** | Arithmetic | $106–114 |
+| 42 | Fable 5.1 ≈ 2.5× more | Verified (nuance) | Arithmetic | 2.5× uncached; ≈2.35× at 90% hits |
+| 43 | Summary: "$50–$400 per run" | **Corrected** | Arithmetic | ≈$75–460 for 60–100M tokens |
+| 44 | VB1 run took 5–10 h | Uncertain | — | the-decoder unreachable |
+| 45 | batch_invariant_ops: 18 unique of 1,000; MIT | Verified | README; LICENSE | |
+| 46 | Inspect cache keys; 1-week expiry | Verified | docs/caching.qmd | Keys also include base URL and `tool_choice` |
+| 47 | Anthropic stats post: paired differences, clustered SEs, power analysis | Verified | anthropic.com (19 Nov 2024) | |
+| 48 | Inspect `network_mode: none` default; custom compose "replaces" it; host tools unaffected; `exec()` silent truncation | Verified | docs/sandboxing.qmd | |
+| 49 | Demystifying evals (9 Jan 2026): clean isolation, git-history advantage, 0% pass rate usually means a broken task | Verified | anthropic.com | "0% pass@100 … most often a signal of a broken task" |
+| 50 | ABC items II.4, II.5, II.8, II.9, I.I.1, III.3, III.10 | Verified | ABC.md | |
+| 51 | METR: o3 call-stack answer, `__eq__` override, monkey-patching | Uncertain | — | metr.org unreachable |
+| 52 | ImpossibleBench: MIT, Inspect, LLM-judge classification | Verified | README; LICENSE | |
+| 53 | τ-bench do-nothing agent 38% | Verified | agentic-benchmarks README | |
+| 54 | τ²-bench: v1.0.1 scores non-comparable with earlier ones | **Corrected** | tau2-bench README | Applies only to `banking_knowledge`; "Other domains are unaffected" |
+| 55 | Hypothesis `@invariant()` runs "after every rule"; 6.168.5; MPL-2.0 | Verified | 6.168.5 wheel `stateful.py`; PyPI | |
+| 56 | Inspect 0.3.278 MIT; limit types; `human_cli` recorded; handoff / `as_tool` | Verified | PyPI (9 Oct 2026); docs | |
+| 57 | `sandbox_agent_bridge` proxy; `bridged_tools` exposed as MCP | Verified | docs/agent-bridge.qmd | |
+| 58 | Harbor: Apache-2.0, TB-2.0 harness, Daytona/Modal, "thousands of environments in parallel" | Verified | Harbor README; LICENSE | Repo now presented as harbor-framework/harbor |
+| 59 | OpenEnv: BSD-3, `reset/step/state`, Docker, `/mcp`, Inspect, "APIs may still change" | Verified | README; LICENSE | |
+| 60 | OR-Gym 0.5.0, MIT, Sep 2022, `InvManagement-v0/v1`, `Newsvendor-v0` | Verified | PyPI; README | |
+| 61 | TextArena 0.7.4, MIT, 100+ games including negotiation | Verified | PyPI; README | |
+| 62 | AgentSims: MIT 2023; Python + MySQL; GUI | Verified | README; LICENSE | |
+| 63 | Concordia: Apache-2.0; game master | Verified | README; LICENSE | |
+| 64 | Magentic Marketplace: MIT; LLM buyer/seller simulation | Verified | README; LICENSE | |
+| 65 | Gymnasium / PettingZoo MIT | Verified | PyPI | |
+| 66 | τ²-bench, TheAgentCompany, ImpossibleBench, vivaria all MIT | Verified | LICENSE files | |
+| 67 | Vend 1: Sonnet 3.7, ~1 month, tools, quotes, Sarah/Venmo, 31 Mar–1 Apr, below-cost sales, giveaways | Verified | anthropic.com project-vend-1 | |
+| 68 | Vend 2: CRM, cost in inventory, browser, payment links, Forms, reminders, CEO with OKR tool, merch agent, 8× leniency, onion futures, imposter CEO | Verified | anthropic.com project-vend-2 (18 Dec 2025) | |
+| 69 | Vend 2: "The biggest gain came from forced procedures" | **Corrected** | project-vend-2 | "Among the most impactful changes" |
+| 70 | Vend 2: overnight "runaway chats" (quoted) | **Corrected** | project-vend-2 | Not verbatim; post says "dreamily chatting all night" |
+| 71 | Café: 6,000 napkins; 120 eggs with no stove | Verified (secondary) | Simon Willison quoting Andon, via GitHub mirror | Still secondary |
+| 72 | Mona messaged staff at midnight; Luna over-ordered candles | Uncertain | Headline URLs only | |
+| 73 | Luna = Claude, Mona = Gemini; Mona wakes every ~30 min | Uncertain | — | No reachable source |
+| 74 | VB1 details (30k context, three memory stores, `text-embedding-3-small`, tools, sub-agent tools, $500/$2, wholesale net worth, GPT-4o suppliers, ~2,000 msgs, >20M tokens, meltdown quote, "no clear correlation") | Uncertain | Partial: VB2 page capture; open-vending-bench README | arXiv unreachable |
+| 75 | VB1 sub-agent released as an Inspect extension | Uncertain | — | No repo or package found |
+| 76 | VB2: year-long, adversarial suppliers, delays, complaints; "can be gamed" / "can be jailbroken" | Uncertain (corroborated) | Third-party capture of andonlabs.com | Wording matches capture; not re-fetched |
+| 77 | VB2: "improved the agent scaffolding"; 5 runs; prompt caching added | Uncertain | Capture | Capture shows "Average across runs" with no count; cost chart "without caching" |
+| 78 | VB2: 3,000–6,000 msgs; 60–100M tokens | Uncertain | Capture | Capture says "tokens in output", which is ambiguous |
+| 79 | Arena: 3–4 agents, transfers, cartels | Uncertain | Capture (partial) | Only shared location and trading confirmed |
+| 80 | SWE-bench bash-only via mini-swe-agent; Terminal-Bench `--agent`/`--model` | Verified | mini-swe-agent README; terminal-bench README | |
+| 81 | Anthropic post dates: 29 Sep 2025, 26 Nov 2025, 9 Jan 2026 | Verified | anthropic.com | |
+| 82 | Tool-count range 15–25 (Prosus 22, E-Commerce 18, aijnek 14) | Verified | READMEs | |
+| 83 | Inspect limits include `token`, `time`, `working`, `cost`, `turn`, `message` | Verified | docs/setting-limits.qmd | |
+| F1 | Catalogue: café day-of-week multipliers (Sat 0.30, Sun 0.25) | Flag | config.toml comment ("weekends are dead") | Office values, unrealistic for a café |
+| F2 | Catalogue: plain Poisson demand buckets | Flag | Modelling practice | Retail counts are overdispersed; use negative binomial or a latent daily factor |
+| F3 | Catalogue: 10-unpaid-days bankruptcy for a café | Flag | Modelling | Use rent, payroll or credit-limit insolvency |
+| F4 | Catalogue: restock trips charged to the agent clock for a café | Flag | Vend 1/2 and Café setups use human staff | Charge physical work to staff NPCs |
+| F5 | Score: cash-only "prevents" inventory exploits | Flag | Prosus bot stops buying near the end; IAS 2 | Creates an end-of-horizon run-down incentive |
+
+**Tally**
+- Checked 83 claim groups: 62 verified (including 1 secondary-only and 1 open question resolved), 9 corrected, 12 uncertain, 0 removed.
+- Also raised 5 modelling flags against the variables catalogue (F1–F5), annotated inline.
+- Most consequential: Prosus time-costs misreported (4 read tools cost 25 min, not 5); aijnek also charges per-call minutes; the per-run cost range ($50–$400 → $75–$460); Prosus `/verifier/finalize` is unauthenticated on the MCP port; in-game token charging probably originates in Andon's VB2.
