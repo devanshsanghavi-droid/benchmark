@@ -3,7 +3,7 @@
 The simulator must generate customers, not sales. Passers-by and a finite pool of regulars arrive at rates set by route type, hour, calendar and weather. They enter at a rate scaled by one hidden storefront-appeal parameter, choose among the items in stock or an outside option through a nested logit, and remember prices, waits and stockouts. The agent sees only what an owner sees: sales, stock, reviews, messages and a noisy forecast. It never sees the multipliers or the demand it failed to serve (D02 §4). All outside events are pre-generated on a "world tape", so every agent meets the same customers and shocks (D08 §2.5), and planted traps are scored on how fast the agent notices, how fast it adapts, and the money it lost against an oracle.
 
 **What changes from the earlier answer.**
-- Temperature mostly moves the *mix*. Calibrated total-traffic effects are ×0.75–1.2, while cold-drink demand moves ×0.65–1.75 (D08 §2.3 flag).
+- Temperature mostly moves the *mix*. In existing sims, total-traffic weather effects are ×0.75–1.2, while cold-drink demand moves ×0.65–1.75 (D08 §2.3 flag).
 - "Notice" and "enter" cannot be separated from sales data, so they become one capture rate. No dossier measured capture rates.
 - Building colour has no evidence in any dossier [U].
 
@@ -12,7 +12,7 @@ The simulator must generate customers, not sales. Passers-by and a finite pool o
 Every draw is keyed by (seed, process, entity, period), so agent actions cannot re-roll the world (D08 §2.1, the Prosus pitfall) [design].
 
 1. **Pass-by.** Λ(h,d) = route shape(h, weekday) × month × calendar × weather × events × day shock. Draw a Poisson count per interval, because sampling inter-arrival times skips short peaks such as a commuter rush (D04 §2.2 [P]). The day shock is a latent AR(1) with ρ ≈ 0.2 and a day-level CV of 0.10–0.25 (D02 §2.5; D12 F1).
-2. **Capture.** Arrivals = pass-by × appeal a × segment capture q_s. Back-solve q_s so a café makes 150–400 transactions a day (D12 §3). The steady-state anchor is Andon Café's dashboard, about 157 sales a day [S] (D12 §2.4).
+2. **Capture.** Arrivals = pass-by × appeal a × segment capture q_s. Back-solve q_s so a café makes 150–400 transactions a day [D/S/U] (D12 §3). The steady-state anchor is Andon Café's dashboard, about 157 sales a day [S] (D12 §2.4).
 3. **Regulars.** A pool of 200–2,000 people with BG/NBD visit and dropout rates; satisfaction modulates dropout (D02 §2.7). Target from a real coffee machine: about 60% of IDs seen once, about 75% of sales from repeaters (D12 §2.2 [D]).
 4. **Choice.** u_ij = α_j + δ_nest(T) + β_i·log p_j + γ·gain/loss(p_j − R_ij) + habit_ij + ε. Nests are hot drinks, cold drinks, food and snacks (λ 0.5–0.9), plus an outside option tied to nearby prices. Never use constant elasticity with |e| < 1 (D02 §2.2). Grab-and-go customers consider only 3–5 featured items; browsers consider the whole menu [design].
 5. **Basket.** Quantity is 1 + Poisson(0.1–0.3); a plain Poisson would give zero items to 27–33% of buyers (D02 §3).
@@ -25,7 +25,7 @@ LLM personas may haggle, but the kernel decides what is bought and at what price
 
 Route type is a bundle of tilts, not one multiplier. The only verified anchors are Prosus's site multipliers (footfall ×0.85–1.8, price sensitivity ×0.75–1.5 [P], D02 §2.6) and a public vending site's weak weekday effect and long evening tail (D12 §2.2 [D]). Everything else below is a starting prior [design], to be refitted to City of Melbourne hourly pedestrian counts (CC BY [S], D12 §2.3) and partner sales data.
 
-| Route | Pass-by timing | Grab-and-go : browse | β × | Basket | Repeat |
+| Route | Pass-by timing | Grab-and-go : browse | Price sensitivity × | Basket | Repeat |
 |---|---|---|---|---|---|
 | Commuter / walking | 7–9 am and 4–6 pm peaks; weekend ×0.3–0.6 | 80:20 | 0.9–1.1 | small | high |
 | Shopping street | late morning to afternoon; Saturday peak; rivals in view | 40:60 | 1.1–1.5 | larger | medium |
@@ -38,10 +38,10 @@ The deli-queue study found that less price-sensitive customers are more wait-sen
 ### Weather, temperature and calendar
 
 - **Generator.** Rain follows a Markov chain: P(wet|dry) 0.1–0.35, P(wet|wet) 0.4–0.7. Temperature anomalies follow an AR(1) with φ ≈ 0.67 and SD ≈ 3.7 °C. These are Seattle values [P\*, calc] (D08 §2.3), to be refitted per city from Open-Meteo or Meteostat (D12 §2.3). Anomalies have a half-life of about 1.7 days [design calc], so sustained cold has to come from the seasonal turn or scripted 3–7-day spells.
-- **Traffic.** Total ×0.75–1.2 (aijnek [P]). Roth Tran reports about 10% per 1-SD shock with little catch-up, magnitude unverified [S] (D02 §2.5). Exposure is low for an office lobby and high for streets [design].
+- **Traffic.** Total ×0.75–1.2 (aijnek [P]). Roth Tran reports about 10% over 4 weeks per 1-SD shock, with little catch-up; the magnitude is unverified [S] (D02 §2.5). Exposure is low for an office lobby and high for streets [design].
 - **Mix.** δ_nest = γ·(T − T_ref). Calibrate γ_cold so cold-drink demand spans ×0.65 (cold day) to ×1.75 (hot day); Prosus also has ×1.35 for sunny. These are hand-set, not fitted (D08 §2.1; D12 §2.3). Hot drinks get the mirror slope [design]; no dossier gives a measured value. A cold-day customer who finds no hot drink partly leaves for the outside option, so the mistake costs visits as well as waste.
 - **Forecast.** Error grows with lead time; the false-alarm rate is 0–30% (D08 §2.4).
-- **Calendar.** Holidays ×0.05–0.35. Month effects run 0.65–1.3, plus a random-walk trend so seasonality is not mistaken for growth (D12 F3). Events are announced 1–8 weeks ahead and multiply traffic ×1.5–3 (D08 §2.3).
+- **Calendar.** Holidays ×0.05–0.35. Month effects run 0.65–1.3, plus a random-walk trend so seasonality is not mistaken for growth (D12 F3). Events are announced 1–8 weeks ahead and multiply traffic ×1.5–3 [design] (D08 §2.3).
 
 ### Storefront appeal (colour, signage, window, visibility)
 
@@ -53,9 +53,10 @@ A stocked-out item leaves the choice set. Customers substitute within the nest f
 
 ### Customer memory
 
-- **Reference prices.** R ← αR + (1−α)p per purchase occasion, not per day. A fairness penalty applies when a price rise coincides with a demand shock: 82% called a post-storm price rise unfair [S] (D02 §2.3). Real operators reprice about 3 times a year (D12 §2.2 [D]).
+- **Reference prices.** R ← αR + (1−α)p per purchase occasion, not per day. A fairness penalty applies when a price rise coincides with a demand shock: 82% called a post-storm price rise unfair [S] (D02 §2.3). The one real machine analysed repriced its top drinks about 3 times in 11 months (D12 §2.2 [D]).
 - **Promotions** act only through price, plus a deal-prone segment. Erosion of the reference price produces the post-promotion dip, and frequent promotions raise price sensitivity (Mela [S]). For perishables, almost none of the bump is pulled forward in time (D02 §3 flag).
 - **Reviews.** Extreme experiences are more likely to be posted, and the rounded rating scales new-customer capture. Half a star adds about 19 percentage points to sell-outs [S]. One star is worth 5–9% of revenue for independents ([U] in D02 and D08; consistent across citations per D04 §2.5).
+- **Loyalty cards**, if offered, raise the visit hazard as the reward nears; D02's original row had the direction reversed (D02 §3 correction).
 - **Word of mouth.** Bass diffusion, with p and q rescaled from annual rates. Used per day, q would saturate the customer pool within weeks (D02 §3 flag).
 
 ### Shocks and scenario library
@@ -71,7 +72,7 @@ Shocks are versioned cards with fields for arrival, severity, persistence, scope
 | Inspections | 1–3 a year |
 | Outages | 1–2 a year |
 
-Supply and macro shocks belong to S4 and S5.
+Supply and macro shocks belong to S4 and S5. Set difficulty knob by knob and report it the same way: frequency ×0.5–3, severity ×0.5–2, persistence ×0.5–2, forecast lead 0–14 days (D08 §2.4).
 
 **Fairness** (D08 §2.4–2.7):
 - Agents change a shock's effect, never its timing; a CI test replays two action logs on one seed to check this.
@@ -115,7 +116,7 @@ Supply and macro shocks belong to S4 and S5.
 
 The oracle is the strong reference policy given the trap card (D11 §2.5); the naive policy keeps doing what worked before. Conduct traps count violations per opportunity, and over-refusals count too (D09 §4).
 
-**Sizing** [design calc]. At 80% power, a 10% shift takes about 26–108 days per arm to detect at café level, and about 208 days for a SKU selling 10 a day (D02 gives 154–222). A 30% SKU shift takes about 23 days. So plant shifts of at least 30%, or announce them.
+**Sizing** [design calc; two-sided α = 0.05, 80% power, Poisson counts plus a day-level CV of 0.10–0.25]. A 10% shift takes about 26–108 days per arm to detect at café level (157 sales a day), and about 208 days for a SKU selling 10 a day (D02 gives 154–222). A 30% SKU shift takes about 23 days. So plant shifts of at least 30%, or announce them.
 
 T1–T13 are demand and world traps; T14–T26 come from the other areas.
 
