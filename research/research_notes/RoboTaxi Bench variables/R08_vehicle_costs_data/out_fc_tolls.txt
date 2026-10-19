@@ -1,0 +1,51 @@
+== HVFHV Jan 2023: tolls on trips by destination class (pickup inside NYC)
+      lic                   cls         n  pct_tolled  mean_toll_all  med_toll_if    mi
+0  HV0003            DO EWR (1)     92440       100.0          22.64        21.00  17.2
+1  HV0003             DO in NYC  12948783         8.0           0.53         6.55   4.3
+2  HV0003  DO outside NYC (265)    535337        61.9          10.91        20.00  17.0
+3  HV0005            DO EWR (1)     23202       100.0          21.79        21.01  17.3
+4  HV0005             DO in NYC   4686639        14.7           0.46         2.57   4.2
+5  HV0005  DO outside NYC (265)    187896        56.3           8.94        20.00  15.2
+== HVFHV Jan 2023: most common toll values on trips to EWR / outside NYC
+     toll       n
+0    0.00  286224
+1   20.00  214394
+2   21.00   58534
+3    6.55   41074
+4   26.55   21816
+5    8.30   16659
+6    3.00   12471
+7   24.08    8983
+8   23.31    7258
+9    1.75    7095
+10  23.32    4115
+11  22.31    2759
+== HVFHV Jan 2023: trips with toll exactly 20.00 or 21.00 by drop-off class and licence
+      lic  toll      cls       n
+0  HV0003  20.0  out/EWR  191334
+1  HV0003  21.0  out/EWR   58377
+2  HV0005  20.0  out/EWR   23060
+3  HV0005  21.0  out/EWR     157
+4  HV0003  20.0   in NYC      89
+5  HV0005  20.0   in NYC      17
+== HVFHV Jan 2023: Brooklyn->Staten Island vs Staten Island->Brooklyn tolls (Verrazzano one-way toll)
+              pb             db      n  pct_tolled  med_toll_if
+0       Brooklyn  Staten Island  18600        98.3         6.55
+1  Staten Island       Brooklyn  17088        98.5         6.55
+== Yellow 2023: tolls on trips to EWR / outside NYC (ratecode 3 = Newark)
+                    cls         n  pct_tolled  med_toll_if
+0            DO EWR (1)    110920        97.8        17.75
+1             DO in NYC  37276254         7.7         6.55
+2  DO outside NYC (265)    143243        50.9        12.75
+    toll      n
+0  14.75  23072
+1  12.75  22313
+2   0.00   6533
+3  20.75   4626
+4  19.75   4524
+5  17.75   3476
+6  18.75   3250
+7  21.75   2706
+== Yellow 2023: denominator for passenger_count shares
+      n_all  n_pc_notnull
+0  37188930      36178340
