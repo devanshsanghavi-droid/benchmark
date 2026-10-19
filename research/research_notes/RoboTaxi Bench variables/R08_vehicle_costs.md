@@ -319,3 +319,88 @@ Two lessons follow. First, energy is a small share of gross for hybrids and EVs,
 - [P*] (added by fact-check) Rules of the City of New York, Title 35 (TLC) and Title 19 chapter 39, via jehiah/nyc_code_archive on GitHub (American Legal Publishing XML export, archive SHA-256 54a1626c..., current through rules effective 13 Aug 2026). https://github.com/jehiah/nyc_code_archive
 - [P*] (added by fact-check) EPA/DOE vehicles file, model years 1984-2020, GitHub copy rfordatascience/tidytuesday data/2019/2019-10-15/big_epa_cars.csv.
 - [P] (added by fact-check) Toll pass-through check on the same local TLC files (HVFHV Jan 2023, yellow 2023): fc_tolls.py and out_fc_tolls.txt in R08_vehicle_costs_data/.
+
+## Fact-check log
+
+**Date:** 19 Oct 2026. Independent fact-check of all 70 R08 variables, the cost stack, the summary, the data-source table and the open questions.
+
+**Counts (by variable).**
+- **Checked:** 70.
+- **Verified (10):** R08-002, 004, 005, 007, 013, 030, 036, 041, 052 and 053. Key claims were confirmed against rule text or data with no error found; details were added where the source gave them.
+- **Corrected (15):** R08-001, 003, 006, 022, 038, 039, 040, 042, 043, 044, 050, 051, 056, 057 and 069. Each had at least one wrong or stale value, rule, premise or impact rating.
+- **Uncertain (7):** R08-001, 006, 015, 041, 049, 060 and 070 now carry an [uncertain] mark. R08-001 and R08-006 were also corrected, and R08-041 was also verified.
+- **Removed:** 0. No variable was wrong or meaningless, and there were no exact duplicates.
+- **New variables:** none. One factual gap (the 2024 rule that taxis must be accessible) was folded into R08-005 and R08-040.
+- **Unchanged:** two rows got notes only (R08-008, R08-033). The other 39 rest on [U] or [design] values that could not be re-read; they were checked for plausibility and arithmetic and left as tagged.
+- **Totals:** impact moves from 9 high / 25 medium / 36 low to 9 / 22 / 39. Priority and role totals are unchanged.
+
+**How it was checked.** The shared web-search budget was already used up when this pass started. eia.gov, fueleconomy.gov, irs.gov, mta.info, panynj.gov, nyc.gov, NYC Open Data, epa.gov and wikipedia.org all failed DNS or were refused by the proxy. No proxy, reader, cache or mirror service was used. Evidence that could be read:
+1. **[P*] Rule text.** The Rules of the City of New York, Title 35 (all 807 TLC sections) and Title 19 chapter 39 (parking and camera fines), from the verbatim American Legal Publishing export on GitHub (jehiah/nyc_code_archive, current through rules effective 13 Aug 2026).
+2. **[P*] EPA vehicle data.** The EPA/DOE vehicles file for model years up to 2020, from a GitHub copy (rfordatascience/tidytuesday, 2019-10-15).
+3. **[P] Trip records.** The local TLC Parquet files (HVFHV Jan 2023, yellow 2023), re-queried with DuckDB in fc_tolls.py (output in out_fc_tolls.txt). The original r08_*.py outputs were also re-matched line by line against every [P] number in the dossier, and all matched.
+4. **Sibling fact-check logs (R05, R06, R09, R10)**, used for facts they had already re-read.
+
+**Key corrections**
+1. **Tolls on out-of-city trips (R08-050, summary).** The dossier said the driver pays the inbound toll on the empty return from New Jersey or Newark. The rules say the opposite:
+   - On trips beyond NYC, the rider pays "all necessary tolls to and from the destination" (35 RCNY 58-26(f)(2) for taxis, 59A-23(b)(2) for FHVs).
+   - Apps must pass to the driver any toll paid on a dispatched trip (59D-17(c)).
+   - The data agree. In Jan 2023, 100% of app drop-offs at Newark carry a toll (median $21), and so do 56-62% of other out-of-city drop-offs (median $20), although westbound Hudson crossings are free. In yellow 2023, 98% of Newark drop-offs carry a toll.
+
+   Driver-paid tolls are therefore mainly empty repositioning, and impact was lowered from medium to low. This also mostly answers open question 3: the $20 and $21 values are flat return-toll charges.
+2. **Taxi lease caps (R08-042).** The weekly caps are $630 (day) and $737 (night), not $667-800 (35 RCNY 58-21(c), as amended May 2025).
+   - The shift caps of $105-129 were right. Hybrids may charge $3 a shift or $21 a week more.
+   - The medallion-only weekly cap is $952 ($994 for hybrids).
+   - The optional fuel surcharge is $13-31 a shift, indexed to the EIA NYC gasoline price.
+   - Medallion Relief Program guaranty terms: principal of $170,000 or less, a fixed rate of 7.3% or less, and payments of no more than $1,235 a month (58-51(e)).
+3. **Card-processing fee (R08-043).** It is a flat $7 a shift or $49 a week (58-21(c)(5)(xi)), not "about 5% of card fares".
+4. **Inspections (R08-039).** FHVs are inspected three times a year like taxis (59A-26(a)), not once a year. Only the new-licence and renewal inspections must be at the TLC facility.
+5. **Vehicle retirement (R08-040, R08-006).**
+   - Taxis retire 84 months after hack-up, with a one-time 6-month hardship extension. Accessible taxis may run on while they pass inspection (67-18).
+   - FHVs and green cars have no TLC retirement age (59A-28(d) repealed; 82-61 reserved). The earlier "5-8 years for taxis and FHVs" was wrong.
+   - **Gap found:** since 18 Oct 2024 only accessible models may be hacked up as yellow taxis (67-06(a)).
+6. **TLC fees (R08-038, cost stack).** Fees are now [P*]:
+   - Driver licence $84 a year ($252 per 3-year term).
+   - FHV vehicle licence $275 a year on a 2-year term.
+   - Commercial Motor Vehicle Tax $800 per 2-year FHV licence.
+   - TLC inspection $75 for FHVs and $90 for taxis.
+
+   That is about $15-20 a week, not $5-15.
+7. **Advertising (R08-044).** FHVs, including Uber and Lyft cars, may not carry rooftop ads (59A-29(e)(2)). Only taxis may, on a permitted fixture, and the income goes to the medallion owner.
+8. **Toll payment method (R08-051).** Every taxi and FHV must carry an MTA E-ZPass, and drivers must use it (58-27, 59A-24, 80-15(d)). Toll-by-mail is therefore an edge case for TLC cars.
+9. **EV efficiency (R08-001, R08-022, R08-069).** EPA rates the Jaguar I-PACE at 44.3 kWh/100 mi, not about 40. Its 234-mile range is confirmed. An I-PACE-class robotaxi therefore pays about $0.22-0.26/mi on public DC fast charging. The Camry, Camry Hybrid, RAV4 Hybrid, Model 3 and Niro EV ratings were confirmed.
+10. **Party-size denominator (R08-003).** The shares are of the 36.2M trips with a recorded passenger count, of which 1.6% record 0. The taxi passenger limit (4 or 5 plus a lap child under 7) is now [P*] (80-15(e)).
+11. **Impact ratings.** R08-056 (human collision cost) and R08-057 (robotaxi crash rate) were lowered from medium to low, in line with the R09 fact-check: expected crash cost is about $0.2-1 an hour. All other ratings were judged defensible. Two are borderline:
+    - R08-013 (gas price): a $1/gal swing is about 1-2% of gross for a hybrid.
+    - R08-022 (battery range): high mainly at fleet level.
+
+**Verified with added detail (P*).**
+- **Green Rides (R08-041):** 5% (2024), 15% (2025), 25% (2026), 40% (2027), 60% (2028), 80% (2029) and 100% (2030) of app trips must go to zero-emission or accessible vehicles, with a fine of $50 per 1,000 trips short (59D-13(c)).
+- **Insurance minimums (R08-036):** $100k no-fault, $100k/$300k bodily injury, $10k property damage, and cover 24/7 (58-13, 59A-12).
+- **Taxi Improvement Fund (R08-005):**
+  - Hack-up payment of at least $20,000 plus $10,000 in operating payments over 4 years.
+  - $10 per accessible-dispatch trip to the driver.
+  - Funded by the $1.00 Taxicab Improvement Surcharge.
+  - The HVFHV per-mile pay floor is $1.061 for WAV trips vs $0.850 for others (59D-22).
+- **Fines (R08-053):**
+  - Parking base fines of $20-100 plus a state surcharge (19 RCNY 39-05).
+  - Bus-lane cameras: $50, $100, $150, $200, then $250 (39-18).
+- **Gasoline CO2 (R08-070):** 8,880 g per gallon, derived from the EPA data.
+- **EIA reference (R08-013):** the TLC uses the EIA NYC gasoline index in its own rules (58-21(c)(6)).
+
+**Still open (marked [uncertain] or left [U]).**
+- Fields of the NYC Open Data FHV Active and Medallion Vehicles lists (make and model probably absent; decode the VIN via NHTSA vPIC).
+- The 2012 Sandy rationing exemption for TLC cars.
+- The 2026 IRS mileage rate (recalled as 72.5 cents).
+- Details of the Waymo May 2026 recall.
+- eGRID's NYC grid factor (probably about 0.40 kg/kWh, not 0.25-0.35).
+- Whether EV-only FHV licences were released in 2026.
+- All price levels: EIA gasoline, Con Edison tariffs, DC fast-charging prices, FHV rents, commercial insurance premiums, medallion values, robotaxi capex, depot rent.
+- All study figures: AAA 2019 EV range, Swiss Re/Waymo 2024, J.D. Power, Geotab, Recurrent.
+
+These match background knowledge but must be re-read before they become simulator constants.
+
+**Generalising beyond NYC.** These are NYC-specific:
+- The TLC lease caps, the TIF, Green Rides, the E-ZPass mandate, the toll "to and from" rule, retirement, inspection and fee schedules.
+- The no-rooftop-ads rule for FHVs and the parking-fine schedule.
+
+Other cities should get them as a per-city regulation table, not hard-coded constants. Cities without TLC-style lease caps (most of the US) leave rental and lease prices unregulated. Energy, maintenance, depreciation and EV charging physics carry over directly, with local fuel and electricity prices (EIA state series) and local temperature.
