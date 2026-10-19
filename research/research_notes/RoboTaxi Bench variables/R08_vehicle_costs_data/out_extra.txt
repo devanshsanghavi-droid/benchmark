@@ -1,0 +1,24 @@
+== yellow: share of tolled trips at 6.55 vs 6.94 by month 2023
+   m      n655      n694
+0  7  220999.0       0.0
+1  8   46993.0  174674.0
+2  9     514.0  219935.0
+          dt    n655    n694
+0 2023-08-03  7686.0     1.0
+1 2023-08-04  7136.0     1.0
+2 2023-08-05  5540.0     2.0
+3 2023-08-06  1807.0  5487.0
+4 2023-08-07  1311.0  5596.0
+5 2023-08-08  1305.0  6136.0
+== HVFHV Jan 2023: long trips (EV range relevance)
+          n   gt30  gt50   gt100  mean_mph  agg_mph
+0  18475289  0.611  0.11  0.0092      14.1     16.0
+== HVFHV Jan 2023: Manhattan-internal trips speed (borough via zone lookup)
+              pb        n   mph  avg_mi
+0      Manhattan  5483811  10.8    2.62
+1       Brooklyn  3635281  11.2    2.66
+2         Queens  2356204  15.9    3.55
+3          Bronx  1614448  13.5    2.85
+4  Staten Island   214142  17.0    3.36
+5            N/A      315  20.9    4.85
+6            EWR        2  10.7    0.77

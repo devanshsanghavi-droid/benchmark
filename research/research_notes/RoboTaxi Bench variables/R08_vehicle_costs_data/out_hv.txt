@@ -1,0 +1,33 @@
+== by licence
+      lic         n  avg_mi  med_mi  avg_min  avg_pay  pay_per_mi  pay_per_eng_hr  toll_pct  toll_mean_if  tolls_pct_of_fare  wav_req_pct  wav_match_pct  shared_req_pct  shared_match_pct  aar_pct
+0  HV0003  13577153    4.92    2.87     18.3    17.45        3.54            57.1     10.77         10.11               4.96        0.154          6.405           1.709             0.339      0.0
+1  HV0005   4898136    4.73    2.96     18.0    14.95        3.16            49.9     16.70          5.31               4.33        0.140          7.076           5.384             2.782      0.0
+== most common toll values
+     toll        n
+0    6.55  1010732
+1   20.00   214499
+2   21.00    58534
+3    3.00    46052
+4   26.55    21826
+5    8.30    16678
+6    2.45    16294
+7   13.10    15271
+8    0.10    12469
+9    0.12    11399
+10   0.11    11247
+11   0.13     9816
+12  24.08     8983
+13   0.14     8356
+14   0.15     8177
+== drop-offs outside NYC (265) and EWR (1), pickups there
+   do_outside_pct  do_ewr_pct  pu_outside_pct  pu_ewr_pct  avg_mi_out  avg_pay_out
+0        3.916301    0.625944        0.005364    0.000011   16.644057     44.61208
+== airport drop/pickup JFK 132, LGA 138
+   do_apt_pct  pu_apt_pct    apt_mi  avg(CASE  WHEN ((((pul IN (132, 138)) OR (dol IN (132, 138))) AND (tolls > 0))) THEN (1.0) ELSE 0 END)
+0    3.747108    3.537514  13.12325                                                                                                0.031024
+== trip miles distribution
+                                        q
+0  [0.99, 1.55, 2.9, 6.019, 11.14, 25.79]
+== illustrative per-trip energy cost: gas 30 mpg @3.40/gal, hybrid 45 mpg, EV 0.30 kWh/mi @0.35/kWh; deadhead factor 1.5 miles per paid mile
+   gas_cost_trip  hyb_cost_trip  ev_cost_trip  pay_trip  gas_pct_pay  ev_pct_pay
+0           0.83           0.55          0.77     16.79          4.9         4.6

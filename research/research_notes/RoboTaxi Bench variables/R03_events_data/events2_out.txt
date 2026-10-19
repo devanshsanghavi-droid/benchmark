@@ -1,0 +1,44 @@
+== US Open 2023 zone 93, excl data gap ==
+DO 93 all day: event mean 213.5 [np.int64(235), np.int64(202), np.int64(236), np.int64(239), np.int64(259), np.int64(267), np.int64(259), np.int64(238), np.int64(224), np.int64(229), np.int64(79), np.int64(207), np.int64(129), np.int64(186)] | base mean 37.7 median 31.5 (n=38) | ratio 5.66
+PU 93 all day: event mean 188.7 [np.int64(98), np.int64(134), np.int64(154), np.int64(157), np.int64(185), np.int64(278), np.int64(231), np.int64(227), np.int64(251), np.int64(286), np.int64(205), np.int64(252), np.int64(86), np.int64(98)] | base mean 12.5 median 11.0 (n=38) | ratio 15.07
+PU 93 21-24h: event mean 59.7 [np.int64(38), np.int64(54), np.int64(68), np.int64(53), np.int64(74), np.int64(98), np.int64(60), np.int64(62), np.int64(82), np.int64(70), np.int64(65), np.int64(59), np.int64(12), np.int64(41)] | base mean 2.1 median 1.5 (n=38) | ratio 29.09
+US Open PU 93 mean fare 45.35 mi 9.99 vs base fare 57.67 mi 8.69
+
+== UNGA Mon-Wed Sep 18-20 vs Mon-Wed Sep 11-13 and Oct 2-4 ==
+PU Midtown East group 7-20h: event mean 8483.0 [np.int64(7972), np.int64(8912), np.int64(8565)] | base mean 14371.2 median 14872.5 (n=6) | ratio 0.59
+DO Midtown East group 7-20h: event mean 9297.3 [np.int64(9238), np.int64(9431), np.int64(9223)] | base mean 13685.5 median 14099.5 (n=6) | ratio 0.68
+PU 233 UN/Turtle Bay S 7-20h: event mean 391.0 [np.int64(391), np.int64(358), np.int64(424)] | base mean 1165.8 median 1203.0 (n=6) | ratio 0.34
+PU 229 7-20h: event mean 945.0 [np.int64(919), np.int64(842), np.int64(1074)] | base mean 1718.0 median 1756.5 (n=6) | ratio 0.55
+Citywide 7-20h: event mean 73690.3 [np.int64(71820), np.int64(74375), np.int64(74876)] | base mean 82904.5 median 83984.0 (n=6) | ratio 0.89
+speed 8-11: MidE UNGA 7.55 vs 8.70 ; all 9.02 vs 10.35
+speed 11-16: MidE UNGA 7.43 vs 7.87 ; all 9.53 vs 9.98
+speed 16-20: MidE UNGA 7.45 vs 7.76 ; all 10.03 vs 10.50
+citywide fare per engaged hour 8-20h: UNGA 62.9 vs 64.9; fare/trip 21.69 vs 20.31; dur/trip 20.7 vs 18.8
+
+== Broadway: Times Sq 230 yellow pickups per 15 min, 2023 (excl holidays) by weekday ==
+dow      0     1     2     3     4     5     6
+t                                             
+1600  45.0  52.0  64.0  57.0  48.0  51.0  43.0
+1630  45.0  54.0  79.0  60.0  53.0  70.0  49.0
+1645  48.0  58.0  75.0  61.0  55.0  68.0  50.0
+1700  51.0  63.0  73.0  65.0  57.0  61.0  48.0
+1715  54.0  67.0  71.0  67.0  58.0  53.0  47.0
+1730  58.0  70.0  76.0  72.0  61.0  53.0  63.0
+2130  57.0  88.0  83.0  84.0  68.0  49.0  44.0
+2145  55.0  81.0  78.0  75.0  72.0  55.0  42.0
+2200  49.0  69.0  75.0  68.0  69.0  57.0  38.0
+2215  45.0  68.0  75.0  69.0  64.0  60.0  34.0
+2230  42.0  71.0  90.0  72.0  83.0  87.0  31.0
+2245  41.0  62.0  91.0  71.0  82.0  81.0  27.0
+2300  34.0  58.0  80.0  66.0  66.0  63.0  26.0
+2315  28.0  51.0  60.0  61.0  56.0  56.0  23.0
+22:00-23:00 pickups/day by dow (0=Mon): {0: 177.0, 1: 270.0, 2: 331.0, 3: 280.0, 4: 298.0, 5: 285.0, 6: 129.0}
+16:45-17:45 pickups/day by dow: {0: 211.0, 1: 258.0, 2: 295.0, 3: 265.0, 4: 232.0, 5: 234.0, 6: 208.0}
+
+== Penn/MSG zone 186: distribution of yellow pickups 22:00-24:00 per night (2023) ==
+{'count': 361.0, 'mean': 318.4, 'std': 84.5, 'min': 142.0, '25%': 255.0, '50%': 310.0, '75%': 367.0, 'max': 581.0}
+p10,p50,p90: {0.1: 213.0, 0.5: 310.0, 0.9: 427.0}
+15-min profile top-20% nights vs bottom-40% nights:
+t       2100  2115  2130  2145  2200  2215  2230  2245  2300  2315  2330  2345   late
+top     51.8  41.9  54.7  61.6  64.0  56.2  59.5  61.2  58.7  42.8  41.3  39.1  299.6
+bottom  41.4  34.4  37.9  41.5  32.7  27.8  32.7  32.8  31.6  28.5  29.6  30.7  157.6
