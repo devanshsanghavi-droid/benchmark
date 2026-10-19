@@ -1,0 +1,851 @@
+# All variables so far (compact)
+
+824 variables from 12 domains. Columns: id | domain | sub-box | name | impact | role | component.
+
+## R01
+- R01-001 | Zones and service areas | Taxi zone partition | medium | world | Map & road network
+- R01-002 | Zones and service areas | Service-zone class | high | rule | Map & road network
+- R01-003 | Zones and service areas | Pickup concentration (spatial skew) | high | world | Demand generator
+- R01-004 | Zones and service areas | Zone pickup/drop-off imbalance | high | world | Demand generator
+- R01-005 | Zones and service areas | Taxi vs app geographic footprint | high | world | Demand generator
+- R01-006 | Zones and service areas | Green taxi hail exclusionary zone | high | rule | Regulation, fees & taxes
+- R01-007 | Zones and service areas | Licensing jurisdiction boundary | medium | rule | Regulation, fees & taxes
+- R01-008 | Zones and service areas | Robotaxi operating geofence (ODD) | high | setting | Map & road network
+- R01-009 | Zones and service areas | Spatial resolution | medium | setting | Benchmark harness
+- R01-010 | Zones and service areas | Zone adjacency and travel-time skim | high | world | Map & road network
+- R01-011 | Zones and service areas | Repositioning target (where to wait or cruise) | high | agent | Driver state
+- R01-012 | Road network structure | Road hierarchy class | medium | world | Map & road network
+- R01-013 | Road network structure | One-way streets and circuity | medium | world | Map & road network
+- R01-014 | Road network structure | Turn restrictions | low | rule | Map & road network
+- R01-015 | Road network structure | Speed limits | low | rule | Map & road network
+- R01-016 | Road network structure | Enforcement camera locations | low | rule | Regulation, fees & taxes
+- R01-017 | Road network structure | Road access by vehicle class | low | rule | Map & road network
+- R01-018 | Road network structure | Elevation and grade | low | world | Vehicle & energy
+- R01-019 | Chokepoints, tolls and charging zones | River crossings as chokepoints | medium | world | Map & road network
+- R01-020 | Chokepoints, tolls and charging zones | MTA bridge and tunnel tolls | medium | rule | Regulation, fees & taxes
+- R01-021 | Chokepoints, tolls and charging zones | Port Authority Hudson crossing tolls | medium | rule | Regulation, fees & taxes
+- R01-022 | Chokepoints, tolls and charging zones | Congestion Relief Zone (CRZ) | medium | rule | Regulation, fees & taxes
+- R01-023 | Chokepoints, tolls and charging zones | State congestion surcharge zone (96th St line) | low | rule | Regulation, fees & taxes
+- R01-024 | Chokepoints, tolls and charging zones | Fee-avoiding route choice | low | agent | Traffic & travel time
+- R01-025 | Curb access and restricted streets | Curb regulation at the stop point | medium | rule | Map & road network
+- R01-026 | Curb access and restricted streets | Rider-driver rendezvous time | low | world | Rider behaviour
+- R01-027 | Curb access and restricted streets | Bus lanes | low | rule | Regulation, fees & taxes
+- R01-028 | Curb access and restricted streets | Busways and transit-priority streets | low | rule | Map & road network
+- R01-029 | Curb access and restricted streets | Car-free park drives and plazas | low | rule | Map & road network
+- R01-030 | Curb access and restricted streets | Taxi stands and hotel queues | medium | world | Demand generator
+- R01-031 | Curb access and restricted streets | Taxi/FHV relief stands | low | world | Map & road network
+- R01-032 | Curb access and restricted streets | Legal waiting spots (staging) | medium | world | Map & road network
+- R01-033 | Curb access and restricted streets | Robotaxi pickup-point placement | low | rule | Rider behaviour
+- R01-034 | Foot traffic vs road density | Pedestrian volume by location | high | world | Demand generator
+- R01-035 | Foot traffic vs road density | Pedestrian demand class of each street | medium | world | Map & road network
+- R01-036 | Foot traffic vs road density | Subway entries and exits by hour | medium | world | Demand generator
+- R01-037 | Foot traffic vs road density | Road-to-pedestrian ratio ('pickup-ability') | medium | world | Map & road network
+- R01-038 | Foot traffic vs road density | Transit accessibility | medium | world | Demand generator
+- R01-039 | Foot traffic vs road density | Population and job density | high | world | Demand generator
+- R01-040 | Foot traffic vs road density | Hail visibility by street type | medium | world | Demand generator
+- R01-041 | Foot traffic vs road density | Cruising route for street hails | medium | agent | Driver state
+- R01-042 | Land use and trip generators | Land-use mix per zone | high | world | Demand generator
+- R01-043 | Land use and trip generators | Office and business districts | medium | world | Demand generator
+- R01-044 | Land use and trip generators | Nightlife density | medium | world | Demand generator
+- R01-045 | Land use and trip generators | Tourist and hotel density | medium | world | Demand generator
+- R01-046 | Land use and trip generators | Hospitals, universities and institutions | low | world | Demand generator
+- R01-047 | Land use and trip generators | Venues, stadiums and convention centres | medium | world | Events & disruptions
+- R01-048 | Land use and trip generators | Retail and shopping corridors | low | world | Demand generator
+- R01-049 | Transit hubs and airports | Intercity rail and bus hubs | high | world | Demand generator
+- R01-050 | Transit hubs and airports | Airport trip share and value | high | world | Demand generator
+- R01-051 | Transit hubs and airports | Airport pickup/drop-off asymmetry | medium | world | Demand generator
+- R01-052 | Transit hubs and airports | Airport holding-lot queue | high | state | Competitor supply & matching
+- R01-053 | Transit hubs and airports | Airport queue decision | high | agent | Driver state
+- R01-054 | Transit hubs and airports | Airport fare and fee triggers | medium | rule | Pricing & platform rules
+- R01-055 | Transit hubs and airports | Airport terminal layout and pickup rules | low | rule | Map & road network
+- R01-056 | Transit hubs and airports | Newark Airport (EWR) special status | medium | rule | Regulation, fees & taxes
+- R01-057 | Out-of-city trips and the empty return | Out-of-city trip share | medium | world | Demand generator
+- R01-058 | Out-of-city trips and the empty return | Out-of-city fare and pay rules | medium | rule | Pricing & platform rules
+- R01-059 | Out-of-city trips and the empty return | Empty-return distance and legality | medium | rule | Traffic & travel time
+- R01-060 | Out-of-city trips and the empty return | Night outward drift | high | world | Demand generator
+- R01-061 | Driver home, depots and amenities | Driver home location | medium | setting | Driver state
+- R01-062 | Driver home, depots and amenities | Distance and time to home | medium | state | Driver state
+- R01-063 | Driver home, depots and amenities | Garages, depots and shift-change points | medium | setting | Fleet manager
+- R01-064 | Driver home, depots and amenities | Fuel station locations | low | world | Vehicle & energy
+- R01-065 | Driver home, depots and amenities | EV charger locations, power and access | medium | world | Vehicle & energy
+- R01-066 | Driver home, depots and amenities | Restrooms, food and break spots | low | world | Driver state
+- R01-067 | Neighbourhood economics and safety | Neighbourhood income | medium | world | Rider behaviour
+- R01-068 | Neighbourhood economics and safety | Payment mix by zone | low | world | Rider behaviour
+- R01-069 | Neighbourhood economics and safety | Perceived safety and crime | low | world | Competitor supply & matching
+- R01-070 | Neighbourhood economics and safety | Geographic refusal rules | medium | rule | Regulation, fees & taxes
+
+## R02
+- R02-001 | A. Clock, calendar and day types | Simulation clock and hour-of-week key | high | state | Benchmark harness
+- R02-002 | A. Clock, calendar and day types | Day-type classification | high | world | Demand generator
+- R02-003 | A. Clock, calendar and day types | Scenario replay date | high | setting | Benchmark harness
+- R02-004 | A. Clock, calendar and day types | Working-hours choice | high | agent | Driver state
+- R02-005 | A. Clock, calendar and day types | Calendar awareness given to the agent | high | setting | Benchmark harness
+- R02-006 | B. Hour-of-day demand profile | Weekday hourly demand curve | high | world | Demand generator
+- R02-007 | B. Hour-of-day demand profile | Weekend hourly demand curve | high | world | Demand generator
+- R02-008 | B. Hour-of-day demand profile | Morning rush | high | world | Demand generator
+- R02-009 | B. Hour-of-day demand profile | Lunch hour (rider demand) | low | world | Demand generator
+- R02-010 | B. Hour-of-day demand profile | Evening rush | high | world | Demand generator
+- R02-011 | B. Hour-of-day demand profile | Dinner and evening out | medium | world | Demand generator
+- R02-012 | B. Hour-of-day demand profile | Late-night nightlife demand | high | world | Demand generator
+- R02-013 | B. Hour-of-day demand profile | Bar-closing taper | low | world | Demand generator
+- R02-014 | B. Hour-of-day demand profile | Dead hours (03-05 am) | high | world | Demand generator
+- R02-015 | B. Hour-of-day demand profile | Sector-specific hourly shape | medium | world | Demand generator
+- R02-016 | C. Hour-of-day trip quality and the driver's day | Hourly speed profile | high | world | Traffic & travel time
+- R02-017 | C. Hour-of-day trip quality and the driver's day | Hourly trip length and destination mix | high | world | Demand generator
+- R02-018 | C. Hour-of-day trip quality and the driver's day | Hourly fare intensity and pay per engaged hour | high | world | Pricing & platform rules
+- R02-019 | C. Hour-of-day trip quality and the driver's day | Hourly rider wait (market tightness) | high | world | Competitor supply & matching
+- R02-020 | C. Hour-of-day trip quality and the driver's day | Hourly tipping | low | world | Rider behaviour
+- R02-021 | C. Hour-of-day trip quality and the driver's day | Driver meal, rest and prayer break timing | medium | agent | Driver state
+- R02-022 | C. Hour-of-day trip quality and the driver's day | End-of-shift and go-home timing | medium | agent | Driver state
+- R02-023 | D. Day of week and work patterns | Day-of-week demand level | high | world | Demand generator
+- R02-024 | D. Day of week and work patterns | Hybrid-work office days | medium | world | Demand generator
+- R02-025 | D. Day of week and work patterns | Thursday-Saturday nights | high | world | Demand generator
+- R02-026 | D. Day of week and work patterns | Sunday pattern | medium | world | Demand generator
+- R02-027 | D. Day of week and work patterns | Summer Fridays and getaway afternoons | medium | world | Demand generator
+- R02-028 | E. Month, season and year | Monthly seasonal demand index | medium | world | Demand generator
+- R02-029 | E. Month, season and year | Seasonal congestion and speed | medium | world | Traffic & travel time
+- R02-030 | E. Month, season and year | Tourist season | medium | world | Demand generator
+- R02-031 | E. Month, season and year | Holiday shopping season | medium | world | Demand generator
+- R02-032 | E. Month, season and year | Seasonal and holiday driver supply | medium | world | Competitor supply & matching
+- R02-033 | E. Month, season and year | Year-level regime drift | medium | setting | Data pipeline
+- R02-034 | F. Holidays and observances | Federal and civic holiday multiplier | high | world | Demand generator
+- R02-035 | F. Holidays and observances | Bridge and holiday-adjacent days | high | world | Demand generator
+- R02-036 | F. Holidays and observances | New Year's Eve night | high | world | Events & disruptions
+- R02-037 | F. Holidays and observances | Holiday exemptions in time rules | low | rule | Pricing & platform rules
+- R02-038 | F. Holidays and observances | Religious and cultural holidays | low | world | Demand generator
+- R02-039 | F. Holidays and observances | Ramadan iftar window | low | world | Competitor supply & matching
+- R02-040 | F. Holidays and observances | Weekly Sabbath in observant neighbourhoods | low | world | Demand generator
+- R02-041 | G. Institutional calendars and shift schedules | Public school calendar | medium | world | Traffic & travel time
+- R02-042 | G. Institutional calendars and shift schedules | University terms | low | world | Demand generator
+- R02-043 | G. Institutional calendars and shift schedules | Hospital and healthcare shift changes | low | world | Demand generator
+- R02-044 | G. Institutional calendars and shift schedules | Yellow taxi 4-5 pm shift change | medium | world | Competitor supply & matching
+- R02-045 | G. Institutional calendars and shift schedules | Taxi lease shift structure | medium | rule | Regulation, fees & taxes
+- R02-046 | G. Institutional calendars and shift schedules | Paydays and month-end | low | world | Demand generator
+- R02-047 | H. Timed venues and transport schedules | Airport arrival banks | high | world | Demand generator
+- R02-048 | H. Timed venues and transport schedules | Airport departure banks | high | world | Demand generator
+- R02-049 | H. Timed venues and transport schedules | Airport queue wait by hour | medium | state | Competitor supply & matching
+- R02-050 | H. Timed venues and transport schedules | Theatre let-out | medium | world | Events & disruptions
+- R02-051 | H. Timed venues and transport schedules | Event end-time distribution | medium | world | Events & disruptions
+- R02-052 | H. Timed venues and transport schedules | Transit service schedule | medium | world | Rider behaviour
+- R02-053 | H. Timed venues and transport schedules | Annual fixed-date civic events | medium | world | Events & disruptions
+- R02-054 | I. Time-of-day rules and prices | Taxi overnight surcharge | low | rule | Pricing & platform rules
+- R02-055 | I. Time-of-day rules and prices | Taxi weekday rush surcharges | medium | rule | Pricing & platform rules
+- R02-056 | I. Time-of-day rules and prices | Congestion Relief Zone toll time bands | low | rule | Regulation, fees & taxes
+- R02-057 | I. Time-of-day rules and prices | Time-of-use electricity price | medium | rule | Vehicle & energy
+- R02-058 | I. Time-of-day rules and prices | Curb and bus-lane time windows | low | rule | Map & road network
+- R02-059 | I. Time-of-day rules and prices | Platform log-in limits and scheduled hours | high | rule | Pricing & platform rules
+- R02-060 | I. Time-of-day rules and prices | Hours-of-service caps | medium | rule | Regulation, fees & taxes
+- R02-061 | I. Time-of-day rules and prices | Robotaxi operating-hours window | medium | setting | Fleet manager
+- R02-062 | I. Time-of-day rules and prices | Fleet off-peak charging and maintenance window | medium | agent | Fleet manager
+- R02-063 | J. Daylight, DST and time handling | Sunrise, sunset and darkness | low | world | Weather
+- R02-064 | J. Daylight, DST and time handling | DST transition days | low | world | Benchmark harness
+- R02-065 | J. Daylight, DST and time handling | TLC timestamp and DST artefacts | medium | setting | Data pipeline
+- R02-066 | J. Daylight, DST and time handling | Data release lag and contamination | medium | setting | Benchmark harness
+- R02-067 | J. Daylight, DST and time handling | Simulation tick granularity | medium | setting | Benchmark harness
+- R02-068 | J. Daylight, DST and time handling | Episode day boundary | medium | setting | Benchmark harness
+- R02-069 | J. Daylight, DST and time handling | Time compression and day-night lighting | low | setting | Visualisation
+
+## R03
+- R03-001 | Venue events and the event calendar | Event catalogue for the scenario day | high | world | Events & disruptions
+- R03-002 | Venue events and the event calendar | Venue registry and zone mapping | high | rule | Map & road network
+- R03-003 | Venue events and the event calendar | Broadway curtain and let-out pattern | high | world | Demand generator
+- R03-004 | Venue events and the event calendar | Pro sports home schedules | medium | world | Events & disruptions
+- R03-005 | Venue events and the event calendar | Multi-session tournaments (US Open tennis) | high | world | Events & disruptions
+- R03-006 | Venue events and the event calendar | Conventions and trade shows (Javits) | medium | world | Events & disruptions
+- R03-007 | Venue events and the event calendar | Concerts and music festivals | medium | world | Events & disruptions
+- R03-008 | Venue events and the event calendar | New Year's Eve in Times Square | high | world | Events & disruptions
+- R03-009 | Venue events and the event calendar | Commencements and move-in days | low | world | Events & disruptions
+- R03-010 | Venue events and the event calendar | Events outside the city boundary | medium | world | Events & disruptions
+- R03-011 | Event attributes and crowd dynamics | Attendance | high | world | Demand generator
+- R03-012 | Event attributes and crowd dynamics | Start time and arrival spread | medium | world | Demand generator
+- R03-013 | Event attributes and crowd dynamics | Event duration and end-time uncertainty | high | world | Events & disruptions
+- R03-014 | Event attributes and crowd dynamics | Early leavers and blowouts | low | world | Demand generator
+- R03-015 | Event attributes and crowd dynamics | Let-out wave shape | high | world | Demand generator
+- R03-016 | Event attributes and crowd dynamics | Audience car-for-hire mode share | high | world | Demand generator
+- R03-017 | Event attributes and crowd dynamics | Audience price sensitivity and income | medium | world | Rider behaviour
+- R03-018 | Event attributes and crowd dynamics | Event-crowd destinations and trip value | medium | world | Demand generator
+- R03-019 | Event attributes and crowd dynamics | Post-event group size and rider state | low | world | Rider behaviour
+- R03-020 | Event attributes and crowd dynamics | Event cancellation and postponement | medium | world | Events & disruptions
+- R03-021 | Event attributes and crowd dynamics | Weather x event interaction | medium | world | Weather
+- R03-022 | Venue operations, let-out pricing and queues | Post-event surge multiplier and decay | high | world | Pricing & platform rules
+- R03-023 | Venue operations, let-out pricing and queues | Taxi meter vs app surge at let-out | medium | rule | Pricing & platform rules
+- R03-024 | Venue operations, let-out pricing and queues | Rider wait and pickup time at let-out | medium | state | Competitor supply & matching
+- R03-025 | Venue operations, let-out pricing and queues | Venue pickup geofence and rideshare lot | medium | rule | Map & road network
+- R03-026 | Venue operations, let-out pricing and queues | Taxi stands and hail lines at venues | medium | rule | Competitor supply & matching
+- R03-027 | Venue operations, let-out pricing and queues | Venue egress congestion | medium | world | Traffic & travel time
+- R03-028 | Venue operations, let-out pricing and queues | Pre-event curb and drop-off restrictions | low | rule | Map & road network
+- R03-029 | Planned street closures: parades, races, VIP | NYC Marathon | medium | world | Events & disruptions
+- R03-030 | Planned street closures: parades, races, VIP | Parades on Manhattan avenues | medium | world | Events & disruptions
+- R03-031 | Planned street closures: parades, races, VIP | Outer-borough parades and festivals | low | world | Events & disruptions
+- R03-032 | Planned street closures: parades, races, VIP | Other races and mass rides | low | world | Events & disruptions
+- R03-033 | Planned street closures: parades, races, VIP | UN General Assembly high-level week | medium | world | Events & disruptions
+- R03-034 | Planned street closures: parades, races, VIP | VIP and presidential motorcades | low | world | Events & disruptions
+- R03-035 | Planned street closures: parades, races, VIP | Holiday spectacles and fireworks | low | world | Events & disruptions
+- R03-036 | Planned street closures: parades, races, VIP | Film and TV shoots | low | world | Map & road network
+- R03-037 | Planned street closures: parades, races, VIP | Street fairs, Open Streets and Summer Streets | low | world | Map & road network
+- R03-038 | Unplanned incidents and emergencies | Traffic crashes and breakdowns (incident object) | medium | world | Events & disruptions
+- R03-039 | Unplanned incidents and emergencies | Fires, gas leaks, steam and manhole incidents | low | world | Events & disruptions
+- R03-040 | Unplanned incidents and emergencies | Water main breaks | low | world | Events & disruptions
+- R03-041 | Unplanned incidents and emergencies | Police activity, crime scenes and security alerts | low | world | Events & disruptions
+- R03-042 | Unplanned incidents and emergencies | Protests and demonstrations | medium | world | Events & disruptions
+- R03-043 | Unplanned incidents and emergencies | Power outages and dark signals | medium | world | Events & disruptions
+- R03-044 | Unplanned incidents and emergencies | Declared emergencies and travel bans | medium | world | Events & disruptions
+- R03-045 | Unplanned incidents and emergencies | Cellular or platform outages | low | world | Events & disruptions
+- R03-046 | Transit, rail and airport disruptions | Subway incidents and line suspensions | medium | world | Events & disruptions
+- R03-047 | Transit, rail and airport disruptions | Planned subway service changes | low | world | Events & disruptions
+- R03-048 | Transit, rail and airport disruptions | Commuter rail and PATH disruptions | medium | world | Events & disruptions
+- R03-049 | Transit, rail and airport disruptions | Airport operational disruptions | medium | world | Events & disruptions
+- R03-050 | Transit, rail and airport disruptions | Bridge and tunnel incident closures | medium | world | Traffic & travel time
+- R03-051 | Construction and lane closures | Long-term construction lane loss | low | world | Traffic & travel time
+- R03-052 | Construction and lane closures | Overnight and weekend bridge, tunnel and highway work | low | world | Traffic & travel time
+- R03-053 | Construction and lane closures | Holiday construction embargo and Gridlock Alert days | low | rule | Regulation, fees & taxes
+- R03-054 | Agent, robotaxi and fleet responses to events | Robotaxi service pauses and event exclusion zones | medium | rule | Fleet manager
+- R03-055 | Agent, robotaxi and fleet responses to events | Robotaxi handling of closures and police direction | medium | world | Fleet manager
+- R03-056 | Agent, robotaxi and fleet responses to events | Crowd connectivity loss and vandalism risk | low | world | Fleet manager
+- R03-057 | Agent, robotaxi and fleet responses to events | Stage at a venue or leave (agent decision) | high | agent | Benchmark harness
+- R03-058 | Agent, robotaxi and fleet responses to events | Avoid or work around closures (agent decision) | medium | agent | Benchmark harness
+- R03-059 | Agent, robotaxi and fleet responses to events | Join a venue taxi stand or work the hail blocks (taxi decision) | medium | agent | Benchmark harness
+- R03-060 | Public event information and the with/without-info experiment | Event information level (experiment arm) | high | setting | Benchmark harness
+- R03-061 | Public event information and the with/without-info experiment | Public event data feeds (agent tools) | medium | setting | Data pipeline
+- R03-062 | Public event information and the with/without-info experiment | Information latency for unplanned events | medium | setting | Benchmark harness
+- R03-063 | Public event information and the with/without-info experiment | Forecast error and false alarms | medium | setting | Benchmark harness
+- R03-064 | Public event information and the with/without-info experiment | Memorisation guard for real events | high | setting | Benchmark harness
+- R03-065 | Public event information and the with/without-info experiment | Counterfactual event injection | medium | setting | Demand generator
+- R03-066 | Public event information and the with/without-info experiment | Event residual extraction (calibration) | medium | setting | Data pipeline
+- R03-067 | Public event information and the with/without-info experiment | TLC data gaps that look like events | medium | setting | Data pipeline
+- R03-068 | Public event information and the with/without-info experiment | Event-window scoring metrics | medium | setting | Benchmark harness
+- R03-069 | Public event information and the with/without-info experiment | Out-of-NYC event scenario (Coachella-style) | low | setting | Benchmark harness
+- R03-070 | Public event information and the with/without-info experiment | Event visual overlays | low | setting | Visualisation
+
+## R04
+- R04-001 | Rain and precipitation | Precipitation state and hourly intensity | high | world | Weather
+- R04-002 | Rain and precipitation | Rain demand uplift for app requests | high | world | Demand generator
+- R04-003 | Rain and precipitation | Rain onset surge and decay | medium | world | Demand generator
+- R04-004 | Rain and precipitation | Rain effect by hour, day type and trip purpose | medium | world | Demand generator
+- R04-005 | Rain and precipitation | Shift toward short trips in bad weather | low | world | Demand generator
+- R04-006 | Rain and precipitation | Mode substitution from walking, cycling and transit | low | world | Demand generator
+- R04-007 | Rain and precipitation | Street-hail intensity in rain (taxi) | medium | world | Demand generator
+- R04-008 | Rain and precipitation | Weather speed-penalty table (input to R10-006) | high | rule | Traffic & travel time
+- R04-009 | Rain and precipitation | Pickup ETA inflation in rain | medium | state | Competitor supply & matching
+- R04-010 | Rain and precipitation | Weather-driven cancellations and no-shows | low | world | Rider behaviour
+- R04-011 | Rain and precipitation | Surge response to weather | medium | rule | Pricing & platform rules
+- R04-012 | Rain and precipitation | Emergency surge cap | low | rule | Pricing & platform rules
+- R04-013 | Snow, ice and winter roads | Snowfall rate and accumulation | high | world | Weather
+- R04-014 | Snow, ice and winter roads | Snow cover and plowing state after a storm | medium | state | Map & road network
+- R04-015 | Snow, ice and winter roads | Freezing rain, sleet and black ice | medium | world | Weather
+- R04-016 | Snow, ice and winter roads | Weather-triggered emergencies, travel bans and transit suspensions | high | rule | Events & disruptions
+- R04-017 | Snow, ice and winter roads | Snow-day demand mix | medium | world | Demand generator
+- R04-018 | Snow, ice and winter roads | Winter road damage and salt | low | rule | Vehicle & energy
+- R04-019 | Heat, cold and temperature | Hourly air temperature, humidity and heat index | medium | world | Weather
+- R04-020 | Heat, cold and temperature | Temperature demand effect | medium | world | Demand generator
+- R04-021 | Heat, cold and temperature | Heat waves and heat advisories | medium | world | Weather
+- R04-022 | Heat, cold and temperature | Extreme cold and wind chill | medium | world | Weather
+- R04-023 | Heat, cold and temperature | Cabin climate-control energy cost (temperature input to R08-009) | low | rule | Vehicle & energy
+- R04-024 | Storms, wind and flooding | Thunderstorms and lightning | medium | world | Weather
+- R04-025 | Storms, wind and flooding | Flash flooding and flooded roads | high | world | Map & road network
+- R04-026 | Storms, wind and flooding | Weather-driven transit disruption (weather cause of R03-046) | high | world | Events & disruptions
+- R04-027 | Storms, wind and flooding | Wind speed and gusts | low | world | Weather
+- R04-028 | Storms, wind and flooding | Hurricanes, tropical storms and nor'easters | high | world | Events & disruptions
+- R04-029 | Storms, wind and flooding | Weather-related power outages (a cause of R11-060) | medium | world | Events & disruptions
+- R04-030 | Storms, wind and flooding | Post-storm fuel and charging shortages | low | world | Vehicle & energy
+- R04-031 | Storms, wind and flooding | Airport weather delays and cancellations (weather cause of R03-049) | medium | world | Events & disruptions
+- R04-032 | Storms, wind and flooding | Weather cancellation and delay of outdoor events (input to R03-020, R03-021) | medium | world | Events & disruptions
+- R04-033 | Visibility, light and air quality | Fog and low visibility | low | world | Weather
+- R04-034 | Visibility, light and air quality | Wildfire smoke and air quality alerts | low | world | Weather
+- R04-035 | Visibility, light and air quality | Daylight and darkness (driving side) | low | world | Weather
+- R04-036 | Visibility, light and air quality | Low-sun glare | low | world | Traffic & travel time
+- R04-037 | Vehicle, energy and robotaxi limits | EV range loss in cold and heat (temperature curve for R08-010) | high | rule | Vehicle & energy
+- R04-038 | Vehicle, energy and robotaxi limits | Cold-battery charging speed and preconditioning (see R08-010) | medium | rule | Vehicle & energy
+- R04-039 | Vehicle, energy and robotaxi limits | Robotaxi weather operating envelope | high | rule | Fleet manager
+- R04-040 | Vehicle, energy and robotaxi limits | Robotaxi sensor degradation, cleaning and cautious driving | medium | rule | Vehicle & energy
+- R04-041 | Vehicle, energy and robotaxi limits | Weather crash-risk multiplier for the agent's car | low | world | Vehicle & energy
+- R04-042 | Vehicle, energy and robotaxi limits | Interior cleaning and wet-car downtime | low | rule | Vehicle & energy
+- R04-043 | Vehicle, energy and robotaxi limits | Flood water damage and stranding risk | medium | world | Vehicle & energy
+- R04-044 | People: riders, tips and drivers | Tipping response to weather | low | world | Rider behaviour
+- R04-045 | People: riders, tips and drivers | Rider willingness to pay in bad weather | medium | world | Rider behaviour
+- R04-046 | People: riders, tips and drivers | Driver weather log-off thresholds | medium | rule | Competitor supply & matching
+- R04-047 | People: riders, tips and drivers | Decision to work through severe weather | high | agent | Driver state
+- R04-048 | People: riders, tips and drivers | Driver comfort and fatigue in heat and cold | low | state | Driver state
+- R04-049 | Forecasts, alerts and agent information | Weather information level given to the agent (see R12-015) | high | setting | Benchmark harness
+- R04-050 | Forecasts, alerts and agent information | Forecast error and lead time (feeds R12-015) | medium | world | Weather
+- R04-051 | Forecasts, alerts and agent information | Official alerts and warnings feed | medium | world | Benchmark harness
+- R04-052 | Forecasts, alerts and agent information | Spatial weather awareness | medium | setting | Benchmark harness
+- R04-053 | Forecasts, alerts and agent information | Pre-positioning ahead of forecast weather | medium | agent | Fleet manager
+- R04-054 | Climate, scenarios and weather data | Seasonal climate mix per scenario day | high | setting | Benchmark harness
+- R04-055 | Climate, scenarios and weather data | Weather replay vs synthetic generator, and seeds (see R03-064) | high | setting | Benchmark harness
+- R04-056 | Climate, scenarios and weather data | Weather counterfactual and ablation pairs | medium | setting | Benchmark harness
+- R04-057 | Climate, scenarios and weather data | Spatial resolution of weather | medium | setting | Weather
+- R04-058 | Climate, scenarios and weather data | Temporal resolution of weather | medium | setting | Data pipeline
+- R04-059 | Climate, scenarios and weather data | Weather data join and cleaning rules | low | setting | Data pipeline
+- R04-060 | Climate, scenarios and weather data | Climate trend in extremes | low | setting | Benchmark harness
+- R04-061 | Climate, scenarios and weather data | Weather and daylight rendering on the live map | low | setting | Visualisation
+
+## R05
+- R05-001 | A. Trip generation volume | Base request rate by zone and hour | high | world | Demand generator
+- R05-002 | A. Trip generation volume | Day-to-day demand randomness (overdispersion) | medium | world | Demand generator
+- R05-003 | A. Trip generation volume | Bursty, clustered request arrivals | medium | world | Demand generator
+- R05-004 | A. Trip generation volume | Platform share of city demand | high | setting | Demand generator
+- R05-005 | A. Trip generation volume | Demand level of the replay year | medium | setting | Data pipeline
+- R05-006 | B. Origin-destination and trip length | Destination choice matrix | high | world | Demand generator
+- R05-007 | B. Origin-destination and trip length | Trip distance distribution | high | world | Demand generator
+- R05-008 | B. Origin-destination and trip length | Trip duration distribution (validation target) | high | world | Traffic & travel time
+- R05-009 | B. Origin-destination and trip length | Directional imbalance by zone and hour | high | world | Demand generator
+- R05-010 | B. Origin-destination and trip length | Return-trip coupling (tour chains) | medium | world | Demand generator
+- R05-011 | B. Origin-destination and trip length | Exact pickup and drop-off point within a zone | medium | world | Demand generator
+- R05-012 | C. Trip purpose and rider segments | Trip purpose mix | medium | world | Rider behaviour
+- R05-013 | C. Trip purpose and rider segments | Rider segment mix | medium | world | Rider behaviour
+- R05-014 | C. Trip purpose and rider segments | Tourist and visitor demand layer | medium | world | Demand generator
+- R05-015 | C. Trip purpose and rider segments | Commute demand layer | medium | world | Demand generator
+- R05-016 | C. Trip purpose and rider segments | Nightlife demand layer | medium | world | Demand generator
+- R05-017 | C. Trip purpose and rider segments | Medical and paratransit trips | low | world | Demand generator
+- R05-018 | C. Trip purpose and rider segments | Student and campus demand | low | world | Demand generator
+- R05-019 | C. Trip purpose and rider segments | Business traveller and premium demand | low | world | Rider behaviour
+- R05-020 | D. Price, wait and mode choice | Price elasticity to surge or fare level | high | world | Rider behaviour
+- R05-021 | D. Price, wait and mode choice | Sensitivity to quoted pickup ETA | high | world | Rider behaviour
+- R05-022 | D. Price, wait and mode choice | Rider cancellation after match | medium | world | Rider behaviour
+- R05-023 | D. Price, wait and mode choice | Cross-platform price comparison (multi-homing) | medium | world | Competitor supply & matching
+- R05-024 | D. Price, wait and mode choice | Ride product choice | medium | world | Rider behaviour
+- R05-025 | D. Price, wait and mode choice | Mode alternatives (subway, bus, Citi Bike, walking, own car) | medium | world | Demand generator
+- R05-026 | D. Price, wait and mode choice | Transit disruption substitution | medium | world | Events & disruptions
+- R05-027 | D. Price, wait and mode choice | Robotaxi acceptance and AV price premium | high | world | Rider behaviour
+- R05-028 | D. Price, wait and mode choice | Household car access by home zone | low | world | Demand generator
+- R05-029 | E. Request attributes and special needs | Party size | low | world | Rider behaviour
+- R05-030 | E. Request attributes and special needs | Luggage and trunk need | low | world | Rider behaviour
+- R05-031 | E. Request attributes and special needs | Wheelchair-accessible (WAV) requests | low | world | Rider behaviour
+- R05-032 | E. Request attributes and special needs | Shared-ride requests and match rate | low | world | Rider behaviour
+- R05-033 | E. Request attributes and special needs | Multi-stop trips | low | world | Rider behaviour
+- R05-034 | E. Request attributes and special needs | Scheduled and reserved rides | low | world | Demand generator
+- R05-035 | E. Request attributes and special needs | Child car seat and pet requests | low | world | Rider behaviour
+- R05-036 | E. Request attributes and special needs | Request information shown to the driver at offer | high | setting | Pricing & platform rules
+- R05-037 | F. Pickup, boarding and hail encounter | Rider no-show | medium | world | Rider behaviour
+- R05-038 | F. Pickup, boarding and hail encounter | Rider lateness at pickup | medium | world | Rider behaviour
+- R05-039 | F. Pickup, boarding and hail encounter | Boarding, alighting and payment time | low | world | Rider behaviour
+- R05-040 | F. Pickup, boarding and hail encounter | Pickup pin accuracy and walking to pickup | low | world | Rider behaviour
+- R05-041 | F. Pickup, boarding and hail encounter | Designated pickup areas | low | rule | Map & road network
+- R05-042 | F. Pickup, boarding and hail encounter | Street-hail encounter process | high | world | Demand generator
+- R05-043 | F. Pickup, boarding and hail encounter | Street hail vs e-hail channel share | medium | world | Demand generator
+- R05-044 | F. Pickup, boarding and hail encounter | Taxi stands and doorman queues | low | world | Demand generator
+- R05-045 | F. Pickup, boarding and hail encounter | Robotaxi door left open by rider | low | world | Fleet manager
+- R05-046 | F. Pickup, boarding and hail encounter | Robotaxi rider help requests | low | world | Fleet manager
+- R05-047 | G. Tips, ratings and payment | App tip propensity and amount | medium | world | Rider behaviour
+- R05-048 | G. Tips, ratings and payment | Taxi tip (card defaults, cash unrecorded) | medium | world | Rider behaviour
+- R05-049 | G. Tips, ratings and payment | Tip modifiers by trip context | low | world | Rider behaviour
+- R05-050 | G. Tips, ratings and payment | Taxi payment type mix | low | world | Rider behaviour
+- R05-051 | G. Tips, ratings and payment | Ratings riders give the driver | low | world | Rider behaviour
+- R05-052 | G. Tips, ratings and payment | Rider rating shown to driver | low | world | Rider behaviour
+- R05-053 | H. Incidents, disputes and side income | Rider safety incidents | low | world | Rider behaviour
+- R05-054 | H. Incidents, disputes and side income | Vomit, mess and cleaning fee | low | world | Rider behaviour
+- R05-055 | H. Incidents, disputes and side income | Lost items and return fees | low | world | Rider behaviour
+- R05-056 | H. Incidents, disputes and side income | Fare disputes, refunds and chargebacks | low | world | Pricing & platform rules
+- R05-057 | H. Incidents, disputes and side income | Non-payment and fare evasion | low | world | Rider behaviour
+- R05-058 | I. Destination value, stranding and airports | Destination re-dispatch value | high | world | Demand generator
+- R05-059 | I. Destination value, stranding and airports | Out-of-city trips and stranding | medium | world | Demand generator
+- R05-060 | I. Destination value, stranding and airports | Trips heading toward the driver's home | medium | world | Demand generator
+- R05-061 | I. Destination value, stranding and airports | Airport-bound demand (departures) | high | world | Demand generator
+- R05-062 | I. Destination value, stranding and airports | Airport arrival demand | high | world | Demand generator
+- R05-063 | I. Destination value, stranding and airports | Airport queue dynamics | high | world | Competitor supply & matching
+- R05-064 | I. Destination value, stranding and airports | Airport passenger destination and fare mix | medium | world | Demand generator
+- R05-065 | I. Destination value, stranding and airports | Flight delays shifting airport demand | medium | world | Events & disruptions
+- R05-066 | J. Latent demand and demand feedback | Latent vs observed demand (censoring) | high | setting | Data pipeline
+- R05-067 | J. Latent demand and demand feedback | Request-to-pickup wait (calibration target) | medium | world | Benchmark harness
+- R05-068 | J. Latent demand and demand feedback | Induced demand and rider retention | medium | world | Fleet manager
+- R05-069 | J. Latent demand and demand feedback | Demand replay vs synthetic resampling | medium | setting | Benchmark harness
+
+## R06
+- R06-001 | A. Background supply volume and mix | Competitor cars online by zone and hour | high | world | Competitor supply & matching
+- R06-002 | A. Background supply volume and mix | Idle cars per open request (local balance) | high | state | Competitor supply & matching
+- R06-003 | A. Background supply volume and mix | Trip market shares by service | medium | world | Competitor supply & matching
+- R06-004 | A. Background supply volume and mix | Active yellow taxi fleet | medium | world | Competitor supply & matching
+- R06-005 | A. Background supply volume and mix | Green taxi fleet and hail zone | low | world | Competitor supply & matching
+- R06-006 | A. Background supply volume and mix | Licensed pool versus active supply | medium | world | Competitor supply & matching
+- R06-007 | A. Background supply volume and mix | Competitor product and vehicle-class mix | medium | world | Competitor supply & matching
+- R06-008 | B. Competitor driver behaviour | Shift start (log-on) times | high | world | Competitor supply & matching
+- R06-009 | B. Competitor driver behaviour | Shift end (log-off) rule | medium | rule | Competitor supply & matching
+- R06-010 | B. Competitor driver behaviour | Short-run surge entry | high | rule | Competitor supply & matching
+- R06-011 | B. Competitor driver behaviour | Surge chasing | medium | rule | Competitor supply & matching
+- R06-012 | B. Competitor driver behaviour | Long-run re-equilibration | medium | rule | Competitor supply & matching
+- R06-013 | B. Competitor driver behaviour | Home anchoring of competitors | medium | world | Competitor supply & matching
+- R06-014 | B. Competitor driver behaviour | Competitor breaks | low | world | Competitor supply & matching
+- R06-015 | B. Competitor driver behaviour | Competitor multi-apping share | medium | world | Competitor supply & matching
+- R06-016 | B. Competitor driver behaviour | Competitor acceptance and cherry-picking | medium | rule | Competitor supply & matching
+- R06-017 | B. Competitor driver behaviour | Competitor strategy mix | medium | setting | Competitor supply & matching
+- R06-018 | B. Competitor driver behaviour | Taxi 4-5 pm shift change | medium | world | Competitor supply & matching
+- R06-019 | B. Competitor driver behaviour | Cruising versus parking when idle | medium | rule | Competitor supply & matching
+- R06-020 | C. Platform dispatch and matching | Matching algorithm | high | rule | Competitor supply & matching
+- R06-021 | C. Platform dispatch and matching | Matching cost metric | medium | rule | Competitor supply & matching
+- R06-022 | C. Platform dispatch and matching | Maximum dispatch radius | medium | rule | Competitor supply & matching
+- R06-023 | C. Platform dispatch and matching | Forward dispatch | medium | rule | Competitor supply & matching
+- R06-024 | C. Platform dispatch and matching | Offer timeout and decline cascade | medium | rule | Competitor supply & matching
+- R06-025 | C. Platform dispatch and matching | Upfront offer information | high | setting | Pricing & platform rules
+- R06-026 | C. Platform dispatch and matching | Broadcast offers (Trip Radar) | low | rule | Competitor supply & matching
+- R06-027 | C. Platform dispatch and matching | Decline and cancel penalties | medium | rule | Pricing & platform rules
+- R06-028 | C. Platform dispatch and matching | Destination filter (take me home) | medium | rule | Pricing & platform rules
+- R06-029 | C. Platform dispatch and matching | Product eligibility and opt-ins | medium | rule | Pricing & platform rules
+- R06-030 | C. Platform dispatch and matching | Wheelchair and Access-A-Ride dispatch | low | rule | Competitor supply & matching
+- R06-031 | C. Platform dispatch and matching | Shared-ride matching | low | rule | Competitor supply & matching
+- R06-032 | C. Platform dispatch and matching | Street-hail encounters and hail rights | high | rule | Competitor supply & matching
+- R06-033 | C. Platform dispatch and matching | Taxi e-hail channel | medium | rule | Competitor supply & matching
+- R06-034 | C. Platform dispatch and matching | Agent multi-apping | medium | agent | Competitor supply & matching
+- R06-035 | D. Pings, utilisation and pickups | Ping rate per idle hour | high | state | Competitor supply & matching
+- R06-036 | D. Pings, utilisation and pickups | Utilisation rate | high | state | Competitor supply & matching
+- R06-037 | D. Pings, utilisation and pickups | Idle gap between trips | high | state | Benchmark harness
+- R06-038 | D. Pings, utilisation and pickups | Pickup ETA (en-route deadhead) | high | state | Competitor supply & matching
+- R06-039 | D. Pings, utilisation and pickups | Wild goose chase threshold | high | state | Competitor supply & matching
+- R06-040 | E. Airport and stand queues | Airport queue length and position | high | state | Competitor supply & matching
+- R06-041 | E. Airport and stand queues | Airport queue wait time | high | state | Competitor supply & matching
+- R06-042 | E. Airport and stand queues | Airport queue rules | medium | rule | Pricing & platform rules
+- R06-043 | E. Airport and stand queues | Taxi hold lot and short-return ticket | medium | rule | Pricing & platform rules
+- R06-044 | E. Airport and stand queues | Airport rematch and priority tiers | low | rule | Pricing & platform rules
+- R06-045 | E. Airport and stand queues | Airport queue service rate | medium | world | Demand generator
+- R06-046 | E. Airport and stand queues | Taxi stands at hubs and hotels | low | world | Competitor supply & matching
+- R06-047 | F. Supply shocks and calendar | Driver strikes and protests | medium | world | Events & disruptions
+- R06-048 | F. Supply shocks and calendar | Holiday supply shortfall | medium | world | Competitor supply & matching
+- R06-049 | F. Supply shocks and calendar | Religious and cultural supply dips | low | world | Competitor supply & matching
+- R06-050 | F. Supply shocks and calendar | Weather supply response | medium | rule | Competitor supply & matching
+- R06-051 | F. Supply shocks and calendar | Platform outage | low | world | Events & disruptions
+- R06-052 | F. Supply shocks and calendar | Event let-out convergence | medium | world | Competitor supply & matching
+- R06-053 | G. Regulation of supply | FHV licence pause and sign-up waitlists | medium | rule | Regulation, fees & taxes
+- R06-054 | G. Regulation of supply | Platform log-on lockouts | high | rule | Pricing & platform rules
+- R06-055 | G. Regulation of supply | Cruising cap (scenario toggle) | low | rule | Regulation, fees & taxes
+- R06-056 | H. Robotaxis and competing model fleets | Robotaxi background fleet | medium | setting | Competitor supply & matching
+- R06-057 | H. Robotaxis and competing model fleets | Robotaxi trips per car per day | medium | world | Benchmark harness
+- R06-058 | H. Robotaxis and competing model fleets | Robotaxi operating limits | medium | rule | Vehicle & energy
+- R06-059 | H. Robotaxis and competing model fleets | Robotaxis on a human platform | medium | rule | Competitor supply & matching
+- R06-060 | H. Robotaxis and competing model fleets | Number of competing model fleets | high | setting | Benchmark harness
+- R06-061 | H. Robotaxis and competing model fleets | Agent fleet share of total supply | high | setting | Fleet manager
+- R06-062 | H. Robotaxis and competing model fleets | Own-fleet cannibalisation | high | state | Fleet manager
+- R06-063 | H. Robotaxis and competing model fleets | Intra-fleet dispatch rule | medium | setting | Fleet manager
+- R06-064 | H. Robotaxis and competing model fleets | Rival visibility | medium | setting | Benchmark harness
+- R06-065 | H. Robotaxis and competing model fleets | Coordination channel between rival fleets | low | setting | Benchmark harness
+- R06-066 | I. Generating background supply | Background supply generation mode | high | setting | Data pipeline
+- R06-067 | I. Generating background supply | Displacement rule for replayed trips | medium | setting | Data pipeline
+- R06-068 | I. Generating background supply | Supply elasticity setting | high | setting | Benchmark harness
+- R06-069 | I. Generating background supply | Supply calibration targets | high | setting | Data pipeline
+- R06-070 | I. Generating background supply | Driver-level behaviour data | medium | setting | Data pipeline
+
+## R07
+- R07-001 | A. Taxi meter and surcharges | Taxi metered rate of fare | high | rule | Pricing & platform rules
+- R07-002 | A. Taxi meter and surcharges | Final-unit pre-assessment (round-up) | low | rule | Pricing & platform rules
+- R07-003 | A. Taxi meter and surcharges | Weekday rush-hour surcharge | medium | rule | Pricing & platform rules
+- R07-004 | A. Taxi meter and surcharges | Overnight surcharge | low | rule | Pricing & platform rules
+- R07-005 | A. Taxi meter and surcharges | MTA State surcharge on taxi trips | low | rule | Regulation, fees & taxes
+- R07-006 | A. Taxi meter and surcharges | Taxi improvement surcharge | low | rule | Regulation, fees & taxes
+- R07-007 | A. Taxi meter and surcharges | NYS congestion surcharge (Manhattan south of 96th St) | medium | rule | Regulation, fees & taxes
+- R07-008 | A. Taxi meter and surcharges | Congestion Relief Zone per-trip toll | low | rule | Regulation, fees & taxes
+- R07-009 | A. Taxi meter and surcharges | Airport access fee on taxi pickups | low | rule | Regulation, fees & taxes
+- R07-010 | A. Taxi meter and surcharges | LaGuardia surcharge | medium | rule | Pricing & platform rules
+- R07-011 | A. Taxi meter and surcharges | JFK-Manhattan flat fare | high | rule | Pricing & platform rules
+- R07-012 | A. Taxi meter and surcharges | Newark Airport taxi trips | medium | rule | Pricing & platform rules
+- R07-013 | A. Taxi meter and surcharges | Out-of-city taxi fares | low | rule | Pricing & platform rules
+- R07-014 | A. Taxi meter and surcharges | Flex Fare (taxi e-hail upfront price) | medium | rule | Pricing & platform rules
+- R07-015 | B. Taxi money flows and lease costs | Taxi revenue split by fare component | high | rule | Regulation, fees & taxes
+- R07-016 | B. Taxi money flows and lease costs | Taxi lease caps | high | rule | Regulation, fees & taxes
+- R07-017 | B. Taxi money flows and lease costs | Lease add-on charges | low | rule | Regulation, fees & taxes
+- R07-018 | B. Taxi money flows and lease costs | Taxi toll pass-through rules | low | rule | Regulation, fees & taxes
+- R07-019 | C. App rider fares, surge and taxes | App rider fare formula (upfront price) | high | rule | Pricing & platform rules
+- R07-020 | C. App rider fares, surge and taxes | Surge (dynamic pricing) | high | state | Pricing & platform rules
+- R07-021 | C. App rider fares, surge and taxes | Ride product price levels | medium | rule | Pricing & platform rules
+- R07-022 | C. App rider fares, surge and taxes | Fare estimate and quote rules | low | rule | Pricing & platform rules
+- R07-023 | C. App rider fares, surge and taxes | Rider-side taxes and fees on app trips | medium | rule | Regulation, fees & taxes
+- R07-024 | D. Platform take and the NYC driver pay floor | Platform take rate (driver share of fare) | high | rule | Pricing & platform rules
+- R07-025 | D. Platform take and the NYC driver pay floor | NYC minimum pay: per-mile component | high | rule | Pricing & platform rules
+- R07-026 | D. Platform take and the NYC driver pay floor | NYC minimum pay: per-minute component | high | rule | Pricing & platform rules
+- R07-027 | D. Platform take and the NYC driver pay floor | Out-of-city pay rates | low | rule | Pricing & platform rules
+- R07-028 | D. Platform take and the NYC driver pay floor | Annual CPI indexation of pay factors | medium | rule | Pricing & platform rules
+- R07-029 | D. Platform take and the NYC driver pay floor | Hourly pay compliance option | low | rule | Pricing & platform rules
+- R07-030 | D. Platform take and the NYC driver pay floor | Driver app access rules (lockouts) | high | rule | Pricing & platform rules
+- R07-031 | D. Platform take and the NYC driver pay floor | Vehicle utilization standards and platform penalties | low | rule | Fleet manager
+- R07-032 | D. Platform take and the NYC driver pay floor | Manhattan-core cruising cap | low | rule | Fleet manager
+- R07-033 | E. Incentives, fees and pass-throughs | Quests (trip-count bonuses) | medium | rule | Pricing & platform rules
+- R07-034 | E. Incentives, fees and pass-throughs | Streaks, consecutive-trip and zone boosts | low | rule | Pricing & platform rules
+- R07-035 | E. Incentives, fees and pass-throughs | Cancellation and no-show fees | medium | rule | Pricing & platform rules
+- R07-036 | E. Incentives, fees and pass-throughs | Wait-time (late rider) fee | low | rule | Pricing & platform rules
+- R07-037 | E. Incentives, fees and pass-throughs | Tip pass-through rules | medium | rule | Pricing & platform rules
+- R07-038 | E. Incentives, fees and pass-throughs | Toll reimbursement on app trips | low | rule | Regulation, fees & taxes
+- R07-039 | E. Incentives, fees and pass-throughs | WAV trip pay premium | medium | rule | Pricing & platform rules
+- R07-040 | E. Incentives, fees and pass-throughs | Shared-ride pay treatment | low | rule | Pricing & platform rules
+- R07-041 | F. Offer information and account standing | Information shown before accepting | high | rule | Pricing & platform rules
+- R07-042 | F. Offer information and account standing | Taxi refusal ban and penalties | medium | rule | Regulation, fees & taxes
+- R07-043 | F. Offer information and account standing | Acceptance-rate consequences | medium | rule | Pricing & platform rules
+- R07-044 | F. Offer information and account standing | Driver cancellation-rate consequences | medium | rule | Pricing & platform rules
+- R07-045 | F. Offer information and account standing | Rating and deactivation thresholds | low | rule | Pricing & platform rules
+- R07-046 | F. Offer information and account standing | TLC points (persistent violator programme) | low | rule | Regulation, fees & taxes
+- R07-047 | G. Hours, hailing, airports and conduct | TLC passenger-time cap and fines | medium | rule | Regulation, fees & taxes
+- R07-048 | G. Hours, hailing, airports and conduct | Street-hail legality by vehicle type and zone | high | rule | Regulation, fees & taxes
+- R07-049 | G. Hours, hailing, airports and conduct | Taxi solicitation and stand rules | low | rule | Regulation, fees & taxes
+- R07-050 | G. Hours, hailing, airports and conduct | Off-duty 'returning home' pickup exception | medium | rule | Regulation, fees & taxes
+- R07-051 | G. Hours, hailing, airports and conduct | Airport pickup rules | high | rule | Regulation, fees & taxes
+- R07-052 | G. Hours, hailing, airports and conduct | Shortest-route rule and overcharge penalties | medium | rule | Regulation, fees & taxes
+- R07-053 | G. Hours, hailing, airports and conduct | Phone and app use while moving | low | rule | Driver state
+- R07-054 | G. Hours, hailing, airports and conduct | Taxi payment acceptance rules | low | rule | Regulation, fees & taxes
+- R07-055 | H. Licensing, insurance and market entry | TLC licensing and compliance costs | low | rule | Regulation, fees & taxes
+- R07-056 | H. Licensing, insurance and market entry | Insurance requirements and premiums | medium | rule | Regulation, fees & taxes
+- R07-057 | H. Licensing, insurance and market entry | FHV licence cap and Green Rides mandate | medium | rule | Regulation, fees & taxes
+- R07-058 | H. Licensing, insurance and market entry | Operator licence fees for a fleet | low | rule | Fleet manager
+- R07-059 | I. Robotaxi regulation and operating domain | Robotaxi legal status by jurisdiction | high | setting | Regulation, fees & taxes
+- R07-060 | I. Robotaxi regulation and operating domain | Operating design domain (where and when a robotaxi may drive) | high | rule | Regulation, fees & taxes
+- R07-061 | I. Robotaxi regulation and operating domain | Robotaxi fare structure | high | rule | Pricing & platform rules
+- R07-062 | I. Robotaxi regulation and operating domain | Robotaxi network partner revenue split | medium | rule | Pricing & platform rules
+- R07-063 | I. Robotaxi regulation and operating domain | Robotaxi incident reporting and enforcement | low | rule | Events & disruptions
+- R07-064 | I. Robotaxi regulation and operating domain | NYC robotaxi fee mapping (counterfactual) | high | setting | Benchmark harness
+- R07-065 | J. Benchmark rule settings | Rule-set vintage matched to the replay date | medium | setting | Benchmark harness
+- R07-066 | J. Benchmark rule settings | Profit accounting definition | medium | setting | Benchmark harness
+- R07-067 | J. Benchmark rule settings | City rule pack (generalisation beyond NYC) | medium | setting | Benchmark harness
+
+## R08
+- R08-001 | Vehicle type, class and capacity | Powertrain type | high | setting | Vehicle & energy
+- R08-002 | Vehicle type, class and capacity | Service class and product eligibility | high | setting | Vehicle & energy
+- R08-003 | Vehicle type, class and capacity | Rider seat capacity | low | rule | Vehicle & energy
+- R08-004 | Vehicle type, class and capacity | Luggage space | low | rule | Vehicle & energy
+- R08-005 | Vehicle type, class and capacity | Wheelchair-accessible vehicle (WAV) | medium | setting | Vehicle & energy
+- R08-006 | Vehicle type, class and capacity | Vehicle age, odometer and condition | medium | state | Vehicle & energy
+- R08-007 | Energy use per mile and per hour | Energy use per mile by speed (drive cycle) | medium | rule | Vehicle & energy
+- R08-008 | Energy use per mile and per hour | Idling and waiting energy | low | rule | Vehicle & energy
+- R08-009 | Energy use per mile and per hour | Climate control load (AC and heat) | medium | world | Vehicle & energy
+- R08-010 | Energy use per mile and per hour | Cold- and hot-weather EV range and charging loss | medium | world | Vehicle & energy
+- R08-011 | Energy use per mile and per hour | Driving style and eco-driving | low | setting | Vehicle & energy
+- R08-012 | Energy use per mile and per hour | Gas refuelling stop | low | rule | Vehicle & energy
+- R08-013 | Energy prices and incentives | Gasoline retail price (NYC) | medium | rule | Vehicle & energy
+- R08-014 | Energy prices and incentives | Station-level price spread and fuel detours | low | world | Vehicle & energy
+- R08-015 | Energy prices and incentives | Fuel price shocks and supply disruptions | low | world | Events & disruptions
+- R08-016 | Energy prices and incentives | Home electricity price | medium | rule | Vehicle & energy
+- R08-017 | Energy prices and incentives | Public DC fast-charging price | medium | rule | Vehicle & energy
+- R08-018 | Energy prices and incentives | Public Level 2 and curbside charging price | low | rule | Vehicle & energy
+- R08-019 | Energy prices and incentives | Time-of-day energy pricing and idle fees | low | rule | Vehicle & energy
+- R08-020 | Energy prices and incentives | Depot electricity tariff and demand charges | medium | rule | Fleet manager
+- R08-021 | Energy prices and incentives | Platform fuel and charging discounts, EV per-trip incentives | low | rule | Pricing & platform rules
+- R08-022 | EV battery and charging | Battery capacity and usable range | high | rule | Vehicle & energy
+- R08-023 | EV battery and charging | Fuel level or state of charge | medium | state | Vehicle & energy
+- R08-024 | EV battery and charging | Charging power curve and taper | medium | rule | Vehicle & energy
+- R08-025 | EV battery and charging | Charger queue and occupancy | medium | world | Vehicle & energy
+- R08-026 | EV battery and charging | Charger reliability | low | world | Vehicle & energy
+- R08-027 | EV battery and charging | Charging session overhead | low | rule | Vehicle & energy
+- R08-028 | EV battery and charging | Connector standard and network access | low | rule | Vehicle & energy
+- R08-029 | EV battery and charging | Home or overnight charging access | medium | setting | Driver state
+- R08-030 | EV battery and charging | Trip energy feasibility | low | rule | Vehicle & energy
+- R08-031 | EV battery and charging | Charging efficiency losses | low | rule | Vehicle & energy
+- R08-032 | EV battery and charging | Battery degradation | low | state | Vehicle & energy
+- R08-033 | Ownership, licensing and fixed costs | Weekly rental or lease of a TLC-plated car | high | rule | Vehicle & energy
+- R08-034 | Ownership, licensing and fixed costs | Purchase price, financing and incentives | medium | setting | Vehicle & energy
+- R08-035 | Ownership, licensing and fixed costs | Depreciation per mile and per year | medium | rule | Vehicle & energy
+- R08-036 | Ownership, licensing and fixed costs | Commercial (TLC) insurance premium | high | rule | Regulation, fees & taxes
+- R08-037 | Ownership, licensing and fixed costs | Insurance deductible and claim surcharge | low | rule | Regulation, fees & taxes
+- R08-038 | Ownership, licensing and fixed costs | TLC licence, registration and inspection fees | low | rule | Regulation, fees & taxes
+- R08-039 | Ownership, licensing and fixed costs | Inspection frequency and downtime | low | rule | Regulation, fees & taxes
+- R08-040 | Ownership, licensing and fixed costs | Vehicle age limits and retirement | low | rule | Regulation, fees & taxes
+- R08-041 | Ownership, licensing and fixed costs | Licence rules for adding vehicles (EV and WAV) | medium | rule | Regulation, fees & taxes
+- R08-042 | Ownership, licensing and fixed costs | Taxi medallion and shift-lease costs | high | rule | Regulation, fees & taxes
+- R08-043 | Ownership, licensing and fixed costs | Taxi equipment and card-processing fees | low | rule | Pricing & platform rules
+- R08-044 | Ownership, licensing and fixed costs | Vehicle-borne advertising income | low | rule | Pricing & platform rules
+- R08-045 | Maintenance, tyres and cleaning | Routine maintenance per mile | low | rule | Vehicle & energy
+- R08-046 | Maintenance, tyres and cleaning | Tyre wear and replacement | low | rule | Vehicle & energy
+- R08-047 | Maintenance, tyres and cleaning | Brake wear | low | rule | Vehicle & energy
+- R08-048 | Maintenance, tyres and cleaning | Car wash and interior cleaning (human-driven) | low | agent | Vehicle & energy
+- R08-049 | Maintenance, tyres and cleaning | Simplified all-in per-mile cost (calibration) | medium | rule | Benchmark harness
+- R08-050 | Tolls, parking and fines paid by the driver | Driver-paid tolls (loaded vs empty legs) | low | rule | Regulation, fees & taxes
+- R08-051 | Tolls, parking and fines paid by the driver | Toll payment method | low | setting | Regulation, fees & taxes
+- R08-052 | Tolls, parking and fines paid by the driver | Parking costs (overnight and during the shift) | low | rule | Regulation, fees & taxes
+- R08-053 | Tolls, parking and fines paid by the driver | Ticket and fine ledger | low | rule | Regulation, fees & taxes
+- R08-054 | Breakdowns, collisions and downtime | Mechanical breakdown hazard | low | world | Vehicle & energy
+- R08-055 | Breakdowns, collisions and downtime | Flat tyres and minor roadside events | low | world | Vehicle & energy
+- R08-056 | Breakdowns, collisions and downtime | Collision cost and downtime (human-driven) | low | world | Vehicle & energy
+- R08-057 | Breakdowns, collisions and downtime | Robotaxi (ADS) crash and incident rate | low | world | Fleet manager
+- R08-058 | Breakdowns, collisions and downtime | Repair downtime and spare vehicles | medium | state | Fleet manager
+- R08-059 | Breakdowns, collisions and downtime | Theft and vandalism | low | world | Events & disruptions
+- R08-060 | Breakdowns, collisions and downtime | Recalls and fleet-wide grounding | low | world | Events & disruptions
+- R08-061 | Robotaxi-specific costs | Robotaxi vehicle capex and amortisation | high | rule | Fleet manager
+- R08-062 | Robotaxi-specific costs | Sensor cleaning, calibration and replacement | low | rule | Fleet manager
+- R08-063 | Robotaxi-specific costs | Fleet operations overhead per vehicle | medium | rule | Fleet manager
+- R08-064 | Robotaxi-specific costs | Depot real estate cost | medium | rule | Fleet manager
+- R08-065 | Robotaxi-specific costs | HD mapping and map upkeep | low | setting | Map & road network
+- R08-066 | Robotaxi-specific costs | Robotaxi insurance and liability | medium | rule | Regulation, fees & taxes
+- R08-067 | Cost accounting, information and vehicle choice | Cost accounting basis for profit | high | setting | Benchmark harness
+- R08-068 | Cost accounting, information and vehicle choice | Cost and vehicle-state information shown to the agent | medium | setting | Benchmark harness
+- R08-069 | Cost accounting, information and vehicle choice | Vehicle choice and fleet mix | high | agent | Fleet manager
+- R08-070 | Cost accounting, information and vehicle choice | Emissions and carbon accounting (optional) | low | setting | Benchmark harness
+
+## R09
+- R09-001 | A. Shift structure and working time | Shift start time and place | high | agent | Driver state
+- R09-002 | A. Shift structure and working time | Shift end and total hours (daily, weekly) | high | agent | Driver state
+- R09-003 | A. Shift structure and working time | Taxi lease shift window and handover | medium | rule | Regulation, fees & taxes
+- R09-004 | A. Shift structure and working time | Driver work profile (persona type) | high | setting | Benchmark harness
+- R09-005 | B. Fatigue and legal hour caps | TLC passenger-time cap | medium | rule | Regulation, fees & taxes
+- R09-006 | B. Fatigue and legal hour caps | Platform driving-time cap | low | rule | Pricing & platform rules
+- R09-007 | B. Fatigue and legal hour caps | Fatigue level | low | state | Driver state
+- R09-008 | B. Fatigue and legal hour caps | Crash and incident risk from fatigue and hours | low | world | Driver state
+- R09-009 | B. Fatigue and legal hour caps | Fatigue effect on driving performance | low | state | Traffic & travel time
+- R09-010 | C. Breaks and bodily needs | Meal breaks: timing and duration | medium | state | Driver state
+- R09-011 | C. Breaks and bodily needs | Bathroom need interval | low | state | Driver state
+- R09-012 | C. Breaks and bodily needs | Time to find a bathroom and a legal place to stop | low | world | Map & road network
+- R09-013 | C. Breaks and bodily needs | Prayer and religious observance | low | setting | Driver state
+- R09-014 | C. Breaks and bodily needs | Parking and ticket cost during breaks | low | rule | Regulation, fees & taxes
+- R09-015 | D. Home, commute and end of shift | Driver home location | medium | setting | Driver state
+- R09-016 | D. Home, commute and end of shift | Commute deadhead at shift start and end | medium | state | Traffic & travel time
+- R09-017 | D. Home, commute and end of shift | Destination filter quota and mechanics | medium | rule | Pricing & platform rules
+- R09-018 | D. Home, commute and end of shift | Hard stop or return deadline | medium | setting | Driver state
+- R09-019 | D. Home, commute and end of shift | Taxi garage location and late-return fee | medium | rule | Regulation, fees & taxes
+- R09-020 | D. Home, commute and end of shift | Value of ending near home ('take me home') | medium | setting | Benchmark harness
+- R09-021 | E. Motivation and labour supply | Daily income target (reference point) | medium | setting | Benchmark harness
+- R09-022 | E. Motivation and labour supply | Daily hours target | medium | setting | Driver state
+- R09-023 | E. Motivation and labour supply | Reservation wage (value of the driver's time) | high | setting | Benchmark harness
+- R09-024 | E. Motivation and labour supply | Cumulative earnings and hours today | low | state | Driver state
+- R09-025 | E. Motivation and labour supply | Incentive and quest progress | medium | state | Pricing & platform rules
+- R09-026 | F. Skill, experience and learning | Experience level | medium | state | Driver state
+- R09-027 | F. Skill, experience and learning | Zone familiarity (local knowledge) | medium | state | Driver state
+- R09-028 | F. Skill, experience and learning | Navigation skill and route efficiency | low | setting | Traffic & travel time
+- R09-029 | F. Skill, experience and learning | Driving speed and aggressiveness | low | setting | Traffic & travel time
+- R09-030 | F. Skill, experience and learning | Cross-day memory and learning store | high | setting | Benchmark harness
+- R09-031 | G. Personal safety, preferences and life constraints | Personal safety risk by zone and time | low | world | Events & disruptions
+- R09-032 | G. Personal safety, preferences and life constraints | Avoided areas and hours, and the legality of refusing | medium | setting | Regulation, fees & taxes
+- R09-033 | G. Personal safety, preferences and life constraints | Trip-length preference | medium | setting | Driver state
+- R09-034 | G. Personal safety, preferences and life constraints | Language and communication | low | setting | Rider behaviour
+- R09-035 | G. Personal safety, preferences and life constraints | Other job and availability windows | medium | setting | Driver state
+- R09-036 | G. Personal safety, preferences and life constraints | Childcare and family constraints | low | setting | Driver state
+- R09-037 | G. Personal safety, preferences and life constraints | Personal running costs | low | rule | Driver state
+- R09-038 | G. Personal safety, preferences and life constraints | Demographic persona traits (age, gender) | low | setting | Competitor supply & matching
+- R09-039 | H. Reputation and platform standing | Driver rating | medium | state | Rider behaviour
+- R09-040 | H. Reputation and platform standing | Acceptance and cancellation rates | medium | state | Pricing & platform rules
+- R09-041 | H. Reputation and platform standing | Loyalty tier (e.g. Uber Pro) | low | state | Pricing & platform rules
+- R09-042 | H. Reputation and platform standing | Login access and lockouts | medium | rule | Competitor supply & matching
+- R09-043 | H. Reputation and platform standing | Deactivation and compliance risk | low | rule | Regulation, fees & taxes
+- R09-044 | I. Robotaxi: what replaces the human | Robotaxi duty cycle (no fatigue, no breaks) | high | state | Fleet manager
+- R09-045 | I. Robotaxi: what replaces the human | Depot locations and capacity | medium | world | Fleet manager
+- R09-046 | I. Robotaxi: what replaces the human | Interior cleanliness and mess events | low | state | Fleet manager
+- R09-047 | I. Robotaxi: what replaces the human | Cleaning schedule and dwell time | low | rule | Fleet manager
+- R09-048 | I. Robotaxi: what replaces the human | Remote-assistance request rate and latency | low | world | Fleet manager
+- R09-049 | I. Robotaxi: what replaces the human | Remote-assistance staffing ratio and cost | medium | rule | Fleet manager
+- R09-050 | I. Robotaxi: what replaces the human | Stuck vehicle and field recovery | low | world | Events & disruptions
+- R09-051 | I. Robotaxi: what replaces the human | Safety-operator requirement | high | rule | Regulation, fees & taxes
+- R09-052 | J. Agent decisions (action space) | Wait, cruise or park | high | agent | Driver state
+- R09-053 | J. Agent decisions (action space) | Reposition to a target zone | high | agent | Driver state
+- R09-054 | J. Agent decisions (action space) | Accept or decline an offer | high | agent | Competitor supply & matching
+- R09-055 | J. Agent decisions (action space) | Cancel after accepting, and no-show wait | medium | agent | Rider behaviour
+- R09-056 | J. Agent decisions (action space) | Platform choice and multi-apping | medium | agent | Competitor supply & matching
+- R09-057 | J. Agent decisions (action space) | Airport queue: join, stay or leave | high | agent | Competitor supply & matching
+- R09-058 | J. Agent decisions (action space) | Take a break (when, what, where) | medium | agent | Driver state
+- R09-059 | J. Agent decisions (action space) | Refuel or charge (when and where) | medium | agent | Vehicle & energy
+- R09-060 | J. Agent decisions (action space) | Go home and use the destination filter | medium | agent | Pricing & platform rules
+- R09-061 | J. Agent decisions (action space) | Route choice | low | agent | Traffic & travel time
+- R09-062 | J. Agent decisions (action space) | Chase surge or not | medium | agent | Pricing & platform rules
+- R09-063 | J. Agent decisions (action space) | Street-hail choices and the off-duty light (taxi) | low | agent | Regulation, fees & taxes
+- R09-064 | J. Agent decisions (action space) | Rider interaction and service style | low | agent | Rider behaviour
+- R09-065 | J. Agent decisions (action space) | Rate or block riders | low | agent | Rider behaviour
+- R09-066 | J. Agent decisions (action space) | Ride-type opt-ins | low | agent | Pricing & platform rules
+- R09-067 | J. Agent decisions (action space) | Information gathering | medium | agent | Benchmark harness
+- R09-068 | J. Agent decisions (action space) | Write and use memory notes | high | agent | Benchmark harness
+- R09-069 | J. Agent decisions (action space) | Robotaxi fleet-ops decisions | medium | agent | Fleet manager
+- R09-070 | J. Agent decisions (action space) | Follow or ignore platform nudges | medium | agent | Pricing & platform rules
+
+## R10
+- R10-001 | Link speeds and congestion levels | Time-dependent link speed profile | high | world | Traffic & travel time
+- R10-002 | Link speeds and congestion levels | Core-versus-periphery speed gradient | high | world | Traffic & travel time
+- R10-003 | Link speeds and congestion levels | Peak-hour slowdown curve | high | world | Traffic & travel time
+- R10-004 | Link speeds and congestion levels | Day-type and seasonal speed shifts | medium | world | Traffic & travel time
+- R10-005 | Link speeds and congestion levels | Congestion-pricing speed regime (since 5 Jan 2025) | high | world | Traffic & travel time
+- R10-006 | Link speeds and congestion levels | Weather-to-speed coupling | low | world | Weather
+- R10-007 | Link speeds and congestion levels | Endogenous congestion from ride-hail volume | low | world | Traffic & travel time
+- R10-008 | Travel-time variability and reliability | Trip-level travel-time noise | medium | world | Traffic & travel time
+- R10-009 | Travel-time variability and reliability | Day-level and area-level correlated slowdowns | medium | world | Traffic & travel time
+- R10-010 | Travel-time variability and reliability | Airport-corridor tail risk | medium | world | Traffic & travel time
+- R10-011 | Travel-time variability and reliability | Reliability information given to the agent | medium | setting | Benchmark harness
+- R10-012 | Signals, grid and turn rules | Signal delay and cycle length | medium | world | Traffic & travel time
+- R10-013 | Signals, grid and turn rules | Directional progression (avenue green waves vs crosstown) | medium | world | Traffic & travel time
+- R10-014 | Signals, grid and turn rules | Right-on-red ban | low | rule | Map & road network
+- R10-015 | Signals, grid and turn rules | One-way grid and turn restrictions | medium | rule | Map & road network
+- R10-016 | Signals, grid and turn rules | Wrong-side approach and around-the-block loop | medium | world | Traffic & travel time
+- R10-017 | Signals, grid and turn rules | Busways and through-traffic bans | low | rule | Map & road network
+- R10-018 | Signals, grid and turn rules | Car-free and pedestrianised streets | low | rule | Map & road network
+- R10-019 | Signals, grid and turn rules | Turning delay from pedestrians | low | world | Traffic & travel time
+- R10-020 | Bridges, tunnels and highways | River-crossing chokepoint delay | high | world | Traffic & travel time
+- R10-021 | Bridges, tunnels and highways | Free vs tolled crossing choice | medium | agent | Traffic & travel time
+- R10-022 | Bridges, tunnels and highways | Highway versus local-street speed gap | medium | world | Traffic & travel time
+- R10-023 | Bridges, tunnels and highways | Robotaxi freeway access and route restrictions | high | rule | Traffic & travel time
+- R10-024 | Bridges, tunnels and highways | Overnight and weekend lane closures | low | world | Events & disruptions
+- R10-025 | Incidents, closures and disruptions (traffic side) | Crash incidents and lane-blockage delay | medium | world | Events & disruptions
+- R10-026 | Incidents, closures and disruptions (traffic side) | Planned street closures | low | world | Events & disruptions
+- R10-027 | Incidents, closures and disruptions (traffic side) | Event and VIP traffic closures | medium | world | Events & disruptions
+- R10-028 | Incidents, closures and disruptions (traffic side) | Incident information latency | low | setting | Benchmark harness
+- R10-029 | Traffic rules and enforcement | Default 25 mph speed limit | low | rule | Regulation, fees & taxes
+- R10-030 | Traffic rules and enforcement | School-zone speed cameras (24/7) | low | rule | Regulation, fees & taxes
+- R10-031 | Traffic rules and enforcement | Red-light cameras | low | rule | Regulation, fees & taxes
+- R10-032 | Traffic rules and enforcement | Bus-lane access rules and camera fines | low | rule | Regulation, fees & taxes
+- R10-033 | Traffic rules and enforcement | Driving-style speed factor (human vs robotaxi) | medium | rule | Traffic & travel time
+- R10-034 | Traffic rules and enforcement | Anti-idling limit | low | rule | Regulation, fees & taxes
+- R10-035 | Curb, pickup and drop-off | Pickup dwell time | medium | world | Rider behaviour
+- R10-036 | Curb, pickup and drop-off | Drop-off dwell and payment time | low | world | Rider behaviour
+- R10-037 | Curb, pickup and drop-off | Curb availability and stopping search | medium | world | Traffic & travel time
+- R10-038 | Curb, pickup and drop-off | Double parking and delivery lane blockage | medium | world | Traffic & travel time
+- R10-039 | Curb, pickup and drop-off | Rider pin accuracy and meeting friction | medium | world | Rider behaviour
+- R10-040 | Curb, pickup and drop-off | Hotspot curb queues | medium | state | Traffic & travel time
+- R10-041 | Curb, pickup and drop-off | Airport pickup access path | medium | rule | Map & road network
+- R10-042 | Routing, navigation, GPS and ETA | Routing objective | medium | agent | Traffic & travel time
+- R10-043 | Routing, navigation, GPS and ETA | Time-versus-distance pay crossover speed | medium | rule | Pricing & platform rules
+- R10-044 | Routing, navigation, GPS and ETA | Navigation ETA error shown to agent | medium | setting | Benchmark harness
+- R10-045 | Routing, navigation, GPS and ETA | Traffic information level | medium | setting | Benchmark harness
+- R10-046 | Routing, navigation, GPS and ETA | Dynamic re-routing | low | setting | Traffic & travel time
+- R10-047 | Routing, navigation, GPS and ETA | Vehicle localisation and missed turns | low | world | Traffic & travel time
+- R10-048 | Routing, navigation, GPS and ETA | Driver route knowledge | low | state | Driver state
+- R10-049 | Routing, navigation, GPS and ETA | Map staleness | low | setting | Benchmark harness
+- R10-050 | Deadhead, cruising, waiting and repositioning | Pickup deadhead (en route to rider) | high | state | Traffic & travel time
+- R10-051 | Deadhead, cruising, waiting and repositioning | Cruising and idle share | high | state | Benchmark harness
+- R10-052 | Deadhead, cruising, waiting and repositioning | Hail-search cruising speed (taxi) | medium | agent | Traffic & travel time
+- R10-053 | Deadhead, cruising, waiting and repositioning | Repositioning travel cost | high | state | Traffic & travel time
+- R10-054 | Deadhead, cruising, waiting and repositioning | Waiting location: park, stand or circle | medium | agent | Traffic & travel time
+- R10-055 | Deadhead, cruising, waiting and repositioning | Return-home deadhead at shift end | medium | state | Driver state
+- R10-056 | Deadhead, cruising, waiting and repositioning | Empty return from airports and outer areas | medium | state | Traffic & travel time
+- R10-057 | Deadhead, cruising, waiting and repositioning | Depot and charger deadhead | medium | state | Fleet manager
+- R10-058 | Deadhead, cruising, waiting and repositioning | Empty-vehicle speed bias | low | world | Traffic & travel time
+- R10-059 | Travel-time engine and calibration | Travel-time engine architecture | high | setting | Traffic & travel time
+- R10-060 | Travel-time engine and calibration | Time resolution of speed profiles | medium | setting | Traffic & travel time
+- R10-061 | Travel-time engine and calibration | Router default-speed bias | high | setting | Data pipeline
+- R10-062 | Travel-time engine and calibration | Calibration target and acceptance error | high | setting | Data pipeline
+- R10-063 | Travel-time engine and calibration | Trip-record cleaning rules | medium | setting | Data pipeline
+- R10-064 | Travel-time engine and calibration | Data-era alignment | high | setting | Data pipeline
+- R10-065 | Travel-time engine and calibration | Time-dependent routing consistency (FIFO) | low | setting | Traffic & travel time
+- R10-066 | Travel-time engine and calibration | Sub-trip position trace | low | setting | Visualisation
+- R10-067 | Travel-time engine and calibration | Common random numbers for traffic noise | medium | setting | Benchmark harness
+
+## R11
+- R11-001 | A. Fleet size, mix and starting state | Fleet size N | high | setting | Benchmark harness
+- R11-002 | A. Fleet size, mix and starting state | Active fleet by hour (dynamic fleet sizing) | medium | agent | Fleet manager
+- R11-003 | A. Fleet size, mix and starting state | Vehicle class mix | medium | agent | Vehicle & energy
+- R11-004 | A. Fleet size, mix and starting state | Driver-type mix in the fleet | medium | setting | Fleet manager
+- R11-005 | A. Fleet size, mix and starting state | Starting positions | medium | setting | Benchmark harness
+- R11-006 | A. Fleet size, mix and starting state | Starting energy and condition | low | setting | Benchmark harness
+- R11-007 | A. Fleet size, mix and starting state | Fleet growth between days | low | agent | Fleet manager
+- R11-008 | A. Fleet size, mix and starting state | Regulatory cap on fleet size and licences | medium | rule | Regulation, fees & taxes
+- R11-009 | B. Control architecture and information | Control architecture | high | setting | Benchmark harness
+- R11-010 | B. Control architecture and information | Dispatch authority and action set | high | setting | Fleet manager
+- R11-011 | B. Control architecture and information | Dispatch batching window | medium | agent | Fleet manager
+- R11-012 | B. Control architecture and information | Strategic decision epoch | medium | setting | Benchmark harness
+- R11-013 | B. Control architecture and information | Model latency against the simulated clock | medium | setting | Benchmark harness
+- R11-014 | B. Control architecture and information | Compute and token budget per run | high | setting | Benchmark harness
+- R11-015 | B. Control architecture and information | Own-fleet state visibility | medium | setting | Fleet manager
+- R11-016 | B. Control architecture and information | Information sharing between own cars | medium | setting | Fleet manager
+- R11-017 | B. Control architecture and information | Demand forecast given to the fleet controller | medium | setting | Benchmark harness
+- R11-018 | B. Control architecture and information | Human driver compliance with fleet instructions | medium | world | Driver state
+- R11-019 | C. Repositioning and rebalancing | Idle-car repositioning decision | high | agent | Fleet manager
+- R11-020 | C. Repositioning and rebalancing | Rebalancing objective and target distribution | medium | agent | Fleet manager
+- R11-021 | C. Repositioning and rebalancing | Repositioning reach cap | medium | rule | Fleet manager
+- R11-022 | C. Repositioning and rebalancing | Empty miles from rebalancing | high | state | Fleet manager
+- R11-023 | C. Repositioning and rebalancing | Idle staging capacity | medium | world | Map & road network
+- R11-024 | C. Repositioning and rebalancing | Airport allocation across the fleet | medium | agent | Fleet manager
+- R11-025 | C. Repositioning and rebalancing | Event pre-positioning | medium | agent | Fleet manager
+- R11-026 | C. Repositioning and rebalancing | Return to base with revenue | medium | agent | Fleet manager
+- R11-027 | C. Repositioning and rebalancing | Reference rebalancing baselines | medium | setting | Benchmark harness
+- R11-028 | D. Coordination inside the fleet | Own-car clustering (herding) | high | state | Fleet manager
+- R11-029 | D. Coordination inside the fleet | Anti-clustering rule | medium | agent | Fleet manager
+- R11-030 | D. Coordination inside the fleet | Fleet saturation curve (value of the N-th car) | high | state | Benchmark harness
+- R11-031 | D. Coordination inside the fleet | Territory partition | low | agent | Fleet manager
+- R11-032 | D. Coordination inside the fleet | Fleet ride pooling | medium | agent | Fleet manager
+- R11-033 | D. Coordination inside the fleet | Earnings fairness across fleet drivers | low | state | Fleet manager
+- R11-034 | E. Charging at fleet scale | Charger-to-vehicle ratio | high | setting | Vehicle & energy
+- R11-035 | E. Charging at fleet scale | Charging schedule policy | high | agent | Fleet manager
+- R11-036 | E. Charging at fleet scale | Charger queue | medium | state | Vehicle & energy
+- R11-037 | E. Charging at fleet scale | Charging site count and placement | medium | setting | Fleet manager
+- R11-038 | E. Charging at fleet scale | Private depot vs public charging mix | medium | setting | Vehicle & energy
+- R11-039 | E. Charging at fleet scale | Fleet peak power, grid connection and demand charges | medium | rule | Vehicle & energy
+- R11-040 | E. Charging at fleet scale | Dispatch battery reserve | medium | rule | Fleet manager
+- R11-041 | E. Charging at fleet scale | Share of fleet charging at peaks | medium | state | Fleet manager
+- R11-042 | F. Depots, maintenance and availability | Fleet availability (uptime share) | high | state | Fleet manager
+- R11-043 | F. Depots, maintenance and availability | Depot siting and cost | medium | setting | Fleet manager
+- R11-044 | F. Depots, maintenance and availability | Depot throughput | medium | rule | Fleet manager
+- R11-045 | F. Depots, maintenance and availability | Preventive maintenance and inspection rotation | low | agent | Fleet manager
+- R11-046 | F. Depots, maintenance and availability | Unscheduled breakdown hazard and repair time | medium | world | Vehicle & energy
+- R11-047 | F. Depots, maintenance and availability | Spare vehicle ratio | low | agent | Fleet manager
+- R11-048 | F. Depots, maintenance and availability | Mileage balancing and vehicle retirement | low | state | Vehicle & energy
+- R11-049 | G. Operating model, staffing and fixed costs | Labour and operating model | high | setting | Fleet manager
+- R11-050 | G. Operating model, staffing and fixed costs | Human fleet shift roster | high | agent | Fleet manager
+- R11-051 | G. Operating model, staffing and fixed costs | Double-shifting and lease or rental income | medium | rule | Regulation, fees & taxes
+- R11-052 | G. Operating model, staffing and fixed costs | Remote-assistance pool sizing and queue | medium | agent | Fleet manager
+- R11-053 | G. Operating model, staffing and fixed costs | Field and depot staff | medium | rule | Fleet manager
+- R11-054 | G. Operating model, staffing and fixed costs | Fleet fixed-cost stack per car-day | high | rule | Fleet manager
+- R11-055 | G. Operating model, staffing and fixed costs | Base affiliation and licensing overhead | low | rule | Regulation, fees & taxes
+- R11-056 | H. Market impact and service obligations | Fleet effect on surge and fares | high | state | Pricing & platform rules
+- R11-057 | H. Market impact and service obligations | Fleet effect on wait times and induced demand | medium | state | Demand generator
+- R11-058 | H. Market impact and service obligations | Service coverage and equity obligations | medium | rule | Regulation, fees & taxes
+- R11-059 | H. Market impact and service obligations | Wheelchair-accessible service obligation | medium | rule | Regulation, fees & taxes
+- R11-060 | I. Failure, risk and variance | Correlated fleet-wide outage | high | world | Events & disruptions
+- R11-061 | I. Failure, risk and variance | Mid-trip failure handling | low | agent | Fleet manager
+- R11-062 | I. Failure, risk and variance | Crash and liability tail | medium | world | Events & disruptions
+- R11-063 | I. Failure, risk and variance | Vandalism and unrest pull-back | low | world | Events & disruptions
+- R11-064 | I. Failure, risk and variance | Fleet profit variance and correlation | medium | state | Benchmark harness
+- R11-065 | J. Fleet scoring and evaluation | Fleet objective function | high | setting | Benchmark harness
+- R11-066 | J. Fleet scoring and evaluation | Fleet KPI panel | medium | setting | Benchmark harness
+- R11-067 | J. Fleet scoring and evaluation | Scale ladder and normalisation | medium | setting | Benchmark harness
+- R11-068 | J. Fleet scoring and evaluation | Simulator scale and runtime | low | setting | Data pipeline
+- R11-069 | J. Fleet scoring and evaluation | Fleet visual encoding | low | setting | Visualisation
+
+## R12
+- R12-001 | Model under test and inference | Model under test | high | setting | Benchmark harness
+- R12-002 | Model under test and inference | Model snapshot and serving provider | medium | setting | Benchmark harness
+- R12-003 | Model under test and inference | Reasoning effort and sampling settings | medium | setting | Benchmark harness
+- R12-004 | Model under test and inference | Context-management policy | medium | setting | Benchmark harness
+- R12-005 | Model under test and inference | Frozen harness vs bring-your-own agent | medium | setting | Benchmark harness
+- R12-006 | Model under test and inference | Development model tier | low | setting | Benchmark harness
+- R12-007 | System prompt and framing | Base system prompt and paraphrase set | medium | setting | Benchmark harness
+- R12-008 | System prompt and framing | Event-awareness prompt arm | high | setting | Benchmark harness
+- R12-009 | System prompt and framing | Objective statement and cost framing | medium | setting | Benchmark harness
+- R12-010 | System prompt and framing | Strategy hints | medium | setting | Benchmark harness
+- R12-011 | System prompt and framing | Role framing | medium | setting | Benchmark harness
+- R12-012 | System prompt and framing | Simulation disclosure | low | setting | Benchmark harness
+- R12-013 | Information level and the public vs insider line | Information level ladder | high | setting | Benchmark harness
+- R12-014 | Information level and the public vs insider line | Historical trip aggregates given | high | setting | Data pipeline
+- R12-015 | Information level and the public vs insider line | Weather forecast as issued | medium | setting | Weather
+- R12-016 | Information level and the public vs insider line | Public event calendar content | high | setting | Events & disruptions
+- R12-017 | Information level and the public vs insider line | News, alerts and incident feed | medium | setting | Events & disruptions
+- R12-018 | Information level and the public vs insider line | Map and geographic knowledge given | medium | setting | Map & road network
+- R12-019 | Information level and the public vs insider line | In-app market signals | high | setting | Pricing & platform rules
+- R12-020 | Information level and the public vs insider line | Own-history log access | medium | setting | Benchmark harness
+- R12-021 | Information level and the public vs insider line | Public vs insider boundary rule | high | rule | Benchmark harness
+- R12-022 | Information level and the public vs insider line | As-of timestamp discipline | medium | rule | Data pipeline
+- R12-023 | Observation, actions and decision cadence | Observation content per step | medium | setting | Benchmark harness
+- R12-024 | Observation, actions and decision cadence | Observation and action format | medium | setting | Benchmark harness
+- R12-025 | Observation, actions and decision cadence | Action space and granularity | high | setting | Benchmark harness
+- R12-026 | Observation, actions and decision cadence | Decision cadence and wake-up rule | high | setting | Benchmark harness
+- R12-027 | Observation, actions and decision cadence | Wall-clock coupling and model latency | high | setting | Benchmark harness
+- R12-028 | Observation, actions and decision cadence | Tool-call time cost and per-step budget | medium | setting | Benchmark harness
+- R12-029 | Observation, actions and decision cadence | Invalid or malformed action policy | medium | rule | Benchmark harness
+- R12-030 | Observation, actions and decision cadence | Fleet control interface | high | setting | Fleet manager
+- R12-031 | Horizon, episodes and the learning protocol | Episode horizon and shift window | medium | setting | Benchmark harness
+- R12-032 | Horizon, episodes and the learning protocol | End-of-episode valuation and go-home rule | medium | rule | Benchmark harness
+- R12-033 | Horizon, episodes and the learning protocol | Memory carry-over scope | high | setting | Benchmark harness
+- R12-034 | Horizon, episodes and the learning protocol | Memory format, size cap and reflection step | medium | setting | Benchmark harness
+- R12-035 | Horizon, episodes and the learning protocol | Training window composition (days 1-10) | medium | setting | Benchmark harness
+- R12-036 | Horizon, episodes and the learning protocol | Test day choice (day 11) | medium | setting | Benchmark harness
+- R12-037 | Horizon, episodes and the learning protocol | Repetition design (the 'x100') | medium | setting | Benchmark harness
+- R12-038 | Horizon, episodes and the learning protocol | Learning-gain control arms | medium | setting | Benchmark harness
+- R12-039 | Scenarios, seeds, difficulty and leakage | Demand source mode | high | setting | Demand generator
+- R12-040 | Scenarios, seeds, difficulty and leakage | Seeds and common random numbers | high | setting | Benchmark harness
+- R12-041 | Scenarios, seeds, difficulty and leakage | Runs per model and statistical power | high | setting | Benchmark harness
+- R12-042 | Scenarios, seeds, difficulty and leakage | Scenario day-type mix | high | setting | Benchmark harness
+- R12-043 | Scenarios, seeds, difficulty and leakage | Data era | high | setting | Data pipeline
+- R12-044 | Scenarios, seeds, difficulty and leakage | Date and identity masking | medium | setting | Benchmark harness
+- R12-045 | Scenarios, seeds, difficulty and leakage | Post-cutoff fresh test months | medium | setting | Data pipeline
+- R12-046 | Scenarios, seeds, difficulty and leakage | Private hold-out pool, canary and contamination probes | medium | setting | Benchmark harness
+- R12-047 | Scenarios, seeds, difficulty and leakage | Difficulty preset and noise scale | high | setting | Benchmark harness
+- R12-048 | Scenarios, seeds, difficulty and leakage | Generalisation city | medium | setting | Data pipeline
+- R12-049 | Scenarios, seeds, difficulty and leakage | Solo vs shared-city arena mode | high | setting | Competitor supply & matching
+- R12-050 | Baselines and scoring | Passive and random floor baselines | high | setting | Benchmark harness
+- R12-051 | Baselines and scoring | Heuristic baselines | medium | setting | Benchmark harness
+- R12-052 | Baselines and scoring | Operations-research planner baseline | medium | setting | Benchmark harness
+- R12-053 | Baselines and scoring | Hindsight oracle | high | setting | Benchmark harness
+- R12-054 | Baselines and scoring | Human reference | medium | setting | Benchmark harness
+- R12-055 | Baselines and scoring | Learned RL baseline | low | setting | Benchmark harness
+- R12-056 | Baselines and scoring | Headline metric | high | setting | Benchmark harness
+- R12-057 | Baselines and scoring | Normalisation and aggregation | high | setting | Benchmark harness
+- R12-058 | Baselines and scoring | Risk and consistency panel | medium | setting | Benchmark harness
+- R12-059 | Baselines and scoring | Compliance, safety and service panel | medium | rule | Regulation, fees & taxes
+- R12-060 | Baselines and scoring | Efficiency diagnostics | medium | setting | Benchmark harness
+- R12-061 | Baselines and scoring | Information-value metric | medium | setting | Benchmark harness
+- R12-062 | Baselines and scoring | Compute-cost accounting | medium | setting | Benchmark harness
+- R12-063 | Run cost and compute budget | Tokens per decision and cache hit rate | low | setting | Benchmark harness
+- R12-064 | Run cost and compute budget | Per-run budget cap and exhaustion rule | medium | setting | Benchmark harness
+- R12-065 | Run cost and compute budget | Campaign budget, parallelism and wall-clock | low | setting | Benchmark harness
+- R12-066 | Data pipeline and calibration | Calibration targets and sim-to-real validation | high | setting | Data pipeline
+- R12-067 | Data pipeline and calibration | Coordinate synthesis within taxi zones | medium | setting | Data pipeline
+- R12-068 | Data pipeline and calibration | Data licence filter | low | rule | Data pipeline
+- R12-069 | Visualisation and logging | Vehicle state log for the live map | low | setting | Visualisation
+- R12-070 | Visualisation and logging | Playback speed, lighting and clip export | low | setting | Visualisation
+- R12-071 | Visualisation and logging | Model colour coding and live revenue overlay | low | setting | Visualisation
+- R12-072 | Visualisation and logging | Replay and audit log | low | setting | Benchmark harness
