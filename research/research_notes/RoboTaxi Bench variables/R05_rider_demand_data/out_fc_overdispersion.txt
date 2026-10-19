@@ -1,0 +1,6 @@
+== overdispersion: zone x hour over Tue-Thu (13 days in Jan 2023), cells with mean >=50 trips
+   cells  med_cv  p25_cv  p75_cv  med_poisson_cv  med_var_to_mean
+0   3412    15.4    12.0    20.1             9.2             2.55
+== citywide daily total CV on Tue-Thu
+   ndays    cv
+0     13  11.1

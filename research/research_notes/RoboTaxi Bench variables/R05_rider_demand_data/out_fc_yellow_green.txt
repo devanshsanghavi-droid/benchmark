@@ -1,0 +1,30 @@
+== yellow 2023 payment types
+   payment_type         n    pct
+0             0   1309356   3.42
+1             1  29856872  77.93
+2             2   6405017  16.72
+3             3    240860   0.63
+4             4    498015   1.30
+5             5         2   0.00
+== yellow 2023 tips
+   any_tip_pct  card_tip_incid  card_tip_pct_fare  med_tip_rate_card_tipped  card_share_of_fare
+0         77.1            95.3               22.2                      26.2                78.3
+== yellow 2023 distance/duration
+          n  mean_mi  med_mi  med_min  mean_min  le5mi        per_day
+0  37082652     3.53    1.81     12.8      16.5   82.4  101596.306849
+== yellow 2023 airport pickups share, JFK flat fare (ratecode 2) fare values
+   pu_apt  do_apt
+0    8.62    2.86
+   fare_amount        n
+0         70.0  1445617
+1        -70.0    26343
+2          0.0     1337
+3         52.0       82
+== yellow 2019-10 (csv)
+         n  mean_mi  med_mi  le5mi  le5mi_and_le18  le18  card  cash  zero_tip
+0  7126605     3.05    1.67   85.3            81.1  81.5  72.6  26.2      29.6
+== green 2019-10 trip_type
+   trip_type       n    pct
+0          1  377990  79.35
+1          2    9015   1.89
+2       <NA>   89381  18.76

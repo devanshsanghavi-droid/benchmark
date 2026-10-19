@@ -1,0 +1,337 @@
+# R03 Events, disruptions and public event information: simulation variables for RoboTaxi Bench
+
+Domain R03 of 12. Owner of the full list: Devansh. Researched on 19 Oct 2026 for the "independent variables list" action from the RoboTaxi Bench meeting.
+
+## Summary
+
+Events and disruptions produce a driver's best and worst hours, and they are where public information can give a model a real edge. To size real New York events, I used 41.3M yellow taxi trips (all of 2023 plus January 2024), 18.5M Uber/Lyft (HVFHV) trips from January 2023 and the Retrosheet 2023 baseball game logs. During the US Open, taxi pickups at Flushing Meadows ran at 15 times their normal level. Broadway's 8pm let-out almost doubles Times Square pickups compared with a dark Monday. On New Year's night, app fare per mile was 1.8 times a normal Sunday's and driver pay per engaged hour was about 60% higher. Closures cut the other way: the New Year's Eve frozen zone took Times Square pickups to zero from 5pm, UNGA week cut Midtown East pickups by 41%, parades cut pickups along the route by 34-46%, and trips there ran 12-22% slower. After-event surge is real but short. On the busiest nights at MSG/Penn and Times Square, fare per mile rose 25-42% and waits roughly doubled, then fell back within about an hour, so the agent's key skill is timing under end-time uncertainty (2023 MLB games: 162 min, sd 20). Yellow taxis carry only a few trips per 10,000 attendees at outer-borough venues and almost none at MetLife, so app trip data are needed to set event mode shares; that is the biggest gap left. Most venue, regulation and robotaxi facts below are tagged [U], because nyc.gov, MTA, NYC Open Data and news sites were blocked from this session and the shared web-search budget was used up.
+
+### How to read the tables
+
+- **Variable**: ID and name, then (priority; applies to; component).
+- **Impact**: effect on driver or fleet profit per hour (high / medium / low). For closures the effect is often negative.
+- **Role**: world = outside input; rule = designer-set rule; agent = model decision; state = changes during the run; setting = benchmark knob.
+- **Agent sees?**: visible / public or forecast (public information or a forecast it may get) / hidden (simulator only).
+- **Source tags**: [P] primary read directly; [P*] primary data via a verbatim copy, including my own calculations on SHA-256-verified TLC files; [S] search snippet or secondary; [U] unverified background knowledge; [design] our suggestion or guess.
+- Driver types: human app driver (Uber/Lyft, NYC "HVFHV"), taxi (yellow/green, street hail plus e-hail), robotaxi (Waymo-like). Levels: single car and fleet of N.
+
+### Method and research limits (read before trusting numbers)
+
+- **Own data analysis [P*].** These are the same TLC trip-record Parquet files that teammate R02 fetched from GitHub LFS copies. Their SHA-256 checksums match a catalogue of the original TLC CloudFront files (see the R02 dossier). They cover yellow taxis for all 12 months of 2023 plus January 2024 (41.27M trips) and HVFHV (Uber/Lyft) for January 2023 (18.48M trips, with request, on-scene and pickup times, base fare and driver pay). I compared trips on named event days with the same weekday in nearby weeks, by taxi zone and hour. Baseball schedules, attendance and game lengths come from the Retrosheet 2023 game log, read directly from github.com/chadwickbureau/retrosheet (seasons/2023/GL2023.TXT).
+- **Event dates are [U].** The dates of named events (for example US Open Aug 28-Sep 10 2023, Marathon Nov 5 2023, UNGA high-level week Sep 18-22 2023) come from background knowledge. In most cases the trip data show a clear signature on exactly those dates, which corroborates them.
+- **Blocked hosts.** nyc.gov, data.cityofnewyork.us, data.ny.gov, mta.info, 511ny.org, MLB and NBA APIs, venue sites, news sites, SSRN and journals all failed to resolve or were refused. Only GitHub was reachable. The shared web-search budget was already used up when this domain started, so dataset IDs, regulations and robotaxi incidents are tagged [U] and listed under open questions. No proxy, reader, cache or mirror service was used.
+- **Caveats.** Yellow taxis are Manhattan-heavy and under-represent outer-borough and young-audience events. The HVFHV month is January, so it has no baseball, tennis or summer festivals. "Busiest nights" at MSG and Times Square were picked by pickup volume, not matched to a published schedule, so weekend and weather effects are mixed in. Fare per mile is used as a surge proxy because the TLC files have no surge field. Pay per engaged hour ignores idle time.
+- Scripts and outputs are in `R03_events_data/` next to this file. The first UNGA block in `events_yellow_out.txt` still includes the Sep 21-24 data gap; the corrected figures are in `events2_out.txt`.
+
+### Key numbers from my own analysis of TLC and Retrosheet data [P*]
+
+| Event (date) | Measure | Event | Normal comparison | Ratio |
+|---|---|---|---|---|
+| US Open (Aug 28-Sep 10 2023), zone 93 | Yellow pickups per day | 188.7 | 12.5 | 15x |
+| same | Yellow pickups 21:00-24:00 | 59.7 | 2.1 | 29x |
+| same | Yellow pickups 00:00-02:00 (night sessions) | up to 162 | 0.7 | very large |
+| Broadway, zone 230, 2023 | Yellow pickups 22:00-23:00, Wednesday vs Monday (dark) | 331 | 177 | 1.9x |
+| Yankee night games 2023, zone 247 | Yellow drop-offs 16:00-20:00 | 31.9 | 7.1 | 4.5x (8.1 per 10k attendees) |
+| Mets night games 2023, zone 93 | Yellow drop-offs 16:00-20:00 | 19.7 | 9.4 | 2.1x (4.9 per 10k attendees) |
+| NY Comic Con (Oct 12-15 2023), Javits zone 246 | Drop-offs 7-13h / pickups 16-21h | 1,065 / 972 | 540 / 701 | 1.97x / 1.39x |
+| Electric Zoo (Sep 2-3 2023; Sep 1 cancelled), zone 194 | Drop-offs 12-22h | 45-48 (Sep 1: 7) | 5-8 | 6-9x; 1x on the cancelled day |
+| Taylor Swift at MetLife (May 26-28 2023) | Yellow drop-offs outside NYC 13-19h | 156 | 157 | 1.00x (no effect) |
+| New Year's Eve 2023, zone 230 | Yellow pickups per hour from 17:00 | 0 | ~240 | 0x (frozen zone) |
+| New Year's night (Jan 1 2023), HVFHV citywide 01-03h | Fare per mile / driver pay per engaged hour / median wait | $8.40 / $97-101 / 8.3-8.7 min | $4.58 / $60-61 / 4.8-4.9 min | 1.8x / 1.6x / 1.7-1.8x |
+| MSG/Penn zone 186, busiest fifth of Jan 2023 nights (HVFHV), 21:30-23:30 | Fare per mile / wait / pay per engaged hour | $5.83 / 5.4 min / $67.8 | $4.64 / 3.6 min / $56.8 | 1.26x / 1.5x / 1.19x |
+| Times Sq zone 230, busiest fifth of nights (HVFHV), 21:30-23:30 | Fare per mile / wait / pay per engaged hour | $6.75 / 6.8 min / $73.6 | $4.75 / 3.5 min / $58.1 | 1.42x / 1.9x / 1.27x |
+| UNGA (Sep 18-20 2023), Midtown East zones 7-20h | Yellow pickups | 8,483 | 14,371 | 0.59x |
+| St Patrick's Day (Mar 17 2023), Midtown core 11-17h | Yellow pickups; citywide trip speed | 5,817; 10.7 mph | 8,776; 12.2 mph | 0.66x; -12% |
+| Pride March (Jun 25 2023), Village and Chelsea 12-18h | Yellow pickups; trip speed | 2,209; 8.5-10.4 mph | 4,109; 10.9-12.0 mph | 0.54x; -13 to -22% |
+| Tree lighting (Nov 29 2023), Midtown Center 17-22h | Yellow pickups | 1,089 | 2,686 | 0.41x |
+| NYC Marathon (Nov 5 2023) | Citywide yellow trips 7-17h; Central Park zone pickups | 48,590; 688 | 50,992; 1,359 | 0.95x; 0.51x |
+| Flash flood and subway suspensions (Fri Sep 29 2023) | Yellow trips at 8am; fare per trip 10-16h; speed 8-10h | 5,488; $27-31; 7.5-8.4 mph | 3,766; $20-23; 11.7 mph | 1.46x; 1.3x; 0.68x |
+| MLB 2023 (all 2,430 games) | Game length | mean 162 min, sd 19.7; 16.5% > 180 min | | |
+| Data gap, yellow Sep 21-24 2023 | Daily trips | 4.6k-41.9k | 87k-126k | 0.04-0.33x (missing records, not an event) |
+
+## Box view (the placeholder list, extended)
+
+* Events, disruptions and public event information (R03)
+   * Venue events and the event calendar
+      * R03-001 Event catalogue for the scenario day [high impact]
+      * R03-002 Venue registry and zone mapping [high impact]
+      * R03-003 Broadway curtain and let-out pattern [high impact]
+      * R03-004 Pro sports home schedules [medium impact]
+      * R03-005 Multi-session tournaments (US Open tennis) [high impact]
+      * R03-006 Conventions and trade shows (Javits) [medium impact]
+      * R03-007 Concerts and music festivals [medium impact]
+      * R03-008 New Year's Eve in Times Square [high impact]
+      * R03-009 Commencements and move-in days [low impact]
+      * R03-010 Events outside the city boundary [medium impact]
+   * Event attributes and crowd dynamics
+      * R03-011 Attendance [high impact]
+      * R03-012 Start time and arrival spread [medium impact]
+      * R03-013 Event duration and end-time uncertainty [high impact]
+      * R03-014 Early leavers and blowouts [low impact]
+      * R03-015 Let-out wave shape [high impact]
+      * R03-016 Audience car-for-hire mode share [high impact]
+      * R03-017 Audience price sensitivity and income [medium impact]
+      * R03-018 Event-crowd destinations and trip value [medium impact]
+      * R03-019 Post-event group size and rider state [low impact]
+      * R03-020 Event cancellation and postponement [medium impact]
+      * R03-021 Weather x event interaction [medium impact]
+   * Venue operations, let-out pricing and queues
+      * R03-022 Post-event surge multiplier and decay [high impact]
+      * R03-023 Taxi meter vs app surge at let-out [medium impact]
+      * R03-024 Rider wait and pickup time at let-out [medium impact]
+      * R03-025 Venue pickup geofence and rideshare lot [medium impact]
+      * R03-026 Taxi stands and hail lines at venues [medium impact]
+      * R03-027 Venue egress congestion [medium impact]
+      * R03-028 Pre-event curb and drop-off restrictions [low impact]
+   * Planned street closures: parades, races, VIP
+      * R03-029 NYC Marathon [medium impact]
+      * R03-030 Parades on Manhattan avenues [medium impact]
+      * R03-031 Outer-borough parades and festivals [low impact]
+      * R03-032 Other races and mass rides [low impact]
+      * R03-033 UN General Assembly high-level week [medium impact]
+      * R03-034 VIP and presidential motorcades [low impact]
+      * R03-035 Holiday spectacles and fireworks [low impact]
+      * R03-036 Film and TV shoots [low impact]
+      * R03-037 Street fairs, Open Streets and Summer Streets [low impact]
+   * Unplanned incidents and emergencies
+      * R03-038 Traffic crashes and breakdowns (incident object) [medium impact]
+      * R03-039 Fires, gas leaks, steam and manhole incidents [low impact]
+      * R03-040 Water main breaks [low impact]
+      * R03-041 Police activity, crime scenes and security alerts [low impact]
+      * R03-042 Protests and demonstrations [medium impact]
+      * R03-043 Power outages and dark signals [medium impact]
+      * R03-044 Declared emergencies and travel bans [high impact]
+      * R03-045 Cellular or platform outages [low impact]
+   * Transit, rail and airport disruptions
+      * R03-046 Subway incidents and line suspensions [medium impact]
+      * R03-047 Planned subway service changes [low impact]
+      * R03-048 Commuter rail and PATH disruptions [medium impact]
+      * R03-049 Airport operational disruptions [medium impact]
+      * R03-050 Bridge and tunnel incident closures [medium impact]
+   * Construction and lane closures
+      * R03-051 Long-term construction lane loss [low impact]
+      * R03-052 Overnight and weekend bridge, tunnel and highway work [low impact]
+      * R03-053 Holiday construction embargo and Gridlock Alert days [low impact]
+   * Agent, robotaxi and fleet responses to events
+      * R03-054 Robotaxi service pauses and event exclusion zones [medium impact]
+      * R03-055 Robotaxi handling of closures and police direction [medium impact]
+      * R03-056 Crowd connectivity loss and vandalism risk [low impact]
+      * R03-057 Stage at a venue or leave (agent decision) [high impact]
+      * R03-058 Avoid or work around closures (agent decision) [medium impact]
+      * R03-059 Join a venue taxi stand or work the hail blocks (taxi decision) [medium impact]
+   * Public event information and the with/without-info experiment
+      * R03-060 Event information level (experiment arm) [high impact]
+      * R03-061 Public event data feeds (agent tools) [medium impact]
+      * R03-062 Information latency for unplanned events [medium impact]
+      * R03-063 Forecast error and false alarms [medium impact]
+      * R03-064 Memorisation guard for real events [high impact]
+      * R03-065 Counterfactual event injection [medium impact]
+      * R03-066 Event residual extraction (calibration) [medium impact]
+      * R03-067 TLC data gaps that look like events [medium impact]
+      * R03-068 Event-window scoring metrics [medium impact]
+      * R03-069 Out-of-NYC event scenario (Coachella-style) [low impact]
+      * R03-070 Event visual overlays [low impact]
+
+## Variables by sub-box
+
+### A. Venue events and the event calendar (10 variables)
+
+| Variable | What it is | Values or range | Impact | Evidence | Role | Agent sees? | Data source | How to model |
+|---|---|---|---|---|---|---|---|---|
+| **R03-001 Event catalogue for the scenario day** (core; all; Events & disruptions) | The list of planned events active on the simulated day, each with type, venue, start, end, attendance and closure footprint. | Typical NYC evening: ~30-40 Broadway shows, 0-3 arena or stadium events, 0-2 conventions, dozens of permitted street events on weekends; peak days (NYE, Marathon, UNGA) add a citywide event [U] | high | [P*] own calc, 2023 yellow trips: event days move venue-zone pickups from 0x normal (Times Sq after 17:00 on NYE) to 15x normal (Flushing Meadows during the US Open) | world | public or forecast | NYC Permitted Event Information (NYC Open Data tvpp-9vvx; ID confirmed by R12 via GitHub copies [S]) plus venue and league schedules (see R03-061) | Load event objects per scenario date; each adds arrival and let-out demand, closures and speed effects through the variables below |
+| **R03-002 Venue registry and zone mapping** (core; all; Map & road network) | Fixed table of venues with location, taxi zone, capacity, pickup and drop-off nodes and taxi stands. | MSG/Penn zone 186 (~19-21k); Yankee Stadium zone 247 (46.5k); Citi Field and USTA tennis centre zone 93 (~42k; Ashe ~24k); Javits zone 246; Broadway zone 230 (~40 theatres); Randalls Island zone 194; Barclays zone 25 or 189 (verify); outside NYC: MetLife, UBS Arena, Prudential Center (zone 265). Capacities [U] | high | [P*] own calc: Yankee night games lift zone-247 drop-offs 16-20h 4.5x (31.9 vs 7.1 per day); Mets and US Open lift zone 93, confirming the zone mapping | rule | visible | TLC taxi zone shapefile (NYC Open Data 755u-8jsi); OpenStreetMap venue polygons | Geocode each venue to a road node and taxi zone; attach capacity, pickup lot node and taxi stand |
+| **R03-003 Broadway curtain and let-out pattern** (core; all (strongest for taxi); Demand generator) | Weekly theatre schedule that creates evening and matinee let-out waves around Times Square. | Tue 7pm curtain (let-out ~21:30); Wed-Sat 8pm (let-out ~22:30-22:45); matinees Wed, Sat, Sun 2pm (let-out ~16:30-17:00); most theatres dark on Monday; ~12M admissions a season [U] | high | [P*] own calc, zone 230 yellow pickups 22:00-23:00 in 2023: Mon 177/day vs Tue 270, Wed 331, Fri 298, Sat 285, Sun 129; Tuesday peak moves to 21:30 (88 vs 57 per 15 min on Mondays) | world | public or forecast | Broadway League weekly grosses and attendance (broadwayleague.com); show schedules (Playbill, IBDB) [U] | Recurring weekly event set per theatre with a let-out distribution; scale by the week's reported attendance |
+| **R03-004 Pro sports home schedules** (core; all; Events & disruptions) | Home games of New York teams, which create arrival and let-out waves at stadiums and arenas, including playoff games whose dates are uncertain. | MLB Yankees and Mets: 81 home games each (2023: 63% and 69% at night); NBA Knicks and Nets, NHL Rangers ~41 each; Islanders at UBS Arena; NFL Giants and Jets at MetLife (NJ); MLS, WNBA; playoffs add 0-11 'if necessary' dates announced 1-3 days ahead [U] | medium | [P*] Retrosheet 2023 game logs + own calc: yellow drop-offs near Yankee Stadium 8.1 per 10k attendees on night games (Mets 4.9); corr(attendance, drop-offs) 0.52 for the Yankees | world | public or forecast | Retrosheet game logs (github.com/chadwickbureau/retrosheet); MLB Stats API, NBA and NHL schedule feeds [U] | Import per-date games with start time, attendance and duration; generate waves through R03-011 to R03-016 |
+| **R03-005 Multi-session tournaments (US Open tennis)** (extended; all; Events & disruptions) | Two-week events with day and night sessions every day, giving repeated arrival waves and late-night let-outs. | US Open: late Aug to early Sep, 14 days; day session ~11:00, night session ~19:00; night matches often end after midnight [U] | high | [P*] own calc 2023: Flushing Meadows (zone 93) yellow pickups 188.7/day vs 12.5 on other days (15x); 21-24h 29x; 0-2h pickups up to 162 a night vs 0.7; these trips average 10.0 mi and a $45 fare | world | public or forecast | USTA schedule (usopen.org) [U]; TLC trip records | Daily two-session event with a heavy-tailed end time for the night session |
+| **R03-006 Conventions and trade shows (Javits)** (extended; all; Events & disruptions) | Multi-day exhibitions that add morning arrivals and evening departures at the convention centre, plus hotel and airport trips. | NY Comic Con ~200k over 4 days [U]; Auto Show 10 days; 100+ events a year at Javits [U] | medium | [P*] own calc 2023 zone 246: Comic Con (Oct 12-15) drop-offs 7-13h 1.97x and pickups 16-21h 1.39x the same weekdays a week before and after; Auto Show (Apr 7-16) pickups 1.22x | world | public or forecast | Javits event calendar (javitscenter.com/events) [U] | Daily open and close times with attendance and a business-traveller price profile |
+| **R03-007 Concerts and music festivals** (extended; all; Events & disruptions) | One-off or multi-day concerts and festivals at arenas, parks and islands, mostly with young, transit-heavy crowds. | Arena shows 15-20k; park festivals 30-60k a day (Governors Ball, Electric Zoo) [U]; stadium shows 50-80k | medium | [P*] own calc 2023: Electric Zoo (Randalls Island, zone 194) drop-offs 12-22h 45-48 vs 5-8 on normal days; Governors Ball (zone 93) 1.85x; yellow taxis carry only a small share of these crowds | world | public or forecast | Ticketmaster Discovery API, SeatGeek API, setlist.fm (history) [U] | Event objects with an audience profile (young, transit-heavy) that gives a low car share |
+| **R03-008 New Year's Eve in Times Square** (core; all; Events & disruptions) | The year's biggest single night: an afternoon-to-midnight frozen zone around Times Square, then a citywide after-midnight spike. | Times Sq closed to cars from ~16:00-17:00 on Dec 31 until after midnight [U]; citywide demand 1.4-3x normal 00:00-04:00; app prices ~1.8x | high | [P*] own calc: zone 230 yellow pickups fell to 0 from 17:00 on Dec 31 2023 (normal Sunday ~240/h); Jan 1 2024 0-4h citywide yellow pickups 1.4-3.2x, fare per trip $19.80 vs $15.80; HVFHV Jan 1 2023 1-3h fare per mile 8.40 vs 4.58, driver pay $97-101 vs $60-61 per engaged hour, waits 8.3-8.7 vs 4.8-4.9 min | world | public or forecast | TLC trip records; NYPD and NYC DOT closure notices [U] | Scripted closure polygon plus a citywide demand and surge multiplier after 00:00 |
+| **R03-009 Commencements and move-in days** (stretch; all; Events & disruptions) | University graduations at large venues and dorm move-in days that add family groups with luggage. | May-June graduations at Yankee Stadium, MSG, Barclays, Radio City; late-August move-in; 1-5 days a year per venue [U] | low | [U] recurring venue and university calendars; not measured here | world | public or forecast | University calendars; venue calendars [U] | Small daytime events with high XL and luggage share |
+| **R03-010 Events outside the city boundary** (extended; human app driver, taxi, fleet; Events & disruptions) | Large events just outside NYC (MetLife, UBS Arena, Prudential Center, Belmont) whose trips cross licence borders, so drivers drop off but rarely pick up there. | MetLife 82.5k; UBS Arena ~17k [U]; NYC taxis and NYC-licensed app cars generally cannot take street pickups outside the city [U] | medium | [P*] own calc: the Taylor Swift MetLife weekend (May 26-28 2023) left yellow drop-offs outside NYC unchanged (ratio 1.00), so taxis capture almost none of it; app share not measured | world | public or forecast | Venue calendars [U]; TLC zone 265 (outside NYC) | External event that creates outbound trips and only app-dispatched return trips; charge the empty return |
+
+### B. Event attributes and crowd dynamics (11 variables)
+
+| Variable | What it is | Values or range | Impact | Evidence | Role | Agent sees? | Data source | How to model |
+|---|---|---|---|---|---|---|---|---|
+| **R03-011 Attendance** (core; all; Demand generator) | Number of people at an event, the main scale factor for event demand. | Yankees 2023 mean 40,863 (sd 4,180; 30.7k-47.3k); Mets 32,994 (sd 6,141); arenas 15-21k; Broadway 1-1.9k a theatre [U] | high | [P*] Retrosheet 2023 game logs; corr(attendance, yellow drop-offs) 0.52 Yankees, 0.27 Mets [P*] | world | public or forecast | Retrosheet game logs; league box scores; Broadway League grosses [U] | Event demand = attendance x car share x trips per party; capacity is public, realised attendance is sampled |
+| **R03-012 Start time and arrival spread** (core; all; Demand generator) | Scheduled start and how arrivals spread before it, creating trips into the venue. | Arrivals from T-120 to T+20 min, peak about T-45 [design]; MLB night games 19:05-19:10; Broadway 19:00 or 20:00 | medium | [P*] own calc: Yankee night-game drop-offs concentrated 16-20h (31.9 vs 7.1); Comic Con drop-offs 7-13h 2x | world | public or forecast | Venue and league schedules | Sample arrival trips from a beta distribution ahead of start, with origins from the audience origin map |
+| **R03-013 Event duration and end-time uncertainty** (core; all; Events & disruptions) | How long an event runs and how predictable its end is, which decides when let-out demand appears. | MLB 2023 mean 162 min, sd 19.7 (Yankees 162 +/- 18, p10-p90 143-186; 16.5% over 180 min; 6-9% extra innings); Broadway +/- 5 min [U]; NBA ~135 +/- 15 min [U]; concerts end by ~23:00 curfew [U]; tennis night sessions open-ended | high | [P*] Retrosheet 2023 durations (first pitch-clock season); [P*] US Open after-midnight pickups | world | public or forecast | Retrosheet game logs; live score feeds [U] | Sample end = start + duration from an event-type distribution; reveal live progress (score feed) only at higher information levels |
+| **R03-014 Early leavers and blowouts** (stretch; all; Demand generator) | Share of attendees who leave before the end, which spreads the let-out wave earlier. | 5-30% depending on score margin, weather and last trains [design] | low | [design] no public measure; visible as early pickups in TLC 15-minute data | world | hidden | none found | Shift a fraction of let-out demand to the 30 min before the realised end |
+| **R03-015 Let-out wave shape** (core; all; Demand generator) | How fast post-event demand rises and decays near the venue. | Peak 15-30 min after the end; back near normal 60-75 min after | high | [P*] own calc HVFHV Jan 2023 zone 186 (MSG/Penn): on the busiest fifth of nights pickups peak at 22:00 with 131 per 15 min vs 53 on quiet nights, down to 69 by 23:15 | world | hidden | TLC HVFHV trip records (request and pickup times) | Gamma-kernel or Hawkes burst triggered at the realised end time |
+| **R03-016 Audience car-for-hire mode share** (core; all; Demand generator) | Fraction of attendees who take a taxi or app ride, which depends on transit access and audience. | Yellow taxis: ~2.5-6 extra drop-offs per 10k attendees at the ballparks; app share 2-10% at Manhattan venues, 10-30% at transit-poor venues [design] | high | [P*] own calc 2023: 8.1 (Yankees) and 4.9 (Mets) yellow drop-offs per 10k attendees, including a non-game baseline of ~7 a night; app share not yet measured [design] | world | hidden | TLC yellow and HVFHV records joined to event calendars | Venue x audience coefficient; calibrate from HVFHV residuals on event nights |
+| **R03-017 Audience price sensitivity and income** (extended; all; Rider behaviour) | How willing an event crowd is to pay surge prices and wait, by audience type. | Low sensitivity: Broadway, US Open, conventions (tourists, expense accounts); high: EDM festivals, students, outer-borough fans [design] | medium | [P*] own calc HVFHV Jan 2023: Times Sq night volume rose together with fare per mile (corr 0.76; +42% on the busiest nights), so riders kept booking at higher prices; segment values [design] | world | hidden | none found | Per-event elasticity applied to surge acceptance and cancellation |
+| **R03-018 Event-crowd destinations and trip value** (extended; all; Demand generator) | Where event leavers go, and so how long and lucrative their trips are. | US Open leavers: 10.0 mi average, $45 fare; MSG leavers partly to Penn Station rail; ballparks to Manhattan and the suburbs | medium | [P*] own calc: 2023 US Open zone-93 pickups; HVFHV zone 186 busiest nights 5.8 mi vs 5.0 mi on quiet nights | world | hidden | TLC origin-destination on event nights | Per-venue destination distribution fitted from TLC OD on event nights |
+| **R03-019 Post-event group size and rider state** (stretch; all; Rider behaviour) | Groups, intoxication and mess risk among event riders. | 2-4 riders a trip; more XL requests; mess and cancellation risk 2-3x on late nights [design] | low | [design]; cross-link R05 (party size) and R09-046 (mess events) | world | hidden | none found | Event riders draw from a separate group-size and incident profile |
+| **R03-020 Event cancellation and postponement** (extended; all; Events & disruptions) | Chance that a scheduled event is cancelled, postponed or delayed, which strands drivers who moved there. | 1-3% per outdoor event, higher with storms [design]; MLB rain delays 30-120 min [U] | medium | [P*] own calc: Electric Zoo day 1 (Fri Sep 1 2023) was cancelled the day before; drop-offs were 7 vs 45-48 on Sep 2-3 | world | public or forecast | Venue announcements; news [U] | Per-event Bernoulli with an announcement lead time; R04 storms raise the probability |
+| **R03-021 Weather x event interaction** (extended; all; Weather) | Rain or cold at let-out raises the car share and delays or cancels outdoor events. | Rain at let-out: car share 1.3-2x [design]; outdoor events halted in thunderstorms | medium | [design]; cross-link R04 | world | public or forecast | NOAA and NWS observations and forecasts (R04) | Multiply mode share by a weather factor at the realised end; storms raise cancellation and delay odds |
+
+### C. Venue operations, let-out pricing and queues (7 variables)
+
+| Variable | What it is | Values or range | Impact | Evidence | Role | Agent sees? | Data source | How to model |
+|---|---|---|---|---|---|---|---|---|
+| **R03-022 Post-event surge multiplier and decay** (core; human app driver, robotaxi, fleet; Pricing & platform rules) | How much app prices rise around a let-out and how quickly they fall back. | 1.2-1.4x at arena let-outs, ~1.8x on New Year's night; decays to ~1.05x within 45-60 min | high | [P*] own calc HVFHV Jan 2023: zone 186 busiest nights fare per mile 6.27 vs 4.73 at 22:00, 4.91 by 23:00; zone 230 +42% fare per mile and +27% driver pay per engaged hour; NYE 1.83x | world | visible | TLC HVFHV base_passenger_fare and driver_pay | Surge engine (R07) reacts to the local request-to-idle-car ratio; calibrate to these ratios |
+| **R03-023 Taxi meter vs app surge at let-out** (extended; taxi; Pricing & platform rules) | Yellow and green taxis charge the meter with no surge, so at let-outs they win price-sensitive riders and street hails. | Taxi fare fixed by the TLC meter plus flat surcharges; app prices 1.2-1.8x | medium | [U] TLC metered fare rules; cross-link R07 | rule | visible | TLC fare rules (R07) | Rider mode choice compares the taxi meter estimate with the surged app price |
+| **R03-024 Rider wait and pickup time at let-out** (core; human app driver, robotaxi, fleet; Competitor supply & matching) | Longer request-to-pickup times when crowds swamp nearby supply, which also raises cancellations. | Waits +50-100% (3.5-3.8 min to 5.4-6.8 min) | medium | [P*] own calc HVFHV Jan 2023: zone 230 busiest nights 6.8 vs 3.5 min, zone 186 5.4 vs 3.6 min; corr(volume, wait) 0.88 at zone 230 | state | visible | TLC HVFHV request_datetime and pickup_datetime | Emerges from matching; validate against these values |
+| **R03-025 Venue pickup geofence and rideshare lot** (extended; human app driver, robotaxi, fleet; Map & road network) | Venue rule that app pickups happen only at a set lot or street, with a staging queue for drivers. | Rider walk 5-15 min; lot holds 50-500 cars [design]; stadiums and festival sites use rideshare lots [U] | medium | [U] venue ground-transport pages; cross-link R05-041 | rule | visible | Venue ground-transport pages [U] | Replace the venue pickup node with a lot node and a first-in-first-out driver queue |
+| **R03-026 Taxi stands and hail lines at venues** (extended; taxi; Competitor supply & matching) | Formal taxi queues at venues and hubs (Penn/MSG, Javits, Port Authority) where taxis wait in order. | Queue 0-60 cabs [design]; zone 186 yellow pickups 22:00-24:00 range 142-581 a night (p10 213, p90 427) | medium | [P*] own calc 2023 zone 186 nightly pickups; stand rules [U] | rule | visible | TLC yellow records; NYC taxi stand locations (NYC DOT) [U] | First-in-first-out stand queue fed by hail riders at let-out |
+| **R03-027 Venue egress congestion** (extended; all; Traffic & travel time) | Gridlock around a venue as crowds, buses and cars leave at once. | Speeds within ~1 km fall to 3-6 mph for 30-60 min [design] | medium | [P*] own calc: trips starting in parade, Pride and UNGA zones ran 10-30% slower; venue-level values [design] | world | hidden | NYC DOT traffic speeds (R10); TLC trip durations | Speed multiplier on links within a radius during the let-out window |
+| **R03-028 Pre-event curb and drop-off restrictions** (stretch; all; Map & road network) | Police closing curb lanes and moving drop-off points blocks away before and during events. | Drop-off moved 1-3 blocks; 1-2 extra min a trip [design] | low | [design] | rule | public or forecast | none found | Temporary curb-closure edges near the venue |
+
+### D. Planned street closures: parades, races, VIP (9 variables)
+
+| Variable | What it is | Values or range | Impact | Evidence | Role | Agent sees? | Data source | How to model |
+|---|---|---|---|---|---|---|---|---|
+| **R03-029 NYC Marathon** (extended; all; Events & disruptions) | First-Sunday-of-November race that closes bridges and avenues in all five boroughs from early morning to late afternoon, on the same day clocks fall back. | ~50k finishers [U]; Verrazzano, Pulaski, Queensboro and Willis Ave bridges, 1st Ave, 5th Ave and Central Park closed ~07:00-17:00 [U]; 25-hour day (DST end) | medium | [P*] own calc Nov 5 2023 vs 3 nearby Sundays: citywide yellow trips 7-17h -5%; Central Park zone pickups -49%; Manhattan trip speed +8-10% 9-15h; fare per engaged hour $81 vs $76; the 1am hour shows 8,435 vs 5,425 trips because it occurs twice | world | public or forecast | NYRR course map; NYC DOT advisories [U] | Time-windowed edge closures along the route plus crossing barriers for east-west traffic |
+| **R03-030 Parades on Manhattan avenues** (core; all; Events & disruptions) | Recurring parades that close an avenue and its cross streets for 4-8 hours and suppress pickups along the route. | ~15-25 major parades a year: St Patrick's (Mar), Easter, Puerto Rican (Jun), Pride (last Sun in Jun), Dominican (Aug), Steuben (Sep), Columbus, Hispanic, Pulaski (Oct), Halloween (Oct 31, evening), Veterans (Nov 11), Thanksgiving [U] | medium | [P*] own calc 2023: St Patrick's Midtown pickups -34% 11-17h and trip speed -12%; Pride Village pickups -46% 12-18h and speed -13 to -22%; Halloween Village speed -16%; Thanksgiving route speeds 8-12h 11.4 vs 16.4 mph on other holidays | world | public or forecast | NYC Permitted Event Information (tvpp-9vvx); NYC DOT weekend traffic advisories [U] | Closure polygon, cross-street barriers and pickup suppression inside the polygon for the permit window |
+| **R03-031 Outer-borough parades and festivals** (extended; all (app drivers most); Events & disruptions) | Big parades and street festivals outside Manhattan, such as West Indian Day (Eastern Parkway, Labor Day), Lunar New Year (Flushing) and the Mermaid Parade (Coney Island). | Up to 1-2M spectators for West Indian Day [U]; closures 6-10 h | low | [U]; yellow data are too thin in Brooklyn and Queens to measure; use HVFHV | world | public or forecast | NYC Permitted Event Information [U] | As for Manhattan parades, with outer-borough polygons |
+| **R03-032 Other races and mass rides** (stretch; all; Events & disruptions) | Bike tours, half marathons and triathlons that close highways and bridges on weekend mornings. | Five Boro Bike Tour (May, ~32k riders; FDR, BQE, Verrazzano) [U]; NYC Half (Mar); NYC Triathlon (Jul, West Side Hwy) [U] | low | [U] | world | public or forecast | Organiser course maps; NYC DOT advisories [U] | Highway and bridge edge closures roughly 05:00-13:00 |
+| **R03-033 UN General Assembly high-level week** (extended; all; Events & disruptions) | Late-September week of rolling security zones and motorcades around the UN and Midtown East. | ~5 weekdays; 1st Ave in the 40s frozen, FDR holds; NYC DOT Gridlock Alert days [U] | medium | [P*] own calc Sep 18-20 2023 vs Mon-Wed of adjacent weeks: Midtown East pickups -41%, UN/Turtle Bay South -66%, citywide -11% (7-20h); speeds 8-11h 7.6 vs 8.7 mph; mean trip 20.7 vs 18.8 min; fare per engaged hour -3% | world | public or forecast | NYC DOT gridlock alerts; UN calendar (un.org) [U] | Zone pickup suppression, speed multipliers and random motorcade holds |
+| **R03-034 VIP and presidential motorcades** (stretch; all; Events & disruptions) | Short-notice rolling closures for heads of state and other protected people. | 0-20 visit-days a year [U]; holds of 5-20 min on highways and avenues [U] | low | [U]; NYC DOT issues same-day advisories | world | hidden | NYC DOT traffic advisories [U] | Random corridor holds on scenario days with a VIP flag |
+| **R03-035 Holiday spectacles and fireworks** (extended; all; Events & disruptions) | Short events with frozen zones and crowds: the Rockefeller tree lighting, July 4 fireworks, SantaCon. | 2-6 h closures; local pickups -40 to -60% during, a burst right after | low | [P*] own calc 2023: tree lighting (Nov 29) Midtown Center pickups -59% 17-22h; July 4 east-side pickups 21-24h were 1.46x the 18-21h count vs 0.69-0.79x on normal Tuesdays; SantaCon +18% in downtown bar zones 12-20h | world | public or forecast | NYC Permitted Event Information; organiser announcements [U] | Event objects with a closure and a post-event burst |
+| **R03-036 Film and TV shoots** (stretch; all; Map & road network) | Permitted shoots that take parking lanes and sometimes hold traffic briefly. | Thousands of permits a year [U]; traffic holds up to ~5 min [U]; parking taken 1-3 days | low | [U] | world | public or forecast | NYC Film Permits (NYC Open Data tg4x-b46p) [U] | Remove curb lanes on permitted blocks; occasional short holds |
+| **R03-037 Street fairs, Open Streets and Summer Streets** (extended; all; Map & road network) | Permitted weekend closures of avenue blocks and recurring car-free streets. | Street fairs typically 10:00-18:00 on weekends Apr-Nov; Open Streets at 100+ locations; Summer Streets on Park Ave on August Saturday mornings [U] | low | [U]; cross-link R10-026 | world | public or forecast | NYC Permitted Event Information (tvpp-9vvx); NYC DOT Open Streets list [U] | Block closures for the permit window |
+
+### E. Unplanned incidents and emergencies (8 variables)
+
+| Variable | What it is | Values or range | Impact | Evidence | Role | Agent sees? | Data source | How to model |
+|---|---|---|---|---|---|---|---|---|
+| **R03-038 Traffic crashes and breakdowns (incident object)** (core; all; Events & disruptions) | Random crashes that block lanes, bridges or tunnels; this domain owns the incident object and alert, R10-025 owns the speed effect. | ~100k reported crashes a year after 2020 [U]; major bridge or highway blockages 15-90 min | medium | [S] NYPD collisions dataset (see R10-025) | world | hidden | NYPD Motor Vehicle Collisions (NYC Open Data h9gi-nx95); 511NY incidents | Poisson by road class x hour x weather; published to the agent after a latency (R03-062) |
+| **R03-039 Fires, gas leaks, steam and manhole incidents** (stretch; all; Events & disruptions) | Emergencies that close one or several blocks for hours. | Closures 1-6 h; several a day citywide [U] | low | [U] FDNY incident data | world | hidden | FDNY Incidents Responded to by Fire Companies (NYC Open Data) [U] | Random block closures with a duration distribution |
+| **R03-040 Water main breaks** (stretch; all; Events & disruptions) | Burst mains that flood streets and sometimes subway stations, closing roads for hours to days. | ~400-500 breaks a year [U]; closures 4-48 h; sometimes a subway line suspension | low | [U] NYC DEP | world | hidden | 311 Service Requests (NYC Open Data erm2-nwe9), water-system complaints [U] | Random closures, with a chance of a linked subway disruption (R03-046) |
+| **R03-041 Police activity, crime scenes and security alerts** (stretch; all; Events & disruptions) | Closures for investigations, suspicious packages or shootings, including station evacuations. | Minor ones daily; major ones (e.g. the 2022 Sunset Park subway shooting) 0-3 a year [U]; closures 1-8 h | low | [U] | world | hidden | none found (news only) | Random closure polygons; major cases also trigger a transit outage and a car-demand surge |
+| **R03-042 Protests and demonstrations** (extended; all; Events & disruptions) | Marches and blockades of streets, bridges and tunnels, sometimes with curfews or vehicle restrictions. | Tens to hundreds a year; bridge or tunnel blockades 0.5-3 h [U]; 2020 curfew with Manhattan vehicle restrictions [U] | medium | [U]; protest event logs exist (ACLED, Crowd Counting Consortium) | world | public or forecast | ACLED US data (acleddata.com); Crowd Counting Consortium [U] | Moving closure along a route plus robotaxi service exclusion (R03-054) |
+| **R03-043 Power outages and dark signals** (stretch; all; Events & disruptions) | Grid failures that darken traffic signals and stop subway lines in an area. | Rare large ones, e.g. the West Side blackout of Jul 13 2019 (~73k customers, ~5 h) [U]; dark signals act as all-way stops | medium | [U]; robotaxis stalled at dark signals in the San Francisco blackout of Dec 2025 [U] | world | hidden | Con Edison outage map; EIA-417 electric disturbance reports [U] | Area polygon with higher intersection delay, subway down and robotaxi pause |
+| **R03-044 Declared emergencies and travel bans** (extended; all; Events & disruptions) | City or state emergency declarations (flash floods, blizzards, hurricanes) with travel bans or subway suspensions. | 0-3 a year; e.g. the Sep 29 2023 flash flood; snow travel bans [U] | high | [P*] own calc Sep 29 2023 vs 5 other Fridays: yellow trips +46% at 8am (5,488 vs 3,766); fare per trip +30-37% 10-16h; speed 8-10h 7.5-8.4 vs 11.7 mph; daily trips +9% | world | public or forecast | Notify NYC; NWS alerts [U] | Scenario flag combining R04 weather, transit outage and travel-ban rules (non-essential vehicles barred) |
+| **R03-045 Cellular or platform outages** (stretch; human app driver, robotaxi, fleet; Events & disruptions) | Phone network or app outages that stop app matching while street hails continue. | 0-2 a year, 1-12 h (e.g. the nationwide carrier outage of Feb 2024) [U] | low | [U]; cross-link R06-051 | world | hidden | none found | Switch off app matching for a share of drivers and riders |
+
+### F. Transit, rail and airport disruptions (5 variables)
+
+| Variable | What it is | Values or range | Impact | Evidence | Role | Agent sees? | Data source | How to model |
+|---|---|---|---|---|---|---|---|---|
+| **R03-046 Subway incidents and line suspensions** (core; all; Events & disruptions) | Unplanned delays or suspensions on subway lines that push some riders to cars near affected stations. | Several major incidents a week [U]; 20-120 min; one line to systemwide | medium | [S] NYU Stern study (R05-026): each disruption displaces >1,500 rides but adds <40 car and bike rides; [P*] the systemwide flood outage of Sep 29 2023 gave +46% morning taxi trips | world | public or forecast | MTA GTFS-realtime alerts (api.mta.info); MTA Service Alerts history (data.ny.gov) [U] | Incident objects per line segment; demand substitution coefficient from R05-026 |
+| **R03-047 Planned subway service changes** (extended; all; Events & disruptions) | Scheduled weekend and overnight suspensions with shuttle buses that raise car demand along affected corridors. | Several lines most weekends; 22:00-05:00 weeknight work [U] | low | [U] | world | public or forecast | MTA planned work (GTFS supplemented feed) [U] | Corridor demand multiplier 1.02-1.1 [design] |
+| **R03-048 Commuter rail and PATH disruptions** (extended; all; Events & disruptions) | LIRR, Metro-North, NJ Transit, Amtrak and PATH outages, especially at Penn Station, that strand riders and create long car trips. | Several big Penn Station meltdowns a year [U]; NJ Transit engineers' strike May 2025 (3 days) [U] | medium | [U] | world | public or forecast | MTA, NJ Transit and Amtrak alerts [U] | Stranded-rider demand at rail hubs with long out-of-city destinations |
+| **R03-049 Airport operational disruptions** (extended; all; Events & disruptions) | Ground stops, mass cancellations or AirTrain outages that remove and then bunch airport pickup waves. | Ground stops 30 min-6 h; AirTrain JFK outages [U] | medium | [U]; cross-link R05-065 | world | public or forecast | FAA NAS status (nasstatus.faa.gov); BTS on-time data [U] | Shift or cancel flight-bank demand; an AirTrain outage raises the car share |
+| **R03-050 Bridge and tunnel incident closures** (extended; all; Traffic & travel time) | Full or partial closures of East River and Hudson crossings from incidents. | 0.5-3 h; several a month [U] | medium | [U]; cross-link R10 | world | hidden | 511NY; Port Authority and MTA Bridges and Tunnels alerts [U] | Remove crossing edges for the closure window and re-route |
+
+### G. Construction and lane closures (3 variables)
+
+| Variable | What it is | Values or range | Impact | Evidence | Role | Agent sees? | Data source | How to model |
+|---|---|---|---|---|---|---|---|---|
+| **R03-051 Long-term construction lane loss** (extended; all; Traffic & travel time) | Multi-month projects that remove lanes or curb space (BQE, bridges, building sites, crane lifts). | Capacity -10 to -50% on affected links [design] | low | [U] NYC DOT permits; cross-link R10 | world | public or forecast | NYC DOT Street Closures due to construction activities (NYC Open Data i6b5-j7bu) [U] | Link capacity cuts with date ranges |
+| **R03-052 Overnight and weekend bridge, tunnel and highway work** (extended; all; Traffic & travel time) | Scheduled closures of lanes or whole crossings for maintenance at night or on weekends. | Typically 22:00-05:00, or Fri 23:00-Mon 05:00 [U] | low | [U] weekly NYC DOT and MTA Bridges and Tunnels advisories | world | public or forecast | NYC DOT weekly traffic advisory; 511NY [U] | Timed edge closures |
+| **R03-053 Holiday construction embargo and Gridlock Alert days** (stretch; all; Regulation, fees & taxes) | City rules that pause street construction in busy areas in the holiday season and flag the worst traffic days. | Embargo ~mid-Nov to early Jan in Midtown and shopping streets [U]; ~15-20 Gridlock Alert days a year [U] | low | [U] | rule | public or forecast | NYC DOT press releases [U] | Remove construction closures in embargo windows; flag alert days to the agent |
+
+### H. Agent, robotaxi and fleet responses to events (6 variables)
+
+| Variable | What it is | Values or range | Impact | Evidence | Role | Agent sees? | Data source | How to model |
+|---|---|---|---|---|---|---|---|---|
+| **R03-054 Robotaxi service pauses and event exclusion zones** (extended; robotaxi, fleet; Fleet manager) | Operator decision to geofence out or pause robotaxis around big events, protests or emergencies. | Zone exclusions for hours to days; e.g. Waymo paused downtown Los Angeles service during the June 2025 protests [U] | medium | [U] | rule | visible | none found | Service-area polygon toggled by event flags; requests inside are rejected |
+| **R03-055 Robotaxi handling of closures and police direction** (extended; robotaxi, fleet; Fleet manager) | Robotaxis slow, re-route or stop at unmapped closures, cones or officers directing traffic. | Delay 1-10 min per encounter; remote-assistance call probability 0.1-0.5 [design] | medium | [U]; cross-link R09-048 and R09-050 (remote assistance, stuck vehicles) | world | hidden | none found | When a route meets a fresh closure, add a delay or a remote-assistance event |
+| **R03-056 Crowd connectivity loss and vandalism risk** (stretch; robotaxi, fleet; Fleet manager) | Mass gatherings jam mobile data (stranding connected robotaxis), and crowds sometimes damage them. | Cruise cars stalled after Outside Lands, San Francisco, Aug 2023 [U]; Waymo cars burned in San Francisco (Feb 2024) and Los Angeles (Jun 2025) [U]; damage $10k-200k [design] | low | [U] news reports; tail risk only | world | hidden | none found | Per-hour risk near large crowds; stall or write-off events |
+| **R03-057 Stage at a venue or leave (agent decision)** (core; all; Benchmark harness) | Whether to wait near a venue for the let-out, and when to arrive, given the dead time during the event. | Arrive 0-45 min before the expected end; idle cost = time + fuel; base demand at outer venues near zero (zone 93: ~12 yellow pickups a day without events) | high | [P*] own calc: let-out pay per engaged hour +19-27% (HVFHV zones 186 and 230), but outer venue zones are empty before the end; fleet version is R11-025 | agent | visible | n/a | Move and wait actions; the payoff emerges from demand, surge and rivals |
+| **R03-058 Avoid or work around closures (agent decision)** (extended; all; Benchmark harness) | Choosing to avoid parade, protest or closure areas, or to work their edges where displaced demand spills. | Per zone-hour choice; spill-over demand at closure edges [design] | medium | [P*] own calc: pickups fall 34-66% inside parade and UNGA zones while citywide trips fall only 5-11% | agent | visible | n/a | Closures appear in observations when the information level allows |
+| **R03-059 Join a venue taxi stand or work the hail blocks (taxi decision)** (extended; taxi; Benchmark harness) | Whether a taxi joins the stand queue at a venue or hub at let-out, cruises nearby blocks for street hails, or leaves; the fleet version (how many of N cars to stage) is R11-025. | Queue position 0-60; expected wait = position / hail rate; hail rate peaks 15-30 min after the end [design] | medium | [P*] own calc: zone 186 yellow pickups 22:00-24:00 range 142-581 a night, so the stand payoff varies 3-4x between nights; [design] | agent | visible | TLC yellow trip records | Stand queue from R03-026; actions join, cruise or leave; reward emerges from the hail process |
+
+### I. Public event information and the with/without-info experiment (11 variables)
+
+| Variable | What it is | Values or range | Impact | Evidence | Role | Agent sees? | Data source | How to model |
+|---|---|---|---|---|---|---|---|---|
+| **R03-060 Event information level (experiment arm)** (core; all; Benchmark harness) | How much event information the model gets: none, a public calendar, calendar plus live feeds, or an oracle. | L0 none; L1 public calendar (venue, start, typical end, capacity); L2 = L1 + live alerts (MTA, DOT, 511NY, scores); L3 oracle (true end times and demand; upper bound only) | high | [design] from the meeting notes; merge candidate with R12-008 (event-awareness arm) and R12-013 (information ladder), adding event-specific levels | setting | visible | n/a | Prompt variant plus tool availability; same random seeds and demand in every arm |
+| **R03-061 Public event data feeds (agent tools)** (core; all; Data pipeline) | The concrete public sources the agent may query as tools. | NYC Permitted Events, venue and league schedules, Broadway grosses, MTA alerts, DOT advisories, 511NY, FAA NAS status, NWS | medium | [U] all public, most blocked from this session; merge candidate with R12-016 (event calendar content) and R12-017 (alerts feed) | setting | public or forecast | See the data sources table | Snapshot each feed per scenario date into a time-stamped store; tools return only items published before simulated time |
+| **R03-062 Information latency for unplanned events** (extended; all; Benchmark harness) | Delay between an incident starting and it appearing in public feeds or to the agent. | 0-15 min typical; MTA alerts 2-10 min [U]; social media faster but noisy | medium | [design]; cross-link R10-028 | setting | visible | n/a | Publish each incident to the agent after a sampled delay |
+| **R03-063 Forecast error and false alarms** (extended; all; Benchmark harness) | Noise in published information: wrong end times, cancelled events still listed, unconfirmed incidents. | 5-20% of listings inaccurate [design] | medium | [P*] Electric Zoo day-1 cancellation; [design] | setting | public or forecast | n/a | Perturb feed items; keep the truth hidden |
+| **R03-064 Memorisation guard for real events** (core; all; Benchmark harness) | Controls that stop a model from using pretraining memory of famous real events in the no-information arm. | Date shift (present 2023 as an unnamed year), renamed venues and events, injected synthetic events, held-out dates after the model's cutoff | high | [design] validity requirement; complements R12-046 (contamination probes) | setting | hidden | n/a | Scenario obfuscation layer; check the no-information arm on days with events removed |
+| **R03-065 Counterfactual event injection** (extended; all; Demand generator) | Adding synthetic events to quiet replay days, or removing real ones, so the true event effect is known. | 0-5 injected events a day, 1k-80k attendance | medium | [design] | setting | hidden | n/a | Add event-demand residual templates learned from TLC to baseline demand |
+| **R03-066 Event residual extraction (calibration)** (core; all; Data pipeline) | Method to learn event demand signatures from TLC data by subtracting a zone x hour x weekday baseline. | Residual per 15 min within ~2 km of the venue; templates per venue type | medium | [P*] the calculations in this dossier (US Open, NYE, Broadway, MSG) | setting | hidden | TLC yellow and HVFHV records; Retrosheet; event calendars | Robust baseline (median of the same weekday +/- 4 weeks) and residual templates per venue type |
+| **R03-067 TLC data gaps that look like events** (core; all; Data pipeline) | Missing days in the trip files that look like demand collapses if replayed. | Yellow 2023: Sep 21 at 33% of normal, Sep 22-24 at ~4-5% of normal | medium | [P*] own calc: daily counts of the SHA-256-verified yellow 2023 files | setting | hidden | TLC trip records | Flag and exclude or impute days below 60% of the same-weekday median unless a known event explains them |
+| **R03-068 Event-window scoring metrics** (core; all; Benchmark harness) | Measures of how well the agent used event information. | Profit per hour overall; profit within +/- 2 h and 2 km of let-outs; value of information = L1 - L0; information-use efficiency = (L1 - L0)/(L3 - L0) | medium | [design]; event-window version of R12-061 (information-value metric) | setting | visible | n/a | Tag each trip with its event window; report per arm with paired seeds |
+| **R03-069 Out-of-NYC event scenario (Coachella-style)** (stretch; all; Benchmark harness) | A portable event module for a festival town with no public trip data, to test whether event skill generalises. | Coachella: Empire Polo Club, Indio CA, two April weekends, ~125k a day, rideshare lot with long waits [U]; alternative calibration: Chicago TNP trips plus Lollapalooza [U] | low | [U] | setting | visible | Chicago Transportation Network Providers trips (data.cityofchicago.org) [U] | Synthetic town graph plus event templates from NYC and Chicago residuals |
+| **R03-070 Event visual overlays** (stretch; all; Visualisation) | Map overlays that show events, closures and alerts in the live visualisation. | Venue pulse sized by attendance; closure polygons; subway status ticker | low | [design] | setting | visible | n/a | Render event objects on the map timeline |
+
+## The with/without event information experiment: proposed protocol
+
+The meeting asked how much public event information (the Coachella example) adds to earnings. A clean measurement needs the following.
+
+1. **Arms (R03-060).** L0: no event information, so the model sees only the time, the map, its own trips and the platform heat map. L1: a public calendar (venue, start, typical end, capacity) through a tool. L2: L1 plus live public feeds (MTA alerts, DOT advisories, 511NY incidents, live scores), each with a realistic delay (R03-062). L3: an oracle with true end times and demand. L3 is not a fair arm; it only sets the ceiling.
+2. **Same world in every arm.** Replay identical demand, weather, incidents and rival behaviour with common random numbers, so that the difference between arms comes only from information. Report the value of information (L1 - L0, L2 - L0) and the information-use efficiency (L1 - L0)/(L3 - L0) (R03-068).
+3. **Rival information parity.** Decide whether background bots "know" the events. Real drivers do, and they converge on let-outs (R06-052). Run both settings, because the measured value of information shrinks when everyone knows.
+4. **Memorisation guard (R03-064).** Frontier models may remember 2023 events such as the Eras Tour, the US Open or the Marathon date, so an L0 run on a real 2023 date is not truly uninformed. Present the year as unnamed, shift dates, rename venues and events, and include held-out days after the model's training cutoff and days with injected synthetic events (R03-065).
+5. **Decoys and noise (R03-063).** Include cancelled-but-listed events (the Electric Zoo case), wrong end times and false incident alerts, to test whether the model checks information or follows it blindly.
+6. **Event-window scoring.** Besides profit per hour, report profit inside the window from 2 hours before to 2 hours after each let-out, within 2 km of the venue. Event effects are local, and day-level noise hides them.
+7. **Learning test.** In the "10 days, then day 11" design, recurring patterns (Broadway's Tuesday 7pm curtain, Monday dark nights, home-game nights) are what a model can learn from experience. Day 11 should include at least one event type seen in training and one new one.
+8. **Outside NYC.** The Coachella-style test (R03-069) needs a synthetic town, because Indio has no public trip data. Chicago's public TNP trip records with Lollapalooza would allow a real-data check of how well the event module transfers [U].
+
+## Key interactions with other domains
+
+- **R01 Geography:** venues map to taxi zones and road nodes (R03-002); closures edit the graph; licence borders limit pickups at out-of-city events (R03-010).
+- **R02 Time and calendar:** many events fall on holidays (Thanksgiving parade, NYE, July 4), and the NYC Marathon always falls on the Sunday the clocks go back, a 25-hour day. Broadway and sports create weekday patterns (dark Mondays, 7pm Tuesday curtains) that a time-only model would wrongly put down to the day of the week.
+- **R04 Weather:** rain at let-out raises the car share; storms cancel or delay outdoor events; flash floods suspend the subway (Sep 29 2023 own calc: +46% morning taxi trips).
+- **R05 Riders and demand:** event bursts (R05-003), return trips after events (R05-010), transit substitution (R05-026), designated pickup areas (R05-041) and flight delays (R05-065) are the demand side of R03 objects.
+- **R06 Competing supply:** rivals converge on let-outs (R06-052) and wear surge away; strikes (R06-047) and platform outages (R06-051) are supply-side events. Information parity between the agent and bots decides how much event information is worth.
+- **R07 Fares and rules:** the surge engine produces the post-event multipliers (R03-022); taxis stay on the meter (R03-023). Emergency price caps and travel-ban rules belong in R07.
+- **R08 Vehicle and energy:** staging and idling at venues burn fuel or battery; event traffic lengthens trips, and so energy use per trip.
+- **R09 Driver:** late let-outs push shifts later and add fatigue; intoxicated riders bring mess and safety risk; robotaxi remote assistance and stuck vehicles rise at closures and blackouts (R09-048, R09-050).
+- **R10 Traffic:** egress congestion, parade and UNGA speed losses, crash and closure travel-time effects (R10-025 to R10-028) are the traffic side of the same event objects.
+- **R11 Fleet:** staging k of N cars at let-outs is R11-025 (fed by R03 event objects); robotaxi exclusion zones (R03-054) and crowd risks (R03-056) hit many fleet cars at once (R11-060).
+- **R12 Benchmark settings:** R03-060 to R03-068 are the event-specific versions of R12-008, R12-013, R12-016, R12-017, R12-046 and R12-061; merge them when the master list is built, keeping the event values given here.
+
+## Public data sources
+
+| Source | What it gives | URL | Access from this session |
+|---|---|---|---|
+| NYC TLC trip records (yellow, green, FHV, HVFHV) | Zone-hour pickups and drop-offs, fares, driver pay, request and pickup times; event signatures | https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page | Blocked; used SHA-256-verified GitHub LFS copies fetched by R02 [P*] |
+| TLC taxi zone lookup and shapefile | Venue-to-zone mapping | https://data.cityofnewyork.us/d/755u-8jsi | Lookup read via GitHub copy [P*] |
+| Retrosheet game logs | MLB date, park, day or night, attendance, game length | https://github.com/chadwickbureau/retrosheet (seasons/2023/GL2023.TXT) | Read directly [P*] |
+| NYC Permitted Event Information (current and historical) | Street Activity Permit Office events: parades, street fairs, festivals, with times, locations and closure type | https://data.cityofnewyork.us/City-Government/NYC-Permitted-Event-Information/tvpp-9vvx ; historical bkfu-528j | Blocked; IDs confirmed by R12 via GitHub copies [S] |
+| NYC Film Permits | Shoot locations, dates, parking held | https://data.cityofnewyork.us/City-Government/Film-Permits/tg4x-b46p | Blocked; ID [U] |
+| NYC DOT street closures due to construction | Block-level construction closures with dates | https://data.cityofnewyork.us/Transportation/Street-Closures-due-to-construction-activities-by-/i6b5-j7bu | Blocked; ID [U] |
+| NYC DOT weekly traffic advisories and Gridlock Alert days | Planned closures, parades, bridge work | https://www.nyc.gov/html/dot/html/motorist/wkndtraf.shtml | Blocked [U] |
+| 511NY | Live and archived incidents, construction, events (developer API with free key) | https://511ny.org/developers | Blocked [U] |
+| MTA GTFS-realtime service alerts; MTA Service Alerts history | Live and historical subway, bus and rail alerts | https://api.mta.info/ ; https://data.ny.gov (search "MTA Service Alerts") | Blocked [U] |
+| NYPD Motor Vehicle Collisions | Crash locations and times | https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95 | Blocked; cited by R10 [S] |
+| NYC 311 Service Requests | Water-system, street-condition and other complaints with times | https://data.cityofnewyork.us/d/erm2-nwe9 | Blocked; ID [U] |
+| FDNY incidents; Notify NYC | Fire and emergency incidents; official alerts | https://data.cityofnewyork.us (search "FDNY incidents"); https://a858-nycnotify.nyc.gov/ | Blocked [U] |
+| League and venue schedules | NBA, NHL, MLB, MLS schedules; venue calendars (MSG, Barclays, Javits, USTA) | https://statsapi.mlb.com ; https://www.nba.com/schedule ; https://www.javitscenter.com/events | Blocked [U] |
+| Ticketing and concert APIs | Upcoming events with venue, date and time (free keys) | https://developer.ticketmaster.com ; https://platform.seatgeek.com ; https://api.setlist.fm | Blocked [U] |
+| Broadway League grosses | Weekly attendance and capacity per show | https://www.broadwayleague.com/research/grosses-broadway-nyc/ | Blocked [U] |
+| FAA NAS status; BTS on-time | Ground stops, delays and cancellations | https://nasstatus.faa.gov ; https://www.transtats.bts.gov | Blocked [U] |
+| Con Edison outage map; EIA-417 | Power outages | https://outagemap.coned.com ; https://www.oe.netl.doe.gov/oe417.aspx | Blocked [U] |
+| ACLED; Crowd Counting Consortium | Protest event logs with dates and places | https://acleddata.com ; https://ash.harvard.edu/programs/crowd-counting-consortium/ | Blocked [U] |
+| GDELT | Machine-coded news events for unplanned-incident feeds | https://www.gdeltproject.org | Blocked [U] |
+| Chicago TNP trips | Ride-hail trips with fares and tips, for an out-of-NYC event check (Lollapalooza) | https://data.cityofchicago.org (search "Transportation Network Providers - Trips") | Blocked [U] |
+| PredictHQ (commercial) | Aggregated event calendar with attendance forecasts; paid, so check it fits "public information" | https://www.predicthq.com | Not checked [U] |
+
+## Open questions
+
+1. Is Barclays Center in taxi zone 25 (Boerum Hill) or 189 (Prospect Heights)? Check with the shapefile before mapping Nets, Liberty and concert nights.
+2. App (HVFHV) event mode shares are unmeasured for baseball, tennis and summer festivals. Only January 2023 HVFHV was analysed. Download a summer HVFHV month (for example Aug-Sep 2023) and repeat the US Open, Yankees and Mets residuals.
+3. The busiest-night analysis at MSG and Times Square is not matched to a published schedule. Join the NBA and NHL schedules and NOAA weather to separate event, weekend and weather effects.
+4. Subway disruptions: the NYU Stern study (via R05) finds under 40 extra car and bike rides per disruption, but a systemwide outage in a storm raised taxi trips 46% in one hour. Join the MTA alert history to TLC data to get a dose-response curve by scope and duration.
+5. Does Uber's 2014 agreement with the New York Attorney General to cap surge during declared emergencies still apply, and how should it be coded? (R07) [U]
+6. The NYC Permitted Events, Film Permits and DOT closure dataset IDs, and the frequencies of water main breaks, fires, protests and motorcades, are [U] because those sites were blocked. Check them when access is available.
+7. How do robotaxi operators handle event closures and police direction in practice, and do they publish event exclusion zones? The incidents cited (Cruise at Outside Lands 2023, Waymo vandalism in 2024 and 2025, the San Francisco blackout in December 2025) need source checks [U].
+8. Should the benchmark replay real event days, where the effect sits inside the demand data, or inject synthetic events onto quiet days, where the effect is known exactly? This dossier suggests both, with memorisation guards.
+9. Are there more TLC data gaps like the yellow Sep 21-24 2023 one in other months or in the HVFHV files? A data-quality pass over every replay month is needed.
+10. Should background bots get the same event information as the agent? This is shared with R06 open question 5.
+
+## Sources
+
+**Primary data, own calculations [P*]**
+- NYC TLC yellow taxi trip records, Jan-Dec 2023 and Jan 2024 (41,274,744 trips with pickups from 1 Jan 2023 to 31 Jan 2024), GitHub LFS copies verified by SHA-256 against the original CloudFront files (see the R02 dossier for repositories and checksums).
+- NYC TLC HVFHV trip records, January 2023 (fhvhv_tripdata_2023-01.parquet, 18,479,031 rows), same verification.
+- TLC taxi zone lookup (GitHub copy).
+- Retrosheet 2023 game log, https://raw.githubusercontent.com/chadwickbureau/retrosheet/master/seasons/2023/GL2023.TXT (2,430 games), the copy maintained by Chadwick Baseball Bureau (master branch = Retrosheet data plus errata). Terms: "The information used here was obtained free of charge from and is copyrighted by Retrosheet. Interested parties may contact Retrosheet at www.retrosheet.org."
+- Scripts: `R03_events_data/agg_yellow.py`, `baseball.py`, `baseball2.py`, `events_yellow.py`, `events2.py`, `events3.py`, `daily.py`, `hv_events.py`, `hv_nye.py`; outputs `*_out.txt`.
+
+**Secondary [S]**
+- NYU Stern study on subway disruptions and ride-hailing, as summarised in R05-026 (R05 dossier).
+- NYPD Motor Vehicle Collisions dataset size and NYC DOT UNGA statements, as summarised in R10-025 and R10-027 (R10 dossier).
+- LGA driver strike of 26 Feb 2023 and Chen and Sheldon surge-supply findings, as summarised in R06-047 and R06-010 (R06 dossier).
+
+**Unverified background knowledge [U]** (checks needed; web access was blocked)
+- Dates of 2023 events: US Open Aug 28-Sep 10; Governors Ball Jun 9-11 (Flushing Meadows); Electric Zoo Sep 1-3 (day 1 cancelled); Eras Tour at MetLife May 26-28; NY Comic Con Oct 12-15; NY Auto Show Apr 7-16; St Patrick's Mar 17; Pride Jun 25; Halloween parade Oct 31; UNGA high-level week Sep 18-22; Thanksgiving parade Nov 23; tree lighting Nov 29; SantaCon Dec 9; Marathon Nov 5; flash flood Sep 29. Most are corroborated by trip-data signatures on exactly those dates.
+- Venue capacities (MSG, Barclays, Yankee Stadium, Citi Field, Arthur Ashe, MetLife, UBS Arena), Broadway curtain conventions and season attendance, parade calendar, marathon route and closure times, Five Boro Bike Tour, Summer Streets and Open Streets, holiday construction embargo, Gridlock Alert days.
+- NYC Open Data dataset IDs (tg4x-b46p, i6b5-j7bu, erm2-nwe9; tvpp-9vvx and bkfu-528j are [S] via R12), MTA alert feeds, 511NY API, FAA NAS status, EIA-417, ACLED, GDELT, Chicago TNP data.
+- Incidents: West Side blackout of Jul 13 2019; 2020 curfew and Manhattan vehicle restrictions; 2022 Sunset Park subway shooting; Feb 2024 nationwide carrier outage; NJ Transit engineers' strike of May 2025; Cruise stalls after Outside Lands (Aug 2023); Waymo vehicles burned in San Francisco (Feb 2024) and Los Angeles (Jun 2025); Waymo stalls in the San Francisco blackout of Dec 2025; Uber's 2014 emergency surge-cap agreement with the NY Attorney General.
+- Coachella: Empire Polo Club, Indio CA; two April weekends; roughly 125k attendees a day; rideshare lot with long waits.

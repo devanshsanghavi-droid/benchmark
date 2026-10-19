@@ -1,0 +1,17 @@
+== Rockefeller tree lighting Wed Nov 29 2023 ==
+PU Midtown Center 161 17-22h: event [np.int64(1089)] | base mean 2685.5 (n=4) | ratio 0.41
+DO 161 16-20h: event [np.int64(668)] | base mean 1238.0 (n=4) | ratio 0.54
+speed from 161/162/163 17-22h: 7.26 vs 7.87
+== SantaCon Sat Dec 9 2023 (bar crawl) ==
+PU E Village/LES/Gramercy/Union Sq 12-20h: event [np.int64(5986)] | base mean 5085.3 (n=3) | ratio 1.18
+PU E Village/LES/Gramercy/Union Sq 20-24h: event [np.int64(4101)] | base mean 3799.0 (n=3) | ratio 1.08
+PU Midtown 12-20h: event [np.int64(11057)] | base mean 11573.3 (n=3) | ratio 0.96
+PU Midtown 20-24h: event [np.int64(4195)] | base mean 4560.0 (n=3) | ratio 0.92
+== Thanksgiving parade Thu Nov 23 2023: route-zone pickups 6-13h, share of the day's trips vs Christmas Day Mon Dec 25 ==
+2023-11-23 4738 64781 0.073 speed route 8-12h 11.41
+2023-12-25 3912 45466 0.086 speed route 8-12h 16.46
+2023-07-04 4612 57463 0.08 speed route 8-12h 16.43
+== July 4 2023 fireworks (East River) 21-24h pickups, east-side zones vs other evening hours share ==
+2023-07-04 east 21-24h 2559 east 18-21h 1758
+2023-07-11 east 21-24h 2500 east 18-21h 3631
+2023-06-27 east 21-24h 3099 east 18-21h 3922
