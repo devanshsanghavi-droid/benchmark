@@ -297,6 +297,7 @@ Two lessons follow. First, energy is a small share of gross for hybrids and EVs,
 - Direct fetches of nyc.gov, eia.gov, afdc.energy.gov, newsroom.aaa.com and wikipedia.org failed (DNS or proxy refusal). GitHub search API is not available in this session; raw.githubusercontent.com was reachable and used once for the TLC schema.
 - Primary evidence therefore comes from TLC trip records already downloaded into the session (HVFHV January 2023; yellow January-December 2023), analysed with DuckDB (scripts r08_hv.py, r08_yellow.py and r08_extra.py, with outputs, in R08_vehicle_costs_data/).
 - All [U] values (prices, rules, study figures) are from background knowledge up to 2025-2026 and must be re-read from the named primary source before they are used as simulator constants.
+- Fact-check (19 Oct 2026): the TLC rules behind R08-036 to R08-044, R08-050, R08-051 and R08-053 were re-read from a verbatim GitHub export of the Rules of the City of New York [P*], and several were corrected. Prices, insurance premiums, rents and study figures could not be re-read: the search budget was used up and eia.gov, fueleconomy.gov, irs.gov, mta.info, panynj.gov, nyc.gov and NYC Open Data were all blocked. Those values stay [U].
 
 ## Sources
 
@@ -315,3 +316,6 @@ Two lessons follow. First, energy is a small share of gross for hybrids and EVs,
 - [U] TLC rules on lease caps, insurance minimums, inspections and vehicle retirement; TLC Green Rides initiative; TLC Taxi Improvement Fund; Medallion Relief Program.
 - [U] NYC DOT curbside Level 2 charging pilot; Con Edison residential and commercial tariffs; NYSERDA Drive Clean Rebate; end of the federal EV credit after 30 Sep 2025.
 - [design] Cost stack, per-mile energy costs, capex per mile, depot cost per car and all ranges marked [design] are this researcher's calculations or suggestions.
+- [P*] (added by fact-check) Rules of the City of New York, Title 35 (TLC) and Title 19 chapter 39, via jehiah/nyc_code_archive on GitHub (American Legal Publishing XML export, archive SHA-256 54a1626c..., current through rules effective 13 Aug 2026). https://github.com/jehiah/nyc_code_archive
+- [P*] (added by fact-check) EPA/DOE vehicles file, model years 1984-2020, GitHub copy rfordatascience/tidytuesday data/2019/2019-10-15/big_epa_cars.csv.
+- [P] (added by fact-check) Toll pass-through check on the same local TLC files (HVFHV Jan 2023, yellow 2023): fc_tolls.py and out_fc_tolls.txt in R08_vehicle_costs_data/.
