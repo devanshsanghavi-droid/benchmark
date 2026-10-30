@@ -68,3 +68,11 @@ They do not judge realism.
 ## Adding another implementation
 
 Subclass `RideGenerator`, give it a new versioned `name`, and register it in `registry.py`. Then run `inspect_rides.py --generator <name>` to compare.
+
+## Data and credits
+
+The derived data in `robotaxi/data/derived/` (about 7 MB) is committed to the repo so the generator runs offline and every run is reproducible. Small derived files like these are normally kept in git. If they grow past roughly 25 MB, or change often, we will move them to GitHub Release assets that are downloaded and checked against `MANIFEST.json` on first use.
+
+- **Trip rates.** These are derived from NYC Taxi & Limousine Commission trip records (public data, nyc.gov/tlc). The files were read from the DataTalksClub GitHub copy, because the official host was unreachable when the data was built.
+- **Taxi zones.** These come from the NYC TLC taxi zone shapefile and lookup table.
+- **Places.** These are © Overture Maps Foundation, release 2026-10-21.0. The places theme is licensed CDLA Permissive 2.0, and some underlying sources are ODbL. See https://docs.overturemaps.org/attribution/.
