@@ -1,0 +1,67 @@
+{
+ "built_by": "data_prep/build_commercial_v1.py",
+ "tlc": {
+  "months": [
+   "2019-04",
+   "2019-10"
+  ],
+  "url_used": "https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_{month}.csv.gz",
+  "official_url": "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_{month}.parquet",
+  "days_per_type": {
+   "sunday": 8,
+   "weekday": 44,
+   "saturday": 8
+  },
+  "holidays_dropped": [
+   "2019-10-14"
+  ],
+  "trips": 12177519
+ },
+ "zones": {
+  "geojson_url_used": "https://raw.githubusercontent.com/AdukNyang/urban_mobility_data_explorer_Team_1/main/frontend/data/taxi_zones.geojson",
+  "lookup_url_used": "https://github.com/DataTalksClub/nyc-tlc-data/releases/download/misc/taxi_zone_lookup.csv",
+  "official": [
+   "https://d37ci6vzurychx.cloudfront.net/misc/taxi_zones.zip",
+   "https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv"
+  ],
+  "excluded": [
+   103,
+   104,
+   105
+  ]
+ },
+ "overture": {
+  "release": "2026-10-21.0",
+  "path": "s3://overturemaps-us-west-2/release/2026-10-21.0/theme=places/type=place/",
+  "bbox": [
+   -74.03,
+   40.695,
+   -73.905,
+   40.882
+  ],
+  "commercial_top_categories": [
+   "arts_and_entertainment",
+   "food_and_drink",
+   "lifestyle_services",
+   "lodging",
+   "services_and_business",
+   "shopping"
+  ],
+  "excluded_basic_categories": [
+   "atm",
+   "ev_charging_station",
+   "gas_station",
+   "home_service",
+   "parking",
+   "shipping_or_delivery_service",
+   "storage_facility"
+  ],
+  "min_confidence": 0.5,
+  "licence": "Overture places: CDLA Permissive 2.0 (some sources ODbL); see docs.overturemaps.org"
+ },
+ "outputs_sha256": {
+  "od_rates_yellow2019.csv.gz": "79affbd1ac83680ce3fe94d4f07f3b3ae9c3de383d0b3841b1881d24bcdccb53",
+  "places_commercial.csv.gz": "abf2136bce03a8a64e02ca4be6d32bda230e265e20654f5e6baafaa926d674ff",
+  "zones_manhattan.geojson": "8425c508c3d9d8a2766a2cef35513d54d752d0182acf88634e8c8eed32b18b94"
+ }
+}

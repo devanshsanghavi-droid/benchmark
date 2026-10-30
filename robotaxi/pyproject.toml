@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "robotaxi-bench"
+version = "0.1.0"
+description = "RoboTaxi Bench simulator components (ride generator v1)"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24"]
+
+[project.optional-dependencies]
+prep = ["duckdb>=1.0", "pyarrow>=15", "shapely>=2.0"]
+dev = ["pytest>=8"]
+
+[tool.setuptools.packages.find]
+include = ["robotaxi*"]
+
+[tool.setuptools.package-data]
+robotaxi = ["data/derived/**/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
