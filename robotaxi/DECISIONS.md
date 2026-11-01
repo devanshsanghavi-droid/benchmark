@@ -1,5 +1,7 @@
 # Decision log
 
+Kept by Devansh Sanghavi ([@devanshsanghavi-droid](https://github.com/devanshsanghavi-droid)).
+
 Newest at the bottom. Each entry: the decision, why, and what would change it.
 Constants live in `robotaxi/rides/commercial/config.py`; this file explains them.
 
